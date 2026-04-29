@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MLS Search | Kareem Jamal | Southern California Homes</title>
+  <meta
+    name="description"
+    content="Search Southern California homes through Kareem Jamal's MLS search page. Browse active listings and connect directly for buyer representation."
+  />
+  <meta name="theme-color" content="#40505f" />
+  <meta property="og:title" content="MLS Search | Kareem Jamal" />
+  <meta
+    property="og:description"
+    content="Search homes through Kareem Jamal's branded MLS search experience and connect directly for buyer guidance."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/mls-search" />
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/mls-search" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --navy: #40505f;
+      --gold: #b88b52;
+      --ink: #2a2520;
+      --muted: #6e655d;
+      --panel: rgba(255, 253, 250, 0.92);
+      --shadow-lg: 0 32px 80px rgba(76, 64, 48, 0.12);
+      --shadow-md: 0 14px 38px rgba(76, 64, 48, 0.08);
+      --radius-xl: 36px;
+      --radius-lg: 26px;
+      --container: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Instrument Sans", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(184, 139, 82, 0.1), transparent 28%),
+        radial-gradient(circle at 100% 10%, rgba(201, 133, 105, 0.08), transparent 24%),
+        linear-gradient(180deg, #fffdfa 0%, #f8f4ee 46%, #fcfaf7 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.45;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      z-index: 20;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 1rem 0;
+      background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(255, 252, 247, 0.68));
+      border-bottom: 1px solid rgba(46, 53, 60, 0.03);
+    }
+
+    .nav-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      background: rgba(255, 252, 247, 0.82);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 40px rgba(55, 46, 36, 0.08);
+    }
+
+    .brand {
+      display: grid;
+      gap: 0.18rem;
+      padding-inline: 0.25rem;
+    }
+
+    .brand-name {
+      font-family: "Fraunces", serif;
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-role {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      align-items: center;
+      justify-content: flex-end;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      padding: 0.72rem 0.95rem;
+      border-radius: 999px;
+      transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: rgba(184, 139, 82, 0.1);
+      color: var(--ink);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .hero,
+    .search-section {
+      padding: 4.5rem 0;
+    }
+
+    .hero-shell,
+    .search-shell {
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(248, 241, 232, 0.96)),
+        linear-gradient(160deg, rgba(184, 139, 82, 0.1), transparent);
+      border: 1px solid rgba(46, 53, 60, 0.06);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .hero-grid,
+    .search-grid,
+    .support-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      padding: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+
+    .search-grid {
+      padding: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .hero-title {
+      font-family: "Fraunces", serif;
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      max-width: 8ch;
+      font-weight: 400;
+    }
+
+    .hero-text,
+    .helper-copy,
+    .checklist li {
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .hero-text {
+      max-width: 620px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0.95rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #c79b63, var(--gold));
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(46, 53, 60, 0.12);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.84);
+    }
+
+    .btn:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16);
+    }
+
+    .hero-card,
+    .helper-card,
+    .search-frame,
+    .support-card,
+    .contact-card {
+      background: var(--panel);
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .hero-card:hover,
+    .helper-card:hover,
+    .support-card:hover,
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12);
+      border-color: rgba(184, 139, 82, 0.14);
+    }
+
+    .hero-card,
+    .helper-card,
+    .support-card,
+    .contact-card {
+      padding: 2rem;
+    }
+
+    .hero-card h3,
+    .helper-card h3,
+    .support-card h3,
+    .contact-card h3 {
+      font-family: "Fraunces", serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.8rem;
+    }
+
+    .support-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      padding: 0 0 1.5rem;
+    }
+
+    .support-card p,
+    .contact-card p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.9rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .mini-list li::marker {
+      color: var(--gold);
+    }
+
+    .contact-strip {
+      padding: 0 0 4.5rem;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 0.75rem;
+      padding-left: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .checklist li::marker {
+      color: var(--gold);
+    }
+
+    .search-frame {
+      min-height: 900px;
+      overflow: hidden;
+    }
+
+    .search-frame iframe {
+      width: 100%;
+      min-height: 900px;
+      border: none;
+      display: block;
+      background: white;
+    }
+
+    .placeholder {
+      display: grid;
+      place-items: center;
+      min-height: 900px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .placeholder-inner {
+      max-width: 720px;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .placeholder-inner h2 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .code-pill {
+      display: inline-flex;
+      justify-self: center;
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      background: rgba(184, 139, 82, 0.1);
+      border: 1px solid rgba(184, 139, 82, 0.2);
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      padding: 1.5rem 0 3rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-note {
+      text-align: right;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .support-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-shell,
+      .nav-links {
+        align-items: flex-start;
+      }
+
+      .nav-shell {
+        flex-direction: column;
+        border-radius: 28px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 1.5rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.7rem, 16vw, 4.4rem);
+      }
+
+      .footer-note {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Kareem Jamal home">
+        <strong class="brand-name">Kareem Jamal</strong>
+        <span class="brand-role">Rodeo Realty Fine Estates</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/buyers-and-sellers">Buyers & Sellers</a>
+        <a href="/family-wealth-preservation">Family Wealth</a>
+        <a href="#search">MLS Search</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Phase 1 IDX Setup</span>
+              <h1 class="hero-title">Search Southern California listings from your website.</h1>
+              <p class="hero-text">
+                Your CRMLS frameable IDX search is now connected to this page so visitors can browse listings directly from your website while staying inside your brand experience.
+              </p>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="#search">View Search Area</a>
+                <a class="btn btn-secondary" href="/buyers-and-sellers#contact">Need Buyer Help?</a>
+              </div>
+            </div>
+
+            <aside class="hero-card">
+              <h3>Phase 1 is live</h3>
+              <p class="helper-copy">Your frameable CRMLS search has been added to the site. This gives you a working MLS search page now, while leaving room to upgrade to a fuller IDX vendor later.</p>
+              <ul class="checklist">
+                <li>Visitors can now search listings through your website.</li>
+                <li>The page is ready for branding, lead prompts, and saved-search upgrade paths.</li>
+                <li>Later we can replace this with a fuller IDX vendor solution if you want stronger lead capture tools.</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-section" id="search">
+      <div class="container">
+        <div class="search-shell">
+          <div class="search-grid">
+            <div class="helper-card">
+              <h3>MLS Search Integration</h3>
+              <p class="helper-copy">This section now renders your live CRMLS frameable search. The site is still structured so we can later replace this with a more advanced IDX vendor without redesigning the page.</p>
+            </div>
+
+            <div class="search-frame" id="search-frame">
+              <div class="placeholder" id="search-placeholder">
+                <div class="placeholder-inner">
+                  <span class="code-pill">MLS Search Ready</span>
+                  <h2>Your branded MLS search page is live.</h2>
+                  <p class="helper-copy">
+                    If the CRMLS search does not load for some reason, the page can still fall back to this branded placeholder while the IDX link is checked or replaced.
+                  </p>
+                  <p class="helper-copy">
+                    The current embedded link can be swapped later if you generate a different CRMLS IDX link or upgrade to a full vendor-based search experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="support-grid">
+          <article class="support-card">
+            <h3>Need help narrowing the search?</h3>
+            <p>Search is useful, but buyers usually move faster when someone helps them filter what actually fits their goals, budget, and timing.</p>
+            <ul class="mini-list">
+              <li>Neighborhood fit and lifestyle alignment</li>
+              <li>Price-range reality check</li>
+              <li>What looks good online vs. what holds value in person</li>
+            </ul>
+            <div class="btn-row" style="margin-top: 1rem;">
+              <a class="btn btn-primary" href="/buyers-and-sellers#buyer-onboarding">See Buyer Process</a>
+            </div>
+          </article>
+
+          <article class="support-card">
+            <h3>Want a second opinion before offering?</h3>
+            <p>Before writing, Kareem can help review the property, seller posture, pricing, and terms so your offer is stronger and more informed.</p>
+            <ul class="mini-list">
+              <li>Comparable value review</li>
+              <li>Offer strength and timing strategy</li>
+              <li>Risk flags in disclosures or property condition</li>
+            </ul>
+            <div class="btn-row" style="margin-top: 1rem;">
+              <a class="btn btn-primary" href="/buyers-and-sellers#contact">Talk About a Property</a>
+            </div>
+          </article>
+
+          <article class="support-card">
+            <h3>Need financing or readiness guidance?</h3>
+            <p>Many buyers are still working through what they can comfortably afford and when they should actually start touring seriously.</p>
+            <ul class="mini-list">
+              <li>Pre-approval timing</li>
+              <li>Budget comfort and monthly payment reality</li>
+              <li>When to browse vs. when to act</li>
+            </ul>
+            <div class="btn-row" style="margin-top: 1rem;">
+              <a class="btn btn-primary" href="/#contact">Schedule a Consultation</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-strip">
+      <div class="container">
+        <div class="contact-card">
+          <h3>Search with support, not just filters.</h3>
+          <p>Use the MLS search on this page, then reach out when you want help identifying the right neighborhoods, evaluating a specific property, or preparing to write a stronger offer.</p>
+          <div class="btn-row" style="margin-top: 1rem;">
+            <a class="btn btn-primary" href="mailto:kjamal@rodeore.com?subject=MLS%20Search%20Inquiry">Email Kareem</a>
+            <a class="btn btn-secondary" href="tel:+18184027326">Call (818) 402-7326</a>
+            <a class="btn btn-secondary" href="/buyers-and-sellers">Buyer Representation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <p>Kareem Jamal | Rodeo Realty Fine Estates | Realtor | CA DRE #01998956</p>
+      <p class="footer-note">Cell: (818) 402-7326 | Email: kjamal@rodeore.com | Woodland Hills, California</p>
+    </div>
+  </footer>
+
+  <script>
+    const IDX_URL = "https://matrix.crmls.org/Matrix/public/IDX.aspx?idx=169037aa";
+
+    const searchFrame = document.getElementById("search-frame");
+    const searchPlaceholder = document.getElementById("search-placeholder");
+
+    if (IDX_URL && searchFrame) {
+      const iframe = document.createElement("iframe");
+      iframe.src = IDX_URL;
+      iframe.title = "MLS Search";
+      iframe.loading = "lazy";
+      searchFrame.innerHTML = "";
+      searchFrame.appendChild(iframe);
+    } else if (searchPlaceholder) {
+      searchPlaceholder.hidden = false;
+    }
+  </script>
+</body>
+</html>

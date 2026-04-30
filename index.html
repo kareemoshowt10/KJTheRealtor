@@ -431,6 +431,35 @@
       margin-top: 0.6rem;
     }
 
+    .hero-proofline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .proof-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .proof-pill::before {
+      content: "";
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
     .stat {
       padding: 1.15rem;
       border-radius: var(--radius-md);
@@ -836,6 +865,112 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
+    }
+
+    .proof-band {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .proof-item,
+    .signature-panel {
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .proof-item strong,
+    .signature-panel strong {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.65rem;
+    }
+
+    .proof-item p,
+    .signature-panel p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .signature-copy {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .signature-copy h2 {
+      max-width: 11ch;
+    }
+
+    .signature-points {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .signature-point {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .signature-point::before {
+      content: "";
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 999px;
+      margin-top: 0.5rem;
+      background: linear-gradient(135deg, #c79b63, var(--gold));
+      box-shadow: 0 0 0 6px rgba(184, 139, 82, 0.08);
+    }
+
+    .signature-panel {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .metric-row {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .metric {
+      display: grid;
+      gap: 0.25rem;
+      padding: 1rem 0 0;
+      border-top: 1px solid rgba(46, 53, 60, 0.08);
+    }
+
+    .metric:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .metric-value {
+      font-family: "Fraunces", serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
     }
 
     .trust-card,
@@ -1472,6 +1607,8 @@
 
     @media (max-width: 980px) {
       .hero-grid,
+      .proof-band,
+      .signature-grid,
       .about-grid,
       .contact-grid,
       .audience-grid,
@@ -1579,28 +1716,33 @@
         <div class="hero-shell">
           <div class="hero-grid">
             <div class="hero-copy" data-reveal>
-              <span class="eyebrow">Southern California Real Estate</span>
-              <h1 class="hero-title">Your trusted Realtor for buyers, sellers, and every thoughtful <em>next move.</em></h1>
+              <span class="eyebrow">Kareem Jamal | Southern California Realtor</span>
+              <h1 class="hero-title">Kareem Jamal for buyers, sellers, and every thoughtful <em>next move.</em></h1>
               <p class="hero-text">
-                Kareem Jamal serves Southern California clients with a lighter, more personal real estate experience built on honesty, responsiveness, and strong representation from start to finish.
+                A polished, high-trust real estate experience built around calm guidance, sharper positioning, and decisions that make sense both now and years from now.
               </p>
               <span class="brokerage-line">Rodeo Realty Fine Estates | CA DRE #01998956</span>
               <div class="btn-row">
                 <a class="btn btn-primary" href="#contact">Schedule a Free Call</a>
                 <a class="btn btn-secondary" href="/mls-search">Search Homes</a>
               </div>
+              <div class="hero-proofline">
+                <span class="proof-pill">Buyer Representation</span>
+                <span class="proof-pill">Listing Strategy</span>
+                <span class="proof-pill">Family Wealth Lens</span>
+              </div>
               <div class="hero-stats">
                 <article class="stat">
-                  <strong>Buy</strong>
-                  <span>Tour, evaluate, and write with guidance that keeps the process focused and strategic.</span>
+                  <strong>Search</strong>
+                  <span>Use the MLS with real guidance behind it, not just filters and guesswork.</span>
                 </article>
                 <article class="stat">
-                  <strong>Sell</strong>
-                  <span>Present your home with stronger perception, sharper positioning, and calm execution.</span>
+                  <strong>Position</strong>
+                  <span>Present a home or an offer with better timing, stronger perception, and clearer leverage.</span>
                 </article>
                 <article class="stat">
-                  <strong>Invest</strong>
-                  <span>Approach each opportunity through both lifestyle goals and long-term financial value.</span>
+                  <strong>Protect</strong>
+                  <span>Keep lifestyle goals, equity protection, and long-term value in the same conversation.</span>
                 </article>
               </div>
             </div>
@@ -1626,6 +1768,29 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="proof-band">
+          <article class="proof-item" data-reveal>
+            <strong>Before Touring</strong>
+            <p>Search decisions get grounded in timing, budget clarity, and neighborhood fit before the calendar fills up.</p>
+          </article>
+          <article class="proof-item" data-reveal>
+            <strong>Before Listing</strong>
+            <p>Presentation, pricing, and launch strategy are shaped before the property ever hits the market.</p>
+          </article>
+          <article class="proof-item" data-reveal>
+            <strong>Before Offering</strong>
+            <p>Properties get reviewed through value, terms, seller posture, and risk instead of pure emotion.</p>
+          </article>
+          <article class="proof-item" data-reveal>
+            <strong>Beyond Closing</strong>
+            <p>The bigger picture stays in view so a move still feels smart long after the transaction is over.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -1878,19 +2043,38 @@
 
     <section>
       <div class="container">
-        <div class="trust-strip">
-          <article class="trust-card" data-reveal>
-            <strong>Honest Guidance</strong>
-            <p>Kareem’s approach stays rooted in clear pricing advice, direct feedback, and protecting the client over chasing a transaction.</p>
-          </article>
-          <article class="trust-card" data-reveal>
-            <strong>Prompt Communication</strong>
-            <p>Fast responses and steady updates help buyers and sellers feel calm, informed, and supported through every stage.</p>
-          </article>
-          <article class="trust-card" data-reveal>
-            <strong>Strong Representation</strong>
-            <p>From offer terms to listing perception, every detail is handled with professionalism and long-view thinking.</p>
-          </article>
+        <div class="signature-grid">
+          <div class="signature-copy" data-reveal>
+            <span class="section-kicker">Signature Advantage</span>
+            <h2 class="section-title">What makes this experience feel more considered than the typical agent relationship.</h2>
+            <p class="section-copy">
+              The difference is not volume for volume&apos;s sake. It is how the search is framed, how a home is positioned, how truth is delivered, and how the details are handled when the stakes get real.
+            </p>
+            <div class="signature-points">
+              <div class="signature-point">Advice that is candid enough to protect the client, not just win approval in the moment.</div>
+              <div class="signature-point">A cleaner bridge between lifestyle decisions and long-term equity decisions.</div>
+              <div class="signature-point">A search and offer process designed to feel focused, calm, and intelligently paced.</div>
+              <div class="signature-point">Presentation and communication that elevate trust before the transaction gets complicated.</div>
+            </div>
+          </div>
+          <aside class="signature-panel" data-reveal>
+            <strong>What Clients Feel</strong>
+            <p>The strongest real estate brands do not just look polished. They make people feel better informed, better represented, and less alone in the decision.</p>
+            <div class="metric-row">
+              <div class="metric">
+                <span class="metric-value">Clearer</span>
+                <span class="metric-label">Buyers and sellers know what matters, what to ignore, and what happens next.</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">Calmer</span>
+                <span class="metric-label">Communication and structure lower anxiety instead of adding to it.</span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">Stronger</span>
+                <span class="metric-label">Searches, listings, and offers are handled with more strategy and more discipline.</span>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>

@@ -625,6 +625,155 @@
       gap: 1.25rem;
     }
 
+    .about-stack {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .flip-card {
+      position: relative;
+      perspective: 1600px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+    }
+
+    .flip-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at top right, rgba(184, 139, 82, 0.14), transparent 45%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease;
+    }
+
+    .flip-card:hover::after,
+    .flip-card:focus-visible::after,
+    .flip-card.is-flipped::after {
+      opacity: 1;
+    }
+
+    .flip-card:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16), 0 24px 54px rgba(76, 64, 48, 0.12);
+    }
+
+    .flip-card-inner {
+      position: relative;
+      min-height: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .flip-card.is-flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      min-height: 100%;
+      display: grid;
+      align-content: start;
+      gap: 1rem;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .flip-face > :last-child {
+      margin-top: auto;
+    }
+
+    .flip-back {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(180deg);
+    }
+
+    .flip-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      padding: 0.72rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(184, 139, 82, 0.22);
+      background: rgba(255, 252, 247, 0.88);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .flip-button:hover,
+    .flip-button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.12);
+      background: white;
+    }
+
+    .flip-button::after {
+      content: "↺";
+      font-size: 0.9rem;
+      line-height: 1;
+      letter-spacing: 0;
+      transition: transform 220ms ease;
+    }
+
+    .flip-card:hover .flip-button::after,
+    .flip-card:focus-visible .flip-button::after {
+      transform: rotate(25deg);
+    }
+
+    .flip-back .flip-button::after {
+      content: "↻";
+    }
+
+    .flip-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: rgba(110, 96, 78, 0.92);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .flip-hint::before {
+      content: "";
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.9), rgba(214, 186, 142, 0.8));
+      box-shadow: 0 0 0 6px rgba(184, 139, 82, 0.09);
+    }
+
+    .flip-kicker {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .flip-list {
+      display: grid;
+      gap: 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .flip-list li::marker {
+      color: var(--gold);
+    }
+
     .quote-line {
       font-family: "Fraunces", serif;
       font-size: clamp(1.8rem, 3.5vw, 2.8rem);
@@ -1419,7 +1568,6 @@
         <a href="/family-wealth-preservation">Family Wealth</a>
         <a href="/mls-search">Search</a>
         <a href="#services">Services</a>
-        <a href="#areas">Areas</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -1484,7 +1632,7 @@
 
     <section id="about">
       <div class="container about-grid">
-        <div data-reveal>
+        <div data-reveal class="about-stack">
           <div class="section-head">
             <span class="section-kicker">About Kareem</span>
             <h2 class="section-title">Real estate guidance that feels personal, precise, and deeply intentional.</h2>
@@ -1504,6 +1652,72 @@
               <span class="tag">Seller Strategy</span>
               <span class="tag">Investment Guidance</span>
             </div>
+          </div>
+
+          <div class="areas-grid">
+            <article class="area-card flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-face">
+                  <span class="tag">Office Base</span>
+                  <h3>Woodland Hills</h3>
+                  <p>A polished West Valley base for long-term relationships, referrals, and lifestyle-led moves.</p>
+                  <span class="flip-hint">Tap to Explore</span>
+                  <button class="flip-button" type="button">Explore More</button>
+                </div>
+                <div class="flip-face flip-back">
+                  <span class="flip-kicker">Why It Matters</span>
+                  <h3>Woodland Hills</h3>
+                  <ul class="flip-list">
+                    <li>Home base for Kareem&apos;s practice at Rodeo Realty Fine Estates</li>
+                    <li>Supports a local reputation rooted in trust and long-term relationships</li>
+                    <li>Creates a strong anchor for future hyperlocal content</li>
+                  </ul>
+                  <button class="flip-button" type="button">Back</button>
+                </div>
+              </div>
+            </article>
+            <article class="area-card flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-face">
+                  <span class="tag">Regional Focus</span>
+                  <h3>San Fernando Valley</h3>
+                  <p>A broad market focus where buyers find opportunity and sellers benefit from steady demand.</p>
+                  <span class="flip-hint">Tap to Explore</span>
+                  <button class="flip-button" type="button">Explore More</button>
+                </div>
+                <div class="flip-face flip-back">
+                  <span class="flip-kicker">Regional Story</span>
+                  <h3>San Fernando Valley</h3>
+                  <ul class="flip-list">
+                    <li>Balances lifestyle, value, and family-wealth positioning</li>
+                    <li>Natural fit for move-up buyers, families, and longtime owners</li>
+                    <li>Useful foundation for future neighborhood pages</li>
+                  </ul>
+                  <button class="flip-button" type="button">Back</button>
+                </div>
+              </div>
+            </article>
+            <article class="area-card flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-face">
+                  <span class="tag">Referral Reach</span>
+                  <h3>Greater Los Angeles</h3>
+                  <p>A wider Southern California service story that makes referrals feel easy and welcome.</p>
+                  <span class="flip-hint">Tap to Explore</span>
+                  <button class="flip-button" type="button">Explore More</button>
+                </div>
+                <div class="flip-face flip-back">
+                  <span class="flip-kicker">Reach</span>
+                  <h3>Greater Los Angeles</h3>
+                  <ul class="flip-list">
+                    <li>Expands the brand beyond one neighborhood without losing clarity</li>
+                    <li>Supports regional referrals from friends, family, and past clients</li>
+                    <li>Keeps the site positioned for broader Southern California search visibility</li>
+                  </ul>
+                  <button class="flip-button" type="button">Back</button>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
 
@@ -1530,46 +1744,79 @@
         </div>
 
         <div class="services-grid">
-          <article class="service-card" data-reveal>
-            <span class="service-number">01</span>
-            <h3>Buyer Representation</h3>
-            <p>Behind the scenes, buyer representation starts with structure long before the first offer is written.</p>
-            <ul>
-              <li>Consultation, timing review, and financing readiness.</li>
-              <li>Search setup, area filtering, and showing coordination.</li>
-              <li>Tour feedback, value analysis, and offer strategy.</li>
-              <li>Escrow support, inspections, deadlines, and closing coordination.</li>
-            </ul>
-            <div class="btn-row">
-              <a class="btn btn-secondary" href="/buyers-and-sellers#buyer-onboarding">View Buyer Onboarding</a>
+          <article class="service-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <span class="service-number">01</span>
+                <h3>Buyer Representation</h3>
+                <p>Clear structure, smart guidance, and stronger decision-making before the first offer is ever written.</p>
+                <span class="flip-hint">Tap to See the Process</span>
+                <button class="flip-button" type="button">See Behind The Scenes</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Behind The Scenes</span>
+                <h3>Buyer Representation</h3>
+                <ul class="flip-list">
+                  <li>Consultation, timing review, and financing readiness</li>
+                  <li>Search setup, showing coordination, and tour strategy</li>
+                  <li>Offer structure, value analysis, and negotiation support</li>
+                  <li>Escrow guidance, inspections, deadlines, and close</li>
+                </ul>
+                <div class="btn-row">
+                  <a class="btn btn-secondary" href="/buyers-and-sellers#buyer-onboarding">View Buyer Onboarding</a>
+                </div>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
           </article>
-          <article class="service-card" data-reveal>
-            <span class="service-number">02</span>
-            <h3>Listing Service</h3>
-            <p>A strong listing process includes far more than putting a home on the MLS.</p>
-            <ul>
-              <li>Pricing strategy, property prep, and seller onboarding.</li>
-              <li>Photography, marketing assets, and listing copy preparation.</li>
-              <li>Launch planning, showing flow, and buyer inquiry management.</li>
-              <li>Offer review, negotiation, escrow oversight, and closeout.</li>
-            </ul>
-            <div class="btn-row">
-              <a class="btn btn-secondary" href="/buyers-and-sellers#seller-onboarding">View Listing Onboarding</a>
+          <article class="service-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <span class="service-number">02</span>
+                <h3>Listing Service</h3>
+                <p>Positioning, presentation, and launch planning that make the listing feel considered from day one.</p>
+                <span class="flip-hint">Tap to See the Process</span>
+                <button class="flip-button" type="button">See Behind The Scenes</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Behind The Scenes</span>
+                <h3>Listing Service</h3>
+                <ul class="flip-list">
+                  <li>Pricing strategy, prep planning, and seller onboarding</li>
+                  <li>Photos, marketing assets, and listing copy creation</li>
+                  <li>Launch timing, showing flow, and buyer inquiry management</li>
+                  <li>Offer review, negotiation, escrow oversight, and closeout</li>
+                </ul>
+                <div class="btn-row">
+                  <a class="btn btn-secondary" href="/buyers-and-sellers#seller-onboarding">View Listing Onboarding</a>
+                </div>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
           </article>
-          <article class="service-card" data-reveal>
-            <span class="service-number">03</span>
-            <h3>Family Wealth Planning Lens</h3>
-            <p>Some moves are not only about the transaction. They are about preserving equity and making better long-term property decisions.</p>
-            <ul>
-              <li>Timing decisions with future flexibility in mind.</li>
-              <li>Protecting equity through pricing and negotiation discipline.</li>
-              <li>Thinking through transitions, stability, and long-term value.</li>
-              <li>Keeping lifestyle goals connected to the bigger financial picture.</li>
-            </ul>
-            <div class="btn-row">
-              <a class="btn btn-secondary" href="/family-wealth-preservation">Explore Wealth Planning</a>
+          <article class="service-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <span class="service-number">03</span>
+                <h3>Family Wealth Planning Lens</h3>
+                <p>Moves built around the next chapter and the longer view, not just a one-moment transaction.</p>
+                <span class="flip-hint">Tap to See the Process</span>
+                <button class="flip-button" type="button">See Behind The Scenes</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Long View</span>
+                <h3>Family Wealth Planning Lens</h3>
+                <ul class="flip-list">
+                  <li>Timing decisions with future flexibility in mind</li>
+                  <li>Protecting equity through pricing and negotiation discipline</li>
+                  <li>Thinking through transitions, stability, and long-term value</li>
+                  <li>Keeping lifestyle goals tied to the bigger financial picture</li>
+                </ul>
+                <div class="btn-row">
+                  <a class="btn btn-secondary" href="/family-wealth-preservation">Explore Wealth Planning</a>
+                </div>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
           </article>
         </div>
@@ -1722,50 +1969,56 @@
         </div>
 
         <div class="process-grid">
-          <article class="process-card" data-reveal>
-            <span class="process-number">01</span>
-            <h3>Plan</h3>
-            <p>Start with your goals, timeline, and what this move needs to do for your life, not just the transaction.</p>
+          <article class="process-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <span class="process-number">01</span>
+                <h3>Plan</h3>
+                <p>Goals first, then strategy.</p>
+                <span class="flip-hint">Tap to Reveal More</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Experience</span>
+                <h3>Plan</h3>
+                <p>Start with your goals, timeline, and what this move needs to do for your life, not just the transaction.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="process-card" data-reveal>
-            <span class="process-number">02</span>
-            <h3>Position</h3>
-            <p>Build leverage with polished presentation, smart market positioning, and communication that keeps you informed.</p>
+          <article class="process-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <span class="process-number">02</span>
+                <h3>Position</h3>
+                <p>Build leverage before the market asks for it.</p>
+                <span class="flip-hint">Tap to Reveal More</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Experience</span>
+                <h3>Position</h3>
+                <p>Build leverage with polished presentation, smart market positioning, and communication that keeps you informed.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="process-card" data-reveal>
-            <span class="process-number">03</span>
-            <h3>Perform</h3>
-            <p>Negotiate well, move decisively, and keep the details organized from first showing to closing day.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="areas" class="areas">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <span class="section-kicker">Featured Focus</span>
-          <h2 class="section-title">A brand rooted in Woodland Hills and built for Southern California referrals.</h2>
-          <p class="section-copy">
-            Kareem is based in Woodland Hills and serves buyers and sellers across the San Fernando Valley and Greater Los Angeles — wherever the right move takes you.
-          </p>
-        </div>
-
-        <div class="areas-grid">
-          <article class="area-card" data-reveal>
-            <span class="tag">Office Base</span>
-            <h3>Woodland Hills</h3>
-            <p>Home base for Kareem's practice at Rodeo Realty Fine Estates — a community built for long-term roots and strong lifestyle value.</p>
-          </article>
-          <article class="area-card" data-reveal>
-            <span class="tag">Regional Focus</span>
-            <h3>San Fernando Valley</h3>
-            <p>A diverse, established market where buyers find opportunity and sellers benefit from consistent demand and strong community appeal.</p>
-          </article>
-          <article class="area-card" data-reveal>
-            <span class="tag">Referral Reach</span>
-            <h3>Greater Los Angeles</h3>
-            <p>From the Westside to the foothills, Kareem serves clients across Southern California and welcomes referrals throughout the region.</p>
+          <article class="process-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <span class="process-number">03</span>
+                <h3>Perform</h3>
+                <p>Close with calm, structure, and follow-through.</p>
+                <span class="flip-hint">Tap to Reveal More</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Experience</span>
+                <h3>Perform</h3>
+                <p>Negotiate well, move decisively, and keep the details organized from first showing to closing day.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -1782,42 +2035,75 @@
         </div>
 
         <div class="capture-grid">
-          <article class="capture-card" data-reveal>
-            <h3>Buyer Strategy Call</h3>
-            <p>For visitors who want guidance on neighborhoods, budget fit, or what the next step should be.</p>
-            <div class="capture-list">
-              <span>Clarify your budget, timeline, and target areas</span>
-              <span>Understand what to expect before you make an offer</span>
-              <span>Get honest input from someone in your corner</span>
-            </div>
-            <div class="capture-action">
-              <a class="btn btn-primary" href="#contact" data-prefill-interest="Buying">Talk About Buying</a>
-            </div>
-          </article>
-
-          <article class="capture-card" data-reveal>
-            <h3>Seller Positioning Review</h3>
-            <p>For owners thinking about timing, pricing, presentation, and how to maximize leverage before listing.</p>
-            <div class="capture-list">
-              <span>Understand your home's current market position</span>
-              <span>Discuss timing, pricing strategy, and preparation</span>
-              <span>No pressure — just a clear picture of your options</span>
-            </div>
-            <div class="capture-action">
-              <a class="btn btn-primary" href="#contact" data-prefill-interest="Selling">Talk About Selling</a>
+          <article class="capture-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Buyer Strategy Call</h3>
+                <p>For visitors who want guidance on neighborhoods, budget fit, or what the next step should be.</p>
+                <span class="flip-hint">Tap to See If It Fits</span>
+                <button class="flip-button" type="button">See Details</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Best For</span>
+                <h3>Buyer Strategy Call</h3>
+                <div class="capture-list">
+                  <span>Clarify your budget, timeline, and target areas</span>
+                  <span>Understand what to expect before you make an offer</span>
+                  <span>Get honest input from someone in your corner</span>
+                </div>
+                <div class="capture-action">
+                  <a class="btn btn-primary" href="#contact" data-prefill-interest="Buying">Talk About Buying</a>
+                </div>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
           </article>
 
-          <article class="capture-card" data-reveal>
-            <h3>Investor Opportunity Review</h3>
-            <p>For people comparing long-term value, cash flow, timing, and whether a deal fits their goals.</p>
-            <div class="capture-list">
-              <span>Evaluate long-term value, cash flow, and timing</span>
-              <span>Explore Southern California markets with a strategic lens</span>
-              <span>Get grounded guidance on whether a deal fits your goals</span>
+          <article class="capture-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Seller Positioning Review</h3>
+                <p>For owners thinking about timing, pricing, presentation, and how to maximize leverage before listing.</p>
+                <span class="flip-hint">Tap to See If It Fits</span>
+                <button class="flip-button" type="button">See Details</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Best For</span>
+                <h3>Seller Positioning Review</h3>
+                <div class="capture-list">
+                  <span>Understand your home's current market position</span>
+                  <span>Discuss timing, pricing strategy, and preparation</span>
+                  <span>No pressure — just a clear picture of your options</span>
+                </div>
+                <div class="capture-action">
+                  <a class="btn btn-primary" href="#contact" data-prefill-interest="Selling">Talk About Selling</a>
+                </div>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
-            <div class="capture-action">
-              <a class="btn btn-primary" href="#contact" data-prefill-interest="Investing">Talk About Investing</a>
+          </article>
+
+          <article class="capture-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Investor Opportunity Review</h3>
+                <p>For people comparing long-term value, cash flow, timing, and whether a deal fits their goals.</p>
+                <span class="flip-hint">Tap to See If It Fits</span>
+                <button class="flip-button" type="button">See Details</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Best For</span>
+                <h3>Investor Opportunity Review</h3>
+                <div class="capture-list">
+                  <span>Evaluate long-term value, cash flow, and timing</span>
+                  <span>Explore Southern California markets with a strategic lens</span>
+                  <span>Get grounded guidance on whether a deal fits your goals</span>
+                </div>
+                <div class="capture-action">
+                  <a class="btn btn-primary" href="#contact" data-prefill-interest="Investing">Talk About Investing</a>
+                </div>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
           </article>
         </div>
@@ -1835,17 +2121,53 @@
         </div>
 
         <div class="faq-grid">
-          <article class="faq-card" data-reveal>
-            <h3>Can real estate support family wealth preservation?</h3>
-            <p>Yes. Real estate can play an important role in family wealth preservation by helping protect equity, create stability, and support longer-term planning across different life stages.</p>
+          <article class="faq-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Can real estate support family wealth preservation?</h3>
+                <p>Tap to reveal the fuller answer.</p>
+                <span class="flip-hint">Tap to Read More</span>
+                <button class="flip-button" type="button">Reveal Answer</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Answer</span>
+                <h3>Family Wealth Preservation</h3>
+                <p>Yes. Real estate can play an important role in family wealth preservation by helping protect equity, create stability, and support longer-term planning across different life stages.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="faq-card" data-reveal>
-            <h3>Do I need to be ready now to reach out?</h3>
-            <p>No. Some people are ready to buy or sell right away, while others simply want clarity about timing, value, neighborhoods, or their next best step.</p>
+          <article class="faq-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Do I need to be ready now to reach out?</h3>
+                <p>Not necessarily. Tap to reveal the fuller answer.</p>
+                <span class="flip-hint">Tap to Read More</span>
+                <button class="flip-button" type="button">Reveal Answer</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Answer</span>
+                <h3>Early Conversations Help</h3>
+                <p>No. Some people are ready to buy or sell right away, while others simply want clarity about timing, value, neighborhoods, or their next best step.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="faq-card" data-reveal>
-            <h3>Does Kareem work with both buyers and sellers?</h3>
-            <p>Yes. Kareem works with Southern California buyers and sellers, with a brand presence centered around Woodland Hills, the San Fernando Valley, and the Greater Los Angeles area.</p>
+          <article class="faq-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Does Kareem work with both buyers and sellers?</h3>
+                <p>Tap to reveal the fuller answer.</p>
+                <span class="flip-hint">Tap to Read More</span>
+                <button class="flip-button" type="button">Reveal Answer</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Answer</span>
+                <h3>Yes, Across Southern California</h3>
+                <p>Yes. Kareem works with Southern California buyers and sellers, with a brand presence centered around Woodland Hills, the San Fernando Valley, and the Greater Los Angeles area.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -2021,6 +2343,64 @@
     const intentChips = document.querySelectorAll("[data-intent]");
     const submitBtn = document.getElementById("submit-btn");
     const STORAGE_KEY = "kareem-jamal-leads";
+    const flipCards = document.querySelectorAll(".flip-card");
+
+    const syncFlipCardHeight = (card) => {
+      const inner = card.querySelector(".flip-card-inner");
+      const front = card.querySelector(".flip-face:not(.flip-back)");
+      const back = card.querySelector(".flip-back");
+
+      if (!inner || !front || !back) {
+        return;
+      }
+
+      inner.style.minHeight = "0px";
+      const height = Math.max(front.offsetHeight, back.offsetHeight);
+      inner.style.minHeight = `${height}px`;
+    };
+
+    const setFlipCardState = (card, shouldFlip) => {
+      card.classList.toggle("is-flipped", shouldFlip);
+      card.setAttribute("aria-pressed", String(shouldFlip));
+    };
+
+    flipCards.forEach((card, index) => {
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-pressed", "false");
+      card.setAttribute("aria-label", `Reveal more details for card ${index + 1}`);
+      syncFlipCardHeight(card);
+
+      card.querySelectorAll(".flip-button").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          setFlipCardState(card, !card.classList.contains("is-flipped"));
+        });
+      });
+
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a, button")) {
+          return;
+        }
+        setFlipCardState(card, !card.classList.contains("is-flipped"));
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          setFlipCardState(card, !card.classList.contains("is-flipped"));
+        }
+      });
+    });
+
+    window.addEventListener("load", () => {
+      flipCards.forEach(syncFlipCardHeight);
+    });
+
+    window.addEventListener("resize", () => {
+      flipCards.forEach(syncFlipCardHeight);
+    });
 
     const getStoredLeads = () => {
       try {

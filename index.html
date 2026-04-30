@@ -1631,20 +1631,6 @@
         grid-template-columns: 1fr;
       }
 
-      .nav-shell,
-      .nav-links {
-        align-items: flex-start;
-      }
-
-      .nav-shell {
-        flex-direction: column;
-        border-radius: 28px;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
       .portrait-card {
         min-height: 420px;
       }
@@ -1692,16 +1678,130 @@
         padding: 1.5rem;
       }
     }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1.5rem;
+      z-index: 300;
+      padding: 0.72rem 1.25rem;
+      background: var(--gold);
+      color: white;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: top 180ms ease;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── Scroll progress ── */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, #c79b63, var(--gold));
+      z-index: 300;
+      pointer-events: none;
+    }
+
+    /* ── Active nav link ── */
+    .nav-links a.is-active {
+      background: rgba(184, 139, 82, 0.12);
+      color: var(--gold);
+    }
+
+    /* ── Hamburger toggle ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 42px;
+      height: 42px;
+      padding: 9px 10px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(46, 53, 60, 0.1);
+      border-radius: 999px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background-color 180ms ease;
+    }
+    .nav-toggle:hover { background: rgba(184, 139, 82, 0.1); }
+    .nav-toggle:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16); }
+    .nav-toggle span {
+      display: block;
+      height: 1.5px;
+      background: var(--ink);
+      border-radius: 2px;
+      transform-origin: center;
+      transition: transform 220ms ease, opacity 220ms ease;
+    }
+    body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ── Sticky capture scroll trigger ── */
+    .sticky-capture {
+      opacity: 0;
+      transform: translateY(1.5rem);
+      pointer-events: none;
+      transition: opacity 320ms ease, transform 320ms ease;
+    }
+    .sticky-capture.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    @media (max-width: 980px) {
+      .nav-toggle { display: flex; }
+      .nav-shell {
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-radius: 28px;
+        align-items: center;
+      }
+      .brand { flex: 1; }
+      .nav-links {
+        flex-basis: 100%;
+        order: 3;
+        flex-direction: column;
+        justify-content: flex-start;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        gap: 0.15rem;
+        transition: max-height 360ms ease, opacity 280ms ease;
+      }
+      body.nav-open .nav-links {
+        max-height: 520px;
+        opacity: 1;
+      }
+      .nav-links a { border-radius: 14px; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to main content</a>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="container nav-shell">
       <a class="brand" href="/" aria-label="Kareem Jamal home">
         <strong class="brand-name">Kareem Jamal</strong>
         <span class="brand-role">Rodeo Realty Fine Estates</span>
       </a>
-      <nav class="nav-links" aria-label="Primary">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" id="site-nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="/buyers-and-sellers">Buyers & Sellers</a>
         <a href="/family-wealth-preservation">Family Wealth</a>
@@ -1755,6 +1855,7 @@
                   class="portrait-photo"
                   src="./assets/kareem-jamal-headshot.jpeg"
                   alt="Portrait of Kareem Jamal wearing a navy suit"
+                  fetchpriority="high"
                 />
                 <div class="portrait-label">
                   <span>Kareem Jamal</span>
@@ -2499,6 +2600,52 @@
 
   <script>
     document.body.classList.add("has-motion");
+
+    // Scroll progress bar
+    const scrollProgressEl = document.getElementById("scroll-progress");
+    if (scrollProgressEl) {
+      window.addEventListener("scroll", () => {
+        const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+        scrollProgressEl.style.width = `${Math.min(pct, 100)}%`;
+      }, { passive: true });
+    }
+
+    // Sticky bar scroll trigger
+    const stickyCapture = document.querySelector(".sticky-capture");
+    const heroSection = document.querySelector(".hero");
+    if (stickyCapture && heroSection) {
+      const checkSticky = () => {
+        const threshold = heroSection.offsetTop + heroSection.offsetHeight;
+        stickyCapture.classList.toggle("is-visible", window.scrollY > threshold);
+      };
+      window.addEventListener("scroll", checkSticky, { passive: true });
+      checkSticky();
+    }
+
+    // Hamburger nav
+    const navToggle = document.getElementById("nav-toggle");
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = document.body.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", (e) => {
+        if (document.body.classList.contains("nav-open") && !e.target.closest(".nav-shell")) {
+          document.body.classList.remove("nav-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    // Active nav link
+    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && !href.startsWith("#") && href === currentPath) {
+        link.classList.add("is-active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
 
     const revealElements = document.querySelectorAll("[data-reveal]");
 

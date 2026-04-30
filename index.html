@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
   <script type="application/ld+json">
@@ -124,13 +124,16 @@
 
     body {
       min-height: 100vh;
-      font-family: "Instrument Sans", sans-serif;
+      font-family: "Manrope", sans-serif;
       color: var(--ink);
       background:
         radial-gradient(circle at 0% 0%, rgba(184, 139, 82, 0.12), transparent 30%),
         radial-gradient(circle at 100% 12%, rgba(201, 133, 105, 0.1), transparent 28%),
         linear-gradient(180deg, #fffdfa 0%, #f8f4ee 42%, #fcfaf7 100%);
       overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body::before {
@@ -202,11 +205,11 @@
     }
 
     .section-title {
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: clamp(2.6rem, 5vw, 4.6rem);
-      line-height: 0.96;
-      letter-spacing: -0.04em;
+      line-height: 0.98;
       max-width: 10ch;
+      font-weight: 500;
     }
 
     .section-copy {
@@ -306,9 +309,9 @@
     }
 
     .brand-name {
-      font-family: "Fraunces", serif;
-      font-size: 1.35rem;
-      letter-spacing: -0.04em;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      line-height: 1;
     }
 
     .brand-role {
@@ -404,11 +407,11 @@
     }
 
     .hero-title {
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: clamp(3.2rem, 7vw, 6.7rem);
-      line-height: 0.9;
-      letter-spacing: -0.06em;
+      line-height: 0.92;
       max-width: 9ch;
+      font-weight: 500;
     }
 
     .hero-title em {
@@ -470,7 +473,7 @@
 
     .stat strong {
       display: block;
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.8rem;
       font-weight: 500;
       letter-spacing: -0.04em;
@@ -547,7 +550,7 @@
 
     .portrait-label strong {
       display: block;
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.5rem;
       font-weight: 400;
       line-height: 1.2;
@@ -573,7 +576,7 @@
 
     .floating-card strong {
       display: block;
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.35rem;
       line-height: 1.25;
       margin-bottom: 0.75rem;
@@ -804,10 +807,10 @@
     }
 
     .quote-line {
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: clamp(1.8rem, 3.5vw, 2.8rem);
       line-height: 1.08;
-      letter-spacing: -0.04em;
+      font-weight: 500;
     }
 
     .testimonial {
@@ -961,7 +964,7 @@
     }
 
     .metric-value {
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 2rem;
       line-height: 1;
       color: var(--ink);
@@ -984,10 +987,9 @@
 
     .trust-card strong {
       display: block;
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.55rem;
-      font-weight: 400;
-      letter-spacing: -0.04em;
+      font-weight: 500;
       margin-bottom: 0.55rem;
     }
 
@@ -1027,7 +1029,7 @@
 
     .wealth-card h3,
     .faq-card h3 {
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.8rem;
       font-weight: 400;
       letter-spacing: -0.04em;
@@ -1076,7 +1078,7 @@
     }
 
     .audience-card h3 {
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 2rem;
       font-weight: 400;
       letter-spacing: -0.04em;
@@ -1139,7 +1141,7 @@
     }
 
     .ready-card h3 {
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.5rem;
       font-weight: 400;
       letter-spacing: -0.04em;
@@ -1182,7 +1184,7 @@
 
     .capture-card h3,
     .insight-card h3 {
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.6rem;
       font-weight: 400;
       letter-spacing: -0.04em;
@@ -1222,7 +1224,7 @@
     .process-card h3,
     .area-card h3,
     .contact-card h3 {
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.7rem;
       font-weight: 400;
       letter-spacing: -0.04em;
@@ -1455,7 +1457,7 @@
       border: 1px solid rgba(184, 139, 82, 0.15);
       border-radius: 2.2rem;
       padding: 1.8rem 2.1rem 1.8rem 2.6rem;
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.08rem;
       font-weight: 300;
       line-height: 1.75;
@@ -1483,7 +1485,7 @@
       position: absolute;
       top: 0.6rem;
       left: 1rem;
-      font-family: "Fraunces", serif;
+      font-family: "Cormorant Garamond", serif;
       font-style: normal;
     }
 

@@ -8,6 +8,8 @@
     name="description"
     content="Buyer and seller services with Kareem Jamal of Rodeo Realty Fine Estates. Clear guidance, honest strategy, and Southern California real estate decisions shaped by long-term family wealth preservation."
   />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Kareem Jamal" />
   <meta name="theme-color" content="#40505f" />
   <meta property="og:title" content="Buyers & Sellers | Kareem Jamal" />
   <meta
@@ -26,13 +28,21 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
+      "@type": ["RealEstateAgent", "LocalBusiness"],
+      "@id": "https://kareemjamaltherealtor.com/#kareem-jamal",
       "name": "Kareem Jamal",
+      "alternateName": "Kareem Jamal The Realtor",
       "url": "https://kareemjamaltherealtor.com/buyers-and-sellers",
       "jobTitle": "Realtor",
       "telephone": "+1-818-402-7326",
       "email": "kjamal@rodeore.com",
-      "areaServed": "Southern California",
+      "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
+      "areaServed": [
+        "Woodland Hills",
+        "San Fernando Valley",
+        "Greater Los Angeles",
+        "Southern California"
+      ],
       "description": "Kareem Jamal helps Southern California buyers and sellers make real estate decisions with honest guidance, strong representation, and long-term family wealth preservation in mind.",
       "knowsAbout": [
         "Home buying",
@@ -40,7 +50,19 @@
         "Southern California real estate",
         "Family wealth preservation",
         "Generational wealth through real estate"
-      ]
+      ],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Rodeo Realty Fine Estates"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "21031 Ventura Blvd, #100",
+        "addressLocality": "Woodland Hills",
+        "addressRegion": "CA",
+        "postalCode": "91364",
+        "addressCountry": "US"
+      }
     }
   </script>
   <script type="application/ld+json">
@@ -232,6 +254,12 @@
       transform: translateY(-1px);
     }
 
+    .nav-links a[aria-current="page"] {
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.16), rgba(184, 139, 82, 0.08));
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(184, 139, 82, 0.18);
+    }
+
     .hero,
     .section {
       padding: 5rem 0;
@@ -416,6 +444,143 @@
       transform: translateY(-4px);
       box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12);
       border-color: rgba(184, 139, 82, 0.14);
+    }
+
+    .flip-card {
+      position: relative;
+      perspective: 1600px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at top right, rgba(184, 139, 82, 0.14), transparent 45%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease;
+    }
+
+    .flip-card:hover::after,
+    .flip-card:focus-visible::after,
+    .flip-card.is-flipped::after {
+      opacity: 1;
+    }
+
+    .flip-card:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16), 0 24px 54px rgba(76, 64, 48, 0.12);
+    }
+
+    .flip-card-inner {
+      position: relative;
+      min-height: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .flip-card.is-flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      min-height: 100%;
+      display: grid;
+      align-content: start;
+      gap: 1rem;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .flip-face > :last-child {
+      margin-top: auto;
+    }
+
+    .flip-back {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(180deg);
+    }
+
+    .flip-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      padding: 0.72rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(184, 139, 82, 0.22);
+      background: rgba(255, 252, 247, 0.88);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .flip-button:hover,
+    .flip-button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.12);
+      background: white;
+    }
+
+    .flip-button::after {
+      content: "↺";
+      font-size: 0.9rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .flip-back .flip-button::after {
+      content: "↻";
+    }
+
+    .flip-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: rgba(110, 96, 78, 0.92);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .flip-hint::before {
+      content: "";
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.9), rgba(214, 186, 142, 0.8));
+      box-shadow: 0 0 0 6px rgba(184, 139, 82, 0.09);
+    }
+
+    .flip-kicker {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .flip-list {
+      display: grid;
+      gap: 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .flip-list li::marker {
+      color: var(--gold);
     }
 
     .hero-card {
@@ -873,7 +1038,7 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="/#about">About</a>
-        <a href="#top">Buyers & Sellers</a>
+        <a href="#top" aria-current="page">Buyers & Sellers</a>
         <a href="/family-wealth-preservation">Family Wealth</a>
         <a href="/mls-search">Search</a>
         <a href="#process">Process</a>
@@ -1035,17 +1200,65 @@
     <section class="section">
       <div class="container">
         <div class="promise-grid">
-          <article class="promise-card" data-reveal>
-            <strong>Honest Guidance</strong>
-            <p>Clients get real feedback about value, timing, and fit so they can make smart decisions with clarity.</p>
+          <article class="promise-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <strong>Honest Guidance</strong>
+                <p>Real feedback on value, timing, and fit so clients can move with more clarity.</p>
+                <span class="flip-hint">Tap to See More</span>
+                <button class="flip-button" type="button">Reveal Details</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">What That Feels Like</span>
+                <strong>Honest Guidance</strong>
+                <ul class="flip-list">
+                  <li>Direct conversations about pricing and market reality</li>
+                  <li>Clear feedback when a property is not the right fit</li>
+                  <li>Advice that protects long-term decisions, not just short-term emotion</li>
+                </ul>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="promise-card" data-reveal>
-            <strong>Prompt Communication</strong>
-            <p>Questions get answered quickly and the process stays transparent, organized, and calm.</p>
+          <article class="promise-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <strong>Prompt Communication</strong>
+                <p>Questions get answered quickly and the process stays organized and calm.</p>
+                <span class="flip-hint">Tap to See More</span>
+                <button class="flip-button" type="button">Reveal Details</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">What That Includes</span>
+                <strong>Prompt Communication</strong>
+                <ul class="flip-list">
+                  <li>Faster updates during showings, offers, and negotiation windows</li>
+                  <li>Better visibility into next steps and deadlines</li>
+                  <li>A smoother client experience when the pace suddenly changes</li>
+                </ul>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="promise-card" data-reveal>
-            <strong>Strong Representation</strong>
-            <p>From negotiation to follow-through, every step is handled with professionalism and intention.</p>
+          <article class="promise-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <strong>Strong Representation</strong>
+                <p>Professional follow-through from strategy through close, not just in the headline moments.</p>
+                <span class="flip-hint">Tap to See More</span>
+                <button class="flip-button" type="button">Reveal Details</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Where It Shows Up</span>
+                <strong>Strong Representation</strong>
+                <ul class="flip-list">
+                  <li>Offer positioning and negotiation discipline</li>
+                  <li>Coordination with agents, escrow, lenders, and vendors</li>
+                  <li>Staying steady when details get complicated near the finish line</li>
+                </ul>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -1119,17 +1332,53 @@
         </div>
 
         <div class="faq-grid">
-          <article class="faq-card" data-reveal>
-            <h3>What does family wealth preservation mean in real estate?</h3>
-            <p>It often means making buying, selling, and timing decisions that protect equity, support long-term stability, and fit future family goals rather than focusing only on the immediate transaction.</p>
+          <article class="faq-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>What does family wealth preservation mean in real estate?</h3>
+                <p>The short version: making decisions that protect equity and future flexibility, not just today&apos;s transaction.</p>
+                <span class="flip-hint">Tap to Read More</span>
+                <button class="flip-button" type="button">Reveal Answer</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Answer</span>
+                <h3>Family wealth preservation</h3>
+                <p>It often means making buying, selling, and timing decisions that protect equity, support long-term stability, and fit future family goals rather than focusing only on the immediate transaction.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="faq-card" data-reveal>
-            <h3>Can I reach out before I am fully ready?</h3>
-            <p>Yes. Many of the best conversations happen early, when you are still deciding on timing, neighborhoods, pricing, or whether the next move makes sense right now.</p>
+          <article class="faq-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Can I reach out before I am fully ready?</h3>
+                <p>Yes. Early conversations are often where the best clarity starts.</p>
+                <span class="flip-hint">Tap to Read More</span>
+                <button class="flip-button" type="button">Reveal Answer</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Answer</span>
+                <h3>Reach out early</h3>
+                <p>Many of the best conversations happen early, when you are still deciding on timing, neighborhoods, pricing, or whether the next move makes sense right now.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="faq-card" data-reveal>
-            <h3>Does Kareem work with both buyers and sellers in Southern California?</h3>
-            <p>Yes. Kareem works with both buyers and sellers across Southern California, with a strong focus on Woodland Hills, the San Fernando Valley, and surrounding Los Angeles communities.</p>
+          <article class="faq-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Does Kareem work with both buyers and sellers in Southern California?</h3>
+                <p>Yes, with a strong focus on the Valley and nearby Los Angeles communities.</p>
+                <span class="flip-hint">Tap to Read More</span>
+                <button class="flip-button" type="button">Reveal Answer</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Answer</span>
+                <h3>Southern California focus</h3>
+                <p>Yes. Kareem works with both buyers and sellers across Southern California, with a strong focus on Woodland Hills, the San Fernando Valley, and surrounding Los Angeles communities.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -1274,6 +1523,63 @@
     const formStatus = document.getElementById("form-status");
     const interestField = document.getElementById("lead-interest");
     const STORAGE_KEY = "kareem-jamal-leads";
+    const flipCards = document.querySelectorAll(".flip-card");
+
+    const syncFlipCardHeight = (card) => {
+      const inner = card.querySelector(".flip-card-inner");
+      const front = card.querySelector(".flip-face:not(.flip-back)");
+      const back = card.querySelector(".flip-back");
+
+      if (!inner || !front || !back) {
+        return;
+      }
+
+      inner.style.minHeight = "0px";
+      inner.style.minHeight = `${Math.max(front.offsetHeight, back.offsetHeight)}px`;
+    };
+
+    const setFlipCardState = (card, shouldFlip) => {
+      card.classList.toggle("is-flipped", shouldFlip);
+      card.setAttribute("aria-pressed", String(shouldFlip));
+    };
+
+    flipCards.forEach((card, index) => {
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-pressed", "false");
+      card.setAttribute("aria-label", `Reveal more details for card ${index + 1}`);
+      syncFlipCardHeight(card);
+
+      card.querySelectorAll(".flip-button").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          setFlipCardState(card, !card.classList.contains("is-flipped"));
+        });
+      });
+
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a, button")) {
+          return;
+        }
+        setFlipCardState(card, !card.classList.contains("is-flipped"));
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          setFlipCardState(card, !card.classList.contains("is-flipped"));
+        }
+      });
+    });
+
+    window.addEventListener("load", () => {
+      flipCards.forEach(syncFlipCardHeight);
+    });
+
+    window.addEventListener("resize", () => {
+      flipCards.forEach(syncFlipCardHeight);
+    });
 
     const getStoredLeads = () => {
       try {

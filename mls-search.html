@@ -8,6 +8,8 @@
     name="description"
     content="Search Southern California homes through Kareem Jamal's live MLS page, then request property guidance, shortlist help, and buyer representation directly from the site."
   />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Kareem Jamal" />
   <meta name="theme-color" content="#40505f" />
   <meta property="og:title" content="MLS Search | Kareem Jamal" />
   <meta
@@ -23,6 +25,46 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["RealEstateAgent", "LocalBusiness"],
+      "@id": "https://kareemjamaltherealtor.com/#kareem-jamal",
+      "name": "Kareem Jamal",
+      "alternateName": "Kareem Jamal The Realtor",
+      "url": "https://kareemjamaltherealtor.com/mls-search",
+      "jobTitle": "Realtor",
+      "telephone": "+1-818-402-7326",
+      "email": "kjamal@rodeore.com",
+      "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
+      "areaServed": [
+        "Woodland Hills",
+        "San Fernando Valley",
+        "Greater Los Angeles",
+        "Southern California"
+      ],
+      "description": "Kareem Jamal provides live MLS search support, buyer representation, property review, and offer guidance for Southern California home buyers.",
+      "knowsAbout": [
+        "MLS search",
+        "Buyer representation",
+        "Property review",
+        "Offer strategy",
+        "Southern California real estate"
+      ],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Rodeo Realty Fine Estates"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "21031 Ventura Blvd, #100",
+        "addressLocality": "Woodland Hills",
+        "addressRegion": "CA",
+        "postalCode": "91364",
+        "addressCountry": "US"
+      }
+    }
+  </script>
   <style>
     :root {
       --navy: #40505f;
@@ -147,6 +189,12 @@
       color: var(--ink);
       outline: none;
       transform: translateY(-1px);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.16), rgba(184, 139, 82, 0.08));
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(184, 139, 82, 0.18);
     }
 
     .hero,
@@ -330,6 +378,142 @@
       border-color: rgba(184, 139, 82, 0.14);
     }
 
+    .flip-card {
+      position: relative;
+      perspective: 1600px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at top right, rgba(184, 139, 82, 0.14), transparent 45%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease;
+    }
+
+    .flip-card:hover::after,
+    .flip-card:focus-visible::after,
+    .flip-card.is-flipped::after {
+      opacity: 1;
+    }
+
+    .flip-card:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16), 0 24px 54px rgba(76, 64, 48, 0.12);
+    }
+
+    .flip-card-inner {
+      position: relative;
+      min-height: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .flip-card.is-flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-face {
+      min-height: 100%;
+      display: grid;
+      align-content: start;
+      gap: 1rem;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .flip-face > :last-child {
+      margin-top: auto;
+    }
+
+    .flip-back {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(180deg);
+    }
+
+    .flip-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      padding: 0.72rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(184, 139, 82, 0.22);
+      background: rgba(255, 252, 247, 0.88);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .flip-button:hover,
+    .flip-button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.12);
+      background: white;
+    }
+
+    .flip-button::after {
+      content: "↺";
+      font-size: 0.9rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .flip-back .flip-button::after {
+      content: "↻";
+    }
+
+    .flip-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: rgba(110, 96, 78, 0.92);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .flip-hint::before {
+      content: "";
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.9), rgba(214, 186, 142, 0.8));
+      box-shadow: 0 0 0 6px rgba(184, 139, 82, 0.09);
+    }
+
+    .flip-kicker {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .flip-list {
+      display: grid;
+      gap: 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .flip-list li::marker {
+      color: var(--gold);
+    }
+
     .hero-card,
     .helper-card,
     .support-card,
@@ -416,6 +600,38 @@
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.65;
+    }
+
+    .mini-process {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      padding: 1rem 1.05rem;
+      border-radius: 22px;
+      border: 1px solid rgba(184, 139, 82, 0.16);
+      background: rgba(255, 252, 247, 0.8);
+    }
+
+    .mini-process strong {
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .mini-process-list {
+      display: grid;
+      gap: 0.55rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    .mini-process-list span::before {
+      content: "•";
+      color: var(--gold);
+      margin-right: 0.55rem;
     }
 
     .toolbar-actions,
@@ -762,7 +978,7 @@
         <a href="/#about">About</a>
         <a href="/buyers-and-sellers">Buyers & Sellers</a>
         <a href="/family-wealth-preservation">Family Wealth</a>
-        <a href="#search">MLS Search</a>
+        <a href="#search" aria-current="page">MLS Search</a>
         <a href="/#contact">Contact</a>
       </nav>
     </div>
@@ -807,25 +1023,64 @@
     <section>
       <div class="container">
         <div class="shortcut-grid">
-          <article class="shortcut-card">
-            <h3>Start broad, then narrow fast.</h3>
-            <p>Use the live MLS to get a feel for price bands and neighborhoods, then send Kareem your favorite areas so the search gets more intentional.</p>
-            <div class="btn-row" style="margin-top: 1rem;">
-              <button class="toolbar-btn" type="button" data-prefill-intent="Curated Search">Need a Curated Search</button>
+          <article class="shortcut-card flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Start broad, then narrow fast.</h3>
+                <p>Use the live MLS to get a feel for price bands and neighborhoods first.</p>
+                <span class="flip-hint">Tap to Reveal Strategy</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Curated Search</span>
+                <h3>Turn browsing into a real shortlist.</h3>
+                <ul class="flip-list">
+                  <li>Send Kareem your top areas and price comfort</li>
+                  <li>Refine the search around fit instead of overwhelm</li>
+                  <li>Move from broad browsing into a more intentional plan</li>
+                </ul>
+                <button class="flip-button" type="button" data-prefill-intent="Curated Search">Need a Curated Search</button>
+              </div>
             </div>
           </article>
-          <article class="shortcut-card">
-            <h3>Already found a property?</h3>
-            <p>Send the address or listing link and get help thinking through value, seller posture, and whether it is worth pursuing.</p>
-            <div class="btn-row" style="margin-top: 1rem;">
-              <button class="toolbar-btn" type="button" data-prefill-intent="Property Review">Review a Property</button>
+          <article class="shortcut-card flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Already found a property?</h3>
+                <p>Bring the address or listing link and get a smarter second opinion.</p>
+                <span class="flip-hint">Tap to Reveal Strategy</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Property Review</span>
+                <h3>Know more before you chase it.</h3>
+                <ul class="flip-list">
+                  <li>Review value, seller posture, and overall fit</li>
+                  <li>Spot concerns that are easy to miss while scrolling</li>
+                  <li>Decide whether the property is worth pursuing seriously</li>
+                </ul>
+                <button class="flip-button" type="button" data-prefill-intent="Property Review">Review a Property</button>
+              </div>
             </div>
           </article>
-          <article class="shortcut-card">
-            <h3>Not sure if you are ready yet?</h3>
-            <p>That is normal. This page can still work as a lighter first step before touring seriously or writing anything.</p>
-            <div class="btn-row" style="margin-top: 1rem;">
-              <button class="toolbar-btn" type="button" data-prefill-intent="Buyer Strategy">Talk Through Timing</button>
+          <article class="shortcut-card flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Not sure if you are ready yet?</h3>
+                <p>This can still be a lighter first step before touring or writing anything.</p>
+                <span class="flip-hint">Tap to Reveal Strategy</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Buyer Timing</span>
+                <h3>Use the page without pressure.</h3>
+                <ul class="flip-list">
+                  <li>Talk through timing before the process gets intense</li>
+                  <li>Clarify affordability, lender readiness, and pace</li>
+                  <li>Browse now with a better sense of what matters later</li>
+                </ul>
+                <button class="flip-button" type="button" data-prefill-intent="Buyer Strategy">Talk Through Timing</button>
+              </div>
             </div>
           </article>
         </div>
@@ -875,42 +1130,75 @@
     <section>
       <div class="container">
         <div class="support-grid">
-          <article class="support-card">
-            <h3>Need help narrowing the search?</h3>
-            <p>Search is useful, but buyers usually move faster when someone helps them filter what actually fits their goals, budget, and timing.</p>
-            <ul class="mini-list">
-              <li>Neighborhood fit and lifestyle alignment</li>
-              <li>Price-range reality check</li>
-              <li>What looks good online vs. what holds value in person</li>
-            </ul>
-            <div class="btn-row" style="margin-top: 1rem;">
-              <a class="btn btn-primary" href="/buyers-and-sellers#buyer-onboarding">See Buyer Process</a>
+          <article class="support-card flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Need help narrowing the search?</h3>
+                <p>Search gets more useful once someone helps filter what truly fits.</p>
+                <span class="flip-hint">Tap to Reveal Support</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Search Support</span>
+                <h3>Narrow it with more confidence.</h3>
+                <ul class="flip-list">
+                  <li>Neighborhood fit and lifestyle alignment</li>
+                  <li>Price-range reality check</li>
+                  <li>What looks good online versus what holds value in person</li>
+                </ul>
+                <div class="btn-row">
+                  <a class="btn btn-primary" href="/buyers-and-sellers#buyer-onboarding">See Buyer Process</a>
+                </div>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
           </article>
 
-          <article class="support-card">
-            <h3>Want a second opinion before offering?</h3>
-            <p>Before writing, Kareem can help review the property, seller posture, pricing, and terms so your offer is stronger and more informed.</p>
-            <ul class="mini-list">
-              <li>Comparable value review</li>
-              <li>Offer strength and timing strategy</li>
-              <li>Risk flags in disclosures or property condition</li>
-            </ul>
-            <div class="btn-row" style="margin-top: 1rem;">
-              <a class="btn btn-primary" href="/buyers-and-sellers#contact">Talk About a Property</a>
+          <article class="support-card flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Want a second opinion before offering?</h3>
+                <p>Review the property and the posture behind it before anything gets written.</p>
+                <span class="flip-hint">Tap to Reveal Support</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Offer Support</span>
+                <h3>Strengthen the decision before the offer.</h3>
+                <ul class="flip-list">
+                  <li>Comparable value review</li>
+                  <li>Offer strength and timing strategy</li>
+                  <li>Risk flags in disclosures or property condition</li>
+                </ul>
+                <div class="btn-row">
+                  <a class="btn btn-primary" href="/buyers-and-sellers#contact">Talk About a Property</a>
+                </div>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
           </article>
 
-          <article class="support-card">
-            <h3>Need financing or readiness guidance?</h3>
-            <p>Many buyers are still working through what they can comfortably afford and when they should actually start touring seriously.</p>
-            <ul class="mini-list">
-              <li>Pre-approval timing</li>
-              <li>Budget comfort and monthly payment reality</li>
-              <li>When to browse vs. when to act</li>
-            </ul>
-            <div class="btn-row" style="margin-top: 1rem;">
-              <a class="btn btn-primary" href="/#contact">Schedule a Consultation</a>
+          <article class="support-card flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Need financing or readiness guidance?</h3>
+                <p>Many buyers need clarity on affordability and timing before they tour seriously.</p>
+                <span class="flip-hint">Tap to Reveal Support</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Readiness Guidance</span>
+                <h3>Get your footing first.</h3>
+                <ul class="flip-list">
+                  <li>Pre-approval timing</li>
+                  <li>Budget comfort and monthly payment reality</li>
+                  <li>When to browse versus when to act</li>
+                </ul>
+                <div class="btn-row">
+                  <a class="btn btn-primary" href="/#contact">Schedule a Consultation</a>
+                </div>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
           </article>
         </div>
@@ -952,6 +1240,15 @@
                 <input id="lead-phone" name="phone" type="tel" autocomplete="tel" />
               </div>
               <div class="field">
+                <label for="lead-contact-method">Preferred Reply</label>
+                <select id="lead-contact-method" name="preferred_reply">
+                  <option value="">Select one</option>
+                  <option>Email</option>
+                  <option>Phone</option>
+                  <option>Text</option>
+                </select>
+              </div>
+              <div class="field">
                 <label for="lead-timeline">Timeline</label>
                 <select id="lead-timeline" name="timeline">
                   <option value="">Select one</option>
@@ -986,9 +1283,18 @@
 
             <div class="form-actions">
               <button class="btn btn-primary" id="submit-btn" type="submit">Send Search Request</button>
-              <p class="form-note">Messages from this page go straight into Kareem's lead flow so the MLS page becomes an active buyer-intake system, not just a search tool.</p>
+              <p class="form-note">Messages from this page go straight into Kareem's lead flow, with your search details attached so the response can be more useful right away.</p>
             </div>
             <p class="form-status" id="form-status" aria-live="polite"></p>
+
+            <div class="mini-process">
+              <strong>What Happens Next</strong>
+              <div class="mini-process-list">
+                <span>Kareem reviews your search details, areas, and timeline</span>
+                <span>You get a more tailored next step instead of a generic reply</span>
+                <span>Ideal for curated search help, property review, or offer guidance</span>
+              </div>
+            </div>
           </form>
 
           <aside class="status-card">
@@ -1047,7 +1353,69 @@
     const intentChips = document.querySelectorAll("[data-intent]");
     const prefillIntentButtons = document.querySelectorAll("[data-prefill-intent]");
     const STORAGE_KEY = "kareem-jamal-leads";
+    const flipCards = document.querySelectorAll(".flip-card");
     let currentIframe = null;
+
+    const syncFlipCardHeight = (card) => {
+      const inner = card.querySelector(".flip-card-inner");
+      const front = card.querySelector(".flip-face:not(.flip-back)");
+      const back = card.querySelector(".flip-back");
+
+      if (!inner || !front || !back) {
+        return;
+      }
+
+      inner.style.minHeight = "0px";
+      inner.style.minHeight = `${Math.max(front.offsetHeight, back.offsetHeight)}px`;
+    };
+
+    const setFlipCardState = (card, shouldFlip) => {
+      card.classList.toggle("is-flipped", shouldFlip);
+      card.setAttribute("aria-pressed", String(shouldFlip));
+    };
+
+    flipCards.forEach((card, index) => {
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-pressed", "false");
+      card.setAttribute("aria-label", `Reveal more details for card ${index + 1}`);
+      syncFlipCardHeight(card);
+
+      card.querySelectorAll(".flip-button").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (button.dataset.prefillIntent) {
+            setIntent(button.dataset.prefillIntent);
+            document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            return;
+          }
+          setFlipCardState(card, !card.classList.contains("is-flipped"));
+        });
+      });
+
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a, button")) {
+          return;
+        }
+        setFlipCardState(card, !card.classList.contains("is-flipped"));
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          setFlipCardState(card, !card.classList.contains("is-flipped"));
+        }
+      });
+    });
+
+    window.addEventListener("load", () => {
+      flipCards.forEach(syncFlipCardHeight);
+    });
+
+    window.addEventListener("resize", () => {
+      flipCards.forEach(syncFlipCardHeight);
+    });
 
     const getStoredLeads = () => {
       try {
@@ -1139,6 +1507,7 @@
           name: String(formData.get("name") || "").trim(),
           email: String(formData.get("email") || "").trim(),
           phone: String(formData.get("phone") || "").trim(),
+          preferredReply: String(formData.get("preferred_reply") || "").trim(),
           intent: String(formData.get("intent") || "").trim(),
           timeline: String(formData.get("timeline") || "").trim(),
           areas: String(formData.get("areas") || "").trim(),
@@ -1164,6 +1533,7 @@
           data.append("name", lead.name);
           data.append("email", lead.email);
           if (lead.phone) data.append("phone", lead.phone);
+          if (lead.preferredReply) data.append("preferred_reply", lead.preferredReply);
           data.append("interest", lead.intent || "MLS Search");
           if (lead.timeline) data.append("timeline", lead.timeline);
           if (lead.areas) data.append("areas", lead.areas);

@@ -8,6 +8,8 @@
     name="description"
     content="Family wealth preservation through real estate with Kareem Jamal. Thoughtful guidance for Southern California buyers, sellers, and families making long-term property decisions."
   />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Kareem Jamal" />
   <meta name="theme-color" content="#40505f" />
   <meta property="og:title" content="Family Wealth Preservation | Kareem Jamal" />
   <meta
@@ -26,13 +28,21 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
+      "@type": ["RealEstateAgent", "LocalBusiness"],
+      "@id": "https://kareemjamaltherealtor.com/#kareem-jamal",
       "name": "Kareem Jamal",
+      "alternateName": "Kareem Jamal The Realtor",
       "url": "https://kareemjamaltherealtor.com/family-wealth-preservation",
       "jobTitle": "Realtor",
       "telephone": "+1-818-402-7326",
       "email": "kjamal@rodeore.com",
-      "areaServed": "Southern California",
+      "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
+      "areaServed": [
+        "Woodland Hills",
+        "San Fernando Valley",
+        "Greater Los Angeles",
+        "Southern California"
+      ],
       "description": "Kareem Jamal helps Southern California families make real estate decisions with long-term wealth preservation, equity protection, and thoughtful planning in mind.",
       "knowsAbout": [
         "Family wealth preservation",
@@ -40,7 +50,19 @@
         "Home buying",
         "Home selling",
         "Southern California real estate"
-      ]
+      ],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Rodeo Realty Fine Estates"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "21031 Ventura Blvd, #100",
+        "addressLocality": "Woodland Hills",
+        "addressRegion": "CA",
+        "postalCode": "91364",
+        "addressCountry": "US"
+      }
     }
   </script>
   <script type="application/ld+json">
@@ -173,6 +195,11 @@
       outline: none;
       transform: translateY(-1px);
     }
+    .nav-links a[aria-current="page"] {
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.16), rgba(184, 139, 82, 0.08));
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(184, 139, 82, 0.18);
+    }
     .hero, .section { padding: 5rem 0; }
     .hero { padding-top: 3rem; }
     .hero-shell, .cta-shell {
@@ -286,6 +313,102 @@
       box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12);
       border-color: rgba(184, 139, 82, 0.14);
     }
+    .flip-card {
+      position: relative;
+      perspective: 1600px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+    }
+    .flip-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at top right, rgba(184, 139, 82, 0.14), transparent 45%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease;
+    }
+    .flip-card:hover::after, .flip-card:focus-visible::after, .flip-card.is-flipped::after { opacity: 1; }
+    .flip-card:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16), 0 24px 54px rgba(76, 64, 48, 0.12);
+    }
+    .flip-card-inner {
+      position: relative;
+      min-height: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-face {
+      min-height: 100%;
+      display: grid;
+      align-content: start;
+      gap: 1rem;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-face > :last-child { margin-top: auto; }
+    .flip-back { position: absolute; inset: 0; transform: rotateY(180deg); }
+    .flip-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      padding: 0.72rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(184, 139, 82, 0.22);
+      background: rgba(255, 252, 247, 0.88);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .flip-button:hover, .flip-button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.12);
+      background: white;
+    }
+    .flip-button::after { content: "↺"; font-size: 0.9rem; line-height: 1; letter-spacing: 0; }
+    .flip-back .flip-button::after { content: "↻"; }
+    .flip-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: rgba(110, 96, 78, 0.92);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .flip-hint::before {
+      content: "";
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.9), rgba(214, 186, 142, 0.8));
+      box-shadow: 0 0 0 6px rgba(184, 139, 82, 0.09);
+    }
+    .flip-kicker {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .flip-list {
+      display: grid;
+      gap: 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .flip-list li::marker { color: var(--gold); }
     .hero-card {
       position: relative;
       min-height: 560px;
@@ -457,7 +580,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="/#about">About</a>
         <a href="/buyers-and-sellers">Buyers & Sellers</a>
-        <a href="#top">Family Wealth</a>
+        <a href="#top" aria-current="page">Family Wealth</a>
         <a href="/mls-search">Search</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -505,18 +628,42 @@
         </div>
 
         <div class="story-grid">
-          <article class="story-card" data-reveal>
-            <h3>What Kareem looks for</h3>
-            <div class="wealth-points">
-              <div class="wealth-point">How today&apos;s decision affects future equity and flexibility.</div>
-              <div class="wealth-point">Whether timing supports the family&apos;s goals instead of forcing the move.</div>
-              <div class="wealth-point">How presentation, pricing, or purchase strategy protect long-term value.</div>
+          <article class="story-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>What Kareem looks for</h3>
+                <p>The quick view: future flexibility, smarter timing, and better protection of value.</p>
+                <span class="flip-hint">Tap to Explore</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Long-View Lens</span>
+                <h3>What Kareem looks for</h3>
+                <ul class="flip-list">
+                  <li>How today&apos;s decision affects future equity and flexibility</li>
+                  <li>Whether timing supports the family&apos;s goals instead of forcing the move</li>
+                  <li>How presentation, pricing, or purchase strategy protect long-term value</li>
+                </ul>
+                <button class="flip-button" type="button">Back</button>
+              </div>
             </div>
           </article>
 
-          <article class="story-card" data-reveal>
-            <h3>What this does not mean</h3>
-            <p>This does not mean every client needs to think like a full-time investor. It simply means the conversation leaves room for the larger financial and family context around a property decision.</p>
+          <article class="story-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>What this does not mean</h3>
+                <p>This is not about turning every client into an investor mindset.</p>
+                <span class="flip-hint">Tap to Explore</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Clarifying The Idea</span>
+                <h3>What this does not mean</h3>
+                <p>This does not mean every client needs to think like a full-time investor. It simply means the conversation leaves room for the larger financial and family context around a property decision.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -525,17 +672,65 @@
     <section class="section">
       <div class="container">
         <div class="pillar-grid">
-          <article class="pillar-card" data-reveal>
-            <h3>For Buyers</h3>
-            <p>Buy with a long-term lens by looking past the moment and considering the lasting value of location, timing, and fit.</p>
+          <article class="pillar-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>For Buyers</h3>
+                <p>Look past the moment and assess lasting value in location, timing, and fit.</p>
+                <span class="flip-hint">Tap to Explore</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Buyer View</span>
+                <h3>For Buyers</h3>
+                <ul class="flip-list">
+                  <li>Think beyond the payment into long-term usability and value</li>
+                  <li>Pay attention to neighborhood durability and timing</li>
+                  <li>Buy in a way that supports flexibility later</li>
+                </ul>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="pillar-card" data-reveal>
-            <h3>For Sellers</h3>
-            <p>Protect the equity already built by approaching pricing, prep, and negotiation in a more strategic way.</p>
+          <article class="pillar-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>For Sellers</h3>
+                <p>Protect built equity with stronger pricing, prep, and negotiation discipline.</p>
+                <span class="flip-hint">Tap to Explore</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Seller View</span>
+                <h3>For Sellers</h3>
+                <ul class="flip-list">
+                  <li>Use timing and presentation to support buyer perception</li>
+                  <li>Protect leverage during negotiation and escrow</li>
+                  <li>Turn years of ownership into a more intentional exit</li>
+                </ul>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="pillar-card" data-reveal>
-            <h3>For Families</h3>
-            <p>Use real estate decisions to support stability, transitions, and future planning instead of reacting only under pressure.</p>
+          <article class="pillar-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>For Families</h3>
+                <p>Make property decisions that support stability and future planning.</p>
+                <span class="flip-hint">Tap to Explore</span>
+                <button class="flip-button" type="button">See More</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Family View</span>
+                <h3>For Families</h3>
+                <ul class="flip-list">
+                  <li>Align the move with household needs and future transitions</li>
+                  <li>Reduce rushed decisions that create long-term strain</li>
+                  <li>Keep flexibility and stability in the same conversation</li>
+                </ul>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -552,17 +747,53 @@
         </div>
 
         <div class="faq-grid">
-          <article class="faq-card" data-reveal>
-            <h3>How does real estate support family wealth preservation?</h3>
-            <p>Real estate can help preserve family wealth by protecting equity, creating stability, and supporting better ownership and timing decisions over the long term.</p>
+          <article class="faq-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>How does real estate support family wealth preservation?</h3>
+                <p>By protecting equity, creating stability, and improving long-term decision quality.</p>
+                <span class="flip-hint">Tap to Read More</span>
+                <button class="flip-button" type="button">Reveal Answer</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Answer</span>
+                <h3>How real estate supports it</h3>
+                <p>Real estate can help preserve family wealth by protecting equity, creating stability, and supporting better ownership and timing decisions over the long term.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="faq-card" data-reveal>
-            <h3>Is this only relevant for investors?</h3>
-            <p>No. It can matter for everyday homeowners, buyers, and sellers whenever a property decision affects long-term value, housing stability, or future options.</p>
+          <article class="faq-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Is this only relevant for investors?</h3>
+                <p>No. It matters anytime a property decision affects future options and value.</p>
+                <span class="flip-hint">Tap to Read More</span>
+                <button class="flip-button" type="button">Reveal Answer</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Answer</span>
+                <h3>Not just for investors</h3>
+                <p>No. It can matter for everyday homeowners, buyers, and sellers whenever a property decision affects long-term value, housing stability, or future options.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
-          <article class="faq-card" data-reveal>
-            <h3>Can I start the conversation early?</h3>
-            <p>Yes. Early planning conversations often create the most clarity because they happen before timing becomes rushed or reactive.</p>
+          <article class="faq-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>Can I start the conversation early?</h3>
+                <p>Yes. Early planning is usually where clarity improves most.</p>
+                <span class="flip-hint">Tap to Read More</span>
+                <button class="flip-button" type="button">Reveal Answer</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Answer</span>
+                <h3>Start early</h3>
+                <p>Yes. Early planning conversations often create the most clarity because they happen before timing becomes rushed or reactive.</p>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -698,6 +929,63 @@
     const leadForm = document.getElementById("lead-form");
     const formStatus = document.getElementById("form-status");
     const STORAGE_KEY = "kareem-jamal-leads";
+    const flipCards = document.querySelectorAll(".flip-card");
+
+    const syncFlipCardHeight = (card) => {
+      const inner = card.querySelector(".flip-card-inner");
+      const front = card.querySelector(".flip-face:not(.flip-back)");
+      const back = card.querySelector(".flip-back");
+
+      if (!inner || !front || !back) {
+        return;
+      }
+
+      inner.style.minHeight = "0px";
+      inner.style.minHeight = `${Math.max(front.offsetHeight, back.offsetHeight)}px`;
+    };
+
+    const setFlipCardState = (card, shouldFlip) => {
+      card.classList.toggle("is-flipped", shouldFlip);
+      card.setAttribute("aria-pressed", String(shouldFlip));
+    };
+
+    flipCards.forEach((card, index) => {
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-pressed", "false");
+      card.setAttribute("aria-label", `Reveal more details for card ${index + 1}`);
+      syncFlipCardHeight(card);
+
+      card.querySelectorAll(".flip-button").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          setFlipCardState(card, !card.classList.contains("is-flipped"));
+        });
+      });
+
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a, button")) {
+          return;
+        }
+        setFlipCardState(card, !card.classList.contains("is-flipped"));
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          setFlipCardState(card, !card.classList.contains("is-flipped"));
+        }
+      });
+    });
+
+    window.addEventListener("load", () => {
+      flipCards.forEach(syncFlipCardHeight);
+    });
+
+    window.addEventListener("resize", () => {
+      flipCards.forEach(syncFlipCardHeight);
+    });
 
     const getStoredLeads = () => {
       try {

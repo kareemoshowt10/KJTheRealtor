@@ -8,6 +8,12 @@
     name="description"
     content="Kareem Jamal is a Southern California Realtor with Rodeo Realty Fine Estates helping buyers, sellers, and families make real estate decisions with clarity, strategy, and long-term wealth preservation in mind."
   />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Kareem Jamal" />
+  <meta
+    name="keywords"
+    content="Kareem Jamal Realtor, Woodland Hills Realtor, San Fernando Valley Realtor, Southern California Realtor, buyer representation, listing agent, family wealth preservation real estate"
+  />
   <meta name="theme-color" content="#40505f" />
   <meta property="og:title" content="Kareem Jamal | Buyers, Sellers & Family Wealth Preservation" />
   <meta
@@ -26,13 +32,22 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
+      "@type": ["RealEstateAgent", "LocalBusiness"],
+      "@id": "https://kareemjamaltherealtor.com/#kareem-jamal",
       "name": "Kareem Jamal",
+      "alternateName": "Kareem Jamal The Realtor",
       "url": "https://kareemjamaltherealtor.com/",
       "jobTitle": "Realtor",
       "telephone": "+1-818-402-7326",
       "email": "kjamal@rodeore.com",
-      "areaServed": "Southern California",
+      "priceRange": "$$",
+      "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
+      "areaServed": [
+        "Woodland Hills",
+        "San Fernando Valley",
+        "Greater Los Angeles",
+        "Southern California"
+      ],
       "description": "Kareem Jamal helps buyers, sellers, and families navigate real estate with polished marketing, strong negotiation, clear communication, and a focus on long-term wealth preservation.",
       "knowsAbout": [
         "Home buying",
@@ -42,6 +57,36 @@
         "Generational wealth through real estate",
         "Southern California real estate"
       ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Kareem Jamal Real Estate Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Buyer Representation",
+              "description": "Buyer guidance for Southern California home searches, property review, offer strategy, negotiation, escrow, and closing."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Listing Service",
+              "description": "Seller representation for pricing, preparation, marketing, launch strategy, negotiation, escrow coordination, and closeout."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Family Wealth Preservation Through Real Estate",
+              "description": "Long-view real estate guidance around equity protection, timing, stability, and future family options."
+            }
+          }
+        ]
+      },
       "memberOf": {
         "@type": "Organization",
         "name": "Rodeo Realty Fine Estates"
@@ -53,6 +98,19 @@
         "addressRegion": "CA",
         "postalCode": "91364",
         "addressCountry": "US"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://kareemjamaltherealtor.com/#website",
+      "name": "Kareem Jamal The Realtor",
+      "url": "https://kareemjamaltherealtor.com/",
+      "description": "Official website for Kareem Jamal, Southern California Realtor with Rodeo Realty Fine Estates.",
+      "publisher": {
+        "@id": "https://kareemjamaltherealtor.com/#kareem-jamal"
       }
     }
   </script>
@@ -655,6 +713,53 @@
       padding: 2rem;
       display: grid;
       gap: 1.25rem;
+    }
+
+    .quick-facts {
+      display: grid;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(24, 35, 45, 0.08);
+      background: rgba(255, 253, 250, 0.9);
+      box-shadow: var(--shadow-md);
+    }
+
+    .quick-facts h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1.08;
+    }
+
+    .quick-facts dl {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .quick-facts div {
+      display: grid;
+      gap: 0.25rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(24, 35, 45, 0.08);
+    }
+
+    .quick-facts div:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .quick-facts dt {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .quick-facts dd {
+      color: var(--muted);
+      line-height: 1.65;
     }
 
     .about-stack {
@@ -1340,6 +1445,19 @@
       gap: 0.75rem;
     }
 
+    .chip-group {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .chip-label {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
     .chip {
       border: 1px solid rgba(24, 35, 45, 0.12);
       background: rgba(255, 255, 255, 0.82);
@@ -1436,6 +1554,62 @@
       font-size: 0.84rem;
       line-height: 1.6;
       margin-top: -0.1rem;
+    }
+
+    .outcome-preview {
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.95rem;
+      padding: 1rem 1.05rem;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(248, 241, 232, 0.86));
+      border: 1px solid rgba(24, 35, 45, 0.08);
+    }
+
+    .outcome-preview span {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .outcome-preview p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .form-trust {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      padding: 1rem 1.05rem;
+      border-radius: 22px;
+      border: 1px solid rgba(184, 139, 82, 0.16);
+      background: rgba(255, 252, 247, 0.8);
+    }
+
+    .form-trust strong {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .form-trust-list {
+      display: grid;
+      gap: 0.55rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .form-trust-list span::before {
+      content: "•";
+      color: var(--gold);
+      margin-right: 0.55rem;
     }
 
     /* ── Testimonial Bubbles ── */
@@ -1891,11 +2065,37 @@
         <aside class="testimonial" data-reveal>
           <strong>Kareem&apos;s Approach</strong>
           <p>
-            Buying or selling a home is a lifestyle decision first and a financial decision second. That perspective shapes every conversation — from the first call through closing day.
+            Buying or selling a home is a lifestyle decision first and a financial decision second. That perspective shapes every conversation from the first call through closing day.
           </p>
           <p>
             Clients describe Kareem as calm, clear, and genuinely invested in the outcome. That reputation is the foundation everything else is built on.
           </p>
+
+          <div class="quick-facts">
+            <h3>Quick facts for clients and search engines.</h3>
+            <dl>
+              <div>
+                <dt>Name</dt>
+                <dd>Kareem Jamal, Realtor with Rodeo Realty Fine Estates.</dd>
+              </div>
+              <div>
+                <dt>License</dt>
+                <dd>California Realtor, CA DRE #01998956.</dd>
+              </div>
+              <div>
+                <dt>Office</dt>
+                <dd>21031 Ventura Blvd., #100, Woodland Hills, CA 91364.</dd>
+              </div>
+              <div>
+                <dt>Service Areas</dt>
+                <dd>Woodland Hills, the San Fernando Valley, Greater Los Angeles, and Southern California.</dd>
+              </div>
+              <div>
+                <dt>Best For</dt>
+                <dd>Buyer representation, listing strategy, MLS search support, property review, and family wealth preservation through real estate.</dd>
+              </div>
+            </dl>
+          </div>
         </aside>
       </div>
     </section>
@@ -2379,18 +2579,33 @@
               <form class="lead-form" id="lead-form">
                 <div class="lead-form-head">
                   <h3>Start the Conversation</h3>
-                  <p>Share a few details and Kareem will be in touch shortly to discuss your next move.</p>
+                  <p>Share a few details and Kareem will follow up with a clear next step, not a generic sales response.</p>
                 </div>
 
                 <div class="field field-full" style="margin-bottom: 1rem;">
-                  <label>What can Kareem help with?</label>
-                  <div class="chip-row" id="intent-chips">
-                    <button class="chip" type="button" data-intent="Buying">Buying</button>
-                    <button class="chip" type="button" data-intent="Selling">Selling</button>
-                    <button class="chip" type="button" data-intent="Investing">Investing</button>
-                    <button class="chip" type="button" data-intent="Buying and Selling">Buying + Selling</button>
+                  <div class="chip-group">
+                    <label class="chip-label">What can Kareem help with?</label>
+                    <div class="chip-row" id="intent-chips">
+                      <button class="chip" type="button" data-intent="Buying">Buying</button>
+                      <button class="chip" type="button" data-intent="Selling">Selling</button>
+                      <button class="chip" type="button" data-intent="Investing">Investing</button>
+                      <button class="chip" type="button" data-intent="Buying and Selling">Buying + Selling</button>
+                    </div>
                   </div>
                   <input type="hidden" id="lead-interest" name="interest" value="" />
+                </div>
+
+                <div class="field field-full" style="margin-bottom: 1rem;">
+                  <div class="chip-group">
+                    <label class="chip-label">How soon are you thinking?</label>
+                    <div class="chip-row" id="timeline-chips">
+                      <button class="chip" type="button" data-timeline="Just researching">Just researching</button>
+                      <button class="chip" type="button" data-timeline="Next 3 months">Next 3 months</button>
+                      <button class="chip" type="button" data-timeline="Next 6 months">Next 6 months</button>
+                      <button class="chip" type="button" data-timeline="Ready now">Ready now</button>
+                    </div>
+                  </div>
+                  <input type="hidden" id="lead-timeline" name="timeline" value="" />
                 </div>
 
                 <div class="form-grid">
@@ -2407,14 +2622,37 @@
                     <input id="lead-phone" name="phone" type="tel" autocomplete="tel" />
                   </div>
                   <div class="field field-full">
+                    <label for="lead-contact-method">Preferred Reply</label>
+                    <select id="lead-contact-method" name="preferred_reply">
+                      <option value="">Select one</option>
+                      <option>Email</option>
+                      <option>Phone</option>
+                      <option>Text</option>
+                    </select>
+                  </div>
+                  <div class="field field-full">
                     <label for="lead-message">Tell Kareem about your move</label>
                     <textarea id="lead-message" name="message" placeholder="Where are you in the process and what would be most helpful right now?" required></textarea>
                   </div>
                 </div>
 
+                <div class="outcome-preview" id="outcome-preview">
+                  <span>What Happens Next</span>
+                  <p id="outcome-preview-text">Choose what you need help with and Kareem can respond with the most useful next step.</p>
+                </div>
+
+                <div class="form-trust">
+                  <strong>What to Expect</strong>
+                  <div class="form-trust-list">
+                    <span>Thoughtful follow-up tailored to your situation</span>
+                    <span>No pressure if you are still early in the process</span>
+                    <span>Clear direction on the next best step</span>
+                  </div>
+                </div>
+
                 <div class="form-actions">
                   <button class="btn btn-primary" type="submit" id="submit-btn">Request a Call</button>
-                  <p class="form-note">Prefer direct contact? Email <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a> or call <a href="tel:+18184027326">(818) 402-7326</a>.</p>
+                  <p class="form-note">Most inquiries receive a response within one business day. Prefer direct contact? Email <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a> or call <a href="tel:+18184027326">(818) 402-7326</a>.</p>
                 </div>
                 <p class="form-status" id="form-status" aria-live="polite"></p>
               </form>
@@ -2526,8 +2764,11 @@
     const leadForm = document.getElementById("lead-form");
     const formStatus = document.getElementById("form-status");
     const interestField = document.getElementById("lead-interest");
+    const timelineField = document.getElementById("lead-timeline");
     const intentChips = document.querySelectorAll("[data-intent]");
+    const timelineChips = document.querySelectorAll("[data-timeline]");
     const submitBtn = document.getElementById("submit-btn");
+    const outcomePreviewText = document.getElementById("outcome-preview-text");
     const STORAGE_KEY = "kareem-jamal-leads";
     const flipCards = document.querySelectorAll(".flip-card");
 
@@ -2610,9 +2851,25 @@
       return Math.max(1, Math.min(score, 100));
     };
 
+    const OUTCOME_COPY = {
+      "Buying": "Kareem can help clarify neighborhoods, budget fit, and the smartest next buyer step.",
+      "Selling": "Kareem can help you think through timing, pricing, preparation, and positioning before you list.",
+      "Investing": "Kareem can help review the opportunity, the market fit, and whether the numbers support your goal.",
+      "Buying and Selling": "Kareem can help map both sides of the move so timing and leverage stay aligned."
+    };
+
     const syncIntentChips = () => {
       intentChips.forEach((chip) => {
         chip.classList.toggle("is-active", chip.dataset.intent === interestField.value);
+      });
+      if (outcomePreviewText) {
+        outcomePreviewText.textContent = OUTCOME_COPY[interestField.value] || "Choose what you need help with and Kareem can respond with the most useful next step.";
+      }
+    };
+
+    const syncTimelineChips = () => {
+      timelineChips.forEach((chip) => {
+        chip.classList.toggle("is-active", chip.dataset.timeline === timelineField.value);
       });
     };
 
@@ -2624,6 +2881,8 @@
         email: String(formData.get("email") || "").trim(),
         phone: String(formData.get("phone") || "").trim(),
         interest: String(formData.get("interest") || "").trim(),
+        timeline: String(formData.get("timeline") || "").trim(),
+        preferredReply: String(formData.get("preferred_reply") || "").trim(),
         message: String(formData.get("message") || "").trim(),
         createdAt: new Date().toISOString()
       };
@@ -2654,6 +2913,8 @@
       data.append("email", lead.email);
       if (lead.phone) data.append("phone", lead.phone);
       if (lead.interest) data.append("interest", lead.interest);
+      if (lead.timeline) data.append("timeline", lead.timeline);
+      if (lead.preferredReply) data.append("preferred_reply", lead.preferredReply);
       data.append("message", lead.message);
       data.append("lead_score", String(lead.score));
       data.append("page", "Homepage");
@@ -2676,6 +2937,13 @@
         });
       });
 
+      timelineChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          timelineField.value = chip.dataset.timeline || "";
+          syncTimelineChips();
+        });
+      });
+
       document.querySelectorAll("[data-prefill-interest]").forEach((link) => {
         link.addEventListener("click", () => {
           interestField.value = link.dataset.prefillInterest || "";
@@ -2684,6 +2952,7 @@
       });
 
       syncIntentChips();
+      syncTimelineChips();
 
       leadForm.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -2702,6 +2971,7 @@
             formStatus.dataset.state = "success";
             leadForm.reset();
             syncIntentChips();
+            syncTimelineChips();
           } else {
             throw new Error("Submission failed");
           }

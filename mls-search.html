@@ -130,6 +130,14 @@
       padding: 1rem 0;
       background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(255, 252, 247, 0.68));
       border-bottom: 1px solid rgba(46, 53, 60, 0.03);
+      transition: padding 300ms ease, background 300ms ease, border-bottom 300ms ease, backdrop-filter 300ms ease;
+    }
+
+    .site-header.is-scrolled {
+      padding: 0.5rem 0;
+      background: rgba(255, 252, 247, 0.85);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(184, 139, 82, 0.15);
     }
 
     .nav-shell {
@@ -143,6 +151,13 @@
       background: rgba(255, 252, 247, 0.82);
       backdrop-filter: blur(18px);
       box-shadow: 0 18px 40px rgba(55, 46, 36, 0.08);
+      transition: box-shadow 300ms ease, background 300ms ease, border-color 300ms ease;
+    }
+
+    .site-header.is-scrolled .nav-shell {
+      box-shadow: 0 8px 24px rgba(55, 46, 36, 0.05);
+      background: rgba(255, 252, 247, 0.95);
+      border-color: rgba(184, 139, 82, 0.2);
     }
 
     .brand {
@@ -244,8 +259,10 @@
     .eyebrow::before {
       content: "";
       width: 42px;
-      height: 1px;
-      background: currentColor;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), rgba(184, 139, 82, 0));
+      border-radius: 2px;
+      box-shadow: 0 2px 4px rgba(184, 139, 82, 0.2);
     }
 
     .hero-copy {
@@ -320,10 +337,30 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
     }
 
     .btn:hover {
       transform: translateY(-2px);
+    }
+
+    .btn:hover::after {
+      left: 150%;
     }
 
     .btn-primary {
@@ -910,7 +947,10 @@
     }
 
     .footer {
-      padding: 1.5rem 0 3rem;
+      padding: 4rem 0;
+      background: var(--navy-deep);
+      color: rgba(255, 255, 255, 0.7);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .footer-grid {
@@ -918,8 +958,19 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
       align-items: center;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.6);
       font-size: 0.88rem;
+    }
+    
+    .footer-grid p {
+      color: inherit;
+    }
+    .footer a {
+      color: rgba(255, 255, 255, 0.9);
+      transition: color 180ms ease;
+    }
+    .footer a:hover {
+      color: var(--gold);
     }
 
     .footer-note {
@@ -1347,6 +1398,16 @@
   </footer>
 
   <script>
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector(".site-header");
+      if (header) {
+        if (window.scrollY > 20) {
+          header.classList.add("is-scrolled");
+        } else {
+          header.classList.remove("is-scrolled");
+        }
+      }
+    });
     const IDX_URL = "https://matrix.crmls.org/Matrix/public/IDX.aspx?idx=169037aa";
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjlgvlk";
     const searchFrame = document.getElementById("search-frame");

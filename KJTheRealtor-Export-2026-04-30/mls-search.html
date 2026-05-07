@@ -8,8 +8,6 @@
     name="description"
     content="Search Southern California homes through Kareem Jamal's live MLS page, then request property guidance, shortlist help, and buyer representation directly from the site."
   />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="author" content="Kareem Jamal" />
   <meta name="theme-color" content="#40505f" />
   <meta property="og:title" content="MLS Search | Kareem Jamal" />
   <meta
@@ -25,46 +23,6 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": ["RealEstateAgent", "LocalBusiness"],
-      "@id": "https://kareemjamaltherealtor.com/#kareem-jamal",
-      "name": "Kareem Jamal",
-      "alternateName": "Kareem Jamal The Realtor",
-      "url": "https://kareemjamaltherealtor.com/mls-search",
-      "jobTitle": "Realtor",
-      "telephone": "+1-818-402-7326",
-      "email": "kjamal@rodeore.com",
-      "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
-      "areaServed": [
-        "Woodland Hills",
-        "San Fernando Valley",
-        "Greater Los Angeles",
-        "Southern California"
-      ],
-      "description": "Kareem Jamal provides live MLS search support, buyer representation, property review, and offer guidance for Southern California home buyers.",
-      "knowsAbout": [
-        "MLS search",
-        "Buyer representation",
-        "Property review",
-        "Offer strategy",
-        "Southern California real estate"
-      ],
-      "memberOf": {
-        "@type": "Organization",
-        "name": "Rodeo Realty Fine Estates"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "21031 Ventura Blvd, #100",
-        "addressLocality": "Woodland Hills",
-        "addressRegion": "CA",
-        "postalCode": "91364",
-        "addressCountry": "US"
-      }
-    }
-  </script>
   <style>
     :root {
       --navy: #40505f;
@@ -106,19 +64,11 @@
     body::before {
       content: "";
       position: fixed;
-      top: -10%; left: -10%; width: 120%; height: 120%;
+      inset: 0;
       pointer-events: none;
       opacity: 0.45;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       z-index: 20;
-      animation: film-grain 0.8s steps(4) infinite;
-    }
-    
-    @keyframes film-grain {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(-10px, 10px); }
-      50% { transform: translate(10px, -5px); }
-      75% { transform: translate(-5px, -10px); }
     }
 
     a {
@@ -138,14 +88,6 @@
       padding: 1rem 0;
       background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(255, 252, 247, 0.68));
       border-bottom: 1px solid rgba(46, 53, 60, 0.03);
-      transition: padding 300ms ease, background 300ms ease, border-bottom 300ms ease, backdrop-filter 300ms ease;
-    }
-
-    .site-header.is-scrolled {
-      padding: 0.5rem 0;
-      background: rgba(255, 252, 247, 0.85);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(184, 139, 82, 0.15);
     }
 
     .nav-shell {
@@ -159,13 +101,6 @@
       background: rgba(255, 252, 247, 0.82);
       backdrop-filter: blur(18px);
       box-shadow: 0 18px 40px rgba(55, 46, 36, 0.08);
-      transition: box-shadow 300ms ease, background 300ms ease, border-color 300ms ease;
-    }
-
-    .site-header.is-scrolled .nav-shell {
-      box-shadow: 0 8px 24px rgba(55, 46, 36, 0.05);
-      background: rgba(255, 252, 247, 0.95);
-      border-color: rgba(184, 139, 82, 0.2);
     }
 
     .brand {
@@ -267,10 +202,8 @@
     .eyebrow::before {
       content: "";
       width: 42px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold), rgba(184, 139, 82, 0));
-      border-radius: 2px;
-      box-shadow: 0 2px 4px rgba(184, 139, 82, 0.2);
+      height: 1px;
+      background: currentColor;
     }
 
     .hero-copy {
@@ -345,30 +278,10 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-      position: relative;
-      overflow: hidden;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -150%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transform: skewX(-20deg);
-      transition: left 0.6s ease;
     }
 
     .btn:hover {
       transform: translateY(-2px);
-    }
-
-    .btn:hover::after {
-      left: 150%;
     }
 
     .btn-primary {
@@ -428,7 +341,6 @@
       perspective: 1600px;
       cursor: pointer;
       transform-style: preserve-3d;
-      overflow: hidden;
     }
 
     .flip-card::after {
@@ -458,7 +370,7 @@
       min-height: 100%;
       height: 100%;
       transform-style: preserve-3d;
-      transition: min-height 260ms ease, transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition: transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .flip-card.is-flipped .flip-card-inner {
@@ -470,7 +382,6 @@
       display: grid;
       align-content: start;
       gap: 1rem;
-      padding: 2rem;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
@@ -483,7 +394,6 @@
       position: absolute;
       inset: 0;
       transform: rotateY(180deg);
-      overflow: hidden;
     }
 
     .flip-button {
@@ -552,11 +462,10 @@
 
     .flip-list {
       display: grid;
-      gap: 0.62rem;
+      gap: 0.75rem;
       padding-left: 1.1rem;
       color: var(--muted);
-      line-height: 1.58;
-      font-size: 0.92rem;
+      line-height: 1.75;
     }
 
     .flip-list li::marker {
@@ -565,16 +474,12 @@
 
     .hero-card,
     .helper-card,
+    .support-card,
     .contact-card,
     .lead-form,
-    .status-card {
-      padding: 2rem;
-    }
-
-    .support-card,
+    .status-card,
     .shortcut-card {
-      padding: 0;
-      min-height: 285px;
+      padding: 2rem;
     }
 
     .hero-card h3,
@@ -653,38 +558,6 @@
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.65;
-    }
-
-    .mini-process {
-      display: grid;
-      gap: 0.8rem;
-      margin-top: 1rem;
-      padding: 1rem 1.05rem;
-      border-radius: 22px;
-      border: 1px solid rgba(184, 139, 82, 0.16);
-      background: rgba(255, 252, 247, 0.8);
-    }
-
-    .mini-process strong {
-      color: var(--gold);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .mini-process-list {
-      display: grid;
-      gap: 0.55rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.65;
-    }
-
-    .mini-process-list span::before {
-      content: "•";
-      color: var(--gold);
-      margin-right: 0.55rem;
     }
 
     .toolbar-actions,
@@ -955,10 +828,7 @@
     }
 
     .footer {
-      padding: 4rem 0;
-      background: var(--navy-deep);
-      color: rgba(255, 255, 255, 0.7);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1.5rem 0 3rem;
     }
 
     .footer-grid {
@@ -966,19 +836,8 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
       align-items: center;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--muted);
       font-size: 0.88rem;
-    }
-    
-    .footer-grid p {
-      color: inherit;
-    }
-    .footer a {
-      color: rgba(255, 255, 255, 0.9);
-      transition: color 180ms ease;
-    }
-    .footer a:hover {
-      color: var(--gold);
     }
 
     .footer-note {
@@ -1032,97 +891,9 @@
         text-align: left;
       }
     }
-  
-    /* --- PREMIUM UPGRADES --- */
-    ::selection {
-      background: rgba(184, 139, 82, 0.2);
-      color: var(--ink);
-    }
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--sand-soft);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(184, 139, 82, 0.4);
-      border-radius: 999px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(184, 139, 82, 0.6);
-    }
-
-    #scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(90deg, #c79b63, var(--gold));
-      z-index: 1000;
-      transition: width 0.1s ease-out;
-    }
-
-    @keyframes ambientShift {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
-    }
-
-    body {
-      background-size: 200% 200%;
-      animation: ambientShift 30s ease-in-out infinite;
-    }
-
-    .hero-photo {
-      animation: kenBurns 20s ease-out infinite alternate;
-      transform-origin: center;
-    }
-
-    @keyframes kenBurns {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.05); }
-    }
-
-    .glow-card {
-      position: relative;
-    }
-
-    .glow-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(184, 139, 82, 0.08), transparent 40%);
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .glow-card:hover::before {
-      opacity: 1;
-    }
-    /* ------------------------ */
   </style>
-
 </head>
-<body class="has-motion">
-
-  <!-- Preloader -->
-  <div class="site-preloader" aria-hidden="true">
-    <div class="preloader-logo">KJ</div>
-    <div class="preloader-progress"></div>
-  </div>
-
-  <!-- Custom Cursor (desktop only) -->
-  <div id="cursor-dot" aria-hidden="true"></div>
-  <div id="cursor-ring" aria-hidden="true"></div>
-
+<body>
   <header class="site-header">
     <div class="container nav-shell">
       <a class="brand" href="/" aria-label="Kareem Jamal home">
@@ -1395,15 +1166,6 @@
                 <input id="lead-phone" name="phone" type="tel" autocomplete="tel" />
               </div>
               <div class="field">
-                <label for="lead-contact-method">Preferred Reply</label>
-                <select id="lead-contact-method" name="preferred_reply">
-                  <option value="">Select one</option>
-                  <option>Email</option>
-                  <option>Phone</option>
-                  <option>Text</option>
-                </select>
-              </div>
-              <div class="field">
                 <label for="lead-timeline">Timeline</label>
                 <select id="lead-timeline" name="timeline">
                   <option value="">Select one</option>
@@ -1438,18 +1200,9 @@
 
             <div class="form-actions">
               <button class="btn btn-primary" id="submit-btn" type="submit">Send Search Request</button>
-              <p class="form-note">Messages from this page go straight into Kareem's lead flow, with your search details attached so the response can be more useful right away.</p>
+              <p class="form-note">Messages from this page go straight into Kareem's lead flow so the MLS page becomes an active buyer-intake system, not just a search tool.</p>
             </div>
             <p class="form-status" id="form-status" aria-live="polite"></p>
-
-            <div class="mini-process">
-              <strong>What Happens Next</strong>
-              <div class="mini-process-list">
-                <span>Kareem reviews your search details, areas, and timeline</span>
-                <span>You get a more tailored next step instead of a generic reply</span>
-                <span>Ideal for curated search help, property review, or offer guidance</span>
-              </div>
-            </div>
           </form>
 
           <aside class="status-card">
@@ -1494,16 +1247,6 @@
   </footer>
 
   <script>
-    window.addEventListener("scroll", () => {
-      const header = document.querySelector(".site-header");
-      if (header) {
-        if (window.scrollY > 20) {
-          header.classList.add("is-scrolled");
-        } else {
-          header.classList.remove("is-scrolled");
-        }
-      }
-    });
     const IDX_URL = "https://matrix.crmls.org/Matrix/public/IDX.aspx?idx=169037aa";
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjlgvlk";
     const searchFrame = document.getElementById("search-frame");
@@ -1530,10 +1273,8 @@
         return;
       }
 
-      inner.style.minHeight = "auto";
-      const frontHeight = front.scrollHeight;
-      const backHeight = back.scrollHeight;
-      inner.style.minHeight = `${Math.max(frontHeight, backHeight) + 8}px`;
+      inner.style.minHeight = "0px";
+      inner.style.minHeight = `${Math.max(front.offsetHeight, back.offsetHeight)}px`;
     };
 
     const setFlipCardState = (card, shouldFlip) => {
@@ -1674,7 +1415,6 @@
           name: String(formData.get("name") || "").trim(),
           email: String(formData.get("email") || "").trim(),
           phone: String(formData.get("phone") || "").trim(),
-          preferredReply: String(formData.get("preferred_reply") || "").trim(),
           intent: String(formData.get("intent") || "").trim(),
           timeline: String(formData.get("timeline") || "").trim(),
           areas: String(formData.get("areas") || "").trim(),
@@ -1700,7 +1440,6 @@
           data.append("name", lead.name);
           data.append("email", lead.email);
           if (lead.phone) data.append("phone", lead.phone);
-          if (lead.preferredReply) data.append("preferred_reply", lead.preferredReply);
           data.append("interest", lead.intent || "MLS Search");
           if (lead.timeline) data.append("timeline", lead.timeline);
           if (lead.areas) data.append("areas", lead.areas);
@@ -1741,136 +1480,5 @@
       });
     }
   </script>
-<script>
-
-// ── Custom Cursor (desktop only) ──────────────────────────────
-    const dot = document.getElementById("cursor-dot");
-    const ring = document.getElementById("cursor-ring");
-
-    if (dot && ring && !("ontouchstart" in window)) {
-      let ringX = 0, ringY = 0;
-      let dotX = 0, dotY = 0;
-      let raf;
-
-      window.addEventListener("mousemove", (e) => {
-        dotX = e.clientX;
-        dotY = e.clientY;
-        dot.style.left = dotX + "px";
-        dot.style.top  = dotY + "px";
-      }, { passive: true });
-
-      function animateRing() {
-        ringX += (dotX - ringX) * 0.12;
-        ringY += (dotY - ringY) * 0.12;
-        ring.style.left = ringX + "px";
-        ring.style.top  = ringY + "px";
-        raf = requestAnimationFrame(animateRing);
-      }
-      animateRing();
-
-      // Scale ring on interactive hover
-      document.querySelectorAll("a, button, [role='button']").forEach(el => {
-        el.addEventListener("mouseenter", () => {
-          ring.style.width  = "56px";
-          ring.style.height = "56px";
-          ring.style.borderColor = "var(--gold)";
-          ring.style.background = "rgba(184,139,82,0.06)";
-        });
-        el.addEventListener("mouseleave", () => {
-          ring.style.width  = "36px";
-          ring.style.height = "36px";
-          ring.style.borderColor = "rgba(184,139,82,0.5)";
-          ring.style.background = "transparent";
-        });
-      });
-
-      // Show "VIEW" text on images
-      document.querySelectorAll(".portrait-photo, .ambient-image").forEach(img => {
-        img.addEventListener("mouseenter", () => {
-          ring.style.width = "80px";
-          ring.style.height = "80px";
-          ring.style.background = "var(--navy)";
-          ring.style.borderColor = "var(--navy)";
-          dot.style.opacity = "0";
-          if(ring.querySelector('.cursor-text')) {
-             ring.querySelector('.cursor-text').textContent = 'VIEW';
-             ring.querySelector('.cursor-text').style.opacity = '1';
-          }
-        });
-        img.addEventListener("mouseleave", () => {
-          ring.style.width = "36px";
-          ring.style.height = "36px";
-          ring.style.background = "transparent";
-          ring.style.borderColor = "rgba(184,139,82,0.5)";
-          dot.style.opacity = "1";
-          if(ring.querySelector('.cursor-text')) {
-             ring.querySelector('.cursor-text').style.opacity = '0';
-          }
-        });
-      });
-
-      document.addEventListener("mouseleave", () => {
-        dot.style.opacity = "0";
-        ring.style.opacity = "0";
-      });
-      document.addEventListener("mouseenter", () => {
-        dot.style.opacity = "1";
-        ring.style.opacity = "1";
-      });
-    } else {
-      if (dot) dot.remove();
-      if (ring) ring.remove();
-      document.documentElement.style.setProperty("cursor", "auto");
-    }
-
-    // ── Magnetic Buttons (desktop only) ───────────────────────────
-    if (!("ontouchstart" in window)) {
-      document.querySelectorAll('.btn-primary').forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-          const rect = btn.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
-        });
-        
-        btn.addEventListener('mouseleave', () => {
-          btn.style.transform = 'translate(0px, 0px)';
-        });
-      });
-
-      // ── Spotlight Hover & 3D Tilt Effect on Cards ──
-      document.querySelectorAll('.about-card, .service-card, .process-card, .area-card, .contact-card').forEach(card => {
-        card.style.transformStyle = 'preserve-3d';
-        
-        card.addEventListener("mousemove", e => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          
-          card.style.setProperty("--mouse-x", `${x}px`);
-          card.style.setProperty("--mouse-y", `${y}px`);
-          
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          const rotateX = ((y - centerY) / centerY) * -4;
-          const rotateY = ((x - centerX) / centerX) * 4;
-          
-          card.style.transform = `perspective(1000px) translateY(-4px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-        
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = `perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg)`;
-        });
-      });
-    }
-
-    // ── Preloader ─────────────────────────────────────────────────
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.body.classList.add("is-loaded");
-      }, 1000);
-    });
-  </script>
-
 </body>
 </html>

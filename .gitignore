@@ -2,3 +2,13 @@
 .vercel
 node_modules
 KJ-Realtor-Website-Copy
+
+# Agency pipeline
+.env
+agency/.venv/
+agency/logs/*.log
+agency/state/mockup_*.html
+agency/state/screenshots/
+agency/state/videos/
+agency/state/locks.json
+

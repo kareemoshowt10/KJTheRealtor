@@ -1,0 +1,57 @@
+{
+  "agency": {
+    "name": "KJ The Realtor Lead-Gen Agency",
+    "owner": "Kareem Jamal",
+    "timezone": "America/Los_Angeles"
+  },
+  "targets": {
+    "leads_per_day": 25,
+    "mockups_per_day": 5,
+    "pitches_per_day": 20,
+    "reply_rate_threshold": 0.12,
+    "deal_approval_threshold": 3000
+  },
+  "scout": {
+    "cities": ["Woodland Hills", "Calabasas", "Tarzana", "Encino", "Sherman Oaks", "Thousand Oaks", "Westlake Village", "Agoura Hills", "Chatsworth", "Northridge"],
+    "zip_codes": ["91364", "91302", "91356", "91316", "91403", "91362", "91361", "91301", "91311", "91324"],
+    "min_years_in_business": 5,
+    "max_review_count": 50,
+    "min_rating": 4.0,
+    "niches": ["real_estate_agent", "home_inspector", "general_contractor", "moving_company", "home_stager", "mortgage_broker", "title_company", "property_manager", "real_estate_photographer", "interior_designer"]
+  },
+  "channels": {
+    "real_estate_agent": "email",
+    "home_inspector": "email",
+    "mortgage_broker": "email",
+    "title_company": "email",
+    "home_stager": "instagram_dm",
+    "real_estate_photographer": "instagram_dm",
+    "interior_designer": "instagram_dm",
+    "general_contractor": "sms",
+    "moving_company": "sms",
+    "property_manager": "linkedin"
+  },
+  "scoring": {
+    "no_website": 30,
+    "outdated_website": 20,
+    "low_reviews": 15,
+    "high_rating": 10,
+    "local_market_gap": 25
+  },
+  "apis": {
+    "google_maps_key": "${GOOGLE_MAPS_API_KEY}",
+    "openai_key": "${OPENAI_API_KEY}",
+    "anthropic_key": "${ANTHROPIC_API_KEY}",
+    "lovable_key": "${LOVABLE_API_KEY}",
+    "higgsfield_key": "${HIGGSFIELD_API_KEY}",
+    "twilio_sid": "${TWILIO_SID}",
+    "twilio_token": "${TWILIO_AUTH_TOKEN}",
+    "twilio_from": "${TWILIO_PHONE}",
+    "sendgrid_key": "${SENDGRID_API_KEY}",
+    "sendgrid_from": "kjamal@rodeore.com",
+    "instagram_session": "${INSTAGRAM_SESSION_ID}",
+    "linkedin_token": "${LINKEDIN_ACCESS_TOKEN}",
+    "calendly_token": "${CALENDLY_API_KEY}",
+    "calendly_event_type": "${CALENDLY_EVENT_TYPE_UUID}"
+  }
+}

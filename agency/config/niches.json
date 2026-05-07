@@ -1,0 +1,62 @@
+{
+  "real_estate_agent": {
+    "label": "Real Estate Agent",
+    "hero_angles": ["Get more listings with a professional web presence", "Stand out in a crowded SFV market", "Convert more referrals with a site that closes for you"],
+    "pain_points": ["Losing listings to agents with polished sites", "Referrals can't find them online", "No digital credibility vs. national brands"],
+    "tone": "professional, peer-to-peer, market-savvy"
+  },
+  "home_inspector": {
+    "label": "Home Inspector",
+    "hero_angles": ["Fill your inspection calendar year-round", "Get found by agents searching for reliable inspectors", "Turn your 5-star reputation into inbound leads"],
+    "pain_points": ["Relies 100% on agent referrals", "No way to capture direct buyer leads", "Invisible online despite great word-of-mouth"],
+    "tone": "straightforward, trust-building, no-nonsense"
+  },
+  "general_contractor": {
+    "label": "General Contractor",
+    "hero_angles": ["Stop chasing jobs — let homeowners find you", "Showcase your renovations and win more bids", "A site that sells your work 24/7"],
+    "pain_points": ["Jobs dry up between word-of-mouth referrals", "No portfolio online", "Losing bids to contractors with professional sites"],
+    "tone": "direct, results-focused, blue-collar proud"
+  },
+  "moving_company": {
+    "label": "Moving Company",
+    "hero_angles": ["Book more local moves without paying Yelp", "Own the 'Woodland Hills movers' search result", "Convert more calls with a site that builds trust fast"],
+    "pain_points": ["Paying high Yelp/Google lead fees", "Competing with national brands", "Seasonal revenue gaps"],
+    "tone": "friendly, urgent, community-rooted"
+  },
+  "home_stager": {
+    "label": "Home Stager",
+    "hero_angles": ["Show agents what you can do before they ask", "Your staging work deserves a gallery that sells", "Win more staging contracts with a visual brand"],
+    "pain_points": ["Portfolio lives only on Instagram", "Agents don't know they exist", "No way to capture direct inquiries"],
+    "tone": "visual, aspirational, design-forward"
+  },
+  "mortgage_broker": {
+    "label": "Mortgage Broker",
+    "hero_angles": ["Capture buyer leads before the listing agent does", "Position yourself as the trusted local loan expert", "A site that pre-qualifies clients while you sleep"],
+    "pain_points": ["Invisible to buyers searching online", "Competing with big bank advertising", "No consistent inbound pipeline"],
+    "tone": "authoritative, trust-based, financially savvy"
+  },
+  "title_company": {
+    "label": "Title Company",
+    "hero_angles": ["Make it easy for agents to choose you", "Build trust before the first transaction", "A modern site that matches your service quality"],
+    "pain_points": ["Website looks like it hasn't been updated in 10 years", "Agents choose the familiar name, not the best service", "No online presence beyond a Google listing"],
+    "tone": "professional, reliable, relationship-oriented"
+  },
+  "property_manager": {
+    "label": "Property Manager",
+    "hero_angles": ["Attract investor clients searching for PM help online", "Show landlords why you're the right choice", "Stop losing clients to property management franchises"],
+    "pain_points": ["No way to showcase portfolio of managed properties", "Landlords find big PM firms first on Google", "Hard to differentiate from competitors"],
+    "tone": "systematic, trustworthy, investor-minded"
+  },
+  "real_estate_photographer": {
+    "label": "Real Estate Photographer",
+    "hero_angles": ["Win more listing shoots with a portfolio that wows agents", "Let your photos sell your photography", "Get booked direct instead of through referral only"],
+    "pain_points": ["Portfolio scattered across MLS and Instagram", "No dedicated booking system", "Agents don't know rates upfront"],
+    "tone": "creative, visual, efficient"
+  },
+  "interior_designer": {
+    "label": "Interior Designer",
+    "hero_angles": ["Turn your design portfolio into a client magnet", "Capture homeowners remodeling after a sale", "Partner with real estate agents through your own platform"],
+    "pain_points": ["Work isn't visible outside Houzz or Instagram", "No way to capture leads from real estate transitions", "Competing with large design firms online"],
+    "tone": "elevated, creative, aspirational"
+  }
+}

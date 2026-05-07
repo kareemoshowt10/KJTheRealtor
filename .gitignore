@@ -11,4 +11,7 @@ agency/state/mockup_*.html
 agency/state/screenshots/
 agency/state/videos/
 agency/state/locks.json
+agency/kareem/state/locks.json
+**/__pycache__/
+**/*.pyc
 

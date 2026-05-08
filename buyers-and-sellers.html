@@ -820,81 +820,170 @@
     body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    .gallery-grid {
+    /* ── Free Guides ─────────────────────────────── */
+    .guides-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.5rem;
       margin-top: 2.5rem;
     }
-    .gallery-card {
+
+    .guide-card {
       background: var(--panel);
+      border: 1px solid rgba(46, 53, 60, 0.07);
       border-radius: var(--radius-lg);
-      overflow: hidden;
       box-shadow: var(--shadow-md);
-      border: 1px solid rgba(46, 53, 60, 0.06);
-      transition: transform 240ms ease, box-shadow 240ms ease;
-    }
-    .gallery-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-    .gallery-image {
-      position: relative;
-      aspect-ratio: 4 / 3;
       overflow: hidden;
-    }
-    .gallery-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 600ms ease;
-    }
-    .gallery-card:hover .gallery-image img { transform: scale(1.05); }
-    .gallery-status {
-      position: absolute;
-      top: 0.85rem;
-      left: 0.85rem;
-      background: rgba(64, 80, 95, 0.92);
-      color: #fff;
-      padding: 0.3rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-    .gallery-body { padding: 1.25rem 1.4rem 1.5rem; }
-    .gallery-area {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 500;
-    }
-    .gallery-body h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.45rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin: 0.4rem 0 0.5rem;
-    }
-    .gallery-body p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      margin: 0;
-    }
-    .gallery-note {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      margin-top: 2rem;
-      font-style: italic;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 240ms ease, border-color 240ms ease;
     }
 
+    .guide-card:hover { box-shadow: var(--shadow-lg); border-color: rgba(184,139,82,0.18); }
+
+    .guide-header {
+      padding: 1.75rem 1.75rem 1.25rem;
+      cursor: pointer;
+      display: grid;
+      gap: 0.75rem;
+      user-select: none;
+    }
+
+    .guide-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .guide-category {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--gold);
+      background: rgba(184,139,82,0.1);
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .guide-read-time {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .guide-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.25;
+    }
+
+    .guide-teaser {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .guide-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-top: 0.25rem;
+    }
+
+    .guide-toggle-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(184,139,82,0.35);
+      transition: transform 260ms ease;
+      font-size: 0.75rem;
+      line-height: 1;
+    }
+
+    .guide-card.is-open .guide-toggle-icon { transform: rotate(180deg); }
+
+    .guide-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 420ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .guide-card.is-open .guide-body { max-height: 2000px; }
+
+    .guide-body-inner {
+      padding: 0 1.75rem 1.75rem;
+      border-top: 1px solid rgba(46,53,60,0.06);
+    }
+
+    .guide-tips {
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.25rem;
+    }
+
+    .guide-tips li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      font-size: 0.91rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .guide-tips li::before {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.52em;
+      flex-shrink: 0;
+    }
+
+    .guide-tips strong {
+      display: block;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .guide-cta {
+      margin-top: 1.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(46,53,60,0.06);
+    }
+
+    .guides-footer {
+      margin-top: 2.5rem;
+      padding: 1.75rem 2rem;
+      background: linear-gradient(135deg, rgba(64,80,95,0.04), rgba(184,139,82,0.05));
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(184,139,82,0.12);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .guides-footer p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+    .guides-footer strong { display: block; color: var(--navy); font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
+
     @media (max-width: 980px) {
-      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .hero-grid,
+      .guides-grid { grid-template-columns: 1fr; }
+      .guides-footer { grid-template-columns: 1fr; }
       .service-grid,
       .wealth-grid,
       .promise-grid,
@@ -915,7 +1004,6 @@
     }
 
     @media (max-width: 640px) {
-      .gallery-grid { grid-template-columns: 1fr; }
       .hero {
         padding-top: 1.5rem;
       }
@@ -969,8 +1057,8 @@
         <a href="/buyers-and-sellers">Buyers & Sellers</a>
         <a href="/family-wealth-preservation">Family Wealth</a>
         <a href="/mls-search">Search</a>
+        <a href="#guides">Free Guides</a>
         <a href="#process">Process</a>
-        <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -1178,89 +1266,192 @@
       </div>
     </section>
 
-    <section class="section" id="gallery">
+    <!-- ═══════════════════════════════════════════════════
+         FREE GUIDES — add new <article class="guide-card"> blocks to .guides-grid to grow the library.
+         Each card has a .guide-header (always visible) and a .guide-body (expands on click).
+         Copy any existing card, update the category / title / teaser / tips, and you're done.
+    ════════════════════════════════════════════════════ -->
+    <section class="section" id="guides">
       <div class="container">
         <div class="section-head" data-reveal>
-          <span class="section-kicker">Recent Work</span>
-          <h2 class="section-title">A look at properties Kareem has represented across Southern California.</h2>
-          <p class="section-copy">Each home tells a different story — from West Valley estates to view-driven hillside residences. The common thread is a process built around clarity, presentation, and genuine advocacy.</p>
+          <span class="section-kicker">Free Guides</span>
+          <h2 class="section-title">Practical knowledge for buyers, sellers, and owners — written plainly and built to grow.</h2>
+          <p class="section-copy">No fluff, no email required. Click any guide to read it right here. More guides will be added regularly as the most useful topics come up in real client conversations.</p>
         </div>
 
-        <div class="gallery-grid" data-reveal>
-          <article class="gallery-card">
-            <div class="gallery-image">
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="Modern Woodland Hills estate with pool" loading="lazy" />
-              <span class="gallery-status">Sold</span>
+        <div class="guides-grid" data-reveal>
+
+          <!-- ── GUIDE 1: BUYING ─────────────────── -->
+          <article class="guide-card" data-guide>
+            <div class="guide-header" role="button" tabindex="0" aria-expanded="false" aria-controls="guide-buying-body">
+              <div class="guide-meta">
+                <span class="guide-category">Buying</span>
+                <span class="guide-read-time">8 min read</span>
+              </div>
+              <h3 class="guide-title">The Buyer&rsquo;s Playbook: What They Don&rsquo;t Tell You Until It&rsquo;s Too Late</h3>
+              <p class="guide-teaser">From pre-approval to closing day, the moves that protect your money and keep you out of bad deals — before you fall in love with the wrong house.</p>
+              <span class="guide-toggle">Read the guide <span class="guide-toggle-icon">&#8964;</span></span>
             </div>
-            <div class="gallery-body">
-              <span class="gallery-area">Woodland Hills</span>
-              <h3>Contemporary Estate</h3>
-              <p>5 Bed | 6 Bath | 5,400 sqft</p>
+            <div class="guide-body" id="guide-buying-body">
+              <div class="guide-body-inner">
+                <ul class="guide-tips">
+                  <li>
+                    <span></span>
+                    <div><strong>Get pre-approved, not just pre-qualified.</strong> Pre-qualification is a rough estimate based on what you tell a lender. Pre-approval means they have verified your income, assets, and credit. Sellers in a competitive market will not take you seriously without it — and in Southern California, that means most sellers.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>List price is not market value.</strong> A home priced at $1.2M might be worth $1.1M or $1.35M depending on the comps. Understanding the difference between what a seller is asking and what the market actually supports is the most important skill a buyer can develop — or borrow from a good agent.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Decide your non-negotiables before you start touring.</strong> Buyers who tour without clear criteria drift toward homes that feel good in the moment but do not fit their actual life. Write down your three hard requirements before you see your first property. Revisit them after every showing.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Days on market is one of the best negotiating signals you have.</strong> A home at 60+ days is a different conversation than a home that just hit the market. Sellers who have been sitting get realistic. Use the data — it is public information.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Never skip the inspection — even on a new build.</strong> New construction has defects. Older homes have histories. An inspection rarely kills a good deal, but it frequently reveals information that reshapes the price or the terms. Budget $500–$800 and treat it as cheap insurance.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Understand what earnest money means and how to protect it.</strong> Your deposit goes at risk when you remove contingencies. Understand exactly when your money becomes non-refundable and what protections exist if something goes wrong with financing, title, or the property itself.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Ask about the seller&rsquo;s motivation — it shapes your offer strategy.</strong> A seller who needs to close fast is a different negotiation than one who is testing the market. A good agent asks the listing agent directly. That one conversation can be worth tens of thousands of dollars in your offer structure.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Budget 1–2% annually for maintenance and repairs.</strong> A $1.2M home will cost you $12,000–$24,000 per year in upkeep beyond your mortgage. Budget for it before you buy, not after. This number changes the math on what you can actually afford.</div>
+                  </li>
+                </ul>
+                <div class="guide-cta">
+                  <button class="btn btn-primary" type="button" data-prefill-interest="Buying">Talk Through Your Search with Kareem</button>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="gallery-card">
-            <div class="gallery-image">
-              <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80" alt="Encino traditional home with manicured front yard" loading="lazy" />
-              <span class="gallery-status">Represented Buyer</span>
+          <!-- ── GUIDE 2: SELLING ───────────────── -->
+          <article class="guide-card" data-guide>
+            <div class="guide-header" role="button" tabindex="0" aria-expanded="false" aria-controls="guide-selling-body">
+              <div class="guide-meta">
+                <span class="guide-category">Selling</span>
+                <span class="guide-read-time">7 min read</span>
+              </div>
+              <h3 class="guide-title">How to Sell for More: The Moves That Actually Move the Needle</h3>
+              <p class="guide-teaser">Pricing, presentation, timing, and negotiation — the decisions sellers get wrong most often, and how to get them right before the sign goes up.</p>
+              <span class="guide-toggle">Read the guide <span class="guide-toggle-icon">&#8964;</span></span>
             </div>
-            <div class="gallery-body">
-              <span class="gallery-area">Encino</span>
-              <h3>Traditional Family Home</h3>
-              <p>4 Bed | 4 Bath | 3,800 sqft</p>
+            <div class="guide-body" id="guide-selling-body">
+              <div class="guide-body-inner">
+                <ul class="guide-tips">
+                  <li>
+                    <span></span>
+                    <div><strong>Price right from day one.</strong> Overpricing costs you time, negotiating power, and ultimately money. Homes that sit get stigmatized. Buyers assume something is wrong. A well-priced home creates urgency and often draws multiple offers — which is the only situation where a seller truly has leverage.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>First impressions happen online, not at the front door.</strong> Over 95% of buyers start their search on a screen. Professional photography, a thoughtful listing description, and strong online syndication are not optional extras — they determine whether buyers even schedule a showing.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Declutter and depersonalize before a single showing.</strong> Buyers need to picture their life in your home. Personal photos, collections, and excess furniture make that harder. A staged or decluttered home typically sells faster and for more. The cost of storage for 30 days is trivial compared to the upside.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Know your net before you list.</strong> Calculate your expected proceeds after commission, closing costs, outstanding mortgage, and any credits you may need to offer. Many sellers discover after accepting an offer that the number they expected and the number they received are different things.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Consider a pre-listing inspection.</strong> Discovering problems before buyers do puts you in control. You can fix them, price accordingly, or disclose proactively. Surprises during escrow kill deals or cost far more in credits than the repair itself would have.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Timing matters — but not as much as preparation.</strong> Spring and early fall are traditionally stronger seller seasons in Southern California. But a well-prepared home in any market will outperform a poorly presented home in a hot one. Lead with preparation, then optimize timing.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Do not show all your cards when countering.</strong> Counter-offer strategy is as important as the initial pricing. How you respond to the first offer signals how you will handle everything that follows. Countering too quickly or too aggressively both have costs. Work with an agent who knows how to read the buyer.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Disclose everything — it is both legal and strategic.</strong> In California, you are legally required to disclose known material defects. Beyond legal protection, proactive disclosure builds buyer trust and reduces the chance of renegotiation during escrow. Hiding issues is never worth it.</div>
+                  </li>
+                </ul>
+                <div class="guide-cta">
+                  <button class="btn btn-primary" type="button" data-prefill-interest="Selling">Get a Seller Strategy Call</button>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="gallery-card">
-            <div class="gallery-image">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Sherman Oaks contemporary residence" loading="lazy" />
-              <span class="gallery-status">Sold</span>
+          <!-- ── GUIDE 3: OWNERSHIP ─────────────── -->
+          <article class="guide-card" data-guide>
+            <div class="guide-header" role="button" tabindex="0" aria-controls="guide-ownership-body" aria-expanded="false" tabindex="0">
+              <div class="guide-meta">
+                <span class="guide-category">Ownership</span>
+                <span class="guide-read-time">6 min read</span>
+              </div>
+              <h3 class="guide-title">Owning Smarter: How to Protect and Grow Your Equity Over Time</h3>
+              <p class="guide-teaser">What most homeowners never do between buying and selling — the financial habits, smart timing moves, and equity-building strategies that make a real difference over a decade.</p>
+              <span class="guide-toggle">Read the guide <span class="guide-toggle-icon">&#8964;</span></span>
             </div>
-            <div class="gallery-body">
-              <span class="gallery-area">Sherman Oaks</span>
-              <h3>Hillside Modern</h3>
-              <p>4 Bed | 5 Bath | 4,100 sqft</p>
+            <div class="guide-body" id="guide-ownership-body">
+              <div class="guide-body-inner">
+                <ul class="guide-tips">
+                  <li>
+                    <span></span>
+                    <div><strong>One extra mortgage payment per year builds equity faster than most people realize.</strong> Applying even one additional principal payment annually on a 30-year mortgage can shave years off the loan and save tens of thousands in interest. You do not need to refinance to do this — just pay it directly toward principal.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Know your home&rsquo;s value at least once a year.</strong> Your equity position affects your insurance coverage, your ability to access a HELOC, your property tax appeal, and your net worth picture. A free annual check with a trusted agent takes 15 minutes and can change how you think about your next move.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Refinance when rates drop meaningfully — not just slightly.</strong> The general rule of thumb is that refinancing makes sense when your new rate is at least 0.75–1% lower than your current one, and you plan to stay long enough to recoup the closing costs. Calculate your break-even point before signing anything.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Keep records of every home improvement — they affect your tax basis.</strong> When you sell, your taxable gain is reduced by the cost of capital improvements (not repairs). New roof, kitchen remodel, HVAC replacement — document everything with receipts. Over a decade, this can be a significant number.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Appeal your property taxes if the market softens.</strong> Property tax assessments do not always reflect real-time market conditions. If values in your area have declined or your home was assessed above its actual value, you may have grounds to appeal and reduce your annual bill. In California, this process is accessible and often successful.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>A HELOC can serve as a low-cost emergency fund.</strong> A Home Equity Line of Credit gives you access to your equity without requiring you to sell or refinance. When used responsibly, it is one of the lowest-cost forms of credit available. Set it up when your finances are strong — before you need it.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>Do not over-improve for your neighborhood.</strong> Every neighborhood has a price ceiling. Spending $200k on a renovation in a neighborhood where homes top out at $900k may not return what you put in. Improvements that align with local buyer expectations create equity. Improvements that exceed them create personal enjoyment — which is fine, but know the difference.</div>
+                  </li>
+                  <li>
+                    <span></span>
+                    <div><strong>An ADU or rental unit can fundamentally change your financial picture.</strong> California has made it easier than ever to add an Accessory Dwelling Unit to a single-family lot. A well-placed ADU can offset your mortgage significantly, increase your property&rsquo;s value, and open a path to long-term rental income without buying a second property.</div>
+                  </li>
+                </ul>
+                <div class="guide-cta">
+                  <button class="btn btn-primary" type="button" data-prefill-interest="Ownership Strategy">Talk Long-Term Ownership Strategy</button>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="gallery-card">
-            <div class="gallery-image">
-              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80" alt="Tarzana residence with circular driveway" loading="lazy" />
-              <span class="gallery-status">Listed</span>
-            </div>
-            <div class="gallery-body">
-              <span class="gallery-area">Tarzana</span>
-              <h3>Gated Compound</h3>
-              <p>5 Bed | 5 Bath | 4,600 sqft</p>
-            </div>
-          </article>
+        </div><!-- /.guides-grid -->
 
-          <article class="gallery-card">
-            <div class="gallery-image">
-              <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=900&q=80" alt="Calabasas guard-gated luxury home" loading="lazy" />
-              <span class="gallery-status">Represented Buyer</span>
-            </div>
-            <div class="gallery-body">
-              <span class="gallery-area">Calabasas</span>
-              <h3>Guard-Gated Retreat</h3>
-              <p>6 Bed | 7 Bath | 6,200 sqft</p>
-            </div>
-          </article>
-
-          <article class="gallery-card">
-            <div class="gallery-image">
-              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80" alt="Studio City warm modern home" loading="lazy" />
-              <span class="gallery-status">Sold</span>
-            </div>
-            <div class="gallery-body">
-              <span class="gallery-area">Studio City</span>
-              <h3>Warm Modern</h3>
-              <p>4 Bed | 4 Bath | 3,400 sqft</p>
-            </div>
-          </article>
+        <div class="guides-footer" data-reveal>
+          <div>
+            <strong>More guides coming regularly.</strong>
+            <p>Topics in the pipeline include: negotiating in a competitive market, understanding contingencies, timing a move-up, ADU basics for Southern California homeowners, and how to read a disclosure package. Have a topic you want covered? Tell Kareem directly.</p>
+          </div>
+          <a class="btn btn-secondary" href="#contact">Request a Topic</a>
         </div>
-
-        <p class="gallery-note" data-reveal>Address details available on request. Reach out to discuss a specific property type, neighborhood, or price range.</p>
       </div>
     </section>
 
@@ -1294,7 +1485,7 @@
           <div>
             <span class="section-kicker">From Kareem Jamal</span>
             <h2 class="section-title" style="font-size:1.75rem;margin-bottom:1rem;">A direct message about what representation should actually feel like.</h2>
-            <p style="color:var(--text-muted);line-height:1.7;">Real estate is one of the biggest decisions you will make. Kareem's commitment is to show up with honesty, market knowledge, and the kind of communication that keeps you fully informed at every step — not just when things are going smoothly.</p>
+            <p style="color:var(--muted);line-height:1.7;">Real estate is one of the biggest decisions you will make. Kareem's commitment is to show up with honesty, market knowledge, and the kind of communication that keeps you fully informed at every step — not just when things are going smoothly.</p>
             <a class="btn btn-primary" href="#contact" style="margin-top:1.5rem;display:inline-block;">Start the Conversation</a>
           </div>
           <div>
@@ -1536,9 +1727,27 @@
       });
     }
 
+    // Guide accordion
+    document.querySelectorAll("[data-guide]").forEach((card) => {
+      const header = card.querySelector(".guide-header");
+      const body = card.querySelector(".guide-body");
+      const toggle = (open) => {
+        card.classList.toggle("is-open", open);
+        header.setAttribute("aria-expanded", String(open));
+        if (open) body.style.maxHeight = body.scrollHeight + "px";
+        else body.style.maxHeight = "0";
+      };
+      header.addEventListener("click", () => toggle(!card.classList.contains("is-open")));
+      header.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(!card.classList.contains("is-open")); } });
+    });
+
+    // Guide CTA buttons → scroll to contact and prefill intent
     prefillLinks.forEach((link) => {
       link.addEventListener("click", () => {
         setIntent(link.dataset.prefillInterest || "");
+        if (link.tagName === "BUTTON") {
+          document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+        }
       });
     });
 

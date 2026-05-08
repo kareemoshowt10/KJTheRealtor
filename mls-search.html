@@ -719,6 +719,24 @@
     body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+    /* ── Neighborhood cards ── */
+    .neighborhoods-section { padding: 4rem 0 0; }
+    .neighborhoods-head { display: grid; gap: 0.75rem; margin-bottom: 2rem; max-width: 720px; }
+    .neighborhoods-head h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.04em; }
+    .neighborhoods-head p { color: var(--muted); line-height: 1.75; }
+    .neighborhood-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+    .neighborhood-card { display: grid; gap: 0.85rem; padding: 1.7rem 1.6rem 1.5rem; border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(251, 246, 238, 0.88)); border: 1px solid rgba(46, 53, 60, 0.08); box-shadow: var(--shadow-md); transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; position: relative; overflow: hidden; }
+    .neighborhood-card:hover { transform: translateY(-4px); box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12); border-color: rgba(184, 139, 82, 0.18); }
+    .neighborhood-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), rgba(201, 133, 105, 0.7)); }
+    .neighborhood-tag { display: inline-flex; width: fit-content; padding: 0.4rem 0.75rem; border-radius: 999px; background: rgba(184, 139, 82, 0.1); color: var(--gold); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid rgba(184, 139, 82, 0.18); }
+    .neighborhood-card h3 { font-family: "Cormorant Garamond", serif; font-size: 1.65rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.03em; }
+    .neighborhood-card p { color: var(--muted); line-height: 1.7; font-size: 0.92rem; }
+    .neighborhood-band { display: grid; grid-template-columns: auto 1fr; gap: 0.7rem; align-items: center; padding: 0.7rem 0.85rem; border-radius: 12px; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(46, 53, 60, 0.06); }
+    .neighborhood-band span:first-child { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); }
+    .neighborhood-band span:last-child { color: var(--muted); font-size: 0.88rem; line-height: 1.4; }
+    .neighborhood-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.2rem; }
+    .neighborhood-actions .btn { font-size: 0.7rem; padding: 0.7rem 0.95rem; min-height: 42px; }
+
     /* ── Buyer toolkit ── */
     .toolkit-section { padding: 4rem 0 1rem; }
     .toolkit-head { display: grid; gap: 0.75rem; margin-bottom: 2rem; max-width: 720px; }
@@ -769,6 +787,7 @@
       .shortcut-grid,
       .concierge-grid,
       .support-grid,
+      .neighborhood-grid,
       .toolkit-grid,
       .footer-grid {
         grid-template-columns: 1fr;
@@ -889,6 +908,102 @@
             <p>That is normal. This page can still work as a lighter first step before touring seriously or writing anything.</p>
             <div class="btn-row" style="margin-top: 1rem;">
               <button class="toolbar-btn" type="button" data-prefill-intent="Buyer Strategy">Talk Through Timing</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="neighborhoods-section" id="neighborhoods">
+      <div class="container">
+        <div class="neighborhoods-head">
+          <span class="eyebrow">Focus Areas</span>
+          <h2>Browse by neighborhood, then search with context.</h2>
+          <p>A snapshot of the Southern California areas where Kareem works most often. Each card opens the live MLS so the search starts with the right area in mind.</p>
+        </div>
+
+        <div class="neighborhood-grid">
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Office Base</span>
+            <h3>Woodland Hills</h3>
+            <p>Polished West Valley living with a strong family base, walkable pockets, and quiet hillside enclaves.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$900k – $2.5M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Woodland Hills">Search Woodland Hills</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Woodland Hills">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Established Luxury</span>
+            <h3>Encino</h3>
+            <p>Larger lots, mature trees, and a long-standing reputation for established Valley luxury living.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$1.2M – $5M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Encino">Search Encino</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Encino">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Lifestyle Hub</span>
+            <h3>Sherman Oaks</h3>
+            <p>Walkable Ventura Boulevard energy, strong schools, and a balance of condos, classic homes, and view properties.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$800k – $3M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Sherman Oaks">Search Sherman Oaks</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Sherman Oaks">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Value &amp; Prestige</span>
+            <h3>Tarzana</h3>
+            <p>Quieter pockets and bigger backyards, with both move-up homes and notable estate streets south of the boulevard.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$950k – $4M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Tarzana">Search Tarzana</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Tarzana">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Premier Estates</span>
+            <h3>Calabasas</h3>
+            <p>Gated communities, hillside privacy, and a recognized name for clients prioritizing space, security, and lifestyle.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$1.5M – $10M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Calabasas">Search Calabasas</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Calabasas">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Creative Pocket</span>
+            <h3>Studio City</h3>
+            <p>A creative-leaning enclave with cafes, hiking, and a mix of bungalows, mid-century homes, and view properties.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$1M – $4M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Studio City">Search Studio City</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Studio City">Ask About It</button>
             </div>
           </article>
         </div>
@@ -1292,6 +1407,34 @@
     prefillIntentButtons.forEach((button) => {
       button.addEventListener("click", () => {
         setIntent(button.dataset.prefillIntent || "");
+        document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // ── Neighborhood actions ──
+    document.querySelectorAll("[data-area-search]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.getElementById("search")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (searchStatusLine) {
+          const area = btn.dataset.areaSearch;
+          searchStatusLine.textContent = `Live search ready — try ${area} in the location filter.`;
+        }
+      });
+    });
+    document.querySelectorAll("[data-area-ask]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const area = btn.dataset.areaAsk || "";
+        setIntent("Curated Search");
+        const areaInput = document.getElementById("lead-area");
+        if (areaInput && !areaInput.value.trim()) areaInput.value = area;
+        const messageField = document.getElementById("lead-message");
+        if (messageField) {
+          const note = `I'd like guidance on ${area}.`;
+          const existing = messageField.value.trim();
+          if (!existing.includes(area)) {
+            messageField.value = existing ? `${existing}\n\n${note}` : note;
+          }
+        }
         document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });

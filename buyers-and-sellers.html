@@ -820,7 +820,80 @@
     body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .gallery-card {
+      background: var(--panel);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(46, 53, 60, 0.06);
+      transition: transform 240ms ease, box-shadow 240ms ease;
+    }
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .gallery-image {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+    .gallery-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 600ms ease;
+    }
+    .gallery-card:hover .gallery-image img { transform: scale(1.05); }
+    .gallery-status {
+      position: absolute;
+      top: 0.85rem;
+      left: 0.85rem;
+      background: rgba(64, 80, 95, 0.92);
+      color: #fff;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .gallery-body { padding: 1.25rem 1.4rem 1.5rem; }
+    .gallery-area {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .gallery-body h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin: 0.4rem 0 0.5rem;
+    }
+    .gallery-body p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin: 0;
+    }
+    .gallery-note {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 2rem;
+      font-style: italic;
+    }
+
     @media (max-width: 980px) {
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hero-grid,
       .service-grid,
       .wealth-grid,
@@ -842,6 +915,7 @@
     }
 
     @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: 1fr; }
       .hero {
         padding-top: 1.5rem;
       }
@@ -896,6 +970,7 @@
         <a href="/family-wealth-preservation">Family Wealth</a>
         <a href="/mls-search">Search</a>
         <a href="#process">Process</a>
+        <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -1100,6 +1175,92 @@
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-kicker">Recent Work</span>
+          <h2 class="section-title">A look at properties Kareem has represented across Southern California.</h2>
+          <p class="section-copy">Each home tells a different story — from West Valley estates to view-driven hillside residences. The common thread is a process built around clarity, presentation, and genuine advocacy.</p>
+        </div>
+
+        <div class="gallery-grid" data-reveal>
+          <article class="gallery-card">
+            <div class="gallery-image">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80" alt="Modern Woodland Hills estate with pool" loading="lazy" />
+              <span class="gallery-status">Sold</span>
+            </div>
+            <div class="gallery-body">
+              <span class="gallery-area">Woodland Hills</span>
+              <h3>Contemporary Estate</h3>
+              <p>5 Bed | 6 Bath | 5,400 sqft</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-image">
+              <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80" alt="Encino traditional home with manicured front yard" loading="lazy" />
+              <span class="gallery-status">Represented Buyer</span>
+            </div>
+            <div class="gallery-body">
+              <span class="gallery-area">Encino</span>
+              <h3>Traditional Family Home</h3>
+              <p>4 Bed | 4 Bath | 3,800 sqft</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-image">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Sherman Oaks contemporary residence" loading="lazy" />
+              <span class="gallery-status">Sold</span>
+            </div>
+            <div class="gallery-body">
+              <span class="gallery-area">Sherman Oaks</span>
+              <h3>Hillside Modern</h3>
+              <p>4 Bed | 5 Bath | 4,100 sqft</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-image">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80" alt="Tarzana residence with circular driveway" loading="lazy" />
+              <span class="gallery-status">Listed</span>
+            </div>
+            <div class="gallery-body">
+              <span class="gallery-area">Tarzana</span>
+              <h3>Gated Compound</h3>
+              <p>5 Bed | 5 Bath | 4,600 sqft</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-image">
+              <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=900&q=80" alt="Calabasas guard-gated luxury home" loading="lazy" />
+              <span class="gallery-status">Represented Buyer</span>
+            </div>
+            <div class="gallery-body">
+              <span class="gallery-area">Calabasas</span>
+              <h3>Guard-Gated Retreat</h3>
+              <p>6 Bed | 7 Bath | 6,200 sqft</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-image">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80" alt="Studio City warm modern home" loading="lazy" />
+              <span class="gallery-status">Sold</span>
+            </div>
+            <div class="gallery-body">
+              <span class="gallery-area">Studio City</span>
+              <h3>Warm Modern</h3>
+              <p>4 Bed | 4 Bath | 3,400 sqft</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="gallery-note" data-reveal>Address details available on request. Reach out to discuss a specific property type, neighborhood, or price range.</p>
       </div>
     </section>
 

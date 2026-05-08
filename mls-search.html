@@ -719,11 +719,57 @@
     body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+    /* ── Buyer toolkit ── */
+    .toolkit-section { padding: 4rem 0 1rem; }
+    .toolkit-head { display: grid; gap: 0.75rem; margin-bottom: 2rem; max-width: 720px; }
+    .toolkit-head h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.04em; }
+    .toolkit-head p { color: var(--muted); line-height: 1.75; }
+    .toolkit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+    .toolkit-card { background: var(--panel); border: 1px solid rgba(46, 53, 60, 0.08); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: 2rem; display: grid; gap: 1.1rem; transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
+    .toolkit-card:hover { transform: translateY(-4px); box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12); border-color: rgba(184, 139, 82, 0.16); }
+    .toolkit-card h3 { font-family: "Cormorant Garamond", serif; font-size: 1.55rem; font-weight: 400; letter-spacing: -0.03em; }
+    .toolkit-card p { color: var(--muted); line-height: 1.75; font-size: 0.95rem; }
+    .toolkit-card .field label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); }
+    .toolkit-card input, .toolkit-card select { width: 100%; border-radius: 14px; border: 1px solid rgba(46, 53, 60, 0.14); background: rgba(255, 255, 255, 0.92); color: var(--ink); padding: 0.7rem 0.85rem; min-height: 44px; font-size: 0.95rem; }
+    .toolkit-card input:focus-visible, .toolkit-card select:focus-visible { outline: none; border-color: rgba(184, 139, 82, 0.5); box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.1); }
+    .calc-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .calc-fields .field { display: grid; gap: 0.35rem; }
+    .calc-result { padding: 1rem 1.1rem; border-radius: 16px; background: linear-gradient(135deg, rgba(184, 139, 82, 0.1), rgba(201, 133, 105, 0.06)); border: 1px solid rgba(184, 139, 82, 0.18); display: grid; gap: 0.35rem; }
+    .calc-result strong { font-family: "Cormorant Garamond", serif; font-size: 1.95rem; font-weight: 500; color: var(--ink); line-height: 1; letter-spacing: -0.02em; }
+    .calc-result span { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 800; }
+    .calc-result em { font-style: normal; color: var(--muted); font-size: 0.85rem; line-height: 1.55; }
+    .quiz-step { display: grid; gap: 0.7rem; }
+    .quiz-question { font-size: 0.9rem; font-weight: 700; color: var(--ink); line-height: 1.5; }
+    .quiz-progress { display: flex; gap: 0.3rem; margin-bottom: 0.4rem; }
+    .quiz-progress span { flex: 1; height: 4px; border-radius: 999px; background: rgba(46, 53, 60, 0.08); transition: background-color 220ms ease; }
+    .quiz-progress span.is-done { background: var(--gold); }
+    .quiz-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .quiz-options button { appearance: none; border: 1px solid rgba(46, 53, 60, 0.14); background: rgba(255, 255, 255, 0.86); color: var(--ink); border-radius: 999px; padding: 0.6rem 0.9rem; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease; }
+    .quiz-options button:hover, .quiz-options button:focus-visible { outline: none; transform: translateY(-1px); border-color: rgba(184, 139, 82, 0.4); background: rgba(184, 139, 82, 0.08); }
+    .quiz-result { display: none; gap: 0.85rem; }
+    .quiz-result.is-visible { display: grid; }
+    .quiz-result .badge { display: inline-flex; width: fit-content; padding: 0.45rem 0.8rem; border-radius: 999px; background: rgba(184, 139, 82, 0.12); color: var(--gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+    .quiz-result strong { font-family: "Cormorant Garamond", serif; font-size: 1.4rem; font-weight: 500; line-height: 1.2; }
+    .quiz-result p { color: var(--muted); line-height: 1.7; font-size: 0.92rem; }
+    .saved-input { display: grid; gap: 0.5rem; }
+    .saved-input textarea { width: 100%; min-height: 70px; resize: vertical; border-radius: 14px; border: 1px solid rgba(46, 53, 60, 0.14); background: rgba(255, 255, 255, 0.92); padding: 0.7rem 0.85rem; font-size: 0.92rem; }
+    .saved-input textarea:focus-visible { outline: none; border-color: rgba(184, 139, 82, 0.5); box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.1); }
+    .saved-list { display: grid; gap: 0.55rem; max-height: 220px; overflow-y: auto; padding-right: 0.2rem; }
+    .saved-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; align-items: start; padding: 0.7rem 0.85rem; border-radius: 12px; background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(46, 53, 60, 0.08); }
+    .saved-item-body { display: grid; gap: 0.2rem; min-width: 0; }
+    .saved-item-body strong { font-size: 0.86rem; font-weight: 700; word-break: break-word; line-height: 1.4; color: var(--ink); }
+    .saved-item-body span { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .saved-remove { appearance: none; background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0.2rem 0.4rem; border-radius: 8px; transition: background-color 180ms ease, color 180ms ease; }
+    .saved-remove:hover, .saved-remove:focus-visible { outline: none; background: rgba(155, 69, 55, 0.1); color: #9b4537; }
+    .saved-empty { color: var(--muted); font-size: 0.88rem; line-height: 1.6; padding: 0.8rem 0.95rem; border-radius: 12px; background: rgba(255, 255, 255, 0.6); border: 1px dashed rgba(46, 53, 60, 0.14); }
+    .toolkit-card .btn { font-size: 0.72rem; padding: 0.78rem 1.1rem; min-height: 46px; }
+
     @media (max-width: 980px) {
       .hero-grid,
       .shortcut-grid,
       .concierge-grid,
       .support-grid,
+      .toolkit-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
@@ -928,6 +974,85 @@
             </ul>
             <div class="btn-row" style="margin-top: 1rem;">
               <a class="btn btn-primary" href="/#contact">Schedule a Consultation</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="toolkit-section" id="buyer-toolkit">
+      <div class="container">
+        <div class="toolkit-head">
+          <span class="eyebrow">Buyer Toolkit</span>
+          <h2>Tools that turn browsing into a real plan.</h2>
+          <p>Get a payment estimate, a quick read on your buyer readiness, and a place to save listings you want Kareem to review &mdash; all without leaving the page.</p>
+        </div>
+
+        <div class="toolkit-grid">
+          <article class="toolkit-card" id="payment-card">
+            <h3>Monthly payment estimator</h3>
+            <p>A quick estimate of principal and interest. Property tax and insurance are added on top so the number reflects more of the real cost.</p>
+            <div class="calc-fields">
+              <div class="field">
+                <label for="calc-price">Home price</label>
+                <input id="calc-price" type="number" inputmode="numeric" min="0" step="10000" value="950000" />
+              </div>
+              <div class="field">
+                <label for="calc-down">Down payment %</label>
+                <input id="calc-down" type="number" inputmode="numeric" min="0" max="100" step="1" value="20" />
+              </div>
+              <div class="field">
+                <label for="calc-rate">Rate %</label>
+                <input id="calc-rate" type="number" inputmode="decimal" min="0" max="20" step="0.05" value="6.75" />
+              </div>
+              <div class="field">
+                <label for="calc-term">Term (years)</label>
+                <select id="calc-term">
+                  <option value="30" selected>30</option>
+                  <option value="20">20</option>
+                  <option value="15">15</option>
+                </select>
+              </div>
+            </div>
+            <div class="calc-result">
+              <span>Estimated monthly</span>
+              <strong id="calc-output">$0</strong>
+              <em id="calc-detail">Principal &amp; interest only. Taxes and insurance vary by property.</em>
+            </div>
+            <p style="font-size: 0.78rem; opacity: 0.75;">Estimate only. Talk with a lender for a real pre-approval and accurate numbers.</p>
+          </article>
+
+          <article class="toolkit-card" id="readiness-card">
+            <h3>Buyer readiness check</h3>
+            <p>Five quick questions. The result becomes a personalized next step you can send straight to Kareem.</p>
+            <div class="quiz-progress" id="quiz-progress" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="quiz-step" id="quiz-step" aria-live="polite"></div>
+            <div class="quiz-result" id="quiz-result">
+              <span class="badge" id="quiz-badge">Result</span>
+              <strong id="quiz-headline"></strong>
+              <p id="quiz-detail"></p>
+              <div class="btn-row" style="margin-top: 0.3rem;">
+                <button class="btn btn-primary" type="button" id="quiz-send">Send My Profile to Kareem</button>
+                <button class="btn btn-secondary" type="button" id="quiz-restart">Retake</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="toolkit-card" id="saved-card">
+            <h3>Save listings to send Kareem</h3>
+            <p>Paste a listing link or address, add a quick note, and save it locally. When the list is ready, send it all at once.</p>
+            <div class="saved-input">
+              <input id="saved-link" type="text" placeholder="Listing link or address" />
+              <textarea id="saved-note" placeholder="Why this one caught your eye (optional)"></textarea>
+              <div class="btn-row">
+                <button class="btn btn-primary" type="button" id="saved-add">Save Property</button>
+              </div>
+            </div>
+            <div class="saved-list" id="saved-list" aria-live="polite"></div>
+            <div class="btn-row">
+              <button class="btn btn-secondary" type="button" id="saved-send">Send My List to Kareem</button>
             </div>
           </article>
         </div>
@@ -1170,6 +1295,244 @@
         document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
+
+    // ── Mortgage estimator ──
+    const calcPrice = document.getElementById("calc-price");
+    const calcDown = document.getElementById("calc-down");
+    const calcRate = document.getElementById("calc-rate");
+    const calcTerm = document.getElementById("calc-term");
+    const calcOutput = document.getElementById("calc-output");
+    const calcDetail = document.getElementById("calc-detail");
+    const fmt = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+    const recalcPayment = () => {
+      if (!calcPrice || !calcOutput) return;
+      const price = Math.max(0, Number(calcPrice.value) || 0);
+      const downPct = Math.min(100, Math.max(0, Number(calcDown.value) || 0));
+      const rate = Math.max(0, Number(calcRate.value) || 0) / 100 / 12;
+      const months = (Number(calcTerm.value) || 30) * 12;
+      const loan = price * (1 - downPct / 100);
+      let payment = 0;
+      if (loan > 0 && months > 0) {
+        payment = rate === 0 ? loan / months : (loan * rate) / (1 - Math.pow(1 + rate, -months));
+      }
+      calcOutput.textContent = fmt(payment);
+      calcDetail.textContent = `Loan amount ${fmt(loan)} · ${calcTerm.value}-yr fixed at ${Number(calcRate.value).toFixed(2)}%`;
+    };
+
+    [calcPrice, calcDown, calcRate, calcTerm].forEach((el) => {
+      if (el) el.addEventListener("input", recalcPayment);
+    });
+    recalcPayment();
+
+    // ── Readiness quiz ──
+    const quizQuestions = [
+      { q: "When are you hoping to make a move?", options: [
+        { label: "In 30 days", score: 25, tag: "Ready now" },
+        { label: "1–3 months", score: 20, tag: "Within 3 months" },
+        { label: "3–6 months", score: 14, tag: "Within 6 months" },
+        { label: "Just exploring", score: 6, tag: "Browsing early" }
+      ]},
+      { q: "Have you talked to a lender?", options: [
+        { label: "Pre-approved", score: 25 },
+        { label: "Pre-qualified", score: 18 },
+        { label: "Not yet", score: 6 }
+      ]},
+      { q: "How clear is your budget?", options: [
+        { label: "Locked in", score: 20 },
+        { label: "A range", score: 14 },
+        { label: "Still figuring it out", score: 6 }
+      ]},
+      { q: "Are you set on a neighborhood?", options: [
+        { label: "Yes, specific area", score: 15 },
+        { label: "A few in mind", score: 12 },
+        { label: "Wide open", score: 6 }
+      ]},
+      { q: "What's the priority right now?", options: [
+        { label: "Find the home", score: 15, intent: "Curated Search" },
+        { label: "Review a property", score: 14, intent: "Property Review" },
+        { label: "Build the strategy", score: 12, intent: "Buyer Strategy" }
+      ]}
+    ];
+    const quizStepEl = document.getElementById("quiz-step");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResultEl = document.getElementById("quiz-result");
+    const quizBadge = document.getElementById("quiz-badge");
+    const quizHeadline = document.getElementById("quiz-headline");
+    const quizDetail = document.getElementById("quiz-detail");
+    const quizSend = document.getElementById("quiz-send");
+    const quizRestart = document.getElementById("quiz-restart");
+    let quizState = { idx: 0, answers: [] };
+
+    const renderQuizStep = () => {
+      if (!quizStepEl) return;
+      const step = quizQuestions[quizState.idx];
+      quizStepEl.innerHTML = "";
+      const q = document.createElement("p");
+      q.className = "quiz-question";
+      q.textContent = `Q${quizState.idx + 1}. ${step.q}`;
+      const opts = document.createElement("div");
+      opts.className = "quiz-options";
+      step.options.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = opt.label;
+        btn.addEventListener("click", () => {
+          quizState.answers.push(opt);
+          if (quizProgress) quizProgress.children[quizState.idx]?.classList.add("is-done");
+          quizState.idx += 1;
+          if (quizState.idx >= quizQuestions.length) {
+            renderQuizResult();
+          } else {
+            renderQuizStep();
+          }
+        });
+        opts.appendChild(btn);
+      });
+      quizStepEl.append(q, opts);
+      quizResultEl?.classList.remove("is-visible");
+    };
+
+    const renderQuizResult = () => {
+      if (!quizResultEl) return;
+      const total = quizState.answers.reduce((sum, a) => sum + a.score, 0);
+      const tag = quizState.answers[0]?.tag || "";
+      const intent = quizState.answers.find((a) => a.intent)?.intent || "Buyer Strategy";
+      let badge, headline, detail;
+      if (total >= 80) {
+        badge = "Ready to Move";
+        headline = "You're set up to act on the right home.";
+        detail = "Timing, financing, and direction are aligned. The next step is real conversations on real properties — Kareem can move quickly with you.";
+      } else if (total >= 55) {
+        badge = "Almost There";
+        headline = "Close — a few decisions left to lock in.";
+        detail = "You have most of the pieces. A short strategy call clarifies the rest so the search gets focused before you tour seriously.";
+      } else {
+        badge = "Still Exploring";
+        headline = "Earlier stage — and that's a great time to talk.";
+        detail = "Early conversations are often the most useful. Kareem can help you frame the search, talk through timing, and avoid wasted tours.";
+      }
+      quizBadge.textContent = badge;
+      quizHeadline.textContent = headline;
+      quizDetail.textContent = detail;
+      quizResultEl.classList.add("is-visible");
+      quizStepEl.innerHTML = "";
+      if (quizSend) quizSend.dataset.intent = intent;
+      if (quizSend) quizSend.dataset.summary = `Readiness: ${badge} (${total}/100). Timing: ${tag}.`;
+    };
+
+    if (quizRestart) {
+      quizRestart.addEventListener("click", () => {
+        quizState = { idx: 0, answers: [] };
+        if (quizProgress) Array.from(quizProgress.children).forEach((c) => c.classList.remove("is-done"));
+        renderQuizStep();
+      });
+    }
+
+    if (quizSend) {
+      quizSend.addEventListener("click", () => {
+        const intent = quizSend.dataset.intent || "Buyer Strategy";
+        const summary = quizSend.dataset.summary || "";
+        setIntent(intent);
+        const messageField = document.getElementById("lead-message");
+        if (messageField) {
+          const existing = messageField.value.trim();
+          messageField.value = existing ? `${existing}\n\n${summary}` : summary;
+        }
+        document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    renderQuizStep();
+
+    // ── Saved listings ──
+    const SAVED_KEY = "kareem-jamal-saved-listings";
+    const savedLink = document.getElementById("saved-link");
+    const savedNote = document.getElementById("saved-note");
+    const savedAdd = document.getElementById("saved-add");
+    const savedListEl = document.getElementById("saved-list");
+    const savedSend = document.getElementById("saved-send");
+
+    const getSaved = () => {
+      try { return JSON.parse(window.localStorage.getItem(SAVED_KEY) || "[]"); } catch { return []; }
+    };
+    const setSaved = (items) => window.localStorage.setItem(SAVED_KEY, JSON.stringify(items));
+
+    const renderSaved = () => {
+      if (!savedListEl) return;
+      const items = getSaved();
+      savedListEl.innerHTML = "";
+      if (!items.length) {
+        const empty = document.createElement("div");
+        empty.className = "saved-empty";
+        empty.textContent = "Nothing saved yet. Add a listing link or address above.";
+        savedListEl.appendChild(empty);
+        return;
+      }
+      items.forEach((item) => {
+        const row = document.createElement("div");
+        row.className = "saved-item";
+        const body = document.createElement("div");
+        body.className = "saved-item-body";
+        const title = document.createElement("strong");
+        title.textContent = item.link;
+        body.appendChild(title);
+        if (item.note) {
+          const note = document.createElement("span");
+          note.textContent = item.note;
+          body.appendChild(note);
+        }
+        const remove = document.createElement("button");
+        remove.className = "saved-remove";
+        remove.type = "button";
+        remove.setAttribute("aria-label", "Remove saved listing");
+        remove.textContent = "×";
+        remove.addEventListener("click", () => {
+          setSaved(getSaved().filter((i) => i.id !== item.id));
+          renderSaved();
+        });
+        row.append(body, remove);
+        savedListEl.appendChild(row);
+      });
+    };
+
+    if (savedAdd) {
+      savedAdd.addEventListener("click", () => {
+        const link = (savedLink?.value || "").trim();
+        const note = (savedNote?.value || "").trim();
+        if (!link) {
+          savedLink?.focus();
+          return;
+        }
+        const items = getSaved();
+        items.unshift({ id: `${Date.now()}`, link, note, savedAt: new Date().toISOString() });
+        setSaved(items);
+        if (savedLink) savedLink.value = "";
+        if (savedNote) savedNote.value = "";
+        renderSaved();
+      });
+    }
+
+    if (savedSend) {
+      savedSend.addEventListener("click", () => {
+        const items = getSaved();
+        if (!items.length) {
+          savedListEl?.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        setIntent("Property Review");
+        const messageField = document.getElementById("lead-message");
+        if (messageField) {
+          const lines = items.map((i, n) => `${n + 1}. ${i.link}${i.note ? ` — ${i.note}` : ""}`).join("\n");
+          const header = `Saved listings I want reviewed:\n${lines}`;
+          const existing = messageField.value.trim();
+          messageField.value = existing ? `${existing}\n\n${header}` : header;
+        }
+        document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    renderSaved();
 
     if (conciergeForm && formStatus) {
       conciergeForm.addEventListener("submit", async (event) => {

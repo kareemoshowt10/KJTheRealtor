@@ -1215,6 +1215,98 @@
       opacity: 1;
     }
     /* ------------------------ */
+  
+    /* ════════════════════════════════════════════
+       UNIFIED NAVIGATION (overrides prior styles)
+       ════════════════════════════════════════════ */
+    .site-header { position: sticky; top: 0; z-index: 100; padding: 1rem 0; background: linear-gradient(180deg, rgba(255,252,247,0.95), rgba(255,252,247,0.7)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(46,53,60,0.04); }
+    .site-header .container.nav-shell {
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 0.75rem; padding: 0.7rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      background: rgba(255, 252, 247, 0.85);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 18px 40px rgba(55, 46, 36, 0.08);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .site-header .brand { display: grid; gap: 0.15rem; padding-inline: 0.4rem; flex-shrink: 0; text-decoration: none; }
+    .site-header .brand-name { font-family: "Cormorant Garamond", serif; font-size: 1.4rem; line-height: 1; color: var(--ink, #1a1a1a); font-weight: 600; letter-spacing: -0.01em; }
+    .site-header .brand-role { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted, #6b6b6b); font-weight: 600; }
+    .site-header .nav-links {
+      display: flex; flex-wrap: nowrap; align-items: center; gap: 0.1rem;
+      margin-left: auto; margin-right: 0.4rem;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--muted, #6b6b6b);
+      list-style: none; padding: 0;
+    }
+    .site-header .nav-links a {
+      padding: 0.55rem 0.9rem; border-radius: 999px;
+      transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+      white-space: nowrap; text-decoration: none; color: inherit;
+    }
+    .site-header .nav-links a:hover, .site-header .nav-links a:focus-visible {
+      background: rgba(184, 139, 82, 0.12); color: var(--ink, #1a1a1a); outline: none; transform: translateY(-1px);
+    }
+    .site-header .nav-links a.is-active { background: rgba(184, 139, 82, 0.16); color: var(--gold, #b88b52); }
+    .site-header .nav-cta {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.7rem 1.3rem; border-radius: 999px;
+      background: var(--ink, #1a1a1a); color: #fff;
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      white-space: nowrap; flex-shrink: 0; text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+    .site-header .nav-cta:hover, .site-header .nav-cta:focus-visible {
+      background: var(--gold, #b88b52); color: #fff; transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(184, 139, 82, 0.4); outline: none;
+    }
+    .site-header .nav-toggle {
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      width: 42px; height: 42px; padding: 9px 10px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(46,53,60,0.1); border-radius: 999px;
+      cursor: pointer; flex-shrink: 0;
+      margin-left: auto;
+      transition: background-color 180ms ease;
+    }
+    .site-header .nav-toggle:hover { background: rgba(184, 139, 82, 0.1); }
+    .site-header .nav-toggle:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.18); }
+    .site-header .nav-toggle span {
+      display: block; height: 1.5px; background: var(--ink, #1a1a1a); border-radius: 2px;
+      transform-origin: center; transition: transform 220ms ease, opacity 220ms ease;
+    }
+    body.nav-open .site-header .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    body.nav-open .site-header .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    body.nav-open .site-header .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Hide any legacy duplicate toggle */
+    .site-header .menu-toggle { display: none !important; }
+
+    @media (max-width: 980px) {
+      .site-header .nav-toggle { display: flex; }
+      .site-header .container.nav-shell { flex-wrap: wrap; border-radius: 28px; padding: 0.65rem 0.85rem 0.65rem 1rem; }
+      .site-header .brand { flex: 1; min-width: 0; }
+      .site-header .nav-cta { order: 2; padding: 0.55rem 1rem; font-size: 0.7rem; }
+      .site-header .nav-links {
+        flex-basis: 100%; order: 4;
+        flex-direction: column; align-items: stretch; justify-content: flex-start;
+        max-height: 0; overflow: hidden; opacity: 0; gap: 0.15rem;
+        margin: 0; padding: 0;
+        transition: max-height 360ms ease, opacity 280ms ease, padding 280ms ease;
+      }
+      body.nav-open .site-header .nav-links {
+        max-height: 600px; opacity: 1; padding: 0.5rem 0 0.25rem;
+      }
+      .site-header .nav-links a {
+        border-radius: 14px; padding: 0.85rem 1.1rem; font-size: 0.85rem; letter-spacing: 0.08em;
+      }
+    }
+    @media (max-width: 480px) {
+      .site-header .brand-role { display: none; }
+      .site-header .nav-cta { padding: 0.5rem 0.85rem; font-size: 0.65rem; letter-spacing: 0.08em; }
+    }
   </style>
 
 </head>
@@ -1231,25 +1323,23 @@
   <div id="cursor-dot" aria-hidden="true"></div>
   <div id="cursor-ring" aria-hidden="true"></div>
 
-  <header class="site-header">
+    <header class="site-header">
     <div class="container nav-shell">
       <a class="brand" href="/" aria-label="Kareem Jamal home">
         <strong class="brand-name">Kareem Jamal</strong>
         <span class="brand-role">Rodeo Realty Fine Estates</span>
       </a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
       </button>
       <nav class="nav-links" id="site-nav" aria-label="Primary">
-        <a href="/#about">About</a>
-        <a href="/buyers-and-sellers">Buyers &amp; Sellers</a>
+        <a href="/">Home</a>
+        <a href="/buyers-and-sellers">Buy &amp; Sell</a>
+        <a href="/mls-search">Search Homes</a>
         <a href="/family-wealth-preservation">Family Wealth</a>
-        <a href="/mls-search">Search</a>
         <a href="/free-reports">Free Reports</a>
-        <a href="/#contact">Contact</a>
       </nav>
+      <a class="nav-cta" href="#contact">Book a Call</a>
     </div>
   </header>
 
@@ -2389,6 +2479,37 @@
         document.body.classList.add("is-loaded");
       }, 1000);
     });
+  
+    /* ── Unified navigation behavior ── */
+    (function () {
+      var navToggle = document.getElementById("nav-toggle");
+      if (navToggle) {
+        navToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var isOpen = document.body.classList.toggle("nav-open");
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+        document.addEventListener("click", function (e) {
+          if (document.body.classList.contains("nav-open") && !e.target.closest(".nav-shell")) {
+            document.body.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          }
+        });
+        document.querySelectorAll(".nav-links a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            document.body.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+      var path = window.location.pathname.replace(/\/$/, "") || "/";
+      document.querySelectorAll(".nav-links a, .nav-cta").forEach(function (a) {
+        var href = a.getAttribute("href");
+        if (href && !href.startsWith("#") && (href === path || href === path + "/" || (path !== "/" && href !== "/" && path.indexOf(href) === 0))) {
+          a.classList.add("is-active");
+        }
+      });
+    })();
   </script>
 
 </body>

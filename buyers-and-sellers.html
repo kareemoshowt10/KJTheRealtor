@@ -2721,10 +2721,13 @@
     }
 
     // ── Preloader ─────────────────────────────────────────────────
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.body.classList.add("is-loaded");
-      }, 1000);
+    (function(){
+      function hide(){ setTimeout(function(){ document.body.classList.add("is-loaded"); }, 1000); }
+      if (document.readyState === "complete") hide();
+      else window.addEventListener("load", hide);
+      setTimeout(function(){ document.body.classList.add("is-loaded"); }, 4000);
+    })();
+    /* preloader-fixed-marker
     });
   
     /* ── Unified navigation behavior ── */

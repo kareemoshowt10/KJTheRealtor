@@ -500,6 +500,16 @@
     .contact-strip {
       padding: 0 0 4.5rem;
     }
+    .contact-strip-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (max-width: 680px) {
+      .contact-strip-inner { grid-template-columns: 1fr; }
+      .contact-strip-inner img { width: 100%; max-width: 280px; margin: 0 auto; }
+    }
 
     .checklist {
       display: grid;
@@ -800,6 +810,10 @@
     .saved-empty { color: var(--muted); font-size: 0.88rem; line-height: 1.6; padding: 0.8rem 0.95rem; border-radius: 12px; background: rgba(255, 255, 255, 0.6); border: 1px dashed rgba(46, 53, 60, 0.14); }
     .toolkit-card .btn { font-size: 0.72rem; padding: 0.78rem 1.1rem; min-height: 46px; }
 
+    [data-reveal] { opacity: 1; transform: translateY(0); }
+    body.has-motion [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 620ms ease, transform 620ms ease; }
+    body.has-motion [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
     @media (max-width: 980px) {
       .hero-grid,
       .shortcut-grid,
@@ -907,7 +921,7 @@
 
     <section>
       <div class="container">
-        <div class="shortcut-grid">
+        <div class="shortcut-grid" data-reveal>
           <article class="shortcut-card">
             <span class="shortcut-icon">&#9741;</span>
             <h3>Already browsing and feeling overwhelmed?</h3>
@@ -938,7 +952,7 @@
 
     <section class="neighborhoods-section" id="neighborhoods">
       <div class="container">
-        <div class="neighborhoods-head">
+        <div class="neighborhoods-head" data-reveal>
           <span class="eyebrow">Know Before You Search</span>
           <h2>The neighborhoods Kareem knows best — what they cost, what they offer, and who they are really for.</h2>
           <p>Most buyers search too broadly and waste weeks on homes that were never the right fit. These six areas cover the range of what West Valley and surrounding Los Angeles buyers are actually looking for.</p>
@@ -1079,7 +1093,7 @@
 
     <section>
       <div class="container">
-        <div class="support-grid">
+        <div class="support-grid" data-reveal>
           <article class="support-card">
             <span class="support-num">01</span>
             <h3>The search feels right but nothing is landing.</h3>
@@ -1127,13 +1141,13 @@
 
     <section class="toolkit-section" id="buyer-toolkit">
       <div class="container">
-        <div class="toolkit-head">
+        <div class="toolkit-head" data-reveal>
           <span class="eyebrow">Buyer Toolkit</span>
           <h2>Three tools every serious buyer needs before they start writing offers.</h2>
           <p>Know your real monthly number. Understand where you stand in the process. Build a shortlist worth reviewing. All of it in one place, with a direct line to Kareem when you are ready to go further.</p>
         </div>
 
-        <div class="toolkit-grid">
+        <div class="toolkit-grid" data-reveal>
           <article class="toolkit-card" id="payment-card">
             <h3>What will this actually cost per month?</h3>
             <p>Before you fall in love with a listing, know your real number. Adjust price, down payment, rate, and term to see how different scenarios land.</p>
@@ -1299,7 +1313,7 @@
 
     <section class="contact-strip">
       <div class="container">
-        <div class="contact-card" style="display:grid;grid-template-columns:1fr auto;gap:2.5rem;align-items:center;">
+        <div class="contact-card contact-strip-inner">
           <div>
             <h3>Ready to stop browsing and start moving?</h3>
             <p>Most buyers spend months searching alone and lose time, money, and good properties in the process. One conversation with Kareem often changes what they look at and how fast they act. Call, email, or use the form above — Kareem responds directly.</p>
@@ -1323,6 +1337,15 @@
   </footer>
 
   <script>
+    // Scroll reveal
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.body.classList.add("has-motion");
+      const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-visible"); revealObs.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      document.querySelectorAll("[data-reveal]").forEach((el) => revealObs.observe(el));
+    }
+
     // Hamburger nav
     const navToggle = document.getElementById("nav-toggle");
     if (navToggle) {

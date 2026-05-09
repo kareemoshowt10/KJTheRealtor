@@ -820,6 +820,18 @@
     body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+    /* ── Flyer strip ─────────────────────────────── */
+    .flyer-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(64,80,95,0.04), rgba(184,139,82,0.05));
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid rgba(184,139,82,0.14);
+    }
+
     /* ── Free Guides ─────────────────────────────── */
     .guides-grid {
       display: grid;
@@ -1004,6 +1016,7 @@
     }
 
     @media (max-width: 640px) {
+      .flyer-strip { grid-template-columns: 1fr; }
       .hero {
         padding-top: 1.5rem;
       }
@@ -1482,7 +1495,7 @@
 
     <section class="section">
       <div class="container">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;background:linear-gradient(135deg,rgba(64,80,95,0.04),rgba(184,139,82,0.05));border-radius:20px;padding:2.5rem;border:1px solid rgba(184,139,82,0.14);" data-reveal>
+        <div class="flyer-strip" data-reveal>
           <div>
             <span class="section-kicker">From Kareem Jamal</span>
             <h2 class="section-title" style="font-size:1.75rem;margin-bottom:1rem;">A direct message about what representation should actually feel like.</h2>

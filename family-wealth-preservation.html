@@ -239,6 +239,9 @@
         radial-gradient(circle at 100% 10%, rgba(201, 133, 105, 0.08), transparent 24%),
         linear-gradient(180deg, #fffdfa 0%, #f8f4ee 46%, #fcfaf7 100%);
       overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     body::before {
       content: "";
@@ -310,18 +313,18 @@
     }
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.1rem;
+      flex-wrap: nowrap;
+      gap: 0.15rem;
       align-items: center;
       justify-content: flex-end;
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
     .nav-links a {
-      padding: 0.72rem 0.95rem;
+      padding: 0.65rem 0.85rem;
       border-radius: 999px;
       transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
     }
@@ -1050,11 +1053,30 @@
       transition: opacity 700ms ease, transform 700ms ease;
     }
     body.has-motion [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    /* ── Skip link ── */
+    .skip-link { position: absolute; top: -100%; left: 1.5rem; z-index: 300; padding: 0.72rem 1.25rem; background: var(--gold); color: white; border-radius: 999px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; transition: top 180ms ease; }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── Active nav link ── */
+    .nav-links a.is-active { background: rgba(184, 139, 82, 0.12); color: var(--gold); }
+
+    /* ── Hamburger toggle ── */
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 9px 10px; background: rgba(255, 255, 255, 0.72); border: 1px solid rgba(46, 53, 60, 0.1); border-radius: 999px; cursor: pointer; flex-shrink: 0; transition: background-color 180ms ease; }
+    .nav-toggle:hover { background: rgba(184, 139, 82, 0.1); }
+    .nav-toggle:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16); }
+    .nav-toggle span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transform-origin: center; transition: transform 220ms ease, opacity 220ms ease; }
+    body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
     @media (max-width: 980px) {
       .hero-grid, .story-grid, .pillar-grid, .faq-grid, .contact-grid, .cta-grid, .footer-grid { grid-template-columns: 1fr; }
-      .nav-shell, .nav-links { align-items: flex-start; }
-      .nav-shell { flex-direction: column; border-radius: 28px; }
-      .nav-links { justify-content: flex-start; }
+      .nav-toggle { display: flex; }
+      .nav-shell { flex-direction: row; flex-wrap: wrap; border-radius: 28px; align-items: center; }
+      .brand { flex: 1; }
+      .nav-links { flex-basis: 100%; order: 3; flex-direction: column; justify-content: flex-start; max-height: 0; overflow: hidden; opacity: 0; gap: 0.15rem; transition: max-height 360ms ease, opacity 280ms ease; }
+      body.nav-open .nav-links { max-height: 520px; opacity: 1; }
+      .nav-links a { border-radius: 14px; }
     }
     @media (max-width: 640px) {
       .hero { padding-top: 1.5rem; }
@@ -1067,7 +1089,9 @@
     }
   </style>
 </head>
-<body class="has-motion">
+<body>
+  <a class="skip-link" href="#top">Skip to main content</a>
+
   <!-- Preloader -->
   <div class="site-preloader" aria-hidden="true">
     <div class="preloader-logo">KJ</div>
@@ -1093,13 +1117,18 @@
         <strong class="brand-name">Kareem Jamal</strong>
         <span class="brand-role">Rodeo Realty Fine Estates</span>
       </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="index.html#about">About</a>
-        <a href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation</a>
-        <a href="buyers-and-sellers.html#seller-onboarding">Listing Strategy</a>
-        <a href="family-wealth-preservation.html" aria-current="page">Family Wealth Lens</a>
-        <a href="mls-search.html">Search</a>
-        <a href="#contact" class="nav-cta">Work With Kareem</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" id="site-nav" aria-label="Primary">
+        <a href="/#about">About</a>
+        <a href="/buyers-and-sellers">Buyers &amp; Sellers</a>
+        <a href="/family-wealth-preservation">Family Wealth</a>
+        <a href="/mls-search">Search</a>
+        <a href="/free-reports">Free Reports</a>
+        <a href="/#contact">Contact</a>
       </nav>
       <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
         <span></span>
@@ -1126,7 +1155,7 @@
               </div>
             </div>
             <div class="hero-card" data-reveal>
-              <img src="./assets/cliffside-sunset.jpg" alt="Stunning coastal real estate representing long-term family wealth" class="hero-photo" />
+              <img class="hero-photo" src="./assets/kareem-jamal-headshot.jpeg" alt="Portrait of Kareem Jamal wearing a navy suit" fetchpriority="high" />
               <div class="hero-overlay">
                 <span>The Standard</span>
                 <strong>Generational thinking. Strategic execution.</strong>
@@ -1385,6 +1414,33 @@
       });
     }, { threshold: 0.05 });
     document.querySelectorAll("[data-reveal]").forEach(el => revealObserver.observe(el));
+
+    // Hamburger nav
+    const navToggle = document.getElementById("nav-toggle");
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = document.body.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", (e) => {
+        if (document.body.classList.contains("nav-open") && !e.target.closest(".nav-shell")) {
+          document.body.classList.remove("nav-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    // Active nav link
+    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && !href.startsWith("#") && href === currentPath) {
+        link.classList.add("is-active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+
+    const revealElements = document.querySelectorAll("[data-reveal]");
 
     // Unified scroll handler
     const header = document.querySelector(".site-header");

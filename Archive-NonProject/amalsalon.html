@@ -1,0 +1,4573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amal Access | Private Beauty, Advisory, and Retreat Membership</title>
+  <meta
+    name="description"
+    content="A private-access offering from Amal's Salon in Chatsworth: salon visits, direct advisory, desert immersions, and custom bridal retreats rooted in beauty, truth, and care since 1981."
+  />
+  <meta name="theme-color" content="#2f2119" />
+  <meta property="og:title" content="Amal Access | Private Beauty, Advisory, and Retreat Membership" />
+  <meta
+    property="og:description"
+    content="Private access to Amal through the salon, the phone line, desert immersions, and hosted group experiences in Chatsworth, California."
+  />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Pinyon+Script&amp;display=swap"
+    rel="stylesheet"
+  />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      "name": "Amal's Salon",
+      "url": "https://www.amalhairsalon.com/",
+      "telephone": "+1-818-341-8865",
+      "description": "Family-owned full-service hair and beauty salon in Chatsworth offering cuts, color, texture, styling, and beauty extras since 1981.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10102 Topanga Canyon Blvd",
+        "addressLocality": "Chatsworth",
+        "addressRegion": "CA",
+        "postalCode": "91311",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "15:00"
+        }
+      ]
+    }
+  </script>
+  <style>
+    :root {
+      --paper: #fbf6ea;
+      --paper-soft: #f6efdf;
+      --panel: rgba(255, 251, 245, 0.72);
+      --white: #fffdf9;
+      --ink: #341513;
+      --ink-soft: #613227;
+      --muted: #7d5d4c;
+      --gold: #c8a464;
+      --gold-deep: #a67a3d;
+      --gold-soft: #ecd9b3;
+      --clay: #8f1628;
+      --clay-soft: #d9aea5;
+      --sage: #356e57;
+      --sage-soft: #cbd7c4;
+      --mahogany: #4b130f;
+      --auburn: #6d2d1f;
+      --rosewood: #581117;
+      --line: rgba(86, 55, 41, 0.12);
+      --shadow-lg: 0 36px 90px rgba(47, 33, 25, 0.15);
+      --shadow-md: 0 18px 48px rgba(47, 33, 25, 0.1);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --container: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(200, 164, 100, 0.18), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(143, 22, 40, 0.12), transparent 24%),
+        linear-gradient(180deg, #fffaf0 0%, #f8efdf 46%, #f1e2ca 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.9;
+      z-index: 20;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    section[id] {
+      scroll-margin-top: 120px;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 46px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .section-heading {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.6rem, 5vw, 4.25rem);
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title em {
+      color: var(--clay);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .section-copy {
+      max-width: 640px;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .pill {
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(159, 116, 65, 0.18);
+      background: rgba(255, 252, 247, 0.7);
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 24px rgba(47, 33, 25, 0.06);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      min-height: 52px;
+      padding: 0.9rem 1.45rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease,
+        color 180ms ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--ink) 0%, #493328 100%);
+      color: var(--white);
+      box-shadow: 0 16px 34px rgba(47, 33, 25, 0.2);
+    }
+
+    .btn-secondary {
+      color: var(--ink);
+      border: 1px solid rgba(95, 69, 56, 0.14);
+      background: rgba(255, 251, 245, 0.72);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      box-shadow: 0 18px 42px rgba(47, 33, 25, 0.26);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      border-color: rgba(159, 116, 65, 0.38);
+      background: rgba(255, 251, 245, 0.94);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 11;
+      border-bottom: 1px solid rgba(47, 33, 25, 0.08);
+      background: rgba(47, 33, 25, 0.92);
+      color: rgba(255, 251, 245, 0.82);
+    }
+
+    .topbar-inner {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.05em;
+    }
+
+    .topbar-note {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 600;
+    }
+
+    .topbar-note span:last-child {
+      color: rgba(255, 251, 245, 0.62);
+      font-weight: 500;
+    }
+
+    .topbar-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 1.4rem;
+      color: rgba(255, 251, 245, 0.58);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 12;
+      padding: 1rem 0;
+      transition:
+        padding 200ms ease,
+        background 200ms ease,
+        box-shadow 200ms ease,
+        border-color 200ms ease;
+      backdrop-filter: blur(12px);
+      background: rgba(250, 243, 234, 0.52);
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-header.is-scrolled {
+      padding: 0.65rem 0;
+      background: rgba(250, 243, 234, 0.92);
+      box-shadow: 0 14px 32px rgba(47, 33, 25, 0.08);
+      border-bottom-color: rgba(95, 69, 56, 0.09);
+    }
+
+    .header-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      padding: 0.4rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(200, 164, 100, 0.42);
+      box-shadow: 0 12px 28px rgba(52, 21, 19, 0.14);
+      background: rgba(255, 251, 245, 0.9);
+      flex-shrink: 0;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transform: scale(1.08);
+    }
+
+    .brand-text {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .brand-script {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.45rem;
+      line-height: 0.84;
+      color: var(--rosewood);
+      letter-spacing: 0.01em;
+    }
+
+    .brand-sub {
+      font-size: 0.64rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-list a {
+      position: relative;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .nav-list a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.35rem;
+      width: 100%;
+      height: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--clay) 100%);
+    }
+
+    .nav-list a:hover::after,
+    .nav-list a:focus-visible::after,
+    .nav-list a.is-active::after {
+      transform: scaleX(1);
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .phone-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.7rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(95, 69, 56, 0.12);
+      background: rgba(255, 255, 255, 0.5);
+      color: var(--ink);
+      font-size: 0.83rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(95, 69, 56, 0.14);
+      background: rgba(255, 251, 245, 0.76);
+      color: var(--ink);
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(47, 33, 25, 0.08);
+    }
+
+    .nav-toggle-line,
+    .nav-toggle-line::before,
+    .nav-toggle-line::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 180ms ease, opacity 180ms ease;
+      content: "";
+    }
+
+    .nav-toggle-line::before {
+      transform: translateY(-6px);
+    }
+
+    .nav-toggle-line::after {
+      transform: translateY(4px);
+    }
+
+    body[data-nav-open="true"] {
+      overflow: hidden;
+    }
+
+    body[data-nav-open="true"] .nav-toggle-line {
+      background: transparent;
+    }
+
+    body[data-nav-open="true"] .nav-toggle-line::before {
+      transform: translateY(0) rotate(45deg);
+    }
+
+    body[data-nav-open="true"] .nav-toggle-line::after {
+      transform: translateY(-2px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .hero {
+      position: relative;
+      padding: 2rem 0 4.5rem;
+    }
+
+    .hero-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+      gap: 3rem;
+      align-items: center;
+      padding-top: 3rem;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 1.6rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3.5rem, 7vw, 6.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+      font-weight: 400;
+    }
+
+    .hero-title em {
+      color: var(--clay);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .hero-script {
+      font-family: "Pinyon Script", cursive;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 0.8;
+      color: var(--gold-deep);
+      margin-top: -0.25rem;
+    }
+
+    .hero-text {
+      max-width: 620px;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.35rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat-card {
+      padding: 1.25rem 1.2rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 252, 247, 0.72);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: 0 14px 36px rgba(47, 33, 25, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-value {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.35rem;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .stat-label {
+      display: block;
+      margin-top: 0.4rem;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 650px;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-stage {
+      position: relative;
+      width: min(100%, 540px);
+      aspect-ratio: 0.88;
+      border-radius: calc(var(--radius-xl) + 10px);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255, 248, 238, 0.62), rgba(248, 235, 214, 0.4)),
+        url("./amal-brand-art.jpeg") center/cover no-repeat;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border-radius: calc(var(--radius-xl) - 4px);
+      border: 2px solid rgba(200, 164, 100, 0.28);
+      pointer-events: none;
+    }
+
+    .hero-stage::after {
+      content: "";
+      position: absolute;
+      inset: auto auto 10% -10%;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(143, 22, 40, 0.18), transparent 68%);
+      filter: blur(6px);
+      pointer-events: none;
+    }
+
+    .stage-orbit {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(197, 155, 101, 0.18);
+      pointer-events: none;
+    }
+
+    .stage-orbit.one {
+      width: 420px;
+      height: 420px;
+      top: -130px;
+      right: -120px;
+    }
+
+    .stage-orbit.two {
+      width: 280px;
+      height: 280px;
+      bottom: -110px;
+      left: -110px;
+    }
+
+    .stage-main {
+      position: absolute;
+      inset: auto 8% 6%;
+      border-radius: 30px;
+      padding: 2rem;
+      display: grid;
+      align-content: end;
+      gap: 1rem;
+      color: var(--white);
+      background:
+        linear-gradient(180deg, rgba(52, 21, 19, 0.06), rgba(52, 21, 19, 0.88)),
+        linear-gradient(135deg, rgba(75, 19, 15, 0.9), rgba(143, 22, 40, 0.82));
+      box-shadow: inset 0 -40px 90px rgba(30, 19, 14, 0.18);
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+    }
+
+    .stage-main::before {
+      content: "";
+      position: absolute;
+      inset: -5% 42% 20% -16%;
+      border-radius: 42% 58% 55% 45% / 42% 43% 57% 58%;
+      background: rgba(255, 250, 245, 0.16);
+      filter: blur(4px);
+    }
+
+    .stage-main::after {
+      content: "";
+      position: absolute;
+      right: -8%;
+      top: 8%;
+      width: 190px;
+      height: 190px;
+      border-radius: 46% 54% 55% 45%;
+      background: linear-gradient(135deg, rgba(255, 251, 245, 0.32), rgba(255, 251, 245, 0.05));
+      transform: rotate(18deg);
+      box-shadow: inset 0 0 0 1px rgba(255, 251, 245, 0.12);
+    }
+
+    .stage-kicker,
+    .floating-kicker {
+      position: relative;
+      z-index: 1;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 251, 245, 0.72);
+    }
+
+    .stage-title {
+      position: relative;
+      z-index: 1;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+      font-weight: 400;
+      max-width: 13ch;
+      letter-spacing: -0.02em;
+    }
+
+    .stage-body {
+      position: relative;
+      z-index: 1;
+      max-width: 24rem;
+      line-height: 1.8;
+      color: rgba(255, 251, 245, 0.84);
+      font-size: 0.96rem;
+    }
+
+    .stage-tags {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .stage-tags span {
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 251, 245, 0.14);
+      border: 1px solid rgba(255, 251, 245, 0.12);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: rgba(255, 251, 245, 0.92);
+      backdrop-filter: blur(8px);
+    }
+
+    .floating-card {
+      position: absolute;
+      display: grid;
+      gap: 0.7rem;
+      padding: 1.3rem 1.35rem;
+      border-radius: 22px;
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      background: rgba(255, 251, 245, 0.84);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(12px);
+      z-index: 2;
+    }
+
+    .floating-card.review {
+      top: 6%;
+      left: -4%;
+      width: min(250px, 52%);
+    }
+
+    .floating-card.consult {
+      right: -3%;
+      bottom: 14%;
+      width: min(260px, 56%);
+      background: rgba(47, 33, 25, 0.88);
+      color: rgba(255, 251, 245, 0.92);
+    }
+
+    .portrait-panel {
+      background:
+        linear-gradient(180deg, rgba(52, 21, 19, 0.1), rgba(52, 21, 19, 0.72)),
+        url("./amal-brand-art.jpeg") center top/cover no-repeat;
+    }
+
+    .floating-card.consult .floating-copy,
+    .floating-card.consult .floating-meta {
+      color: rgba(255, 251, 245, 0.72);
+    }
+
+    .floating-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.45rem;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .floating-copy {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .floating-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .review-stars {
+      display: inline-flex;
+      gap: 0.2rem;
+      color: var(--gold-deep);
+      font-size: 0.85rem;
+    }
+
+    .ribbon {
+      padding: 1.25rem 0;
+      border-top: 1px solid rgba(47, 33, 25, 0.08);
+      border-bottom: 1px solid rgba(47, 33, 25, 0.08);
+      background: rgba(255, 251, 245, 0.36);
+      overflow: hidden;
+    }
+
+    .ribbon-track {
+      display: flex;
+      gap: 1.1rem;
+      width: max-content;
+      animation: ribbon 22s linear infinite;
+      white-space: nowrap;
+    }
+
+    .ribbon-item {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .ribbon-item::after {
+      content: "\\2022";
+      color: var(--gold-deep);
+      font-size: 1.1rem;
+    }
+
+    @keyframes ribbon {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .section-block {
+      padding: 6rem 0;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .experience-card {
+      position: relative;
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 251, 245, 0.72);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .experience-card::before {
+      content: "";
+      position: absolute;
+      inset: auto auto -48px -30px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(197, 155, 101, 0.13), transparent 68%);
+    }
+
+    .experience-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, rgba(197, 155, 101, 0.18), rgba(155, 95, 73, 0.12));
+      color: var(--gold-deep);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .experience-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.75rem;
+      line-height: 1.05;
+      margin-bottom: 0.75rem;
+    }
+
+    .experience-copy {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .experience-card strong {
+      color: var(--ink);
+    }
+
+    .membership-section {
+      padding: 6.6rem 0;
+      background:
+        linear-gradient(180deg, rgba(47, 33, 25, 0.98), rgba(74, 50, 39, 0.96)),
+        radial-gradient(circle at 12% 18%, rgba(197, 155, 101, 0.18), transparent 26%);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .membership-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .membership-copy .eyebrow {
+      color: var(--gold-soft);
+    }
+
+    .membership-copy .section-title {
+      color: var(--white);
+      max-width: 11ch;
+    }
+
+    .membership-copy .section-title em {
+      color: var(--gold-soft);
+    }
+
+    .membership-copy .section-copy {
+      color: rgba(255, 251, 245, 0.72);
+      max-width: 37rem;
+    }
+
+    .membership-promise {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.7rem;
+    }
+
+    .membership-note {
+      padding: 1rem 1.1rem;
+      border-radius: 20px;
+      background: rgba(255, 251, 245, 0.08);
+      border: 1px solid rgba(255, 251, 245, 0.08);
+      color: rgba(255, 251, 245, 0.78);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .membership-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .membership-card {
+      position: relative;
+      padding: 1.55rem;
+      border-radius: 28px;
+      background: rgba(255, 251, 245, 0.92);
+      color: var(--ink);
+      border: 1px solid rgba(255, 251, 245, 0.1);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .membership-card.featured {
+      transform: translateY(-10px);
+      background:
+        linear-gradient(180deg, rgba(255, 251, 245, 0.98), rgba(244, 231, 214, 0.94)),
+        radial-gradient(circle at 100% 0%, rgba(197, 155, 101, 0.16), transparent 24%);
+    }
+
+    .membership-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(197, 155, 101, 0.16);
+      color: var(--gold-deep);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .membership-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 500;
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.02em;
+    }
+
+    .membership-subhead {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.95rem;
+      max-width: 34rem;
+    }
+
+    .membership-price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 0.85rem;
+      margin: 1.35rem 0 1rem;
+    }
+
+    .membership-price {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.7rem, 4vw, 3.6rem);
+      line-height: 0.9;
+      color: var(--ink);
+    }
+
+    .membership-term {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding-bottom: 0.35rem;
+    }
+
+    .membership-savings {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(126, 143, 126, 0.12);
+      color: var(--ink-soft);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .membership-list {
+      list-style: none;
+      display: grid;
+      gap: 0.8rem;
+      margin: 1rem 0 0;
+    }
+
+    .membership-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .membership-list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--clay) 100%);
+      box-shadow: 0 0 0 6px rgba(197, 155, 101, 0.12);
+      margin-top: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    .membership-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.4rem;
+    }
+
+    .membership-actions .btn {
+      min-width: 220px;
+    }
+
+    .positioning-copy {
+      max-width: 820px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      line-height: 1.45;
+      color: var(--ink-soft);
+    }
+
+    .worlds-section {
+      padding: 6rem 0;
+      background:
+        linear-gradient(180deg, rgba(255, 251, 245, 0.92), rgba(248, 239, 228, 0.78)),
+        radial-gradient(circle at 14% 10%, rgba(197, 155, 101, 0.1), transparent 24%);
+    }
+
+    .worlds-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .world-card {
+      padding: 1.8rem;
+      border-radius: 30px;
+      background: rgba(255, 253, 249, 0.84);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-md);
+    }
+
+    .world-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .world-kicker {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.6rem;
+    }
+
+    .world-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .world-card p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 0.95rem;
+    }
+
+    .pricing-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem;
+      margin-top: 1.2rem;
+      border-radius: 999px;
+      background: rgba(255, 251, 245, 0.1);
+      border: 1px solid rgba(255, 251, 245, 0.1);
+    }
+
+    .toggle-btn {
+      min-height: 44px;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      color: rgba(255, 251, 245, 0.76);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .toggle-btn.is-active {
+      background: rgba(255, 251, 245, 0.92);
+      color: var(--ink);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .pricing-note {
+      margin-top: 0.85rem;
+      color: rgba(255, 251, 245, 0.68);
+      line-height: 1.75;
+      font-size: 0.94rem;
+      max-width: 35rem;
+    }
+
+    .membership-grid.tier-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    .membership-card.dark {
+      background: rgba(255, 251, 245, 0.1);
+      color: var(--white);
+      border-color: rgba(255, 251, 245, 0.1);
+    }
+
+    .membership-card.dark .membership-badge,
+    .founding-seat {
+      background: rgba(255, 251, 245, 0.1);
+      color: var(--gold-soft);
+    }
+
+    .membership-card.dark .membership-subhead,
+    .membership-card.dark .membership-term,
+    .membership-card.dark .membership-list li,
+    .membership-card.dark .membership-fine,
+    .membership-card.dark .membership-caption {
+      color: rgba(255, 251, 245, 0.74);
+    }
+
+    .membership-card.dark .membership-price {
+      color: var(--white);
+    }
+
+    .membership-card.dark .membership-savings {
+      background: rgba(255, 251, 245, 0.12);
+      color: var(--white);
+    }
+
+    .membership-card.founding {
+      background:
+        linear-gradient(180deg, rgba(255, 251, 245, 0.98), rgba(238, 224, 202, 0.95)),
+        radial-gradient(circle at 100% 0%, rgba(197, 155, 101, 0.16), transparent 24%);
+    }
+
+    .membership-caption {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .membership-fine {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .price-amount[data-monthly],
+    .price-term[data-monthly],
+    .price-save[data-monthly] {
+      display: none;
+    }
+
+    body[data-pricing="monthly"] .price-amount[data-monthly],
+    body[data-pricing="monthly"] .price-term[data-monthly],
+    body[data-pricing="monthly"] .price-save[data-monthly] {
+      display: inline-flex;
+    }
+
+    body[data-pricing="monthly"] .price-amount[data-annual],
+    body[data-pricing="monthly"] .price-term[data-annual],
+    body[data-pricing="monthly"] .price-save[data-annual] {
+      display: none;
+    }
+
+    body[data-pricing="annual"] .price-amount[data-annual],
+    body[data-pricing="annual"] .price-term[data-annual],
+    body[data-pricing="annual"] .price-save[data-annual] {
+      display: inline-flex;
+    }
+
+    .founding-seats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .founding-seat {
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .desert-section {
+      padding: 6rem 0;
+      background:
+        linear-gradient(135deg, rgba(92, 62, 47, 0.98), rgba(58, 38, 30, 0.96)),
+        radial-gradient(circle at 85% 15%, rgba(197, 155, 101, 0.16), transparent 24%);
+      color: var(--white);
+    }
+
+    .desert-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .desert-copy .eyebrow,
+    .application-copy .eyebrow {
+      color: var(--gold-soft);
+    }
+
+    .desert-copy .section-title,
+    .application-copy .section-title {
+      color: var(--white);
+    }
+
+    .desert-copy .section-title em,
+    .application-copy .section-title em {
+      color: var(--gold-soft);
+    }
+
+    .desert-copy .section-copy,
+    .application-copy .section-copy {
+      color: rgba(255, 251, 245, 0.74);
+      max-width: 40rem;
+    }
+
+    .desert-list {
+      list-style: none;
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.3rem;
+    }
+
+    .desert-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: rgba(255, 251, 245, 0.78);
+      line-height: 1.75;
+    }
+
+    .desert-list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft) 0%, #fff0dc 100%);
+      margin-top: 0.45rem;
+      box-shadow: 0 0 0 6px rgba(255, 251, 245, 0.08);
+      flex-shrink: 0;
+    }
+
+    .desert-card {
+      padding: 1.6rem;
+      border-radius: 30px;
+      background: rgba(255, 251, 245, 0.92);
+      color: var(--ink);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .desert-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.7rem;
+      font-weight: 500;
+    }
+
+    .desert-card p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .event-section {
+      padding: 6rem 0;
+      background:
+        linear-gradient(180deg, rgba(255, 251, 245, 0.92), rgba(247, 237, 225, 0.86)),
+        radial-gradient(circle at 88% 12%, rgba(143, 22, 40, 0.08), transparent 24%);
+    }
+
+    .event-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .event-card {
+      padding: 1.7rem;
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(246, 235, 220, 0.92)),
+        radial-gradient(circle at 100% 0%, rgba(200, 164, 100, 0.14), transparent 24%);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .event-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .event-card p {
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .event-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1rem 0 1.25rem;
+    }
+
+    .event-tag {
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(143, 22, 40, 0.08);
+      color: var(--rosewood);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .event-itinerary {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 1.25rem;
+    }
+
+    .itinerary-row {
+      padding: 1rem 1.1rem;
+      border-radius: 22px;
+      background: rgba(255, 251, 245, 0.82);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+    }
+
+    .itinerary-row h4 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.45rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .itinerary-row p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.92rem;
+    }
+
+    .revenue-section {
+      padding: 6rem 0;
+    }
+
+    .revenue-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .revenue-card {
+      padding: 1.5rem;
+      border-radius: 26px;
+      background: rgba(255, 252, 247, 0.84);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-md);
+    }
+
+    .revenue-kicker {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.8rem;
+    }
+
+    .revenue-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .revenue-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(95, 69, 56, 0.08);
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+
+    .revenue-row strong {
+      color: var(--ink);
+    }
+
+    .application-section {
+      padding: 6rem 0 0;
+    }
+
+    .application-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      padding: 2.1rem;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(47, 33, 25, 0.98), rgba(79, 53, 42, 0.96)),
+        radial-gradient(circle at 90% 12%, rgba(197, 155, 101, 0.18), transparent 24%);
+      color: var(--white);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .application-form {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .application-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.95rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .field label {
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: rgba(255, 251, 245, 0.7);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 251, 245, 0.12);
+      background: rgba(255, 251, 245, 0.08);
+      color: var(--white);
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(255, 251, 245, 0.42);
+    }
+
+    .field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .application-form .btn {
+      width: 100%;
+    }
+
+    .services-wrap {
+      padding: 6.5rem 0;
+      background:
+        linear-gradient(180deg, rgba(255, 251, 245, 0.62), rgba(250, 242, 233, 0.68)),
+        radial-gradient(circle at 15% 15%, rgba(197, 155, 101, 0.1), transparent 18%);
+      border-top: 1px solid rgba(47, 33, 25, 0.07);
+      border-bottom: 1px solid rgba(47, 33, 25, 0.07);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .service-card {
+      display: grid;
+      gap: 1.15rem;
+      padding: 2rem;
+      border-radius: 28px;
+      background: rgba(255, 253, 249, 0.84);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-md);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .service-card:hover,
+    .service-card:focus-within {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 54px rgba(47, 33, 25, 0.13);
+    }
+
+    .service-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .service-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 3rem;
+      line-height: 0.8;
+      color: rgba(197, 155, 101, 0.34);
+    }
+
+    .service-tag {
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(235, 215, 186, 0.36);
+      color: var(--gold-deep);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .service-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.85rem;
+      line-height: 1;
+    }
+
+    .service-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .service-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .service-highlights span {
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(126, 143, 126, 0.12);
+      color: var(--ink-soft);
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .service-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 0.4rem;
+      border-top: 1px solid rgba(95, 69, 56, 0.08);
+    }
+
+    .service-price {
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+    }
+
+    .service-duration {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .story-section {
+      padding: 6.5rem 0;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.95fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .story-copy {
+      display: grid;
+      gap: 1.4rem;
+      align-content: start;
+    }
+
+    .story-copy p {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .signature {
+      font-family: "Pinyon Script", cursive;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--clay);
+      margin-top: 0.4rem;
+    }
+
+    .story-visual {
+      position: relative;
+      min-height: 620px;
+    }
+
+    .portrait-panel,
+    .story-panel,
+    .quote-panel {
+      position: absolute;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .portrait-panel {
+      inset: 0 12% 20% 0;
+      padding: 2rem;
+      display: grid;
+      align-content: end;
+      background:
+        linear-gradient(180deg, rgba(52, 21, 19, 0.12), rgba(52, 21, 19, 0.82)),
+        url("./amal-brand-art.jpeg") center top/cover no-repeat;
+      color: var(--white);
+    }
+
+    .portrait-panel::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 251, 245, 0.18);
+      pointer-events: none;
+    }
+
+    .portrait-panel h3 {
+      position: relative;
+      z-index: 1;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 0.95;
+      font-weight: 400;
+      max-width: 10ch;
+    }
+
+    .portrait-panel p {
+      position: relative;
+      z-index: 1;
+      margin-top: 0.8rem;
+      max-width: 20rem;
+      line-height: 1.75;
+      color: rgba(255, 251, 245, 0.82);
+    }
+
+    .story-panel {
+      right: 0;
+      top: 8%;
+      width: 46%;
+      padding: 1.4rem;
+      background: rgba(255, 251, 245, 0.86);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+    }
+
+    .story-panel h4,
+    .quote-panel h4 {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.7rem;
+    }
+
+    .story-panel p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.92rem;
+    }
+
+    .story-panel ul {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .story-panel li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .story-panel li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--clay) 100%);
+      box-shadow: 0 0 0 6px rgba(197, 155, 101, 0.1);
+    }
+
+    .quote-panel {
+      left: 10%;
+      bottom: 0;
+      width: 50%;
+      padding: 1.55rem;
+      background: rgba(47, 33, 25, 0.92);
+      color: rgba(255, 251, 245, 0.9);
+    }
+
+    .quote-panel blockquote {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      line-height: 1.25;
+      font-style: italic;
+    }
+
+    .quote-panel p {
+      margin-top: 0.8rem;
+      color: rgba(255, 251, 245, 0.62);
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .values-band {
+      padding: 5.4rem 0;
+      background:
+        linear-gradient(135deg, rgba(47, 33, 25, 0.98), rgba(73, 51, 40, 0.96)),
+        radial-gradient(circle at 80% 10%, rgba(197, 155, 101, 0.15), transparent 22%);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .values-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .values-copy .eyebrow {
+      color: var(--gold-soft);
+    }
+
+    .values-copy .section-title {
+      color: var(--white);
+      max-width: 11ch;
+    }
+
+    .values-copy .section-title em {
+      color: var(--gold-soft);
+    }
+
+    .values-copy .section-copy {
+      color: rgba(255, 251, 245, 0.68);
+    }
+
+    .values-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .value-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      padding: 1.25rem 1.35rem;
+      border-radius: 24px;
+      background: rgba(255, 251, 245, 0.06);
+      border: 1px solid rgba(255, 251, 245, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .value-badge {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(197, 155, 101, 0.18);
+      color: var(--gold-soft);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .value-item h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .value-item p {
+      color: rgba(255, 251, 245, 0.66);
+      line-height: 1.75;
+      font-size: 0.94rem;
+    }
+
+    .testimonial-section {
+      padding: 6.2rem 0;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .testimonial-card {
+      position: relative;
+      padding: 2rem;
+      border-radius: 30px;
+      background: rgba(255, 252, 247, 0.8);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 0.7rem;
+      left: 1.2rem;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 5.5rem;
+      line-height: 1;
+      color: rgba(197, 155, 101, 0.22);
+    }
+
+    .testimonial-stars {
+      display: inline-flex;
+      gap: 0.2rem;
+      color: var(--gold-deep);
+      font-size: 0.84rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-copy {
+      position: relative;
+      z-index: 1;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      line-height: 1.45;
+      color: var(--ink-soft);
+    }
+
+    .testimonial-meta {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .journal-section {
+      padding: 6.2rem 0;
+      background:
+        linear-gradient(180deg, rgba(255, 251, 245, 0.82), rgba(248, 238, 227, 0.78)),
+        radial-gradient(circle at 85% 10%, rgba(155, 95, 73, 0.1), transparent 22%);
+      border-top: 1px solid rgba(47, 33, 25, 0.07);
+      border-bottom: 1px solid rgba(47, 33, 25, 0.07);
+    }
+
+    .journal-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .journal-intro {
+      display: grid;
+      gap: 1rem;
+      position: sticky;
+      top: 132px;
+    }
+
+    .journal-intro .section-copy {
+      max-width: 34rem;
+    }
+
+    .journal-notes {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .journal-card {
+      padding: 1.5rem;
+      border-radius: 28px;
+      background: rgba(255, 253, 249, 0.8);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-md);
+    }
+
+    .journal-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.9rem;
+    }
+
+    .journal-label::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .journal-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .journal-card p {
+      font-size: 0.98rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .journal-card strong {
+      color: var(--ink);
+    }
+
+    .trust-section {
+      padding: 6.2rem 0;
+    }
+
+    .trust-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .trust-card {
+      padding: 1.45rem;
+      border-radius: 26px;
+      background: rgba(255, 252, 247, 0.8);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-md);
+    }
+
+    .trust-kicker {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.75rem;
+    }
+
+    .trust-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.8rem;
+      line-height: 1;
+      font-weight: 500;
+      margin-bottom: 0.65rem;
+    }
+
+    .trust-card p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .team-panel {
+      display: grid;
+      gap: 1rem;
+      padding: 1.6rem;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(47, 33, 25, 0.98), rgba(79, 53, 42, 0.96)),
+        radial-gradient(circle at 90% 12%, rgba(197, 155, 101, 0.18), transparent 24%);
+      color: rgba(255, 251, 245, 0.92);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .team-panel .section-title {
+      color: var(--white);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+    }
+
+    .team-panel .section-title em {
+      color: var(--gold-soft);
+    }
+
+    .team-copy {
+      color: rgba(255, 251, 245, 0.68);
+      line-height: 1.85;
+      font-size: 0.98rem;
+    }
+
+    .team-list {
+      display: grid;
+      gap: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    .team-member {
+      padding: 1rem 1.05rem;
+      border-radius: 22px;
+      background: rgba(255, 251, 245, 0.08);
+      border: 1px solid rgba(255, 251, 245, 0.08);
+    }
+
+    .team-member h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: var(--white);
+    }
+
+    .team-member p:first-of-type {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 0.55rem;
+    }
+
+    .team-member p:last-of-type {
+      color: rgba(255, 251, 245, 0.7);
+      line-height: 1.75;
+      font-size: 0.92rem;
+    }
+
+    .letter-section {
+      padding: 6.4rem 0;
+      background:
+        linear-gradient(180deg, rgba(250, 242, 233, 0.92), rgba(255, 251, 245, 0.86)),
+        radial-gradient(circle at 12% 18%, rgba(197, 155, 101, 0.12), transparent 20%);
+    }
+
+    .letter-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .letter-aside {
+      display: grid;
+      gap: 1rem;
+      position: sticky;
+      top: 132px;
+    }
+
+    .letter-card {
+      padding: 1.3rem;
+      border-radius: 24px;
+      background: rgba(255, 253, 249, 0.84);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-md);
+    }
+
+    .letter-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.8rem;
+      line-height: 1;
+      font-weight: 500;
+      margin-bottom: 0.65rem;
+    }
+
+    .letter-card p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.94rem;
+    }
+
+    .letter-body {
+      position: relative;
+      padding: 2.2rem;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 249, 0.95), rgba(246, 236, 224, 0.92)),
+        radial-gradient(circle at 100% 0%, rgba(155, 95, 73, 0.09), transparent 24%);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .letter-body::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 26px;
+      border: 1px solid rgba(197, 155, 101, 0.16);
+      pointer-events: none;
+    }
+
+    .letter-date {
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--gold-deep);
+      margin-bottom: 1.35rem;
+    }
+
+    .letter-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+      max-width: 11ch;
+    }
+
+    .letter-copy {
+      display: grid;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .letter-copy p {
+      color: var(--ink-soft);
+      line-height: 1.95;
+      font-size: 1rem;
+      max-width: 48rem;
+    }
+
+    .letter-copy p strong {
+      color: var(--ink);
+    }
+
+    .letter-signoff {
+      margin-top: 0.4rem;
+      font-family: "Pinyon Script", cursive;
+      font-size: 3.3rem;
+      line-height: 1;
+      color: var(--clay);
+    }
+
+    .preview-section {
+      padding: 5.8rem 0 0;
+    }
+
+    .preview-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(255, 252, 247, 0.9), rgba(248, 238, 227, 0.9)),
+        radial-gradient(circle at 100% 0%, rgba(197, 155, 101, 0.14), transparent 26%);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-md);
+    }
+
+    .preview-shell p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.98rem;
+      max-width: 42rem;
+    }
+
+    .preview-actions {
+      display: grid;
+      gap: 0.8rem;
+      min-width: min(100%, 250px);
+    }
+
+    .faq-section {
+      padding: 6.2rem 0 6.8rem;
+      border-top: 1px solid rgba(47, 33, 25, 0.07);
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      border-radius: 24px;
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      background: rgba(255, 251, 245, 0.72);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.3rem 1.4rem;
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(197, 155, 101, 0.16);
+      color: var(--gold-deep);
+      font-size: 1.25rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .faq-item[open] summary::after {
+      content: "-";
+    }
+
+    .faq-answer {
+      padding: 0 1.4rem 1.35rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .visit-panel {
+      position: sticky;
+      top: 132px;
+      display: grid;
+      gap: 1.2rem;
+      padding: 1.6rem;
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255, 251, 245, 0.88), rgba(248, 238, 227, 0.82)),
+        radial-gradient(circle at 100% 0%, rgba(197, 155, 101, 0.12), transparent 28%);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .visit-card {
+      padding: 1.15rem 1.2rem;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(95, 69, 56, 0.08);
+    }
+
+    .visit-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.45rem;
+    }
+
+    .visit-value {
+      color: var(--ink-soft);
+      line-height: 1.8;
+      font-size: 0.98rem;
+    }
+
+    .hours-grid {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(95, 69, 56, 0.08);
+    }
+
+    .hours-row strong {
+      color: var(--ink-soft);
+    }
+
+    .visit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.2rem;
+    }
+
+    .cta-section {
+      padding-bottom: 6.5rem;
+    }
+
+    .cta-shell {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2rem;
+      align-items: center;
+      padding: 2.6rem;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(47, 33, 25, 0.98), rgba(79, 53, 42, 0.96)),
+        radial-gradient(circle at 90% 10%, rgba(197, 155, 101, 0.18), transparent 24%);
+      box-shadow: var(--shadow-lg);
+      color: var(--white);
+    }
+
+    .cta-shell::before,
+    .cta-shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 251, 245, 0.08);
+      pointer-events: none;
+    }
+
+    .cta-shell::before {
+      width: 320px;
+      height: 320px;
+      top: -180px;
+      right: -140px;
+    }
+
+    .cta-shell::after {
+      width: 220px;
+      height: 220px;
+      bottom: -120px;
+      right: 8%;
+    }
+
+    .cta-copy .eyebrow {
+      color: var(--gold-soft);
+    }
+
+    .cta-copy h2 {
+      margin-top: 1rem;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.3rem, 4vw, 3.4rem);
+      font-weight: 400;
+      line-height: 0.98;
+      max-width: 12ch;
+    }
+
+    .cta-copy p {
+      margin-top: 1rem;
+      max-width: 34rem;
+      color: rgba(255, 251, 245, 0.68);
+      line-height: 1.8;
+      font-size: 0.96rem;
+    }
+
+    .cta-actions {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 0.9rem;
+      min-width: min(100%, 280px);
+    }
+
+    .btn-light {
+      background: linear-gradient(135deg, var(--gold) 0%, #d8b483 100%);
+      color: var(--ink);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-outline-light {
+      color: var(--white);
+      border: 1px solid rgba(255, 251, 245, 0.18);
+      background: rgba(255, 251, 245, 0.06);
+    }
+
+    footer {
+      padding: 0 0 3rem;
+    }
+
+    .footer-shell {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(47, 33, 25, 0.08);
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.8;
+    }
+
+    .footer-left {
+      max-width: 28rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 1.25rem;
+      font-weight: 700;
+      color: var(--ink-soft);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition:
+        opacity 700ms ease,
+        transform 700ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 90ms;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 180ms;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 270ms;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    @media (max-width: 1120px) {
+      .hero-shell,
+      .membership-layout,
+      .desert-layout,
+      .event-layout,
+      .application-shell,
+      .story-grid,
+      .values-layout,
+      .journal-layout,
+      .trust-layout,
+      .letter-shell,
+      .preview-shell,
+      .faq-layout,
+      .cta-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual,
+      .story-visual {
+        order: -1;
+      }
+
+      .services-grid,
+      .worlds-grid,
+      .revenue-grid,
+      .testimonial-grid,
+      .trust-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visit-panel {
+        position: static;
+      }
+
+      .journal-intro {
+        position: static;
+      }
+
+      .letter-aside {
+        position: static;
+      }
+
+      .cta-actions {
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .topbar-inner,
+      .header-shell,
+      .hero-shell,
+      .story-grid,
+      .values-layout,
+      .faq-layout,
+      .cta-shell,
+      .footer-shell {
+        gap: 1.5rem;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .nav-list,
+      .header-cta .phone-chip,
+      .header-cta .btn {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-menu {
+        display: block;
+        position: fixed;
+        inset: 0 0 0 auto;
+        width: min(100%, 360px);
+        padding: 6.4rem 1.4rem 1.4rem;
+        background: rgba(250, 243, 234, 0.96);
+        backdrop-filter: blur(18px);
+        border-left: 1px solid rgba(95, 69, 56, 0.08);
+        box-shadow: -20px 0 60px rgba(47, 33, 25, 0.12);
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+        z-index: 11;
+      }
+
+      body[data-nav-open="true"] .mobile-menu {
+        transform: translateX(0);
+      }
+
+      .mobile-menu nav {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .mobile-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.05rem;
+        border-radius: 20px;
+        background: rgba(255, 251, 245, 0.76);
+        border: 1px solid rgba(95, 69, 56, 0.08);
+        color: var(--ink);
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.78rem;
+      }
+
+      .mobile-link::after {
+        content: "\\2197";
+        color: var(--gold-deep);
+        font-size: 0.95rem;
+      }
+
+      .mobile-contact {
+        margin-top: 1rem;
+        padding: 1.2rem;
+        border-radius: 22px;
+        background: rgba(47, 33, 25, 0.92);
+        color: rgba(255, 251, 245, 0.9);
+      }
+
+      .mobile-contact p:first-child {
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold-soft);
+        font-weight: 800;
+        margin-bottom: 0.7rem;
+      }
+
+      .mobile-contact a {
+        display: block;
+        font-weight: 700;
+        line-height: 1.8;
+      }
+
+      .hero {
+        padding-top: 1rem;
+      }
+
+      .hero-shell {
+        padding-top: 1rem;
+      }
+
+      .hero-stats,
+      .worlds-grid,
+      .membership-grid.tier-grid,
+      .services-grid,
+      .revenue-grid,
+      .testimonial-grid,
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .application-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-visual {
+        min-height: 540px;
+      }
+
+      .quote-panel {
+        width: 56%;
+      }
+
+      .footer-shell {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--container), calc(100% - 1.25rem));
+      }
+
+      .section-block,
+      .services-wrap,
+      .story-section,
+      .testimonial-section,
+      .faq-section,
+      .values-band {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 15vw, 4.5rem);
+      }
+
+      .hero-script {
+        font-size: clamp(2.4rem, 12vw, 3.4rem);
+      }
+
+      .hero-stats {
+        gap: 0.8rem;
+      }
+
+      .hero-visual {
+        min-height: 530px;
+      }
+
+      .floating-card.review {
+        top: 6%;
+        left: 4%;
+        width: 58%;
+      }
+
+      .floating-card.consult {
+        right: 4%;
+        width: 62%;
+      }
+
+      .portrait-panel {
+        inset: 0 0 28% 0;
+      }
+
+      .story-panel {
+        top: auto;
+        right: 0;
+        bottom: 18%;
+        width: 56%;
+      }
+
+      .quote-panel {
+        left: 0;
+        width: 72%;
+      }
+
+      .visit-actions,
+      .membership-actions,
+      .hero-actions {
+        display: grid;
+      }
+
+      .btn,
+      .btn-light,
+      .btn-outline-light {
+        width: 100%;
+      }
+
+      .cta-shell {
+        padding: 2rem 1.3rem;
+      }
+
+      .footer-shell {
+        padding-top: 1.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body data-pricing="annual">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-note">
+        <span>10102 Topanga Canyon Blvd, Chatsworth</span>
+        <span>Family-owned, female-owned, and serving the community since 1981</span>
+      </div>
+      <div class="topbar-meta">
+        <span>Tue-Fri 8a-5p</span>
+        <span>Sat 9a-3p</span>
+        <span>15% off first visit</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-shell">
+      <a class="brand" href="#top" aria-label="Amal's Salon home">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="./amal-brand-art.jpeg" alt="" />
+        </span>
+        <span class="brand-text">
+          <span class="brand-script">Amal's</span>
+          <span class="brand-sub">Access and Salon</span>
+        </span>
+      </a>
+
+      <div class="nav-wrap">
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#experience">Private Access</a></li>
+            <li><a href="#worlds">Three Worlds</a></li>
+            <li><a href="#membership">Membership</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#standards">Standards</a></li>
+            <li><a href="#apply">Apply</a></li>
+            <li><a href="#about">About Amal</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-cta">
+          <a class="phone-chip" href="tel:8183418865">818-341-8865</a>
+          <a class="btn btn-primary" href="tel:8183418865">Call the Salon</a>
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Open menu"
+          >
+            <span class="nav-toggle-line" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <aside class="mobile-menu" id="mobile-menu" aria-label="Mobile menu">
+    <nav>
+      <a class="mobile-link" href="#experience">Private Access</a>
+      <a class="mobile-link" href="#worlds">Three Worlds</a>
+      <a class="mobile-link" href="#membership">Membership</a>
+      <a class="mobile-link" href="#process">Process</a>
+      <a class="mobile-link" href="#standards">Standards</a>
+      <a class="mobile-link" href="#apply">Apply</a>
+      <a class="mobile-link" href="#about">About Amal</a>
+    </nav>
+    <div class="mobile-contact">
+      <p>Book and Visit</p>
+      <a href="tel:8183418865">Call: 818-341-8865</a>
+      <a
+        href="https://maps.google.com/?q=10102+Topanga+Canyon+Blvd+Chatsworth+CA+91311"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Open directions
+      </a>
+    </div>
+  </aside>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-shell">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Since 1981 on Topanga Canyon Blvd</p>
+          <h1 class="hero-title reveal reveal-delay-1">
+            The rarest luxury is <em>access</em> to Amal.
+          </h1>
+          <p class="hero-script reveal reveal-delay-2">Private access. Beauty, counsel, and presence.</p>
+          <p class="hero-text reveal reveal-delay-2">
+            Amal Access is a private membership for the client who wants more than an appointment.
+            It offers direct proximity to Amal's judgment, beauty eye, spiritual grounding, and
+            seasoned business perspective, with salon visits, personal contact, and immersive
+            experiences built into the relationship.
+          </p>
+          <div class="pill-row reveal reveal-delay-2">
+            <span class="pill">Private membership by application</span>
+            <span class="pill">Beauty, business, and spiritual counsel</span>
+            <span class="pill">Salon, line, and retreat access</span>
+          </div>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a class="btn btn-primary" href="#apply">Request Access</a>
+            <a class="btn btn-secondary" href="#membership">View Membership</a>
+          </div>
+          <div class="hero-stats reveal reveal-delay-3">
+            <article class="stat-card">
+              <span class="stat-value">1981</span>
+              <span class="stat-label">A long-standing Chatsworth name with decades of local trust behind it.</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-value">1:1</span>
+              <span class="stat-label">Private guidance shaped around the client, never diluted into a group formula.</span>
+            </article>
+            <article class="stat-card">
+              <span class="stat-value">24/7</span>
+              <span class="stat-label">For members whose life, leadership, or business calls for real-time counsel.</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay-1" aria-hidden="true">
+          <div class="hero-stage">
+            <div class="stage-orbit one"></div>
+            <div class="stage-orbit two"></div>
+
+            <div class="stage-main">
+              <p class="stage-kicker">The flagship offer</p>
+              <h2 class="stage-title">Amal Access Private Suite.</h2>
+              <p class="stage-body">
+                This is where Amal's full value becomes legible: salon care, private counsel,
+                spiritual grounding, and a seasoned operator's perspective in one luxury
+                relationship.
+              </p>
+              <div class="stage-tags">
+                <span>Application-led</span>
+                <span>High-touch support</span>
+                <span>Limited capacity</span>
+              </div>
+            </div>
+
+            <article class="floating-card review">
+              <p class="floating-kicker">What locals mention</p>
+              <div class="review-stars" aria-hidden="true">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <h3 class="floating-title">Attentive owner. Great energy. Results people come back for.</h3>
+              <p class="floating-copy">
+                Locals keep repeating the same ideas: caring service, strong color work,
+                professionalism, and a clean, comfortable room.
+              </p>
+              <div class="floating-meta">
+                <span>Chatsworth</span>
+                <span>Long-time local trust</span>
+              </div>
+            </article>
+
+            <article class="floating-card consult">
+              <p class="floating-kicker">What to expect</p>
+              <h3 class="floating-title">Reach for Amal when you need clarity, not only when you need your hair done.</h3>
+              <p class="floating-copy">
+                Ask her opinion on business, life, personal presentation, mindset, and what next
+                move is actually aligned for you.
+              </p>
+              <div class="floating-meta">
+                <span>Private application</span>
+                <span>818-341-8865</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon-track">
+        <span class="ribbon-item">Since 1981</span>
+        <span class="ribbon-item">Truth in the chair</span>
+        <span class="ribbon-item">Family-owned</span>
+        <span class="ribbon-item">Female-owned</span>
+        <span class="ribbon-item">Chatsworth, CA</span>
+        <span class="ribbon-item">Cuts, color, texture</span>
+        <span class="ribbon-item">Beauty and spirit</span>
+        <span class="ribbon-item">Since 1981</span>
+        <span class="ribbon-item">Truth in the chair</span>
+        <span class="ribbon-item">Family-owned</span>
+        <span class="ribbon-item">Female-owned</span>
+        <span class="ribbon-item">Chatsworth, CA</span>
+        <span class="ribbon-item">Cuts, color, texture</span>
+        <span class="ribbon-item">Beauty and spirit</span>
+      </div>
+    </div>
+
+    <section class="section-block" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">This is not a salon</p>
+          <h2 class="section-title">This is private membership to a woman whose <em>mind, experience, and presence</em> are the product.</h2>
+          <p class="positioning-copy">
+            The salon is one delivery vehicle. The phone is another. The desert is another.
+            What clients are truly buying is proximity to Amal: her clarity, her eye, her lived
+            wisdom, and her ability to tell the truth when the next move matters.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-card reveal">
+            <div class="experience-index">01</div>
+            <h3 class="experience-title">Not a service business</h3>
+            <p class="experience-copy">
+              The hair appointment is not the full offer anymore. It is one doorway into a much
+              larger high-touch relationship.
+            </p>
+          </article>
+
+          <article class="experience-card reveal reveal-delay-1">
+            <div class="experience-index">02</div>
+            <h3 class="experience-title">Not generic coaching</h3>
+            <p class="experience-copy">
+              This is not content, courses, or motivational fluff. It is direct access to Amal's
+              judgment in real time, across beauty, business, and spiritual alignment.
+            </p>
+          </article>
+
+          <article class="experience-card reveal reveal-delay-2">
+            <div class="experience-index">03</div>
+            <h3 class="experience-title">A luxury based on access</h3>
+            <p class="experience-copy">
+              The rarest luxury is not a product. It is access to the right person at the right
+              moment, when clarity changes everything.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="worlds-section" id="worlds">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The three worlds of Amal</p>
+          <h2 class="section-title">One woman. Three ways to enter the <em>ecosystem</em>.</h2>
+          <p class="section-copy">
+            The full subscription lives across three environments. Each one unlocks a different
+            kind of intimacy, counsel, and transformation.
+          </p>
+        </div>
+
+        <div class="worlds-grid">
+          <article class="world-card reveal">
+            <div class="world-icon">🪞</div>
+            <p class="world-kicker">The Chair</p>
+            <h3>In-salon</h3>
+            <p>
+              Beauty services become strategy sessions. Amal's chair is where image, identity, and
+              high-level conversation meet in real time.
+            </p>
+          </article>
+
+          <article class="world-card reveal reveal-delay-1">
+            <div class="world-icon">📱</div>
+            <p class="world-kicker">The Line</p>
+            <h3>24/7 phone and text</h3>
+            <p>
+              When decisions stall, deals shift, or life hits hard, clients can reach for Amal's
+              voice, not just wait until the next appointment.
+            </p>
+          </article>
+
+          <article class="world-card reveal reveal-delay-2">
+            <div class="world-icon">🏜️</div>
+            <p class="world-kicker">The Desert</p>
+            <h3>Retreat immersion</h3>
+            <p>
+              The desert day is the deepest layer: spiritual reset, business deconstruction, beauty
+              care, and a private strategy immersion away from noise.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="standards">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The house standard</p>
+          <h2 class="section-title">Luxury here means fewer clients, more <em>care</em>.</h2>
+          <p class="positioning-copy">
+            The brands that feel truly premium protect three things: access, discretion, and
+            atmosphere. Amal Access should feel personal from first inquiry to final follow-up.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-card reveal">
+            <div class="experience-index">01</div>
+            <h3 class="experience-title">Application before admission</h3>
+            <p class="experience-copy">
+              Private Suite and Founding Circle are not impulse purchases. They begin with an
+              inquiry, a conversation, and a clear sense of mutual fit.
+            </p>
+          </article>
+
+          <article class="experience-card reveal reveal-delay-1">
+            <div class="experience-index">02</div>
+            <h3 class="experience-title">Concierge-style communication</h3>
+            <p class="experience-copy">
+              The tone stays warm, discreet, and direct. Replies should feel personal, not automated,
+              and every touchpoint should sound like Amal's world.
+            </p>
+          </article>
+
+          <article class="experience-card reveal reveal-delay-2">
+            <div class="experience-index">03</div>
+            <h3 class="experience-title">Hospitality over volume</h3>
+            <p class="experience-copy">
+              The goal is not to book everyone. The goal is to protect the intimacy of the room, the
+              quality of the counsel, and the atmosphere around the brand.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="container trust-layout">
+        <div>
+          <div class="section-heading reveal">
+            <p class="eyebrow">Who this is for</p>
+            <h2 class="section-title">Built for women in a season of <em>movement</em>.</h2>
+            <p class="section-copy">
+              The strongest private-access brands speak clearly about who belongs in the room. Amal
+              Access is best suited to women who value discernment, discretion, and personal care.
+            </p>
+          </div>
+
+          <div class="trust-grid">
+            <article class="trust-card reveal">
+              <p class="trust-kicker">Leadership</p>
+              <h3>Women making weighty decisions</h3>
+              <p>
+                Founders, operators, mothers, investors, and women holding a lot at once often want
+                one trusted voice who can see the whole picture.
+              </p>
+            </article>
+
+            <article class="trust-card reveal reveal-delay-1">
+              <p class="trust-kicker">Transition</p>
+              <h3>Women in a personal reset</h3>
+              <p>
+                A new season, a business pivot, a reinvention, or a deeper return to self can all
+                call for beauty care that carries emotional and spiritual intelligence with it.
+              </p>
+            </article>
+
+            <article class="trust-card reveal reveal-delay-2">
+              <p class="trust-kicker">Celebration</p>
+              <h3>Groups who want a hosted experience</h3>
+              <p>
+                Bridal parties, sisters, and private groups who want a more beautiful way to gather
+                can enter through the hosted bridesmaid retreat experience.
+              </p>
+            </article>
+
+            <article class="trust-card reveal reveal-delay-3">
+              <p class="trust-kicker">Discernment</p>
+              <h3>Clients who want truth, not performance</h3>
+              <p>
+                Amal is direct. The right client values that. She is not selling a fantasy persona.
+                She is offering seasoned discernment.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="team-panel reveal reveal-delay-1">
+          <p class="eyebrow">The brand feeling</p>
+          <h2 class="section-title">More private house than <em>beauty chain</em>.</h2>
+          <p class="team-copy">
+            The luxury references that fit best here are private clubs, concierge services, hosted
+            retreats, and intimate bridal hospitality. The site should keep feeling selective,
+            literary, and deeply personal.
+          </p>
+
+          <div class="team-list">
+            <article class="team-member">
+              <h3>Selective</h3>
+              <p>Application-led rather than open-cart checkout</p>
+            </article>
+
+            <article class="team-member">
+              <h3>Discreet</h3>
+              <p>Warm, direct correspondence with fewer public-facing promises and more personal follow-through</p>
+            </article>
+
+            <article class="team-member">
+              <h3>Hosted</h3>
+              <p>Salon visits, desert days, and bridal retreats all feel like invitations into Amal's world</p>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="membership-section" id="membership">
+      <div class="container membership-layout">
+        <div class="membership-copy reveal">
+          <p class="eyebrow">Membership and access</p>
+          <h2 class="section-title">Private access, structured with <em>intention</em>.</h2>
+          <p class="section-copy">
+            The flagship is The Private Suite. Inner Circle offers a softer point of entry, and
+            Founding Circle rewards the first women who commit early. Annual pricing is pre-selected
+            because this brand is built around continuity, not impulse.
+          </p>
+
+          <div class="pricing-toggle" role="tablist" aria-label="Pricing term toggle">
+            <button class="toggle-btn" type="button" data-pricing-toggle="monthly" aria-pressed="false">Monthly View</button>
+            <button class="toggle-btn is-active" type="button" data-pricing-toggle="annual" aria-pressed="true">Annual View</button>
+          </div>
+          <p class="pricing-note">
+            Annual pricing creates a meaningful commitment incentive. The goal is not discounting.
+            The goal is deeper continuity, stronger results, and protected access over time.
+          </p>
+
+          <div class="membership-promise">
+            <div class="membership-note">
+              <strong>The promise:</strong> Amal becomes your private advisor. Call her when you
+              need her. Visit her in the salon. Ask her opinion on business, image, investments,
+              pivots, and personal alignment.
+            </div>
+            <div class="membership-note">
+              <strong>The standard:</strong> every tier is designed around direct access, a highly
+              personal relationship, and a feeling of care that stays bespoke instead of becoming
+              scaled, rushed, or impersonal.
+            </div>
+          </div>
+        </div>
+
+        <div class="membership-grid tier-grid">
+          <article class="membership-card reveal">
+            <p class="membership-badge">Core membership</p>
+            <h3>The Inner Circle</h3>
+            <p class="membership-subhead">
+              For clients who want consistent coaching access with monthly in-salon visits and a
+              direct line into Amal's frameworks.
+            </p>
+
+            <div class="membership-price-row">
+              <span class="membership-price price-amount" data-monthly>$997</span>
+              <span class="membership-price price-amount" data-annual>$9,500</span>
+              <span class="membership-term price-term" data-monthly>per month</span>
+              <span class="membership-term price-term" data-annual>per year</span>
+              <span class="membership-savings price-save" data-annual>Save about $2,464</span>
+            </div>
+
+            <ul class="membership-list">
+              <li>2 in-salon visits each month with coaching conversation during service</li>
+              <li>Unlimited async access by voice memo, DM, or text</li>
+              <li>One 60-minute video strategy session each month</li>
+              <li>Bi-weekly spiritual and business alignment check-ins</li>
+              <li>Private resource vault with books, frameworks, and investor tools</li>
+            </ul>
+
+            <div class="membership-actions">
+              <a class="btn btn-primary" href="#apply">Apply for Inner Circle</a>
+            </div>
+          </article>
+
+          <article class="membership-card featured reveal reveal-delay-1">
+            <p class="membership-badge">Flagship membership</p>
+            <h3>The Private Suite</h3>
+            <p class="membership-subhead">
+              For the woman who wants Amal as a full-time private advisor in her pocket, with the
+              strongest level of continuity, closeness, and care.
+            </p>
+
+            <div class="membership-price-row">
+              <span class="membership-price price-amount" data-monthly>$1,997</span>
+              <span class="membership-price price-amount" data-annual>$19,500</span>
+              <span class="membership-term price-term" data-monthly>per month</span>
+              <span class="membership-term price-term" data-annual>per year</span>
+              <span class="membership-savings price-save" data-annual>Save about $4,464</span>
+            </div>
+
+            <ul class="membership-list">
+              <li>Everything in Inner Circle</li>
+              <li>24/7 direct phone access when deals break or clarity is needed</li>
+              <li>4 in-salon visits each month with protected priority scheduling</li>
+              <li>Weekly 90-minute deep-dive sessions for business, spiritual alignment, or both</li>
+              <li>Business document review for offers, plans, and key decision documents</li>
+              <li>Quarterly goal-setting retreat call and selective introductions when appropriate</li>
+            </ul>
+
+            <div class="membership-actions">
+              <a class="btn btn-primary" href="#apply">Apply for Private Suite</a>
+              <a class="btn btn-secondary" href="tel:8183418865">Call Amal's Team</a>
+            </div>
+            <p class="membership-caption">The signature membership for clients who want Amal close by.</p>
+          </article>
+
+          <article class="membership-card dark reveal">
+            <p class="membership-badge">Signature immersion</p>
+            <h3>The Desert Day</h3>
+            <p class="membership-subhead">
+              A one-day immersive strategy and spiritual reset in the desert. One location. One
+              woman. One full day built around your goals.
+            </p>
+
+            <div class="membership-price-row">
+              <span class="membership-price">$3,500</span>
+              <span class="membership-term">member rate</span>
+              <span class="membership-savings">$5,000 standalone</span>
+            </div>
+
+            <ul class="membership-list">
+              <li>Private 1:1 day at the desert retreat location</li>
+              <li>Morning ritual, meditation, and spiritual reset session</li>
+              <li>Business deconstruction and strategy rebuild</li>
+              <li>Beauty service, hosted lunch, 90-day action plan, and follow-up session</li>
+            </ul>
+
+            <div class="membership-actions">
+              <a class="btn btn-outline-light" href="#desert-day">See Desert Day</a>
+            </div>
+          </article>
+
+          <article class="membership-card founding reveal reveal-delay-1">
+            <p class="membership-badge">Founding tier</p>
+            <h3>The Founding Circle</h3>
+            <p class="membership-subhead">
+              Limited to the first five people. A founder rate designed to reward early trust, then
+              closed permanently once the seats are filled.
+            </p>
+
+            <div class="membership-price-row">
+              <span class="membership-price">$14,400</span>
+              <span class="membership-term">per year</span>
+              <span class="membership-savings">$1,200 effective monthly</span>
+            </div>
+
+            <ul class="membership-list">
+              <li>Everything in Private Suite</li>
+              <li>One complimentary Desert Day each year</li>
+              <li>First access to new offers, events, and group experiences</li>
+              <li>Founding member recognition plus preferred access to future experiences</li>
+            </ul>
+
+            <div class="founding-seats" aria-label="Founding seats remaining">
+              <span class="founding-seat">Seat 1 of 5</span>
+              <span class="founding-seat">Seat 2 of 5</span>
+              <span class="founding-seat">Seat 3 of 5</span>
+              <span class="founding-seat">Seat 4 of 5</span>
+              <span class="founding-seat">Seat 5 of 5</span>
+            </div>
+
+            <div class="membership-actions">
+              <a class="btn btn-primary" href="#apply">Apply for Founding Circle</a>
+            </div>
+            <p class="membership-fine">Founder pricing is honored while membership remains active. This tier closes once all five seats are claimed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The admission process</p>
+          <h2 class="section-title">Private access begins with a <em>conversation</em>.</h2>
+          <p class="positioning-copy">
+            Luxury membership should feel guided from the first touchpoint. The right client is not
+            pushed through checkout. She is welcomed in with clarity, fit, and care.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-card reveal">
+            <div class="experience-index">01</div>
+            <h3 class="experience-title">Submit a private inquiry</h3>
+            <p class="experience-copy">
+              Share what season of life, business, or transition you are in and which level of
+              access feels aligned. This opens the conversation without pressure.
+            </p>
+          </article>
+
+          <article class="experience-card reveal reveal-delay-1">
+            <div class="experience-index">02</div>
+            <h3 class="experience-title">Receive a personal follow-up</h3>
+            <p class="experience-copy">
+              Amal's team responds personally to confirm fit, timing, and the right experience,
+              whether that is a membership, Desert Day, or hosted retreat.
+            </p>
+          </article>
+
+          <article class="experience-card reveal reveal-delay-2">
+            <div class="experience-index">03</div>
+            <h3 class="experience-title">Enter the right tier with intention</h3>
+            <p class="experience-copy">
+              Once the relationship is aligned, your access is structured in the tier that best
+              supports your season, your goals, and the level of closeness you want.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="container trust-layout">
+        <div>
+          <div class="section-heading reveal">
+            <p class="eyebrow">Private house notes</p>
+            <h2 class="section-title">The brand feels strongest when the details stay <em>disciplined</em>.</h2>
+            <p class="section-copy">
+              The market research keeps pointing to the same thing: premium brands feel different
+              because they protect the atmosphere around the service, not just the service itself.
+            </p>
+          </div>
+
+          <div class="trust-grid">
+            <article class="trust-card reveal">
+              <p class="trust-kicker">Tone</p>
+              <h3>Warm, direct, never generic</h3>
+              <p>
+                Every inquiry, follow-up, and caption should sound personal, grounded, and clean.
+                Luxury here means intimacy, not inflated language.
+              </p>
+            </article>
+
+            <article class="trust-card reveal reveal-delay-1">
+              <p class="trust-kicker">Access</p>
+              <h3>Limited on purpose</h3>
+              <p>
+                The more exclusive tiers should stay visibly capacity-aware so the promise of real
+                access always feels believable.
+              </p>
+            </article>
+
+            <article class="trust-card reveal reveal-delay-2">
+              <p class="trust-kicker">Hospitality</p>
+              <h3>Everything should feel hosted</h3>
+              <p>
+                Whether someone is in the chair, on the phone, or arriving for a retreat, the
+                feeling should be prepared, beautiful, and quietly attentive.
+              </p>
+            </article>
+
+            <article class="trust-card reveal reveal-delay-3">
+              <p class="trust-kicker">Proof</p>
+              <h3>Let legacy do part of the talking</h3>
+              <p>
+                Since 1981, local trust, returning clients, and personal referrals already create a
+                stronger signal than overexplaining the concept ever could.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="team-panel reveal reveal-delay-1">
+          <p class="eyebrow">What to keep building</p>
+          <h2 class="section-title">The future brand wants more <em>editorial proof</em>.</h2>
+          <p class="team-copy">
+            The next luxury step after this page is not more offers. It is deeper proof: stronger
+            photography, more authored notes from Amal, and selective testimonials that speak to
+            transformation, not just a haircut.
+          </p>
+
+          <div class="team-list">
+            <article class="team-member">
+              <h3>Portraits</h3>
+              <p>Founder images that feel cinematic and calm, not standard salon promo</p>
+            </article>
+
+            <article class="team-member">
+              <h3>Testimony</h3>
+              <p>Stories about clarity, trust, reinvention, and being deeply seen</p>
+            </article>
+
+            <article class="team-member">
+              <h3>Writing</h3>
+              <p>Short founder letters and journal excerpts that make the brand feel authored</p>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="services-wrap" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Supporting salon services</p>
+          <h2 class="section-title">The salon work that supports the <em>larger vision</em>.</h2>
+          <p class="section-copy">
+            Amal's Salon serves both women and men with cuts, color, texture, extensions,
+            grooming, and beauty add-ons. Where services vary by guest, the best move is to call
+            and ask directly.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-top">
+              <span class="service-number">01</span>
+              <span class="service-tag">Cut</span>
+            </div>
+            <h3 class="service-name">Women's Haircut</h3>
+            <p class="service-desc">
+              Shape, length, and movement chosen around your features and the way you actually live,
+              not just the trend of the week.
+            </p>
+            <div class="service-highlights">
+              <span>Consult-led cut</span>
+              <span>Face-aware shaping</span>
+              <span>Advice if you want it</span>
+            </div>
+            <div class="service-meta">
+              <span class="service-price">$35 to $60</span>
+              <span class="service-duration">Published range</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal reveal-delay-1">
+            <div class="service-top">
+              <span class="service-number">02</span>
+              <span class="service-tag">Cut</span>
+            </div>
+            <h3 class="service-name">Men's Haircut</h3>
+            <p class="service-desc">
+              Honest guidance, clean shaping, and a finished look that can stay classic or lean more
+              current depending on who is in the chair.
+            </p>
+            <div class="service-highlights">
+              <span>Classic or modern</span>
+              <span>Strong finish</span>
+              <span>Direct advice</span>
+            </div>
+            <div class="service-meta">
+              <span class="service-price">$35 to $60</span>
+              <span class="service-duration">Published range</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2">
+            <div class="service-top">
+              <span class="service-number">03</span>
+              <span class="service-tag">Color</span>
+            </div>
+            <h3 class="service-name">Coloring and Highlights</h3>
+            <p class="service-desc">
+              Color work for warmth, brightness, dimension, or a full shift in tone, handled with
+              care and attention to what suits you.
+            </p>
+            <div class="service-highlights">
+              <span>Color and highlights</span>
+              <span>Dimensional finish</span>
+              <span>Ongoing upkeep support</span>
+            </div>
+            <div class="service-meta">
+              <span class="service-price">$75 and up</span>
+              <span class="service-duration">Published starting price</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-top">
+              <span class="service-number">04</span>
+              <span class="service-tag">Length</span>
+            </div>
+            <h3 class="service-name">Hair Extensions</h3>
+            <p class="service-desc">
+              For guests who want added length, extra fullness, or a look for a special moment
+              without waiting on nature's timeline.
+            </p>
+            <div class="service-highlights">
+              <span>Added volume</span>
+              <span>Event-ready</span>
+              <span>Consultation recommended</span>
+            </div>
+            <div class="service-meta">
+              <span class="service-price">Call for pricing</span>
+              <span class="service-duration">Custom service</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal reveal-delay-1">
+            <div class="service-top">
+              <span class="service-number">05</span>
+              <span class="service-tag">Style</span>
+            </div>
+            <h3 class="service-name">Hairstyling and Blowouts</h3>
+            <p class="service-desc">
+              Everyday polish, celebration styling, and smooth blowouts that leave hair looking
+              finished, touchable, and alive.
+            </p>
+            <div class="service-highlights">
+              <span>Special occasions</span>
+              <span>Gloss and movement</span>
+              <span>Smooth finish</span>
+            </div>
+            <div class="service-meta">
+              <span class="service-price">Call for pricing</span>
+              <span class="service-duration">Style to suit the day</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2">
+            <div class="service-top">
+              <span class="service-number">06</span>
+              <span class="service-tag">Repair</span>
+            </div>
+            <h3 class="service-name">Hair Treatments</h3>
+            <p class="service-desc">
+              Support for common hair concerns like dryness, frizz, thinning, or stressed strands
+              that need restoration before anything else.
+            </p>
+            <div class="service-highlights">
+              <span>Hydration</span>
+              <span>Repair-focused</span>
+              <span>Health-first care</span>
+            </div>
+            <div class="service-meta">
+              <span class="service-price">Call for pricing</span>
+              <span class="service-duration">Concern-based care</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-top">
+              <span class="service-number">07</span>
+              <span class="service-tag">Texture</span>
+            </div>
+            <h3 class="service-name">Perming Services</h3>
+            <p class="service-desc">
+              For guests who want curl, body, or a more lasting change in movement without losing a
+              sense of softness.
+            </p>
+            <div class="service-highlights">
+              <span>Permanent waves</span>
+              <span>Body and curl</span>
+              <span>Design-focused texture</span>
+            </div>
+            <div class="service-meta">
+              <span class="service-price">Call for pricing</span>
+              <span class="service-duration">Texture consultation</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal reveal-delay-1">
+            <div class="service-top">
+              <span class="service-number">08</span>
+              <span class="service-tag">Grooming</span>
+            </div>
+            <h3 class="service-name">Beard and Mustache</h3>
+            <p class="service-desc">
+              Grooming support for men who want detail, structure, and a cleaner frame around the
+              face without overworking the look.
+            </p>
+            <div class="service-highlights">
+              <span>Clean-up work</span>
+              <span>Face-framing detail</span>
+              <span>Available on request</span>
+            </div>
+            <div class="service-meta">
+              <span class="service-price">Call for pricing</span>
+              <span class="service-duration">Add-on or standalone</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2">
+            <div class="service-top">
+              <span class="service-number">09</span>
+              <span class="service-tag">Beauty</span>
+            </div>
+            <h3 class="service-name">Nails, Lashes, and Beauty Extras</h3>
+            <p class="service-desc">
+              Alongside hair services, the salon also offers manicure, pedicure, eyelash, and
+              beauty add-on services. Call for the current menu.
+            </p>
+            <div class="service-highlights">
+              <span>Manicure and pedicure</span>
+              <span>Eyelashes</span>
+              <span>Beauty add-ons</span>
+            </div>
+            <div class="service-meta">
+              <span class="service-price">Call for details</span>
+              <span class="service-duration">Menu may vary</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section" id="about">
+      <div class="container story-grid">
+        <div class="story-copy reveal">
+          <p class="eyebrow">The woman behind the chair</p>
+          <h2 class="section-title">A stylist, owner, and <em>writer at heart</em>.</h2>
+          <p>
+            Since 1981, Amal has built more than a salon at 10102 Topanga Canyon Blvd. She has
+            built a place where people are remembered, greeted honestly, and cared for like they
+            matter.
+          </p>
+          <p>
+            She loves her clients. She loves her family. She is older now, yes, but not dimmed.
+            The voice is still strong. The truth is still sharp. And the work still carries the
+            kind of conviction people hear before they even sit down.
+          </p>
+          <p>
+            Amal always wanted to be a writer, and this page leans into that part of her. It reads
+            less like a brochure and more like a portrait because that is what her business really
+            is: a lived body of work.
+          </p>
+          <p>
+            That is why the membership works. People are not only paying for a service. They are
+            paying for access to a seasoned woman with discernment, instinct, memory, and the
+            courage to say what needs to be said.
+          </p>
+          <p class="signature">- Amal</p>
+        </div>
+
+        <div class="story-visual reveal reveal-delay-1" aria-hidden="true">
+          <article class="portrait-panel">
+            <h3>Strong hands. Clear voice. Soft heart.</h3>
+            <p>
+              Amal is known locally not just for beauty work, but for the way she speaks truth with
+              conviction and still makes room for tenderness.
+            </p>
+          </article>
+
+          <article class="story-panel">
+            <h4>Known around Chatsworth</h4>
+            <p>Clients keep circling back to the same themes: attentiveness, professionalism, and care that feels personal.</p>
+            <ul>
+              <li>Serving the area since 1981</li>
+              <li>Family-owned and female-owned</li>
+              <li>A close team that includes Amal and Nora</li>
+            </ul>
+          </article>
+
+          <article class="quote-panel">
+            <h4>What she believes</h4>
+            <blockquote>
+              God gave you beauty. My job is to honor it honestly.
+            </blockquote>
+            <p>The philosophy underneath the chair</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="values-band">
+      <div class="container values-layout">
+        <div class="values-copy reveal">
+          <p class="eyebrow">What guides Amal</p>
+          <h2 class="section-title">Faith, clarity, and <em>inner change</em>.</h2>
+          <p class="section-copy">
+            Amal is spiritual without trying to flatten people into one label. The work on the
+            outside matters, but what she is always after is alignment: the face, the voice, the
+            spirit, and the truth of the person all moving in the same direction. That same
+            alignment is what makes her a powerful private coach.
+          </p>
+        </div>
+
+        <div class="values-list">
+          <article class="value-item reveal">
+            <div class="value-badge">01</div>
+            <div>
+              <h3>God First</h3>
+              <p>Faith sits at the center of Amal's life and quietly shapes the gratitude, steadiness, and care inside the salon.</p>
+            </div>
+          </article>
+
+          <article class="value-item reveal reveal-delay-1">
+            <div class="value-badge">02</div>
+            <div>
+              <h3>Truth Spoken Plainly</h3>
+              <p>Amal is known for being direct. That honesty is part of the service, not separate from it.</p>
+            </div>
+          </article>
+
+          <article class="value-item reveal reveal-delay-2">
+            <div class="value-badge">03</div>
+            <div>
+              <h3>Inner and Outer Shift</h3>
+              <p>The mirror matters, but so does the feeling after. The goal is change you can carry beyond the appointment.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">What people mention most</p>
+          <h2 class="section-title">The words that keep <em>coming back</em>.</h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card reveal">
+            <div class="testimonial-stars" aria-hidden="true">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-copy">
+              Great energy. A haircut that lands right. A salon visit that feels personal instead of mechanical.
+            </p>
+            <p class="testimonial-meta">Recent guest theme</p>
+          </article>
+
+          <article class="testimonial-card reveal reveal-delay-1">
+            <div class="testimonial-stars" aria-hidden="true">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-copy">
+              Amal is attentive, the staff is professional, and the room feels safe, clean, and welcoming.
+            </p>
+            <p class="testimonial-meta">Review pattern across listings</p>
+          </article>
+
+          <article class="testimonial-card reveal reveal-delay-2">
+            <div class="testimonial-stars" aria-hidden="true">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="testimonial-copy">
+              Locals praise the color work, the honest advice, and the feeling that someone is truly paying attention.
+            </p>
+            <p class="testimonial-meta">Chatsworth and nearby guests</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="desert-section" id="desert-day">
+      <div class="container desert-layout">
+        <div class="desert-copy reveal">
+          <p class="eyebrow">Tier 3 immersion</p>
+          <h2 class="section-title">The Desert is where strategy meets <em>spiritual reset</em>.</h2>
+          <p class="section-copy">
+            This is the high-ticket day for clients ready to step away from noise and rebuild with
+            Amal one-on-one. It can stand alone or deepen the membership relationship.
+          </p>
+          <ul class="desert-list">
+            <li>Private day agenda curated to business, spiritual, and personal goals</li>
+            <li>Morning ritual and meditation to reset the nervous system before strategy</li>
+            <li>Business deconstruction, rebuild, and 90-day action plan</li>
+            <li>Beauty service included inside the desert experience</li>
+            <li>Hosted lunch plus a 60-minute follow-up session two weeks later</li>
+          </ul>
+        </div>
+
+        <article class="desert-card reveal reveal-delay-1">
+          <h3>The Desert Day Pricing</h3>
+          <p>
+            Standalone clients can book the day at the full premium level. Private Suite members
+            unlock a loyalty rate that makes the membership ecosystem feel coherent and rewarding.
+          </p>
+          <div class="membership-price-row">
+            <span class="membership-price">$5,000</span>
+            <span class="membership-term">standalone</span>
+            <span class="membership-savings">$3,500 for Private Suite members</span>
+          </div>
+          <div class="membership-actions">
+            <a class="btn btn-primary" href="#apply">Apply for Desert Day</a>
+            <a class="btn btn-secondary" href="tel:8183418865">Call to Inquire</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="event-section" id="bridesmaids">
+      <div class="container event-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Custom group experience</p>
+          <h2 class="section-title">The Bridesmaid Package is a private pamper <em>weekend world</em>.</h2>
+          <p class="section-copy">
+            This is not a quick bridal add-on. It is a custom-built hosted experience for a group
+            of girls on a beautiful 4-bedroom, 3-bath property with a pool, spa, and full salon on site.
+          </p>
+          <ul class="desert-list">
+            <li>Use the on-property salon for hair, beauty prep, private glam stations, and intimate pampering</li>
+            <li>Build the experience around the group: bridesmaids, sisters, mothers, or a private girls' getaway</li>
+            <li>Add paint and wine, welcome pours, pool and spa time, overnight stay, breakfast setup, or next-day wedding prep</li>
+            <li>Every package is custom-built to the group instead of boxed into a generic menu</li>
+          </ul>
+        </div>
+
+        <article class="event-card reveal reveal-delay-1">
+          <h3>The Bridesmaid Retreat Package</h3>
+          <p>
+            Amal curates the experience around the size of the group, the level of pampering, and
+            whether the gathering is a day event, evening event, or overnight retreat. The feeling
+            should land somewhere between beauty suite, private house, and hosted celebration.
+          </p>
+          <div class="event-tag-row">
+            <span class="event-tag">Full salon access</span>
+            <span class="event-tag">Pool and spa</span>
+            <span class="event-tag">Paint and wine</span>
+            <span class="event-tag">Overnight option</span>
+            <span class="event-tag">Custom pricing</span>
+          </div>
+          <div class="membership-price-row">
+            <span class="membership-price">Custom</span>
+            <span class="membership-term">quoted per group</span>
+          </div>
+          <p>
+            Best positioned as a premium hosted package with an application or call-first inquiry,
+            since the value changes based on headcount, overnight needs, hospitality details, and
+            experience design.
+          </p>
+          <div class="event-itinerary">
+            <div class="itinerary-row">
+              <h4>The Evening Gather</h4>
+              <p>Hair and beauty touchups, paint and wine, hosted conversation, and poolside or spa energy for a softer intimate celebration.</p>
+            </div>
+            <div class="itinerary-row">
+              <h4>The Overnight Retreat</h4>
+              <p>A fuller girls' weekend with salon prep, spa time, overnight accommodations, and next-day getting-ready flow built into the property.</p>
+            </div>
+            <div class="itinerary-row">
+              <h4>The Wedding Morning House</h4>
+              <p>A custom home-base for bridesmaids and women closest to the bride, designed around calm, beauty prep, and a beautiful pre-ceremony atmosphere.</p>
+            </div>
+          </div>
+          <div class="membership-actions">
+            <a class="btn btn-primary" href="#apply">Apply for Bridesmaid Package</a>
+            <a class="btn btn-secondary" href="tel:8183418865">Call to Design It</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="journal-section" id="journal">
+      <div class="container journal-layout">
+        <div class="journal-intro reveal">
+          <p class="eyebrow">From Amal's desk</p>
+          <h2 class="section-title">A salon with the soul of a <em>writer</em>.</h2>
+          <p class="section-copy">
+            You said Amal always wanted to be a writer. So this section gives the site a voice
+            that feels closer to a personal essay than a beauty ad. It lets the business carry her
+            interior life, not just her service list.
+          </p>
+        </div>
+
+        <div class="journal-notes">
+          <article class="journal-card reveal">
+            <p class="journal-label">A note on beauty</p>
+            <h3>Beauty without truth is decoration.</h3>
+            <p>
+              Amal's way is not to flatter people into confusion. She would rather tell the truth,
+              then build from there. <strong>That honesty is part of the beauty.</strong> When the
+              hair is right, the posture changes. The face softens. The person comes forward.
+            </p>
+          </article>
+
+          <article class="journal-card reveal reveal-delay-1">
+            <p class="journal-label">A note on spirit</p>
+            <h3>People bring more than hair into the room.</h3>
+            <p>
+              Some bring grief. Some bring celebration. Some bring exhaustion. Amal meets all of it
+              with faith, instinct, and the kind of listening that does not need to announce itself.
+              Her spirituality is real, but it is never used as a cage. It is used as care.
+            </p>
+          </article>
+
+          <article class="journal-card reveal reveal-delay-2">
+            <p class="journal-label">A note on legacy</p>
+            <h3>Forty-plus years teaches a woman how to see.</h3>
+            <p>
+              A business that lasts this long becomes part salon, part neighborhood witness. Amal
+              has seen families grow up, styles turn over, and people return again when they need
+              someone steady. That kind of longevity is its own language.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="revenue-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The membership standard</p>
+          <h2 class="section-title">Luxury is protected by <em>standards</em>, not volume.</h2>
+          <p class="section-copy">
+            The strongest private-access brands do not win by adding more options. They win by
+            making the relationship feel selective, personal, and beautifully handled from the
+            first inquiry forward.
+          </p>
+        </div>
+
+        <div class="revenue-grid">
+          <article class="revenue-card reveal">
+            <p class="revenue-kicker">Selective entry</p>
+            <h3>Application before access</h3>
+            <div class="revenue-row"><span>Private Suite and Founding Circle</span><strong>By application</strong></div>
+            <div class="revenue-row"><span>What it signals</span><strong>Scarcity and fit</strong></div>
+          </article>
+
+          <article class="revenue-card reveal reveal-delay-1">
+            <p class="revenue-kicker">Direct relationship</p>
+            <h3>One woman, one point of contact</h3>
+            <div class="revenue-row"><span>Salon, phone, and retreat access</span><strong>Integrated</strong></div>
+            <div class="revenue-row"><span>What it protects</span><strong>Trust and intimacy</strong></div>
+          </article>
+
+          <article class="revenue-card reveal reveal-delay-2">
+            <p class="revenue-kicker">Bespoke hospitality</p>
+            <h3>Every experience feels curated</h3>
+            <div class="revenue-row"><span>Desert days and hosted group stays</span><strong>Custom-built</strong></div>
+            <div class="revenue-row"><span>What it communicates</span><strong>Premium care</strong></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section">
+      <div class="container trust-layout">
+        <div>
+          <div class="section-heading reveal">
+            <p class="eyebrow">Why the neighborhood trusts her</p>
+            <h2 class="section-title">Deep roots. Strong word. <em>Real care</em>.</h2>
+          <p class="section-copy">
+            This gives the site a layer of grounded credibility beyond testimonials: not just what
+            people feel, but what the business has become in the life of the area. It helps justify
+            why access to Amal belongs in a premium tier.
+          </p>
+          </div>
+
+          <div class="trust-grid">
+            <article class="trust-card reveal">
+              <p class="trust-kicker">Legacy</p>
+              <h3>Since 1981</h3>
+              <p>
+                Amal's Salon has had decades to become known by name, not just by signage. That
+                kind of endurance tells its own story.
+              </p>
+            </article>
+
+            <article class="trust-card reveal reveal-delay-1">
+              <p class="trust-kicker">Approach</p>
+              <h3>Direct, not cold</h3>
+              <p>
+                Amal's honesty is part of what people trust. She does not waste time pretending,
+                and clients read that as care, not harshness.
+              </p>
+            </article>
+
+            <article class="trust-card reveal reveal-delay-2">
+              <p class="trust-kicker">Atmosphere</p>
+              <h3>Faith with room to breathe</h3>
+              <p>
+                Spirituality matters in this salon, but not in a way that narrows people. It opens
+                them back up to themselves.
+              </p>
+            </article>
+
+            <article class="trust-card reveal reveal-delay-3">
+              <p class="trust-kicker">Relationships</p>
+              <h3>Clients become regulars</h3>
+              <p>
+                The work earns loyalty, but the way people are remembered and spoken to is what
+                turns first-time guests into long-time family.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="team-panel reveal reveal-delay-1">
+          <p class="eyebrow">Inside the salon</p>
+          <h2 class="section-title">A small team with a <em>strong center</em>.</h2>
+          <p class="team-copy">
+            The official site highlights Amal and Nora. Keeping the team section intimate helps the
+            page feel personal instead of padded, and it reinforces the family-owned energy.
+          </p>
+
+          <div class="team-list">
+            <article class="team-member">
+              <h3>Amal</h3>
+              <p>Owner · Stylist · Spiritual center</p>
+              <p>
+                The heart of the business: a woman known for truth, resilience, long memory, and
+                the ability to make a client feel both challenged and cared for.
+              </p>
+            </article>
+
+            <article class="team-member">
+              <h3>Nora</h3>
+              <p>Team member · Salon support</p>
+              <p>
+                Part of the close-knit salon rhythm that helps the space feel welcoming, familiar,
+                and consistent for returning guests.
+              </p>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="letter-section">
+      <div class="container letter-shell">
+        <div class="letter-aside reveal">
+          <p class="eyebrow">Letter from the heart of the salon</p>
+          <h2 class="section-title">A page Amal could almost <em>have written</em>.</h2>
+          <p class="section-copy">
+            This is the next step in making the site feel personal enough to surprise her. It reads
+            like a founder's note rather than marketing copy, which gives the business more gravity
+            and more intimacy. It also helps premium clients understand exactly whose voice they are buying access to.
+          </p>
+          <article class="letter-card">
+            <h3>Why this matters</h3>
+            <p>
+              The strongest salon websites do not just list services. They let people feel the
+              person behind the chair. This section is built to do exactly that.
+            </p>
+          </article>
+        </div>
+
+        <div class="letter-body reveal reveal-delay-1">
+          <p class="letter-date">A note from Amal's world</p>
+          <h2 class="letter-title">I have never believed beauty should lie to people.</h2>
+          <div class="letter-copy">
+            <p>
+              I believe beauty should tell the truth. Not the hard truth that humiliates. The good
+              truth. The useful truth. The truth that reminds a woman who she is when life has made
+              her forget for a little while.
+            </p>
+            <p>
+              For decades, people have come through these doors carrying everything with them:
+              celebrations, disappointments, marriages, losses, children, hope, exhaustion. Hair is
+              never just hair. <strong>It is memory. It is identity. It is how a person walks back
+              into the world.</strong>
+            </p>
+            <p>
+              God is first in my life. Family is precious to me. My clients matter deeply. I do not
+              separate those things from my work. When someone sits in my chair, I want to honor
+              the spirit in them, speak honestly, and help bring forward the beauty that was already
+              there.
+            </p>
+            <p>
+              That is what this salon has always tried to be: a place where care is real, beauty is
+              skillful, and truth is never out of fashion.
+            </p>
+            <p class="letter-signoff">Amal</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="visit">
+      <div class="container faq-layout">
+        <div>
+          <div class="section-heading reveal">
+            <p class="eyebrow">Visit the salon</p>
+            <h2 class="section-title">Find Amal in <em>Chatsworth</em>.</h2>
+            <p class="section-copy">
+              Everything you need to plan the visit lives here now: the address, the hours, the
+              call-first booking path, and a clearer sense of what Amal's Salon offers.
+            </p>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item reveal" open>
+              <summary>How long has Amal's Salon been here?</summary>
+              <div class="faq-answer">
+                Amal's Salon has been serving the area since 1981. That kind of longevity does not
+                happen by accident. It comes from trust, repeat relationships, and work people stay
+                loyal to.
+              </div>
+            </details>
+
+            <details class="faq-item reveal reveal-delay-1">
+              <summary>What does the salon offer?</summary>
+              <div class="faq-answer">
+                Amal's Salon offers women's and men's haircuts, coloring, highlights, hairstyling,
+                blowouts, hair treatments, perms, hair
+                extensions, beard and mustache work, manicure and pedicure, eyelash services, and
+                custom bridesmaid or private group pamper experiences.
+              </div>
+            </details>
+
+            <details class="faq-item reveal reveal-delay-2">
+              <summary>What is the atmosphere like?</summary>
+              <div class="faq-answer">
+                The atmosphere is attentive, direct, professional, and personal. Amal leads with
+                faith, treats people like family, and speaks in a way that is clear rather than
+                polished for show.
+              </div>
+            </details>
+
+            <details class="faq-item reveal reveal-delay-3">
+              <summary>When can I come in?</summary>
+              <div class="faq-answer">
+                Regular hours are Tuesday through Friday from 8:00 AM to 5:00 PM, Saturday from
+                9:00 AM to 3:00 PM, and Sunday plus Monday closed. Special
+                events or parties may be accommodated earlier or later by request.
+              </div>
+            </details>
+
+            <details class="faq-item reveal">
+              <summary>Is there a first-visit offer?</summary>
+              <div class="faq-answer">
+                Yes. New customers can ask about 15% off the first visit.
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <aside class="visit-panel reveal reveal-delay-1">
+          <div class="visit-card">
+            <p class="visit-label">Address</p>
+            <p class="visit-value">10102 Topanga Canyon Blvd<br />Chatsworth, CA 91311</p>
+          </div>
+
+          <div class="visit-card">
+            <p class="visit-label">Call</p>
+            <p class="visit-value">
+              <a href="tel:8183418865">818-341-8865</a><br />
+              The clearest way to book, ask questions, or check today's availability
+            </p>
+          </div>
+
+          <div class="visit-card">
+            <p class="visit-label">Hours</p>
+            <div class="hours-grid" aria-label="Salon hours">
+              <div class="hours-row"><strong>Monday</strong><span>Closed</span></div>
+              <div class="hours-row"><strong>Tuesday</strong><span>8am - 5pm</span></div>
+              <div class="hours-row"><strong>Wednesday</strong><span>8am - 5pm</span></div>
+              <div class="hours-row"><strong>Thursday</strong><span>8am - 5pm</span></div>
+              <div class="hours-row"><strong>Friday</strong><span>8am - 5pm</span></div>
+              <div class="hours-row"><strong>Saturday</strong><span>9am - 3pm</span></div>
+              <div class="hours-row"><strong>Sunday</strong><span>Closed</span></div>
+            </div>
+          </div>
+
+          <div class="visit-card">
+            <p class="visit-label">Good to know</p>
+            <p class="visit-value">Free consultation<br />Family-owned<br />Female-owned<br />Venmo accepted</p>
+          </div>
+
+          <div class="visit-actions">
+            <a class="btn btn-primary" href="tel:8183418865">Call to Book</a>
+            <a
+              class="btn btn-secondary"
+              href="https://maps.google.com/?q=10102+Topanga+Canyon+Blvd+Chatsworth+CA+91311"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Get Directions
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="application-section" id="apply">
+      <div class="container">
+        <div class="application-shell reveal">
+          <div class="application-copy">
+            <p class="eyebrow">Private application</p>
+            <h2 class="section-title">Amal accepts members who are serious about <em>growth</em>.</h2>
+            <p class="section-copy">
+              This is not a checkout page. It is an application. That reinforces scarcity, signals
+              seriousness, and protects Amal's time for the clients who value proximity at the right level.
+            </p>
+            <ul class="desert-list">
+              <li>Choose the membership or immersion you are applying for</li>
+              <li>Share what season of life, leadership, or transition you are in</li>
+              <li>Tell Amal why now is the right moment for private access</li>
+              <li>Expect a discreet, personal follow-up instead of a generic booking funnel</li>
+            </ul>
+          </div>
+
+          <form class="application-form" id="application-form">
+            <div class="application-grid">
+              <div class="field">
+                <label for="app-name">Full name</label>
+                <input id="app-name" name="name" type="text" placeholder="Your full name" required />
+              </div>
+              <div class="field">
+                <label for="app-email">Email</label>
+                <input id="app-email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+
+            <div class="application-grid">
+              <div class="field">
+                <label for="app-phone">Phone</label>
+                <input id="app-phone" name="phone" type="tel" placeholder="Best number to reach you" />
+              </div>
+              <div class="field">
+                <label for="app-tier">Applying for</label>
+                <select id="app-tier" name="tier" required>
+                  <option value="The Inner Circle">The Inner Circle</option>
+                  <option value="The Private Suite" selected>The Private Suite</option>
+                  <option value="The Desert Day">The Desert Day</option>
+                  <option value="The Bridesmaid Retreat Package">The Bridesmaid Retreat Package</option>
+                  <option value="The Founding Circle">The Founding Circle</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="application-grid">
+              <div class="field">
+                <label for="app-date">Ideal date or timeframe</label>
+                <input id="app-date" name="date" type="text" placeholder="Month, season, or event date" />
+              </div>
+              <div class="field">
+                <label for="app-size">Group size if applicable</label>
+                <input id="app-size" name="group_size" type="text" placeholder="Solo, 4 women, 8 guests, etc." />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="app-stage">What are you navigating right now?</label>
+              <textarea id="app-stage" name="stage" placeholder="Business transition, personal reset, investment decisions, image shift, spiritual alignment, or something else." required></textarea>
+            </div>
+
+            <div class="field">
+              <label for="app-why">Why Amal?</label>
+              <textarea id="app-why" name="why" placeholder="What makes Amal's access the right next move for you?" required></textarea>
+            </div>
+
+            <button class="btn btn-light" type="submit">Submit Private Application</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="preview-section">
+          <div class="preview-shell reveal">
+            <div>
+              <p class="eyebrow">Preview and sharing</p>
+              <h2 class="section-title">The private preview is ready to <em>share</em>.</h2>
+              <p>
+                The site now lives comfortably as both a local file and a live preview. That makes
+                it easy to text, email, or walk Amal through the experience without needing a full
+                launch first.
+              </p>
+            </div>
+            <div class="preview-actions">
+              <a class="btn btn-primary" href="https://amalsalon-preview.vercel.app" target="_blank" rel="noreferrer">Open Live Preview</a>
+              <a class="btn btn-secondary" href="amalsalon.html">Open Local Draft</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-shell reveal">
+          <div class="cta-copy">
+            <p class="eyebrow">Ready for private access</p>
+            <h2>Request access to Amal's private membership, retreat, or hosted experience.</h2>
+            <p>
+              This is for clients who want a trusted voice, a sharper eye, and a more personal
+              relationship to beauty, strategy, and spiritual grounding.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <a class="btn btn-light" href="tel:8183418865">Request Access</a>
+            <a
+              class="btn btn-outline-light"
+              href="#membership"
+            >
+              View Membership
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-shell">
+      <div class="footer-left">
+        <p>
+          Since 1981, Amal's Salon has served Chatsworth with beauty care, direct loving attention,
+          and a voice people trust enough to keep returning to.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="#membership">Membership</a>
+        <a href="#process">Process</a>
+        <a href="#standards">Standards</a>
+        <a href="#desert-day">Desert Day</a>
+        <a href="#about">About Amal</a>
+        <a href="#apply">Apply</a>
+        <span id="footer-year">2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.body;
+    const header = document.getElementById("site-header");
+    const navToggle = document.querySelector(".nav-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navLinks = Array.from(document.querySelectorAll(".nav-list a"));
+    const mobileLinks = Array.from(document.querySelectorAll(".mobile-link"));
+    const allNavLinks = [...navLinks, ...mobileLinks];
+    const sections = Array.from(document.querySelectorAll("main section[id]"));
+    const revealItems = Array.from(document.querySelectorAll(".reveal"));
+    const footerYear = document.getElementById("footer-year");
+    const pricingToggles = Array.from(document.querySelectorAll("[data-pricing-toggle]"));
+    const applicationForm = document.getElementById("application-form");
+
+    const closeMenu = () => {
+      body.dataset.navOpen = "false";
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open menu");
+      }
+    };
+
+    const openMenu = () => {
+      body.dataset.navOpen = "true";
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "true");
+        navToggle.setAttribute("aria-label", "Close menu");
+      }
+    };
+
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener("click", () => {
+        if (body.dataset.navOpen === "true") {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
+
+    allNavLinks.forEach((link) => {
+      link.addEventListener("click", () => closeMenu());
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    const setHeaderState = () => {
+      if (!header) return;
+      header.classList.toggle("is-scrolled", window.scrollY > 18);
+    };
+
+    setHeaderState();
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+
+    const setActiveLink = (activeId) => {
+      navLinks.forEach((link) => {
+        const matches = link.getAttribute("href") === "#" + activeId;
+        link.classList.toggle("is-active", matches);
+      });
+    };
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.16, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveLink(entry.target.id);
+            }
+          });
+        },
+        { threshold: 0.55 }
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+
+    if (footerYear) {
+      footerYear.textContent = String(new Date().getFullYear());
+    }
+
+    const setPricingView = (value) => {
+      body.dataset.pricing = value;
+      pricingToggles.forEach((button) => {
+        const active = button.dataset.pricingToggle === value;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+    };
+
+    if (pricingToggles.length) {
+      pricingToggles.forEach((button) => {
+        button.addEventListener("click", () => setPricingView(button.dataset.pricingToggle));
+      });
+      setPricingView(body.dataset.pricing || "annual");
+    }
+
+    if (applicationForm) {
+      applicationForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(applicationForm);
+        const subject = `Private Application: ${data.get("tier")}`;
+        const bodyText = [
+          `Name: ${data.get("name") || ""}`,
+          `Email: ${data.get("email") || ""}`,
+          `Phone: ${data.get("phone") || ""}`,
+          `Applying For: ${data.get("tier") || ""}`,
+          `Ideal Date/Timeframe: ${data.get("date") || ""}`,
+          `Group Size: ${data.get("group_size") || ""}`,
+          "",
+          "What are you navigating right now?",
+          `${data.get("stage") || ""}`,
+          "",
+          "Why Amal?",
+          `${data.get("why") || ""}`
+        ].join("\n");
+        window.location.href = `mailto:amalhair@aol.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+      });
+    }
+  </script>
+</body>
+</html>

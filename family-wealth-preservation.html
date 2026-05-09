@@ -3,24 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Family Wealth Preservation Through Real Estate | Kareem Jamal</title>
+  <title>Generational Wealth Through Real Estate | Southern California Family Strategy | Kareem Jamal</title>
   <meta
     name="description"
-    content="Family wealth preservation through real estate with Kareem Jamal. Thoughtful guidance for Southern California buyers, sellers, and families making long-term property decisions."
+    content="Build generational wealth through real estate with Kareem Jamal, Southern California's trusted Realtor for family wealth preservation. Strategic guidance in Woodland Hills, Calabasas, and the San Fernando Valley."
   />
+  <meta name="keywords" content="Generational Wealth through Real Estate, Family Wealth Preservation, Real Estate Strategy Southern California, Woodland Hills Wealth Building, San Fernando Valley Real Estate Advice, Kareem Jamal, Rodeo Realty Fine Estates" />
   <meta name="theme-color" content="#40505f" />
-  <meta property="og:title" content="Family Wealth Preservation | Kareem Jamal" />
+  <meta property="og:title" content="Generational Wealth Through Real Estate | Kareem Jamal | Southern California" />
   <meta
     property="og:description"
-    content="A dedicated page about family wealth preservation through real estate, designed for Southern California families planning the next move with long-term value in mind."
+    content="Kareem Jamal helps Southern California families build generational wealth through real estate — strategic guidance from first home to family legacy."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kareemjamaltherealtor.com/family-wealth-preservation" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="1200" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Generational Wealth Through Real Estate | Kareem Jamal" />
+  <meta name="twitter:description" content="Strategic family wealth building through Southern California real estate." />
+  <meta name="twitter:image" content="https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg" />
   <link rel="canonical" href="https://kareemjamaltherealtor.com/family-wealth-preservation" />
+  <link rel="alternate" hreflang="en-US" href="https://kareemjamaltherealtor.com/family-wealth-preservation" />
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
   <script type="application/ld+json">
@@ -29,17 +39,34 @@
       "@type": "RealEstateAgent",
       "name": "Kareem Jamal",
       "url": "https://kareemjamaltherealtor.com/family-wealth-preservation",
+      "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
       "jobTitle": "Realtor",
       "telephone": "+1-818-402-7326",
       "email": "kjamal@rodeore.com",
-      "areaServed": "Southern California",
+      "areaServed": [
+        "Woodland Hills",
+        "San Fernando Valley",
+        "Calabasas",
+        "Los Angeles",
+        "Hidden Hills",
+        "Tarzana",
+        "Encino",
+        "Sherman Oaks",
+        "Southern California"
+      ],
       "description": "Kareem Jamal helps Southern California families make real estate decisions with long-term wealth preservation, equity protection, and thoughtful planning in mind.",
       "knowsAbout": [
         "Family wealth preservation",
         "Generational wealth through real estate",
+        "Generational wealth building strategies",
+        "Equity protection in real estate",
+        "Move-up buyer strategy",
+        "Legacy real estate planning",
         "Home buying",
         "Home selling",
-        "Southern California real estate"
+        "Southern California real estate",
+        "Woodland Hills real estate",
+        "San Fernando Valley homes"
       ]
     }
   </script>
@@ -94,6 +121,115 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
+    /* ── Text Selection ── */
+    ::selection {
+      background: rgba(184, 139, 82, 0.25);
+      color: var(--ink);
+    }
+
+    /* ── Custom Cursor ── */
+    * { cursor: none; }
+
+    #cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 60ms linear, width 200ms ease, height 200ms ease, opacity 200ms ease;
+      mix-blend-mode: multiply;
+    }
+
+    #cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(184, 139, 82, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 180ms cubic-bezier(0.2, 0, 0.2, 1), width 200ms ease, height 200ms ease, opacity 200ms ease, background 200ms ease, border-color 200ms ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cursor-text {
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 200ms ease;
+      font-weight: 800;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    body:hover #cursor-dot { opacity: 1; }
+
+    a:hover ~ #cursor-ring,
+    button:hover ~ #cursor-ring {
+      width: 52px; height: 52px;
+      border-color: var(--gold);
+    }
+
+    /* ── Site Preloader ── */
+    .site-preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: #f8f4ee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 800ms ease, visibility 800ms ease;
+    }
+    .preloader-logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.1em;
+      opacity: 0;
+      animation: preloader-fade 1.2s ease forwards;
+    }
+    .preloader-progress {
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      margin-top: 1.5rem;
+      animation: preloader-line 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+    }
+    body.is-loaded .site-preloader {
+      opacity: 0;
+      visibility: hidden;
+    }
+    @keyframes preloader-fade {
+      0%   { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes preloader-line {
+      0%   { width: 0; }
+      100% { width: 140px; }
+    }
+
+    /* ── Page-Enter Fade ── */
+    @keyframes page-enter {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    body.is-loaded main {
+      animation: page-enter 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+
     body {
       min-height: 100vh;
       font-family: "Manrope", sans-serif;
@@ -110,25 +246,47 @@
     body::before {
       content: "";
       position: fixed;
-      inset: 0;
+      top: -10%; left: -10%; width: 120%; height: 120%;
       pointer-events: none;
       opacity: 0.45;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       z-index: 20;
+      animation: film-grain 0.8s steps(4) infinite;
+    }
+    
+    @keyframes film-grain {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(-10px, 10px); }
+      50% { transform: translate(10px, -5px); }
+      75% { transform: translate(-5px, -10px); }
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
     button, input, select, textarea { font: inherit; }
     section[id] { scroll-margin-top: 110px; }
     .container { width: min(var(--container), calc(100% - 2rem)); margin: 0 auto; }
+    
     .site-header {
       position: sticky;
       top: 0;
       z-index: 40;
       padding: 1rem 0;
       background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(255, 252, 247, 0.68));
-      border-bottom: 1px solid rgba(46, 53, 60, 0.03);
+      border-bottom: 1px solid transparent;
+      transition: border-color 320ms ease, background 320ms ease;
     }
+
+    .site-header.is-scrolled {
+      background: rgba(255, 252, 247, 0.97);
+      border-bottom-color: rgba(184, 139, 82, 0.14);
+      backdrop-filter: blur(20px);
+    }
+
+    .site-header.is-scrolled .nav-shell {
+      box-shadow: 0 8px 32px rgba(55, 46, 36, 0.13);
+      border-color: rgba(184, 139, 82, 0.18);
+    }
+
     .nav-shell {
       display: flex;
       align-items: center;
@@ -176,6 +334,84 @@
       outline: none;
       transform: translateY(-1px);
     }
+    .nav-links a[aria-current="page"] {
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.16), rgba(184, 139, 82, 0.08));
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(184, 139, 82, 0.18);
+    }
+
+    /* Mobile Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 34px;
+      height: 34px;
+      padding: 6px;
+      background: rgba(184, 139, 82, 0.1);
+      border: 1px solid rgba(184, 139, 82, 0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 50;
+      transition: background 200ms ease;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: transform 300ms ease, opacity 300ms ease;
+    }
+    .menu-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 980px) {
+      .menu-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 85px; right: 1rem;
+        width: calc(100% - 2rem);
+        max-width: 320px;
+        background: rgba(255, 252, 247, 0.98);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(184, 139, 82, 0.15);
+        border-radius: 24px;
+        padding: 2rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .nav-links.is-active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .nav-links a {
+        padding: 1rem 1.25rem;
+        font-size: 0.9rem;
+        text-align: left;
+      }
+      .nav-cta { margin-top: 1rem; text-align: center !important; }
+    }
+    /* Nav CTA button */
+    .nav-cta {
+      background: linear-gradient(135deg, #c79b63, var(--gold)) !important;
+      color: white !important;
+      box-shadow: 0 4px 14px rgba(184,139,82,0.3);
+      font-weight: 800;
+    }
+    .nav-cta:hover, .nav-cta:focus-visible {
+      background: linear-gradient(135deg, #d4aa74, #c79b63) !important;
+      color: white !important;
+      box-shadow: 0 6px 20px rgba(184,139,82,0.4);
+    }
     .hero, .section { padding: 5rem 0; }
     .hero { padding-top: 3rem; }
     .hero-shell, .cta-shell {
@@ -220,8 +456,11 @@
     }
     .hero-title, .section-title {
       font-family: "Cormorant Garamond", serif;
-      font-weight: 400;
-      letter-spacing: -0.05em;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      background: linear-gradient(135deg, var(--ink) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .hero-title {
       font-size: clamp(3rem, 7vw, 5.8rem);
@@ -233,10 +472,26 @@
       line-height: 0.98;
       max-width: 12ch;
     }
-    .hero-title em, .section-title em {
-      color: var(--gold);
+    .hero-title em {
       font-style: italic;
       font-weight: 400;
+      background: linear-gradient(
+        90deg,
+        var(--navy) 0%,
+        var(--gold) 30%,
+        var(--gold) 50%,
+        var(--navy) 80%
+      );
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: text-shimmer 4s linear infinite;
+    }
+
+    @keyframes text-shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
     }
     .hero-text, .section-copy, .story-copy p {
       color: var(--muted);
@@ -261,7 +516,12 @@
       cursor: pointer;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: linear-gradient(135deg, #c79b63, var(--gold)); color: white; box-shadow: var(--shadow-md); }
+    @keyframes btn-shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    .btn-primary { background: linear-gradient(135deg, #c79b63 0%, var(--gold) 40%, #d4aa74 60%, var(--gold) 100%); background-size: 200% auto; color: white; box-shadow: 0 4px 20px rgba(184, 139, 82, 0.35); animation: btn-shimmer 3.5s linear infinite; transition: transform 220ms ease, box-shadow 220ms ease; }
+    .btn-primary:hover { box-shadow: 0 8px 28px rgba(184, 139, 82, 0.5); transform: translateY(-2px); }
     .btn-secondary { border: 1px solid rgba(46, 53, 60, 0.12); color: var(--ink); background: rgba(255, 255, 255, 0.84); }
     .btn:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16); }
     .brokerage-line, .tag {
@@ -289,6 +549,136 @@
       box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12);
       border-color: rgba(184, 139, 82, 0.14);
     }
+    
+    /* ── Spotlight Hover Glow ── */
+    .hero-card, .story-card, .pillar-card, .faq-card, .contact-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before, .story-card::before, .pillar-card::before, .faq-card::before, .contact-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(184, 139, 82, 0.08),
+        transparent 40%
+      );
+      opacity: 0;
+      transition: opacity 300ms ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-card:hover::before, .story-card:hover::before, .pillar-card:hover::before, .faq-card:hover::before, .contact-card:hover::before {
+      opacity: 1;
+    }
+    .hero-card > *, .story-card > *, .pillar-card > *, .faq-card > *, .contact-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .flip-card {
+      position: relative;
+      perspective: 1600px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .flip-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at top right, rgba(184, 139, 82, 0.14), transparent 45%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease;
+    }
+    .flip-card:hover::after, .flip-card:focus-visible::after, .flip-card.is-flipped::after { opacity: 1; }
+    .flip-card:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16), 0 24px 54px rgba(76, 64, 48, 0.12);
+    }
+    .flip-card-inner {
+      position: relative;
+      min-height: 100%;
+      height: 100%;
+      display: grid;
+      transform-style: preserve-3d;
+      transition: transform 720ms cubic-bezier(0.22, 0.84, 0.22, 1);
+    }
+    .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-face {
+      grid-area: 1 / 1;
+      min-height: 100%;
+      max-height: 100%;
+      display: grid;
+      align-content: start;
+      gap: 1rem;
+      overflow: hidden;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-face > :last-child { margin-top: auto; }
+    .flip-back { transform: rotateY(180deg); overflow-y: auto; }
+    .flip-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      padding: 0.72rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(184, 139, 82, 0.22);
+      background: rgba(255, 252, 247, 0.88);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .flip-button:hover, .flip-button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.12);
+      background: white;
+    }
+    .flip-button::after { content: "↺"; font-size: 0.9rem; line-height: 1; letter-spacing: 0; }
+    .flip-back .flip-button::after { content: "↻"; }
+    .flip-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: rgba(110, 96, 78, 0.92);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .flip-hint::before {
+      content: "";
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.9), rgba(214, 186, 142, 0.8));
+      box-shadow: 0 0 0 6px rgba(184, 139, 82, 0.09);
+    }
+    .flip-kicker {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .flip-list {
+      display: grid;
+      gap: 0.75rem;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .flip-list li::marker { color: var(--gold); }
     .hero-card {
       position: relative;
       min-height: 560px;
@@ -413,16 +803,246 @@
       margin-bottom: 0.45rem;
     }
     .contact-item strong, .contact-item a { font-size: 1rem; line-height: 1.65; }
-    .footer { padding: 1.5rem 0 3rem; }
+    /* ── Wealth Compass ── */
+    .wealth-compass-section {
+      padding: 6rem 0;
+      background: radial-gradient(circle at center, rgba(184,139,82,0.05) 0%, transparent 70%);
+      text-align: center;
+    }
+
+    .compass-container {
+      position: relative;
+      width: min(500px, 100%);
+      margin: 4rem auto;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .compass-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 20px 40px rgba(64, 80, 95, 0.1));
+    }
+
+    .compass-ring {
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 1;
+      opacity: 0.15;
+      transition: all 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+    }
+
+    .compass-point {
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .compass-point:hover .compass-ring {
+      opacity: 0.8;
+      stroke-width: 2;
+    }
+
+    .compass-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.1rem;
+      fill: var(--navy);
+      font-weight: 600;
+      pointer-events: none;
+    }
+
+    .compass-center {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: var(--linen);
+      border: 1px solid rgba(184,139,82,0.3);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      z-index: 5;
+    }
+
+    .compass-center strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .compass-center span {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .compass-detail-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      padding: 2rem;
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+      z-index: 15;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .compass-detail-box.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .compass-detail-box h4 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .compass-detail-box p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Advisor Strip */
+    .advisor-strip {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.08), rgba(255, 253, 249, 0.6));
+      border: 1px solid rgba(184, 139, 82, 0.18);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .advisor-strip-photo {
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid rgba(184, 139, 82, 0.4);
+      box-shadow: 0 8px 24px rgba(64, 80, 95, 0.15);
+    }
+    .advisor-strip-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+    }
+    .advisor-strip-copy h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem; font-weight: 600;
+      letter-spacing: -0.03em; color: var(--ink);
+      margin: 0.2rem 0 0.15rem;
+    }
+    .advisor-strip-copy p {
+      font-size: 0.88rem; color: var(--muted);
+      line-height: 1.65; margin-top: 0.3rem;
+    }
+    .advisor-strip-creds {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      margin-top: 0.85rem;
+    }
+    .advisor-strip-creds span {
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--gold); letter-spacing: 0.04em;
+    }
+    @media (max-width: 640px) {
+      .advisor-strip { flex-direction: column; text-align: center; }
+      .advisor-strip-creds { justify-content: center; }
+    }
+    /* Honeypot field — visually hidden, accessible to bots */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+    /* ── Dark navy footer ── */
+    .footer {
+      padding: 3.5rem 0 2rem;
+      background: #1c2630;
+      border-top: 1px solid rgba(184, 139, 82, 0.15);
+    }
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      align-items: center;
-      color: var(--muted);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: start;
       font-size: 0.88rem;
     }
-    .footer-note { text-align: right; }
+    .footer-brand strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+      color: rgba(255, 252, 247, 0.94);
+      margin-bottom: 0.35rem;
+    }
+    .footer-brand p { line-height: 1.75; color: rgba(255, 252, 247, 0.42); font-size: 0.84rem; }
+    .footer-col h4 {
+      font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.75rem;
+    }
+    .footer-col a { display: block; color: rgba(255, 252, 247, 0.48); line-height: 2.1; transition: color 180ms ease; }
+    .footer-col a:hover { color: rgba(255, 252, 247, 0.9); }
+    .footer-bottom {
+      margin-top: 2.5rem; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 252, 247, 0.07);
+      font-size: 0.78rem; color: rgba(255, 252, 247, 0.28);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .sticky-capture {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 1.25rem;
+      background: rgba(42, 37, 32, 0.96);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(184, 139, 82, 0.2);
+      box-shadow: 0 -8px 28px rgba(0,0,0,0.18);
+    }
+    .sticky-capture-copy strong { display: block; color: white; font-size: 0.88rem; font-weight: 700; }
+    .sticky-capture-copy span { display: block; color: rgba(255,255,255,0.55); font-size: 0.72rem; letter-spacing: 0.1em; }
+    .sticky-capture .btn-secondary { border-color: rgba(255,255,255,0.2); color: white; background: transparent; }
+    /* ── Floating UX Overlay Components ── */
+    body.no-scroll { overflow: hidden; }
+    #scrollProgress { position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg, var(--gold),#d4aa74); z-index:100; transition:width 80ms linear; pointer-events:none; }
+    .float-call { position:fixed; bottom:2rem; right:2rem; z-index:90; display:flex; align-items:center; gap:0.65rem; padding:0.9rem 1.4rem; background:var(--navy); color:white; border-radius:999px; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; box-shadow:0 8px 28px rgba(40,55,70,0.35); transition:all 280ms cubic-bezier(0.2,0,0.2,1); opacity:0; transform:translateY(16px); pointer-events:none; }
+    .float-call.is-visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .float-call:hover { background:var(--gold); transform:translateY(-3px); }
+    .back-to-top { position:fixed; bottom:2rem; left:2rem; z-index:90; width:46px; height:46px; background:rgba(255,252,247,0.92); border:1px solid rgba(184,139,82,0.25); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.1rem; box-shadow:0 8px 24px rgba(0,0,0,0.08); backdrop-filter:blur(12px); cursor:pointer; text-decoration:none; opacity:0; transform:translateY(12px); transition:all 280ms cubic-bezier(0.2,0,0.2,1); pointer-events:none; }
+    .back-to-top.is-visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .back-to-top:hover { background:var(--gold); color:white; transform:translateY(-3px); }
+    .mobile-cta-bar { display:none; position:fixed; bottom:0; left:0; right:0; z-index:85; background:rgba(255,252,247,0.97); backdrop-filter:blur(20px); border-top:1px solid rgba(184,139,82,0.15); padding:1rem 1.25rem; gap:0.75rem; align-items:center; justify-content:space-between; box-shadow:0 -8px 28px rgba(0,0,0,0.06); transform:translateY(100%); transition:transform 320ms cubic-bezier(0.2,0,0.2,1); }
+    .mobile-cta-bar.is-visible { transform:translateY(0); }
+    .mobile-cta-bar p { font-size:0.82rem; font-weight:700; color:var(--muted); line-height:1.3; flex:1; }
+    .mobile-cta-bar p strong { display:block; color:var(--ink); font-size:0.9rem; }
+    @media (max-width: 768px) { .mobile-cta-bar { display:flex; } .float-call { display:none; } }
+
     [data-reveal] {
       opacity: 1;
       transform: translateY(0);
@@ -472,9 +1092,28 @@
 <body>
   <a class="skip-link" href="#top">Skip to main content</a>
 
+  <!-- Preloader -->
+  <div class="site-preloader" aria-hidden="true">
+    <div class="preloader-logo">KJ</div>
+    <div class="preloader-progress"></div>
+  </div>
+
+  <!-- Custom Cursor (desktop only) -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"><span class="cursor-text"></span></div>
+
+  <div id="scrollProgress" aria-hidden="true"></div>
+  <a class="float-call" href="tel:+18184027326" id="floatCall" aria-label="Call Kareem Jamal">
+    <span style="margin-right:0.2rem">📞</span> Call Kareem
+  </a>
+  <a class="back-to-top" href="#top" id="backToTop" aria-label="Back to top">↑</a>
+  <div class="mobile-cta-bar" id="mobileCta">
+    <p><strong>Wealth strategy?</strong>Start with a conversation.</p>
+    <a class="btn btn-primary" href="#contact" style="min-height:44px; padding:0.75rem 1.1rem; font-size:0.72rem;">Connect Now</a>
+  </div>
   <header class="site-header">
     <div class="container nav-shell">
-      <a class="brand" href="/" aria-label="Kareem Jamal home">
+      <a class="brand" href="index.html" aria-label="Kareem Jamal home">
         <strong class="brand-name">Kareem Jamal</strong>
         <span class="brand-role">Rodeo Realty Fine Estates</span>
       </a>
@@ -491,6 +1130,11 @@
         <a href="/free-reports">Free Reports</a>
         <a href="/#contact">Contact</a>
       </nav>
+      <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -500,23 +1144,21 @@
         <div class="hero-shell">
           <div class="hero-grid">
             <div class="hero-copy" data-reveal>
-              <span class="eyebrow">Family Wealth Preservation</span>
-              <h1 class="hero-title">Real estate can be part of protecting family wealth, not just closing the next <em>deal.</em></h1>
+              <span class="eyebrow">The Family Wealth Lens</span>
+              <h1 class="hero-title">Real estate that becomes a <em>legacy.</em></h1>
               <p class="hero-text">
-                Kareem Jamal helps Southern California families make real estate decisions with a longer view in mind, balancing lifestyle needs, equity protection, and the bigger picture behind a move.
+                Wealth preservation is not just for stock portfolios. It is how Southern California families approach their most significant asset: their home.
               </p>
-              <span class="brokerage-line">Rodeo Realty Fine Estates | CA DRE #01998956</span>
               <div class="btn-row">
-                <a class="btn btn-primary" href="#contact">Start the Conversation</a>
-                <a class="btn btn-secondary" href="/buyers-and-sellers">Buyer & Seller Services</a>
+                <a class="btn btn-primary" href="#contact">Build Your Strategy</a>
+                <a class="btn btn-secondary" href="buyers-and-sellers.html">View Services</a>
               </div>
             </div>
-
             <div class="hero-card" data-reveal>
               <img class="hero-photo" src="./assets/kareem-jamal-headshot.jpeg" alt="Portrait of Kareem Jamal wearing a navy suit" fetchpriority="high" />
               <div class="hero-overlay">
-                <span>Kareem Jamal</span>
-                <strong>Thoughtful real estate guidance for the next move and the long view after it.</strong>
+                <span>The Standard</span>
+                <strong>Generational thinking. Strategic execution.</strong>
               </div>
             </div>
           </div>
@@ -524,188 +1166,254 @@
       </div>
     </section>
 
-    <section class="section">
+    <section id="strategy" class="section">
       <div class="container">
         <div class="section-head" data-reveal>
-          <span class="section-kicker">Why It Matters</span>
-          <h2 class="section-title">For many families, property decisions shape more than a season. They can shape stability, flexibility, and future options.</h2>
+          <span class="section-kicker">Core Philosophy</span>
+          <h2 class="section-title">Beyond the <em>transaction.</em></h2>
           <p class="section-copy">
-            Family wealth preservation through real estate is not only about luxury or large portfolios. Sometimes it means making a smart purchase, protecting existing equity, or timing a sale in a way that supports what comes next for the family.
+            Kareem believes every property move should be evaluated through a 10-year lens. We focus on equity protection, location durability, and the long-term impact on your family&apos;s financial story.
           </p>
         </div>
 
-        <div class="story-grid">
-          <article class="story-card" data-reveal>
-            <h3>What Kareem looks for</h3>
-            <div class="wealth-points">
-              <div class="wealth-point">How today&apos;s decision affects future equity and flexibility.</div>
-              <div class="wealth-point">Whether timing supports the family&apos;s goals instead of forcing the move.</div>
-              <div class="wealth-point">How presentation, pricing, or purchase strategy protect long-term value.</div>
-            </div>
+        <div class="pillar-grid" style="margin-top: 3.5rem;">
+          <article class="pillar-card" data-reveal>
+            <h3>Equity Protection</h3>
+            <p>Maximizing value on exit and securing favorable terms on acquisition ensures you keep more of what your family has built.</p>
           </article>
-
-          <article class="story-card" data-reveal>
-            <h3>What this does not mean</h3>
-            <p>This does not mean every client needs to think like a full-time investor. It simply means the conversation leaves room for the larger financial and family context around a property decision.</p>
+          <article class="pillar-card" data-reveal>
+            <h3>Location Durability</h3>
+            <p>We target neighborhoods in Woodland Hills and the SFV with proven resilience and long-term appreciation potential.</p>
+          </article>
+          <article class="pillar-card" data-reveal>
+            <h3>Legacy Planning</h3>
+            <p>Approaching real estate transitions with an eye toward family inheritance, tax efficiency, and long-term stability.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="pillar-grid">
-          <article class="pillar-card" data-reveal>
-            <h3>For Buyers</h3>
-            <p>Buy with a long-term lens by looking past the moment and considering the lasting value of location, timing, and fit.</p>
-          </article>
-          <article class="pillar-card" data-reveal>
-            <h3>For Sellers</h3>
-            <p>Protect the equity already built by approaching pricing, prep, and negotiation in a more strategic way.</p>
-          </article>
-          <article class="pillar-card" data-reveal>
-            <h3>For Families</h3>
-            <p>Use real estate decisions to support stability, transitions, and future planning instead of reacting only under pressure.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
+    <section id="wealth-scenarios" class="section" style="background: rgba(184, 139, 82, 0.03);">
       <div class="container">
         <div class="section-head" data-reveal>
-          <span class="section-kicker">Questions People Ask</span>
-          <h2 class="section-title">Helpful answers around real estate and family wealth preservation.</h2>
-          <p class="section-copy">
-            These are the kinds of questions that often come up before a move becomes urgent, and they help clarify how the right strategy can support both current needs and long-term planning.
-          </p>
+          <span class="section-kicker">Strategic Scenarios</span>
+          <h2 class="section-title">Moves that <em>compound.</em></h2>
         </div>
 
-        <div class="faq-grid">
-          <article class="faq-card" data-reveal>
-            <h3>How does real estate support family wealth preservation?</h3>
-            <p>Real estate can help preserve family wealth by protecting equity, creating stability, and supporting better ownership and timing decisions over the long term.</p>
-          </article>
-          <article class="faq-card" data-reveal>
-            <h3>Is this only relevant for investors?</h3>
-            <p>No. It can matter for everyday homeowners, buyers, and sellers whenever a property decision affects long-term value, housing stability, or future options.</p>
-          </article>
-          <article class="faq-card" data-reveal>
-            <h3>Can I start the conversation early?</h3>
-            <p>Yes. Early planning conversations often create the most clarity because they happen before timing becomes rushed or reactive.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="cta-shell">
-          <div class="cta-grid">
-            <div class="cta-copy" data-reveal>
-              <span class="section-kicker">Ready When You Are</span>
-              <h2 class="section-title">If the next move matters for your family&apos;s future, it is worth talking through with care.</h2>
-              <p class="section-copy">
-                Whether you are buying, selling, or simply thinking ahead, Kareem can help you approach the decision with more clarity and a better long-term lens.
-              </p>
-              <div class="btn-row">
-                <a class="btn btn-primary" href="#contact">Talk With Kareem</a>
-                <a class="btn btn-secondary" href="tel:+18184027326">Call Kareem</a>
+        <div class="story-grid" style="margin-top: 3.5rem;">
+          <article class="story-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>The Move-Up Buyer</h3>
+                <p>Scaling from your first home to your primary estate requires precise timing and equity management.</p>
+                <div class="wealth-points">
+                  <div class="wealth-point">Bridge financing strategy</div>
+                  <div class="wealth-point">Market-cycle analysis</div>
+                </div>
+                <button class="flip-button" type="button">Strategy Details</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Scenario Strategy</span>
+                <h3>The Move-Up</h3>
+                <ul class="flip-list">
+                  <li>Analyzing current equity vs. desired down payment</li>
+                  <li>Contingent vs. non-contingent offer scenarios</li>
+                  <li>Targeting high-durability "forever home" pockets</li>
+                  <li>Renovation ROI audit for current property exit</li>
+                </ul>
+                <button class="flip-button" type="button">Back</button>
               </div>
             </div>
+          </article>
 
-            <article class="story-card" data-reveal style="padding:0;overflow:hidden;background:transparent;border:none;box-shadow:none;">
-              <img src="assets/kareem-jamal-brand-flyer.jpeg" alt="Kareem Jamal — Rodeo Realty Fine Estates brand overview" loading="lazy" style="width:100%;border-radius:16px;box-shadow:0 6px 28px rgba(64,80,95,0.15);display:block;" />
-            </article>
+          <article class="story-card flip-card" data-reveal>
+            <div class="flip-card-inner">
+              <div class="flip-face">
+                <h3>The Estate Transition</h3>
+                <p>Managing the sale or acquisition of family real estate during a generational transition.</p>
+                <div class="wealth-points">
+                  <div class="wealth-point">Discreet representation</div>
+                  <div class="wealth-point">Valuation accuracy</div>
+                </div>
+                <button class="flip-button" type="button">Strategy Details</button>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="flip-kicker">Scenario Strategy</span>
+                <h3>Estate Moves</h3>
+                <ul class="flip-list">
+                  <li>Coordination with legal and tax professionals</li>
+                  <li>Sensitive property preparation for maximum return</li>
+                  <li>Efficient liquidation or portfolio rebalancing</li>
+                  <li>Long-term hold vs. exit cost-benefit analysis</li>
+                </ul>
+                <button class="flip-button" type="button">Back</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+    <section class="wealth-compass-section" data-reveal>
+      <div class="container">
+        <span class="section-kicker">Visualized Strategy</span>
+        <h2 class="section-title">The Family Wealth <em>Compass</em>.</h2>
+        <p class="section-copy" style="margin: 0 auto;">Hover over each strategy pillar to see how Kareem protects and grows your equity over time.</p>
+        
+        <div class="compass-container">
+          <div class="compass-center">
+            <strong>Wealth</strong>
+            <span>Preservation</span>
+          </div>
+          
+          <svg class="compass-svg" viewBox="0 0 400 400">
+            <!-- Background Rings -->
+            <circle class="compass-ring" cx="200" cy="200" r="180" />
+            <circle class="compass-ring" cx="200" cy="200" r="140" />
+            <circle class="compass-ring" cx="200" cy="200" r="100" />
+            
+            <!-- Points -->
+            <g class="compass-point" data-target="timing">
+              <circle cx="200" cy="40" r="12" fill="var(--gold)" />
+              <text x="200" y="25" text-anchor="middle" class="compass-label">Timing</text>
+            </g>
+            <g class="compass-point" data-target="neighborhood">
+              <circle cx="360" cy="200" r="12" fill="var(--gold)" />
+              <text x="360" y="235" text-anchor="middle" class="compass-label">Market</text>
+            </g>
+            <g class="compass-point" data-target="equity">
+              <circle cx="200" cy="360" r="12" fill="var(--gold)" />
+              <text x="200" y="385" text-anchor="middle" class="compass-label">Equity</text>
+            </g>
+            <g class="compass-point" data-target="legacy">
+              <circle cx="40" cy="200" r="12" fill="var(--gold)" />
+              <text x="40" y="235" text-anchor="middle" class="compass-label">Legacy</text>
+            </g>
+          </svg>
+          
+          <!-- Detail Boxes -->
+          <div class="compass-detail-box is-active" id="detail-default">
+            <h4>Strategic Focus</h4>
+            <p>Hover over any pillar to explore Kareem's methodology for preserving and growing your family's real estate assets.</p>
+          </div>
+          <div class="compass-detail-box" id="detail-timing">
+            <h4>Smarter Timing</h4>
+            <p>Moving when the market favors your goals, not just when life forces a change. We track cycles to protect your exit.</p>
+          </div>
+          <div class="compass-detail-box" id="detail-neighborhood">
+            <h4>Market Durability</h4>
+            <p>Identifying neighborhoods with long-term resilience, school quality, and supply constraints that support value growth.</p>
+          </div>
+          <div class="compass-detail-box" id="detail-equity">
+            <h4>Equity Protection</h4>
+            <p>Sophisticated negotiation and marketing that ensures you leave with maximum equity for your next move.</p>
+          </div>
+          <div class="compass-detail-box" id="detail-legacy">
+            <h4>Generational Planning</h4>
+            <p>Considering how title, financing, and ownership structures affect the wealth you pass on to the next generation.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <span class="section-kicker">Contact Kareem</span>
-          <h2 class="section-title">Start with a simple conversation about the next move and the bigger picture behind it.</h2>
-          <p class="section-copy">
-            Share a few details below and Kareem will receive your inquiry directly for clear, fast follow-up.
-          </p>
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <div class="contact-card" data-reveal>
+          <div class="section-head">
+            <span class="section-kicker">Start Your Audit</span>
+            <h2 class="section-title" style="-webkit-text-fill-color: var(--ink);">Analyze your <em>portfolio.</em></h2>
+            <p class="section-copy">
+              A high-intent conversation about your real estate goals is the foundation of wealth preservation. Reach out to Kareem today.
+            </p>
+          </div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span>Primary Phone</span>
+              <a href="tel:+18184027326"><strong>(818) 402-7326</strong></a>
+            </div>
+            <div class="contact-item">
+              <span>Direct Email</span>
+              <a href="mailto:kjamal@rodeore.com"><strong>kjamal@rodeore.com</strong></a>
+            </div>
+          </div>
         </div>
 
-        <div class="contact-grid">
-          <form class="lead-form" id="lead-form" data-reveal>
-            <div class="lead-form-head">
-              <h3>Start the Conversation</h3>
-              <p>Tell Kareem a little about your situation and what would be most helpful right now.</p>
+        <form class="lead-form" id="wealth-form" data-reveal action="https://formspree.io/f/xnjlgvlk" method="POST">
+          <div class="form-grid">
+            <div class="field">
+              <label for="lead-name">Full Name</label>
+              <input id="lead-name" name="name" type="text" required placeholder="Full Name" />
             </div>
-
-            <input type="hidden" name="interest" value="Family Wealth Preservation" />
-
-            <div class="form-grid">
-              <div class="field">
-                <label for="lead-name">Full Name</label>
-                <input id="lead-name" name="name" type="text" autocomplete="name" required />
-              </div>
-              <div class="field">
-                <label for="lead-email">Email</label>
-                <input id="lead-email" name="email" type="email" autocomplete="email" required />
-              </div>
-              <div class="field field-full">
-                <label for="lead-phone">Phone <span style="font-weight:400;opacity:0.6;">(optional)</span></label>
-                <input id="lead-phone" name="phone" type="tel" autocomplete="tel" />
-              </div>
-              <div class="field field-full">
-                <label for="lead-message">Tell Kareem about your goals</label>
-                <textarea id="lead-message" name="message" placeholder="What are you planning, what matters most to your family, and what would be helpful to talk through?" required></textarea>
-              </div>
+            <div class="field">
+              <label for="lead-email">Email Address</label>
+              <input id="lead-email" name="email" type="email" required placeholder="email@example.com" />
             </div>
-
-            <div class="btn-row" style="margin-top: 1.2rem;">
-              <button class="btn btn-primary" type="submit">Send Inquiry</button>
+            <div class="field field-full">
+              <label for="lead-interest">Primary Wealth Focus</label>
+              <select id="lead-interest" name="focus">
+                <option value="">Select a focus</option>
+                <option>Equity Protection</option>
+                <option>Move-up Strategy</option>
+                <option>Estate Transition</option>
+                <option>Investment Audit</option>
+              </select>
             </div>
-            <p class="form-status" id="form-status" aria-live="polite"></p>
-          </form>
-
-          <aside class="contact-card" data-reveal>
-            <h3>Contact Details</h3>
-            <p>Direct contact information for Kareem Jamal, Realtor with Rodeo Realty Fine Estates.</p>
-            <div class="contact-list">
-              <div class="contact-item">
-                <span>Email</span>
-                <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
-              </div>
-              <div class="contact-item">
-                <span>Phone</span>
-                <a href="tel:+18184027326">(818) 402-7326</a>
-              </div>
-              <div class="contact-item">
-                <span>Brokerage</span>
-                <strong>Rodeo Realty Fine Estates</strong>
-              </div>
-              <div class="contact-item">
-                <span>License</span>
-                <strong>Realtor | CA DRE #01998956</strong>
-              </div>
-              <div class="contact-item">
-                <span>Office</span>
-                <strong>21031 Ventura Blvd., #100, Woodland Hills, CA 91364</strong>
-              </div>
+            <div class="field field-full">
+              <label for="lead-message">How can Kareem help you?</label>
+              <textarea id="lead-message" name="message" required placeholder="Briefly describe your current real estate situation or goals..."></textarea>
             </div>
-          </aside>
-        </div>
+          </div>
+          
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field" />
+
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem;">
+            <button class="btn btn-primary" type="submit">Submit Request</button>
+            <p id="form-status" class="form-status"></p>
+          </div>
+        </form>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-grid">
-      <p>Kareem Jamal | Rodeo Realty Fine Estates | Realtor | CA DRE #01998956</p>
-      <p class="footer-note">Cell: (818) 402-7326 | Email: kjamal@rodeore.com | Woodland Hills, California</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Kareem Jamal</strong>
+          <p>Southern California Real Estate Strategy &amp; Generational Wealth Preservation.</p>
+          <span class="brokerage-line" style="margin-top: 1.2rem; opacity: 0.6; border-color: rgba(255,255,255,0.1); color: white;">Rodeo Realty Fine Estates</span>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="buyers-and-sellers.html">Buyers & Sellers</a>
+          <a href="family-wealth-preservation.html">Family Wealth Lens</a>
+          <a href="mls-search.html">Home Search</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+18184027326">(818) 402-7326</a>
+          <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
+          <a href="https://www.zillow.com/profile/KareemJamal" target="_blank" rel="noopener">Zillow Profile</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Kareem Jamal | CA DRE #01998956</span>
+        <span>Equal Housing Opportunity | Rodeo Realty Fine Estates</span>
+      </div>
     </div>
   </footer>
 
   <script>
-    document.body.classList.add("has-motion");
+    // Reveal on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    }, { threshold: 0.05 });
+    document.querySelectorAll("[data-reveal]").forEach(el => revealObserver.observe(el));
 
     // Hamburger nav
     const navToggle = document.getElementById("nav-toggle");
@@ -734,109 +1442,228 @@
 
     const revealElements = document.querySelectorAll("[data-reveal]");
 
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.18 });
+    // Unified scroll handler
+    const header = document.querySelector(".site-header");
+    const progress = document.getElementById("scrollProgress");
+    const floatCall = document.getElementById("floatCall");
+    const backToTop = document.getElementById("backToTop");
+    const mobileCta = document.getElementById("mobileCta");
+    const heroSection = document.querySelector(".hero");
 
-      revealElements.forEach((element) => observer.observe(element));
-    } else {
-      revealElements.forEach((element) => element.classList.add("is-visible"));
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      header.classList.toggle("is-scrolled", scrollY > 20);
+      const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (progress) progress.style.width = ((document.documentElement.scrollTop / h) * 100) + "%";
+      const heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 400;
+      const pastHero = scrollY > heroBottom - 100;
+      if (floatCall) floatCall.classList.toggle("is-visible", pastHero);
+      if (backToTop) backToTop.classList.toggle("is-visible", scrollY > 400);
+      if (mobileCta) mobileCta.classList.toggle("is-visible", pastHero);
+    }, { passive: true });
+
+    // Wealth Compass Interaction
+    const compassPoints = document.querySelectorAll(".compass-point");
+    const detailBoxes = document.querySelectorAll(".compass-detail-box");
+    const defaultBox = document.getElementById("detail-default");
+    
+    compassPoints.forEach(point => {
+      point.addEventListener("mouseenter", () => {
+        const target = point.dataset.target;
+        detailBoxes.forEach(box => box.classList.remove("is-active"));
+        document.getElementById(`detail-${target}`).classList.add("is-active");
+      });
+      
+      point.addEventListener("mouseleave", () => {
+        detailBoxes.forEach(box => box.classList.remove("is-active"));
+        defaultBox.classList.add("is-active");
+      });
+    });
+
+    // Flip cards
+    document.querySelectorAll(".flip-card").forEach(card => {
+      card.querySelectorAll(".flip-button").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          card.classList.toggle("is-flipped");
+        });
+      });
+    });
+
+    // Mobile Menu
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    if (menuToggle) {
+      menuToggle.addEventListener("click", () => {
+        const isActive = menuToggle.classList.toggle("is-active");
+        navLinks.classList.toggle("is-active");
+        document.body.classList.toggle("no-scroll", isActive);
+        menuToggle.setAttribute("aria-expanded", isActive);
+      });
+      // Close menu on link click
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          menuToggle.classList.remove("is-active");
+          navLinks.classList.remove("is-active");
+          document.body.classList.remove("no-scroll");
+        });
+      });
     }
 
-    const leadForm = document.getElementById("lead-form");
+    // Lead Form
+    const leadForm = document.getElementById("wealth-form");
     const formStatus = document.getElementById("form-status");
-    const STORAGE_KEY = "kareem-jamal-leads";
 
-    const getStoredLeads = () => {
-      try {
-        const raw = window.localStorage.getItem(STORAGE_KEY);
-        return raw ? JSON.parse(raw) : [];
-      } catch (error) {
-        return [];
-      }
-    };
-
-    const setStoredLeads = (leads) => {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
-    };
-
-    const scoreLead = ({ phone, message }) => {
-      let score = 35;
-      if (phone) score += 15;
-      if (message.length > 80) score += 15;
-      return Math.max(1, Math.min(score, 100));
-    };
-
-    if (leadForm && formStatus) {
-      const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjlgvlk";
-      const submitBtn = leadForm.querySelector('[type="submit"]');
-
+    if (leadForm) {
       leadForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-
-        const formData = new FormData(leadForm);
-        const lead = {
-          id: `${Date.now()}`,
-          name: String(formData.get("name") || "").trim(),
-          email: String(formData.get("email") || "").trim(),
-          phone: String(formData.get("phone") || "").trim(),
-          message: String(formData.get("message") || "").trim(),
-          createdAt: new Date().toISOString()
-        };
-
-        if (!lead.name || !lead.email || !lead.message) {
-          formStatus.textContent = "Please fill in your name, email, and a message.";
-          formStatus.dataset.state = "error";
-          return;
-        }
-
-        lead.score = scoreLead(lead);
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
+        formStatus.textContent = "Sending...";
+        formStatus.dataset.state = "loading";
 
         try {
-          const data = new FormData();
-          data.append("name", lead.name);
-          data.append("email", lead.email);
-          if (lead.phone) data.append("phone", lead.phone);
-          data.append("interest", "Family Wealth Preservation");
-          data.append("message", lead.message);
-          data.append("lead_score", String(lead.score));
-          data.append("page", "Family Wealth Preservation");
-          data.append("_subject", `New Lead: Family Wealth | ${lead.name}`);
-          data.append("_replyto", lead.email);
-
-          const response = await fetch(FORMSPREE_ENDPOINT, {
+          const formData = new FormData(leadForm);
+          const response = await fetch(leadForm.action, {
             method: "POST",
-            headers: { "Accept": "application/json" },
-            body: data
+            body: formData,
+            headers: { "Accept": "application/json" }
           });
 
           if (response.ok) {
-            const leads = getStoredLeads();
-            leads.unshift(lead);
-            setStoredLeads(leads);
-            formStatus.textContent = "Message sent! Kareem will be in touch shortly.";
+            formStatus.textContent = "Success! Kareem will be in touch shortly.";
             formStatus.dataset.state = "success";
             leadForm.reset();
           } else {
-            throw new Error("Submission failed");
+            throw new Error();
           }
-        } catch {
-          formStatus.textContent = "There was an issue sending your message. Please email kjamal@rodeore.com directly.";
+        } catch (error) {
+          formStatus.textContent = "Error sending message. Please call (818) 402-7326.";
           formStatus.dataset.state = "error";
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "Send Inquiry";
         }
       });
     }
+
+    // ── Custom Cursor (desktop only) ──────────────────────────────
+    const dot = document.getElementById("cursor-dot");
+    const ring = document.getElementById("cursor-ring");
+
+    if (dot && ring && !("ontouchstart" in window)) {
+      let ringX = 0, ringY = 0;
+      let dotX = 0, dotY = 0;
+      let raf;
+
+      window.addEventListener("mousemove", (e) => {
+        dotX = e.clientX;
+        dotY = e.clientY;
+        dot.style.left = dotX + "px";
+        dot.style.top  = dotY + "px";
+      }, { passive: true });
+
+      function animateRing() {
+        ringX += (dotX - ringX) * 0.12;
+        ringY += (dotY - ringY) * 0.12;
+        ring.style.left = ringX + "px";
+        ring.style.top  = ringY + "px";
+        raf = requestAnimationFrame(animateRing);
+      }
+      animateRing();
+
+      document.querySelectorAll("a, button, [role='button']").forEach(el => {
+        el.addEventListener("mouseenter", () => {
+          ring.style.width  = "56px";
+          ring.style.height = "56px";
+          ring.style.borderColor = "var(--gold)";
+          ring.style.background = "rgba(184,139,82,0.06)";
+        });
+        el.addEventListener("mouseleave", () => {
+          ring.style.width  = "36px";
+          ring.style.height = "36px";
+          ring.style.borderColor = "rgba(184,139,82,0.5)";
+          ring.style.background = "transparent";
+        });
+      });
+
+      // Show "VIEW" text on images
+      document.querySelectorAll(".story-img, .flip-card-front img").forEach(img => {
+        img.addEventListener("mouseenter", () => {
+          ring.style.width = "80px";
+          ring.style.height = "80px";
+          ring.style.background = "var(--navy)";
+          ring.style.borderColor = "var(--navy)";
+          dot.style.opacity = "0";
+          ring.querySelector('.cursor-text').textContent = 'VIEW';
+          ring.querySelector('.cursor-text').style.opacity = '1';
+        });
+        img.addEventListener("mouseleave", () => {
+          ring.style.width = "36px";
+          ring.style.height = "36px";
+          ring.style.background = "transparent";
+          ring.style.borderColor = "rgba(184,139,82,0.5)";
+          dot.style.opacity = "1";
+          ring.querySelector('.cursor-text').style.opacity = '0';
+        });
+      });
+
+      document.addEventListener("mouseleave", () => {
+        dot.style.opacity = "0";
+        ring.style.opacity = "0";
+      });
+      document.addEventListener("mouseenter", () => {
+        dot.style.opacity = "1";
+        ring.style.opacity = "1";
+      });
+    } else {
+      if (dot) dot.remove();
+      if (ring) ring.remove();
+      document.documentElement.style.setProperty("cursor", "auto");
+    }
+
+    // ── Magnetic Buttons (desktop only) ───────────────────────────
+    if (!("ontouchstart" in window)) {
+      document.querySelectorAll('.btn-primary').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'translate(0px, 0px)';
+        });
+      });
+
+      // ── Spotlight Hover & 3D Tilt Effect on Cards ──
+      document.querySelectorAll('.hero-card, .story-card, .pillar-card, .faq-card, .contact-card').forEach(card => {
+        card.style.transformStyle = 'preserve-3d';
+        
+        card.addEventListener("mousemove", e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -4;
+          const rotateY = ((x - centerX) / centerX) * 4;
+          
+          card.style.transform = `perspective(1000px) translateY(-4px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = `perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg)`;
+        });
+      });
+    }
+
+    // ── Preloader ─────────────────────────────────────────────────
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.body.classList.add("is-loaded");
+      }, 1000);
+    });
   </script>
 </body>
 </html>

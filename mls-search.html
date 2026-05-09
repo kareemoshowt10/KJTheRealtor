@@ -1313,12 +1313,6 @@
 <body>
   <a class="skip-link" href="#search">Skip to main content</a>
 
-  <!-- Preloader -->
-  <div class="site-preloader" aria-hidden="true">
-    <div class="preloader-logo">KJ</div>
-    <div class="preloader-progress"></div>
-  </div>
-
   <!-- Custom Cursor (desktop only) -->
   <div id="cursor-dot" aria-hidden="true"></div>
   <div id="cursor-ring" aria-hidden="true"></div>
@@ -2472,14 +2466,6 @@
         });
       });
     }
-
-    // ── Preloader ─────────────────────────────────────────────────
-    (function(){
-      function hide(){ setTimeout(function(){ document.body.classList.add("is-loaded"); }, 1000); }
-      if (document.readyState === "complete") hide();
-      else window.addEventListener("load", hide);
-      setTimeout(function(){ document.body.classList.add("is-loaded"); }, 4000);
-    })();
   
     /* ── Unified navigation behavior ── */
     (function () {

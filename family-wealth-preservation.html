@@ -1273,6 +1273,25 @@ body {
   .social-strip-inner { flex-direction: column; align-items: flex-start; }
   .social-link span { display: none; }
 }
+/* ── MOBILE POLISH ── */
+@media (max-width: 768px) { section { padding: 64px 0 !important; } }
+@media (max-width: 480px) { section { padding: 48px 0 !important; } }
+@media (max-width: 768px) {
+  .hero-shell { background: transparent !important; border: none !important; box-shadow: none !important; }
+  .hero-grid { grid-template-columns: 1fr !important; text-align: center; padding: 2rem 1.25rem !important; }
+  .hero-proofline { justify-content: center; }
+  .btn-row { justify-content: center; flex-wrap: wrap; }
+  .hero-cinematic { min-height: calc(100vh - 70px) !important; padding-top: 2rem; }
+  .dark-section .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .dark-section .trust-card, .dark-section .service-card, .dark-section .pulse-card { padding: 1.5rem !important; }
+}
+@media (max-width: 480px) {
+  .display-hero { font-size: clamp(36px, 11vw, 52px) !important; line-height: 1.08 !important; }
+  .section-title, h2 { font-size: clamp(28px, 8vw, 42px) !important; }
+  .hero-stats { grid-template-columns: 1fr !important; }
+  .proof-pill { font-size: 0.7rem !important; padding: 0.4rem 0.8rem !important; }
+  .eyebrow, .section-kicker { font-size: 0.65rem !important; }
+}
   </style>
 </head>
 <body>

@@ -1307,6 +1307,87 @@
       .site-header .brand-role { display: none; }
       .site-header .nav-cta { padding: 0.5rem 0.85rem; font-size: 0.65rem; letter-spacing: 0.08em; }
     }
+
+/* ── APPLE-INSPIRED REDESIGN ──────────────────────────── */
+:root {
+  --navy-deep: #0f1923;
+  --cream: #fffcf7;
+}
+.display-hero {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+.section-title, h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 72px) !important;
+  font-weight: 600 !important;
+  line-height: 1.07 !important;
+  letter-spacing: -0.02em !important;
+}
+section { padding: 120px 0 !important; }
+@media (max-width: 768px) { section { padding: 80px 0 !important; } }
+.dark-section {
+  background: var(--navy-deep) !important;
+  color: #fff !important;
+}
+.dark-section .section-title,
+.dark-section h2,
+.dark-section h3 { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.dark-section p, .dark-section .section-copy { color: rgba(255,255,255,0.72) !important; }
+.dark-section .eyebrow, .dark-section .section-kicker { color: var(--gold) !important; }
+.hero-cinematic {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+.hero-cinematic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,25,35,0.55) 0%, rgba(15,25,35,0.35) 60%, rgba(15,25,35,0.65) 100%);
+  z-index: 0;
+}
+.hero-cinematic > * { position: relative; z-index: 1; }
+.trust-card, .service-card, .pulse-card, .stat {
+  box-shadow: 0 2px 24px rgba(0,0,0,0.06) !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+}
+.dark-section .trust-card, .dark-section .service-card, .dark-section .pulse-card {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+}
+.btn-primary {
+  background: var(--ink, #1a1a1a) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 1rem 2rem !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  border: none !important;
+  transition: background 200ms ease, transform 200ms ease !important;
+}
+.btn-primary:hover { background: var(--gold) !important; transform: translateY(-2px) !important; }
+.dark-section .btn-primary {
+  background: #fff !important;
+  color: var(--navy-deep) !important;
+}
+.dark-section .btn-primary:hover { background: var(--gold) !important; color: #fff !important; }
+.hero-photo, .portrait-photo, .story-img {
+  border-radius: 16px !important;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22) !important;
+}
   </style>
 
 </head>
@@ -1338,13 +1419,13 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero hero-cinematic" style="background-image:url('assets/luxury-bathroom.jpg');">
       <div class="container">
         <div class="hero-shell">
           <div class="hero-grid">
             <div class="hero-copy">
               <span class="eyebrow">Southern California Home Search</span>
-              <h1 class="hero-title">Find your home. Know exactly what it is worth. Move with confidence.</h1>
+              <h1 class="hero-title display-hero">Find your home. Know exactly what it is worth. Move with confidence.</h1>
               <p class="hero-text">
                 The MLS is live on this page — but so is Kareem. Search real listings, get a payment estimate, and connect directly for property reviews, curated shortlists, and offer strategy before you write a single word.
               </p>
@@ -1770,9 +1851,7 @@
       </div>
     </section>
 
-    <section class="contact-strip" style="position:relative; background-image:url('assets/luxury-bathroom.jpg'); background-size:cover; background-position:center;">
-      <div style="position:absolute;inset:0;background:rgba(255,252,247,0.90);z-index:0;"></div>
-      <div style="position:relative;z-index:1;">
+    <section class="contact-strip dark-section">
       <div class="container">
         <div class="contact-card contact-strip-inner">
           <div>
@@ -1786,7 +1865,6 @@
           </div>
           <img src="assets/kareem-jamal-brand-flyer.jpeg" alt="Kareem Jamal — Rodeo Realty Fine Estates" loading="lazy" style="width:220px;border-radius:14px;box-shadow:0 6px 28px rgba(64,80,95,0.18);flex-shrink:0;" />
         </div>
-      </div>
       </div>
     </section>
   </main>

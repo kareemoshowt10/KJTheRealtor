@@ -1705,6 +1705,87 @@
       .site-header .brand-role { display: none; }
       .site-header .nav-cta { padding: 0.5rem 0.85rem; font-size: 0.65rem; letter-spacing: 0.08em; }
     }
+
+/* ── APPLE-INSPIRED REDESIGN ──────────────────────────── */
+:root {
+  --navy-deep: #0f1923;
+  --cream: #fffcf7;
+}
+.display-hero {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+.section-title, h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 72px) !important;
+  font-weight: 600 !important;
+  line-height: 1.07 !important;
+  letter-spacing: -0.02em !important;
+}
+section { padding: 120px 0 !important; }
+@media (max-width: 768px) { section { padding: 80px 0 !important; } }
+.dark-section {
+  background: var(--navy-deep) !important;
+  color: #fff !important;
+}
+.dark-section .section-title,
+.dark-section h2,
+.dark-section h3 { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.dark-section p, .dark-section .section-copy { color: rgba(255,255,255,0.72) !important; }
+.dark-section .eyebrow, .dark-section .section-kicker { color: var(--gold) !important; }
+.hero-cinematic {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+.hero-cinematic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,25,35,0.55) 0%, rgba(15,25,35,0.35) 60%, rgba(15,25,35,0.65) 100%);
+  z-index: 0;
+}
+.hero-cinematic > * { position: relative; z-index: 1; }
+.trust-card, .service-card, .pulse-card, .stat {
+  box-shadow: 0 2px 24px rgba(0,0,0,0.06) !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+}
+.dark-section .trust-card, .dark-section .service-card, .dark-section .pulse-card {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+}
+.btn-primary {
+  background: var(--ink, #1a1a1a) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 1rem 2rem !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  border: none !important;
+  transition: background 200ms ease, transform 200ms ease !important;
+}
+.btn-primary:hover { background: var(--gold) !important; transform: translateY(-2px) !important; }
+.dark-section .btn-primary {
+  background: #fff !important;
+  color: var(--navy-deep) !important;
+}
+.dark-section .btn-primary:hover { background: var(--gold) !important; color: #fff !important; }
+.hero-photo, .portrait-photo, .story-img {
+  border-radius: 16px !important;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22) !important;
+}
   </style>
 </head>
 <body>
@@ -1744,13 +1825,13 @@
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero hero-cinematic" style="background-image:url('assets/mansion-pool-night.jpg');">
       <div class="container">
         <div class="hero-shell">
           <div class="hero-grid">
             <div class="hero-copy" data-reveal>
               <span class="eyebrow">Representation Excellence</span>
-              <h1 class="hero-title">Strategic guidance for <em>buyers & sellers.</em></h1>
+              <h1 class="hero-title display-hero">Strategic guidance for <em>buyers & sellers.</em></h1>
               <p class="hero-text">
                 Moving in Southern California requires more than just a license. It requires a market lens focused on asset protection, equity growth, and high-intent representation.
               </p>
@@ -1997,9 +2078,7 @@
       </div>
     </section>
 
-    <section id="cta" class="section" style="position:relative; background-image:url('assets/mansion-pool-night.jpg'); background-size:cover; background-position:center;">
-      <div style="position:absolute;inset:0;background:rgba(255,252,247,0.90);z-index:0;"></div>
-      <div style="position:relative;z-index:1;">
+    <section id="cta" class="section dark-section">
       <div class="container">
         <div class="cta-shell" data-reveal>
           <span class="eyebrow">Next Step</span>
@@ -2012,7 +2091,6 @@
             <a class="btn btn-secondary" href="family-wealth-preservation.html" style="background: transparent; color: white; border-color: rgba(255,255,255,0.2);">Learn About Wealth Preservation</a>
           </div>
         </div>
-      </div>
       </div>
     </section>
 
@@ -2225,7 +2303,7 @@
       </div>
     </section>
 
-    <section class="section" id="process">
+    <section class="section dark-section" id="process">
       <div class="container">
         <div class="story-grid">
           <div class="story-copy" data-reveal>

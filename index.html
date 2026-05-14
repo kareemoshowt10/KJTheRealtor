@@ -2272,6 +2272,87 @@
       .site-header .brand-role { display: none; }
       .site-header .nav-cta { padding: 0.5rem 0.85rem; font-size: 0.65rem; letter-spacing: 0.08em; }
     }
+
+/* ── APPLE-INSPIRED REDESIGN ──────────────────────────── */
+:root {
+  --navy-deep: #0f1923;
+  --cream: #fffcf7;
+}
+.display-hero {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+.section-title, h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 72px) !important;
+  font-weight: 600 !important;
+  line-height: 1.07 !important;
+  letter-spacing: -0.02em !important;
+}
+section { padding: 120px 0 !important; }
+@media (max-width: 768px) { section { padding: 80px 0 !important; } }
+.dark-section {
+  background: var(--navy-deep) !important;
+  color: #fff !important;
+}
+.dark-section .section-title,
+.dark-section h2,
+.dark-section h3 { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.dark-section p, .dark-section .section-copy { color: rgba(255,255,255,0.72) !important; }
+.dark-section .eyebrow, .dark-section .section-kicker { color: var(--gold) !important; }
+.hero-cinematic {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+.hero-cinematic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,25,35,0.55) 0%, rgba(15,25,35,0.35) 60%, rgba(15,25,35,0.65) 100%);
+  z-index: 0;
+}
+.hero-cinematic > * { position: relative; z-index: 1; }
+.trust-card, .service-card, .pulse-card, .stat {
+  box-shadow: 0 2px 24px rgba(0,0,0,0.06) !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+}
+.dark-section .trust-card, .dark-section .service-card, .dark-section .pulse-card {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+}
+.btn-primary {
+  background: var(--ink, #1a1a1a) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 1rem 2rem !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  border: none !important;
+  transition: background 200ms ease, transform 200ms ease !important;
+}
+.btn-primary:hover { background: var(--gold) !important; transform: translateY(-2px) !important; }
+.dark-section .btn-primary {
+  background: #fff !important;
+  color: var(--navy-deep) !important;
+}
+.dark-section .btn-primary:hover { background: var(--gold) !important; color: #fff !important; }
+.hero-photo, .portrait-photo, .story-img {
+  border-radius: 16px !important;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22) !important;
+}
   </style>
 </head>
 <body>
@@ -2319,13 +2400,13 @@
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero hero-cinematic" style="background-image:url('assets/hero-estate-night.jpg');">
       <div class="container">
         <div class="hero-shell">
           <div class="hero-grid">
             <div class="hero-copy" data-reveal>
               <span class="eyebrow">Kareem Jamal | Southern California Realtor</span>
-              <h1 class="hero-title">The Realtor families choose to build <em>generational wealth.</em></h1>
+              <h1 class="hero-title display-hero">The Realtor families choose to build <em>generational wealth.</em></h1>
               <p class="hero-text">
                 From your first home to your family legacy — Kareem Jamal helps Southern California families buy smarter, sell strategically, and build real estate wealth that outlasts the transaction.
               </p>
@@ -2557,9 +2638,7 @@
       </div>
     </div>
 
-    <section id="pulse" class="pulse-section" style="position:relative; background-image:url('assets/hero-estate-night.jpg'); background-size:cover; background-position:center; background-attachment:fixed;">
-  <div style="position:absolute;inset:0;background:rgba(255,252,247,0.88);z-index:0;"></div>
-  <div style="position:relative;z-index:1;" class="pulse-overlay-wrap">
+    <section id="pulse" class="pulse-section dark-section">
       <div class="container pulse-grid">
         <div class="pulse-copy" data-reveal>
           <span class="eyebrow">Real-Time Insight</span>
@@ -2595,7 +2674,6 @@
         </article>
 
       </div>
-    </div>
     </section>
 
     <section id="services">
@@ -2791,7 +2869,7 @@
       </div>
     </section>
 
-    <section id="trust" class="trust-section">
+    <section id="trust" class="trust-section dark-section">
       <div class="container">
         <div class="section-head">
           <span class="section-kicker">Commitment</span>
@@ -2908,7 +2986,7 @@
       </div>
     </section>
 
-    <section id="ready" class="section" style="background: rgba(184, 139, 82, 0.03);">
+    <section id="ready" class="section dark-section">
       <div class="container">
         <div class="ready-grid" style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr); gap: 2.5rem; align-items: center;">
           <div data-reveal>
@@ -2918,8 +2996,7 @@
               Kareem Jamal provides a level of service and strategic oversight that high-intent families expect. Your real estate decisions deserve more than a transaction; they deserve a legacy.
             </p>
           </div>
-          <div data-reveal style="display:flex;flex-direction:column;gap:1.5rem;">
-            <img src="assets/kareem-jamal-message-flyer.jpeg" alt="A message from Kareem Jamal" loading="lazy" style="width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(64,80,95,0.16);display:block;" />
+          <div data-reveal>
             <div class="ready-card" style="padding: 2.75rem; background: white; border-radius: var(--radius-lg); border: 1px solid var(--line); box-shadow: var(--shadow-md);">
               <h3>What you get from day one</h3>
               <p style="color: var(--muted); line-height: 1.8; font-size: 0.98rem; margin-top: 1rem;">A Realtor who treats your real estate decisions as part of your family&apos;s bigger financial story — with clear communication, honest strategy, and representation that does not stop at the closing table.</p>

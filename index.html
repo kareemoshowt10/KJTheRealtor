@@ -2353,6 +2353,65 @@ section { padding: 120px 0 !important; }
   border-radius: 16px !important;
   box-shadow: 0 32px 80px rgba(0,0,0,0.22) !important;
 }
+
+/* ── PAGE TRANSITION ── */
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+body {
+  animation: page-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── SOCIAL STRIP ── */
+.social-strip {
+  background: #0f1923;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 2.5rem 0;
+}
+.social-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.social-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+  text-decoration: none;
+}
+.social-link:hover {
+  background: rgba(184,139,82,0.15);
+  border-color: rgba(184,139,82,0.4);
+  color: #b88b52;
+}
+@media (max-width: 640px) {
+  .social-strip-inner { flex-direction: column; align-items: flex-start; }
+  .social-link span { display: none; }
+}
   </style>
 </head>
 <body>
@@ -3035,6 +3094,33 @@ section { padding: 120px 0 !important; }
         <span>Rodeo Realty Fine Estates | Equal Housing Opportunity</span>
       </div>
     </div>
+    <div class="social-strip">
+  <div class="container social-strip-inner">
+    <span class="social-label">Connect with Kareem</span>
+    <div class="social-links">
+      <a href="https://www.instagram.com/kareemjamalrealtor" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.linkedin.com/in/kareemjamal" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://www.zillow.com/profile/kareemjamal" target="_blank" rel="noopener" aria-label="Zillow" class="social-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9.5l1.5 1L12 5l8.5 5.5 1.5-1L12 2zM4 11v9h16v-9l-8 5-8-5z"/></svg>
+        Zillow
+      </a>
+      <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener" aria-label="Rodeo Realty Profile" class="social-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Rodeo Realty
+      </a>
+      <a href="https://g.page/r/kareemjamalrealtor/review" target="_blank" rel="noopener" aria-label="Google Reviews" class="social-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Reviews
+      </a>
+    </div>
+  </div>
+</div>
   </footer>
 
   <script>
@@ -3434,6 +3520,22 @@ section { padding: 120px 0 !important; }
         }
       });
     })();
+  </script>
+  <script>
+// Smooth exit transition on internal link clicks
+(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http') || a.target === '_blank') return;
+    e.preventDefault();
+    document.body.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(-8px)';
+    setTimeout(function () { window.location.href = href; }, 260);
+  });
+})();
   </script>
 </body>
 </html>

@@ -1468,37 +1468,49 @@ body {
 }
 
 /* ── SPACING REFINEMENT ── */
-/* Hero: 4.5rem top is light for a section-page hero */
-.hero { padding: 5rem 0 3.5rem !important; }
+/* Hero: luxury standard breathing room */
+.hero { padding: clamp(5rem, 8vw, 7.5rem) 0 clamp(4rem, 6vw, 5rem) !important; }
 .hero-grid { padding: clamp(2.5rem, 4.5vw, 4.5rem) !important; }
 /* Section head: enforce minimum margin-bottom before grids */
-.section-head { margin-bottom: 3rem !important; }
+.section-head { margin-bottom: 3.5rem !important; }
 /* Neighborhoods/toolkit sections use custom 4rem padding — bring to 100px standard */
 .neighborhoods-section { padding: 100px 0 0 !important; }
-.neighborhoods-head { margin-bottom: 3rem !important; }
+.neighborhoods-head { margin-bottom: 3.5rem !important; }
 .toolkit-section { padding: 100px 0 1rem !important; }
-.toolkit-head { margin-bottom: 3rem !important; }
-/* Footer: current 4rem is fine but needs symmetry */
+.toolkit-head { margin-bottom: 3.5rem !important; }
+/* Footer: symmetry */
 .footer { padding: 3.5rem 0 !important; }
 /* Footer grid: 1rem gap is far too tight */
 .footer-grid { gap: clamp(2rem, 4vw, 3rem) !important; }
-/* Neighborhood cards: padding 1.7rem/1.6rem inconsistency */
+/* Neighborhood cards: consistent padding */
 .neighborhood-card { padding: clamp(1.75rem, 2.5vw, 2.25rem) !important; }
-/* Toolkit cards: 2rem is fine, keep consistent */
-.toolkit-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
+/* Toolkit cards */
+.toolkit-card { padding: clamp(2rem, 3vw, 2.75rem) !important; }
 /* Three-column grids: gap from 1.25rem */
-.neighborhood-grid { gap: clamp(1.25rem, 3vw, 2.5rem) !important; }
-.toolkit-grid { gap: clamp(1.25rem, 3vw, 2.5rem) !important; }
+.neighborhood-grid { gap: clamp(1.5rem, 3vw, 2.5rem) !important; }
+.toolkit-grid { gap: clamp(1.5rem, 3vw, 2.5rem) !important; }
+/* Search section cards */
+.helper-card,
+.support-card,
+.shortcut-card,
+.status-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
+.contact-card { padding: clamp(2rem, 4vw, 3rem) !important; }
+/* Contact strip grid gap */
+.contact-strip .container { gap: clamp(2rem, 5vw, 4rem) !important; }
+/* Container mobile padding */
+@media (max-width: 480px) {
+  .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+}
 @media (max-width: 768px) {
-  .hero { padding: 3.5rem 0 2.5rem !important; }
+  .hero { padding: 4rem 0 2.5rem !important; }
   .hero-grid { padding: 2rem 1.25rem !important; }
-  .section-head { margin-bottom: 2rem !important; }
+  .section-head { margin-bottom: 2.5rem !important; }
   .neighborhoods-section { padding: 64px 0 0 !important; }
   .toolkit-section { padding: 64px 0 1rem !important; }
 }
 @media (max-width: 480px) {
-  .hero { padding: 2.5rem 0 2rem !important; }
-  .section-head { margin-bottom: 1.5rem !important; }
+  .hero { padding: 3rem 0 2rem !important; }
+  .section-head { margin-bottom: 2rem !important; }
   .neighborhoods-section { padding: 48px 0 0 !important; }
   .toolkit-section { padding: 48px 0 1rem !important; }
 }

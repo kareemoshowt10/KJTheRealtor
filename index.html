@@ -2433,19 +2433,19 @@ body {
 }
 
 /* ── SPACING REFINEMENT ── */
-/* Hero: bump outer padding for proper verticality */
-.hero { padding: 4.5rem 0 3rem !important; }
+/* Hero: generous verticality matching luxury standard (120px top / 80px bottom) */
+.hero { padding: clamp(5rem, 8vw, 7.5rem) 0 clamp(4rem, 6vw, 5rem) !important; }
 /* Hero grid inner: ensure generous breathing room */
 .hero-grid { padding: clamp(2.5rem, 4.5vw, 4.5rem) !important; }
 /* Section head: consistent margin before card grid */
-.section-head { margin-bottom: 3rem !important; }
+.section-head { margin-bottom: 3.5rem !important; }
 /* Main content grids: tighten gap inconsistency */
-.about-grid { gap: clamp(2rem, 5vw, 4rem) !important; }
+.about-grid { gap: clamp(2rem, 5vw, 5rem) !important; }
 .contact-grid { gap: clamp(2rem, 5vw, 5rem) !important; }
-.services-grid, .process-grid { gap: clamp(1.5rem, 3vw, 2.5rem) !important; }
-/* Inline trust-cards with hardcoded 2rem padding: override to be consistent */
-article.trust-card[style*="padding:2rem"],
-article.trust-card[style*="padding: 2rem"] { padding: clamp(1.75rem, 3vw, 2.75rem) !important; }
+.services-grid { gap: clamp(1.5rem, 3vw, 2.5rem) !important; }
+.process-grid { gap: clamp(1.25rem, 2vw, 2rem) !important; }
+/* Trust cards: inline style="padding:2rem" — override via specific selectors */
+.trust-card { padding: clamp(1.75rem, 3vw, 2.75rem) !important; }
 /* Footer: balanced top/bottom padding */
 footer.footer, .footer { padding: 3.5rem 0 !important; }
 /* Footer grid gap */
@@ -2458,17 +2458,27 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
 .process-card { padding: clamp(1.75rem, 3vw, 2.25rem) !important; }
 /* About card */
 .about-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
+/* Signature cards */
+.signature-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
 /* Ready-grid gap */
 .ready-grid { gap: clamp(2rem, 5vw, 4rem) !important; }
+/* Pulse section grid gap */
+.pulse-grid { gap: clamp(2rem, 5vw, 4rem) !important; }
+/* Pulse card: bump from 2.75rem inline to clamp */
+.pulse-card { padding: clamp(2rem, 3.5vw, 3rem) !important; }
+/* Container horizontal padding on mobile */
+@media (max-width: 480px) {
+  .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+}
 @media (max-width: 768px) {
-  .hero { padding: 3rem 0 2rem !important; }
+  .hero { padding: 4rem 0 2.5rem !important; }
   .hero-grid { padding: 2rem 1.25rem !important; }
-  .section-head { margin-bottom: 2rem !important; }
+  .section-head { margin-bottom: 2.5rem !important; }
   .contact-grid, .about-grid, .services-grid { gap: 1.5rem !important; }
 }
 @media (max-width: 480px) {
-  .hero { padding: 2.5rem 0 1.5rem !important; }
-  .section-head { margin-bottom: 1.5rem !important; }
+  .hero { padding: 3rem 0 2rem !important; }
+  .section-head { margin-bottom: 2rem !important; }
 }
   </style>
 </head>

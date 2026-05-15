@@ -1866,36 +1866,46 @@ body {
 }
 
 /* ── SPACING REFINEMENT ── */
-/* Hero: the .hero + padding-top:3rem rules give ~5rem which is light — add breathing room */
-.hero { padding: 4.5rem 0 3rem !important; }
+/* Hero: luxury standard — generous top and bottom breathing room */
+.hero { padding: clamp(5rem, 8vw, 7.5rem) 0 clamp(4rem, 6vw, 5rem) !important; }
 .hero-grid { padding: clamp(2.5rem, 4.5vw, 4.5rem) !important; }
-/* Section head margin-bottom: missing explicit value — enforce minimum */
-.section-head { margin-bottom: 3rem !important; }
-/* Footer: current 4rem top / 2rem bottom is imbalanced */
+/* .section class: align with the 100px standard */
+.section { padding: 100px 0 !important; }
+/* Section head margin-bottom: consistent 3.5rem before card grids */
+.section-head { margin-bottom: 3.5rem !important; }
+/* Footer */
 .footer { padding: 3.5rem 0 !important; }
-/* Footer grid gap too tight for 3-column layout */
+/* Footer grid gap: 3-column needs breathing room */
 .footer-grid { gap: clamp(2rem, 4vw, 3rem) !important; }
-/* Card padding: service/story/contact at 2rem — lift slightly */
-.service-card,
-.story-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
+/* Service/story grid gaps */
+.service-grid { gap: clamp(1.5rem, 3vw, 2.5rem) !important; }
+.story-grid { gap: clamp(1.25rem, 3vw, 2.5rem) !important; }
+/* Card padding: lift from 2rem */
+.service-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
 .story-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
 .promise-card { padding: clamp(1.75rem, 3vw, 2.25rem) !important; }
-/* FAQ card: 1.75rem is borderline — keep but ensure consistent */
-.faq-card { padding: clamp(1.75rem, 2.5vw, 2rem) !important; }
+/* FAQ card */
+.faq-card { padding: clamp(1.75rem, 2.5vw, 2.25rem) !important; }
 /* Contact card inner: generous form section */
 .contact-card { padding: clamp(2rem, 4vw, 3.5rem) !important; }
 /* Hero card */
 .hero-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
-/* Two-column grids gap */
+/* Hero grid two-column gap */
 .hero-shell .hero-grid { gap: clamp(2rem, 5vw, 4rem) !important; }
+/* Container mobile padding */
+@media (max-width: 480px) {
+  .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+}
 @media (max-width: 768px) {
-  .hero { padding: 3rem 0 2rem !important; }
+  .hero { padding: 4rem 0 2.5rem !important; }
   .hero-grid { padding: 2rem 1.25rem !important; }
-  .section-head { margin-bottom: 2rem !important; }
+  .section-head { margin-bottom: 2.5rem !important; }
+  .section { padding: 64px 0 !important; }
 }
 @media (max-width: 480px) {
-  .hero { padding: 2.5rem 0 1.5rem !important; }
-  .section-head { margin-bottom: 1.5rem !important; }
+  .hero { padding: 3rem 0 2rem !important; }
+  .section-head { margin-bottom: 2rem !important; }
+  .section { padding: 48px 0 !important; }
 }
   </style>
 </head>

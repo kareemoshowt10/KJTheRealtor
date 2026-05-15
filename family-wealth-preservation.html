@@ -1292,6 +1292,41 @@ body {
   .proof-pill { font-size: 0.7rem !important; padding: 0.4rem 0.8rem !important; }
   .eyebrow, .section-kicker { font-size: 0.65rem !important; }
 }
+
+/* ── SPACING REFINEMENT ── */
+/* Hero: 5rem top / 3rem bottom via .hero + padding-top override — add symmetry */
+.hero { padding: 4.5rem 0 3rem !important; }
+.hero-grid { padding: clamp(2.5rem, 4.5vw, 4.5rem) !important; }
+/* Section head: enforce minimum margin before card grids */
+.section-head { margin-bottom: 3rem !important; }
+/* Footer: 3.5rem top / 2rem bottom is imbalanced */
+.footer { padding: 3.5rem 0 !important; }
+/* Footer-grid gap: increase from 2rem */
+.footer-grid { gap: clamp(2rem, 4vw, 3rem) !important; }
+/* Wealth compass section: 6rem is excessive for a non-hero section */
+.wealth-compass-section { padding: 100px 0 !important; }
+/* Story/pillar/faq/contact cards: lift from 2rem minimum */
+.story-card,
+.pillar-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
+.faq-card { padding: clamp(1.75rem, 2.5vw, 2rem) !important; }
+.contact-card { padding: clamp(2rem, 4vw, 3.5rem) !important; }
+/* Lead form */
+.lead-form { padding: clamp(2rem, 4vw, 3.5rem) !important; }
+/* CTA shell */
+.cta-shell { padding: clamp(2.5rem, 4vw, 3.5rem) !important; }
+/* Hero card on dark section */
+.hero-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
+@media (max-width: 768px) {
+  .hero { padding: 3rem 0 2rem !important; }
+  .hero-grid { padding: 2rem 1.25rem !important; }
+  .section-head { margin-bottom: 2rem !important; }
+  .wealth-compass-section { padding: 64px 0 !important; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 2.5rem 0 1.5rem !important; }
+  .section-head { margin-bottom: 1.5rem !important; }
+  .wealth-compass-section { padding: 48px 0 !important; }
+}
   </style>
 </head>
 <body>

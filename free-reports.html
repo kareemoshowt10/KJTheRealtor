@@ -636,6 +636,44 @@ body {
   .proof-pill { font-size: 0.7rem !important; padding: 0.4rem 0.8rem !important; }
   .eyebrow, .section-kicker { font-size: 0.65rem !important; }
 }
+
+/* ── SPACING REFINEMENT ── */
+/* Hero: clamp(3rem,6vw,5rem) top and only 3rem bottom — add vertical breathing room */
+.hero { padding: clamp(4rem, 7vw, 5.5rem) 0 clamp(3rem, 5vw, 4rem) !important; }
+/* Hero shell inner padding */
+.hero-shell { padding: clamp(2.5rem, 5vw, 4rem) !important; }
+/* .section class (used here instead of section tag): bring to standard spacing */
+.section { padding: 100px 0 !important; }
+/* Section head margin-bottom: bump from 2rem */
+.section-head { margin-bottom: 3rem !important; }
+/* Footer: 3rem top is too little, 4rem bottom fine */
+.footer { padding: 3.5rem 0 !important; }
+/* Footer-grid: 2rem gap is workable but tighten columns */
+.footer-grid { gap: clamp(2rem, 4vw, 3rem) !important; }
+/* Report cards: 1.25rem padding is too small — bump to minimum comfortable */
+.report-card { padding: clamp(1.5rem, 2.5vw, 1.75rem) !important; }
+/* How-grid cards: 1.75/1.5rem — standardize */
+.how-card { padding: clamp(1.75rem, 3vw, 2.25rem) !important; }
+/* Category cards: 1.4rem/1.3rem — bump */
+.category-card { padding: clamp(1.5rem, 2.5vw, 2rem) !important; }
+/* Testimonial cards: 1.75rem — keep but ensure */
+.testimonial-card { padding: clamp(1.75rem, 3vw, 2.25rem) !important; }
+/* Preview panel */
+.preview-panel { padding: clamp(1.5rem, 3vw, 2rem) !important; }
+/* Three-column grids */
+.how-grid { gap: clamp(1.25rem, 3vw, 2.5rem) !important; }
+/* Reports grid */
+.reports-grid { gap: clamp(1rem, 2vw, 1.5rem) !important; }
+@media (max-width: 768px) {
+  .hero { padding: 3rem 0 2rem !important; }
+  .section-head { margin-bottom: 2rem !important; }
+  .section { padding: 64px 0 !important; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 2.5rem 0 1.5rem !important; }
+  .section-head { margin-bottom: 1.5rem !important; }
+  .section { padding: 48px 0 !important; }
+}
   </style>
 </head>
 <body>

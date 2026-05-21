@@ -2480,6 +2480,113 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   .hero { padding: 3rem 0 2rem !important; }
   .section-head { margin-bottom: 2rem !important; }
 }
+/* ── TESLA-STYLE PANELS ── */
+.tesla-panel {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 !important;
+  margin: 0;
+  overflow: hidden;
+}
+.tesla-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+  z-index: 1;
+}
+.tesla-panel-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 0 1.5rem 6rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.tesla-eyebrow {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1rem;
+}
+.tesla-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  -webkit-text-fill-color: #fff !important;
+}
+.tesla-subtitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.9);
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+.tesla-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tesla-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 240px;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+  cursor: pointer;
+  border: none;
+}
+.tesla-btn-primary {
+  background: rgba(255,255,255,0.96);
+  color: #0f1923;
+}
+.tesla-btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+.tesla-btn-secondary {
+  background: rgba(35,35,35,0.55);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.tesla-btn-secondary:hover {
+  background: rgba(35,35,35,0.75);
+  transform: translateY(-2px);
+}
+@media (max-width: 640px) {
+  .tesla-panel-content { padding: 0 1.25rem 4rem; }
+  .tesla-buttons { flex-direction: column; align-items: center; width: 100%; }
+  .tesla-btn { width: 100%; max-width: 320px; min-width: 0; }
+  .tesla-subtitle { font-size: 0.95rem; }
+}
   </style>
 </head>
 <body>
@@ -2612,421 +2719,50 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       </div>
     </section>
 
-    <section id="about">
-      <div class="container about-grid">
-        <div data-reveal class="about-stack">
-          <div class="section-head">
-            <span class="section-kicker">About Kareem</span>
-            <h2 class="section-title">Real estate guidance that feels personal, precise, and deeply intentional.</h2>
-            <p class="section-copy">
-              Great service is more than opening doors and filling out contracts. It is how well someone listens, prepares,
-              communicates, and protects your leverage through every step. Kareem&apos;s brand is built around trust, responsiveness,
-              polished presentation, and relationships that last well beyond closing day.
-            </p>
-          </div>
-          <div class="about-card">
-            <p class="quote-line">
-              You are not just hiring an agent. You are choosing the tone, pace, and quality of your entire real estate experience.
-            </p>
-            <div class="tag-row">
-              <span class="tag">Rodeo Realty Fine Estates</span>
-              <a class="tag" href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation →</a>
-              <a class="tag" href="buyers-and-sellers.html#seller-onboarding">Listing Strategy →</a>
-              <a class="tag" href="family-wealth-preservation.html">Family Wealth Lens →</a>
-            </div>
-          </div>
-
-          <div class="areas-grid">
-            <article class="area-card flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-face">
-                  <span class="tag">Office Base</span>
-                  <h3>Woodland Hills</h3>
-                  <p>A polished West Valley base for long-term relationships, referrals, and lifestyle-led moves.</p>
-                  <span class="flip-hint">Tap to Explore</span>
-                  <button class="flip-button" type="button">Explore More</button>
-                </div>
-                <div class="flip-face flip-back">
-                  <span class="flip-kicker">The Neighborhood</span>
-                  <h3>Woodland Hills</h3>
-                  <ul class="flip-list">
-                    <li>Deep community presence in South of the Boulevard</li>
-                    <li>Expertise in Candy Crest and Walnut Acres neighborhoods</li>
-                    <li>High-net-worth property positioning strategy</li>
-                    <li>Connected to local off-market inventory</li>
-                  </ul>
-                  <button class="flip-button" type="button">Back</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="area-card flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-face">
-                  <span class="tag">The Region</span>
-                  <h3>San Fernando Valley</h3>
-                  <p>From Hidden Hills to Sherman Oaks — navigating the high-intent markets of the Valley.</p>
-                  <span class="flip-hint">Tap to Explore</span>
-                  <button class="flip-button" type="button">Explore More</button>
-                </div>
-                <div class="flip-face flip-back">
-                  <span class="flip-kicker">The Market</span>
-                  <h3>The Valley</h3>
-                  <ul class="flip-list">
-                    <li>Targeting areas with durable long-term appreciation</li>
-                    <li>Guidance on Hidden Hills and Calabasas gated estates</li>
-                    <li>Strategic seller representation in Encino and Tarzana</li>
-                    <li>Generational wealth planning for Valley families</li>
-                  </ul>
-                  <button class="flip-button" type="button">Back</button>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <!-- Testimonial Carousel -->
-        <div class="testimonial-carousel" data-reveal id="testimonialCarousel">
-          <button class="testimonial-nav testimonial-nav--prev" id="tPrev" aria-label="Previous testimonial">&larr;</button>
-          <button class="testimonial-nav testimonial-nav--next" id="tNext" aria-label="Next testimonial">&rarr;</button>
-
-          <div class="testimonial-track" id="tTrack">
-            <div class="testimonial-slide">
-              <div class="testimonial-header">
-                <div class="stars">★★★★★</div>
-                <p><strong>Calabasas Luxury Seller</strong></p>
-              </div>
-              <p class="testimonial-text">
-                &ldquo;Kareem doesn&apos;t just sell you a house. He helps you understand how a move fits into your family&apos;s bigger picture. His communication is elite, and his ability to hold a transaction together under pressure is what sets him apart.&rdquo;
-              </p>
-              <div class="testimonial-author">
-                <strong>Calabasas Luxury Seller</strong>
-                <span>Estate Representation &middot; San Fernando Valley</span>
-              </div>
-            </div>
-
-            <div class="testimonial-slide">
-              <div class="testimonial-header">
-                <div class="stars">★★★★★</div>
-                <p><strong>Woodland Hills Move-Up Buyer</strong></p>
-              </div>
-              <p class="testimonial-text">
-                &ldquo;We were nervous about timing the market. Kareem walked us through every scenario with patience and clarity. We bought at exactly the right moment &mdash; and that house has already appreciated significantly.&rdquo;
-              </p>
-              <div class="testimonial-author">
-                <strong>Woodland Hills Move-Up Buyer</strong>
-                <span>Buyer Representation &middot; West Valley</span>
-              </div>
-            </div>
-
-            <div class="testimonial-slide">
-              <div class="testimonial-header">
-                <div class="stars">★★★★★</div>
-                <p><strong>Encino First-Generation Buyer</strong></p>
-              </div>
-              <p class="testimonial-text">
-                &ldquo;As a first-time buyer, I thought this process would be overwhelming. Kareem made it feel like working with a trusted family advisor. He never rushed us, and we walked away with a home we&apos;re proud to own.&rdquo;
-              </p>
-              <div class="testimonial-author">
-                <strong>Encino First-Generation Buyer</strong>
-                <span>Buyer Representation &middot; East Valley</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-dots" id="tDots">
-            <button class="carousel-dot is-active" data-index="0" aria-label="Slide 1"></button>
-            <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
-            <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
-          </div>
+    <section class="tesla-panel" style="background-image: url('assets/mansion-pool-night.jpg');">
+      <div class="tesla-panel-content">
+        <span class="tesla-eyebrow">Buyers &amp; Sellers</span>
+        <h2 class="tesla-title">Strategic Representation</h2>
+        <p class="tesla-subtitle">From your first home to your family legacy. Move with the calm of a seasoned advisor who treats every transaction as part of a longer story.</p>
+        <div class="tesla-buttons">
+          <a class="tesla-btn tesla-btn-primary" href="buyers-and-sellers.html">Buy &amp; Sell</a>
+          <a class="tesla-btn tesla-btn-secondary" href="#contact">Talk to Kareem</a>
         </div>
       </div>
     </section>
 
-    <!-- Authority Marquee Band -->
-    <div class="marquee-section" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="marquee-item">Rodeo Realty Fine Estates <span class="marquee-sep"></span></span>
-        <span class="marquee-item">CA DRE #01998956 <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Woodland Hills <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Calabasas <span class="marquee-sep"></span></span>
-        <span class="marquee-item">San Fernando Valley <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Hidden Hills <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Encino <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Generational Wealth <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Rodeo Realty Fine Estates <span class="marquee-sep"></span></span>
-        <span class="marquee-item">CA DRE #01998956 <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Woodland Hills <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Calabasas <span class="marquee-sep"></span></span>
-        <span class="marquee-item">San Fernando Valley <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Hidden Hills <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Encino <span class="marquee-sep"></span></span>
-        <span class="marquee-item">Generational Wealth <span class="marquee-sep"></span></span>
-      </div>
-    </div>
-
-    <section id="pulse" class="pulse-section dark-section">
-      <div class="container pulse-grid">
-        <div class="pulse-copy" data-reveal>
-          <span class="eyebrow">Real-Time Insight</span>
-          <h2 class="section-title">The Market <em>Pulse.</em></h2>
-          <p class="section-copy">
-            Data alone doesn&apos;t tell the story. Perspective does. Kareem tracks the shifts in Woodland Hills and the wider San Fernando Valley to help you move with confidence, not guesswork.
-          </p>
-        </div>
-        
-        <article class="pulse-card" data-reveal>
-          <div class="pulse-header">
-            <div class="pulse-status">Market Sentiment: Balanced</div>
-            <div class="pulse-tag">MAY 2025</div>
-          </div>
-          <h3 class="pulse-title">Woodland Hills Snapshot</h3>
-          <div class="pulse-stats-row">
-            <div class="pulse-stat-item">
-              <strong><span data-counter data-target="1300000" data-prefix="$" data-suffix="" data-format="short">$1.3M</span></strong>
-              <span>Median Sale Price</span>
-            </div>
-            <div class="pulse-stat-item">
-              <strong><span data-counter data-target="22" data-prefix="" data-suffix=" Days">22 Days</span></strong>
-              <span>Avg. Time to Close</span>
-            </div>
-            <div class="pulse-stat-item">
-              <strong><span data-counter data-target="102" data-prefix="" data-suffix="%">102%</span></strong>
-              <span>Sale to List Ratio</span>
-            </div>
-          </div>
-          <div class="pulse-trend pulse-trend--up">&#8593; Long-Term Appreciation Story Intact</div>
-          <p class="pulse-note">Despite rate headwinds, Los Angeles County real estate has appreciated significantly over every 10-year window in modern history. Waiting has historically cost buyers more than rates ever did.</p>
-          <a class="pulse-cta" href="family-wealth-preservation.html">See the wealth lens &rarr;</a>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">Core Representation</span>
-          <h2 class="section-title">Every transaction is a legacy move.</h2>
-        </div>
-
-        <div class="services-grid">
-          <article class="service-card flip-card" data-reveal>
-            <div class="flip-card-inner">
-              <div class="flip-face">
-                <div class="service-icon">🏠</div>
-                <h3>Buyer Strategy</h3>
-                <p>Finding the right home is secondary to finding the right investment for your family&apos;s future.</p>
-                <ul class="service-features">
-                  <li>Wealth-focused neighborhood audits</li>
-                  <li>Off-market inventory access</li>
-                  <li>Elite negotiation discipline</li>
-                </ul>
-                <span class="flip-hint">Tap for Process</span>
-                <button class="flip-button" type="button">Process Details</button>
-              </div>
-              <div class="flip-face flip-back">
-                <span class="flip-kicker">Onboarding</span>
-                <h3>The Buyer Journey</h3>
-                <ul class="flip-list">
-                  <li>Consultation on long-term wealth goals</li>
-                  <li>Financing and pre-approval audit</li>
-                  <li>Strategic property search and evaluation</li>
-                  <li>Escrow guidance, inspections, deadlines, and close</li>
-                </ul>
-                <div class="btn-row">
-                  <a class="btn btn-secondary" href="buyers-and-sellers.html#buyer-onboarding">View Buyer Onboarding</a>
-                </div>
-                <button class="flip-button" type="button">Back</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="service-card flip-card" data-reveal>
-            <div class="flip-card-inner">
-              <div class="flip-face">
-                <div class="service-icon">✨</div>
-                <h3>Listing Excellence</h3>
-                <p>Selling your home requires a blend of editorial-grade presentation and high-intent market positioning.</p>
-                <ul class="service-features">
-                  <li>High-fidelity property staging</li>
-                  <li>Targeted luxury buyer reach</li>
-                  <li>Maximum equity protection</li>
-                </ul>
-                <span class="flip-hint">Tap for Process</span>
-                <button class="flip-button" type="button">Process Details</button>
-              </div>
-              <div class="flip-face flip-back">
-                <span class="flip-kicker">Marketing</span>
-                <h3>The Seller Journey</h3>
-                <ul class="flip-list">
-                  <li>Property preparation and valuation</li>
-                  <li>Production-grade photography and video</li>
-                  <li>Multi-channel launch and showing management</li>
-                  <li>Offer review, negotiation, escrow oversight, and closeout</li>
-                </ul>
-                <div class="btn-row">
-                  <a class="btn btn-secondary" href="buyers-and-sellers.html#seller-onboarding">View Listing Onboarding</a>
-                </div>
-                <button class="flip-button" type="button">Back</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="service-card flip-card" data-reveal>
-            <div class="flip-card-inner">
-              <div class="flip-face">
-                <div class="service-icon">📈</div>
-                <h3>Wealth Preservation</h3>
-                <p>Real estate is the anchor of family wealth. We look at every move through a 10-year lens.</p>
-                <ul class="service-features">
-                  <li>Generational equity planning</li>
-                  <li>Investment portfolio review</li>
-                  <li>Strategic asset positioning</li>
-                </ul>
-                <span class="flip-hint">Tap for Process</span>
-                <button class="flip-button" type="button">Process Details</button>
-              </div>
-              <div class="flip-face flip-back">
-                <span class="flip-kicker">Preservation</span>
-                <h3>The Wealth Lens</h3>
-                <ul class="flip-list">
-                  <li>Audit of current real estate holdings</li>
-                  <li>Strategic long-term hold vs. exit planning</li>
-                  <li>Family estate transition support</li>
-                  <li>Keeping lifestyle goals tied to the bigger financial picture</li>
-                </ul>
-                <div class="btn-row">
-                  <a class="btn btn-secondary" href="family-wealth-preservation.html">Explore Wealth Planning</a>
-                </div>
-                <button class="flip-button" type="button">Back</button>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div style="margin-top: 3.5rem; text-align: center;" data-reveal>
-          <p class="section-copy" style="margin: 0 auto 2rem;">
-            Whether you are buying your first home, selling a longtime property, or navigating both at once — Kareem brings the same calm, strategic approach to every side of the transaction.
-          </p>
-          <div class="btn-row" style="justify-content: center;">
-            <a class="btn btn-secondary" href="buyers-and-sellers.html">View Full Buyer & Seller Page</a>
-          </div>
-        </div>
-
-        <div class="audience-grid" style="margin-top: 4rem;">
-          <article class="audience-card" data-reveal>
-            <span class="eyebrow">For Sellers</span>
-            <h3>Protecting your equity.</h3>
-            <p>Every dollar in equity you save is a dollar towards your family&apos;s next move. We don&apos;t just "sell" homes; we position them for maximum return.</p>
-            <div class="commitment-list">
-              <div class="commitment-item">Polished, high-end presentation that attracts high-intent buyers.</div>
-              <div class="commitment-item">Rigorous negotiation to ensure no equity is left on the table.</div>
-              <div class="commitment-item">Represent your best interests with professionalism, urgency, and follow-through.</div>
-            </div>
-            <div class="audience-cta">
-              <a class="btn btn-primary" href="buyers-and-sellers.html#contact">Request a Seller Strategy Call</a>
-            </div>
-          </article>
-
-          <article class="audience-card audience-card--alt" data-reveal>
-            <span class="eyebrow">For Buyers</span>
-            <h3>Strategic acquisitions.</h3>
-            <p>Buying a home is one of the biggest financial decisions you will ever make. It should be handled with discipline and long-term vision.</p>
-            <div class="commitment-list">
-              <div class="commitment-item">Analyzing neighborhoods for long-term appreciation and lifestyle fit.</div>
-              <div class="commitment-item">Direct advocacy to get your offer noticed and accepted.</div>
-              <div class="commitment-item">Keep the process organized so you always know what comes next.</div>
-            </div>
-            <div class="audience-cta">
-              <a class="btn btn-primary" href="buyers-and-sellers.html#contact">Request a Buyer Strategy Call</a>
-            </div>
-          </article>
+    <section class="tesla-panel" style="background-image: url('assets/cliffside-sunset.jpg');">
+      <div class="tesla-panel-content">
+        <span class="tesla-eyebrow">Family Wealth</span>
+        <h2 class="tesla-title">Generational Strategy</h2>
+        <p class="tesla-subtitle">Real estate is the longest-running wealth instrument in America. Plan, position, and preserve assets across decades — not just transactions.</p>
+        <div class="tesla-buttons">
+          <a class="tesla-btn tesla-btn-primary" href="family-wealth-preservation.html">Family Strategy</a>
+          <a class="tesla-btn tesla-btn-secondary" href="#contact">Discuss Your Estate</a>
         </div>
       </div>
     </section>
 
-    <section id="signature" class="section" style="background: white;">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">The Difference</span>
-          <h2 class="section-title">A standard of care that outlasts the escrow.</h2>
-        </div>
-        <div class="signature-grid">
-          <div class="signature-card" data-reveal>
-            <h3>Trust</h3>
-            <p>Integrity is not a marketing term; it is the core of how Kareem operates. You will always get the honest truth, even when it means advising you not to buy or sell yet.</p>
-          </div>
-          <div class="signature-card" data-reveal>
-            <h3>Responsiveness</h3>
-            <p>Real estate moves fast, and so does Kareem. You will never be left wondering about the status of an offer, a showing, or a closing detail.</p>
-          </div>
-          <div class="signature-card" data-reveal>
-            <h3>Strategy</h3>
-            <p>Every move is evaluated through a wealth-building lens. We focus on the variables that matter: location durability, equity growth, and long-term family utility.</p>
-          </div>
+    <section class="tesla-panel" style="background-image: url('assets/luxury-bathroom.jpg');">
+      <div class="tesla-panel-content">
+        <span class="tesla-eyebrow">Live MLS Search</span>
+        <h2 class="tesla-title">Find Your Home</h2>
+        <p class="tesla-subtitle">Search every active Southern California listing — direct from the MLS, no third-party noise. Concierge support when you find what you love.</p>
+        <div class="tesla-buttons">
+          <a class="tesla-btn tesla-btn-primary" href="mls-search.html">Search Homes</a>
+          <a class="tesla-btn tesla-btn-secondary" href="mls-search.html#concierge">Concierge Search</a>
         </div>
       </div>
     </section>
 
-    <section id="wealth" class="pulse-section">
-      <div class="container pulse-grid">
-        <div class="pulse-copy" data-reveal>
-          <span class="eyebrow">Wealth Preservation</span>
-          <h2 class="section-title">The Family <em>Wealth</em> Lens.</h2>
-          <p class="section-copy">
-            A real estate agent helps you buy a house. A wealth-minded Realtor helps you build a legacy. Kareem works with families to ensure their property decisions are always contributing to their long-term financial story.
-          </p>
-        </div>
-        
-        <article class="pulse-card" data-reveal>
-          <h3>Protecting what you&apos;ve built.</h3>
-          <p class="pulse-note">
-            Generational wealth is often built one house at a time. Whether you are upgrading your primary residence, acquiring an investment property, or planning an estate transition — strategy is the difference between a transaction and a transformation.
-          </p>
-          <div class="commitment-list" style="margin-bottom: 2rem;">
-            <div class="wealth-point" style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.94rem; font-weight: 600; color: var(--ink);">Strategic timing for move-up buyers to maximize equity.</div>
-            <div class="wealth-point" style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.94rem; font-weight: 600; color: var(--ink);">Analyzing investment properties for cash flow and appreciation durability.</div>
-            <div class="wealth-point" style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.94rem; font-weight: 600; color: var(--ink);">Keep real estate decisions connected to the larger financial picture your family is building.</div>
-          </div>
-          <div class="btn-row" style="margin-top:0.75rem;">
-            <a class="btn btn-secondary" href="family-wealth-preservation.html">Explore the Full Strategy →</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="trust" class="trust-section dark-section">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">Commitment</span>
-          <h2 class="section-title">Tailored for your specific path.</h2>
-        </div>
-        <div class="trust-grid">
-          <article class="trust-card" data-reveal style="padding:2rem;">
-            <div class="service-icon" style="margin-bottom: 1rem;">💼</div>
-            <strong>High-Net-Worth Families</strong>
-            <p style="margin-top:0.5rem;">For families managing a portfolio of assets, real estate requires a high level of discretion, precise valuation, and a focus on long-term equity preservation. Kareem provides the calm, professional oversight needed for complex moves.</p>
-            <div style="margin-top:1rem;">
-              <a class="btn btn-secondary" href="family-wealth-preservation.html" style="font-size:0.72rem;">Strategy Overview →</a>
-            </div>
-          </article>
-          <article class="trust-card" data-reveal style="padding:2rem;">
-            <div class="service-icon" style="margin-bottom: 1rem;">🏠</div>
-            <strong>First Home Buyers</strong>
-            <p style="margin-top:0.5rem;">Your first home is not just a place to live. It is the foundation of your family's real estate wealth. Get into the right neighborhood, at the right price, with the right strategy.</p>
-            <div style="margin-top:1rem;">
-              <a class="btn btn-secondary" href="buyers-and-sellers.html#buyer-onboarding" style="font-size:0.72rem;">Buyer Strategy →</a>
-            </div>
-          </article>
-          <article class="trust-card" data-reveal style="padding:2rem;">
-            <div class="service-icon" style="margin-bottom: 1rem;">📜</div>
-            <strong>Legacy Planners</strong>
-            <p style="margin-top:0.5rem;">Thinking about what your real estate means for the next generation? Kareem helps families approach estate transitions, long-term holds, and strategic exits with care and intention.</p>
-            <div style="margin-top:1rem;">
-              <a class="btn btn-secondary" href="family-wealth-preservation.html" style="font-size:0.72rem;">Family Wealth Planning →</a>
-            </div>
-          </article>
+    <section class="tesla-panel" style="background-image: url('assets/hero-estate-night.jpg');">
+      <div class="tesla-panel-content">
+        <span class="tesla-eyebrow">Free Reports</span>
+        <h2 class="tesla-title">42 Expert Guides</h2>
+        <p class="tesla-subtitle">From pricing strategy to negotiation tactics. Pick the reports that match your goals — delivered directly from Kareem.</p>
+        <div class="tesla-buttons">
+          <a class="tesla-btn tesla-btn-primary" href="free-reports.html">Browse Reports</a>
+          <a class="tesla-btn tesla-btn-secondary" href="free-reports.html#request">Custom Request</a>
         </div>
       </div>
     </section>

@@ -13,8 +13,8 @@ from google.genai import types
 _client = None
 
 # Model aliases — swap providers here, not in every agent
-SMART = "gemini-2.5-pro"      # Sonnet-equivalent: diagnoses, cold messages
-FAST  = "gemini-2.5-flash"    # Haiku-equivalent: quality checks, classification
+SMART = "gemini-2.0-flash"   # Sonnet-equivalent: diagnoses, cold messages (free tier)
+FAST  = "gemini-2.0-flash"   # Haiku-equivalent: quality checks, classification (free tier)
 
 
 def _get_client():

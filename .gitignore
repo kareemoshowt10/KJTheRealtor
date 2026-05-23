@@ -7,9 +7,11 @@ KJ-Realtor-Website-Copy
 .env
 agency/.venv/
 agency/logs/*.log
+agency/state/*.json
 agency/state/mockup_*.html
 agency/state/screenshots/
 agency/state/videos/
+agency/kareem/state/*.json
 agency/state/locks.json
 agency/kareem/state/locks.json
 **/__pycache__/

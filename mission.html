@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Mission & Community Journey | Kareem Jamal | Southern California Real Estate</title>
+  <meta
+    name="description"
+    content="Developing Southern California communities with intention, design, and patience. Learn about our community rental portfolio and discover how you can contribute, learn, or partner with us."
+  />
+  <meta name="keywords" content="Real Estate Mission, Community Portfolio SoCal, Kareem Jamal Realtor, Generational Wealth, Small Real Estate Investors, Sweat Equity Trade, Family Rental Portfolio" />
+  <meta name="theme-color" content="#1c2630" />
+  
+  <meta property="og:title" content="Our Mission & Community Journey | Kareem Jamal" />
+  <meta property="og:description" content="Developing communities with intention, design, and patience — using a family portfolio of rental properties to strengthen family experiences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/mission" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/hero-estate-night.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Mission & Community Journey | Kareem Jamal" />
+  <meta name="twitter:description" content="Developing SoCal communities with intention, design, and patience." />
+  <meta name="twitter:image" content="https://kareemjamaltherealtor.com/assets/hero-estate-night.jpg" />
+  
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/mission" />
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/nav-unified.css" />
+  <script src="assets/nav-unified.js" defer></script>
+  
+  <style>
+    :root {
+      --navy: #1d1d1f;
+      --navy-deep: #000000;
+      --linen: #fbfbfd;
+      --gold: #0071e3;
+      --terracotta: #1d1d1f;
+      --ink: #1d1d1f;
+      --muted: #86868b;
+      --panel: rgba(255, 255, 255, 0.92);
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.04);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --container: 1160px;
+      
+      --font-serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Text Selection ── */
+    ::selection {
+      background: rgba(0, 113, 227, 0.18);
+      color: var(--ink);
+    }
+
+    /* ── Custom Cursor ── */
+    * { cursor: none; }
+
+    #cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 60ms linear, width 200ms ease, height 200ms ease, opacity 200ms ease;
+      mix-blend-mode: multiply;
+    }
+
+    #cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(0, 113, 227, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 180ms cubic-bezier(0.2, 0, 0.2, 1), width 200ms ease, height 200ms ease, opacity 200ms ease, background 200ms ease, border-color 200ms ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cursor-text {
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 200ms ease;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    body:hover #cursor-dot { opacity: 1; }
+
+    a:hover ~ #cursor-ring,
+    button:hover ~ #cursor-ring,
+    select:hover ~ #cursor-ring,
+    option:hover ~ #cursor-ring,
+    input:hover ~ #cursor-ring,
+    textarea:hover ~ #cursor-ring {
+      width: 52px; height: 52px;
+      border-color: var(--gold);
+    }
+
+    /* ── Site Preloader ── */
+    .site-preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 800ms ease, visibility 800ms ease;
+    }
+    .preloader-logo {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      opacity: 0;
+      animation: preloader-fade 1.2s ease forwards;
+    }
+    .preloader-progress {
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      margin-top: 1.5rem;
+      animation: preloader-line 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+    }
+    body.is-loaded .site-preloader {
+      opacity: 0;
+      visibility: hidden;
+    }
+    @keyframes preloader-fade {
+      0%   { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes preloader-line {
+      0%   { width: 0; }
+      100% { width: 140px; }
+    }
+
+    /* ── Custom Scrollbar ── */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #fcfaf7; }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 113, 227, 0.2);
+      border: 3px solid #fcfaf7;
+      border-radius: 10px;
+      transition: background 300ms ease;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+    /* ── Page-Enter Fade ── */
+    @keyframes page-enter {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    body.is-loaded main {
+      animation: page-enter 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(0, 113, 227, 0.05), transparent 28%),
+        radial-gradient(circle at 100% 10%, rgba(201, 133, 105, 0.04), transparent 24%),
+        linear-gradient(180deg, #fffdfa 0%, #f8f4ee 46%, #fcfaf7 100%);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    section[id] { scroll-margin-top: 110px; }
+    .container { width: min(var(--container), calc(100% - 2rem)); margin: 0 auto; }
+
+    /* ── Floating UX Overlay Components ── */
+    body.no-scroll { overflow: hidden; }
+    #scrollProgress { position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg, var(--gold),#d4aa74); z-index:100; transition:width 80ms linear; pointer-events:none; }
+    .float-call { position:fixed; bottom:2rem; right:2rem; z-index:90; display:flex; align-items:center; gap:0.65rem; padding:0.9rem 1.4rem; background:var(--navy); color:white; border-radius:999px; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; box-shadow:0 8px 28px rgba(40,55,70,0.35); transition:all 280ms cubic-bezier(0.2,0,0.2,1); opacity:0; transform:translateY(16px); pointer-events:none; }
+    .float-call.is-visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .float-call:hover { background:var(--gold); transform:translateY(-3px); }
+    .back-to-top { position:fixed; bottom:2rem; left:2rem; z-index:90; width:46px; height:46px; background:rgba(255,252,247,0.92); border:1px solid rgba(0, 113, 227, 0.25); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.1rem; box-shadow:0 8px 24px rgba(0,0,0,0.08); backdrop-filter:blur(12px); cursor:pointer; text-decoration:none; opacity:0; transform:translateY(12px); transition:all 280ms cubic-bezier(0.2,0,0.2,1); pointer-events:none; }
+    .back-to-top.is-visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .back-to-top:hover { background:var(--gold); color:white; transform:translateY(-3px); }
+    .mobile-cta-bar { display:none; position:fixed; bottom:0; left:0; right:0; z-index:85; background:rgba(255,252,247,0.97); backdrop-filter:blur(20px); border-top:1px solid rgba(0, 113, 227, 0.15); padding:1rem 1.25rem; gap:0.75rem; align-items:center; justify-content:space-between; box-shadow:0 -8px 28px rgba(0,0,0,0.06); transform:translateY(100%); transition:transform 320ms cubic-bezier(0.2,0,0.2,1); }
+    .mobile-cta-bar.is-visible { transform:translateY(0); }
+    .mobile-cta-bar p { font-size:0.82rem; font-weight:700; color:var(--muted); line-height:1.3; flex:1; }
+    .mobile-cta-bar p strong { display:block; color:var(--ink); font-size:0.9rem; }
+    @media (max-width: 768px) { .mobile-cta-bar { display:flex; } .float-call { display:none; } }
+
+    /* ── SCROLL REVEAL ── */
+    [data-reveal] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    body.has-motion [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+    body.has-motion [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+    /* ── HERO SECTION (Dark) ── */
+    .hero {
+      padding: 5rem 0;
+      padding-top: 3rem;
+    }
+    .hero-shell {
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(23, 26, 32, 0.94), rgba(0, 0, 0, 0.96)),
+        url('./assets/hero-estate-night.jpg') center/cover no-repeat;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      color: #ffffff;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      padding: clamp(2rem, 5vw, 5.5rem) clamp(2rem, 4vw, 4rem);
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-copy { display: grid; gap: 1.5rem; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: currentColor;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .hero-title em {
+      font-style: normal;
+      font-weight: 400;
+      background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        var(--gold) 40%,
+        var(--gold) 60%,
+        #ffffff 100%
+      );
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: text-shimmer 4s linear infinite;
+    }
+    @keyframes text-shimmer {
+      100% { background-position: 200% center; }
+    }
+    .hero-text {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 1.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0071e3 0%, #2997ff 40%, #0071e3 100%);
+      background-size: 200% auto;
+      color: white;
+      box-shadow: 0 4px 20px rgba(0, 113, 227, 0.35);
+      animation: btn-shimmer 3.5s linear infinite;
+    }
+    .btn-primary:hover { box-shadow: 0 8px 28px rgba(0, 113, 227, 0.5); transform: translateY(-2px); }
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.16); transform: translateY(-2px); }
+    
+    @keyframes btn-shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .hero-visual {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem 1.25rem;
+      text-align: center;
+    }
+    .hero-badge strong { display: block; font-size: 0.95rem; font-weight: 600; color: #ffffff; }
+    .hero-badge span { display: block; font-size: 0.72rem; color: var(--gold); margin-top: 0.35rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── EDITORIAL SECTION (Light) ── */
+    .section { padding: 7.5rem 0; }
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 5rem;
+      align-items: start;
+    }
+    .section-head { display: grid; gap: 1rem; }
+    .section-head h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .editorial-content { display: grid; gap: 2rem; color: var(--muted); font-size: 1.1rem; line-height: 1.85; }
+    .editorial-content p strong { color: var(--ink); font-weight: 600; }
+    .editorial-quote {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--gold);
+      line-height: 1.4;
+      border-left: 3px solid var(--gold);
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    /* ── THE JOURNEY MAP (Linen step layout) ── */
+    .journey-section { background: var(--linen); border-top: 1px solid rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+    .journey-header { text-align: center; max-width: 700px; margin: 0 auto 5rem; display: grid; gap: 1rem; }
+    .journey-header h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -0.02em; }
+    .journey-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; }
+    .journey-timeline::before {
+      content: "";
+      position: absolute;
+      top: 2rem; left: 10%; right: 10%;
+      height: 1px;
+      background: rgba(0, 113, 227, 0.15);
+      z-index: 1;
+    }
+    .journey-step {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      position: relative;
+      z-index: 2;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      gap: 1.25rem;
+      transition: transform 260ms ease, box-shadow 260ms ease;
+    }
+    .journey-step:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .step-num {
+      width: 4rem; height: 4rem;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      border: 1.5px dashed rgba(0, 113, 227, 0.35);
+      color: var(--gold);
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+    .journey-step h3 { font-family: var(--font-serif); font-size: 1.45rem; font-weight: 500; color: var(--ink); }
+    .journey-step p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+    .step-tag {
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase;
+      padding: 0.35rem 0.75rem; background: var(--gold-soft); border-radius: 999px; width: fit-content;
+    }
+
+    /* ── CARD PROFILE GRID (Spotlight Effect) ── */
+    .profiles-section { padding: 8rem 0; }
+    .profiles-header { max-width: 650px; margin-bottom: 5rem; display: grid; gap: 1rem; }
+    .profiles-header h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -0.02em; }
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .grid-label {
+      grid-column: 1 / -1;
+      font-size: 0.78rem; font-weight: 800; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+      margin-top: 1.5rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .grid-label::after { content: ""; flex: 1; height: 1px; background: rgba(0, 0, 0, 0.08); }
+    
+    .profile-card {
+      background: #ffffff;
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 2.5rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .profile-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(0, 113, 227, 0.12);
+    }
+    .profile-card > * { position: relative; z-index: 1; }
+    
+    /* Spotlight Hover Glow */
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 113, 227, 0.07),
+        transparent 40%
+      );
+      opacity: 0;
+      transition: opacity 300ms ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .profile-card:hover::before { opacity: 1; }
+
+    /* Alternate dark style for big investors */
+    .profile-card.dark {
+      background: var(--navy-deep);
+      border-color: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+    .profile-card.dark h3 { color: #ffffff; }
+    .profile-card.dark .profile-bullet::before { color: var(--gold); }
+    .profile-card.dark::before {
+      background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.12),
+        transparent 40%
+      );
+    }
+
+    .profile-icon { font-size: 2rem; }
+    .profile-card h3 { font-family: var(--font-serif); font-size: 1.55rem; font-weight: 500; color: var(--ink); }
+    .profile-summary { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .profile-card.dark .profile-summary { color: rgba(255, 255, 255, 0.65); }
+    .profile-bullets { display: grid; gap: 0.65rem; font-size: 0.84rem; color: var(--muted); }
+    .profile-card.dark .profile-bullets { color: rgba(255, 255, 255, 0.55); }
+    .profile-bullet { display: flex; align-items: flex-start; gap: 0.55rem; line-height: 1.5; }
+    .profile-bullet::before { content: "•"; color: var(--gold); font-weight: bold; }
+    
+    .profile-action-hint {
+      margin-top: auto; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+    }
+
+    /* ── INTERACTIVE CONNECT FORM ── */
+    .connect-section { background: var(--linen); border-top: 1px solid rgba(0, 0, 0, 0.05); }
+    .connect-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(350px, 0.9fr);
+      gap: 4rem;
+      align-items: start;
+    }
+    .connect-info { display: grid; gap: 1.5rem; }
+    .connect-info h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -0.02em; }
+    .connect-info p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; }
+    .sms-lead-band {
+      margin-top: 1.5rem; padding: 1.25rem; background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 1rem;
+    }
+    .sms-icon { width: 3rem; height: 3rem; border-radius: 50%; background: var(--gold-soft); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+    .sms-copy strong { display: block; font-size: 0.95rem; font-weight: 600; }
+    .sms-copy a { color: var(--gold); font-weight: 700; }
+
+    .lead-form {
+      background: #ffffff;
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .form-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 500; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .field { display: grid; gap: 0.5rem; }
+    .field-full { grid-column: 1 / -1; }
+    .field label { color: var(--gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+    .field input, .field select, .field textarea {
+      width: 100%; border: 1px solid rgba(0, 0, 0, 0.12); border-radius: 12px; background: rgba(255, 255, 255, 0.85);
+      color: var(--ink); padding: 0.95rem 1rem; outline: none; transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--gold); box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12); background: white;
+    }
+
+    /* Dynamic context block styling */
+    .form-context-block {
+      background: var(--gold-soft); border-left: 3px solid var(--gold); padding: 1.25rem; border-radius: 0 10px 10px 0;
+      margin-top: 0.5rem; font-size: 0.88rem; line-height: 1.6; color: var(--ink);
+    }
+    .form-context-block strong { color: var(--gold); font-weight: 700; }
+
+    .form-status { min-height: 1.5rem; color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-top: 1rem; }
+    .form-status[data-state="error"] { color: #9b4537; }
+    .form-status[data-state="success"] { color: #356e57; }
+
+    /* ── FOOTER SECTION ── */
+    .site-footer {
+      background: #1c2630;
+      border-top: 1px solid rgba(0, 113, 227, 0.15);
+      padding: 4rem 0 2rem;
+      color: rgba(255, 252, 247, 0.55);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: start;
+      font-size: 0.88rem;
+    }
+    .footer-brand strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+      color: rgba(255, 252, 247, 0.94);
+      margin-bottom: 0.35rem;
+    }
+    .footer-brand p { line-height: 1.75; color: rgba(255, 252, 247, 0.42); font-size: 0.84rem; }
+    .footer-col h4 {
+      font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--gold); margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+    .footer-col a { display: block; color: rgba(255, 252, 247, 0.48); line-height: 2.1; transition: color 180ms ease; }
+    .footer-col a:hover { color: rgba(255, 252, 247, 0.9); }
+    .footer-bottom {
+      margin-top: 2.5rem; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 252, 247, 0.07);
+      font-size: 0.78rem; color: rgba(255, 252, 247, 0.28);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    /* ── RESPONSIVE OVERRIDES ── */
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 2rem; }
+      .hero-visual { aspect-ratio: 16/9; max-height: 380px; }
+      .editorial-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .journey-timeline { grid-template-columns: 1fr; gap: 2rem; }
+      .journey-timeline::before { display: none; }
+      .profiles-grid { grid-template-columns: repeat(2, 1fr); }
+      .connect-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 640px) {
+      .profiles-grid { grid-template-columns: 1fr; }
+      .lead-form { padding: 2rem 1.5rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .section { padding: 4.5rem 0; }
+      .editorial-grid { gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body class="has-motion">
+  <!-- Preloader -->
+  <div class="site-preloader" aria-hidden="true">
+    <div class="preloader-logo">KJ</div>
+    <div class="preloader-progress"></div>
+  </div>
+
+  <!-- Custom Cursor (desktop only) -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"><span class="cursor-text"></span></div>
+
+  <div id="scrollProgress" aria-hidden="true"></div>
+  <a class="float-call" href="tel:+18184027326" id="floatCall" aria-label="Call Kareem Jamal">
+    <span style="margin-right:0.2rem">📞</span> Call Kareem
+  </a>
+  <a class="back-to-top" href="#top" id="backToTop" aria-label="Back to top">↑</a>
+  
+  <div class="mobile-cta-bar" id="mobileCta">
+    <p><strong>Ready to Partner?</strong>Discover your pathway.</p>
+    <a class="btn btn-primary" href="#contact" style="min-height:44px; padding:0.75rem 1.1rem; font-size:0.72rem;">Connect Now</a>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html" aria-label="Kareem Jamal home">
+        <strong class="brand-name">Kareem Jamal</strong>
+        <span class="brand-role">Rodeo Realty Fine Estates</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="mission.html" aria-current="page">Our Mission</a>
+        <a href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation</a>
+        <a href="buyers-and-sellers.html#seller-onboarding">Listing Strategy</a>
+        <a href="family-wealth-preservation.html">Family Wealth Lens</a>
+        <a href="mls-search.html">Search</a>
+        <a href="#contact" class="nav-cta">Work With Kareem</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO SECTION (Dark Viewport) -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-grid">
+            <div class="hero-copy" data-reveal>
+              <span class="eyebrow">The Collective Portfolio</span>
+              <h1 class="hero-title">Developing communities with <em>intention, design, and patience.</em></h1>
+              <p class="hero-text">
+                We build premium rental property portfolios designed to elevate neighborhood character and strengthen family experiences — creating lasting equity channels for all.
+              </p>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="#contact">Find Your Channel</a>
+                <a class="btn btn-secondary" href="#journey">The Journey Map</a>
+              </div>
+            </div>
+            <div class="hero-visual" data-reveal style="--d:2">
+              <img src="./assets/mansion-pool-night.jpg" alt="A high-design premium family rental property at dusk" />
+              <div class="hero-badge">
+                <strong>Intention · Design · Patience</strong>
+                <span>Building community assets</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NARRATIVE EDITORIAL (Light Columns) -->
+    <section class="section" id="philosophy">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow">The Narrative</span>
+            <h2>Why a family rental portfolio is the heart of community strength.</h2>
+          </div>
+          <div class="editorial-content" data-reveal style="--d:2">
+            <p>
+              Standard real estate is focused entirely on the speed of the transaction—in and out, close the escrow, pocket the commission, and move on. But communities are not built in 30 days. They are developed over decades with **extreme patience, thoughtful design, and clear intention**.
+            </p>
+            <p>
+              Our strategy is anchored in a beautiful mechanism: **building a family portfolio of high-design rental properties**. 
+            </p>
+            <p>
+              Why rentals? And why a *family* approach? Because stable, beautiful housing is the foundation of family strength. When a tenant family occupies a home that is maintained with meticulous care, custom details, and premium design, they feel respected and secure. They stay longer, anchor themselves in the local schools, and invest their own energy back into the street.
+            </p>
+            <blockquote class="editorial-quote">
+              "By strengthening the family experience inside the home, we strengthen the physical and social fabric of the entire neighborhood."
+            </blockquote>
+            <p>
+              We believe real estate should not be gatekept by institutional funds. Our platform is structured as a **cohesive journey** to invite, inspire, and elevate others to learn, grow, and one day partner with us—regardless of where they are starting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY MAP TIMELINE (Linen) -->
+    <section class="section journey-section" id="journey">
+      <div class="container">
+        <div class="journey-header" data-reveal>
+          <span class="eyebrow">The Timeline</span>
+          <h2>Your Path in the Journey</h2>
+          <p style="color:var(--muted); font-size:1.05rem;">We have structured three distinct chapters designed to meet you where you are, build real trust first, and co-create lasting value.</p>
+        </div>
+        
+        <div class="journey-timeline">
+          <article class="journey-step" data-reveal style="--d:1">
+            <div class="step-num">01</div>
+            <span class="step-tag">Learn & Grow</span>
+            <h3>Value Upfront, Free</h3>
+            <p>No barriers, no pressure. Access premium negotiation scripts, AI problem-solving templates, and slow real estate tutorials designed to protect your wallet and build confidence.</p>
+          </article>
+
+          <article class="journey-step" data-reveal style="--d:2">
+            <div class="step-num">02</div>
+            <span class="step-tag">Contribute</span>
+            <h3>Active Engagement</h3>
+            <p>Bring value to the circle. Join workshops, refer high-intent buyers/sellers, trade valuable mechanical skills, or practice financial literacy lessons alongside your family.</p>
+          </article>
+
+          <article class="journey-step" data-reveal style="--d:3">
+            <div class="step-num">03</div>
+            <span class="step-tag">Partner & Build</span>
+            <h3>Co-Ownership Channels</h3>
+            <p>Participate in equity. From pocket-money micro-units for children, to sweat-equity co-ownership for local trade specialists, up to strategic capital portfolios for equity partners.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MULTI-PROFILE PARTNERSHIP GRID (Spotlight) -->
+    <section class="section" id="channels">
+      <div class="container">
+        <div class="profiles-header" data-reveal>
+          <span class="eyebrow">Partnership Formats</span>
+          <h2>Who is this built for?</h2>
+          <p style="color:var(--muted); font-size:1.05rem;">Whether you are starting with zero dollars and a desire to learn, or you are an institutional builder ready to allocate major capital — there is a tailored portal for you.</p>
+        </div>
+
+        <div class="profiles-grid">
+          
+          <!-- SMALL INVESTORS -->
+          <div class="grid-label">Small Entry Portals</div>
+
+          <!-- KIDS -->
+          <article class="profile-card" data-reveal style="--d:1" data-segment="kids">
+            <div class="profile-icon">🧸</div>
+            <h3>Kids & Young Teens</h3>
+            <p class="profile-summary">Building financial literacy early by translating real estate concepts into simple, pocket-money equity models.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Micro-savings ledgers & simple compound models</span>
+              <span class="profile-bullet">Learn how a property accrues value over time</span>
+              <span class="profile-bullet">Hands-on family workshops</span>
+            </div>
+            <span class="profile-action-hint">Explore Micro-Track →</span>
+          </article>
+
+          <!-- YOUNG ADULTS -->
+          <article class="profile-card" data-reveal style="--d:2" data-segment="young-adults">
+            <div class="profile-icon">🎓</div>
+            <h3>Young Adults</h3>
+            <p class="profile-summary">For high school and college students looking to establish their credit and master their first residential acquisition.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">FHA loan hacks & credit repair blueprints</span>
+              <span class="profile-bullet">House-hacking tutorials (renting rooms)</span>
+              <span class="profile-bullet">Micro co-investment partnerships</span>
+            </div>
+            <span class="profile-action-hint">Launch Starter Track →</span>
+          </article>
+
+          <!-- SKEPTICAL ADULTS -->
+          <article class="profile-card" data-reveal style="--d:3" data-segment="skeptical">
+            <div class="profile-icon">🔍</div>
+            <h3>Skeptical Adults</h3>
+            <p class="profile-summary">The zero-BS zone. If you are wary of the 'get-rich-quick' gurus, we invite you to inspect raw numbers, slow holding data, and free tools.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Free ISP negotiation scripts & AI resources</span>
+              <span class="profile-bullet">Raw historical portfolio metrics (cash-on-cash)</span>
+              <span class="profile-bullet">Slow, patient wealth-preservation philosophy</span>
+            </div>
+            <span class="profile-action-hint">Inspect Raw Data →</span>
+          </article>
+
+          <!-- BIG INVESTORS -->
+          <div class="grid-label">Big/Professional Portals</div>
+
+          <!-- EQUITY PARTNERS -->
+          <article class="profile-card dark" data-reveal style="--d:1" data-segment="equity">
+            <div class="profile-icon">💼</div>
+            <h3>Equity Partners</h3>
+            <p class="profile-summary">High-net-worth individuals and passive capital seeking durable, patient real estate returns anchored in community value.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Curated co-ownership of premium rentals</span>
+              <span class="profile-bullet">Slow-compounding wealth focus</span>
+              <span class="profile-bullet">Direct partnership with Kareem Jamal</span>
+            </div>
+            <span class="profile-action-hint">Request Prospectus →</span>
+          </article>
+
+          <!-- TRADE LABOR -->
+          <article class="profile-card dark" data-reveal style="--d:2" data-segment="trade">
+            <div class="profile-icon">🛠️</div>
+            <h3>Trade Skill Partners</h3>
+            <p class="profile-summary">Carpenters, plumbers, and electricians trading their physical craftsmanship directly for asset equity units in the properties they upgrade.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Sweat equity translated into co-ownership</span>
+              <span class="profile-bullet">Work with high-design, high-spec properties</span>
+              <span class="profile-bullet">Trade labor for permanent generational wealth</span>
+            </div>
+            <span class="profile-action-hint">Partner Craft →</span>
+          </article>
+
+          <!-- YOUNG PROFESSIONALS -->
+          <article class="profile-card dark" data-reveal style="--d:3" data-segment="professionals">
+            <div class="profile-icon">⚡</div>
+            <h3>Young Professionals</h3>
+            <p class="profile-summary">High income, zero time. Tech workers and corporate professionals co-investing passively in curated SoCal properties without management headaches.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Hassle-free real estate exposure</span>
+              <span class="profile-bullet">Meticulous operations and project reports</span>
+              <span class="profile-bullet">Co-investing with institutional execution</span>
+            </div>
+            <span class="profile-action-hint">Join Co-Investment →</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CONTACT FORM -->
+    <section class="section connect-section" id="contact">
+      <div class="container">
+        <div class="connect-grid">
+          
+          <div class="connect-info" data-reveal>
+            <span class="eyebrow">Connect With Kareem</span>
+            <h2>Ready to find your place in the journey?</h2>
+            <p>
+              Whether you are ready to review financial ledgers with your kids, trade your carpentry skill for property equity, or co-invest high-disposable income into premium SoCal rentals—let's align on a path.
+            </p>
+            <p>
+              No high-pressure sales pitches, no transactional urgency. Just slow, patient alignment with the right people.
+            </p>
+            
+            <div class="sms-lead-band">
+              <div class="sms-icon">📱</div>
+              <div class="sms-copy">
+                <strong>Prefer text or a direct message?</strong>
+                <span>SMS Kareem directly at <a href="sms:+18184027326">+1 (818) 402-7326</a></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lead-form" data-reveal style="--d:2">
+            <h3 class="form-title" id="formTitle">Partner With Us</h3>
+            <form id="missionLeadForm" action="https://formspree.io/f/mkgjgboj" method="POST">
+              <div class="form-grid">
+                
+                <div class="field">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="Kareem" required />
+                </div>
+                
+                <div class="field">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Jamal" required />
+                </div>
+
+                <div class="field full field-full">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                </div>
+
+                <div class="field full field-full">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="(818) 402-7326" />
+                </div>
+
+                <div class="field full field-full">
+                  <label for="investorProfile">Your Journey Profile</label>
+                  <select id="investorProfile" name="investorProfile" required>
+                    <option value="">Choose your starting format...</option>
+                    <option value="kids">🧸 Kid / Young Teen (Micro-allocations)</option>
+                    <option value="young-adults">🎓 Young Adult (starter hacks & credit-building)</option>
+                    <option value="skeptical">🔍 Skeptical Adult (Inspecting raw data / Free scripts)</option>
+                    <option value="equity">💼 Equity Partner (Passive long-term capital)</option>
+                    <option value="trade">🛠️ Trade Skill Specialist (Sweat-equity trade)</option>
+                    <option value="professionals">⚡ Young Professional (Tech / passive co-investment)</option>
+                  </select>
+                </div>
+
+                <!-- DYNAMIC CONTEXT BLOCK (Populated by JS) -->
+                <div class="field full field-full" id="dynamicContext" style="display:none;">
+                  <div class="form-context-block" id="dynamicContextText">
+                    <!-- Dynamic Text Appears Here -->
+                  </div>
+                </div>
+
+                <div class="field full field-full">
+                  <label for="customMessage" id="messageLabel">Message</label>
+                  <textarea id="customMessage" name="message" placeholder="Tell us a little bit about what you want to learn, grow, or trade..."></textarea>
+                </div>
+
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%; margin-top:1.5rem;" id="submitBtn">Send My Path</button>
+              <div class="form-status" id="formStatus"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Kareem Jamal</strong>
+          <p>Developing Southern California communities with intention, design, and patience. Helping families protect equity and build generational wealth.</p>
+          <span style="display:block; font-size:0.75rem; color:rgba(255,255,255,0.25); margin-top:1rem;">Rodeo Realty Fine Estates</span>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="mission.html">Our Mission</a>
+          <a href="buyers-and-sellers.html">Buyers &amp; Sellers</a>
+          <a href="family-wealth-preservation.html">Family Wealth Lens</a>
+          <a href="mls-search.html">Home Search</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="tel:+18184027326">(818) 402-7326</a>
+          <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
+          <a href="https://www.zillow.com/profile/KareemJamal" target="_blank" rel="noopener">Zillow Profile</a>
+          <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener">Rodeo Realty Profile</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Kareem Jamal | CA DRE #01998956</span>
+        <span>Rodeo Realty Fine Estates | Equal Housing Opportunity</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── PRELOADER & MOTION ─────────────────────────────────────────
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.body.classList.add('is-loaded');
+      }, 700);
+    });
+
+    // ── SCROLL PROGRESS & OVERLAYS ─────────────────────────────────
+    const progress = document.getElementById('scrollProgress');
+    const floatCall = document.getElementById('floatCall');
+    const backToTop = document.getElementById('backToTop');
+    const mobileCta = document.getElementById('mobileCta');
+
+    window.addEventListener('scroll', () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = (window.scrollY / scrollHeight) * 100;
+      if (progress) progress.style.width = pct + '%';
+
+      const showOverlay = window.scrollY > 300;
+      floatCall?.classList.toggle('is-visible', showOverlay);
+      backToTop?.classList.toggle('is-visible', showOverlay);
+      mobileCta?.classList.toggle('is-visible', showOverlay);
+    }, { passive: true });
+
+    // ── SCROLL REVEAL ─────────────────────────────────────────────
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // ── SPOTLIGHT MOUSE GLOW EFFECT ────────────────────────────────
+    const cards = document.querySelectorAll('.profile-card, .journey-step');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // ── DESKTOP CUSTOM CURSOR ──────────────────────────────────────
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    const cursorText = ring?.querySelector('.cursor-text');
+
+    if (dot && ring) {
+      window.addEventListener('mousemove', (e) => {
+        dot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+        ring.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      });
+
+      document.querySelectorAll('a, button, select, option, input, textarea').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          dot.style.width = '0px'; dot.style.height = '0px';
+          ring.style.width = '52px'; ring.style.height = '52px'; ring.style.background = 'rgba(0,113,227,0.06)';
+          if (cursorText && el.tagName === 'A' && el.getAttribute('href')?.startsWith('#')) {
+            cursorText.textContent = "GO"; cursorText.style.opacity = 1;
+          }
+        });
+        el.addEventListener('mouseleave', () => {
+          dot.style.width = '8px'; dot.style.height = '8px';
+          ring.style.width = '36px'; ring.style.height = '36px'; ring.style.background = 'transparent';
+          if (cursorText) { cursorText.textContent = ""; cursorText.style.opacity = 0; }
+        });
+      });
+    }
+
+    // ── PROFILE CARD CLICK TRIGGER ─────────────────────────────────
+    document.querySelectorAll('.profile-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const segment = card.getAttribute('data-segment');
+        const select = document.getElementById('investorProfile');
+        if (select && segment) {
+          select.value = segment;
+          select.dispatchEvent(new Event('change'));
+          document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ── DYNAMIC CONNECT FORM CONTEXTS ──────────────────────────────
+    const profileSelect = document.getElementById('investorProfile');
+    const dynamicBlock = document.getElementById('dynamicContext');
+    const dynamicText = document.getElementById('dynamicContextText');
+    const messageLabel = document.getElementById('messageLabel');
+    const customMessage = document.getElementById('customMessage');
+    const formTitle = document.getElementById('formTitle');
+
+    const profileData = {
+      "kids": {
+        title: "Micro-Savings Inquiry",
+        context: "<strong>Hey there!</strong> We love that you are thinking about compound savings early! Tell us what you want to learn about pocket-money investing, or ask how we can help your parents set up a micro-ledger for you.",
+        placeholder: "E.g., I'm 12, I save $5 a week, and I want to know how that buy units in a house one day...",
+        label: "What's your micro-savings plan or question?"
+      },
+      "young-adults": {
+        title: "Starter Track Application",
+        context: "<strong>Ready to launch?</strong> We will prioritize sending you our FHA House-Hacking blueprint, credit building guidelines, and local starter property opportunities. Let us know your career path and current timeline.",
+        placeholder: "E.g., I am in college, starting a job in tech next year, and want to know how to buy my first duplex in Woodland Hills...",
+        label: "Tell us about your credit-building or house-hacking goals"
+      },
+      "skeptical": {
+        title: "Data Integrity Request",
+        context: "<strong>Zero fluff.</strong> Ask for our exact cash-flow spreadsheets, historical appreciation charts, or direct results of the Spectrum/ISP scripts. No marketing pitches, just cold data.",
+        placeholder: "E.g., Please email the full financial breakdown of the 4-bedroom rental property model in Woodland Hills, plus the Spectrum PDF script...",
+        label: "What exact spreadsheets, data, or scripts would you like?"
+      },
+      "equity": {
+        title: "Equity Partnership Request",
+        context: "<strong>Strategic Co-Investing.</strong> Kareem Jamal will reach out directly to review active portfolio parameters, passive cash-flow distributions, and historical IRR results. Your capital stays focused on intentional SoCal community assets.",
+        placeholder: "E.g., Looking to allocate capital in Q3, please schedule a private alignment call and send the active portfolio prospectus...",
+        label: "Specify your capital timelines or investment preferences"
+      },
+      "trade": {
+        title: "Sweat Equity Craft Guild",
+        context: "<strong>Trade Labor for Real Wealth.</strong> Let's trade your valuable construction craftsmanship directly for real equity co-ownership units in our properties. Tell us about your specialized craft (carpentry, framing, electrical, plumbing) and your portfolio goals.",
+        placeholder: "E.g., I am a licensed electrician, looking to trade $15k of labor/installation on the next rental asset for co-ownership shares...",
+        label: "Describe your specialized craft and years of experience"
+      },
+      "professionals": {
+        title: "Young Professional Passive Channel",
+        context: "<strong>Passive High-Design Rentals.</strong> Curated for corporate or tech workers who want real estate exposure without operational or property management headaches. We will send you co-investment portfolios.",
+        placeholder: "E.g., I work in tech, have $30k disposable income to deploy passively, and want to learn about co-investing next to Kareem...",
+        label: "Tell us about your corporate/tech background and disposable capital goals"
+      }
+    };
+
+    profileSelect?.addEventListener('change', () => {
+      const val = profileSelect.value;
+      if (val && profileData[val]) {
+        const d = profileData[val];
+        formTitle.textContent = d.title;
+        dynamicText.innerHTML = d.context;
+        dynamicBlock.style.display = 'block';
+        messageLabel.textContent = d.label;
+        customMessage.placeholder = d.placeholder;
+      } else {
+        formTitle.textContent = "Partner With Us";
+        dynamicBlock.style.display = 'none';
+        messageLabel.textContent = "Message";
+        customMessage.placeholder = "Tell us a little bit about what you want to learn, grow, or trade...";
+      }
+    });
+
+    // ── FORM SUBMISSION ────────────────────────────────────────────
+    const form = document.getElementById('missionLeadForm');
+    const status = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      status.textContent = '';
+      status.removeAttribute('data-state');
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          form.reset();
+          dynamicBlock.style.display = 'none';
+          formTitle.textContent = "Message Received!";
+          status.textContent = '✓ Your journey inquiry has been successfully sent. Kareem will reach out directly.';
+          status.setAttribute('data-state', 'success');
+          submitBtn.textContent = 'Sent Successfully';
+        } else {
+          status.textContent = '✗ Submission failed. Please try again or SMS Kareem directly.';
+          status.setAttribute('data-state', 'error');
+          submitBtn.textContent = 'Try Again';
+          submitBtn.disabled = false;
+        }
+      } catch (err) {
+        status.textContent = '✗ Connection error. Please try again or email kjamal@rodeore.com directly.';
+        status.setAttribute('data-state', 'error');
+        submitBtn.textContent = 'Try Again';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

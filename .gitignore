@@ -2,4 +2,10 @@
 .vercel
 node_modules
 KJ-Realtor-Website-Copy
-.claude/
+Command.me/
+KJTheRealtor-Backup-May-07/
+*.py
+clean.py
+replace_checkout.py
+upgrade.js
+

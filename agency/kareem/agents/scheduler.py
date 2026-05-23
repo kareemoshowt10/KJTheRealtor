@@ -8,7 +8,6 @@ Showing requests → coordinates via CRMLS showing instructions + Calendly.
 import os
 import requests
 from pathlib import Path
-from anthropic import Anthropic
 import sys
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
@@ -25,19 +24,6 @@ def _cfg():
 
 class Scheduler(BaseAgent):
     name = "kareem.scheduler"
-
-    def __init__(self):
-        super().__init__()
-        self._client = None
-
-    def _get_client(self):
-        if not self._client:
-            cfg = _cfg()
-            key = cfg["apis"]["anthropic_key"]
-            if key.startswith("${"):
-                key = os.environ.get(key[2:-1], "")
-            self._client = Anthropic(api_key=key)
-        return self._client
 
     def book_consultation(self, lead: dict) -> dict:
         """Generate a booking link and confirmation message for a positive reply."""

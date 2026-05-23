@@ -5,11 +5,11 @@ Used to personalize outreach ("your home is likely worth $X based on recent sale
 
 import requests
 from pathlib import Path
-from anthropic import Anthropic
 import sys, os
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from agents.base import BaseAgent
+from agents.llm import generate, FAST
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
 
@@ -21,19 +21,6 @@ def _cfg():
 
 class CMABuilder(BaseAgent):
     name = "kareem.cma_builder"
-
-    def __init__(self):
-        super().__init__()
-        self._client = None
-
-    def _get_client(self):
-        if not self._client:
-            cfg = _cfg()
-            key = cfg["apis"]["anthropic_key"]
-            if key.startswith("${"):
-                key = os.environ.get(key[2:-1], "")
-            self._client = Anthropic(api_key=key)
-        return self._client
 
     def run(self, lead: dict) -> dict:
         self.log.info(f"Building CMA for {lead.get('address')}")
@@ -103,7 +90,6 @@ class CMABuilder(BaseAgent):
         sqft = lead.get("sqft", 0)
         est_value = int(avg_ppsf * sqft) if sqft and avg_ppsf else int(avg_price)
 
-        client = self._get_client()
         comp_lines = "\n".join(
             f"- {c['address']}: ${c['sale_price']:,} ({c['sqft']:,} sqft, {c['sale_date']})"
             for c in comps[:4]
@@ -123,12 +109,7 @@ Rules:
 Output only the 2 sentences."""
 
         try:
-            resp = client.messages.create(
-                model="claude-haiku-4-5-20251001",
-                max_tokens=120,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            text = resp.content[0].text.strip()
+            text = generate(prompt, model=FAST, max_tokens=120)
         except Exception:
             text = f"Based on recent sales nearby, your home could be worth around ${est_value:,} in today's market."
 

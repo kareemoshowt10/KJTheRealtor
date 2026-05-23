@@ -9,23 +9,14 @@ Lives on iPhone Claude Code (or runs as a fast polling loop).
 
 import re
 import requests
-from anthropic import Anthropic
-from .base import BaseAgent, get_api_key, load_state, save_state
+from .base import BaseAgent, load_state, save_state
+from .llm import generate, FAST
 
 CALENDLY_BASE = "https://api.calendly.com"
 
 
 class Mobile(BaseAgent):
     name = "mobile"
-
-    def __init__(self):
-        super().__init__()
-        self.client = None
-
-    def _get_client(self):
-        if not self.client:
-            self.client = Anthropic(api_key=get_api_key("anthropic_key"))
-        return self.client
 
     def handle_reply(self, reply: dict) -> dict:
         """
@@ -77,7 +68,6 @@ class Mobile(BaseAgent):
         return result
 
     def _classify_reply(self, message: str) -> dict:
-        client = self._get_client()
         prompt = f"""Classify this reply to a cold outreach message about building a business website.
 
 Reply: "{message}"
@@ -95,12 +85,7 @@ TYPE: positive/question/negative/spam
 QUESTION: [only if type=question, the core question in one sentence]"""
 
         try:
-            resp = client.messages.create(
-                model="claude-haiku-4-5-20251001",
-                max_tokens=100,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            text = resp.content[0].text
+            text = generate(prompt, model=FAST, max_tokens=100)
             type_match = re.search(r"TYPE:\s*(\w+)", text)
             q_match = re.search(r"QUESTION:\s*(.+)", text)
             return {
@@ -190,7 +175,6 @@ QUESTION: [only if type=question, the core question in one sentence]"""
         }
 
     def _answer_question(self, reply: dict, question: str) -> str:
-        client = self._get_client()
         niche = reply.get("lead_niche", "").replace("_", " ")
 
         prompt = f"""A {reply.get('city')} {niche} just replied to a cold outreach message about a free website mockup.
@@ -206,12 +190,7 @@ Write a SHORT reply (under 60 words) that:
 Output only the reply message."""
 
         try:
-            resp = client.messages.create(
-                model="claude-haiku-4-5-20251001",
-                max_tokens=150,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            return resp.content[0].text.strip()
+            return generate(prompt, model=FAST, max_tokens=150)
         except Exception as e:
             self.log.error(f"Question answering failed: {e}")
             return "Thanks for reaching out — happy to answer that on a quick call. Want to grab 15 minutes this week?"

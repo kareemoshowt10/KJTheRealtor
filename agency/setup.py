@@ -30,9 +30,9 @@ def head(msg): print(f"\n{BOLD}{msg}{RESET}")
 
 ENV_VARS = {
     "REQUIRED — Minimum to run the test": {
-        "ANTHROPIC_API_KEY": {
-            "desc": "Powers Diagnoser, Checker, and Mobile (Claude Sonnet/Haiku)",
-            "get": "console.anthropic.com → API Keys",
+        "GOOGLE_API_KEY": {
+            "desc": "Powers Diagnoser, Checker, and Mobile (Gemini 2.5 Pro/Flash)",
+            "get": "aistudio.google.com/apikey (free tier available)",
             "required": True,
         },
     },
@@ -109,8 +109,8 @@ def check_python():
 def check_packages():
     head("Python Packages")
     packages = {
-        "anthropic": "pip install anthropic",
-        "requests":  "pip install requests",
+        "google.genai": "pip install google-genai",
+        "requests":     "pip install requests",
     }
     for pkg, install in packages.items():
         try:
@@ -199,12 +199,13 @@ def print_next_steps(all_required: bool):
         print(f"  {BOLD}Check status:{RESET}")
         print(f"  agency/run.sh --status")
     else:
-        print(f"\n  {RED}Set ANTHROPIC_API_KEY first:{RESET}")
-        print(f"  export ANTHROPIC_API_KEY=sk-ant-...")
+        print(f"\n  {RED}Set GOOGLE_API_KEY first:{RESET}")
+        print(f"  Get a free key at: https://aistudio.google.com/apikey")
+        print(f"  export GOOGLE_API_KEY=...")
         print(f"  python3 agency/test_pipeline.py")
         print()
         print(f"  Or add it to a .env file:")
-        print(f"  echo 'ANTHROPIC_API_KEY=sk-ant-...' >> .env")
+        print(f"  echo 'GOOGLE_API_KEY=...' >> .env")
         print(f"  python3 agency/setup.py  # re-run this to verify")
     print()
 

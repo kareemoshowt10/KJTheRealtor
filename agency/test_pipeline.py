@@ -3,7 +3,7 @@
 KJ Lead-Gen Pipeline — End-to-End Test Runner
 
 Uses mock SFV leads so you can test without Google Maps / ATTOM / PropStream.
-Only requires: ANTHROPIC_API_KEY
+Only requires: GOOGLE_API_KEY (Gemini)
 
 Usage:
   python3 agency/test_pipeline.py                    # agency pipeline (sell websites)
@@ -46,13 +46,13 @@ def dim(msg):   print(f"  {DIM}{msg}{RESET}")
 
 def check_env() -> bool:
     head("Environment Check")
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    api_key = os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY", "")
     if not api_key:
-        err("ANTHROPIC_API_KEY not set — required for diagnoses and message quality checks")
-        print(f"\n  Set it with:")
-        print(f"  {DIM}export ANTHROPIC_API_KEY=sk-ant-...\n  python3 agency/test_pipeline.py{RESET}\n")
+        err("GOOGLE_API_KEY not set — required for diagnoses and message quality checks")
+        print(f"\n  Get a free key at: https://aistudio.google.com/apikey")
+        print(f"  {DIM}export GOOGLE_API_KEY=...\n  python3 agency/test_pipeline.py{RESET}\n")
         return False
-    ok(f"ANTHROPIC_API_KEY set ({api_key[:12]}...)")
+    ok(f"GOOGLE_API_KEY set ({api_key[:12]}...)")
 
     sg = os.environ.get("SENDGRID_API_KEY", "")
     if sg:
@@ -182,7 +182,6 @@ def run_agency_test(leads_limit: int, dry_run: bool) -> dict:
 
 def run_kareem_test(leads_limit: int, dry_run: bool) -> dict:
     from mock_data import KAREEM_MOCK_LEADS
-    from anthropic import Anthropic
     from agents.base import save_state
 
     leads = KAREEM_MOCK_LEADS[:leads_limit]
@@ -190,7 +189,6 @@ def run_kareem_test(leads_limit: int, dry_run: bool) -> dict:
     head(f"Kareem Realtor Pipeline — {len(leads)} mock seller leads")
     print(f"  Motivated sellers in Woodland Hills / SFV\n")
 
-    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     results = []
 
     for i, lead in enumerate(leads, 1):
@@ -204,13 +202,13 @@ def run_kareem_test(leads_limit: int, dry_run: bool) -> dict:
 
         # ── CMA Summary ───────────────────────────────────────────────────
         info("Building CMA summary...")
-        cma_text = _mock_cma(client, lead)
+        cma_text = _mock_cma(lead)
         dim(f"CMA: {cma_text}")
 
         # ── Cold message ──────────────────────────────────────────────────
         info("Writing outreach message...")
         channel = "sms" if not lead.get("email") else "email"
-        msg = _kareem_cold_message(client, lead, cma_text, channel)
+        msg = _kareem_cold_message(lead, cma_text, channel)
         word_count = len(msg.split())
         print(f"\n  {BOLD}Cold message ({word_count} words, via {channel}):{RESET}")
         for line in msg.split("\n"):
@@ -249,7 +247,8 @@ def run_kareem_test(leads_limit: int, dry_run: bool) -> dict:
     return {"total": len(leads), "results": results}
 
 
-def _mock_cma(client, lead: dict) -> str:
+def _mock_cma(lead: dict) -> str:
+    from agents.llm import generate, FAST
     address = lead.get("address", "")
     city = lead.get("city", "")
     avm = lead.get("avm", 0)
@@ -262,15 +261,11 @@ Write as Kareem Jamal, a knowledgeable Woodland Hills realtor.
 No buzzwords. Specific, local, confident.
 Output only the 2 sentences."""
 
-    resp = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=120,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return resp.content[0].text.strip()
+    return generate(prompt, model=FAST, max_tokens=120)
 
 
-def _kareem_cold_message(client, lead: dict, cma_text: str, channel: str) -> str:
+def _kareem_cold_message(lead: dict, cma_text: str, channel: str) -> str:
+    from agents.llm import generate, SMART
     source_map = {
         "expired_listing": f"their listing expired after {lead.get('days_on_market', 30)}+ days",
         "fsbo": "they're trying to sell on their own",
@@ -300,12 +295,7 @@ Rules:
 
 Output only the message."""
 
-    resp = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=180,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return resp.content[0].text.strip()
+    return generate(prompt, model=SMART, max_tokens=180)
 
 
 def _pitch_lead(lead: dict, channel: str) -> None:

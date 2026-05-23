@@ -10,8 +10,8 @@ Returns: {"approved": bool, "issues": list[str], "revised_message": str | None}
 """
 
 import re
-from anthropic import Anthropic
-from .base import BaseAgent, get_api_key
+from .base import BaseAgent
+from .llm import generate, FAST
 
 AI_BUZZWORDS = [
     "leverage", "game-changer", "game changer", "revolutionize", "cutting-edge",
@@ -28,15 +28,6 @@ AI_BUZZWORDS = [
 
 class Checker(BaseAgent):
     name = "checker"
-
-    def __init__(self):
-        super().__init__()
-        self.client = None
-
-    def _get_client(self):
-        if not self.client:
-            self.client = Anthropic(api_key=get_api_key("anthropic_key"))
-        return self.client
 
     def run(self, lead: dict) -> dict:
         message = lead.get("cold_message", "")
@@ -103,7 +94,6 @@ class Checker(BaseAgent):
         }
 
     def _llm_check(self, message: str, lead: dict, channel: str) -> dict:
-        client = self._get_client()
         prompt = f"""You are reviewing a cold outreach message before it's sent to a real local business owner.
 
 Channel: {channel}
@@ -129,12 +119,7 @@ VERDICT: HUMAN or AI_SOUNDING
 REASON: [only if AI_SOUNDING]"""
 
         try:
-            resp = client.messages.create(
-                model="claude-haiku-4-5-20251001",
-                max_tokens=150,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            text = resp.content[0].text
+            text = generate(prompt, model=FAST, max_tokens=150)
             sounds_human = "VERDICT: HUMAN" in text
             reason_match = re.search(r"REASON:\s*(.+)", text)
             reason = reason_match.group(1).strip() if reason_match else ""
@@ -144,7 +129,6 @@ REASON: [only if AI_SOUNDING]"""
             return {"sounds_human": True, "reason": ""}
 
     def _auto_revise(self, message: str, issues: list[str], lead: dict, channel: str) -> str | None:
-        client = self._get_client()
         issues_str = "\n".join(f"- {i}" for i in issues)
 
         prompt = f"""Revise this cold outreach message to fix these specific issues:
@@ -165,12 +149,7 @@ Rules:
 Output only the revised message, nothing else."""
 
         try:
-            resp = client.messages.create(
-                model="claude-haiku-4-5-20251001",
-                max_tokens=150,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            return resp.content[0].text.strip()
+            return generate(prompt, model=FAST, max_tokens=150)
         except Exception as e:
             self.log.warning(f"Auto-revision failed: {e}")
             return None

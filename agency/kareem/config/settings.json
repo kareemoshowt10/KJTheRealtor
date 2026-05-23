@@ -41,7 +41,7 @@
     "twilio_sid": "${TWILIO_SID}",
     "twilio_token": "${TWILIO_AUTH_TOKEN}",
     "twilio_from": "${TWILIO_PHONE}",
-    "anthropic_key": "${ANTHROPIC_API_KEY}",
+    "google_api_key": "${GOOGLE_API_KEY}",
     "calendly_token": "${CALENDLY_API_KEY}",
     "calendly_event_type": "${CALENDLY_EVENT_TYPE_UUID}"
   }

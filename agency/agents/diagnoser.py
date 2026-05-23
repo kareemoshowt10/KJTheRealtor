@@ -8,8 +8,8 @@ Diagnoser — for each lead produces:
 """
 
 import re
-from anthropic import Anthropic
-from .base import BaseAgent, get_api_key, load_config
+from .base import BaseAgent, load_config
+from .llm import generate, SMART
 
 SCORING_WEIGHTS = {
     "no_website": 30,
@@ -22,15 +22,6 @@ SCORING_WEIGHTS = {
 
 class Diagnoser(BaseAgent):
     name = "diagnoser"
-
-    def __init__(self):
-        super().__init__()
-        self.client = None
-
-    def _get_client(self):
-        if not self.client:
-            self.client = Anthropic(api_key=get_api_key("anthropic_key"))
-        return self.client
 
     def run(self, lead: dict) -> dict:
         self.log.info(f"Diagnosing lead: {lead['name']} ({lead['niche']})")
@@ -80,7 +71,6 @@ class Diagnoser(BaseAgent):
         return min(score, 100)
 
     def _generate_diagnosis(self, lead: dict, niche_data: dict) -> dict:
-        client = self._get_client()
         pain_points = "\n".join(f"- {p}" for p in niche_data.get("pain_points", []))
         hero_angles = "\n".join(f"- {a}" for a in niche_data.get("hero_angles", []))
 
@@ -106,12 +96,7 @@ Format:
 DIAGNOSIS: [text]
 HERO_ANGLE: [text]"""
 
-        resp = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=300,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = resp.content[0].text
+        text = generate(prompt, model=SMART, max_tokens=300)
 
         diagnosis_match = re.search(r"DIAGNOSIS:\s*(.+?)(?=HERO_ANGLE:|$)", text, re.DOTALL)
         hero_match = re.search(r"HERO_ANGLE:\s*(.+)", text, re.DOTALL)
@@ -122,7 +107,6 @@ HERO_ANGLE: [text]"""
         }
 
     def _generate_cold_message(self, lead: dict, niche_data: dict, diagnosis: dict) -> str:
-        client = self._get_client()
         channel = self.settings["channels"].get(lead["niche"], "email")
         tone = niche_data.get("tone", "professional")
 
@@ -153,12 +137,7 @@ Diagnosis: {diagnosis['text']}
 
 Write only the message. Nothing else."""
 
-        resp = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=200,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        return resp.content[0].text.strip()
+        return generate(prompt, model=SMART, max_tokens=200)
 
     def _estimate_deal_value(self, lead: dict, score: int) -> float:
         base = {

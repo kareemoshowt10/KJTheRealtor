@@ -14,11 +14,11 @@ import os
 import requests
 from datetime import datetime, date, timedelta
 from pathlib import Path
-from anthropic import Anthropic
 import sys
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from agents.base import BaseAgent, load_state, save_state
+from agents.llm import generate, FAST
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
 
@@ -47,19 +47,6 @@ BUYER_SEQUENCE = [
 
 class Nurture(BaseAgent):
     name = "kareem.nurture"
-
-    def __init__(self):
-        super().__init__()
-        self._client = None
-
-    def _get_client(self):
-        if not self._client:
-            cfg = _cfg()
-            key = cfg["apis"]["anthropic_key"]
-            if key.startswith("${"):
-                key = os.environ.get(key[2:-1], "")
-            self._client = Anthropic(api_key=key)
-        return self._client
 
     def run_due_touchpoints(self) -> list[dict]:
         """Find and send all drip messages due today."""
@@ -108,7 +95,6 @@ class Nurture(BaseAgent):
         return result
 
     def _generate_message(self, lead: dict, angle: str) -> str:
-        client = self._get_client()
         cfg = _cfg()
         agent = cfg["agent"]
         name_parts = lead.get("name", "").split()
@@ -148,12 +134,7 @@ Rules:
 Output only the message."""
 
         try:
-            resp = client.messages.create(
-                model="claude-haiku-4-5-20251001",
-                max_tokens=150,
-                messages=[{"role": "user", "content": prompt}],
-            )
-            return resp.content[0].text.strip()
+            return generate(prompt, model=FAST, max_tokens=150)
         except Exception as e:
             self.log.error(f"Message generation failed: {e}")
             return f"Hey {first_name}, just checking in — happy to answer any questions whenever you're ready. — Kareem | (818) 402-7326"

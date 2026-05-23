@@ -155,8 +155,9 @@ print(f"\n{BOLD}{'─'*50}{RESET}")
 total = PASS + FAIL
 if FAIL == 0:
     print(f"{GREEN}{BOLD}  All {PASS} checks passed.{RESET}")
-    print(f"\n  Next: set ANTHROPIC_API_KEY and run the full test:")
-    print(f"  {DIM}export ANTHROPIC_API_KEY=sk-ant-...{RESET}")
+    print(f"\n  Next: set GOOGLE_API_KEY and run the full test:")
+    print(f"  {DIM}Get a free key at: https://aistudio.google.com/apikey{RESET}")
+    print(f"  {DIM}export GOOGLE_API_KEY=...{RESET}")
     print(f"  {DIM}python3 agency/test_pipeline.py --leads 3{RESET}")
     print(f"  {DIM}python3 agency/test_pipeline.py --kareem --leads 3{RESET}")
 else:

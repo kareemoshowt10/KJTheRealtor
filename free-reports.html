@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Real Estate Reports | Kareem Jamal | Southern California Realtor</title>
+  <meta name="description" content="42 free expert real estate reports for buyers, sellers, and homeowners in Woodland Hills, Encino, Calabasas, Sherman Oaks, and the San Fernando Valley. Choose your reports and receive them directly from Kareem Jamal." />
+  <meta name="theme-color" content="#171a20" />
+  <meta property="og:title" content="Free Real Estate Reports | Kareem Jamal" />
+  <meta property="og:description" content="42 free expert reports for Southern California buyers, sellers, and homeowners. No fluff — real guidance on pricing, negotiation, financing, and moving." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/free-reports.html" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg" />
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/free-reports.html" />
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/nav-unified.css" />
+  <script src="assets/nav-unified.js" defer></script>
+
+  <style>
+    /* ══════════════════════════════════════════════════════════════
+       DESIGN TOKENS — Tesla × Apple Hybrid
+     ══════════════════════════════════════════════════════════════ */
+    :root {
+      --black:       #000000;
+      --charcoal:    #171a20;   /* Tesla dark bg */
+      --carbon:      #1d1d1f;   /* Apple heading */
+      --steel:       #424245;
+      --smoke:       #86868b;   /* Apple muted */
+      --cloud:       #f5f5f7;   /* Apple light bg */
+      --white:       #ffffff;
+      --blue:        #0071e3;   /* Apple CTA blue */
+      --blue-hover:  #0077ed;
+
+      --font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", Helvetica Neue, Arial, sans-serif;
+
+      --section-py:  6.5rem;
+      --container:   1200px;
+      --r-sm:        12px;
+      --r-md:        18px;
+      --r-lg:        28px;
+
+      --shadow-sm:   0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md:   0 8px 24px rgba(0,0,0,0.08);
+      --shadow-lg:   0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       RESET & BASE
+     ══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--carbon);
+      background: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    section[id], article[id] { scroll-margin-top: 52px; }
+
+    ::selection { background: rgba(0,113,227,0.15); color: var(--carbon); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+
+    /* ── PRELOADER ── */
+    .preloader {
+      position: fixed; inset: 0; z-index: 999999;
+      background: var(--white);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 600ms ease, visibility 600ms ease;
+    }
+    .preloader-logo {
+      font-size: 2.8rem; font-weight: 500; color: var(--charcoal);
+      letter-spacing: -0.02em; opacity: 0; transform: translateY(10px);
+      animation: preloader-fade 800ms ease forwards 100ms;
+    }
+    .preloader-bar {
+      width: 100px; height: 1px; background: var(--cloud);
+      margin-top: 1.5rem; position: relative; overflow: hidden;
+    }
+    .preloader-progress {
+      position: absolute; left: 0; top: 0; height: 100%; width: 0%;
+      background: var(--blue);
+      animation: preloader-loading 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+    }
+    body.loaded .preloader { opacity: 0; visibility: hidden; }
+    @keyframes preloader-fade { to { opacity: 1; transform: translateY(0); } }
+    @keyframes preloader-loading { to { width: 100%; } }
+
+    /* ── CUSTOM CURSOR ── */
+    #cursor-dot {
+      position: fixed; top: 0; left: 0; width: 6px; height: 6px;
+      background: var(--blue); border-radius: 50%; pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%); transition: transform 60ms linear, opacity 200ms ease;
+    }
+    #cursor-ring {
+      position: fixed; top: 0; left: 0; width: 34px; height: 34px;
+      border: 1px solid rgba(0,113,227,0.3); border-radius: 50%; pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%); transition: transform 140ms cubic-bezier(0.2, 0, 0.2, 1), border-color 200ms, width 200ms, height 200ms;
+    }
+    body:hover #cursor-dot, body:hover #cursor-ring { opacity: 1; }
+    a:hover ~ #cursor-ring, button:hover ~ #cursor-ring, label:hover ~ #cursor-ring {
+      width: 48px; height: 48px; border-color: var(--blue); background: rgba(0,113,227,0.02);
+    }
+    @media (max-width: 1024px) { #cursor-dot, #cursor-ring { display: none; } * { cursor: auto !important; } }
+
+    /* ── CONTAINERS & SCROLL REVEALS ── */
+    .wrap { width: min(var(--container), calc(100% - 3rem)); margin: 0 auto; }
+    [data-reveal] {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    [data-reveal] style[--d] { transition-delay: calc(var(--d) * 100ms); }
+
+    /* ── TYPOGRAPHY ── */
+    .eyebrow {
+      display: inline-block; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .display-xl {
+      font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 700;
+      line-height: 1.05; letter-spacing: -0.03em; color: var(--white);
+    }
+    .display-lg {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+      line-height: 1.1; letter-spacing: -0.02em; color: var(--carbon);
+    }
+    .display-md {
+      font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.02em; color: var(--carbon);
+    }
+    .body-lg { font-size: 1.125rem; line-height: 1.6; color: var(--smoke); }
+    .body-md { font-size: 0.95rem; line-height: 1.6; color: var(--smoke); }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.85rem 1.8rem; border-radius: 980px; font-size: 0.82rem; font-weight: 600;
+      letter-spacing: -0.01em; cursor: pointer; border: none;
+      transition: transform 200ms cubic-bezier(0.2, 0, 0.2, 1), background-color 200ms ease, box-shadow 200ms ease;
+    }
+    .btn:hover { transform: scale(1.02); }
+    .btn-blue { background: var(--blue); color: var(--white); box-shadow: 0 4px 12px rgba(0,113,227,0.2); }
+    .btn-blue:hover { background: var(--blue-hover); box-shadow: 0 6px 16px rgba(0,113,227,0.3); }
+    .btn-white { background: var(--white); color: var(--charcoal); }
+    .btn-white:hover { background: var(--cloud); }
+    .btn-ghost-white {
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+    .btn-secondary {
+      background: var(--cloud); color: var(--carbon);
+    }
+    .btn-secondary:hover { background: #e8e8ed; }
+
+    /* ══════════════════════════════════════════════════════════════
+       CINEMATIC HERO (Tesla-style Dark Viewport)
+     ══════════════════════════════════════════════════════════════ */
+    .hero {
+      position: relative; height: 60svh; min-height: 480px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--black); color: var(--white); text-align: center;
+      padding-top: 52px; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('assets/hero-estate-night.jpg');
+      background-size: cover; background-position: center;
+      z-index: 1;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(23,26,32,0.5) 0%, rgba(23,26,32,0.88) 100%);
+      z-index: 2;
+    }
+    .hero-content { position: relative; z-index: 3; max-width: 800px; padding: 0 2rem; }
+    .hero-pills { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0; }
+    .hero-pills .pill {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.45rem 1rem; border-radius: 980px; font-size: 0.78rem; font-weight: 500;
+      color: rgba(255,255,255,0.85); backdrop-filter: blur(10px);
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       SPLIT LAYOUT (Apple-style editorial split)
+     ══════════════════════════════════════════════════════════════ */
+    .split-section { padding: var(--section-py) 0; background: var(--cloud); }
+    .split-grid {
+      display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.85fr);
+      gap: 3.5rem; align-items: start;
+    }
+
+    /* How It Works List */
+    .how-list { display: grid; gap: 1.25rem; margin-bottom: 3.5rem; }
+    .how-card {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.04);
+      border-radius: var(--r-md); padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-sm); display: flex; gap: 1.5rem; align-items: flex-start;
+    }
+    .how-num {
+      width: 32px; height: 32px; border-radius: 50%; background: rgba(0,113,227,0.08);
+      color: var(--blue); font-weight: 700; font-size: 0.9rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .how-card-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--carbon); margin-bottom: 0.4rem; }
+
+    /* Category Cards Grid */
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; }
+    .category-card {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--r-sm); padding: 1.2rem; cursor: pointer; text-align: center;
+      transition: border-color 220ms, box-shadow 220ms, transform 220ms;
+      box-shadow: var(--shadow-sm);
+    }
+    .category-card:hover { transform: translateY(-2px); border-color: rgba(0,113,227,0.15); box-shadow: var(--shadow-md); }
+    .category-card.active { border-color: var(--blue); background: rgba(0,113,227,0.02); }
+    .category-card strong { display: block; font-size: 0.95rem; font-weight: 600; color: var(--carbon); margin-bottom: 0.35rem; }
+    .category-card span { display: block; font-size: 0.75rem; color: var(--smoke); }
+
+    /* Search and Grid Container */
+    .reports-container {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.04);
+      border-radius: var(--r-lg); padding: 2rem; box-shadow: var(--shadow-sm);
+    }
+    .reports-header {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+    .search-box {
+      position: relative; display: flex; align-items: center;
+      background: var(--cloud); border-radius: 980px; padding: 0.5rem 1rem 0.5rem 2.2rem;
+      flex: 1; max-width: 320px;
+    }
+    .search-box::before {
+      content: "🔍"; position: absolute; left: 0.85rem; font-size: 0.82rem; color: var(--smoke);
+    }
+    .search-box input { border: none; background: none; font-size: 0.85rem; color: var(--carbon); outline: none; width: 100%; }
+
+    /* Reports Grid */
+    .reports-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .report-card {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--r-md); padding: 1.5rem; display: flex; flex-direction: column;
+      transition: border-color 220ms, box-shadow 220ms;
+    }
+    .report-card:hover { border-color: rgba(0,113,227,0.15); box-shadow: var(--shadow-sm); }
+    .report-card.is-selected { border-color: var(--blue); background: rgba(0,113,227,0.02); }
+    
+    .report-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+    .report-badge {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.25rem 0.6rem; border-radius: 980px; background: rgba(0,113,227,0.08); color: var(--blue);
+    }
+    .free-lbl { font-size: 0.68rem; font-weight: 600; color: var(--smoke); }
+    .report-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--carbon); margin-bottom: 0.5rem; line-height: 1.4; }
+    .report-card p { font-size: 0.82rem; color: var(--smoke); line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1; }
+
+    .report-actions { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .select-chk { display: flex; align-items: center; gap: 0.45rem; font-size: 0.82rem; font-weight: 600; color: var(--carbon); cursor: pointer; }
+    .select-chk input { accent-color: var(--blue); width: 14px; height: 14px; }
+    .preview-btn {
+      background: transparent; border: 1px solid rgba(0,113,227,0.22); color: var(--blue);
+      font-size: 0.76rem; font-weight: 600; padding: 0.35rem 0.85rem; border-radius: 980px;
+      cursor: pointer; transition: all 180ms ease;
+    }
+    .preview-btn:hover { background: rgba(0,113,227,0.06); border-color: var(--blue); }
+
+    /* Report Preview Drawer */
+    .preview-drawer {
+      display: none; margin-top: 1.5rem; padding: 2rem;
+      background: linear-gradient(135deg, rgba(0,113,227,0.02) 0%, rgba(0,113,227,0.04) 100%);
+      border: 1px dashed rgba(0,113,227,0.25); border-radius: var(--r-md);
+    }
+    .preview-drawer.active { display: block; }
+    .preview-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 0.8rem; }
+    .preview-title { font-size: 1.2rem; font-weight: 700; color: var(--carbon); }
+    .preview-bullets { margin-top: 1rem; padding-left: 1.2rem; display: grid; gap: 0.5rem; }
+    .preview-bullets li { font-size: 0.88rem; color: var(--smoke); line-height: 1.6; }
+    .preview-note { font-size: 0.78rem; color: var(--smoke); font-style: italic; margin-top: 1rem; }
+
+    /* ══════════════════════════════════════════════════════════════
+       STICKY SIDE PANEL FORM
+     ══════════════════════════════════════════════════════════════ */
+    .sticky-column { position: sticky; top: 72px; }
+    .lead-panel {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.05);
+      border-radius: var(--r-lg); padding: 2rem; box-shadow: var(--shadow-lg);
+    }
+    .lead-panel h3 { font-size: 1.45rem; font-weight: 700; color: var(--carbon); margin-bottom: 0.35rem; }
+    .lead-panel .lead-sub { font-size: 0.84rem; color: var(--smoke); line-height: 1.5; margin-bottom: 1.5rem; }
+    
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { font-size: 0.75rem; font-weight: 600; color: var(--carbon); }
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%; border: 1px solid rgba(0,0,0,0.12); border-radius: var(--r-sm);
+      background: var(--cloud); color: var(--carbon); padding: 0.75rem 0.85rem;
+      font-size: 0.84rem; outline: none; transition: border-color 180ms ease, background-color 180ms ease;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+      border-color: var(--blue); background: var(--white);
+    }
+    .required-star { color: #d93838; }
+
+    .address-details {
+      margin-top: 0.75rem; border: 1px solid rgba(0,0,0,0.05); border-radius: var(--r-sm);
+      background: var(--cloud); overflow: hidden;
+    }
+    .address-details summary {
+      list-style: none; cursor: pointer; padding: 0.65rem 0.85rem; font-size: 0.78rem;
+      font-weight: 600; color: var(--smoke); outline: none;
+    }
+    .address-details summary::-webkit-details-marker { display: none; }
+    .address-fields { padding: 0 0.85rem 0.85rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.65rem; }
+
+    /* Basket Selection Display */
+    .basket-panel {
+      margin-top: 1rem; padding: 1rem; background: rgba(0,113,227,0.02);
+      border: 1px solid rgba(0,113,227,0.08); border-radius: var(--r-sm);
+    }
+    .basket-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+    .basket-header strong { font-size: 0.78rem; font-weight: 600; color: var(--carbon); }
+    .select-all-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; color: var(--blue); cursor: pointer; }
+    .select-all-label input { accent-color: var(--blue); }
+    .basket-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .basket-chips .pill {
+      font-size: 0.7rem; padding: 0.25rem 0.6rem; border-radius: 980px;
+      background: var(--white); border: 1px solid rgba(0,0,0,0.08); color: var(--smoke);
+    }
+
+    /* Consent Checkbox */
+    .consent-field { display: flex; gap: 0.65rem; align-items: flex-start; margin-top: 1rem; font-size: 0.72rem; color: var(--smoke); line-height: 1.45; }
+    .consent-field input { margin-top: 0.15rem; flex-shrink: 0; accent-color: var(--blue); }
+    .consent-field a { color: var(--blue); text-decoration: underline; }
+
+    /* Success Panel */
+    .success-box {
+      display: none; padding: 1.5rem; background: rgba(53,166,93,0.05);
+      border: 1px solid rgba(53,166,93,0.15); border-radius: var(--r-md);
+      text-align: center; margin-top: 1rem;
+    }
+    .success-box.active { display: block; }
+    .success-box strong { display: block; font-size: 1.1rem; color: #35a65d; margin-bottom: 0.5rem; }
+    .success-box p { font-size: 0.85rem; color: var(--smoke); line-height: 1.5; }
+
+    /* ══════════════════════════════════════════════════════════════
+       TESTIMONIALS & FOOTER
+     ══════════════════════════════════════════════════════════════ */
+    .testimonials-section { background: var(--charcoal); color: var(--white); padding: var(--section-py) 0; }
+    .testimonials-section .eyebrow { color: var(--blue); }
+    .testimonials-section h2 { color: var(--white); }
+    .testimonials-section p { color: rgba(255,255,255,0.7); }
+    
+    .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3.5rem; }
+    .testimonial-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-md); padding: 2rem;
+    }
+    .testimonial-card p { font-size: 1.05rem; line-height: 1.6; font-style: italic; color: rgba(255,255,255,0.85); margin-bottom: 1.25rem; }
+    .testimonial-card cite { font-size: 0.84rem; font-weight: 600; color: var(--smoke); font-style: normal; }
+
+    .site-footer { background: var(--charcoal); color: rgba(255,255,255,0.45); padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.88rem; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; }
+    .footer-brand strong { display: block; font-size: 1.3rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+    .footer-brand p { line-height: 1.6; margin-bottom: 1.5rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .footer-links a { color: rgba(255,255,255,0.6); transition: color 180ms; }
+    .footer-links a:hover { color: var(--blue); }
+    
+    .social-strip { background: var(--black); padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.05); }
+    .social-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
+    .social-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .social-link {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem;
+      border-radius: 980px; border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7);
+      font-size: 0.78rem; font-weight: 500; transition: all 180ms ease;
+    }
+    .social-link:hover { border-color: var(--blue); color: var(--blue); background: rgba(0,113,227,0.05); }
+
+    /* ══════════════════════════════════════════════════════════════
+       RESPONSIVE ADAPTATIONS
+     ══════════════════════════════════════════════════════════════ */
+    @media (max-width: 980px) {
+      .split-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .sticky-column { position: static; }
+      .lead-panel { max-width: 600px; margin: 0 auto; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .reports-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .reports-container { padding: 1.25rem; }
+      .reports-header { flex-direction: column; align-items: stretch; }
+      .search-box { max-width: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .address-fields { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="has-motion">
+  <!-- Preloader -->
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-logo">KJ</div>
+    <div class="preloader-bar">
+      <div class="preloader-progress"></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Unified Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap nav-shell">
+      <a class="brand" href="index.html" aria-label="Kareem Jamal home">
+        <strong class="brand-name">Kareem Jamal</strong>
+        <span class="brand-role">Rodeo Realty Fine Estates</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="mission.html">Our Mission</a>
+        <a href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation</a>
+        <a href="buyers-and-sellers.html#seller-onboarding">Listing Strategy</a>
+        <a href="family-wealth-preservation.html">Family Wealth Lens</a>
+        <a href="mls-search.html">Search</a>
+        <a href="free-reports.html" class="is-active" aria-current="page">Free Reports</a>
+        <a href="#contact" class="nav-cta">Work With Kareem</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ① CINEMATIC HERO (Tesla-style viewport overlay) -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content" data-reveal>
+        <span class="eyebrow" style="color:var(--blue);">Free Resources</span>
+        <h1 class="display-xl">42 free reports. Real guidance.</h1>
+        <p class="body-lg" style="color:rgba(255,255,255,0.7); max-width:620px; margin:1rem auto 0;">
+          No fluff — just local, strategic real estate guidance for Southern California buyers, sellers, and homeowners. Select what you need below.
+        </p>
+        <div class="hero-pills">
+          <div class="pill">42 Reports</div>
+          <div class="pill">Buyer &amp; Seller Strategy</div>
+          <div class="pill">Financing &amp; Moving Checklists</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ② CONTENT & LEAD FORM SPLIT SECTION -->
+    <section class="split-section">
+      <div class="wrap split-grid">
+        <!-- Main Column (Left): How it works, categories, search, grid -->
+        <div>
+          <!-- How It Works Card Group -->
+          <div class="how-list" data-reveal style="--d:1">
+            <div class="how-card">
+              <div class="how-num">1</div>
+              <div class="how-card-content">
+                <h3>Select your reports</h3>
+                <p class="body-md">Browse the 42 guides below, search by keyword, or check "Send me ALL" to request the full library.</p>
+              </div>
+            </div>
+            <div class="how-card">
+              <div class="how-num">2</div>
+              <div class="how-card-content">
+                <h3>Fill out the form</h3>
+                <p class="body-md">Add your contact info on the right. Address is optional, but helps customize reports for your neighborhood.</p>
+              </div>
+            </div>
+            <div class="how-card">
+              <div class="how-num">3</div>
+              <div class="how-card-content">
+                <h3>Confirm and receive</h3>
+                <p class="body-md">Confirm your email link when it arrives. Reports will start sending on the delivery schedule you choose.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category Selection Cards -->
+          <div class="category-grid" id="categoryCards" data-reveal style="--d:2">
+            <div class="category-card active" data-filter="all">
+              <strong>All (42)</strong>
+              <span>Full Library</span>
+            </div>
+            <div class="category-card" data-filter="buyer">
+              <strong>Buyers (14)</strong>
+              <span>Buying Strategy</span>
+            </div>
+            <div class="category-card" data-filter="seller">
+              <strong>Sellers (14)</strong>
+              <span>Selling &amp; Prep</span>
+            </div>
+            <div class="category-card" data-filter="financing">
+              <strong>Financing (7)</strong>
+              <span>Loans &amp; Costs</span>
+            </div>
+            <div class="category-card" data-filter="moving">
+              <strong>Moving (7)</strong>
+              <span>Relocation &amp; Prep</span>
+            </div>
+          </div>
+
+          <!-- Reports Container (Search & Grid) -->
+          <div class="reports-container" data-reveal style="--d:3">
+            <div class="reports-header">
+              <h3 class="display-md" id="reportsCount" style="font-size:1.35rem;">All 42 Reports</h3>
+              <div class="search-box">
+                <input id="searchInput" type="text" placeholder="Search report titles..." aria-label="Search reports" />
+              </div>
+            </div>
+
+            <!-- Reports Grid -->
+            <div class="reports-grid" id="reportsGrid">
+              <!-- Dynamically populated -->
+            </div>
+
+            <!-- Dynamic Preview Drawer -->
+            <div class="preview-drawer" id="viewer" role="region" aria-label="Report Preview">
+              <div class="preview-header">
+                <div>
+                  <span class="report-badge" id="viewerTag"></span>
+                  <h4 class="preview-title" id="viewerTitle" style="margin-top:0.4rem;"></h4>
+                </div>
+                <button class="preview-btn" type="button" id="closeViewer">Close Preview</button>
+              </div>
+              <p class="body-md" id="viewerIntro"></p>
+              <ul class="preview-bullets" id="viewerBullets"></ul>
+              <p class="preview-note">Full reports delivered by email. Strategic insights tailored for the Southern California market.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Column (Right): Formspree Lead Capture -->
+        <aside class="sticky-column">
+          <div class="lead-panel" id="lead-gate" data-reveal style="--d:2">
+            <h3>Request Reports</h3>
+            <p class="lead-sub">Deliveries begin immediately after confirming your email. Unsubscribe at any time.</p>
+
+            <form id="leadForm" novalidate>
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="firstName">First Name <span class="required-star">*</span></label>
+                  <input id="firstName" name="firstName" type="text" required placeholder="First name" autocomplete="given-name" />
+                </div>
+                <div class="form-field">
+                  <label for="lastName">Last Name <span class="required-star">*</span></label>
+                  <input id="lastName" name="lastName" type="text" required placeholder="Last name" autocomplete="family-name" />
+                </div>
+                <div class="form-field full">
+                  <label for="email">Email <span class="required-star">*</span></label>
+                  <input id="email" name="email" type="email" required placeholder="you@email.com" autocomplete="email" />
+                </div>
+                <div class="form-field full">
+                  <label for="phone">Phone <span class="required-star">*</span></label>
+                  <input id="phone" name="phone" type="tel" required placeholder="(818) 555-0123" autocomplete="tel" />
+                </div>
+                <div class="form-field full">
+                  <label for="frequency">Delivery Schedule</label>
+                  <select id="frequency" name="frequency">
+                    <option selected>Every Other Day</option>
+                    <option>Daily</option>
+                    <option>Weekly</option>
+                    <option>Once a Month</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Optional Address Expander -->
+              <details class="address-details">
+                <summary>Optional: Add address for localized reports</summary>
+                <div class="address-fields">
+                  <div class="form-field full"><label for="street">Street</label><input id="street" name="street" type="text" placeholder="123 Main St" /></div>
+                  <div class="form-field"><label for="city">City</label><input id="city" name="city" type="text" placeholder="Woodland Hills" value="Woodland Hills" /></div>
+                  <div class="form-field"><label for="zip">Zip</label><input id="zip" name="zip" type="text" placeholder="91364" /></div>
+                </div>
+              </details>
+
+              <!-- Selected Items Basket Display -->
+              <div class="basket-panel">
+                <div class="basket-header">
+                  <strong>Selected Reports</strong>
+                  <label class="select-all-label">
+                    <input id="selectAll" type="checkbox" /> Send me ALL 42
+                  </label>
+                </div>
+                <div class="basket-chips" id="selectedSummary">
+                  <!-- Synced chips -->
+                </div>
+              </div>
+
+              <!-- Consent & Submit -->
+              <div class="consent-field">
+                <input id="consent" name="consent" type="checkbox" required />
+                <label for="consent">
+                  I agree to receive communications from Kareem Jamal Real Estate. I can opt out anytime by replying STOP.
+                  <a href="#" target="_blank" rel="noopener">Privacy Policy</a>.
+                </label>
+              </div>
+
+              <input type="hidden" id="selectedReportIds" name="selectedReportIds" value="" />
+
+              <button class="btn btn-blue btn-full" type="submit" style="width:100%; margin-top:1.25rem;">
+                Get My Free Reports →
+              </button>
+            </form>
+
+            <div class="success-box" id="successBox" aria-live="polite">
+              <strong>Request Received ✓</strong>
+              <p id="successText"></p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ③ TESTIMONIALS (Alternating Dark Section) -->
+    <section class="testimonials-section">
+      <div class="wrap">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">Client Feedback</span>
+          <h2 class="display-lg">Real outcomes. Clear choices.</h2>
+        </div>
+        <div class="testimonials-grid" data-reveal style="--d:2">
+          <article class="testimonial-card">
+            <p>"Kareem's reports gave us the structural details we needed to price and stage our home in Calabasas correctly. His data-backed strategy saved us thousands."</p>
+            <cite>— West Valley Homeowners</cite>
+          </article>
+          <article class="testimonial-card">
+            <p>"The buying guide was crucial for our first home purchase in Woodland Hills. We felt completely aligned with the negotiation points Kareem laid out."</p>
+            <cite>— The Ramirez Family, Woodland Hills</cite>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ④ UNIFIED FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <strong>Kareem Jamal · Rodeo Realty Fine Estates</strong>
+        <p>Providing strategic real estate guidance focused on family equity and generational wealth preservation in Woodland Hills, Encino, Sherman Oaks, Calabasas, and the San Fernando Valley. CA DRE #01998956</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="mission.html">Our Mission</a>
+          <a href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation</a>
+          <a href="family-wealth-preservation.html">Family Wealth Lens</a>
+          <a href="mls-search.html">Home Search</a>
+        </div>
+      </div>
+      <div>
+        <strong style="color:var(--white);">About Kareem's Reports</strong>
+        <p style="font-size:0.82rem; line-height:1.5; color:rgba(255,255,255,0.35);">
+          All guides are created specifically for the Southern California housing market. Reports are free, sent via confirmation email, and adhere to strict privacy rules. Unsubscribe instantly at any time.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Social Strip -->
+  <div class="social-strip">
+    <div class="wrap social-inner">
+      <span style="font-size:0.8rem; color:rgba(255,255,255,0.45);">Connect with Kareem</span>
+      <div class="social-links">
+        <a href="https://www.instagram.com/kareemjamaltherealtor" target="_blank" rel="noopener" class="social-link">Instagram</a>
+        <a href="https://www.linkedin.com/in/kareemjamaltherealtor/" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+        <a href="https://www.facebook.com/kareemjamaltherealtor/" target="_blank" rel="noopener" class="social-link">Facebook</a>
+        <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener" class="social-link">Rodeo Realty</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── PAGE LOAD STATE ──
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+      // Scroll Reveal Initializer
+      const reveals = document.querySelectorAll("[data-reveal]");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
+        });
+      }, { threshold: 0.05 });
+      reveals.forEach(r => observer.observe(r));
+    });
+
+    // ── CUSTOM CURSOR ──
+    const cursorDot = document.getElementById("cursor-dot");
+    const cursorRing = document.getElementById("cursor-ring");
+    document.addEventListener("mousemove", (e) => {
+      cursorDot.style.left = e.clientX + "px";
+      cursorDot.style.top = e.clientY + "px";
+      cursorRing.style.left = e.clientX + "px";
+      cursorRing.style.top = e.clientY + "px";
+    });
+
+    // ── REPORTS DATA (42 total) ──
+    const reports = [
+      // BUYER (14)
+      { id: "buyer-1", category: "buyer", title: "Analyzing Real Estate So You Can Make Money", summary: "Investment-focused guidance for spotting stronger opportunities in Woodland Hills, West Hills, and the West Valley markets." },
+      { id: "buyer-2", category: "buyer", title: "Buying Strategies That Work in Today's West Valley Market", summary: "Competitive buying approaches proven effective for serious shoppers in Woodland Hills and surrounding areas." },
+      { id: "buyer-3", category: "buyer", title: "Choosing The Right Neighborhood in Southern California", summary: "How to match your lifestyle, budget, schools, and long-term goals to the best areas across the San Fernando Valley." },
+      { id: "buyer-4", category: "buyer", title: "How Sellers Set Their Price — What Buyers Need to Know", summary: "A buyer-focused breakdown of how list prices are shaped in today's Southern California market." },
+      { id: "buyer-5", category: "buyer", title: "How To Beat Other Buyers to the Best New Listings", summary: "How to compete more effectively in multiple-offer scenarios common in desirable West Valley neighborhoods." },
+      { id: "buyer-6", category: "buyer", title: "How to Save Big When Buying a Home in the West Valley", summary: "Simple ways to avoid overpaying and identify leverage points during the buying process." },
+      { id: "buyer-7", category: "buyer", title: "Make Your Real Estate Investment More Successful", summary: "Core principles for buyers thinking like investors in one of LA's strongest submarkets." },
+      { id: "buyer-8", category: "buyer", title: "Negotiation 201: Why Terms Matter More Than Price", summary: "Why strong terms often beat a slightly higher offer — especially in Woodland Hills and Encino transactions." },
+      { id: "buyer-9", category: "buyer", title: "Second Home Buying Strategies for the West Valley", summary: "A second-home guide for buyers considering Woodland Hills, Calabasas, or Simi Valley properties." },
+      { id: "buyer-10", category: "buyer", title: "Questions to Ask Before Buying a Condo", summary: "What to review before committing to condo ownership in the San Fernando Valley market." },
+      { id: "buyer-11", category: "buyer", title: "The Three Buyers in Every Real Estate Transaction", summary: "A look at the layered decision-makers in a deal, with examples from Woodland Hills and Sherman Oaks." },
+      { id: "buyer-12", category: "buyer", title: "Seven Secrets About Buying a Second Home", summary: "Key insights for second-home buyers planning wisely in the greater Los Angeles area." },
+      { id: "buyer-13", category: "buyer", title: "Title Insurance: What Buyers in Southern California Need to Know", summary: "A title insurance explainer tailored for buyers in the West San Fernando Valley." },
+      { id: "buyer-14", category: "buyer", title: "Why Own Your Own Home in Southern California?", summary: "The financial and lifestyle case for ownership in Woodland Hills, Encino, Calabasas, and surrounding areas." },
+      
+      // SELLER (14)
+      { id: "seller-1", category: "seller", title: "10 Listing Mistakes That Cost Sellers Time and Money", summary: "Common selling mistakes that hurt leverage and pricing in today's West Valley market." },
+      { id: "seller-2", category: "seller", title: "How Seller Strategy Changes When Buyers Return", summary: "How to adapt your approach when demand returns quickly in competitive local neighborhoods." },
+      { id: "seller-3", category: "seller", title: "Don't Let an Overpriced Home Become a Costly Lesson", summary: "Why overpricing damages momentum, reduces leverage, and ultimately costs you money." },
+      { id: "seller-4", category: "seller", title: "How Much is Too Much to Fix Before You List?", summary: "How to decide which repairs deliver real ROI and which ones just cost money without return." },
+      { id: "seller-5", category: "seller", title: "How To Get Top Dollar For Your Home", summary: "Smart prep, pricing, and presentation steps that work in today's Southern California conditions." },
+      { id: "seller-6", category: "seller", title: "How to Handle Lowball Offers Without Losing the Deal", summary: "A calmer, more strategic approach to weak offers that keeps negotiations open." },
+      { id: "seller-7", category: "seller", title: "What Does 'Properly Priced' Really Mean in Today's Market?", summary: "Pricing strategy that works in both faster-moving and balanced West Valley conditions." },
+      { id: "seller-8", category: "seller", title: "It's All in the Preparation: Pre-Listing Guide for West Valley Homes", summary: "A practical pre-listing checklist tailored for homeowners in Woodland Hills, Encino, and Chatsworth." },
+      { id: "seller-9", category: "seller", title: "How to Choose the Right Real Estate Agent When Selling", summary: "What to look for in a listing partner who actually knows the Southern California market." },
+      { id: "seller-10", category: "seller", title: "Presenting Your Home for Maximum Appeal", summary: "Presentation, cleanup, and first-impression advice that resonates with local buyers." },
+      { id: "seller-11", category: "seller", title: "Pricing Right Is a Seller's Most Important Job", summary: "Why accurate pricing from day one matters more than any other single decision." },
+      { id: "seller-12", category: "seller", title: "Low-Cost Staging Ideas That Move Homes Faster", summary: "Light staging approaches that increase buyer appeal without a major investment." },
+      { id: "seller-13", category: "seller", title: "How to Avoid Bad Advice and Weak Service When Selling", summary: "Red flags to watch for when vetting agents and evaluating guidance in the local market." },
+      { id: "seller-14", category: "seller", title: "What Must Sellers Disclose in California?", summary: "A seller-focused disclosure overview with specific context for West Valley and LA County transactions." },
+      
+      // FINANCING (7)
+      { id: "financing-1", category: "financing", title: "Credit Blemishes: Gone Doesn't Mean Forgotten by Lenders", summary: "How past credit issues still affect loan options and terms for buyers in today's market." },
+      { id: "financing-2", category: "financing", title: "Why You Should Meet a Loan Officer Before You Start Searching", summary: "Why financing prep should happen early — especially important in competitive Southern California markets." },
+      { id: "financing-3", category: "financing", title: "Hard Money and Non-Traditional Financing Explained", summary: "A plain-language comparison of alternative financing paths for buyers with non-standard situations." },
+      { id: "financing-4", category: "financing", title: "How Your Home's Value Supports Long-Term Financial Planning", summary: "Using home equity strategically as part of wealth building for Southern California homeowners." },
+      { id: "financing-5", category: "financing", title: "The Closing Costs Buyers Often Forget to Budget For", summary: "What to expect beyond the purchase price when buying in Woodland Hills or the San Fernando Valley." },
+      { id: "financing-6", category: "financing", title: "Second-Home Financing: What's Changed and What Still Works", summary: "Current second-home financing approaches for buyers considering Southern California properties." },
+      { id: "financing-7", category: "financing", title: "Zero-Cost Refinance Programs: What They Really Mean", summary: "How no-cost refinance offers work and when they actually make sense for local homeowners." },
+      
+      // MOVING (7)
+      { id: "moving-1", category: "moving", title: "10 Ways to Make Your Home More Salable Before Moving", summary: "A seller-prep checklist for homeowners planning a move within or out of the San Fernando Valley." },
+      { id: "moving-2", category: "moving", title: "After the Move: Settling Into Your New Neighborhood", summary: "How to acclimate faster when moving to Woodland Hills, Encino, Calabasas, or surrounding areas." },
+      { id: "moving-3", category: "moving", title: "How to Prepare Your Kids for Moving Day", summary: "Practical guidance for easing the transition for children when relocating within Southern California." },
+      { id: "moving-4", category: "moving", title: "Moving Day Checklist for Families in the West Valley", summary: "A practical moving-day checklist designed for families relocating in or to the San Fernando Valley." },
+      { id: "moving-5", category: "moving", title: "Retirement Relocation: Being Realistic About the Move", summary: "Real considerations for retirees considering a move within or to Southern California." },
+      { id: "moving-6", category: "moving", title: "Secrets to a Smoother Move in Southern California", summary: "Practical guidance for reducing stress when moving between West Valley communities." },
+      { id: "moving-7", category: "moving", title: "When Waiting for an Offer Costs You More Than Moving On", summary: "A timing-focused guide for sellers who are also managing a concurrent move." }
+    ];
+
+    // ── STATE ──
+    let activeFilter = "all";
+    const selectedReports = new Set();
+
+    const reportsGrid = document.getElementById("reportsGrid");
+    const reportsCount = document.getElementById("reportsCount");
+    const categoryCards = document.getElementById("categoryCards");
+    const searchInput = document.getElementById("searchInput");
+    const selectedSummary = document.getElementById("selectedSummary");
+    const selectAll = document.getElementById("selectAll");
+    const form = document.getElementById("leadForm");
+    const successBox = document.getElementById("successBox");
+    const successText = document.getElementById("successText");
+    
+    // Viewer Drawer Elements
+    const viewer = document.getElementById("viewer");
+    const viewerTag = document.getElementById("viewerTag");
+    const viewerTitle = document.getElementById("viewerTitle");
+    const viewerIntro = document.getElementById("viewerIntro");
+    const viewerBullets = document.getElementById("viewerBullets");
+    const closeViewer = document.getElementById("closeViewer");
+    const selectedReportIds = document.getElementById("selectedReportIds");
+
+    const categoryLabel = { buyer: "Buyer", seller: "Seller", financing: "Financing", moving: "Moving" };
+
+    const previewBullets = {
+      buyer: [
+        "Local pricing and market patterns for the West Valley.",
+        "How to successfully compete in multiple-offer situations.",
+        "Crucial questions to ask before writing any offer.",
+        "Strategy for building long-term equity from purchase day."
+      ],
+      seller: [
+        "Optimal pricing methodologies in a shifting market.",
+        "Pre-listing preparation tasks that provide the highest ROI.",
+        "How to handle inspections, disclosures, and lowball offers.",
+        "Marketing tactics to secure qualified buyers quickly."
+      ],
+      financing: [
+        "Vetting lenders and finding the right loan structure.",
+        "Understanding California closing costs and fees.",
+        "Managing credit scores and timelines before buying.",
+        "Refinancing parameters and non-traditional options."
+      ],
+      moving: [
+        "San Fernando Valley relocation checklist.",
+        "How to minimize children's anxiety during transitions.",
+        "Coordinating a concurrent sale and purchase seamlessly.",
+        "Retirement relocation logistics and key decisions."
+      ]
+    };
+
+    function updateSelectedSummary() {
+      selectedSummary.innerHTML = "";
+      if (selectedReports.size === 0) {
+        const empty = document.createElement("span");
+        empty.className = "pill";
+        empty.textContent = "No reports selected yet";
+        selectedSummary.appendChild(empty);
+        return;
+      }
+      [...selectedReports].slice(0, 4).forEach((id) => {
+        const r = reports.find((x) => x.id === id);
+        if (!r) return;
+        const chip = document.createElement("span");
+        chip.className = "pill";
+        chip.textContent = r.title.length > 25 ? r.title.substring(0, 22) + "…" : r.title;
+        selectedSummary.appendChild(chip);
+      });
+      if (selectedReports.size > 4) {
+        const more = document.createElement("span");
+        more.className = "pill";
+        more.textContent = `+${selectedReports.size - 4} more`;
+        selectedSummary.appendChild(more);
+      }
+      selectedReportIds.value = Array.from(selectedReports).join(", ");
+    }
+
+    function syncSelectAll() {
+      selectAll.checked = selectedReports.size === reports.length;
+      selectAll.indeterminate = selectedReports.size > 0 && selectedReports.size < reports.length;
+    }
+
+    function renderReports() {
+      const query = searchInput.value.trim().toLowerCase();
+      reportsGrid.innerHTML = "";
+      
+      const filtered = reports
+        .filter((r) => activeFilter === "all" || r.category === activeFilter)
+        .filter((r) => !query || r.title.toLowerCase().includes(query) || r.summary.toLowerCase().includes(query));
+
+      reportsCount.textContent = filtered.length === reports.length ? "All 42 Reports" : `${filtered.length} Report${filtered.length !== 1 ? "s" : ""}`;
+
+      if (filtered.length === 0) {
+        const empty = document.createElement("div");
+        empty.style.cssText = "grid-column:1/-1;padding:3rem;text-align:center;color:var(--smoke);";
+        empty.innerHTML = "<p>No matching reports found. Try a different search term.</p>";
+        reportsGrid.appendChild(empty);
+        return;
+      }
+
+      filtered.forEach((report) => {
+        const card = document.createElement("article");
+        card.className = "report-card" + (selectedReports.has(report.id) ? " is-selected" : "");
+        card.innerHTML = `
+          <div class="report-meta">
+            <span class="report-badge">${categoryLabel[report.category]}</span>
+            <span class="free-lbl">FREE</span>
+          </div>
+          <h3>${report.title}</h3>
+          <p>${report.summary}</p>
+          <div class="report-actions">
+            <label class="select-chk">
+              <input type="checkbox" data-report-id="${report.id}" ${selectedReports.has(report.id) ? "checked" : ""} />
+              Select Report
+            </label>
+            <button class="preview-btn" type="button" data-preview-id="${report.id}">Preview</button>
+          </div>
+        `;
+        reportsGrid.appendChild(card);
+      });
+    }
+
+    // ── REPORT SELECTION EVENT ──
+    reportsGrid.addEventListener("change", (e) => {
+      const cb = e.target.closest("[data-report-id]");
+      if (!cb) return;
+      if (cb.checked) {
+        selectedReports.add(cb.dataset.reportId);
+      } else {
+        selectedReports.delete(cb.dataset.reportId);
+      }
+      syncSelectAll();
+      updateSelectedSummary();
+      renderReports();
+    });
+
+    // ── PREVIEW EVENT ──
+    reportsGrid.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-preview-id]");
+      if (!btn) return;
+      const r = reports.find((x) => x.id === btn.dataset.previewId);
+      if (!r) return;
+      
+      viewer.classList.add("active");
+      viewerTag.textContent = categoryLabel[r.category];
+      viewerTitle.textContent = r.title;
+      viewerIntro.textContent = r.summary;
+      viewerBullets.innerHTML = (previewBullets[r.category] || []).map((b) => `<li>${b}</li>`).join("");
+      viewer.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    closeViewer.addEventListener("click", () => {
+      viewer.classList.remove("active");
+    });
+
+    // ── SELECT ALL CHECKBOX ──
+    selectAll.addEventListener("change", () => {
+      selectedReports.clear();
+      if (selectAll.checked) {
+        reports.forEach((r) => selectedReports.add(r.id));
+      }
+      updateSelectedSummary();
+      renderReports();
+      syncSelectAll();
+    });
+
+    // ── FILTER CARD NAVIGATION ──
+    categoryCards.addEventListener("click", (e) => {
+      const card = e.target.closest("[data-filter]");
+      if (!card) return;
+      activeFilter = card.dataset.filter;
+      
+      document.querySelectorAll(".category-card").forEach((c) => {
+        c.classList.toggle("active", c.dataset.filter === activeFilter);
+      });
+      renderReports();
+    });
+
+    searchInput.addEventListener("input", renderReports);
+
+    // ── FORM SUBMISSION VIA FORMSPREE ──
+    const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjlgvlk";
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      if (selectedReports.size === 0) {
+        alert("Please select at least one report or check 'Send me ALL 42'.");
+        return;
+      }
+
+      const submitBtn = form.querySelector('[type="submit"]');
+      submitBtn.textContent = "Sending Inquiries…";
+      submitBtn.disabled = true;
+
+      const firstName = document.getElementById("firstName").value.trim();
+      const frequency = document.getElementById("frequency").value;
+      const count = selectedReports.size;
+      const isAll = count === reports.length;
+
+      const payload = {
+        firstName,
+        lastName: document.getElementById("lastName").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        street: document.getElementById("street").value.trim(),
+        city: document.getElementById("city").value.trim(),
+        zip: document.getElementById("zip").value.trim(),
+        frequency,
+        consent: true,
+        selectedReports: isAll ? "ALL 42" : Array.from(selectedReports).join(", "),
+        reportCount: count,
+        source: "kareem-jamal-free-reports-page",
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.ok) {
+          form.style.display = "none";
+          successBox.classList.add("active");
+          successText.innerHTML = `Thanks, ${firstName}! Check your inbox for a confirmation link. Once confirmed, you'll start receiving ${isAll ? "all 42 guides" : `${count} selected report${count !== 1 ? "s" : ""}`} on a <strong>${frequency.toLowerCase()}</strong> schedule.`;
+          successBox.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          submitBtn.textContent = "Get My Free Reports →";
+          submitBtn.disabled = false;
+          alert("We encountered an error. Please try again or reach out to Kareem at kjamal@rodeore.com.");
+        }
+      } catch (err) {
+        submitBtn.textContent = "Get My Free Reports →";
+        submitBtn.disabled = false;
+        alert("Network error. Please try again or email kjamal@rodeore.com directly.");
+      }
+    });
+
+    // ── INITIALIZATION ──
+    updateSelectedSummary();
+    renderReports();
+    syncSelectAll();
+  </script>
+</body>
+</html>

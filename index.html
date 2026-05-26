@@ -935,6 +935,77 @@
       .btn-pair { flex-direction: column; align-items: stretch; }
       .btn-pair .btn { width: 100%; justify-content: center; }
     }
+
+    /* ── FREE REPORTS PROMO SECTION ── */
+    .text-center {
+      text-align: center;
+    }
+    .reports-promo-section {
+      background: var(--cloud);
+    }
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      margin-bottom: 3.5rem;
+    }
+    .promo-card {
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--r-md);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 220ms, box-shadow 220ms;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .promo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .promo-icon {
+      font-size: 1.8rem;
+    }
+    .promo-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--carbon);
+    }
+    .promo-card ul {
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      color: var(--smoke);
+    }
+    .promo-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.45;
+    }
+    .promo-card li::before {
+      content: "•";
+      color: var(--blue);
+      font-weight: bold;
+    }
+    .promo-card .btn-link {
+      margin-top: auto;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    @media (max-width: 980px) {
+      .promo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+    }
   </style>
 </head>
 <body class="has-motion">
@@ -969,6 +1040,7 @@
         <a href="buyers-and-sellers.html#seller-onboarding">Listing Strategy</a>
         <a href="family-wealth-preservation.html">Family Wealth Lens</a>
         <a href="mls-search.html">Search</a>
+        <a href="free-reports.html">Free Reports</a>
         <a href="#contact" class="nav-cta">Work With Kareem</a>
       </nav>
       <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
@@ -1189,7 +1261,53 @@
       </div>
     </section>
 
-    <!-- ⑧ CTA PANEL -->
+    <!-- ⑧ FREE REPORTS PROMO -->
+    <section class="reports-promo-section section-py" id="resources">
+      <div class="wrap">
+        <div class="section-header text-center" data-reveal>
+          <span class="eyebrow">Free Resources</span>
+          <h2 class="display-lg">42 expert reports. Zero fluff.</h2>
+          <p>Get localized, strategic real estate guidance for Southern California buyers, sellers, and homeowners. Select what you need, delivered directly to your inbox.</p>
+        </div>
+        <div class="promo-grid">
+          <article class="promo-card" data-reveal style="--d:1">
+            <div class="promo-icon">🏡</div>
+            <h3>Buying Strategy (14 Reports)</h3>
+            <ul>
+              <li>Spotting opportunities in Woodland Hills and Calabasas</li>
+              <li>Negotiating terms that beat higher-priced offers</li>
+              <li>Evaluating homeowner association (HOA) health</li>
+            </ul>
+            <a href="free-reports.html?filter=buyer" class="btn-link">Explore Buyer Reports →</a>
+          </article>
+          <article class="promo-card" data-reveal style="--d:2">
+            <div class="promo-icon">📈</div>
+            <h3>Selling &amp; Prep (14 Reports)</h3>
+            <ul>
+              <li>Common listing mistakes that reduce home equity</li>
+              <li>Pricing methods for fast-moving vs. balanced markets</li>
+              <li>Staging strategies to secure early buyer momentum</li>
+            </ul>
+            <a href="free-reports.html?filter=seller" class="btn-link">Explore Seller Reports →</a>
+          </article>
+          <article class="promo-card" data-reveal style="--d:3">
+            <div class="promo-icon">💳</div>
+            <h3>Financing &amp; Moving (14 Reports)</h3>
+            <ul>
+              <li>California closing costs and loan officer vetting</li>
+              <li>Alternative funding &amp; equity preservation channels</li>
+              <li>Checklists for child-friendly or retirement moves</li>
+            </ul>
+            <a href="free-reports.html?filter=financing" class="btn-link">Explore Financial Reports →</a>
+          </article>
+        </div>
+        <div class="text-center" data-reveal style="--d:4" style="margin-top: 1.5rem;">
+          <a href="free-reports.html" class="btn btn-blue">Access the Full Library (42 Reports) →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑨ CTA PANEL -->
     <section class="cta-section">
       <div class="cta-bg"></div>
       <div class="cta-overlay"></div>
@@ -1206,7 +1324,7 @@
       </div>
     </section>
 
-    <!-- ⑨ CONTACT -->
+    <!-- ⑩ CONTACT -->
     <section class="contact-section section-py" id="contact">
       <div class="wrap">
         <div class="contact-grid">

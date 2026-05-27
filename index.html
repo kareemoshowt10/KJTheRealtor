@@ -1006,6 +1006,113 @@
         gap: 1.25rem;
       }
     }
+
+    /* ── STRATEGY WIZARD CSS ── */
+    .wizard-progress-bar {
+      height: 4px;
+      width: 100%;
+      background: var(--cloud);
+      border-radius: 2px;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .wizard-progress-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 25%;
+      background: var(--blue);
+      transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .wizard-step {
+      display: none;
+      animation: fadeIn 400ms ease;
+    }
+    .wizard-step.active {
+      display: block;
+    }
+    .wizard-step-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--carbon);
+      margin-bottom: 1.25rem;
+    }
+    .wizard-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .wizard-pill {
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--carbon);
+      cursor: pointer;
+      text-align: left;
+      transition: all 180ms ease;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    .wizard-pill::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0, 0, 0, 0.25);
+      transition: all 180ms ease;
+      flex-shrink: 0;
+    }
+    .wizard-pill:hover {
+      border-color: var(--blue);
+      background: rgba(0, 113, 227, 0.01);
+    }
+    .wizard-pill:hover::before {
+      border-color: var(--blue);
+    }
+    .wizard-pill.selected {
+      border-color: var(--blue);
+      background: rgba(0, 113, 227, 0.04);
+      box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.15);
+      font-weight: 600;
+    }
+    .wizard-pill.selected::before {
+      border-color: var(--blue);
+      background: var(--blue);
+      box-shadow: inset 0 0 0 2.5px var(--white);
+    }
+    .wizard-controls {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .wizard-summary-box {
+      background: rgba(0, 113, 227, 0.03);
+      border-left: 3px solid var(--blue);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--carbon);
+    }
+    .wizard-summary-box strong {
+      color: var(--blue);
+      font-weight: 600;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body class="has-motion">
@@ -1352,43 +1459,90 @@
             </div>
           </div>
           <div class="lead-form" data-reveal style="--d:2">
-            <p class="form-title">Send a message</p>
+            <p class="form-title">Real Estate Strategy Wizard</p>
             <form id="leadForm" action="https://formspree.io/f/mkgjgboj" method="POST">
-              <div class="form-grid">
-                <div class="form-field">
-                  <label for="firstName">First Name</label>
-                  <input type="text" id="firstName" name="firstName" placeholder="Kareem" required />
-                </div>
-                <div class="form-field">
-                  <label for="lastName">Last Name</label>
-                  <input type="text" id="lastName" name="lastName" placeholder="Jamal" required />
-                </div>
-                <div class="form-field full">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="you@email.com" required />
-                </div>
-                <div class="form-field full">
-                  <label for="phone">Phone (optional)</label>
-                  <input type="tel" id="phone" name="phone" placeholder="(818) 000-0000" />
-                </div>
-                <div class="form-field full">
-                  <label for="intent">I'm looking to…</label>
-                  <select id="intent" name="intent">
-                    <option value="">Select one</option>
-                    <option>Buy a home</option>
-                    <option>Sell a home</option>
-                    <option>Both buy and sell</option>
-                    <option>Learn about family wealth planning</option>
-                    <option>Just exploring my options</option>
-                  </select>
-                </div>
-                <div class="form-field full">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" placeholder="Tell me about your goals, timeline, or any questions you have…"></textarea>
+              <!-- Progress Bar -->
+              <div class="wizard-progress-bar">
+                <div class="wizard-progress-fill" id="wizardProgressFill" style="width: 25%"></div>
+              </div>
+
+              <!-- Hidden Intent Tracking for Formspree -->
+              <input type="hidden" id="wizardGoal" name="goal" value="" />
+              <input type="hidden" id="wizardTimeline" name="timeline" value="" />
+              <input type="hidden" id="wizardBudget" name="budget" value="" />
+
+              <!-- Step 1: Goal -->
+              <div class="wizard-step active" data-step="1">
+                <p class="wizard-step-title">What is your primary focus?</p>
+                <div class="wizard-pills">
+                  <button type="button" class="wizard-pill" data-value="Buy a home">Buy a home</button>
+                  <button type="button" class="wizard-pill" data-value="Sell my property">Sell my property</button>
+                  <button type="button" class="wizard-pill" data-value="Preserve family wealth">Preserve family wealth</button>
+                  <button type="button" class="wizard-pill" data-value="Co-invest / Partnership">Co-invest / Partnership</button>
                 </div>
               </div>
-              <button type="submit" class="btn btn-blue form-submit">Send Message</button>
-              <p class="form-note">No pressure. Early conversations are always welcome.</p>
+
+              <!-- Step 2: Timeline -->
+              <div class="wizard-step" data-step="2">
+                <p class="wizard-step-title">What is your ideal timeline?</p>
+                <div class="wizard-pills">
+                  <button type="button" class="wizard-pill" data-value="Immediate / 3 Months">Immediate / 3 Months</button>
+                  <button type="button" class="wizard-pill" data-value="3 to 6 Months">3 to 6 Months</button>
+                  <button type="button" class="wizard-pill" data-value="Just planning early">Just planning early</button>
+                </div>
+              </div>
+
+              <!-- Step 3: Budget -->
+              <div class="wizard-step" data-step="3">
+                <p class="wizard-step-title">What is your price comfort zone?</p>
+                <div class="wizard-pills">
+                  <button type="button" class="wizard-pill" data-value="Under $1.0M">Under $1.0M</button>
+                  <button type="button" class="wizard-pill" data-value="$1.0M - $1.5M">$1.0M - $1.5M</button>
+                  <button type="button" class="wizard-pill" data-value="$1.5M - $2.5M">$1.5M - $2.5M</button>
+                  <button type="button" class="wizard-pill" data-value="$2.5M+">$2.5M+</button>
+                </div>
+              </div>
+
+              <!-- Step 4: Contact & Details -->
+              <div class="wizard-step" data-step="4">
+                <p class="wizard-step-title">Let's connect on your strategy</p>
+                
+                <div class="wizard-summary-box" id="wizardSummary">
+                  You are looking to <strong id="summaryGoal">...</strong> within <strong id="summaryTimeline">...</strong> in the <strong id="summaryBudget">...</strong> range.
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Kareem" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Jamal" required />
+                  </div>
+                  <div class="form-field full">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@email.com" required />
+                  </div>
+                  <div class="form-field full">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(818) 000-0000" />
+                  </div>
+                  <div class="form-field full">
+                    <label for="message">Message / Additional Details (optional)</label>
+                    <textarea id="message" name="message" placeholder="Tell me about your goals or any specific questions you have…"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Wizard Controls -->
+              <div class="wizard-controls">
+                <button type="button" class="btn btn-ghost-dark wizard-back-btn" id="wizardBackBtn" style="display: none;">Back</button>
+                <button type="button" class="btn btn-blue wizard-next-btn" id="wizardNextBtn" disabled>Next</button>
+                <button type="submit" class="btn btn-blue form-submit" id="wizardSubmitBtn" style="display: none;">Send Strategy Request</button>
+              </div>
+
+              <p class="form-note" style="margin-top: 1.25rem; text-align: center;">No pressure. Early conversations are always welcome.</p>
             </form>
             <div class="form-success" id="formSuccess">
               ✓ Message received — Kareem will be in touch shortly.
@@ -1482,30 +1636,169 @@
       setInterval(() => goTo(cur + 1), 6000);
     }
 
-    // ── CONTACT FORM ──────────────────────────────────────────────
-    const form = document.getElementById('leadForm');
-    const success = document.getElementById('formSuccess');
-    form?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
+    // ── STRATEGY WIZARD CONTROLLER ─────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      const wizardForm = document.getElementById('leadForm');
+      if (!wizardForm) return;
+
+      const steps = wizardForm.querySelectorAll('.wizard-step');
+      const progressFill = document.getElementById('wizardProgressFill');
+      const backBtn = document.getElementById('wizardBackBtn');
+      const nextBtn = document.getElementById('wizardNextBtn');
+      const submitBtn = document.getElementById('wizardSubmitBtn');
+      const successMsg = document.getElementById('formSuccess');
+
+      // Hidden fields
+      const goalInput = document.getElementById('wizardGoal');
+      const timelineInput = document.getElementById('wizardTimeline');
+      const budgetInput = document.getElementById('wizardBudget');
+
+      // Summary elements
+      const summaryGoal = document.getElementById('summaryGoal');
+      const summaryTimeline = document.getElementById('summaryTimeline');
+      const summaryBudget = document.getElementById('summaryBudget');
+
+      let currentStep = 1;
+      const totalSteps = steps.length;
+
+      // Update wizard UI to reflect currentStep state
+      function updateWizard() {
+        steps.forEach((step) => {
+          const stepNum = parseInt(step.getAttribute('data-step'), 10);
+          step.classList.toggle('active', stepNum === currentStep);
         });
-        if (res.ok) {
-          form.style.display = 'none';
-          success.style.display = 'block';
+
+        // Update progress bar
+        const progressPercentage = (currentStep / totalSteps) * 100;
+        progressFill.style.width = `${progressPercentage}%`;
+
+        // Update controls visibility
+        if (currentStep === 1) {
+          backBtn.style.display = 'none';
+          nextBtn.style.display = 'inline-flex';
+          submitBtn.style.display = 'none';
+        } else if (currentStep === totalSteps) {
+          backBtn.style.display = 'inline-flex';
+          nextBtn.style.display = 'none';
+          submitBtn.style.display = 'inline-flex';
+
+          // Update step 4 confirmation summary details
+          summaryGoal.textContent = goalInput.value || '...';
+          summaryTimeline.textContent = timelineInput.value || '...';
+          summaryBudget.textContent = budgetInput.value || '...';
         } else {
-          btn.textContent = 'Try again';
-          btn.disabled = false;
+          backBtn.style.display = 'inline-flex';
+          nextBtn.style.display = 'inline-flex';
+          submitBtn.style.display = 'none';
         }
-      } catch {
-        btn.textContent = 'Try again';
-        btn.disabled = false;
+
+        // Check if next button should be enabled
+        validateNextButton();
+      }
+
+      function validateNextButton() {
+        let isStepValid = false;
+        if (currentStep === 1) {
+          isStepValid = !!goalInput.value;
+        } else if (currentStep === 2) {
+          isStepValid = !!timelineInput.value;
+        } else if (currentStep === 3) {
+          isStepValid = !!budgetInput.value;
+        } else if (currentStep === 4) {
+          isStepValid = true; // Handled by standard HTML5 validation on submit
+        }
+        nextBtn.disabled = !isStepValid;
+      }
+
+      // Handle pill clicks
+      wizardForm.querySelectorAll('.wizard-pill').forEach((pill) => {
+        pill.addEventListener('click', (e) => {
+          const stepEl = pill.closest('.wizard-step');
+          const stepNum = parseInt(stepEl.getAttribute('data-step'), 10);
+          const value = pill.getAttribute('data-value');
+
+          // Select pill visually
+          stepEl.querySelectorAll('.wizard-pill').forEach((p) => p.classList.remove('selected'));
+          pill.classList.add('selected');
+
+          // Save value
+          if (stepNum === 1) {
+            goalInput.value = value;
+          } else if (stepNum === 2) {
+            timelineInput.value = value;
+          } else if (stepNum === 3) {
+            budgetInput.value = value;
+          }
+
+          // Enable next button
+          validateNextButton();
+
+          // Auto-advance after animation delay
+          setTimeout(() => {
+            if (currentStep === stepNum && currentStep < totalSteps) {
+              currentStep++;
+              updateWizard();
+            }
+          }, 300);
+        });
+      });
+
+      // Controls event listeners
+      nextBtn.addEventListener('click', () => {
+        if (currentStep < totalSteps) {
+          currentStep++;
+          updateWizard();
+        }
+      });
+
+      backBtn.addEventListener('click', () => {
+        if (currentStep > 1) {
+          currentStep--;
+          updateWizard();
+        }
+      });
+
+      // Submit handler
+      wizardForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.textContent = 'Sending Strategy Request…';
+        submitBtn.disabled = true;
+
+        try {
+          const res = await fetch(wizardForm.action, {
+            method: 'POST',
+            body: new FormData(wizardForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            wizardForm.style.display = 'none';
+            successMsg.style.display = 'block';
+          } else {
+            submitBtn.textContent = 'Try again';
+            submitBtn.disabled = false;
+          }
+        } catch {
+          submitBtn.textContent = 'Try again';
+          submitBtn.disabled = false;
+        }
+      });
+
+      // Phone Input Auto-Formatter
+      const phoneInput = document.getElementById('phone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+          let input = e.target.value.replace(/\D/g, '');
+          const size = input.length;
+          if (size === 0) {
+            e.target.value = '';
+          } else if (size < 4) {
+            e.target.value = `(${input}`;
+          } else if (size < 7) {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3)}`;
+          } else {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`;
+          }
+        });
       }
     });
   </script>

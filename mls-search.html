@@ -1806,6 +1806,26 @@
         document.body.classList.add("is-loaded");
       }, 1000);
     });
+
+    // Phone Input Auto-Formatter
+    document.addEventListener('DOMContentLoaded', () => {
+      const phoneInput = document.getElementById('lead-phone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+          let input = e.target.value.replace(/\D/g, '');
+          const size = input.length;
+          if (size === 0) {
+            e.target.value = '';
+          } else if (size < 4) {
+            e.target.value = `(${input}`;
+          } else if (size < 7) {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3)}`;
+          } else {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`;
+          }
+        });
+      }
+    });
   </script>
 
 </body>

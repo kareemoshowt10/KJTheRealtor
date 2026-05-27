@@ -410,6 +410,176 @@
       .form-grid { grid-template-columns: 1fr; }
       .address-fields { grid-template-columns: 1fr; }
     }
+    /* ── REPORT MATCHMAKER QUIZ CSS ── */
+    .quiz-card {
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .quiz-badge {
+      display: inline-block;
+      background: rgba(0, 113, 227, 0.1);
+      color: var(--blue);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 980px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.03em;
+    }
+    .quiz-intro h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--carbon);
+      margin-bottom: 0.5rem;
+    }
+    .quiz-intro p {
+      color: var(--smoke);
+      margin-bottom: 1rem;
+    }
+    .quiz-progress-bar {
+      height: 4px;
+      width: 100%;
+      background: var(--cloud);
+      border-radius: 2px;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .quiz-progress-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 33%;
+      background: var(--blue);
+      transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .quiz-step {
+      display: none;
+      animation: fadeIn 400ms ease;
+    }
+    .quiz-step.active {
+      display: block;
+    }
+    .quiz-step-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--carbon);
+      margin-bottom: 1.25rem;
+    }
+    .quiz-pills {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .quiz-pill {
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--carbon);
+      cursor: pointer;
+      text-align: left;
+      transition: all 180ms ease;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+    .quiz-pill::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0, 0, 0, 0.25);
+      transition: all 180ms ease;
+      flex-shrink: 0;
+    }
+    .quiz-pill:hover {
+      border-color: var(--blue);
+      background: rgba(0, 113, 227, 0.01);
+    }
+    .quiz-pill:hover::before {
+      border-color: var(--blue);
+    }
+    .quiz-pill.selected {
+      border-color: var(--blue);
+      background: rgba(0, 113, 227, 0.04);
+      box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.15);
+      font-weight: 600;
+    }
+    .quiz-pill.selected::before {
+      border-color: var(--blue);
+      background: var(--blue);
+      box-shadow: inset 0 0 0 2.5px var(--white);
+    }
+    .quiz-results {
+      animation: fadeIn 400ms ease;
+    }
+    .quiz-results-header h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--carbon);
+      margin-bottom: 0.5rem;
+    }
+    .quiz-results-header p {
+      color: var(--smoke);
+      margin-bottom: 1.5rem;
+    }
+    .rec-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .rec-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--cloud);
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--carbon);
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+    .rec-item-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .rec-item-title {
+      flex-grow: 1;
+      line-height: 1.4;
+    }
+    .rec-item-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      color: var(--smoke);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
   </style>
 </head>
 <body class="has-motion">
@@ -492,6 +662,72 @@
               <div class="how-card-content">
                 <h3>Confirm and receive</h3>
                 <p class="body-md">Confirm your email link when it arrives. Reports will start sending on the delivery schedule you choose.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Report Matchmaker Quiz Card -->
+          <div class="quiz-card" data-reveal style="--d:1.5; margin-bottom: 2rem;">
+            <div class="quiz-intro" id="quizIntro">
+              <div class="quiz-badge">New</div>
+              <h3 class="display-sm">Not sure what you need?</h3>
+              <p class="body-md">Take the 30-Second Matchmaker Quiz to instantly find the best guides for your specific situation.</p>
+              <button type="button" class="btn btn-blue" id="startQuizBtn" style="height: 44px; font-size: 0.9rem; padding: 0 1.5rem; margin-top: 1rem;">Start Quiz</button>
+            </div>
+            
+            <div class="quiz-container" id="quizContainer" style="display: none;">
+              <!-- Progress Bar -->
+              <div class="quiz-progress-bar">
+                <div class="quiz-progress-fill" id="quizProgressFill" style="width: 33%"></div>
+              </div>
+
+              <!-- Quiz Steps -->
+              <div class="quiz-step active" data-qstep="1">
+                <p class="quiz-step-title">What is your primary focus right now?</p>
+                <div class="quiz-pills">
+                  <button type="button" class="quiz-pill" data-qval="buying">Buying a home in Southern California</button>
+                  <button type="button" class="quiz-pill" data-qval="selling">Selling my property</button>
+                  <button type="button" class="quiz-pill" data-qval="moving">Planning a relocation or move</button>
+                  <button type="button" class="quiz-pill" data-qval="financing">Financing options or mortgage planning</button>
+                </div>
+              </div>
+
+              <div class="quiz-step" data-qstep="2">
+                <p class="quiz-step-title">Which best describes your situation?</p>
+                <div class="quiz-pills" id="qstep2Pills">
+                  <!-- Dynamically populated based on step 1 choice -->
+                </div>
+              </div>
+
+              <div class="quiz-step" data-qstep="3">
+                <p class="quiz-step-title">What is your target timeline?</p>
+                <div class="quiz-pills">
+                  <button type="button" class="quiz-pill" data-qval="immediate">Immediate (under 3 months)</button>
+                  <button type="button" class="quiz-pill" data-qval="soon">Soon (3 to 6 months)</button>
+                  <button type="button" class="quiz-pill" data-qval="planning">Just planning early</button>
+                </div>
+              </div>
+
+              <!-- Quiz Controls -->
+              <div class="quiz-controls" style="display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem;">
+                <button type="button" class="btn btn-ghost-dark" id="quizBackBtn" style="height: 44px; font-size: 0.9rem; padding: 0 1.5rem; display: none;">Back</button>
+                <button type="button" class="btn btn-blue" id="quizNextBtn" style="height: 44px; font-size: 0.9rem; padding: 0 1.5rem; display: none;" disabled>Next</button>
+                <button type="button" class="btn btn-ghost-dark" id="quizCloseBtn" style="height: 44px; font-size: 0.9rem; padding: 0 1.5rem; margin-left: auto;">Cancel</button>
+              </div>
+            </div>
+
+            <!-- Quiz Success / Recommendations Banner -->
+            <div class="quiz-results" id="quizResults" style="display: none;">
+              <div class="quiz-results-header">
+                <h3>Recommended Guides for You</h3>
+                <p class="body-sm">We've identified <span id="recCount" style="font-weight:600; color:var(--blue);">0</span> key reports that match your profile. They have been added to your delivery basket.</p>
+              </div>
+              <div class="rec-list" id="recList">
+                <!-- Recommended reports listed here -->
+              </div>
+              <div class="quiz-results-actions" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                <a href="#lead-gate" class="btn btn-blue" id="quizToFormBtn" style="height: 44px; font-size: 0.9rem; padding: 0 1.5rem;">Go to Delivery Form</a>
+                <button type="button" class="btn btn-ghost-dark" id="resetQuizBtn" style="height: 44px; font-size: 0.9rem; padding: 0 1.5rem;">Retake Quiz</button>
               </div>
             </div>
           </div>
@@ -1007,6 +1243,270 @@
         submitBtn.textContent = "Get My Free Reports →";
         submitBtn.disabled = false;
         alert("Network error. Please try again or email kjamal@rodeore.com directly.");
+      }
+    });
+
+    // ── REPORT MATCHMAKER QUIZ CONTROLLER ──────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+      const startQuizBtn = document.getElementById('startQuizBtn');
+      const quizIntro = document.getElementById('quizIntro');
+      const quizContainer = document.getElementById('quizContainer');
+      const quizResults = document.getElementById('quizResults');
+      const quizProgressFill = document.getElementById('quizProgressFill');
+      const qsteps = document.querySelectorAll('[data-qstep]');
+      const qstep2Pills = document.getElementById('qstep2Pills');
+      const quizBackBtn = document.getElementById('quizBackBtn');
+      const quizNextBtn = document.getElementById('quizNextBtn');
+      const quizCloseBtn = document.getElementById('quizCloseBtn');
+      const resetQuizBtn = document.getElementById('resetQuizBtn');
+      const recList = document.getElementById('recList');
+      const recCount = document.getElementById('recCount');
+
+      let qStep = 1;
+      let qFocus = '';
+      let qSituation = '';
+      let qTimeline = '';
+
+      const situationOptions = {
+        buying: [
+          { value: 'first-time', label: 'First-Time Home Buyer' },
+          { value: 'luxury', label: 'Looking for a Luxury Estate' },
+          { value: 'investment', label: 'Investment & Passive Income' },
+          { value: 'general-buyer', label: 'General Buyer Guidance' }
+        ],
+        selling: [
+          { value: 'pre-listing', label: 'Preparing My Home for Sale' },
+          { value: 'pricing', label: 'Pricing Strategy' },
+          { value: 'general-seller', label: 'General Selling Advice' }
+        ],
+        moving: [
+          { value: 'relocation', label: 'Relocating within Southern California' },
+          { value: 'family', label: 'Moving with Family' },
+          { value: 'retirement', label: 'Retirement/Downsizing' }
+        ],
+        financing: [
+          { value: 'pre-approval', label: 'Pre-Approval & Preparation' },
+          { value: 'alternative', label: 'Hard Money & Alternative Loans' },
+          { value: 'general-finance', label: 'General Finance/Equity' }
+        ]
+      };
+
+      function updateQuizStep() {
+        qsteps.forEach(step => {
+          const stepNum = parseInt(step.getAttribute('data-qstep'), 10);
+          step.classList.toggle('active', stepNum === qStep);
+        });
+
+        // Progress bar
+        const pct = (qStep / 3) * 100;
+        quizProgressFill.style.width = `${pct}%`;
+
+        // Controls visibility
+        quizBackBtn.style.display = qStep > 1 ? 'inline-flex' : 'none';
+        quizNextBtn.style.display = 'none';
+
+        validateQuizNextBtn();
+      }
+
+      function validateQuizNextBtn() {
+        let isValid = false;
+        if (qStep === 1) isValid = !!qFocus;
+        else if (qStep === 2) isValid = !!qSituation;
+        else if (qStep === 3) isValid = !!qTimeline;
+
+        quizNextBtn.disabled = !isValid;
+      }
+
+      function startQuiz() {
+        qStep = 1;
+        qFocus = '';
+        qSituation = '';
+        qTimeline = '';
+        quizIntro.style.display = 'none';
+        quizResults.style.display = 'none';
+        quizContainer.style.display = 'block';
+
+        quizContainer.querySelectorAll('.quiz-pill').forEach(p => p.classList.remove('selected'));
+        updateQuizStep();
+      }
+
+      function closeQuiz() {
+        quizContainer.style.display = 'none';
+        quizIntro.style.display = 'block';
+      }
+
+      function populateStep2() {
+        qstep2Pills.innerHTML = '';
+        const options = situationOptions[qFocus] || [];
+        options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'quiz-pill';
+          btn.setAttribute('data-qval', opt.value);
+          btn.textContent = opt.label;
+          if (qSituation === opt.value) {
+            btn.classList.add('selected');
+          }
+
+          btn.addEventListener('click', () => {
+            qstep2Pills.querySelectorAll('.quiz-pill').forEach(p => p.classList.remove('selected'));
+            btn.classList.add('selected');
+            qSituation = opt.value;
+            validateQuizNextBtn();
+
+            setTimeout(() => {
+              if (qStep === 2) {
+                qStep = 3;
+                updateQuizStep();
+              }
+            }, 300);
+          });
+
+          qstep2Pills.appendChild(btn);
+        });
+      }
+
+      function calculateRecommendations() {
+        let recIds = [];
+        if (qFocus === 'buying') {
+          recIds.push('buyer-2', 'buyer-4');
+          if (qSituation === 'first-time') {
+            recIds.push('buyer-6', 'buyer-14');
+          } else if (qSituation === 'luxury') {
+            recIds.push('buyer-5', 'buyer-8');
+          } else if (qSituation === 'investment') {
+            recIds.push('buyer-1', 'buyer-7');
+          } else {
+            recIds.push('buyer-3', 'buyer-11');
+          }
+          if (qTimeline === 'immediate') {
+            recIds.push('buyer-5');
+          } else {
+            recIds.push('buyer-12');
+          }
+        } else if (qFocus === 'selling') {
+          recIds.push('seller-1', 'seller-5');
+          if (qSituation === 'pre-listing') {
+            recIds.push('seller-4', 'seller-8');
+          } else if (qSituation === 'pricing') {
+            recIds.push('seller-3', 'seller-7');
+          } else {
+            recIds.push('seller-10', 'seller-11');
+          }
+          if (qTimeline === 'immediate') {
+            recIds.push('seller-2');
+          } else {
+            recIds.push('seller-12');
+          }
+        } else if (qFocus === 'moving') {
+          recIds.push('moving-6', 'moving-7');
+          if (qSituation === 'relocation') {
+            recIds.push('moving-2', 'moving-4');
+          } else if (qSituation === 'family') {
+            recIds.push('moving-3', 'moving-4');
+          } else if (qSituation === 'retirement') {
+            recIds.push('moving-5', 'buyer-9');
+          }
+          recIds.push('moving-1');
+        } else if (qFocus === 'financing') {
+          recIds.push('financing-2', 'financing-5');
+          if (qSituation === 'pre-approval') {
+            recIds.push('financing-1', 'financing-4');
+          } else if (qSituation === 'alternative') {
+            recIds.push('financing-3', 'financing-6');
+          } else {
+            recIds.push('financing-4', 'financing-7');
+          }
+        }
+
+        const uniqueRecs = Array.from(new Set(recIds)).slice(0, 6);
+        
+        uniqueRecs.forEach(id => selectedReports.add(id));
+        syncSelectAll();
+        updateSelectedSummary();
+        renderReports();
+
+        recList.innerHTML = '';
+        uniqueRecs.forEach((id, index) => {
+          const r = reports.find(x => x.id === id);
+          if (!r) return;
+          const div = document.createElement('div');
+          div.className = 'rec-item';
+          div.innerHTML = `
+            <span class="rec-item-num">${index + 1}</span>
+            <span class="rec-item-title">${r.title}</span>
+            <span class="rec-item-tag">${categoryLabel[r.category]}</span>
+          `;
+          recList.appendChild(div);
+        });
+
+        recCount.textContent = uniqueRecs.length;
+
+        quizContainer.style.display = 'none';
+        quizResults.style.display = 'block';
+      }
+
+      quizContainer.querySelectorAll('.quiz-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          const stepEl = pill.closest('.quiz-step');
+          const stepNum = parseInt(stepEl.getAttribute('data-qstep'), 10);
+          const val = pill.getAttribute('data-qval');
+
+          stepEl.querySelectorAll('.quiz-pill').forEach(p => p.classList.remove('selected'));
+          pill.classList.add('selected');
+
+          if (stepNum === 1) {
+            qFocus = val;
+            qSituation = '';
+            populateStep2();
+            validateQuizNextBtn();
+            setTimeout(() => {
+              if (qStep === 1) {
+                qStep = 2;
+                updateQuizStep();
+              }
+            }, 300);
+          } else if (stepNum === 3) {
+            qTimeline = val;
+            validateQuizNextBtn();
+            setTimeout(() => {
+              if (qStep === 3) {
+                calculateRecommendations();
+              }
+            }, 300);
+          }
+        });
+      });
+
+      startQuizBtn.addEventListener('click', startQuiz);
+      quizCloseBtn.addEventListener('click', closeQuiz);
+      resetQuizBtn.addEventListener('click', startQuiz);
+
+      quizBackBtn.addEventListener('click', () => {
+        if (qStep > 1) {
+          qStep--;
+          updateQuizStep();
+        }
+      });
+    });
+
+    // Phone Input Auto-Formatter
+    document.addEventListener('DOMContentLoaded', () => {
+      const phoneInput = document.getElementById('phone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+          let input = e.target.value.replace(/\D/g, '');
+          const size = input.length;
+          if (size === 0) {
+            e.target.value = '';
+          } else if (size < 4) {
+            e.target.value = `(${input}`;
+          } else if (size < 7) {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3)}`;
+          } else {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`;
+          }
+        });
       }
     });
 

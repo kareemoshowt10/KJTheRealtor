@@ -1336,6 +1336,109 @@ body {
   .section-head { margin-bottom: 2rem !important; }
   .wealth-compass-section { padding: 48px 0 !important; }
 }
+
+/* ── Wealth Ladder ── */
+.ladder-grid { display: grid; gap: 1.25rem; margin-top: 3.5rem; }
+.ladder-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+.ladder-step:hover { transform: translateY(-3px); border-color: rgba(184,139,82,0.4); background: rgba(255,255,255,0.07); }
+.ladder-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--gold);
+  font-weight: 600;
+  width: 64px; height: 64px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(184,139,82,0.4);
+  background: rgba(184,139,82,0.08);
+  flex-shrink: 0;
+}
+.ladder-body h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem; font-weight: 500; letter-spacing: -0.02em;
+  margin-bottom: 0.4rem; color: #fff;
+}
+.ladder-stage-label {
+  display: block;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 0.55rem;
+}
+.ladder-body p { color: rgba(255,255,255,0.72); line-height: 1.8; }
+.ladder-body p + p { margin-top: 0.7rem; }
+.ladder-body strong { color: var(--gold); font-weight: 700; }
+.section-disclaimer {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  border: 1px dashed rgba(184,139,82,0.35);
+  background: rgba(184,139,82,0.06);
+  font-size: 0.82rem; line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+}
+.section-disclaimer strong { color: var(--gold); }
+.section-softcta {
+  margin-top: 2.5rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem;
+}
+.section-softcta p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 500; letter-spacing: -0.01em; line-height: 1.3;
+  max-width: 32ch;
+}
+@media (max-width: 560px) {
+  .ladder-step { grid-template-columns: 1fr; }
+  .ladder-num { width: 54px; height: 54px; font-size: 2rem; }
+}
+
+/* ── Planning Checklist ── */
+.checklist-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+@media (max-width: 980px) { .checklist-grid { grid-template-columns: 1fr; } }
+.checklist-card { padding: clamp(1.75rem, 3vw, 2.25rem); }
+.checklist-card > h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem; font-weight: 500; letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+.checklist-card .check-area-label {
+  display: block; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem;
+}
+.check-item { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-top: 1px solid rgba(46,53,60,0.08); cursor: pointer; }
+.check-item:first-of-type { border-top: none; }
+.check-box {
+  flex-shrink: 0;
+  width: 22px; height: 22px; margin-top: 0.15rem;
+  border-radius: 6px;
+  border: 1.5px solid rgba(184,139,82,0.5);
+  background: rgba(255,255,255,0.7);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+.check-box::after {
+  content: "✓"; color: #fff; font-size: 0.85rem; font-weight: 800;
+  opacity: 0; transform: scale(0.6); transition: opacity 160ms ease, transform 160ms ease;
+}
+.check-item.is-checked .check-box { background: var(--gold); border-color: var(--gold); }
+.check-item.is-checked .check-box::after { opacity: 1; transform: scale(1); }
+.check-text strong { display: block; font-size: 0.95rem; color: var(--ink); font-weight: 700; line-height: 1.4; }
+.check-text span { display: block; font-size: 0.84rem; color: var(--muted); line-height: 1.6; margin-top: 0.2rem; }
+.check-item.is-checked .check-text strong { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(184,139,82,0.5); }
+.checklist-note {
+  margin-top: 2rem; font-size: 0.8rem; color: var(--muted); line-height: 1.7;
+  font-style: italic; text-align: center;
+}
   </style>
 </head>
 <body>
@@ -1553,6 +1656,187 @@ body {
       </div>
     </section>
 
+    <section id="wealth-ladder" class="section dark-section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-kicker">A Framework You Can Use</span>
+          <h2 class="section-title">The Real Estate <em>Wealth Ladder.</em></h2>
+          <p class="section-copy">
+            In Southern California, most family wealth is built one deliberate rung at a time, not in a single transaction. Here is the same five-stage progression Kareem walks families through &mdash; specific, honest, and tailored to how real estate actually behaves in this market.
+          </p>
+        </div>
+
+        <div class="ladder-grid">
+          <article class="ladder-step" data-reveal>
+            <div class="ladder-num">1</div>
+            <div class="ladder-body">
+              <span class="ladder-stage-label">Stage One</span>
+              <h3>Foundation &mdash; Own Your First Home</h3>
+              <p>Your first primary residence is the engine. A fixed mortgage is <strong>forced savings</strong>: every payment converts cash into equity while rents keep climbing. Over a <strong>7&#43;-year horizon</strong> in SoCal, owning has historically beaten renting once you account for principal paydown, appreciation, and the mortgage-interest and property-tax deductions.</p>
+              <p>The math turns on time, not timing. Transaction costs (roughly 6&ndash;9% to buy and sell) mean short holds rarely pay off &mdash; but past that 7-year mark, appreciation and amortization compound in your favor. Buy what you can hold, in a location you would not mind keeping forever.</p>
+            </div>
+          </article>
+
+          <article class="ladder-step" data-reveal>
+            <div class="ladder-num">2</div>
+            <div class="ladder-body">
+              <span class="ladder-stage-label">Stage Two</span>
+              <h3>Leverage &mdash; Put Your Equity to Work</h3>
+              <p>Once you have built equity, it can responsibly fund the next acquisition. A <strong>HELOC or cash-out refinance</strong> turns idle equity into a down payment &mdash; used conservatively, not maxed out. Two classic moves: <strong>live-in-then-rent</strong> (occupy a home to secure owner-occupant financing, then convert it to a rental when you move up) and the <strong>house hack</strong> (rent rooms or a unit to offset your own mortgage).</p>
+              <p>In California, the <strong>ADU</strong> opportunity is real: state law now makes it far easier to add a backyard or garage-conversion unit, creating durable rental income and adding value on a property you already own.</p>
+            </div>
+          </article>
+
+          <article class="ladder-step" data-reveal>
+            <div class="ladder-num">3</div>
+            <div class="ladder-body">
+              <span class="ladder-stage-label">Stage Three</span>
+              <h3>Multiply &mdash; Build a Small Portfolio</h3>
+              <p>Here you confront SoCal reality: the <strong>1% rule</strong> (monthly rent equal to 1% of purchase price) almost never holds in coastal Los Angeles. High prices mean most local properties are <strong>appreciation plays</strong>, not cash-flow machines &mdash; they may run near break-even on cash flow while building wealth through value growth and loan paydown.</p>
+              <p>That trade-off is the decision. Cash-flow buyers often look to inland or out-of-state markets; appreciation buyers accept thinner monthly margins for stronger long-term equity in supply-constrained neighborhoods. A deliberate mix &mdash; not accidental sprawl &mdash; is what builds a portfolio.</p>
+            </div>
+          </article>
+
+          <article class="ladder-step" data-reveal>
+            <div class="ladder-num">4</div>
+            <div class="ladder-body">
+              <span class="ladder-stage-label">Stage Four</span>
+              <h3>Protect &mdash; Shield What You&apos;ve Built</h3>
+              <p>Growth without protection is fragile. Investors often hold rentals in an <strong>LLC</strong> for liability separation (note: this can affect financing and may trigger California&apos;s annual franchise tax &mdash; weigh it with counsel). Carry adequate landlord and umbrella <strong>insurance</strong>.</p>
+              <p>Two tax pillars matter enormously: the <strong>$250,000 / $500,000 capital-gains exclusion</strong> on the sale of a primary residence you have owned and lived in for 2 of the last 5 years, and the <strong>step-up in basis</strong> &mdash; when heirs inherit property, its cost basis resets to fair market value at death, potentially erasing decades of taxable gain. The <strong>1031 exchange</strong> lets investors defer gains by rolling into a like-kind property.</p>
+            </div>
+          </article>
+
+          <article class="ladder-step" data-reveal>
+            <div class="ladder-num">5</div>
+            <div class="ladder-body">
+              <span class="ladder-stage-label">Stage Five</span>
+              <h3>Transfer &mdash; Pass It On Intentionally</h3>
+              <p>The final rung is legacy. Real estate can pass directly, but a <strong>living trust</strong> typically avoids probate, keeps the transfer private, and gives your family clear instructions. Direct gifting or holding to receive the step-up at death each carry different tax consequences.</p>
+              <p>The trap most California families miss is <strong>Proposition 19</strong>. Since 2021, inherited property generally keeps its low Prop 13 tax base <em>only</em> if a child moves in and makes it their primary residence (with a value cap) &mdash; otherwise it is <strong>reassessed to current market value</strong>, often multiplying the annual property-tax bill. A family that inherits a long-held home and rents it out can be blindsided by a reassessment that makes holding unaffordable. Plan for this before it happens, not after.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="section-disclaimer" data-reveal>
+          <strong>For education only.</strong> This framework is general information, not legal, tax, or financial advice. Tax rules, Prop 19 details, and exclusion amounts change and depend on your specific situation. Always consult a qualified attorney, CPA, and financial professional before acting.
+        </p>
+
+        <div class="section-softcta" data-reveal>
+          <p>Most families have more equity working for them than they realize. Let&apos;s map yours.</p>
+          <a class="btn btn-primary" href="#contact">Map My Wealth Ladder</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="wealth-checklist" class="section" style="background: rgba(184, 139, 82, 0.03);">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-kicker">Your Private Worksheet</span>
+          <h2 class="section-title">Family Wealth Planning <em>Checklist.</em></h2>
+          <p class="section-copy">
+            A clear-eyed inventory is where every good plan starts. Tick through these to see where your real estate is strong and where it has untapped potential. Each item includes the reason it matters from an advisor&apos;s lens.
+          </p>
+        </div>
+
+        <div class="checklist-grid">
+          <article class="checklist-card pillar-card" data-reveal>
+            <span class="check-area-label">Area One</span>
+            <h3>Know Your Position</h3>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Total equity across all properties</strong><span>You can&apos;t make a leverage decision until you know how much of your homes you actually own.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Current vs. potential rental income</strong><span>Below-market rents and unused space are the most common form of money left on the table.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Cost basis on each property</strong><span>Your basis drives every capital-gains and step-up decision down the road.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Outstanding loan terms &amp; rates</strong><span>A low locked-in rate is an asset worth protecting; a high one is a target for refinancing.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+          </article>
+
+          <article class="checklist-card pillar-card" data-reveal>
+            <span class="check-area-label">Area Two</span>
+            <h3>Optimize</h3>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Refinance opportunities reviewed</strong><span>Rate moves and rising equity can lower payments or free capital for the next rung.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>ADU / income-unit potential</strong><span>California&apos;s ADU rules can add durable rental income and value to land you already own.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Underused equity identified</strong><span>Equity sitting idle is opportunity cost &mdash; it could be acquiring or improving.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Tax-loss / gain timing planned</strong><span>When you sell can matter as much as how much &mdash; the exclusion and 1031 reward planning.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Insurance adequacy checked</strong><span>SoCal fire, flood, and liability exposure can outpace old policy limits fast.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+          </article>
+
+          <article class="checklist-card pillar-card" data-reveal>
+            <span class="check-area-label">Area Three</span>
+            <h3>Protect &amp; Transfer</h3>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Title &amp; ownership structure reviewed</strong><span>How a property is held affects liability, taxes, and how smoothly it transfers.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Trust / estate documents current</strong><span>A living trust can keep real estate out of probate and private for your family.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Prop 19 strategy for heirs</strong><span>Without a plan, inherited CA property is often reassessed &mdash; multiplying the tax bill.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>Beneficiaries aligned</strong><span>Mismatched deeds, trusts, and beneficiary designations cause avoidable family conflict.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+            <label class="check-item">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-text"><strong>A documented plan your family knows</strong><span>The best strategy is worthless if no one but you understands it.</span></span>
+              <input type="checkbox" hidden />
+            </label>
+          </article>
+        </div>
+
+        <p class="checklist-note" data-reveal>
+          This checklist is a personal tool. Your ticked items are not saved, tracked, or submitted anywhere &mdash; they live only on your screen.
+        </p>
+
+        <div class="section-softcta" data-reveal style="justify-content: space-between;">
+          <p style="color: var(--ink);">Found a few boxes you couldn&apos;t check with confidence? That&apos;s exactly where a conversation helps.</p>
+          <a class="btn btn-primary" href="mailto:kjamal@rodeore.com">Review My Plan with Kareem</a>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="section dark-section">
       <div class="container contact-grid">
         <div class="contact-card" data-reveal>
@@ -1756,6 +2040,15 @@ body {
           card.classList.toggle("is-flipped");
         });
       });
+    });
+
+    // Wealth Planning Checklist (local-only, not saved or submitted)
+    document.querySelectorAll(".checklist-card .check-item").forEach((item) => {
+      const input = item.querySelector("input[type='checkbox']");
+      if (!input) return;
+      const sync = () => item.classList.toggle("is-checked", input.checked);
+      input.addEventListener("change", sync);
+      sync();
     });
 
     // Mobile Menu

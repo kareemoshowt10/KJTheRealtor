@@ -1517,6 +1517,61 @@ body {
   .neighborhoods-section { padding: 48px 0 0 !important; }
   .toolkit-section { padding: 48px 0 1rem !important; }
 }
+
+    /* ── Insider playbook + FAQ ── */
+    .playbook-head, .faq-head { display: grid; gap: 0.75rem; margin-bottom: 3.5rem; max-width: 760px; }
+    .playbook-head h2, .faq-head h2 { font-family: "Cormorant Garamond", serif; font-weight: 500; line-height: 1.05; letter-spacing: -0.04em; }
+    .playbook-head p, .faq-head p { color: var(--muted); line-height: 1.75; }
+    .dark-section .playbook-head p { color: rgba(255,255,255,0.72) !important; }
+
+    .playbook-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 1.75rem); }
+    .playbook-card {
+      display: grid; gap: 0.7rem; padding: clamp(1.6rem, 2.6vw, 2.1rem);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.18);
+      position: relative; overflow: hidden;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+    .playbook-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), rgba(201,133,105,0.6)); }
+    .playbook-card:hover { transform: translateY(-4px); border-color: rgba(184,139,82,0.4); box-shadow: 0 24px 54px rgba(0,0,0,0.3); }
+    .playbook-num { font-family: "Cormorant Garamond", serif; font-size: 2rem; font-weight: 500; color: rgba(184,139,82,0.55); line-height: 1; }
+    .playbook-card h3 { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 500; letter-spacing: -0.02em; color: #fff; line-height: 1.15; }
+    .playbook-card p { color: rgba(255,255,255,0.72); line-height: 1.7; font-size: 0.95rem; }
+    .playbook-card strong { color: var(--gold); font-weight: 700; }
+    .playbook-cta, .faq-cta { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem 1.4rem; align-items: center; }
+    .playbook-cta p { color: rgba(255,255,255,0.72); line-height: 1.7; max-width: 46ch; }
+    .faq-cta p { color: var(--muted); line-height: 1.7; max-width: 46ch; }
+
+    .faq-list { display: grid; gap: 1rem; max-width: 880px; }
+    .faq-item { border: 1px solid rgba(46,53,60,0.08); border-radius: var(--radius-lg); background: var(--panel); box-shadow: var(--shadow-md); overflow: hidden; transition: border-color 220ms ease, box-shadow 220ms ease; }
+    .faq-item:hover { border-color: rgba(184,139,82,0.18); }
+    .faq-item.is-open { border-color: rgba(184,139,82,0.3); box-shadow: 0 24px 54px rgba(76,64,48,0.1); }
+    .faq-trigger {
+      width: 100%; appearance: none; background: transparent; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; text-align: left;
+      padding: clamp(1.25rem, 2.4vw, 1.7rem) clamp(1.25rem, 2.4vw, 1.9rem);
+      font-family: "Cormorant Garamond", serif; font-size: clamp(1.2rem, 2.4vw, 1.5rem); font-weight: 500;
+      color: var(--ink); letter-spacing: -0.02em; line-height: 1.25;
+      transition: color 180ms ease;
+    }
+    .faq-trigger:hover { color: var(--gold); }
+    .faq-trigger:focus-visible { outline: none; box-shadow: inset 0 0 0 3px rgba(184,139,82,0.18); border-radius: var(--radius-lg); }
+    .faq-icon { flex-shrink: 0; width: 1.6rem; height: 1.6rem; position: relative; }
+    .faq-icon::before, .faq-icon::after { content: ""; position: absolute; top: 50%; left: 50%; width: 0.85rem; height: 2px; background: var(--gold); border-radius: 2px; transform: translate(-50%, -50%); transition: transform 280ms ease, opacity 280ms ease; }
+    .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+    .faq-item.is-open .faq-icon::after { transform: translate(-50%, -50%) rotate(0deg); opacity: 0; }
+    .faq-panel { overflow: hidden; max-height: 0; transition: max-height 360ms ease; }
+    .faq-panel-inner { padding: 0 clamp(1.25rem, 2.4vw, 1.9rem) clamp(1.3rem, 2.4vw, 1.7rem); }
+    .faq-panel-inner p { color: var(--muted); line-height: 1.8; }
+    .faq-panel-inner p + p { margin-top: 0.8rem; }
+    .faq-panel-inner strong { color: var(--ink); font-weight: 700; }
+    .faq-panel-inner .accent { color: var(--gold); font-weight: 700; }
+
+    @media (max-width: 760px) {
+      .playbook-grid { grid-template-columns: 1fr; }
+    }
   </style>
 
 </head>
@@ -1866,6 +1921,210 @@ body {
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="playbook-section dark-section" id="insider-playbook">
+      <div class="container">
+        <div class="playbook-head" data-reveal>
+          <span class="eyebrow section-kicker">How to Search Like an Insider</span>
+          <h2>The same habits that separate a sharp buyer from a tourist.</h2>
+          <p>Most people search like the portal taught them to. Here is how Kareem actually reads listings — eight working principles that help you find the right home faster and avoid paying for the wrong one.</p>
+        </div>
+
+        <div class="playbook-grid">
+          <article class="playbook-card">
+            <span class="playbook-num">01</span>
+            <h3>Why MLS data beats portal estimates</h3>
+            <p>The <strong>MLS is the source feed</strong> — agents enter listings here first, with accurate status, price changes, and remarks. Portals like Zillow and Redfin pull a delayed, scrubbed copy, so estimates lag and a "for sale" home may already be in escrow. Working an MLS-connected search also surfaces <strong>coming-soon and off-market</strong> opportunities the public sites never show.</p>
+          </article>
+
+          <article class="playbook-card">
+            <span class="playbook-num">02</span>
+            <h3>Read listing status correctly</h3>
+            <p><strong>Active</strong> means open and available. <strong>Pending</strong> means an offer is accepted and contingencies are cleared — usually a closed door. <strong>Active under contract / contingent</strong> still has conditions (loan, appraisal, inspection) that can fall through, so it may be worth a backup offer. <strong>Hold</strong> is temporarily off-market, and <strong>back-on-market</strong> signals a deal collapsed — sometimes your opening.</p>
+          </article>
+
+          <article class="playbook-card">
+            <span class="playbook-num">03</span>
+            <h3>Set up instant alerts</h3>
+            <p>Good listings in the Valley can trade before the first weekend open house. An <strong>MLS-driven alert</strong> emails you within minutes of a new or price-reduced listing that fits your criteria — not the next morning like portal notifications. Seeing inventory first means touring Thursday instead of competing with the Saturday crowd.</p>
+          </article>
+
+          <article class="playbook-card">
+            <span class="playbook-num">04</span>
+            <h3>Read days-on-market and price history</h3>
+            <p><strong>Days on market (DOM)</strong> and the price-change log tell a story. A home that sat 60+ days with two reductions usually means a <strong>motivated seller</strong> and room to negotiate. A fresh relist that "resets" DOM is a tell that something stalled. Long DOM in a fast area is a flag worth understanding before you fall in love.</p>
+          </article>
+
+          <article class="playbook-card">
+            <span class="playbook-num">05</span>
+            <h3>Why $/sqft alone misleads</h3>
+            <p>Price per square foot is a starting point, not an answer. It ignores <strong>lot size, condition, layout, and location micro-differences</strong> — a remodeled home on a quiet cul-de-sac and a dated one on a busy corner can show identical $/sqft and be worlds apart in value. Always anchor to true comparables, not a single divided number.</p>
+          </article>
+
+          <article class="playbook-card">
+            <span class="playbook-num">06</span>
+            <h3>Look past the staging</h3>
+            <p>Furniture and lighting are marketing. The <strong>bones and systems</strong> are what you actually buy: roof and HVAC age, foundation, electrical panel, plumbing, and grading. Ask about <strong>permits</strong> for additions and pools — unpermitted work becomes your problem later. A beautifully staged home with a 25-year-old roof is a negotiation, not a dealbreaker.</p>
+          </article>
+
+          <article class="playbook-card">
+            <span class="playbook-num">07</span>
+            <h3>Do real neighborhood diligence</h3>
+            <p>Pull recent <strong>comps</strong>, confirm the exact <strong>school attendance zone</strong> (boundaries split streets in the Valley), and drive the <strong>commute at actual rush hour</strong>, not midday. Check planned development, noise corridors, and the real <strong>HOA</strong> dues, rules, and reserves. The block matters as much as the house.</p>
+          </article>
+
+          <article class="playbook-card">
+            <span class="playbook-num">08</span>
+            <h3>Spot a true value buy vs a trap</h3>
+            <p>A genuine value is priced below comparable homes for a <strong>fixable or temporary reason</strong> — cosmetics, a tired listing, a relocating seller. A too-good-to-be-true price usually hides something structural: location, an easement, foundation issues, or a problem disclosure. The difference is whether the discount is <strong>cosmetic or fundamental</strong> — that is exactly the read a good agent gives you before you write.</p>
+          </article>
+        </div>
+
+        <div class="playbook-cta">
+          <p><strong>Want this read on a specific home?</strong> Send Kareem the address or link and get an honest insider take before you tour or write an offer.</p>
+          <a class="btn btn-primary" href="#concierge">Get a Property Read</a>
+          <a class="btn btn-secondary" href="mailto:kjamal@rodeore.com?subject=MLS%20Property%20Read">Email a Listing</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="faq-head" data-reveal>
+          <span class="eyebrow section-kicker">Home Search FAQ</span>
+          <h2 style="color:var(--ink);-webkit-text-fill-color:var(--ink);">Straight answers to the questions buyers actually ask.</h2>
+          <p style="color:var(--muted);">No jargon, no upsell — just how the Southern California search and offer process really works in 2026.</p>
+        </div>
+
+        <div class="faq-list" id="faq-list">
+          <div class="faq-item">
+            <h3 style="margin:0;">
+              <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-btn-1">
+                Is the MLS more accurate than Zillow or Redfin?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
+              <div class="faq-panel-inner">
+                <p>Yes. The <span class="accent">MLS is the original source</span> — agents enter listings, status changes, and price drops here directly, and that data feeds everything else. Portals receive a delayed, partial copy, which is why you still see "for sale" homes on Zillow that are already pending, or estimates that miss a recent remodel.</p>
+                <p>Their automated value estimates (Zestimate, Redfin Estimate) are useful for a ballpark, but they cannot see condition, upgrades, or the real comparable sales an agent uses. For status, freshness, and value, the MLS wins.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 style="margin:0;">
+              <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-btn-2">
+                How fast do good listings move in the San Fernando Valley?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
+              <div class="faq-panel-inner">
+                <p>In desirable West Valley pockets — Woodland Hills, Encino, Sherman Oaks — a well-priced, move-in-ready home can attract offers <span class="accent">within days, often before the first weekend</span>. Overpriced or dated listings sit longer and become negotiable.</p>
+                <p>That speed is exactly why instant MLS alerts and pre-approval matter: by the time a strong listing hits the public portals, serious buyers have already toured it.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 style="margin:0;">
+              <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-btn-3">
+                Do I need to be pre-approved before searching?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
+              <div class="faq-panel-inner">
+                <p>To <span class="accent">browse</span> — no. Search freely and get a feel for areas and price bands. To <span class="accent">tour seriously and write an offer</span> — yes. A current pre-approval tells you your true budget and tells the seller you are real.</p>
+                <p>In a fast market, an offer without a solid pre-approval letter is usually set aside. Getting it done early costs you nothing and keeps you ready to move the moment the right home appears.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 style="margin:0;">
+              <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-4" id="faq-btn-4">
+                What's the difference between pending and contingent?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
+              <div class="faq-panel-inner">
+                <p><span class="accent">Contingent</span> (also shown as "active under contract") means the seller accepted an offer that still has conditions to clear — typically loan, appraisal, or inspection. The deal can still fall apart, so it can be worth a backup offer.</p>
+                <p><span class="accent">Pending</span> means those contingencies are satisfied and the sale is moving to close — for practical purposes, that door is shut. Knowing which is which keeps you from chasing homes that are gone or skipping ones still in play.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 style="margin:0;">
+              <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-5" id="faq-btn-5">
+                Can I see homes that aren't on Zillow yet?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5">
+              <div class="faq-panel-inner">
+                <p>Often, yes. Agents see <span class="accent">coming-soon listings</span> in the MLS before they go fully active and syndicate to portals, plus <span class="accent">pocket and pre-market</span> properties shared agent-to-agent that may never hit Zillow at all.</p>
+                <p>If you tell Kareem your criteria, he can watch for those and get you in early — which in a tight market is frequently the difference between touring and missing out.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 style="margin:0;">
+              <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-6" id="faq-btn-6">
+                How many homes should I tour before offering?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-6" role="region" aria-labelledby="faq-btn-6">
+              <div class="faq-panel-inner">
+                <p>There is no magic number, but most prepared buyers tour <span class="accent">roughly 8 to 12 homes</span> before they recognize the right one. The goal is calibration — enough to understand what your budget really buys in your target areas.</p>
+                <p>Touring with a clear must-have list shortens this fast. If you have seen dozens and nothing fits, the issue is usually budget, area, or criteria — a conversation worth having before you burn more weekends.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 style="margin:0;">
+              <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-7" id="faq-btn-7">
+                What does it cost me to work with you as a buyer?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-7" role="region" aria-labelledby="faq-btn-7">
+              <div class="faq-panel-inner">
+                <p>Here is the honest version. Since the <span class="accent">2024 NAR settlement</span>, buyer agent compensation is no longer assumed to come from the listing side, and buyers now sign a <strong>written buyer-representation agreement</strong> before touring that states how their agent is paid.</p>
+                <p>In practice, the seller still frequently offers to cover the buyer agent's fee, and where they do, it costs you nothing out of pocket. Where they do not, the amount is disclosed up front and can be negotiated — sometimes folded into the offer terms. The change is about <span class="accent">transparency</span>: you will always know the number before you commit, with no surprises.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 style="margin:0;">
+              <button class="faq-trigger" type="button" aria-expanded="false" aria-controls="faq-panel-8" id="faq-btn-8">
+                How do I make a competitive offer without overpaying?
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-panel-8" role="region" aria-labelledby="faq-btn-8">
+              <div class="faq-panel-inner">
+                <p>Strength is not just price. A clean offer wins on <span class="accent">terms</span>: a solid pre-approval, a realistic close timeline, a sensible deposit, and only the contingencies you actually need. We anchor price to <strong>true comparables</strong>, not the list number or emotion.</p>
+                <p>If a home is overpriced and sitting, you negotiate. If it is sharp and drawing multiple offers, you compete on structure and certainty rather than blindly chasing the dollar amount. That discipline is how you win the right home without paying for the wrong one.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-cta">
+          <p><strong>Still have a question?</strong> Ask Kareem directly — you will get a real answer, not a brochure.</p>
+          <a class="btn btn-primary" href="#concierge">Ask Kareem</a>
+          <a class="btn btn-secondary" href="tel:+18184027326">Call (818) 402-7326</a>
         </div>
       </div>
     </section>
@@ -2747,6 +3006,55 @@ body {
     setTimeout(function () { window.location.href = href; }, 260);
   });
 })();
+  </script>
+
+  <script>
+    // ── Home Search FAQ accordion (scoped, no conflict with search/form JS) ──
+    (function () {
+      var faqList = document.getElementById("faq-list");
+      if (!faqList) return;
+      var triggers = faqList.querySelectorAll(".faq-trigger");
+
+      function closeItem(trigger) {
+        var item = trigger.closest(".faq-item");
+        var panel = document.getElementById(trigger.getAttribute("aria-controls"));
+        if (!item || !panel) return;
+        item.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        panel.style.maxHeight = "0px";
+      }
+
+      function openItem(trigger) {
+        var item = trigger.closest(".faq-item");
+        var panel = document.getElementById(trigger.getAttribute("aria-controls"));
+        if (!item || !panel) return;
+        item.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+
+      triggers.forEach(function (trigger) {
+        trigger.addEventListener("click", function () {
+          var isOpen = trigger.getAttribute("aria-expanded") === "true";
+          // Close any other open item for a clean single-open accordion
+          triggers.forEach(function (other) {
+            if (other !== trigger && other.getAttribute("aria-expanded") === "true") {
+              closeItem(other);
+            }
+          });
+          if (isOpen) { closeItem(trigger); } else { openItem(trigger); }
+        });
+      });
+
+      // Recompute height of the open panel on resize so content never clips
+      window.addEventListener("resize", function () {
+        var openTrigger = faqList.querySelector('.faq-trigger[aria-expanded="true"]');
+        if (openTrigger) {
+          var panel = document.getElementById(openTrigger.getAttribute("aria-controls"));
+          if (panel) panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    })();
   </script>
 
 </body>

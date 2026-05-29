@@ -1907,6 +1907,108 @@ body {
   .section-head { margin-bottom: 2rem !important; }
   .section { padding: 48px 0 !important; }
 }
+    /* ── Buyer Readiness Checklist ── */
+    .checklist-wrap { margin-top: 3.5rem; display: grid; gap: 2rem; }
+    .checklist-phase {
+      background: white;
+      border: 1px solid rgba(46, 53, 60, 0.06);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+    }
+    .checklist-phase-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+    .checklist-phase-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.4rem; line-height: 1; color: var(--gold); font-weight: 600;
+    }
+    .checklist-phase h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.75rem; font-weight: 500; color: var(--navy); letter-spacing: -0.02em;
+    }
+    .checklist-phase-sub { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .check-list { list-style: none; display: grid; gap: 0.9rem; }
+    .check-item {
+      display: grid; grid-template-columns: auto 1fr; gap: 0.9rem;
+      align-items: start; padding: 1rem 1.1rem;
+      border: 1px solid rgba(46, 53, 60, 0.07);
+      border-radius: var(--radius-md);
+      background: rgba(184, 139, 82, 0.025);
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, opacity 200ms ease;
+    }
+    .check-item:hover { border-color: rgba(184, 139, 82, 0.28); background: rgba(184, 139, 82, 0.05); }
+    .check-item input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .check-box {
+      width: 24px; height: 24px; flex-shrink: 0; margin-top: 0.15rem;
+      border: 1.5px solid rgba(184, 139, 82, 0.5);
+      border-radius: 7px; display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 0.8rem; font-weight: 800;
+      transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+    }
+    .check-box::after { content: "✓"; opacity: 0; transform: scale(0.6); transition: opacity 180ms ease, transform 180ms ease; }
+    .check-item input:checked ~ .check-box { background: var(--gold); border-color: var(--gold); }
+    .check-item input:checked ~ .check-box::after { opacity: 1; transform: scale(1); }
+    .check-item input:focus-visible ~ .check-box { box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.2); }
+    .check-text strong { display: block; color: var(--ink); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; transition: color 200ms ease; }
+    .check-text span { color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+    .check-item.is-checked { opacity: 0.6; }
+    .check-item.is-checked .check-text strong { text-decoration: line-through; text-decoration-color: rgba(184, 139, 82, 0.6); }
+    .checklist-note {
+      margin-top: 2rem; text-align: center; color: var(--muted);
+      font-size: 0.82rem; font-style: italic; line-height: 1.6;
+    }
+    .checklist-progress {
+      margin-top: 1.5rem; text-align: center; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
+    }
+    .soft-cta { margin-top: 3rem; text-align: center; }
+    .soft-cta p {
+      font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 500;
+      color: var(--navy); line-height: 1.4; max-width: 30ch; margin: 0 auto 1.5rem;
+    }
+    .dark-section .soft-cta p { color: #fff; }
+
+    /* ── Seller Launch Playbook ── */
+    .playbook-timeline {
+      position: relative; padding-left: 3rem; margin-top: 4rem; display: grid; gap: 2.5rem;
+    }
+    .playbook-timeline::before {
+      content: ""; position: absolute; left: 14px; top: 0.5rem; bottom: 0.5rem; width: 1px;
+      background: linear-gradient(180deg, rgba(184,139,82,0.15), var(--gold) 30%, var(--gold) 70%, rgba(184,139,82,0.15));
+    }
+    .playbook-step {
+      position: relative; padding: clamp(1.6rem, 3vw, 2.2rem);
+      background: white; border-radius: var(--radius-lg);
+      border: 1px solid rgba(46, 53, 60, 0.06); box-shadow: var(--shadow-md);
+      transition: transform 0.4s cubic-bezier(0.2,0,0.2,1), box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+    .playbook-step:hover { transform: translateX(8px); box-shadow: var(--shadow-lg); border-color: rgba(184,139,82,0.2); }
+    .playbook-step::before {
+      content: attr(data-week); position: absolute; left: -48px; top: clamp(1.6rem, 3vw, 2.2rem);
+      width: 32px; height: 32px; background: var(--gold); color: white;
+      display: flex; align-items: center; justify-content: center; border-radius: 50%;
+      font-size: 0.78rem; font-weight: 800;
+      box-shadow: 0 0 0 6px var(--linen), 0 0 0 8px rgba(184,139,82,0.12); z-index: 2;
+    }
+    .dark-section .playbook-step::before { box-shadow: 0 0 0 6px var(--navy-deep), 0 0 0 8px rgba(184,139,82,0.2); }
+    .playbook-step .week-tag {
+      color: var(--gold); font-size: 0.7rem; font-weight: 800;
+      letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: 0.4rem;
+    }
+    .playbook-step h3 {
+      font-family: "Cormorant Garamond", serif; font-size: 1.55rem; font-weight: 500;
+      color: var(--navy); letter-spacing: -0.02em; margin-bottom: 0.6rem;
+    }
+    .playbook-step p { color: var(--muted); font-size: 0.94rem; line-height: 1.75; }
+    .playbook-step p + p { margin-top: 0.75rem; }
+    .dark-section .playbook-step { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
+    .dark-section .playbook-step h3 { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+    .dark-section .playbook-step p { color: rgba(255,255,255,0.72); }
+    .playbook-step strong.accent, .check-text .accent { color: var(--gold); font-weight: 700; }
+    @media (max-width: 640px) {
+      .playbook-timeline { padding-left: 2.6rem; }
+      .playbook-step::before { left: -42px; }
+    }
   </style>
 </head>
 <body>
@@ -2196,6 +2298,235 @@ body {
               Most agents focus on the close. We focus on the compound interest. We analyze your real estate decisions through a 10-year lens — considering location durability, equity retention, and how a move affects your family's overall financial story.
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         PLAYBOOKS — Buyer's Readiness Checklist + Seller's 6-Week Launch Playbook
+    ════════════════════════════════════════════════════ -->
+    <section id="buyer-checklist" class="section" style="background: rgba(184, 139, 82, 0.03);">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-kicker">For Buyers</span>
+          <h2 class="section-title">The Buyer&apos;s <em>Readiness</em> Checklist.</h2>
+          <p class="section-copy">
+            The buyers who win in Southern California aren&apos;t the ones who move fastest — they&apos;re the ones who are ready. Work through this the way you&apos;d work through it with me at the table. Tick what&apos;s done, see what&apos;s left.
+          </p>
+        </div>
+
+        <div class="checklist-wrap" data-reveal>
+          <div class="checklist-phase">
+            <div class="checklist-phase-head">
+              <span class="checklist-phase-num">01</span>
+              <h3>Before you shop</h3>
+            </div>
+            <p class="checklist-phase-sub">The work nobody sees — and the reason your offer gets taken seriously.</p>
+            <ul class="check-list">
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Get fully pre-approved, not just pre-qualified.</strong><span>Pre-qualification is a phone estimate; pre-approval means the lender has verified your income and pulled credit. In a multiple-offer situation, a real pre-approval is what keeps your offer in the pile.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Lock your true monthly comfort number.</strong><span>Look past the loan amount to the all-in payment — principal, interest, property tax (roughly <span class="accent">1.1–1.25%</span> of price annually in LA County), insurance, and any HOA. Buy to a number you&apos;ll still be comfortable with on a stressful month.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Save for closing costs on top of the down payment.</strong><span>Budget another <span class="accent">2–3%</span> of the purchase price for closing costs — escrow, title, lender fees, and prepaids. This is separate from your down payment and surprises buyers who plan for one but not the other.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Check your credit at least 90 days out.</strong><span>Score drives your rate, and your rate drives your payment. Pulling early gives you time to dispute errors and pay down balances before a lender locks your terms.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Document your income and assets now.</strong><span>Gather two years of W-2s or returns, recent pay stubs, and 60 days of bank statements. Sourced, seasoned funds close loans; unexplained large deposits stall them.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Choose the right loan type for your situation.</strong><span>Conventional, FHA, VA, and jumbo each carry different down payment, mortgage-insurance, and appraisal rules. In much of the Valley, prices push into jumbo territory, which changes your underwriting — decide before you fall in love with a house.</span></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="checklist-phase">
+            <div class="checklist-phase-head">
+              <span class="checklist-phase-num">02</span>
+              <h3>While you shop</h3>
+            </div>
+            <p class="checklist-phase-sub">Tour like an owner, not a guest. The details here protect you for the next ten years.</p>
+            <ul class="check-list">
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Define must-haves vs. nice-to-haves in writing.</strong><span>A short, honest list keeps you decisive when a home is 85% right and the clock is ticking. Confusing a preference for a requirement is how good buyers talk themselves out of great homes.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Tour at different times of day.</strong><span>A street can be quiet at 11am and a cut-through at 6pm. Sun exposure, traffic, and noise all change — see the home in morning light and in the evening rush before you commit.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Check the commute, schools, and comps yourself.</strong><span>Drive the real commute, verify school attendance boundaries directly with the district, and look at what comparable homes actually closed for — not list prices or a Zestimate.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Read the preliminary title report.</strong><span>The prelim reveals liens, easements, and restrictions tied to the property. Knowing about a shared driveway or an old recorded easement before you remove contingencies saves real headaches later.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Never skip the inspection.</strong><span>Even in a hot market, a general inspection is your clearest window into roof, systems, and foundation. You can shorten the timeline to stay competitive, but waiving it entirely means buying blind.</span></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="checklist-phase">
+            <div class="checklist-phase-head">
+              <span class="checklist-phase-num">03</span>
+              <h3>When you offer</h3>
+            </div>
+            <p class="checklist-phase-sub">This is where representation earns its keep. Understand the levers before you pull them.</p>
+            <ul class="check-list">
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Understand your three core contingencies.</strong><span>California&apos;s standard contract gives you inspection, appraisal, and loan contingencies — your rights to investigate, to a value that supports the price, and to secure financing. Each is a defined window to walk and keep your deposit. Know them before you shorten them.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Know when an escalation clause helps.</strong><span>An escalation clause automatically raises your offer a set amount above competing bids, up to a cap. It can win a home without overpaying blindly — but it also shows the seller your ceiling, so it&apos;s a tool to use deliberately.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Know the earnest money norms.</strong><span>In California earnest money typically runs about <span class="accent">3%</span> of the price, held in escrow and credited to you at closing. A strong deposit signals commitment; your contingencies are what protect it.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Understand how seller credits work.</strong><span>Instead of dropping the price, a seller can credit you funds toward closing costs or a rate buy-down — often more useful than a small price cut because it lowers cash needed at the table. Lenders cap how much credit you can apply, so structure it right.</span></span>
+                </label>
+              </li>
+              <li class="check-item">
+                <label>
+                  <input type="checkbox" />
+                  <span class="check-box" aria-hidden="true"></span>
+                  <span class="check-text"><strong>Plan for the appraisal gap in hot markets.</strong><span>If the appraisal comes in under your offer, you cover the difference in cash or renegotiate. Deciding in advance how much gap you can absorb — and stating it — keeps you from panicking mid-deal.</span></span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="checklist-progress" id="checklist-progress" aria-live="polite"></p>
+        <p class="checklist-note">A personal tool, not a form. Nothing you tick here is saved, sent, or submitted — it lives only in this browser tab.</p>
+
+        <div class="soft-cta" data-reveal>
+          <p>This is the part most people do alone. You don&apos;t have to.</p>
+          <div class="btn-row" style="justify-content: center;">
+            <a class="btn btn-primary" href="#contact">Start Your Strategy</a>
+            <a class="btn btn-secondary" href="mailto:kjamal@rodeore.com">Email Kareem</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="seller-playbook" class="section dark-section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-kicker">For Sellers</span>
+          <h2 class="section-title">The Seller&apos;s <em>6-Week</em> Launch Playbook.</h2>
+          <p class="section-copy">
+            A great sale isn&apos;t luck — it&apos;s a sequence. Here&apos;s the six-week arc most of my listings follow, from the first pricing conversation to the keys changing hands.
+          </p>
+        </div>
+
+        <div class="playbook-timeline">
+          <div class="playbook-step" data-week="1" data-reveal>
+            <span class="week-tag">Week One</span>
+            <h3>Price from a real CMA</h3>
+            <p>We price off a true comparative market analysis — recent closed sales, active competition, and the condition of your home — not a <strong class="accent">Zestimate</strong> built from an algorithm that&apos;s never walked your street.</p>
+            <p>The psychology matters: pricing slightly under value can ignite competition and bid the price up, while pricing over the market quietly tells buyers to wait you out. We set the number that creates demand, not delay.</p>
+          </div>
+          <div class="playbook-step" data-week="2" data-reveal>
+            <span class="week-tag">Week Two</span>
+            <h3>Prep &amp; repairs that pay</h3>
+            <p>Some fixes return money; many don&apos;t. Paint, deep cleaning, landscaping, and small functional repairs nearly always pay for themselves; major remodels right before listing rarely do.</p>
+            <p>A <strong class="accent">pre-listing inspection</strong> can be worth it — it removes surprises and strengthens your negotiating position — but it also creates a disclosure obligation, so we decide together whether it fits your home.</p>
+          </div>
+          <div class="playbook-step" data-week="3" data-reveal>
+            <span class="week-tag">Week Three</span>
+            <h3>Staging &amp; photography</h3>
+            <p>Most buyers meet your home online first, and they decide in seconds. We stage to the lifestyle the home sells, then shoot it with professional photography and video so the listing photos earn the showing.</p>
+            <p>Remember the <strong class="accent">48-hour rule</strong>: the first impression online sets the tone for every offer, so nothing goes live until the presentation is right.</p>
+          </div>
+          <div class="playbook-step" data-week="4" data-reveal>
+            <span class="week-tag">Week Four</span>
+            <h3>Go live</h3>
+            <p>Launch timing is strategy. We typically go live mid-week so momentum builds into the weekend, and host a broker preview to put your home in front of agents with ready buyers.</p>
+            <p>Then we engineer the <strong class="accent">first-weekend surge</strong> — concentrated showings that create urgency and, ideally, competing offers while the listing is freshest.</p>
+          </div>
+          <div class="playbook-step" data-week="5" data-reveal>
+            <span class="week-tag">Week Five</span>
+            <h3>Manage the offers</h3>
+            <p>The highest number isn&apos;t always the best deal. In a multiple-offer situation we weigh terms beyond price: financing strength and pre-approval quality, which contingencies remain, deposit size, and the close timeline.</p>
+            <p>A slightly lower offer that closes cleanly often beats a top bid that&apos;s likely to fall apart in escrow.</p>
+          </div>
+          <div class="playbook-step" data-week="6" data-reveal>
+            <span class="week-tag">Week Six</span>
+            <h3>Escrow to close</h3>
+            <p>Once we&apos;re in escrow we manage the moving parts: the buyer&apos;s inspections and any repair requests, the <strong class="accent">appraisal</strong> coming in at value, and the loan clearing underwriting.</p>
+            <p>I negotiate repair credits to protect your net, keep every contingency on schedule, and steer the file to a clean, on-time close.</p>
+          </div>
+        </div>
+
+        <div class="soft-cta" data-reveal>
+          <p>This is the part most people do alone. You don&apos;t have to.</p>
+          <div class="btn-row" style="justify-content: center;">
+            <a class="btn btn-primary" href="#contact">Start Your Listing Strategy</a>
+            <a class="btn btn-secondary" href="mailto:kjamal@rodeore.com" style="background: transparent; color: white; border-color: rgba(255,255,255,0.25);">Email Kareem</a>
+          </div>
         </div>
       </div>
     </section>
@@ -2622,8 +2953,8 @@ body {
       revealElements.forEach((element) => element.classList.add("is-visible"));
     }
 
-    const leadForm = document.getElementById("lead-form");
-    const formStatus = document.getElementById("form-status");
+    const leadFormLegacy = document.getElementById("lead-form");
+    const formStatusLegacy = document.getElementById("form-status");
     const interestField = document.getElementById("lead-interest");
     const STORAGE_KEY = "kareem-jamal-leads";
 
@@ -2656,6 +2987,8 @@ body {
       interestField.value = value;
       intentChips.forEach((chip) => {
         chip.classList.toggle("is-active", chip.dataset.intent === value);
+      });
+    };
 
     // Intersection Observer for scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
@@ -2696,7 +3029,7 @@ body {
           card.classList.toggle("is-flipped");
         });
       });
-    }
+    });
 
     // Guide accordion
     document.querySelectorAll("[data-guide]").forEach((card) => {
@@ -2955,6 +3288,38 @@ body {
     document.body.style.transform = 'translateY(-8px)';
     setTimeout(function () { window.location.href = href; }, 260);
   });
+})();
+  </script>
+  <script>
+// Buyer Readiness Checklist — local visual feedback only (no save, no submit)
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('#buyer-checklist .check-item'));
+  if (!items.length) return;
+  var progressEl = document.getElementById('checklist-progress');
+  var total = items.length;
+
+  function render() {
+    var done = 0;
+    items.forEach(function (item) {
+      var box = item.querySelector('input[type="checkbox"]');
+      if (box && box.checked) {
+        item.classList.add('is-checked');
+        done++;
+      } else {
+        item.classList.remove('is-checked');
+      }
+    });
+    if (progressEl) {
+      progressEl.textContent = done + ' of ' + total + ' complete';
+    }
+  }
+
+  items.forEach(function (item) {
+    var box = item.querySelector('input[type="checkbox"]');
+    if (box) box.addEventListener('change', render);
+  });
+
+  render();
 })();
   </script>
 </body>

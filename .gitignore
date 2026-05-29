@@ -9,3 +9,5 @@ clean.py
 replace_checkout.py
 upgrade.js
 
+
+.claude/

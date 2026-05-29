@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MLS Search | Kareem Jamal | Southern California Home Search</title>
+  <title>Search Southern California Homes | Kareem Jamal | Live MLS Listings</title>
   <meta
     name="description"
-    content="Search Southern California homes through Kareem Jamal's live MLS page, then request property guidance, shortlist help, and buyer representation directly from the site."
+    content="Search live Southern California MLS listings with Kareem Jamal. Get real property reviews, curated shortlists, payment estimates, and direct buyer representation — Woodland Hills, Encino, Calabasas, and beyond."
   />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Kareem Jamal" />
@@ -18,15 +18,16 @@
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kareemjamaltherealtor.com/mls-search" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg" />
   <link rel="canonical" href="https://kareemjamaltherealtor.com/mls-search" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="assets/nav-unified.css" />
-  <script src="assets/nav-unified.js" defer></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -70,10 +71,10 @@
   <style>
     :root {
       --navy: #40505f;
-      --gold: #0071e3;
+      --gold: #b88b52;
       --ink: #2a2520;
-      --muted: #86868b;
-      --panel: rgba(255, 255, 255, 0.92);
+      --muted: #6e655d;
+      --panel: rgba(255, 253, 250, 0.92);
       --shadow-lg: 0 32px 80px rgba(76, 64, 48, 0.12);
       --shadow-md: 0 14px 38px rgba(76, 64, 48, 0.08);
       --radius-xl: 36px;
@@ -93,7 +94,7 @@
 
     body {
       min-height: 100vh;
-      font-family: var(--font-sans);
+      font-family: "Manrope", sans-serif;
       color: var(--ink);
       background:
         radial-gradient(circle at top left, rgba(184, 139, 82, 0.1), transparent 28%),
@@ -105,7 +106,21 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    25% { transform: translate(-10px, 10px); }
+    body::before {
+
+      content: "";
+      position: fixed;
+      top: -10%; left: -10%; width: 120%; height: 120%;
+      pointer-events: none;
+      opacity: 0.45;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      z-index: 20;
+      animation: film-grain 0.8s steps(4) infinite;
+    }
+    
+    @keyframes film-grain {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(-10px, 10px); }
       50% { transform: translate(10px, -5px); }
       75% { transform: translate(-5px, -10px); }
     }
@@ -120,28 +135,98 @@
       margin: 0 auto;
     }
 
-    /* ── Custom Scrollbar ── */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #fcfaf7;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(184, 139, 82, 0.3);
-      border: 3px solid #fcfaf7;
-      border-radius: 10px;
-      transition: background 300ms ease;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--gold);
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 1rem 0;
+      background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(255, 252, 247, 0.68));
+      border-bottom: 1px solid rgba(46, 53, 60, 0.03);
+      transition: padding 300ms ease, background 300ms ease, border-bottom 300ms ease, backdrop-filter 300ms ease;
     }
 
+    .site-header.is-scrolled {
+      padding: 0.5rem 0;
+      background: rgba(255, 252, 247, 0.85);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(184, 139, 82, 0.15);
+    }
 
+    .nav-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      background: rgba(255, 252, 247, 0.82);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 40px rgba(55, 46, 36, 0.08);
+      transition: box-shadow 300ms ease, background 300ms ease, border-color 300ms ease;
+    }
+
+    .site-header.is-scrolled .nav-shell {
+      box-shadow: 0 8px 24px rgba(55, 46, 36, 0.05);
+      background: rgba(255, 252, 247, 0.95);
+      border-color: rgba(184, 139, 82, 0.2);
+    }
+
+    .brand {
+      display: grid;
+      gap: 0.18rem;
+      padding-inline: 0.25rem;
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .brand-role {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.15rem;
+      align-items: center;
+      justify-content: flex-end;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      padding: 0.65rem 0.85rem;
+      border-radius: 999px;
+      transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: rgba(184, 139, 82, 0.1);
+      color: var(--ink);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.16), rgba(184, 139, 82, 0.08));
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px rgba(184, 139, 82, 0.18);
+    }
 
     .hero,
     .search-section {
-      padding: 7.5rem 0;
+      padding: 4.5rem 0;
     }
 
     .hero-shell,
@@ -180,7 +265,7 @@
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.24em;
-      
+      text-transform: uppercase;
     }
 
     .eyebrow::before {
@@ -215,8 +300,8 @@
       color: var(--muted);
       font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: -0.01em;
-      
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .signal-pill::before {
@@ -228,7 +313,7 @@
     }
 
     .hero-title {
-      font-family: var(--font-serif);
+      font-family: "Cormorant Garamond", serif;
       font-size: clamp(3rem, 7vw, 5.8rem);
       line-height: 0.94;
       max-width: 8ch;
@@ -262,7 +347,7 @@
       font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 0.16em;
-      
+      text-transform: uppercase;
       transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
       position: relative;
       overflow: hidden;
@@ -315,11 +400,29 @@
     .lead-form,
     .status-card,
     .shortcut-card {
-      background: #ffffff;
+      background: var(--panel);
       border: 1px solid rgba(46, 53, 60, 0.08);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
       transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .shortcut-icon {
+      display: inline-block;
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+      opacity: 0.85;
+    }
+
+    .support-num {
+      display: inline-block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: rgba(184, 139, 82, 0.35);
+      line-height: 1;
+      margin-bottom: 0.5rem;
     }
 
     .hero-card,
@@ -338,8 +441,8 @@
     .status-card:hover,
     .shortcut-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      border-color: rgba(0, 113, 227, 0.12);
+      box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12);
+      border-color: rgba(184, 139, 82, 0.14);
     }
 
     .flip-card {
@@ -418,7 +521,7 @@
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.18em;
-      
+      text-transform: uppercase;
       cursor: pointer;
     }
 
@@ -449,7 +552,7 @@
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.14em;
-      
+      text-transform: uppercase;
     }
 
     .flip-hint::before {
@@ -466,7 +569,7 @@
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.2em;
-      
+      text-transform: uppercase;
     }
 
     .flip-list {
@@ -500,7 +603,7 @@
     .helper-card h3,
     .support-card h3,
     .contact-card h3 {
-      font-family: var(--font-serif);
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.8rem;
       font-weight: 400;
       letter-spacing: -0.04em;
@@ -526,7 +629,7 @@
     .shortcut-card h3,
     .lead-form h3,
     .status-card h3 {
-      font-family: var(--font-serif);
+      font-family: "Cormorant Garamond", serif;
       font-size: 1.65rem;
       font-weight: 400;
       letter-spacing: -0.04em;
@@ -560,7 +663,7 @@
       display: block;
       font-size: 0.86rem;
       letter-spacing: 0.12em;
-      
+      text-transform: uppercase;
       color: var(--ink);
     }
 
@@ -589,7 +692,7 @@
       font-size: 0.76rem;
       font-weight: 800;
       letter-spacing: 0.18em;
-      
+      text-transform: uppercase;
     }
 
     .mini-process-list {
@@ -620,31 +723,12 @@
       border: 1px solid rgba(46, 53, 60, 0.12);
       background: rgba(255, 255, 255, 0.86);
       color: var(--ink);
-      .nav-links a {
-        padding: 1rem 1.25rem;
-        font-size: 0.9rem;
-        text-align: left;
-        opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 400ms ease, transform 400ms ease;
-        transition-delay: calc(var(--stagger-nav) * 40ms);
-      }
-      .nav-links.is-active a {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .nav-cta { 
-        margin-top: 1rem; 
-        text-align: center !important;
-        opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 400ms ease, transform 400ms ease;
-        transition-delay: calc(var(--stagger-nav) * 40ms);
-      }
-      .nav-links.is-active .nav-cta {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      border-radius: 999px;
+      padding: 0.78rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       cursor: pointer;
       transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
     }
@@ -687,6 +771,16 @@
 
     .contact-strip {
       padding: 0 0 4.5rem;
+    }
+    .contact-strip-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (max-width: 680px) {
+      .contact-strip-inner { grid-template-columns: 1fr; }
+      .contact-strip-inner img { width: 100%; max-width: 280px; margin: 0 auto; }
     }
 
     .checklist {
@@ -738,7 +832,7 @@
       font-size: 0.76rem;
       font-weight: 800;
       letter-spacing: 0.14em;
-      
+      text-transform: uppercase;
     }
 
     .status-pill::before {
@@ -810,7 +904,7 @@
       font-size: 0.78rem;
       font-weight: 800;
       letter-spacing: 0.14em;
-      
+      text-transform: uppercase;
       color: var(--ink);
     }
 
@@ -872,7 +966,7 @@
     }
 
     .placeholder-inner h2 {
-      font-family: var(--font-serif);
+      font-family: "Cormorant Garamond", serif;
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 400;
       letter-spacing: -0.04em;
@@ -889,7 +983,7 @@
       font-size: 0.76rem;
       font-weight: 800;
       letter-spacing: 0.14em;
-      
+      text-transform: uppercase;
     }
 
     .footer {
@@ -923,28 +1017,106 @@
       text-align: right;
     }
 
+    /* ── Skip link ── */
+    .skip-link { position: absolute; top: -100%; left: 1.5rem; z-index: 300; padding: 0.72rem 1.25rem; background: var(--gold); color: white; border-radius: 999px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; transition: top 180ms ease; }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── Active nav link ── */
+    .nav-links a.is-active { background: rgba(184, 139, 82, 0.12); color: var(--gold); }
+
+    /* ── Hamburger toggle ── */
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 9px 10px; background: rgba(255, 255, 255, 0.72); border: 1px solid rgba(46, 53, 60, 0.1); border-radius: 999px; cursor: pointer; flex-shrink: 0; transition: background-color 180ms ease; }
+    .nav-toggle:hover { background: rgba(184, 139, 82, 0.1); }
+    .nav-toggle:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.16); }
+    .nav-toggle span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; transform-origin: center; transition: transform 220ms ease, opacity 220ms ease; }
+    body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ── Neighborhood cards ── */
+    .neighborhoods-section { padding: 4rem 0 0; }
+    .neighborhoods-head { display: grid; gap: 0.75rem; margin-bottom: 2rem; max-width: 720px; }
+    .neighborhoods-head h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.04em; }
+    .neighborhoods-head p { color: var(--muted); line-height: 1.75; }
+    .neighborhood-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+    .neighborhood-card { display: grid; gap: 0.85rem; padding: 1.7rem 1.6rem 1.5rem; border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(251, 246, 238, 0.88)); border: 1px solid rgba(46, 53, 60, 0.08); box-shadow: var(--shadow-md); transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; position: relative; overflow: hidden; }
+    .neighborhood-card:hover { transform: translateY(-4px); box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12); border-color: rgba(184, 139, 82, 0.18); }
+    .neighborhood-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), rgba(201, 133, 105, 0.7)); }
+    .neighborhood-tag { display: inline-flex; width: fit-content; padding: 0.4rem 0.75rem; border-radius: 999px; background: rgba(184, 139, 82, 0.1); color: var(--gold); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid rgba(184, 139, 82, 0.18); }
+    .neighborhood-card h3 { font-family: "Cormorant Garamond", serif; font-size: 1.65rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.03em; }
+    .neighborhood-card p { color: var(--muted); line-height: 1.7; font-size: 0.92rem; }
+    .neighborhood-band { display: grid; grid-template-columns: auto 1fr; gap: 0.7rem; align-items: center; padding: 0.7rem 0.85rem; border-radius: 12px; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(46, 53, 60, 0.06); }
+    .neighborhood-band span:first-child { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); }
+    .neighborhood-band span:last-child { color: var(--muted); font-size: 0.88rem; line-height: 1.4; }
+    .neighborhood-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.2rem; }
+    .neighborhood-actions .btn { font-size: 0.7rem; padding: 0.7rem 0.95rem; min-height: 42px; }
+
+    /* ── Buyer toolkit ── */
+    .toolkit-section { padding: 4rem 0 1rem; }
+    .toolkit-head { display: grid; gap: 0.75rem; margin-bottom: 2rem; max-width: 720px; }
+    .toolkit-head h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.04em; }
+    .toolkit-head p { color: var(--muted); line-height: 1.75; }
+    .toolkit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+    .toolkit-card { background: var(--panel); border: 1px solid rgba(46, 53, 60, 0.08); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: 2rem; display: grid; gap: 1.1rem; transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
+    .toolkit-card:hover { transform: translateY(-4px); box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12); border-color: rgba(184, 139, 82, 0.16); }
+    .toolkit-card h3 { font-family: "Cormorant Garamond", serif; font-size: 1.55rem; font-weight: 400; letter-spacing: -0.03em; }
+    .toolkit-card p { color: var(--muted); line-height: 1.75; font-size: 0.95rem; }
+    .toolkit-card .field label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); }
+    .toolkit-card input, .toolkit-card select { width: 100%; border-radius: 14px; border: 1px solid rgba(46, 53, 60, 0.14); background: rgba(255, 255, 255, 0.92); color: var(--ink); padding: 0.7rem 0.85rem; min-height: 44px; font-size: 0.95rem; }
+    .toolkit-card input:focus-visible, .toolkit-card select:focus-visible { outline: none; border-color: rgba(184, 139, 82, 0.5); box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.1); }
+    .calc-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .calc-fields .field { display: grid; gap: 0.35rem; }
+    .calc-result { padding: 1rem 1.1rem; border-radius: 16px; background: linear-gradient(135deg, rgba(184, 139, 82, 0.1), rgba(201, 133, 105, 0.06)); border: 1px solid rgba(184, 139, 82, 0.18); display: grid; gap: 0.35rem; }
+    .calc-result strong { font-family: "Cormorant Garamond", serif; font-size: 1.95rem; font-weight: 500; color: var(--ink); line-height: 1; letter-spacing: -0.02em; }
+    .calc-result span { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 800; }
+    .calc-result em { font-style: normal; color: var(--muted); font-size: 0.85rem; line-height: 1.55; }
+    .quiz-step { display: grid; gap: 0.7rem; }
+    .quiz-question { font-size: 0.9rem; font-weight: 700; color: var(--ink); line-height: 1.5; }
+    .quiz-progress { display: flex; gap: 0.3rem; margin-bottom: 0.4rem; }
+    .quiz-progress span { flex: 1; height: 4px; border-radius: 999px; background: rgba(46, 53, 60, 0.08); transition: background-color 220ms ease; }
+    .quiz-progress span.is-done { background: var(--gold); }
+    .quiz-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .quiz-options button { appearance: none; border: 1px solid rgba(46, 53, 60, 0.14); background: rgba(255, 255, 255, 0.86); color: var(--ink); border-radius: 999px; padding: 0.6rem 0.9rem; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease; }
+    .quiz-options button:hover, .quiz-options button:focus-visible { outline: none; transform: translateY(-1px); border-color: rgba(184, 139, 82, 0.4); background: rgba(184, 139, 82, 0.08); }
+    .quiz-result { display: none; gap: 0.85rem; }
+    .quiz-result.is-visible { display: grid; }
+    .quiz-result .badge { display: inline-flex; width: fit-content; padding: 0.45rem 0.8rem; border-radius: 999px; background: rgba(184, 139, 82, 0.12); color: var(--gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+    .quiz-result strong { font-family: "Cormorant Garamond", serif; font-size: 1.4rem; font-weight: 500; line-height: 1.2; }
+    .quiz-result p { color: var(--muted); line-height: 1.7; font-size: 0.92rem; }
+    .saved-input { display: grid; gap: 0.5rem; }
+    .saved-input textarea { width: 100%; min-height: 70px; resize: vertical; border-radius: 14px; border: 1px solid rgba(46, 53, 60, 0.14); background: rgba(255, 255, 255, 0.92); padding: 0.7rem 0.85rem; font-size: 0.92rem; }
+    .saved-input textarea:focus-visible { outline: none; border-color: rgba(184, 139, 82, 0.5); box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.1); }
+    .saved-list { display: grid; gap: 0.55rem; max-height: 220px; overflow-y: auto; padding-right: 0.2rem; }
+    .saved-item { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem; align-items: start; padding: 0.7rem 0.85rem; border-radius: 12px; background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(46, 53, 60, 0.08); }
+    .saved-item-body { display: grid; gap: 0.2rem; min-width: 0; }
+    .saved-item-body strong { font-size: 0.86rem; font-weight: 700; word-break: break-word; line-height: 1.4; color: var(--ink); }
+    .saved-item-body span { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .saved-remove { appearance: none; background: transparent; border: none; color: var(--muted); cursor: pointer; font-size: 1.1rem; line-height: 1; padding: 0.2rem 0.4rem; border-radius: 8px; transition: background-color 180ms ease, color 180ms ease; }
+    .saved-remove:hover, .saved-remove:focus-visible { outline: none; background: rgba(155, 69, 55, 0.1); color: #9b4537; }
+    .saved-empty { color: var(--muted); font-size: 0.88rem; line-height: 1.6; padding: 0.8rem 0.95rem; border-radius: 12px; background: rgba(255, 255, 255, 0.6); border: 1px dashed rgba(46, 53, 60, 0.14); }
+    .toolkit-card .btn { font-size: 0.72rem; padding: 0.78rem 1.1rem; min-height: 46px; }
+
+    [data-reveal] { opacity: 1; transform: translateY(0); }
+    body.has-motion [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 620ms ease, transform 620ms ease; }
+    body.has-motion [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
     @media (max-width: 980px) {
       .hero-grid,
       .shortcut-grid,
       .concierge-grid,
       .support-grid,
+      .neighborhood-grid,
+      .toolkit-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .nav-shell,
-      .nav-links {
-        align-items: flex-start;
-      }
-
-      .nav-shell {
-        flex-direction: column;
-        border-radius: 28px;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
+      .nav-toggle { display: flex; }
+      .nav-shell { flex-direction: row; flex-wrap: wrap; border-radius: 28px; align-items: center; }
+      .brand { flex: 1; }
+      .nav-links { flex-basis: 100%; order: 3; flex-direction: column; justify-content: flex-start; max-height: 0; overflow: hidden; opacity: 0; gap: 0.15rem; transition: max-height 360ms ease, opacity 280ms ease; }
+      body.nav-open .nav-links { max-height: 520px; opacity: 1; }
+      .nav-links a { border-radius: 14px; }
     }
 
     @media (max-width: 640px) {
@@ -1046,73 +1218,365 @@
       opacity: 1;
     }
     /* ------------------------ */
+  
+    /* ════════════════════════════════════════════
+       UNIFIED NAVIGATION (overrides prior styles)
+       ════════════════════════════════════════════ */
+    .site-header { position: sticky; top: 0; z-index: 100; padding: 1rem 0; background: linear-gradient(180deg, rgba(255,252,247,0.95), rgba(255,252,247,0.7)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(46,53,60,0.04); }
+    .site-header .container.nav-shell {
+      display: flex; align-items: center; justify-content: flex-start;
+      gap: 0.75rem; padding: 0.7rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      background: rgba(255, 252, 247, 0.85);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 18px 40px rgba(55, 46, 36, 0.08);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .site-header .brand { display: grid; gap: 0.15rem; padding-inline: 0.4rem; flex-shrink: 0; text-decoration: none; }
+    .site-header .brand-name { font-family: "Cormorant Garamond", serif; font-size: 1.4rem; line-height: 1; color: var(--ink, #1a1a1a); font-weight: 600; letter-spacing: -0.01em; }
+    .site-header .brand-role { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted, #6b6b6b); font-weight: 600; }
+    .site-header .nav-links {
+      display: flex; flex-wrap: nowrap; align-items: center; gap: 0.1rem;
+      margin-left: auto; margin-right: 0.4rem;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--muted, #6b6b6b);
+      list-style: none; padding: 0;
+    }
+    .site-header .nav-links a {
+      padding: 0.55rem 0.9rem; border-radius: 999px;
+      transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+      white-space: nowrap; text-decoration: none; color: inherit;
+    }
+    .site-header .nav-links a:hover, .site-header .nav-links a:focus-visible {
+      background: rgba(184, 139, 82, 0.12); color: var(--ink, #1a1a1a); outline: none; transform: translateY(-1px);
+    }
+    .site-header .nav-links a.is-active { background: rgba(184, 139, 82, 0.16); color: var(--gold, #b88b52); }
+    .site-header .nav-cta {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.7rem 1.3rem; border-radius: 999px;
+      background: var(--ink, #1a1a1a); color: #fff;
+      font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      white-space: nowrap; flex-shrink: 0; text-decoration: none;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+    .site-header .nav-cta:hover, .site-header .nav-cta:focus-visible {
+      background: var(--gold, #b88b52); color: #fff; transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(184, 139, 82, 0.4); outline: none;
+    }
+    .site-header .nav-toggle {
+      display: none; flex-direction: column; justify-content: center; gap: 5px;
+      width: 42px; height: 42px; padding: 9px 10px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(46,53,60,0.1); border-radius: 999px;
+      cursor: pointer; flex-shrink: 0;
+      margin-left: auto;
+      transition: background-color 180ms ease;
+    }
+    .site-header .nav-toggle:hover { background: rgba(184, 139, 82, 0.1); }
+    .site-header .nav-toggle:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.18); }
+    .site-header .nav-toggle span {
+      display: block; height: 1.5px; background: var(--ink, #1a1a1a); border-radius: 2px;
+      transform-origin: center; transition: transform 220ms ease, opacity 220ms ease;
+    }
+    body.nav-open .site-header .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    body.nav-open .site-header .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    body.nav-open .site-header .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Hide any legacy duplicate toggle */
+    .site-header .menu-toggle { display: none !important; }
+
+    @media (max-width: 980px) {
+      .site-header .nav-toggle { display: flex; }
+      .site-header .container.nav-shell { flex-wrap: wrap; border-radius: 28px; padding: 0.65rem 0.85rem 0.65rem 1rem; }
+      .site-header .brand { flex: 1; min-width: 0; }
+      .site-header .nav-cta { order: 2; padding: 0.55rem 1rem; font-size: 0.7rem; }
+      .site-header .nav-links {
+        flex-basis: 100%; order: 4;
+        flex-direction: column; align-items: stretch; justify-content: flex-start;
+        max-height: 0; overflow: hidden; opacity: 0; gap: 0.15rem;
+        margin: 0; padding: 0;
+        transition: max-height 360ms ease, opacity 280ms ease, padding 280ms ease;
+      }
+      body.nav-open .site-header .nav-links {
+        max-height: 600px; opacity: 1; padding: 0.5rem 0 0.25rem;
+      }
+      .site-header .nav-links a {
+        border-radius: 14px; padding: 0.85rem 1.1rem; font-size: 0.85rem; letter-spacing: 0.08em;
+      }
+    }
+    @media (max-width: 480px) {
+      .site-header .brand-role { display: none; }
+      .site-header .nav-cta { padding: 0.5rem 0.85rem; font-size: 0.65rem; letter-spacing: 0.08em; }
+    }
+
+/* ── APPLE-INSPIRED REDESIGN ──────────────────────────── */
+:root {
+  --navy-deep: #0f1923;
+  --cream: #fffcf7;
+}
+.display-hero {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+.section-title, h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6vw, 72px) !important;
+  font-weight: 600 !important;
+  line-height: 1.07 !important;
+  letter-spacing: -0.02em !important;
+}
+section { padding: 120px 0 !important; }
+@media (max-width: 768px) { section { padding: 80px 0 !important; } }
+.dark-section {
+  background: var(--navy-deep) !important;
+  color: #fff !important;
+}
+.dark-section .section-title,
+.dark-section h2,
+.dark-section h3 { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.dark-section p, .dark-section .section-copy { color: rgba(255,255,255,0.72) !important; }
+.dark-section .eyebrow, .dark-section .section-kicker { color: var(--gold) !important; }
+.hero-cinematic {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+.hero-cinematic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,25,35,0.55) 0%, rgba(15,25,35,0.35) 60%, rgba(15,25,35,0.65) 100%);
+  z-index: 0;
+}
+.hero-cinematic > * { position: relative; z-index: 1; }
+.trust-card, .service-card, .pulse-card, .stat {
+  box-shadow: 0 2px 24px rgba(0,0,0,0.06) !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+}
+.dark-section .trust-card, .dark-section .service-card, .dark-section .pulse-card {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+}
+.btn-primary {
+  background: var(--ink, #1a1a1a) !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 1rem 2rem !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  border: none !important;
+  transition: background 200ms ease, transform 200ms ease !important;
+}
+.btn-primary:hover { background: var(--gold) !important; transform: translateY(-2px) !important; }
+.dark-section .btn-primary {
+  background: #fff !important;
+  color: var(--navy-deep) !important;
+}
+.dark-section .btn-primary:hover { background: var(--gold) !important; color: #fff !important; }
+.hero-photo, .portrait-photo, .story-img {
+  border-radius: 16px !important;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22) !important;
+}
+
+/* ── PAGE TRANSITION ── */
+@keyframes page-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+body {
+  animation: page-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── SOCIAL STRIP ── */
+.social-strip {
+  background: #0f1923;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 2.5rem 0;
+}
+.social-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.social-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+  text-decoration: none;
+}
+.social-link:hover {
+  background: rgba(184,139,82,0.15);
+  border-color: rgba(184,139,82,0.4);
+  color: #b88b52;
+}
+@media (max-width: 640px) {
+  .social-strip-inner { flex-direction: column; align-items: flex-start; }
+  .social-link span { display: none; }
+}
+/* ── MOBILE POLISH ── */
+@media (max-width: 768px) { section { padding: 64px 0 !important; } }
+@media (max-width: 480px) { section { padding: 48px 0 !important; } }
+@media (max-width: 768px) {
+  .hero-shell { background: transparent !important; border: none !important; box-shadow: none !important; }
+  .hero-grid { grid-template-columns: 1fr !important; text-align: center; padding: 2rem 1.25rem !important; }
+  .hero-proofline { justify-content: center; }
+  .btn-row { justify-content: center; flex-wrap: wrap; }
+  .hero-cinematic { min-height: calc(100vh - 70px) !important; padding-top: 2rem; }
+  .dark-section .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .dark-section .trust-card, .dark-section .service-card, .dark-section .pulse-card { padding: 1.5rem !important; }
+}
+@media (max-width: 480px) {
+  .display-hero { font-size: clamp(36px, 11vw, 52px) !important; line-height: 1.08 !important; }
+  .section-title, h2 { font-size: clamp(28px, 8vw, 42px) !important; }
+  .hero-stats { grid-template-columns: 1fr !important; }
+  .proof-pill { font-size: 0.7rem !important; padding: 0.4rem 0.8rem !important; }
+  .eyebrow, .section-kicker { font-size: 0.65rem !important; }
+}
+
+/* ── SPACING REFINEMENT ── */
+/* Hero: luxury standard breathing room */
+.hero { padding: clamp(5rem, 8vw, 7.5rem) 0 clamp(4rem, 6vw, 5rem) !important; }
+.hero-grid { padding: clamp(2.5rem, 4.5vw, 4.5rem) !important; }
+/* Section head: enforce minimum margin-bottom before grids */
+.section-head { margin-bottom: 3.5rem !important; }
+/* Neighborhoods/toolkit sections use custom 4rem padding — bring to 100px standard */
+.neighborhoods-section { padding: 100px 0 0 !important; }
+.neighborhoods-head { margin-bottom: 3.5rem !important; }
+.toolkit-section { padding: 100px 0 1rem !important; }
+.toolkit-head { margin-bottom: 3.5rem !important; }
+/* Footer: symmetry */
+.footer { padding: 3.5rem 0 !important; }
+/* Footer grid: 1rem gap is far too tight */
+.footer-grid { gap: clamp(2rem, 4vw, 3rem) !important; }
+/* Neighborhood cards: consistent padding */
+.neighborhood-card { padding: clamp(1.75rem, 2.5vw, 2.25rem) !important; }
+/* Toolkit cards */
+.toolkit-card { padding: clamp(2rem, 3vw, 2.75rem) !important; }
+/* Three-column grids: gap from 1.25rem */
+.neighborhood-grid { gap: clamp(1.5rem, 3vw, 2.5rem) !important; }
+.toolkit-grid { gap: clamp(1.5rem, 3vw, 2.5rem) !important; }
+/* Search section cards */
+.helper-card,
+.support-card,
+.shortcut-card,
+.status-card { padding: clamp(1.75rem, 3vw, 2.5rem) !important; }
+.contact-card { padding: clamp(2rem, 4vw, 3rem) !important; }
+/* Contact strip grid gap */
+.contact-strip .container { gap: clamp(2rem, 5vw, 4rem) !important; }
+/* Container mobile padding */
+@media (max-width: 480px) {
+  .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+}
+@media (max-width: 768px) {
+  .hero { padding: 4rem 0 2.5rem !important; }
+  .hero-grid { padding: 2rem 1.25rem !important; }
+  .section-head { margin-bottom: 2.5rem !important; }
+  .neighborhoods-section { padding: 64px 0 0 !important; }
+  .toolkit-section { padding: 64px 0 1rem !important; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 3rem 0 2rem !important; }
+  .section-head { margin-bottom: 2rem !important; }
+  .neighborhoods-section { padding: 48px 0 0 !important; }
+  .toolkit-section { padding: 48px 0 1rem !important; }
+}
   </style>
 
 </head>
-<body class="has-motion">
-
-  <!-- Preloader -->
-  <div class="site-preloader" aria-hidden="true">
-    <div class="preloader-logo">KJ</div>
-    <div class="preloader-progress"></div>
-  </div>
+<body>
+  <a class="skip-link" href="#search">Skip to main content</a>
 
   <!-- Custom Cursor (desktop only) -->
   <div id="cursor-dot" aria-hidden="true"></div>
   <div id="cursor-ring" aria-hidden="true"></div>
 
-  <header class="site-header">
+    <header class="site-header">
     <div class="container nav-shell">
-      <a class="brand" href="index.html" aria-label="Kareem Jamal home">
+      <a class="brand" href="/" aria-label="Kareem Jamal home">
         <strong class="brand-name">Kareem Jamal</strong>
         <span class="brand-role">Rodeo Realty Fine Estates</span>
       </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="mission.html">Our Mission</a>
-        <a href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation</a>
-        <a href="buyers-and-sellers.html#seller-onboarding">Listing Strategy</a>
-        <a href="family-wealth-preservation.html">Family Wealth Lens</a>
-        <a href="mls-search.html" aria-current="page">Search</a>
-        <a href="free-reports.html">Free Reports</a>
-        <a href="index.html#contact" class="nav-cta">Work With Kareem</a>
-      </nav>
-      <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
       </button>
+      <nav class="nav-links" id="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/buyers-and-sellers">Buy &amp; Sell</a>
+        <a href="/mls-search">Search Homes</a>
+        <a href="/family-wealth-preservation">Family Wealth</a>
+        <a href="/wealth-tools">Tools</a>
+        <a href="/free-reports">Free Reports</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Book a Call</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero hero-cinematic" style="background-image:url('assets/luxury-bathroom.jpg');">
       <div class="container">
         <div class="hero-shell">
           <div class="hero-grid">
             <div class="hero-copy">
-              <span class="eyebrow">Live MLS Search</span>
-              <h1 class="hero-title">Search Southern California listings with real support behind the search.</h1>
+              <span class="eyebrow">Southern California Home Search</span>
+              <h1 class="hero-title display-hero">Find your home. Know exactly what it is worth. Move with confidence.</h1>
               <p class="hero-text">
-                The MLS is live here, and the page now does more than host an iframe. Buyers can search listings, request a curated shortlist, send a property for review, and connect directly for strategy before writing an offer.
+                The MLS is live on this page — but so is Kareem. Search real listings, get a payment estimate, and connect directly for property reviews, curated shortlists, and offer strategy before you write a single word.
               </p>
               <div class="btn-row">
-                <a class="btn btn-primary" href="#search">View Search Area</a>
-                <a class="btn btn-secondary" href="#concierge">Get Search Support</a>
+                <a class="btn btn-primary" href="#search">Start Searching</a>
+                <a class="btn btn-secondary" href="#concierge">Talk to Kareem</a>
               </div>
               <div class="hero-signals">
                 <span class="signal-pill">Live CRMLS Search</span>
-                <span class="signal-pill">Property Review</span>
-                <span class="signal-pill">Buyer Concierge</span>
+                <span class="signal-pill">No Account Required</span>
+                <span class="signal-pill">Direct Buyer Support</span>
               </div>
             </div>
 
             <aside class="hero-card">
-              <h3>This is now a real search hub</h3>
-              <p class="helper-copy">The CRMLS search stays live, but the surrounding page is now built to convert serious buyers into actual conversations instead of leaving them alone with filters.</p>
+              <h3>Why search here instead of Zillow?</h3>
+              <p class="helper-copy">The big portals show you listings. This page connects you to a real agent who knows the neighborhoods, watches the inventory, and will tell you the truth about what a property is actually worth.</p>
               <ul class="checklist">
-                <li>Search the live MLS without leaving your brand experience.</li>
-                <li>Request property guidance, shortlist help, and buyer strategy directly on the page.</li>
-                <li>Stay positioned for a future full IDX vendor upgrade if you want saved searches and deeper account features.</li>
+                <li>Live CRMLS data — the same feed agents use.</li>
+                <li>A payment estimator, readiness check, and shortlist tool built into the page.</li>
+                <li>Send a listing directly to Kareem for a real opinion before you commit to a tour.</li>
               </ul>
             </aside>
           </div>
@@ -1122,7 +1586,7 @@
 
     <section>
       <div class="container">
-        <div class="shortcut-grid">
+        <div class="shortcut-grid" data-reveal>
           <article class="shortcut-card flip-card">
             <div class="flip-card-inner">
               <div class="flip-face">
@@ -1187,13 +1651,114 @@
       </div>
     </section>
 
+    <section class="neighborhoods-section" id="neighborhoods">
+      <div class="container">
+        <div class="neighborhoods-head" data-reveal>
+          <span class="eyebrow">Know Before You Search</span>
+          <h2>The neighborhoods Kareem knows best — what they cost, what they offer, and who they are really for.</h2>
+          <p>Most buyers search too broadly and waste weeks on homes that were never the right fit. These six areas cover the range of what West Valley and surrounding Los Angeles buyers are actually looking for.</p>
+        </div>
+
+        <div class="neighborhood-grid">
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Kareem&apos;s Home Base</span>
+            <h3>Woodland Hills</h3>
+            <p>Best for families who want space without giving up proximity to the city. Strong schools, hillside enclaves, and a wide range of price points that reward buyers who know where to look.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$900k – $2.5M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Woodland Hills">Search Woodland Hills</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Woodland Hills">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Established Luxury</span>
+            <h3>Encino</h3>
+            <p>Larger lots, mature tree canopy, and the kind of street presence that holds value over decades. The right choice when privacy and land matter as much as the house itself.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$1.2M – $5M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Encino">Search Encino</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Encino">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Lifestyle &amp; Walkability</span>
+            <h3>Sherman Oaks</h3>
+            <p>Ventura Boulevard energy meets strong residential streets. Great for buyers who want walkable coffee shops and restaurants without sacrificing good schools or solid resale.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$800k – $3M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Sherman Oaks">Search Sherman Oaks</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Sherman Oaks">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">More House, Less Price</span>
+            <h3>Tarzana</h3>
+            <p>Quieter streets, bigger backyards, and estate lots south of the boulevard that often outperform neighboring zip codes on value per square foot. Smart for move-up buyers stretching their budget.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$950k – $4M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Tarzana">Search Tarzana</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Tarzana">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Privacy &amp; Prestige</span>
+            <h3>Calabasas</h3>
+            <p>Gated communities, hillside panoramas, and the kind of address that signals a serious lifestyle upgrade. For buyers who want space, security, and a name that still carries weight.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$1.5M – $10M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Calabasas">Search Calabasas</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Calabasas">Ask About It</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Character &amp; Views</span>
+            <h3>Studio City</h3>
+            <p>Mid-century originals, canyon-adjacent living, and a creative-leaning buyer pool that keeps demand steady. The right pick if personality in a home matters as much as square footage.</p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$1M – $4M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-search="Studio City">Search Studio City</button>
+              <button class="btn btn-secondary" type="button" data-area-ask="Studio City">Ask About It</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="search-section" id="search">
       <div class="container">
         <div class="search-shell">
           <div class="search-grid">
             <div class="helper-card">
-              <h3>Live MLS Search</h3>
-              <p class="helper-copy">Use the live search below, then reach out when you want a second set of eyes on a property, a tighter shortlist, or help getting serious about the right homes.</p>
+              <h3>Live MLS — same data your agent uses.</h3>
+              <p class="helper-copy">No sign-up, no delay. Search the live CRMLS feed and when something catches your eye, send it to Kareem for a real opinion before you waste time on a showing that does not pencil out.</p>
+              <ul class="checklist" style="margin-top:0.75rem;">
+                <li>Filter by city, price, beds, and baths</li>
+                <li>Click any listing to see full details and photos</li>
+                <li>Save addresses using the shortlist tool below</li>
+              </ul>
             </div>
 
             <div class="search-frame">
@@ -1229,7 +1794,7 @@
 
     <section>
       <div class="container">
-        <div class="support-grid">
+        <div class="support-grid" data-reveal>
           <article class="support-card flip-card">
             <div class="flip-card-inner">
               <div class="flip-face">
@@ -1310,9 +1875,9 @@
         <div class="concierge-grid">
           <form class="lead-form" id="mls-concierge-form">
             <div class="lead-form-head">
-              <span class="eyebrow">Search Concierge</span>
-              <h3>Get a more focused MLS experience.</h3>
-              <p>Share what you are looking for and Kareem can help narrow the field, review a property, or guide the next step with buyer representation in mind.</p>
+              <span class="eyebrow">Talk to Kareem Directly</span>
+              <h3>Skip the filters. Get a curated, expert-guided search.</h3>
+              <p>Tell Kareem what you are looking for and he will come back with a focused shortlist, a property review, or a clear next step — no generic auto-drip, no assistant handoff. Just a direct conversation.</p>
             </div>
 
             <div class="field-full">
@@ -1416,16 +1981,19 @@
       </div>
     </section>
 
-    <section class="contact-strip">
+    <section class="contact-strip dark-section">
       <div class="container">
-        <div class="contact-card">
-          <h3>Search with support, not just filters.</h3>
-          <p>Use the MLS search on this page, then reach out when you want help identifying the right neighborhoods, evaluating a specific property, or preparing to write a stronger offer.</p>
-          <div class="btn-row" style="margin-top: 1rem;">
-            <a class="btn btn-primary" href="mailto:kjamal@rodeore.com?subject=MLS%20Search%20Inquiry">Email Kareem</a>
-            <a class="btn btn-secondary" href="tel:+18184027326">Call (818) 402-7326</a>
-            <a class="btn btn-secondary" href="/buyers-and-sellers">Buyer Representation</a>
+        <div class="contact-card contact-strip-inner">
+          <div>
+            <h3>Ready to stop browsing and start moving?</h3>
+            <p>Most buyers spend months searching alone and lose time, money, and good properties in the process. One conversation with Kareem often changes what they look at and how fast they act. Call, email, or use the form above — Kareem responds directly.</p>
+            <div class="btn-row" style="margin-top: 1rem;">
+              <a class="btn btn-primary" href="mailto:kjamal@rodeore.com?subject=MLS%20Search%20Inquiry">Email Kareem</a>
+              <a class="btn btn-secondary" href="tel:+18184027326">Call (818) 402-7326</a>
+              <a class="btn btn-secondary" href="/buyers-and-sellers">Buyer Representation</a>
+            </div>
           </div>
+          <img src="assets/kareem-jamal-brand-flyer.jpeg" alt="Kareem Jamal — Rodeo Realty Fine Estates" loading="lazy" style="width:220px;border-radius:14px;box-shadow:0 6px 28px rgba(64,80,95,0.18);flex-shrink:0;" />
         </div>
       </div>
     </section>
@@ -1436,10 +2004,77 @@
       <p>Kareem Jamal | Rodeo Realty Fine Estates | Realtor | CA DRE #01998956</p>
       <p class="footer-note">Cell: (818) 402-7326 | Email: kjamal@rodeore.com | Woodland Hills, California</p>
     </div>
+    <div class="social-strip">
+      <div class="container social-strip-inner">
+        <span class="social-label">Connect with Kareem</span>
+        <div class="social-links">
+          <a href="https://www.instagram.com/kareemjamaltherealtor" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/kareemjamaltherealtor/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.facebook.com/kareemjamaltherealtor/" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener" aria-label="Rodeo Realty Profile" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Rodeo Realty
+          </a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script>
+    // Scroll reveal
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.body.classList.add("has-motion");
+      const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-visible"); revealObs.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      document.querySelectorAll("[data-reveal]").forEach((el) => revealObs.observe(el));
+    }
 
+    // Hamburger nav
+    const navToggle = document.getElementById("nav-toggle");
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = document.body.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+      document.addEventListener("click", (e) => {
+        if (document.body.classList.contains("nav-open") && !e.target.closest(".nav-shell")) {
+          document.body.classList.remove("nav-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    // Active nav link
+    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && !href.startsWith("#") && href === currentPath) {
+        link.classList.add("is-active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+
+
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector(".site-header");
+      if (header) {
+        if (window.scrollY > 20) {
+          header.classList.add("is-scrolled");
+        } else {
+          header.classList.remove("is-scrolled");
+        }
+      }
+    });
     const IDX_URL = "https://matrix.crmls.org/Matrix/public/IDX.aspx?idx=169037aa";
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/xnjlgvlk";
     const searchFrame = document.getElementById("search-frame");
@@ -1599,6 +2234,272 @@
         document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
+
+    // ── Neighborhood actions ──
+    document.querySelectorAll("[data-area-search]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.getElementById("search")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (searchStatusLine) {
+          const area = btn.dataset.areaSearch;
+          searchStatusLine.textContent = `Live search ready — try ${area} in the location filter.`;
+        }
+      });
+    });
+    document.querySelectorAll("[data-area-ask]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const area = btn.dataset.areaAsk || "";
+        setIntent("Curated Search");
+        const areaInput = document.getElementById("lead-area");
+        if (areaInput && !areaInput.value.trim()) areaInput.value = area;
+        const messageField = document.getElementById("lead-message");
+        if (messageField) {
+          const note = `I'd like guidance on ${area}.`;
+          const existing = messageField.value.trim();
+          if (!existing.includes(area)) {
+            messageField.value = existing ? `${existing}\n\n${note}` : note;
+          }
+        }
+        document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // ── Mortgage estimator ──
+    const calcPrice = document.getElementById("calc-price");
+    const calcDown = document.getElementById("calc-down");
+    const calcRate = document.getElementById("calc-rate");
+    const calcTerm = document.getElementById("calc-term");
+    const calcOutput = document.getElementById("calc-output");
+    const calcDetail = document.getElementById("calc-detail");
+    const fmt = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+    const recalcPayment = () => {
+      if (!calcPrice || !calcOutput) return;
+      const price = Math.max(0, Number(calcPrice.value) || 0);
+      const downPct = Math.min(100, Math.max(0, Number(calcDown.value) || 0));
+      const rate = Math.max(0, Number(calcRate.value) || 0) / 100 / 12;
+      const months = (Number(calcTerm.value) || 30) * 12;
+      const loan = price * (1 - downPct / 100);
+      let payment = 0;
+      if (loan > 0 && months > 0) {
+        payment = rate === 0 ? loan / months : (loan * rate) / (1 - Math.pow(1 + rate, -months));
+      }
+      calcOutput.textContent = fmt(payment);
+      calcDetail.textContent = `Loan amount ${fmt(loan)} · ${calcTerm.value}-yr fixed at ${Number(calcRate.value).toFixed(2)}%`;
+    };
+
+    [calcPrice, calcDown, calcRate, calcTerm].forEach((el) => {
+      if (el) el.addEventListener("input", recalcPayment);
+    });
+    recalcPayment();
+
+    // ── Readiness quiz ──
+    const quizQuestions = [
+      { q: "When are you hoping to make a move?", options: [
+        { label: "In 30 days", score: 25, tag: "Ready now" },
+        { label: "1–3 months", score: 20, tag: "Within 3 months" },
+        { label: "3–6 months", score: 14, tag: "Within 6 months" },
+        { label: "Just exploring", score: 6, tag: "Browsing early" }
+      ]},
+      { q: "Have you talked to a lender?", options: [
+        { label: "Pre-approved", score: 25 },
+        { label: "Pre-qualified", score: 18 },
+        { label: "Not yet", score: 6 }
+      ]},
+      { q: "How clear is your budget?", options: [
+        { label: "Locked in", score: 20 },
+        { label: "A range", score: 14 },
+        { label: "Still figuring it out", score: 6 }
+      ]},
+      { q: "Are you set on a neighborhood?", options: [
+        { label: "Yes, specific area", score: 15 },
+        { label: "A few in mind", score: 12 },
+        { label: "Wide open", score: 6 }
+      ]},
+      { q: "What's the priority right now?", options: [
+        { label: "Find the home", score: 15, intent: "Curated Search" },
+        { label: "Review a property", score: 14, intent: "Property Review" },
+        { label: "Build the strategy", score: 12, intent: "Buyer Strategy" }
+      ]}
+    ];
+    const quizStepEl = document.getElementById("quiz-step");
+    const quizProgress = document.getElementById("quiz-progress");
+    const quizResultEl = document.getElementById("quiz-result");
+    const quizBadge = document.getElementById("quiz-badge");
+    const quizHeadline = document.getElementById("quiz-headline");
+    const quizDetail = document.getElementById("quiz-detail");
+    const quizSend = document.getElementById("quiz-send");
+    const quizRestart = document.getElementById("quiz-restart");
+    let quizState = { idx: 0, answers: [] };
+
+    const renderQuizStep = () => {
+      if (!quizStepEl) return;
+      const step = quizQuestions[quizState.idx];
+      quizStepEl.innerHTML = "";
+      const q = document.createElement("p");
+      q.className = "quiz-question";
+      q.textContent = `Q${quizState.idx + 1}. ${step.q}`;
+      const opts = document.createElement("div");
+      opts.className = "quiz-options";
+      step.options.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = opt.label;
+        btn.addEventListener("click", () => {
+          quizState.answers.push(opt);
+          if (quizProgress) quizProgress.children[quizState.idx]?.classList.add("is-done");
+          quizState.idx += 1;
+          if (quizState.idx >= quizQuestions.length) {
+            renderQuizResult();
+          } else {
+            renderQuizStep();
+          }
+        });
+        opts.appendChild(btn);
+      });
+      quizStepEl.append(q, opts);
+      quizResultEl?.classList.remove("is-visible");
+    };
+
+    const renderQuizResult = () => {
+      if (!quizResultEl) return;
+      const total = quizState.answers.reduce((sum, a) => sum + a.score, 0);
+      const tag = quizState.answers[0]?.tag || "";
+      const intent = quizState.answers.find((a) => a.intent)?.intent || "Buyer Strategy";
+      let badge, headline, detail;
+      if (total >= 80) {
+        badge = "Ready to Move";
+        headline = "You're set up to act on the right home.";
+        detail = "Timing, financing, and direction are aligned. The next step is real conversations on real properties — Kareem can move quickly with you.";
+      } else if (total >= 55) {
+        badge = "Almost There";
+        headline = "Close — a few decisions left to lock in.";
+        detail = "You have most of the pieces. A short strategy call clarifies the rest so the search gets focused before you tour seriously.";
+      } else {
+        badge = "Still Exploring";
+        headline = "Earlier stage — and that's a great time to talk.";
+        detail = "Early conversations are often the most useful. Kareem can help you frame the search, talk through timing, and avoid wasted tours.";
+      }
+      quizBadge.textContent = badge;
+      quizHeadline.textContent = headline;
+      quizDetail.textContent = detail;
+      quizResultEl.classList.add("is-visible");
+      quizStepEl.innerHTML = "";
+      if (quizSend) quizSend.dataset.intent = intent;
+      if (quizSend) quizSend.dataset.summary = `Readiness: ${badge} (${total}/100). Timing: ${tag}.`;
+    };
+
+    if (quizRestart) {
+      quizRestart.addEventListener("click", () => {
+        quizState = { idx: 0, answers: [] };
+        if (quizProgress) Array.from(quizProgress.children).forEach((c) => c.classList.remove("is-done"));
+        renderQuizStep();
+      });
+    }
+
+    if (quizSend) {
+      quizSend.addEventListener("click", () => {
+        const intent = quizSend.dataset.intent || "Buyer Strategy";
+        const summary = quizSend.dataset.summary || "";
+        setIntent(intent);
+        const messageField = document.getElementById("lead-message");
+        if (messageField) {
+          const existing = messageField.value.trim();
+          messageField.value = existing ? `${existing}\n\n${summary}` : summary;
+        }
+        document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    renderQuizStep();
+
+    // ── Saved listings ──
+    const SAVED_KEY = "kareem-jamal-saved-listings";
+    const savedLink = document.getElementById("saved-link");
+    const savedNote = document.getElementById("saved-note");
+    const savedAdd = document.getElementById("saved-add");
+    const savedListEl = document.getElementById("saved-list");
+    const savedSend = document.getElementById("saved-send");
+
+    const getSaved = () => {
+      try { return JSON.parse(window.localStorage.getItem(SAVED_KEY) || "[]"); } catch { return []; }
+    };
+    const setSaved = (items) => window.localStorage.setItem(SAVED_KEY, JSON.stringify(items));
+
+    const renderSaved = () => {
+      if (!savedListEl) return;
+      const items = getSaved();
+      savedListEl.innerHTML = "";
+      if (!items.length) {
+        const empty = document.createElement("div");
+        empty.className = "saved-empty";
+        empty.textContent = "Nothing saved yet. Add a listing link or address above.";
+        savedListEl.appendChild(empty);
+        return;
+      }
+      items.forEach((item) => {
+        const row = document.createElement("div");
+        row.className = "saved-item";
+        const body = document.createElement("div");
+        body.className = "saved-item-body";
+        const title = document.createElement("strong");
+        title.textContent = item.link;
+        body.appendChild(title);
+        if (item.note) {
+          const note = document.createElement("span");
+          note.textContent = item.note;
+          body.appendChild(note);
+        }
+        const remove = document.createElement("button");
+        remove.className = "saved-remove";
+        remove.type = "button";
+        remove.setAttribute("aria-label", "Remove saved listing");
+        remove.textContent = "×";
+        remove.addEventListener("click", () => {
+          setSaved(getSaved().filter((i) => i.id !== item.id));
+          renderSaved();
+        });
+        row.append(body, remove);
+        savedListEl.appendChild(row);
+      });
+    };
+
+    if (savedAdd) {
+      savedAdd.addEventListener("click", () => {
+        const link = (savedLink?.value || "").trim();
+        const note = (savedNote?.value || "").trim();
+        if (!link) {
+          savedLink?.focus();
+          return;
+        }
+        const items = getSaved();
+        items.unshift({ id: `${Date.now()}`, link, note, savedAt: new Date().toISOString() });
+        setSaved(items);
+        if (savedLink) savedLink.value = "";
+        if (savedNote) savedNote.value = "";
+        renderSaved();
+      });
+    }
+
+    if (savedSend) {
+      savedSend.addEventListener("click", () => {
+        const items = getSaved();
+        if (!items.length) {
+          savedListEl?.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        setIntent("Property Review");
+        const messageField = document.getElementById("lead-message");
+        if (messageField) {
+          const lines = items.map((i, n) => `${n + 1}. ${i.link}${i.note ? ` — ${i.note}` : ""}`).join("\n");
+          const header = `Saved listings I want reviewed:\n${lines}`;
+          const existing = messageField.value.trim();
+          messageField.value = existing ? `${existing}\n\n${header}` : header;
+        }
+        document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    renderSaved();
 
     if (conciergeForm && formStatus) {
       conciergeForm.addEventListener("submit", async (event) => {
@@ -1799,33 +2700,53 @@
         });
       });
     }
-
-    // ── Preloader ─────────────────────────────────────────────────
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.body.classList.add("is-loaded");
-      }, 1000);
-    });
-
-    // Phone Input Auto-Formatter
-    document.addEventListener('DOMContentLoaded', () => {
-      const phoneInput = document.getElementById('lead-phone');
-      if (phoneInput) {
-        phoneInput.addEventListener('input', (e) => {
-          let input = e.target.value.replace(/\D/g, '');
-          const size = input.length;
-          if (size === 0) {
-            e.target.value = '';
-          } else if (size < 4) {
-            e.target.value = `(${input}`;
-          } else if (size < 7) {
-            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3)}`;
-          } else {
-            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`;
+  
+    /* ── Unified navigation behavior ── */
+    (function () {
+      var navToggle = document.getElementById("nav-toggle");
+      if (navToggle) {
+        navToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var isOpen = document.body.classList.toggle("nav-open");
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+        document.addEventListener("click", function (e) {
+          if (document.body.classList.contains("nav-open") && !e.target.closest(".nav-shell")) {
+            document.body.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
           }
         });
+        document.querySelectorAll(".nav-links a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            document.body.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
       }
-    });
+      var path = window.location.pathname.replace(/\/$/, "") || "/";
+      document.querySelectorAll(".nav-links a, .nav-cta").forEach(function (a) {
+        var href = a.getAttribute("href");
+        if (href && !href.startsWith("#") && (href === path || href === path + "/" || (path !== "/" && href !== "/" && path.indexOf(href) === 0))) {
+          a.classList.add("is-active");
+        }
+      });
+    })();
+  </script>
+  <script>
+// Smooth exit transition on internal link clicks
+(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http') || a.target === '_blank') return;
+    e.preventDefault();
+    document.body.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+    document.body.style.opacity = '0';
+    document.body.style.transform = 'translateY(-8px)';
+    setTimeout(function () { window.location.href = href; }, 260);
+  });
+})();
   </script>
 
 </body>

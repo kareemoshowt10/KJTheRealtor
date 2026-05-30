@@ -27,6 +27,7 @@
   <link rel="canonical" href="https://kareemjamaltherealtor.com/family-wealth-preservation" />
   <link rel="alternate" hreflang="en-US" href="https://kareemjamaltherealtor.com/family-wealth-preservation" />
   <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="preload" as="image" href="assets/cliffside-sunset.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -37,8 +38,16 @@
     {
       "@context": "https://schema.org",
       "@type": "RealEstateAgent",
+      "@id": "https://kareemjamaltherealtor.com/#agent",
       "name": "Kareem Jamal",
       "url": "https://kareemjamaltherealtor.com/family-wealth-preservation",
+      "sameAs": [
+        "https://www.instagram.com/kareemjamaltherealtor",
+        "https://www.linkedin.com/in/kareemjamaltherealtor/",
+        "https://www.facebook.com/kareemjamaltherealtor/",
+        "https://www.zillow.com/profile/KareemJamal",
+        "https://www.rodeore.com/agents/kareem-jamal"
+      ],
       "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
       "jobTitle": "Realtor",
       "telephone": "+1-818-402-7326",
@@ -67,6 +76,16 @@
         "Southern California real estate",
         "Woodland Hills real estate",
         "San Fernando Valley homes"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kareemjamaltherealtor.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Family Wealth Preservation", "item": "https://kareemjamaltherealtor.com/family-wealth-preservation" }
       ]
     }
   </script>
@@ -106,6 +125,7 @@
     :root {
       --navy: #40505f;
       --navy-deep: #2f3c48;
+      --cream: #f8f4ef;
       --linen: #fffdfa;
       --gold: #b88b52;
       --terracotta: #c98569;
@@ -188,31 +208,11 @@
       min-height: 100vh;
       font-family: "Manrope", sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(184, 139, 82, 0.1), transparent 28%),
-        radial-gradient(circle at 100% 10%, rgba(201, 133, 105, 0.08), transparent 24%),
-        linear-gradient(180deg, #fffdfa 0%, #f8f4ee 46%, #fcfaf7 100%);
+      background: #f8f4ef;
       overflow-x: hidden;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: -10%; left: -10%; width: 120%; height: 120%;
-      pointer-events: none;
-      opacity: 0.45;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      z-index: 20;
-      animation: film-grain 0.8s steps(4) infinite;
-    }
-    
-    @keyframes film-grain {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(-10px, 10px); }
-      50% { transform: translate(10px, -5px); }
-      75% { transform: translate(-5px, -10px); }
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
@@ -842,7 +842,7 @@
       transform: translate(-50%, -50%);
       width: 280px;
       padding: 2rem;
-      background: white;
+      background: rgba(255,255,255,0.7);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       opacity: 0;
@@ -1136,8 +1136,8 @@
 
 /* ── APPLE-INSPIRED REDESIGN ──────────────────────────── */
 :root {
-  --navy-deep: #0f1923;
-  --cream: #fffcf7;
+  --navy-deep: #1c1510;
+  --cream: #f8f4ef;
 }
 .display-hero {
   font-family: 'Cormorant Garamond', serif;
@@ -1226,7 +1226,7 @@ body {
 
 /* ── SOCIAL STRIP ── */
 .social-strip {
-  background: #0f1923;
+  background: #1c1510;
   border-top: 1px solid rgba(255,255,255,0.07);
   padding: 2.5rem 0;
 }

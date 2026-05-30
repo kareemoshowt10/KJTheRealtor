@@ -10,9 +10,13 @@
   <meta property="og:description" content="42 free expert reports for Southern California buyers, sellers, and homeowners. No fluff — real guidance on pricing, negotiation, financing, and moving." />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://kareemjamaltherealtor.com/free-reports" />
+  <link rel="preload" as="image" href="assets/hero-estate-night.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
       --navy: #40505f;
@@ -20,6 +24,7 @@
       --gold-light: rgba(184,139,82,0.12);
       --ink: #2a2520;
       --muted: #6e655d;
+      --cream: #f8f4ef;
       --panel: rgba(255,253,250,0.92);
       --bg: #f9f6f1;
       --shadow-lg: 0 32px 80px rgba(76,64,48,0.12);
@@ -40,7 +45,7 @@
       background:
         radial-gradient(circle at top left, rgba(184,139,82,0.1), transparent 28%),
         radial-gradient(circle at 100% 10%, rgba(201,133,105,0.08), transparent 24%),
-        linear-gradient(180deg, #fffdfa 0%, #f8f4ee 46%, #fcfaf7 100%);
+        linear-gradient(180deg, #f8f4ef 0%, #f8f4ef 46%, #f8f4ef 100%);
       min-height: 100vh;
       overflow-x: hidden;
       text-rendering: optimizeLegibility;
@@ -116,14 +121,12 @@
     }
 
     /* ── HERO ── */
-    .hero { padding: clamp(3rem, 6vw, 5rem) 0 3rem; }
     .hero-shell {
       border-radius: var(--radius-xl);
       background: linear-gradient(180deg, rgba(255,253,249,0.96), rgba(248,241,232,0.96));
       border: 1px solid rgba(46,53,60,0.06);
       box-shadow: var(--shadow-lg);
       overflow: hidden;
-      padding: clamp(2rem, 5vw, 3.5rem);
     }
     .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: start; }
     .hero-title {
@@ -142,7 +145,7 @@
     }
     .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 1.5rem; }
     .stat-card {
-      background: #fff; border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.7); border-radius: var(--radius-md);
       border: 1px solid rgba(46,53,60,0.08); padding: 1.1rem 1rem;
       box-shadow: var(--shadow-sm);
     }
@@ -151,7 +154,7 @@
 
     /* ── LEAD FORM PANEL ── */
     .lead-panel {
-      background: #fff;
+      background: rgba(255,255,255,0.7);
       border: 1px solid rgba(46,53,60,0.08);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
@@ -298,7 +301,7 @@
       display: flex; align-items: center; gap: 0.5rem;
       border: 1.5px solid rgba(46,53,60,0.14); border-radius: 999px;
       padding: 0.45rem 0.9rem 0.45rem 0.75rem;
-      background: #fff; min-width: 240px;
+      background: rgba(255,255,255,0.7); min-width: 240px;
     }
     .search-box input {
       border: none; background: none; font-size: 0.85rem;
@@ -307,7 +310,7 @@
     .search-box::before { content: "⌕"; font-size: 1.1rem; color: var(--muted); flex-shrink: 0; }
     .reports-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
     .report-card {
-      background: #fff; border: 1px solid rgba(46,53,60,0.08);
+      background: rgba(255,255,255,0.7); border: 1px solid rgba(46,53,60,0.08);
       border-radius: var(--radius-md); padding: 1.25rem 1.3rem;
       transition: border-color 200ms, box-shadow 200ms;
     }
@@ -480,8 +483,8 @@
 
 /* ── APPLE-INSPIRED REDESIGN ──────────────────────────── */
 :root {
-  --navy-deep: #0f1923;
-  --cream: #fffcf7;
+  --navy-deep: #1c1510;
+  --cream: #f8f4ef;
 }
 .display-hero {
   font-family: 'Cormorant Garamond', serif;
@@ -498,8 +501,7 @@
   line-height: 1.07 !important;
   letter-spacing: -0.02em !important;
 }
-section { padding: 120px 0 !important; }
-@media (max-width: 768px) { section { padding: 80px 0 !important; } }
+section { padding: clamp(60px, 10vw, 120px) 0; }
 .dark-section {
   background: var(--navy-deep) !important;
   color: #fff !important;
@@ -570,7 +572,7 @@ body {
 
 /* ── SOCIAL STRIP ── */
 .social-strip {
-  background: #0f1923;
+  background: #1c1510;
   border-top: 1px solid rgba(255,255,255,0.07);
   padding: 2.5rem 0;
 }
@@ -618,8 +620,6 @@ body {
   .social-link span { display: none; }
 }
 /* ── MOBILE POLISH ── */
-@media (max-width: 768px) { section { padding: 64px 0 !important; } }
-@media (max-width: 480px) { section { padding: 48px 0 !important; } }
 @media (max-width: 768px) {
   .hero-shell { background: transparent !important; border: none !important; box-shadow: none !important; }
   .hero-grid { grid-template-columns: 1fr !important; text-align: center; padding: 2rem 1.25rem !important; }
@@ -642,8 +642,6 @@ body {
 .hero { padding: clamp(5rem, 8vw, 7.5rem) 0 clamp(4rem, 6vw, 5rem) !important; }
 /* Hero shell inner padding */
 .hero-shell { padding: clamp(2.5rem, 5vw, 4rem) !important; }
-/* .section class (used here instead of section tag): bring to 100px standard */
-.section { padding: 100px 0 !important; }
 /* Section head margin-bottom: bump from 2rem to 3.5rem */
 .section-head { margin-bottom: 3.5rem !important; }
 /* Footer: balanced top/bottom */
@@ -669,14 +667,12 @@ body {
   .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
 }
 @media (max-width: 768px) {
-  .hero { padding: 4rem 0 2.5rem !important; }
+  .hero { padding: clamp(3rem, 6vw, 4rem) 0 2.5rem !important; }
   .section-head { margin-bottom: 2.5rem !important; }
-  .section { padding: 64px 0 !important; }
 }
 @media (max-width: 480px) {
   .hero { padding: 3rem 0 2rem !important; }
   .section-head { margin-bottom: 2rem !important; }
-  .section { padding: 48px 0 !important; }
 }
 
 /* ── OPEN PLAYBOOK / FEATURED GUIDES ── */
@@ -776,6 +772,37 @@ body {
   .guide-toggle { width: 34px; height: 34px; }
 }
   </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Free Real Estate Reports & Open Playbook",
+      "url": "https://kareemjamaltherealtor.com/free-reports",
+      "description": "Free, no-gate real estate reports and guides from Southern California Realtor Kareem Jamal covering selling costs, reading a CMA, the first-time buyer process, and building generational wealth through real estate.",
+      "isPartOf": { "@id": "https://kareemjamaltherealtor.com/#website" },
+      "about": { "@type": "RealEstateAgent", "@id": "https://kareemjamaltherealtor.com/#agent", "name": "Kareem Jamal" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "The 9 Costs of Selling Nobody Tells You About" },
+          { "@type": "ListItem", "position": 2, "name": "How to Read a CMA Like an Agent" },
+          { "@type": "ListItem", "position": 3, "name": "The First-Time Buyer's 60-Day Playbook" },
+          { "@type": "ListItem", "position": 4, "name": "Turning One Home Into Generational Wealth" }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kareemjamaltherealtor.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Free Reports", "item": "https://kareemjamaltherealtor.com/free-reports" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>

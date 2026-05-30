@@ -27,64 +27,135 @@
   <link rel="canonical" href="https://kareemjamaltherealtor.com/" />
   <link rel="alternate" hreflang="en-US" href="https://kareemjamaltherealtor.com/" />
   <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="preload" as="image" href="assets/mansion-pool-night.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;600;700;800&display=swap"
     rel="stylesheet"
   />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "Kareem Jamal",
-      "url": "https://kareemjamaltherealtor.com/",
-      "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
-      "jobTitle": "Realtor",
-      "telephone": "+1-818-402-7326",
-      "email": "kjamal@rodeore.com",
-      "areaServed": [
-        "Woodland Hills",
-        "San Fernando Valley",
-        "Calabasas",
-        "Southern California",
-        "Los Angeles",
-        "Hidden Hills",
-        "Tarzana",
-        "Encino",
-        "Sherman Oaks"
-      ],
-      "description": "Kareem Jamal helps buyers, sellers, and families navigate real estate with polished marketing, strong negotiation, clear communication, and a focus on long-term wealth preservation.",
-      "priceRange": "$$$",
-      "knowsAbout": [
-        "Home buying",
-        "Home selling",
-        "Real estate investing",
-        "Family wealth preservation",
-        "Generational wealth through real estate",
-        "Generational wealth building",
-        "Equity protection strategies",
-        "Move-up buyer strategy",
-        "Southern California real estate",
-        "Woodland Hills real estate",
-        "San Fernando Valley homes",
-        "MLS search Southern California"
-      ],
-      "memberOf": {
-        "@type": "Organization",
-        "name": "Rodeo Realty Fine Estates"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "21031 Ventura Blvd, #100",
-        "addressLocality": "Woodland Hills",
-        "addressRegion": "CA",
-        "postalCode": "91364",
-        "addressCountry": "US"
-      },
-      "sameAs": [
-        "https://www.zillow.com/profile/KareemJamal",
-        "https://www.rodeore.com/agents/kareem-jamal"
+      "@graph": [
+        {
+          "@type": "RealEstateAgent",
+          "@id": "https://kareemjamaltherealtor.com/#agent",
+          "name": "Kareem Jamal",
+          "alternateName": "Kareem Jamal The Realtor",
+          "url": "https://kareemjamaltherealtor.com/",
+          "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
+          "logo": "https://kareemjamaltherealtor.com/assets/favicon.png",
+          "jobTitle": "Realtor",
+          "telephone": "+1-818-402-7326",
+          "email": "kjamal@rodeore.com",
+          "slogan": "Real estate decisions that build generational wealth.",
+          "priceRange": "$$$",
+          "currenciesAccepted": "USD",
+          "areaServed": [
+            { "@type": "City", "name": "Woodland Hills" },
+            { "@type": "City", "name": "Calabasas" },
+            { "@type": "City", "name": "Hidden Hills" },
+            { "@type": "City", "name": "Tarzana" },
+            { "@type": "City", "name": "Encino" },
+            { "@type": "City", "name": "Sherman Oaks" },
+            { "@type": "AdministrativeArea", "name": "San Fernando Valley" },
+            { "@type": "AdministrativeArea", "name": "Greater Los Angeles" },
+            { "@type": "AdministrativeArea", "name": "Southern California" }
+          ],
+          "description": "Kareem Jamal is a Southern California Realtor with Rodeo Realty Fine Estates helping buyers, sellers, investors, and families navigate real estate with polished marketing, strong negotiation, clear communication, and a focus on long-term family wealth preservation.",
+          "knowsAbout": [
+            "Home buying",
+            "Home selling",
+            "Real estate investing",
+            "Family wealth preservation",
+            "Generational wealth through real estate",
+            "Generational wealth building",
+            "Equity protection strategies",
+            "Move-up buyer strategy",
+            "1031 exchange",
+            "Proposition 19 property tax transfer",
+            "Capital gains exclusion on home sales",
+            "Southern California real estate",
+            "Woodland Hills real estate",
+            "San Fernando Valley homes",
+            "MLS search Southern California"
+          ],
+          "knowsLanguage": "en-US",
+          "memberOf": {
+            "@type": "Organization",
+            "name": "Rodeo Realty Fine Estates",
+            "url": "https://www.rodeore.com/"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "21031 Ventura Blvd, #100",
+            "addressLocality": "Woodland Hills",
+            "addressRegion": "CA",
+            "postalCode": "91364",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 34.1684,
+            "longitude": -118.6059
+          },
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=21031+Ventura+Blvd+%23100+Woodland+Hills+CA+91364",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ],
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "CA DRE License",
+            "value": "01998956"
+          },
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Buyer representation", "serviceType": "Real estate buyer's agent" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Listing & seller strategy", "serviceType": "Real estate listing agent" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Family wealth preservation through real estate", "serviceType": "Real estate wealth strategy" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "MLS search & property review", "serviceType": "Home search support" }
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/kareemjamaltherealtor",
+            "https://www.linkedin.com/in/kareemjamaltherealtor/",
+            "https://www.facebook.com/kareemjamaltherealtor/",
+            "https://www.zillow.com/profile/KareemJamal",
+            "https://www.rodeore.com/agents/kareem-jamal"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://kareemjamaltherealtor.com/#website",
+          "url": "https://kareemjamaltherealtor.com/",
+          "name": "Kareem Jamal | Southern California Realtor",
+          "publisher": { "@id": "https://kareemjamaltherealtor.com/#agent" },
+          "inLanguage": "en-US",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://kareemjamaltherealtor.com/mls-search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        }
       ]
     }
   </script>
@@ -142,6 +213,10 @@
       --radius-md: 20px;
       --radius-sm: 14px;
       --container: 1180px;
+      --cream: #f8f4ef;
+      --cream-deep: #f0ead9;
+      --warm-dark: #1c1510;
+      --warm-shadow: 0 24px 64px rgba(60, 40, 20, 0.10);
     }
 
     * {
@@ -220,34 +295,14 @@
     body {
       min-height: 100vh;
       font-family: "Manrope", sans-serif;
+      background: var(--cream);
       color: var(--ink);
-      background:
-        radial-gradient(circle at 0% 0%, rgba(184, 139, 82, 0.12), transparent 30%),
-        radial-gradient(circle at 100% 12%, rgba(201, 133, 105, 0.1), transparent 28%),
-        linear-gradient(180deg, #fffdfa 0%, #f8f4ee 42%, #fcfaf7 100%);
       overflow-x: hidden;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: -10%; left: -10%; width: 120%; height: 120%;
-      pointer-events: none;
-      opacity: 0.45;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      z-index: 20;
-      animation: film-grain 0.8s steps(4) infinite;
-    }
-    
-    @keyframes film-grain {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(-10px, 10px); }
-      50% { transform: translate(10px, -5px); }
-      75% { transform: translate(-5px, -10px); }
-    }
 
     img {
       display: block;
@@ -373,12 +428,6 @@
       transform: translateY(-2px);
     }
 
-    /* ── Button shimmer ── */
-    @keyframes btn-shimmer {
-      0%   { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-
     .btn-primary {
       background: linear-gradient(
         135deg,
@@ -390,7 +439,6 @@
       background-size: 200% auto;
       color: white;
       box-shadow: 0 4px 20px rgba(184, 139, 82, 0.35);
-      animation: btn-shimmer 3.5s linear infinite;
       transition: transform 220ms ease, box-shadow 220ms ease;
     }
 
@@ -404,6 +452,28 @@
       color: var(--ink);
       background: rgba(255, 255, 255, 0.84);
       backdrop-filter: blur(16px);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 220ms ease;
+      background: transparent;
+      border: 1.5px solid var(--ink);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      background: var(--ink);
+      color: #fff;
     }
 
     .btn:focus-visible {
@@ -611,12 +681,6 @@
       color: transparent;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: text-shimmer 4s linear infinite;
-    }
-
-    @keyframes text-shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
     }
 
     .hero-text {
@@ -801,9 +865,6 @@
       text-transform: uppercase;
     }
 
-    main section {
-      padding: 5.75rem 0;
-    }
 
     .about-grid,
     .services-grid,
@@ -2293,10 +2354,9 @@
   line-height: 1.07 !important;
   letter-spacing: -0.02em !important;
 }
-section { padding: 120px 0 !important; }
-@media (max-width: 768px) { section { padding: 80px 0 !important; } }
+section { padding: clamp(60px, 10vw, 120px) 0; }
 .dark-section {
-  background: var(--navy-deep) !important;
+  background: #1c1510 !important;
   color: #fff !important;
 }
 .dark-section .section-title,
@@ -2322,6 +2382,97 @@ section { padding: 120px 0 !important; }
   z-index: 0;
 }
 .hero-cinematic > * { position: relative; z-index: 1; }
+
+    /* ── Split Hero ── */
+    .hero-split {
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-split-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .hero-split-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 6vw, 6rem);
+      gap: 1.6rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-split-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-split-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .hero-photo-badge {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2rem;
+      background: rgba(28, 21, 16, 0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(184, 139, 82, 0.3);
+      border-radius: 14px;
+      padding: 1rem 1.5rem;
+      color: #fff;
+    }
+
+    .badge-name {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .badge-title {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-split-inner {
+        grid-template-columns: 1fr;
+        min-height: unset;
+      }
+      .hero-split-photo {
+        height: 60vw;
+        min-height: 320px;
+        max-height: 520px;
+        order: -1;
+      }
+      .hero-split-text {
+        padding: 3rem 1.5rem 2.5rem;
+      }
+      .hero-photo-badge {
+        bottom: 1.5rem;
+        left: 1.25rem;
+        padding: 0.75rem 1.25rem;
+      }
+    }
 .trust-card, .service-card, .pulse-card, .stat {
   box-shadow: 0 2px 24px rgba(0,0,0,0.06) !important;
   border: 1px solid rgba(0,0,0,0.05) !important;
@@ -2413,8 +2564,6 @@ body {
   .social-link span { display: none; }
 }
 /* ── MOBILE POLISH ── */
-@media (max-width: 768px) { section { padding: 64px 0 !important; } }
-@media (max-width: 480px) { section { padding: 48px 0 !important; } }
 @media (max-width: 768px) {
   .hero-shell { background: transparent !important; border: none !important; box-shadow: none !important; }
   .hero-grid { grid-template-columns: 1fr !important; text-align: center; padding: 2rem 1.25rem !important; }
@@ -2423,6 +2572,7 @@ body {
   .hero-cinematic { min-height: calc(100vh - 70px) !important; padding-top: 2rem; }
   .dark-section .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
   .dark-section .trust-card, .dark-section .service-card, .dark-section .pulse-card { padding: 1.5rem !important; }
+  .proof-band { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) {
   .display-hero { font-size: clamp(36px, 11vw, 52px) !important; line-height: 1.08 !important; }
@@ -2430,6 +2580,8 @@ body {
   .hero-stats { grid-template-columns: 1fr !important; }
   .proof-pill { font-size: 0.7rem !important; padding: 0.4rem 0.8rem !important; }
   .eyebrow, .section-kicker { font-size: 0.65rem !important; }
+  .proof-band { grid-template-columns: 1fr; }
+  .proof-item { border-right: none; border-bottom: 1px solid rgba(46,53,60,0.1); }
 }
 
 /* ── SPACING REFINEMENT ── */
@@ -2480,6 +2632,111 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   .hero { padding: 3rem 0 2rem !important; }
   .section-head { margin-bottom: 2rem !important; }
 }
+/* ── Proof Band ── */
+    .proof-band {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      border-top: 1px solid rgba(46, 53, 60, 0.1);
+      border-bottom: 1px solid rgba(46, 53, 60, 0.1);
+      background: var(--cream-deep);
+    }
+
+    .proof-item {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(46, 53, 60, 0.1);
+    }
+    .proof-item:last-child {
+      border-right: none;
+    }
+    .proof-item strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .proof-item p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+/* ── Story Section ── */
+    .story-section {
+      background: var(--linen);
+      padding: clamp(60px, 10vw, 120px) 0;
+      overflow: hidden;
+    }
+
+    .story-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 4rem);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .story-photo {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--warm-shadow);
+    }
+
+    .story-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .story-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .story-highlights {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .story-highlight {
+      padding: 1.25rem 1.5rem;
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .story-highlight strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .story-highlight p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .story-inner {
+        grid-template-columns: 1fr;
+      }
+      .story-photo {
+        max-height: 400px;
+        overflow: hidden;
+      }
+    }
+
 /* ── TESLA-STYLE PANELS ── */
 .tesla-panel {
   position: relative;
@@ -2495,6 +2752,7 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   padding: 0 !important;
   margin: 0;
   overflow: hidden;
+  will-change: transform;
 }
 .tesla-panel::before {
   content: '';
@@ -2635,71 +2893,39 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   </header>
 
   <main id="top">
-    <section class="hero hero-cinematic" style="background-image:url('assets/hero-estate-night.jpg');">
-      <div class="container">
-        <div class="hero-shell">
-          <div class="hero-grid">
-            <div class="hero-copy" data-reveal>
-              <span class="eyebrow">Kareem Jamal | Southern California Realtor</span>
-              <h1 class="hero-title display-hero">The Realtor families choose to build <em>generational wealth.</em></h1>
-              <p class="hero-text">
-                From your first home to your family legacy — Kareem Jamal helps Southern California families buy smarter, sell strategically, and build real estate wealth that outlasts the transaction.
-              </p>
-              <span class="brokerage-line">Rodeo Realty Fine Estates | CA DRE #01998956</span>
-              <div class="btn-row">
-                <a class="btn btn-primary" href="#contact">Start Building Your Wealth Strategy</a>
-                <a class="btn btn-secondary" href="mls-search.html">Search Homes Now</a>
-              </div>
-              <div class="hero-proofline">
-                <a class="proof-pill" href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation</a>
-                <a class="proof-pill" href="buyers-and-sellers.html#seller-onboarding">Listing Strategy</a>
-                <a class="proof-pill" href="family-wealth-preservation.html">Family Wealth Lens</a>
-              </div>
-              <div class="hero-stats">
-                <article class="stat" data-reveal>
-                  <strong>Find</strong>
-                  <span>Search Southern California's best value markets with a wealth-building lens, not guesswork. <a href="mls-search.html" style="color:var(--gold);font-weight:700;">Browse Homes →</a></span>
-                </article>
-                <article class="stat" data-reveal>
-                  <strong>Position</strong>
-                  <span>List or offer with stronger timing, polished presentation, and negotiation discipline that protects your equity.</span>
-                </article>
-                <article class="stat" data-reveal>
-                  <strong>Preserve</strong>
-                  <span>Keep generational goals, equity protection, and long-term family wealth in every conversation. <a href="family-wealth-preservation.html" style="color:var(--gold);font-weight:700;">Learn More →</a></span>
-                </article>
-              </div>
-            </div>
-
-            <div class="hero-aside" data-reveal>
-              <div class="portrait-card">
-                <img
-                  class="portrait-photo"
-                  src="./assets/kareem-jamal-headshot.jpeg"
-                  alt="Portrait of Kareem Jamal wearing a navy suit"
-                  fetchpriority="high"
-                />
-                <div class="portrait-label">
-                  <span>The Standard</span>
-                  <strong>Real estate that becomes a legacy.</strong>
-                </div>
-              </div>
-              <div class="floating-card">
-                <p>Core Message</p>
-                <strong>Lifestyle decision first. Financial decision second.</strong>
-                <p>
-                  A strong real estate decision should reflect where your life is going, not just what the numbers say in one moment.
-                </p>
-              </div>
-            </div>
+    <section class="hero-split" id="hero">
+      <div class="hero-split-inner">
+        <div class="hero-split-text" data-reveal>
+          <span class="eyebrow">Kareem Jamal · Woodland Hills, CA</span>
+          <h1 class="hero-title">The Realtor families choose to build <em>generational wealth.</em></h1>
+          <p class="hero-text">From your first home to your family legacy — Kareem helps Southern California families buy smarter, sell strategically, and build wealth that lasts.</p>
+          <span class="brokerage-line">Rodeo Realty Fine Estates · CA DRE #01998956</span>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#contact">Start Your Strategy</a>
+            <a class="btn btn-outline" href="mls-search.html">Search Homes</a>
+          </div>
+          <div class="hero-proofline">
+            <a class="proof-pill" href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation</a>
+            <a class="proof-pill" href="buyers-and-sellers.html#seller-onboarding">Listing Strategy</a>
+            <a class="proof-pill" href="family-wealth-preservation.html">Family Wealth</a>
+          </div>
+        </div>
+        <div class="hero-split-photo" data-reveal>
+          <img
+            src="./assets/kareem-jamal-brand-flyer.jpeg"
+            alt="Kareem Jamal — Southern California Realtor"
+            fetchpriority="high"
+          />
+          <div class="hero-photo-badge">
+            <span class="badge-name">Kareem Jamal</span>
+            <span class="badge-title">Rodeo Realty Fine Estates</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container">
-        <div class="proof-band">
+    <section style="padding:0;">
+      <div class="proof-band">
           <article class="proof-item" data-reveal>
             <strong>Before Touring</strong>
             <p>Searches get anchored in budget clarity, neighborhood durability, and long-term value — not just what is available right now.</p>
@@ -2716,6 +2942,34 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
             <strong>Generations Later</strong>
             <p>A great move compounds over time. The wealth your family builds through real estate starts with one strategic decision.</p>
           </article>
+        </div>
+    </section>
+
+    <section class="story-section">
+      <div class="story-inner">
+        <div class="story-photo" data-reveal>
+          <img src="./assets/kareem-jamal-message-flyer.jpeg" alt="Kareem Jamal — personal message" loading="lazy" />
+        </div>
+        <div class="story-text" data-reveal>
+          <span class="section-kicker">Why Kareem</span>
+          <h2 class="section-title" style="-webkit-text-fill-color: var(--ink);">Real estate with a <em>generational lens.</em></h2>
+          <p class="section-copy">Every client conversation starts with where you want to be in 10 years — not just what's available on the market today. That's the difference between a transaction and a strategy.</p>
+          <p class="section-copy" style="margin-top:1rem;">Kareem Jamal brings calm, clarity, and long-term thinking to one of the biggest financial decisions of your life. Woodland Hills to the greater San Fernando Valley — this is home territory.</p>
+          <div class="story-highlights">
+            <div class="story-highlight">
+              <strong>Honest Strategy</strong>
+              <p>No pressure, no hype. Just the right move at the right time.</p>
+            </div>
+            <div class="story-highlight">
+              <strong>Strong Negotiation</strong>
+              <p>Polished presentation and disciplined terms that protect your equity.</p>
+            </div>
+            <div class="story-highlight">
+              <strong>Wealth-First Lens</strong>
+              <p>Every transaction considered through a family wealth preservation framework.</p>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="mission.html" style="margin-top:1rem;width:fit-content;">About Kareem</a>
         </div>
       </div>
     </section>
@@ -3005,7 +3259,6 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
     const floatCall = document.getElementById("floatCall");
     const backToTop = document.getElementById("backToTop");
     const mobileCta = document.getElementById("mobileCta");
-    const heroSection = document.querySelector(".hero");
 
     window.addEventListener("scroll", () => {
       const scrollY = window.scrollY;

@@ -27,6 +27,7 @@
       --gold-light: rgba(184,139,82,0.12);
       --ink: #2a2520;
       --muted: #6e655d;
+      --cream: #f8f4ef;
       --panel: rgba(255,253,250,0.92);
       --bg: #f9f6f1;
       --shadow-lg: 0 32px 80px rgba(76,64,48,0.12);
@@ -47,7 +48,7 @@
       background:
         radial-gradient(circle at top left, rgba(184,139,82,0.1), transparent 28%),
         radial-gradient(circle at 100% 10%, rgba(201,133,105,0.08), transparent 24%),
-        linear-gradient(180deg, #fffdfa 0%, #f8f4ee 46%, #fcfaf7 100%);
+        linear-gradient(180deg, #f8f4ef 0%, #f8f4ef 46%, #f8f4ef 100%);
       min-height: 100vh;
       overflow-x: hidden;
       text-rendering: optimizeLegibility;
@@ -162,7 +163,7 @@
     /* ── CALCULATOR LAYOUT ── */
     .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
     .calc-inputs {
-      background: #fff; border: 1px solid rgba(46,53,60,0.08);
+      background: rgba(255,255,255,0.7); border: 1px solid rgba(46,53,60,0.08);
       border-radius: 12px; box-shadow: var(--shadow-sm);
       padding: 2.5rem;
       margin-bottom: 2rem;
@@ -289,7 +290,7 @@
     body { animation: page-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
     /* ── SOCIAL STRIP ── */
-    .social-strip { background: #0f1923; border-top: 1px solid rgba(255,255,255,0.07); padding: 2.5rem 0; }
+    .social-strip { background: #1c1510; border-top: 1px solid rgba(255,255,255,0.07); padding: 2.5rem 0; }
     .social-strip-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
     .social-label { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.55); letter-spacing: 0.02em; flex-shrink: 0; }
     .social-links { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }

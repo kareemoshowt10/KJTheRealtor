@@ -1668,7 +1668,7 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 2rem;
       align-items: start;
       font-size: 0.88rem;
@@ -2845,6 +2845,79 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   .tesla-btn { width: 100%; max-width: 320px; min-width: 0; }
   .tesla-subtitle { font-size: 0.95rem; }
 }
+
+    /* ── COMMUNITIES WE SERVE ── */
+    .communities-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 1024px) {
+      .communities-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .communities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .communities-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .community-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--r-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-sm);
+    }
+    .community-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--blue);
+      box-shadow: var(--shadow-md);
+    }
+    .community-card-top h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--carbon);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .community-card-top .price-range {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .community-card-top p {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--smoke);
+    }
+    .community-card .btn-link {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue);
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      transition: color 150ms ease;
+    }
+    .community-card:hover .btn-link {
+      color: var(--blue-hover);
+    }
   </style>
 </head>
 <body>
@@ -3022,6 +3095,59 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       </div>
     </section>
 
+    <!-- Communities We Serve -->
+    <section id="communities" class="section" style="background: var(--cloud);">
+      <div class="container">
+        <div class="section-head text-center" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+          <span class="section-kicker">Communities We Serve</span>
+          <h2 class="section-title" style="-webkit-text-fill-color: var(--ink);">Southern California <em>Expertise</em></h2>
+          <p class="section-copy" style="color: var(--smoke); max-width: 480px; margin: 1rem auto 0; font-size: 0.95rem; line-height: 1.6;">Navigating the micro-markets and distinct enclaves of the West Valley with strategic real estate guidance.</p>
+        </div>
+        <div class="communities-grid">
+          <article class="community-card">
+            <div class="community-card-top">
+              <h3>Woodland Hills</h3>
+              <span class="price-range">$850K - $1.8M</span>
+              <p>Gateway to custom residential estates, prestigious schools, and scenic canyon living South of the Boulevard.</p>
+            </div>
+            <a href="woodland-hills.html" class="btn-link">Explore Community →</a>
+          </article>
+          <article class="community-card">
+            <div class="community-card-top">
+              <h3>Calabasas</h3>
+              <span class="price-range">$1.2M - $3.0M+</span>
+              <p>The global standard of gated safety, top-rated Las Virgenes schools, and premier estate living.</p>
+            </div>
+            <a href="calabasas.html" class="btn-link">Explore Community →</a>
+          </article>
+          <article class="community-card">
+            <div class="community-card-top">
+              <h3>Hidden Hills</h3>
+              <span class="price-range">$2.5M - $6.0M+</span>
+              <p>Exclusive, strictly equestrian enclaves offering unparalleled privacy and custom modern compound estates.</p>
+            </div>
+            <a href="hidden-hills.html" class="btn-link">Explore Community →</a>
+          </article>
+          <article class="community-card">
+            <div class="community-card-top">
+              <h3>Encino</h3>
+              <span class="price-range">$900K - $2.0M</span>
+              <p>Established enclaves featuring flat wide avenues, historic mid-century architecture, and elite charter schools.</p>
+            </div>
+            <a href="encino.html" class="btn-link">Explore Community →</a>
+          </article>
+          <article class="community-card">
+            <div class="community-card-top">
+              <h3>West Hills</h3>
+              <span class="price-range">$750K - $1.4M</span>
+              <p>Outstanding residential enclaves offering safe cul-de-sacs, natural boulder enclaves, and premium charter schools.</p>
+            </div>
+            <a href="west-hills.html" class="btn-link">Explore Community →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="section">
       <div class="container contact-grid">
         <div class="contact-card" data-reveal>
@@ -3140,6 +3266,14 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
           <a href="buyers-and-sellers.html">Buyers & Sellers</a>
           <a href="family-wealth-preservation.html">Family Wealth Lens</a>
           <a href="mls-search.html">Home Search</a>
+        </div>
+        <div class="footer-col">
+          <h4>Communities</h4>
+          <a href="woodland-hills.html">Woodland Hills</a>
+          <a href="calabasas.html">Calabasas</a>
+          <a href="hidden-hills.html">Hidden Hills</a>
+          <a href="encino.html">Encino</a>
+          <a href="west-hills.html">West Hills</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>

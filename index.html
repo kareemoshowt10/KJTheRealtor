@@ -27,7 +27,7 @@
   <link rel="canonical" href="https://kareemjamaltherealtor.com/" />
   <link rel="alternate" hreflang="en-US" href="https://kareemjamaltherealtor.com/" />
   <link rel="icon" href="/assets/favicon.png" type="image/png" />
-  <link rel="preload" as="image" href="assets/mansion-pool-night.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/hero-estate-night.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -2384,94 +2384,189 @@ section { padding: clamp(60px, 10vw, 120px) 0; }
 .hero-cinematic > * { position: relative; z-index: 1; }
 
     /* ── Split Hero ── */
-    .hero-split {
-      background: var(--cream);
-      min-height: 100vh;
-      display: flex;
-      align-items: stretch;
-      overflow: hidden;
+    /* ── Tesla-style full-bleed cinematic hero ── */
+    .hero-tesla {
       position: relative;
-    }
-
-    .hero-split-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
       min-height: 100vh;
-    }
-
-    .hero-split-text {
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 6vw, 6rem);
-      gap: 1.6rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-split-photo {
-      position: relative;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      padding: clamp(7.5rem, 16vh, 12rem) 1.5rem clamp(3rem, 7vh, 5.5rem);
+      background-color: var(--warm-dark);
+      background-image:
+        linear-gradient(
+          180deg,
+          rgba(18, 13, 9, 0.55) 0%,
+          rgba(18, 13, 9, 0.20) 32%,
+          rgba(18, 13, 9, 0.32) 64%,
+          rgba(18, 13, 9, 0.70) 100%
+        ),
+        url('assets/hero-estate-night.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       overflow: hidden;
     }
 
-    .hero-split-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
+    .hero-tesla-top {
+      max-width: 60ch;
+      margin: 0 auto;
+      display: grid;
+      gap: 1.35rem;
+      justify-items: center;
     }
 
-    .hero-photo-badge {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 2rem;
-      background: rgba(28, 21, 16, 0.82);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(184, 139, 82, 0.3);
-      border-radius: 14px;
-      padding: 1rem 1.5rem;
-      color: #fff;
-    }
-
-    .badge-name {
-      display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .badge-title {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+    .hero-tesla-eyebrow {
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 0.2rem;
+      color: var(--gold-soft);
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
     }
 
-    @media (max-width: 900px) {
-      .hero-split-inner {
-        grid-template-columns: 1fr;
-        min-height: unset;
+    .hero-tesla-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.9rem, 7vw, 5.8rem);
+      line-height: 1.02;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: #fff;
+      max-width: 16ch;
+      text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-tesla-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold-soft);
+    }
+
+    .hero-tesla-sub {
+      max-width: 52ch;
+      color: rgba(255, 253, 250, 0.92);
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      line-height: 1.65;
+      font-weight: 500;
+      text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-tesla-bottom {
+      display: grid;
+      gap: 1.25rem;
+      justify-items: center;
+      width: 100%;
+    }
+
+    .hero-tesla-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+      max-width: 580px;
+    }
+
+    .hero-tesla-btn {
+      flex: 1 1 230px;
+      max-width: 280px;
+      min-height: 56px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: transform 200ms ease, background-color 200ms ease, box-shadow 200ms ease, color 200ms ease;
+    }
+
+    .hero-tesla-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-tesla-btn-primary {
+      background: linear-gradient(135deg, #c79b63 0%, var(--gold) 55%, #d4aa74 100%);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(184, 139, 82, 0.45);
+    }
+
+    .hero-tesla-btn-primary:hover {
+      box-shadow: 0 12px 36px rgba(184, 139, 82, 0.6);
+    }
+
+    .hero-tesla-btn-secondary {
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-tesla-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--warm-dark);
+      border-color: transparent;
+    }
+
+    .hero-tesla-brokerage {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 253, 250, 0.78);
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 1.4rem;
+      transform: translateX(-50%);
+      width: 26px;
+      height: 42px;
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      border-radius: 999px;
+    }
+
+    .hero-scroll-cue::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      width: 4px;
+      height: 8px;
+      margin-left: -2px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.85);
+      animation: hero-scroll 1.8s ease-in-out infinite;
+    }
+
+    @keyframes hero-scroll {
+      0% { opacity: 0; transform: translateY(0); }
+      40% { opacity: 1; }
+      80% { opacity: 0; transform: translateY(14px); }
+      100% { opacity: 0; transform: translateY(14px); }
+    }
+
+    @media (max-width: 600px) {
+      .hero-tesla {
+        padding: 7rem 1.25rem 3.5rem;
+        background-attachment: scroll;
       }
-      .hero-split-photo {
-        height: 60vw;
-        min-height: 320px;
-        max-height: 520px;
-        order: -1;
+      .hero-tesla-btn {
+        flex: 1 1 100%;
+        max-width: 320px;
       }
-      .hero-split-text {
-        padding: 3rem 1.5rem 2.5rem;
-      }
-      .hero-photo-badge {
-        bottom: 1.5rem;
-        left: 1.25rem;
-        padding: 0.75rem 1.25rem;
-      }
+      .hero-scroll-cue { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-scroll-cue::before { animation: none; }
     }
 .trust-card, .service-card, .pulse-card, .stat {
   box-shadow: 0 2px 24px rgba(0,0,0,0.06) !important;
@@ -2893,35 +2988,20 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   </header>
 
   <main id="top">
-    <section class="hero-split" id="hero">
-      <div class="hero-split-inner">
-        <div class="hero-split-text" data-reveal>
-          <span class="eyebrow">Kareem Jamal · Woodland Hills, CA</span>
-          <h1 class="hero-title">The Realtor families choose to build <em>generational wealth.</em></h1>
-          <p class="hero-text">From your first home to your family legacy — Kareem helps Southern California families buy smarter, sell strategically, and build wealth that lasts.</p>
-          <span class="brokerage-line">Rodeo Realty Fine Estates · CA DRE #01998956</span>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="#contact">Start Your Strategy</a>
-            <a class="btn btn-outline" href="mls-search.html">Search Homes</a>
-          </div>
-          <div class="hero-proofline">
-            <a class="proof-pill" href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation</a>
-            <a class="proof-pill" href="buyers-and-sellers.html#seller-onboarding">Listing Strategy</a>
-            <a class="proof-pill" href="family-wealth-preservation.html">Family Wealth</a>
-          </div>
-        </div>
-        <div class="hero-split-photo" data-reveal>
-          <img
-            src="./assets/kareem-jamal-brand-flyer.jpeg"
-            alt="Kareem Jamal — Southern California Realtor"
-            fetchpriority="high"
-          />
-          <div class="hero-photo-badge">
-            <span class="badge-name">Kareem Jamal</span>
-            <span class="badge-title">Rodeo Realty Fine Estates</span>
-          </div>
-        </div>
+    <section class="hero-tesla" id="hero">
+      <div class="hero-tesla-top" data-reveal>
+        <span class="hero-tesla-eyebrow">Kareem Jamal · Woodland Hills, CA</span>
+        <h1 class="hero-tesla-title">Real estate that builds <em>generational wealth.</em></h1>
+        <p class="hero-tesla-sub">From your first home to your family legacy — Kareem helps Southern California families buy smarter, sell strategically, and build wealth that lasts.</p>
       </div>
+      <div class="hero-tesla-bottom" data-reveal>
+        <div class="hero-tesla-buttons">
+          <a class="hero-tesla-btn hero-tesla-btn-primary" href="#contact">Start Your Strategy</a>
+          <a class="hero-tesla-btn hero-tesla-btn-secondary" href="mls-search.html">Search Homes</a>
+        </div>
+        <span class="hero-tesla-brokerage">Rodeo Realty Fine Estates · CA DRE #01998956</span>
+      </div>
+      <div class="hero-scroll-cue" aria-hidden="true"></div>
     </section>
 
     <section style="padding:0;">

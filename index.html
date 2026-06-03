@@ -3115,6 +3115,175 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       .method-grid { grid-template-columns: 1fr; }
       .method-card { padding: 2.25rem 1.6rem 1.85rem; }
     }
+
+/* ── For Ambitious Professionals ── */
+    .pro-section {
+      background: var(--linen);
+      padding: clamp(72px, 11vw, 150px) 0;
+      border-top: 1px solid rgba(46, 53, 60, 0.08);
+    }
+    .pro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2.5rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+    .pro-copy { display: grid; gap: 1.3rem; align-content: center; }
+    .pro-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.3rem, 4.6vw, 3.8rem);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      max-width: 16ch;
+    }
+    .pro-title em { font-style: italic; font-weight: 400; color: var(--gold); }
+    .pro-copy > p {
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.85;
+      max-width: 52ch;
+    }
+    .pro-chip-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.3rem; }
+    .pro-chip {
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(184, 139, 82, 0.25);
+      background: rgba(184, 139, 82, 0.08);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .value-stack {
+      background: linear-gradient(165deg, #fffdfa, #f6efe4);
+      border: 1px solid rgba(184, 139, 82, 0.16);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+      display: grid;
+      gap: 0.4rem;
+    }
+    .value-stack-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.6rem;
+    }
+    .value-stack-head strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .value-stack-head span {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    a.value-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 0.9rem 1rem;
+      padding: 0.95rem 0.5rem;
+      border-top: 1px solid rgba(46, 53, 60, 0.08);
+      border-radius: 12px;
+      transition: background 180ms ease, transform 180ms ease;
+    }
+    a.value-item:hover { background: rgba(184, 139, 82, 0.07); transform: translateX(3px); }
+    .value-ic {
+      width: 40px; height: 40px;
+      border-radius: 11px;
+      display: grid; place-items: center;
+      background: var(--sand);
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .value-ic svg { width: 20px; height: 20px; }
+    .value-txt strong { display: block; font-size: 0.98rem; color: var(--ink); font-weight: 700; }
+    .value-txt span { display: block; font-size: 0.83rem; color: var(--muted); line-height: 1.5; margin-top: 0.1rem; }
+    .value-free {
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #356e57; background: rgba(53, 110, 87, 0.1);
+      padding: 0.35rem 0.6rem; border-radius: 999px; white-space: nowrap;
+    }
+
+/* ── Wealth Builder interactive ── */
+    .wb-section {
+      background: var(--warm-dark);
+      color: #fff;
+      padding: clamp(72px, 11vw, 150px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .wb-section::before {
+      content: "";
+      position: absolute;
+      width: 520px; height: 520px;
+      left: -180px; bottom: -180px;
+      background: radial-gradient(circle, rgba(184, 139, 82, 0.18), transparent 65%);
+      pointer-events: none;
+    }
+    .wb-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(2.5rem, 5vw, 4rem);
+      display: grid; gap: 1rem; justify-items: center;
+      position: relative;
+    }
+    .wb-kicker { color: var(--gold-soft); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; }
+    .wb-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.3rem, 5vw, 3.9rem);
+      font-weight: 500; line-height: 1.05; letter-spacing: -0.018em;
+      color: #fff; max-width: 18ch;
+    }
+    .wb-sub { color: rgba(255, 253, 250, 0.78); font-size: 1.04rem; line-height: 1.75; max-width: 56ch; }
+    .wb-card {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: clamp(1.5rem, 3vw, 3rem);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-xl);
+      padding: clamp(1.75rem, 3.5vw, 3rem);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+    .wb-controls { display: grid; gap: 1.75rem; align-content: start; }
+    .wb-field label { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.7rem; }
+    .wb-field .wb-lbl { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 253, 250, 0.72); }
+    .wb-field .wb-out { font-family: "Cormorant Garamond", serif; font-size: 1.45rem; font-weight: 600; color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+    .wb-range { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.16); outline: none; cursor: pointer; }
+    .wb-range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #d4aa74, var(--gold)); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); border: 2px solid #fff; cursor: pointer; }
+    .wb-range::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--gold); border: 2px solid #fff; cursor: pointer; }
+    .wb-results {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(184, 139, 82, 0.28);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 2.5vw, 2rem);
+      display: grid; gap: 1rem; align-content: start;
+    }
+    .wb-hero-stat { text-align: center; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .wb-hero-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-soft); }
+    .wb-hero-num { font-family: "Cormorant Garamond", serif; font-size: clamp(2.8rem, 6vw, 4rem); font-weight: 600; color: #fff; line-height: 1; margin-top: 0.4rem; letter-spacing: -0.02em; }
+    .wb-res-rows { display: grid; gap: 0.7rem; }
+    .wb-res-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; font-size: 0.92rem; }
+    .wb-res-row .wb-rl { color: rgba(255, 253, 250, 0.7); }
+    .wb-res-row .wb-rv { font-weight: 700; color: #fff; font-variant-numeric: tabular-nums; }
+    .wb-res-row.is-highlight .wb-rv { color: var(--gold-soft); font-family: "Cormorant Garamond", serif; font-size: 1.35rem; }
+    .wb-disclaimer { font-size: 0.75rem; color: rgba(255, 253, 250, 0.5); line-height: 1.6; margin-top: 0.25rem; }
+    .wb-cta-row { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; margin-top: clamp(2rem, 4vw, 3rem); }
+    .wb-btn-ghost { background: rgba(255, 255, 255, 0.1); color: #fff; border: 1px solid rgba(255, 255, 255, 0.32); }
+    .wb-btn-ghost:hover { background: rgba(255, 255, 255, 0.95); color: var(--warm-dark); border-color: transparent; }
+
+    @media (max-width: 900px) { .pro-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 820px) { .wb-card { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -3270,6 +3439,99 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
         <div class="method-foot" data-reveal>
           <p>This is the difference between owning property and building a legacy.</p>
           <a class="btn btn-primary" href="family-wealth-preservation.html">See the Full Framework</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pro-section" id="professionals" aria-labelledby="pro-heading">
+      <div class="container">
+        <div class="pro-grid">
+          <div class="pro-copy" data-reveal>
+            <span class="section-kicker">For Ambitious Professionals</span>
+            <h2 class="pro-title" id="pro-heading">You earn like a professional. Let's <em>build like an investor.</em></h2>
+            <p>You're excellent at what you do — and your income shows it. But a strong salary and real wealth aren't the same thing. The earners who pull ahead are the ones who turn cash flow into appreciating assets early, while time is still on their side.</p>
+            <p>Kareem is the guide for high-earning professionals who want a clear, unhurried strategy for their first home, their next move, and the portfolio underneath it — without the jargon, pressure, or guesswork.</p>
+            <div class="pro-chip-row">
+              <span class="pro-chip">Tech &amp; Engineering</span>
+              <span class="pro-chip">Medicine &amp; Law</span>
+              <span class="pro-chip">Finance</span>
+              <span class="pro-chip">Founders</span>
+            </div>
+          </div>
+          <aside class="value-stack" data-reveal aria-label="Free resources Kareem provides">
+            <div class="value-stack-head">
+              <strong>What you get — free</strong>
+              <span>No cost · no catch</span>
+            </div>
+            <a class="value-item" href="#contact">
+              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+              <span class="value-txt"><strong>1:1 Strategy Session</strong><span>A real plan for your goals — not a sales pitch.</span></span>
+              <span class="value-free">Free</span>
+            </a>
+            <a class="value-item" href="free-reports.html">
+              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg></span>
+              <span class="value-txt"><strong>42 Expert Guides</strong><span>Pricing, negotiation, and wealth playbooks.</span></span>
+              <span class="value-free">Free</span>
+            </a>
+            <a class="value-item" href="wealth-tools.html">
+              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg></span>
+              <span class="value-txt"><strong>Wealth Calculators</strong><span>Affordability, equity, and net-proceeds tools.</span></span>
+              <span class="value-free">Free</span>
+            </a>
+            <a class="value-item" href="mls-search.html">
+              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+              <span class="value-txt"><strong>Live MLS Access</strong><span>Every active listing, direct — no third-party noise.</span></span>
+              <span class="value-free">Free</span>
+            </a>
+            <a class="value-item" href="family-wealth-preservation.html">
+              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6z"/></svg></span>
+              <span class="value-txt"><strong>Annual Portfolio Review</strong><span>A yearly check-in on equity, timing, and tax moves.</span></span>
+              <span class="value-free">Free</span>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="wb-section" id="wealth-builder" aria-labelledby="wb-heading">
+      <div class="container">
+        <div class="wb-head" data-reveal>
+          <span class="wb-kicker">The Wealth Builder</span>
+          <h2 class="wb-title" id="wb-heading">See what your income can become</h2>
+          <p class="wb-sub">Move the sliders. In seconds, see the home your income can support today — and the equity it could build over time. Then let's make it real.</p>
+        </div>
+        <div class="wb-card" data-reveal>
+          <div class="wb-controls">
+            <div class="wb-field">
+              <label for="wb-income"><span class="wb-lbl">Annual Income</span><span class="wb-out" id="wb-income-out">$180,000</span></label>
+              <input class="wb-range" type="range" id="wb-income" min="80000" max="600000" step="5000" value="180000" aria-describedby="wb-income-out" />
+            </div>
+            <div class="wb-field">
+              <label for="wb-down"><span class="wb-lbl">Down Payment Saved</span><span class="wb-out" id="wb-down-out">$80,000</span></label>
+              <input class="wb-range" type="range" id="wb-down" min="0" max="400000" step="5000" value="80000" aria-describedby="wb-down-out" />
+            </div>
+            <div class="wb-field">
+              <label for="wb-years"><span class="wb-lbl">Time Horizon</span><span class="wb-out" id="wb-years-out">10 yrs</span></label>
+              <input class="wb-range" type="range" id="wb-years" min="5" max="30" step="1" value="10" aria-describedby="wb-years-out" />
+            </div>
+            <p class="wb-disclaimer">Illustration only — assumes a 6.5% rate, 30-yr loan, ~28% of income toward housing, 1.25% property tax, and 4% annual appreciation. Your real numbers depend on credit, loan type, and market. Kareem will build the personalized version with you.</p>
+          </div>
+          <div class="wb-results">
+            <div class="wb-hero-stat">
+              <div class="wb-hero-label">Projected Equity</div>
+              <div class="wb-hero-num" id="wb-equity-big">$—</div>
+            </div>
+            <div class="wb-res-rows">
+              <div class="wb-res-row is-highlight"><span class="wb-rl">Home you can target</span><span class="wb-rv" id="wb-price">$—</span></div>
+              <div class="wb-res-row"><span class="wb-rl">Estimated payment</span><span class="wb-rv" id="wb-monthly">$—</span></div>
+              <div class="wb-res-row"><span class="wb-rl">Projected home value</span><span class="wb-rv" id="wb-projval">$—</span></div>
+              <div class="wb-res-row"><span class="wb-rl">Wealth built vs. your down payment</span><span class="wb-rv" id="wb-gain">$—</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="wb-cta-row" data-reveal>
+          <a class="btn btn-primary" href="#contact">Build My Real Plan</a>
+          <a class="btn wb-btn-ghost" href="wealth-tools.html">Open Full Calculators</a>
         </div>
       </div>
     </section>
@@ -3897,6 +4159,57 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
     document.body.style.transform = 'translateY(-8px)';
     setTimeout(function () { window.location.href = href; }, 260);
   });
+})();
+  </script>
+  <script>
+// ── Wealth Builder interactive calculator ──
+(function () {
+  var inc = document.getElementById('wb-income');
+  var dp = document.getElementById('wb-down');
+  var yr = document.getElementById('wb-years');
+  if (!inc || !dp || !yr) return;
+
+  var RATE = 0.065, N = 360, TAX = 0.0125, INS = 0.004, APPR = 0.04, DTI = 0.28;
+
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+  function fmtShort(n) {
+    if (n >= 1e6) return '$' + (n / 1e6).toFixed(2).replace(/\.?0+$/, '') + 'M';
+    if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'K';
+    return '$' + Math.round(n);
+  }
+  function setText(id, txt) { var el = document.getElementById(id); if (el) el.textContent = txt; }
+
+  function calc() {
+    var income = +inc.value, down = +dp.value, years = +yr.value;
+    setText('wb-income-out', fmt(income));
+    setText('wb-down-out', fmt(down));
+    setText('wb-years-out', years + (years === 1 ? ' yr' : ' yrs'));
+
+    var r = RATE / 12;
+    var k = r * Math.pow(1 + r, N) / (Math.pow(1 + r, N) - 1); // monthly P&I per $ of loan
+    var maxMonthly = income / 12 * DTI;
+    // maxMonthly = k*(price-down) + price*(TAX+INS)/12  ->  solve for price
+    var price = (maxMonthly + k * down) / (k + (TAX + INS) / 12);
+    if (price < down) price = down;
+    var loan = Math.max(price - down, 0);
+    var pi = k * loan;
+    var total = pi + price * TAX / 12 + price * INS / 12;
+
+    var m = years * 12;
+    var bal = loan > 0 ? loan * (Math.pow(1 + r, N) - Math.pow(1 + r, m)) / (Math.pow(1 + r, N) - 1) : 0;
+    var projVal = price * Math.pow(1 + APPR, years);
+    var equity = projVal - Math.max(bal, 0);
+    var gain = equity - down;
+
+    setText('wb-price', fmtShort(price));
+    setText('wb-monthly', fmt(total) + '/mo');
+    setText('wb-projval', fmtShort(projVal));
+    setText('wb-equity-big', fmtShort(equity));
+    setText('wb-gain', fmtShort(Math.max(gain, 0)));
+  }
+
+  [inc, dp, yr].forEach(function (el) { el.addEventListener('input', calc); });
+  calc();
 })();
   </script>
 </body>

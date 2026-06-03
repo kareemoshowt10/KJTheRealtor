@@ -41,6 +41,10 @@ Official website: https://kareemjamaltherealtor.com/
 
 ## Free Tools & Resources (Give-First)
 
+- House Hacking (SoCal investor guide + interactive analyzer): https://kareemjamaltherealtor.com/house-hacking
+  - House Hack Analyzer (price, down payment, rents, vacancy → net cost-to-live, equity, break-even)
+  - 4 SoCal strategies: FHA/VA multi-unit, ADU-powered SFH, room rental, value-add live-in flip
+  - SFV neighborhood guide, ADU rent ranges, 2026 loan limits, anonymized case studies
 - Wealth Tools (free interactive calculators): https://kareemjamaltherealtor.com/wealth-tools
   - Home Affordability Calculator (28/36 DTI)
   - Equity & Wealth Projection Calculator

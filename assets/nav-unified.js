@@ -9,7 +9,7 @@
   'use strict';
 
   const header = document.getElementById('siteHeader');
-  const toggle = header?.querySelector('.menu-toggle');
+  const toggle = header?.querySelector('.nav-toggle');
   const navLinks = header?.querySelector('.nav-links');
   if (!header) return;
 

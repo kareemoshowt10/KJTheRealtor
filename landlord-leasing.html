@@ -1734,21 +1734,22 @@ body {
     <p><strong>Wealth strategy?</strong>Start with a conversation.</p>
     <a class="btn btn-primary" href="#contact" style="min-height:44px; padding:0.75rem 1.1rem; font-size:0.72rem;">Connect Now</a>
   </div>
-    <header class="site-header">
+          <header class="site-header" id="siteHeader">
     <div class="container nav-shell">
-      <a class="brand" href="/" aria-label="Kareem Jamal home">
-        <strong class="brand-name">Kareem Jamal</strong>
-        <span class="brand-role">Rodeo Realty Fine Estates</span>
+      <a class="brand" href="/" aria-label="Kareem Jamal — Home">
+        <span class="brand-name">Kareem Jamal</span>
+        <span class="brand-sub">Rodeo Realty Fine Estates</span>
       </a>
       <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>
-      <nav class="nav-links" id="site-nav" aria-label="Primary">
+      <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
         <a href="/">Home</a>
         <a href="/buyers-and-sellers">Buy &amp; Sell</a>
-        <a href="/mls-search">Search Homes</a>
-        <a href="/family-wealth-preservation">Family Wealth</a>
-        <a href="/wealth-tools">Tools</a>
+        <a href="/landlord-leasing">Landlords</a>
+        <a href="/real-estate-partnerships">Invest</a>
+        <a href="/house-hacking">House Hacking</a>
+        <a href="/mls-search">Search</a>
         <a href="/free-reports">Free Reports</a>
       </nav>
       <a class="nav-cta" href="#wizard-section">Book a Call</a>
@@ -1902,84 +1903,305 @@ body {
             <div class="ladder-num">3</div>
             <div class="ladder-body">
               <span class="ladder-stage-label">Phase Three</span>
-              <h3>Lease Execution &amp; Ongoing Portfolio Management</h3>
-              <p>We draft California-compliant lease agreements, manage the move-in inspection process, and coordinate all documentation. Once your tenant is in place, we remain available for lease renewals, rent adjustments, and long-term portfolio strategy conversations.</p>
+              <h3>Lease Structuring &amp; Compliance Shield</h3>
+              <p>We draft a custom, attorney-vetted C.A.R. lease agreement packed with protective AB 1482 rent-control disclosures, pet addenda, and local compliance requirements. We collect deposits, verify renter's insurance, and complete a detailed photographic move-in inspection.</p>
+              <p>Your property is handed over to the tenant with a legally binding compliance shield, securing your cash flow and protecting your capital assets from future tenancy disputes.</p>
             </div>
           </article>
-        </div><!-- /.ladder-grid -->
-        </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy Wizard Section -->
+    <section id="wizard-section" class="section" style="background: rgba(184, 139, 82, 0.03); scroll-margin-top: 100px;">
+      <div class="container">
+        <div class="section-head" style="text-align: center; margin-bottom: 4rem;" data-reveal>
+          <span class="section-kicker">Leasing Strategy</span>
+          <h2 class="section-title" style="margin: 0 auto 1.5rem;">Accidental Landlord <em>Strategy Wizard.</em></h2>
+          <p class="section-copy" style="margin: 0 auto; max-width: 620px;">
+            Complete our 4-step landlord wizard to outline your rental goals, timeline, and compliance concerns. Kareem will review and prepare a custom compliance &amp; leasing strategy.
+          </p>
+        </div>
+
+        <div class="wizard-box" data-reveal>
+          <div class="wizard-progress-container">
+            <div class="wizard-steps-indicator">
+              <div class="wizard-progress-bar" id="wizard-bar"></div>
+              <div class="wizard-indicator-step is-active" data-step="1">1</div>
+              <div class="wizard-indicator-step" data-step="2">2</div>
+              <div class="wizard-indicator-step" data-step="3">3</div>
+              <div class="wizard-indicator-step" data-step="4">4</div>
+            </div>
+            <div class="wizard-step-title-row">
+              <span id="wizard-step-label">Step 1 of 4</span>
+              <span id="wizard-step-percent">0% Complete</span>
+            </div>
+          </div>
+
+          <form id="landlord-wizard-form" action="https://formspree.io/f/mkgjgboj" method="POST">
+            <!-- Step 1: Location & Type -->
+            <div class="wizard-step is-active" data-step="1">
+              <h3>Property Profile</h3>
+              <p class="step-desc">Select your property's location and type in the San Fernando Valley.</p>
+              
+              <div class="wizard-question-label" style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--ink);">Where is your property located?</div>
+              <div class="wizard-option-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 1.5rem;">
+                <div class="wizard-card is-selected" data-input="property_location" data-val="Woodland Hills">
+                  <span class="wizard-card-icon">📍</span>
+                  <h4>Woodland Hills</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="property_location" data-val="Calabasas">
+                  <span class="wizard-card-icon">📍</span>
+                  <h4>Calabasas</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="property_location" data-val="Hidden Hills">
+                  <span class="wizard-card-icon">📍</span>
+                  <h4>Hidden Hills</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="property_location" data-val="Encino">
+                  <span class="wizard-card-icon">📍</span>
+                  <h4>Encino</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="property_location" data-val="West Hills">
+                  <span class="wizard-card-icon">📍</span>
+                  <h4>West Hills</h4>
+                  <span class="wizard-check"></span>
+                </div>
+              </div>
+              <input type="hidden" name="property_location" id="property_location" value="Woodland Hills" />
+
+              <div class="wizard-question-label" style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--ink);">What type of property is it?</div>
+              <div class="wizard-option-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                <div class="wizard-card is-selected" data-input="property_type" data-val="Single Family Home">
+                  <span class="wizard-card-icon">🏰</span>
+                  <h4>Single Family</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="property_type" data-val="Condo/Townhome">
+                  <span class="wizard-card-icon">🏢</span>
+                  <h4>Condo/Townhome</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="property_type" data-val="Multi-Family (2-4 Units)">
+                  <span class="wizard-card-icon">🏘️</span>
+                  <h4>Multi-Family (2-4)</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="property_type" data-val="ADU/Guest House">
+                  <span class="wizard-card-icon">🏡</span>
+                  <h4>ADU/Guest House</h4>
+                  <span class="wizard-check"></span>
+                </div>
+              </div>
+              <input type="hidden" name="property_type" id="property_type" value="Single Family Home" />
+            </div>
+
+            <!-- Step 2: Rent Target & Timeline -->
+            <div class="wizard-step" data-step="2">
+              <h3>Financials &amp; Timeline</h3>
+              <p class="step-desc">Select your target monthly lease price and the date your property will be ready for tenants.</p>
+              
+              <div class="wizard-question-label" style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--ink);">What is your target monthly rent?</div>
+              <div class="wizard-option-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 1.5rem;">
+                <div class="wizard-card is-selected" data-input="rent_target" data-val="Under $3,000">
+                  <span class="wizard-card-icon">💵</span>
+                  <h4>Under $3,000</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="rent_target" data-val="$3,000 - $5,000">
+                  <span class="wizard-card-icon">💵</span>
+                  <h4>$3k – $5k</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="rent_target" data-val="$5,000 - $8,000">
+                  <span class="wizard-card-icon">💵</span>
+                  <h4>$5k – $8k</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="rent_target" data-val="$8,000+">
+                  <span class="wizard-card-icon">💵</span>
+                  <h4>$8,000+</h4>
+                  <span class="wizard-check"></span>
+                </div>
+              </div>
+              <input type="hidden" name="rent_target" id="rent_target" value="Under $3,000" />
+
+              <div class="wizard-question-label" style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--ink);">What is your leasing timeline?</div>
+              <div class="wizard-option-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                <div class="wizard-card is-selected" data-input="timeline" data-val="Immediate / Vacant">
+                  <span class="wizard-card-icon">⚡</span>
+                  <h4>Ready Now</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="timeline" data-val="Occupied / Lease ending soon">
+                  <span class="wizard-card-icon">📅</span>
+                  <h4>30–90 Days</h4>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card" data-input="timeline" data-val="Planning stage / Thinking about renting">
+                  <span class="wizard-card-icon">⏳</span>
+                  <h4>Thinking / Exploring</h4>
+                  <span class="wizard-check"></span>
+                </div>
+              </div>
+              <input type="hidden" name="timeline" id="timeline" value="Immediate / Vacant" />
+            </div>
+
+            <!-- Step 3: Concerns -->
+            <div class="wizard-step" data-step="3">
+              <h3>Leasing &amp; Compliance Concerns</h3>
+              <p class="step-desc">Select the primary issues or concerns you want to address. You can select more than one.</p>
+              
+              <div class="wizard-option-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+                <div class="wizard-card multi-select" data-val="AB 1482 rent caps compliance">
+                  <span class="wizard-card-icon">📜</span>
+                  <h4>AB 1482 Compliance</h4>
+                  <p>California rent control guidelines &amp; exemption clauses.</p>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card multi-select" data-val="Tenant credit/background vetting">
+                  <span class="wizard-card-icon">🕵️</span>
+                  <h4>Tenant Vetting</h4>
+                  <p>Deep background checks, income validation, eviction search.</p>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card multi-select" data-val="Vacancy carrying costs">
+                  <span class="wizard-card-icon">💸</span>
+                  <h4>Vacancy Reduction</h4>
+                  <p>Accelerating placement using off-market pre-leasing campaigns.</p>
+                  <span class="wizard-check"></span>
+                </div>
+                <div class="wizard-card multi-select" data-val="Maintenance & property preservation">
+                  <span class="wizard-card-icon">🛡️</span>
+                  <h4>Property Preservation</h4>
+                  <p>Routine lease audits, trusted contractor network oversight.</p>
+                  <span class="wizard-check"></span>
+                </div>
+              </div>
+              <input type="hidden" name="landlord_concerns" id="landlord_concerns" value="" />
+            </div>
+
+            <!-- Step 4: Contact details -->
+            <div class="wizard-step" data-step="4">
+              <h3>Secure Custom Landlord Audit</h3>
+              <p class="step-desc">Provide your contact details. Kareem will review your profile and deliver a custom landlord placement audit.</p>
+              
+              <div class="field-grid form-grid-3">
+                <div class="field">
+                  <label for="wizard-name">Full Name</label>
+                  <input id="wizard-name" name="name" type="text" required placeholder="Full Name" autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label for="wizard-email">Email Address</label>
+                  <input id="wizard-email" name="email" type="email" required placeholder="email@example.com" autocomplete="email" />
+                </div>
+                <div class="field">
+                  <label for="wizard-phone">Phone Number</label>
+                  <input id="wizard-phone" name="phone" type="tel" required placeholder="(818) 000-0000" autocomplete="tel" inputmode="numeric" />
+                </div>
+              </div>
+              
+              <div class="field" style="margin-top: 1.25rem;">
+                <label for="wizard-message">Property Details / Specific Questions</label>
+                <textarea id="wizard-message" name="message" placeholder="Provide any details about the home's condition, school districts, pet policies, or specific questions..."></textarea>
+              </div>
+
+              <!-- Honeypot -->
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field" />
+            </div>
+
+            <!-- Wizard Navigation -->
+            <div class="wizard-nav-buttons">
+              <button type="button" class="btn btn-prev" id="wizard-prev-btn" style="visibility: hidden;">Previous</button>
+              <div style="display: flex; align-items: center; gap: 1.5rem;">
+                <p id="wizard-status" class="form-status" style="margin: 0;"></p>
+                <button type="button" class="btn btn-primary" id="wizard-next-btn">Next Step</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+        <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <strong>Kareem Jamal</strong>
-          <p>Southern California Real Estate Strategy &amp; Generational Wealth Preservation.</p>
-          <span class="brokerage-line" style="margin-top: 1.2rem; opacity: 0.6; border-color: rgba(255,255,255,0.1); color: white;">Rodeo Realty Fine Estates</span>
+          <span class="footer-brand-name">Kareem Jamal</span>
+          <p>Southern California Real Estate Strategy &amp; Generational Wealth Preservation. Serving Woodland Hills, Calabasas, Hidden Hills, Encino, West Hills, and the San Fernando Valley.</p>
+          <span class="dre">Rodeo Realty Fine Estates · CA DRE #01998956</span>
         </div>
         <div class="footer-col">
           <h4>Navigate</h4>
-          <a href="index.html">Home</a>
-          <a href="buyers-and-sellers.html">Buyers & Sellers</a>
-          <a href="landlord-leasing.html">Landlord Representation</a>
-          <a href="real-estate-partnerships.html">Co-Investing Partnerships</a>
-          <a href="family-wealth-preservation.html">Family Wealth Lens</a>
-          <a href="mls-search.html">Home Search</a>
+          <a href="/">Home</a>
+          <a href="/buyers-and-sellers">Buyers &amp; Sellers</a>
+          <a href="/landlord-leasing">Landlord Representation</a>
+          <a href="/real-estate-partnerships">Co-Investing Partnerships</a>
+          <a href="/family-wealth-preservation">Family Wealth Lens</a>
+          <a href="/mls-search">Home Search</a>
+          <a href="/mission">Our Mission</a>
         </div>
         <div class="footer-col">
           <h4>Communities</h4>
-          <a href="woodland-hills.html">Woodland Hills</a>
-          <a href="calabasas.html">Calabasas</a>
-          <a href="hidden-hills.html">Hidden Hills</a>
-          <a href="encino.html">Encino</a>
-          <a href="west-hills.html">West Hills</a>
+          <a href="/woodland-hills">Woodland Hills</a>
+          <a href="/calabasas">Calabasas</a>
+          <a href="/hidden-hills">Hidden Hills</a>
+          <a href="/encino">Encino</a>
+          <a href="/west-hills">West Hills</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
           <a href="tel:+18184027326">(818) 402-7326</a>
           <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
           <a href="https://www.zillow.com/profile/KareemJamal" target="_blank" rel="noopener">Zillow Profile</a>
+          <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener">Rodeo Realty Profile</a>
+          <a href="/free-reports">Free Reports</a>
+          <a href="/wealth-tools">Wealth Tools</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Kareem Jamal | CA DRE #01998956</span>
-        <span>Equal Housing Opportunity | Rodeo Realty Fine Estates</span>
+        <span>© 2026 Kareem Jamal | CA DRE #01998956</span>
+        <span>Rodeo Realty Fine Estates | Equal Housing Opportunity</span>
       </div>
     </div>
+
+    <!-- Social Strip -->
     <div class="social-strip">
-  <div class="container social-strip-inner">
-    <span class="social-label">Connect with Kareem</span>
-    <div class="social-links">
-      <a href="https://www.instagram.com/kareemjamaltherealtor" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/kareemjamaltherealtor/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-      <a href="https://www.facebook.com/kareemjamaltherealtor/" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        Facebook
-      </a>
-      <a href="https://www.zillow.com/profile/kareemjamal" target="_blank" rel="noopener" aria-label="Zillow" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9.5l1.5 1L12 5l8.5 5.5 1.5-1L12 2zM4 11v9h16v-9l-8 5-8-5z"/></svg>
-        Zillow
-      </a>
-      <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener" aria-label="Rodeo Realty Profile" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Rodeo Realty
-      </a>
-      <a href="https://g.page/r/kareemjamalrealtor/review" target="_blank" rel="noopener" aria-label="Google Reviews" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Google Reviews
-      </a>
+      <div class="container social-strip-inner">
+        <span class="social-label">Connect with Kareem</span>
+        <div class="social-links">
+          <a href="https://www.instagram.com/kareemjamaltherealtor" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/kareemjamaltherealtor/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.facebook.com/kareemjamaltherealtor/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.zillow.com/profile/kareemjamal" target="_blank" rel="noopener" class="social-link" aria-label="Zillow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9.5l1.5 1L12 5l8.5 5.5 1.5-1L12 2zM4 11v9h16v-9l-8 5-8-5z"/></svg>
+            Zillow
+          </a>
+          <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener" class="social-link" aria-label="Rodeo Realty">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Rodeo Realty
+          </a>
+          <a href="https://g.page/r/kareemjamalrealtor/review" target="_blank" rel="noopener" class="social-link" aria-label="Google Reviews">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google Reviews
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   </footer>
 
   <script>

@@ -137,18 +137,18 @@
   border-color: rgba(255, 255, 255, 0.65) !important;
 }
 
-/* On scroll: CTA becomes solid blue (Apple style) */
+/* On scroll: CTA becomes solid gold */
 .site-header.scrolled .nav-cta {
-  background: #0071e3 !important;
+  background: #b88b52 !important;
   border-color: transparent !important;
   color: #ffffff !important;
 }
 .site-header.scrolled .nav-cta:hover {
-  background: #0077ed !important;
+  background: #d4aa74 !important;
 }
 
 /* ── Mobile menu toggle ── */
-.menu-toggle {
+.nav-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -162,10 +162,10 @@
   border-radius: 8px;
   transition: background 200ms ease;
 }
-.menu-toggle:hover { background: rgba(255, 255, 255, 0.1); }
-.site-header.scrolled .menu-toggle:hover { background: rgba(0, 0, 0, 0.05); }
+.nav-toggle:hover { background: rgba(255, 255, 255, 0.1); }
+.site-header.scrolled .nav-toggle:hover { background: rgba(0, 0, 0, 0.05); }
 
-.menu-toggle span {
+.nav-toggle span {
   display: block;
   width: 100%;
   height: 1.5px;
@@ -174,22 +174,22 @@
   transition: background 400ms ease, transform 250ms ease, opacity 250ms ease;
   transform-origin: center;
 }
-.site-header.scrolled .menu-toggle span { background: #1d1d1f; }
+.site-header.scrolled .nav-toggle span { background: #1d1d1f; }
 
-.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
   transform: translateY(6.5px) rotate(45deg);
 }
-.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
-.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
 /* ── Mobile drawer ── */
 @media (max-width: 860px) {
-  .menu-toggle { display: flex; }
+  .nav-toggle { display: flex; }
 
   .nav-links {
     position: fixed;
@@ -228,7 +228,7 @@
   .nav-cta {
     margin-top: 0.5rem;
     text-align: center;
-    background: #0071e3 !important;
+    background: #b88b52 !important;
     border-color: transparent !important;
   }
 }

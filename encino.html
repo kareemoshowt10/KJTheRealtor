@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encino Realtor | Homes For Sale & Real Estate | Kareem Jamal</title>
+  <meta
+    name="description"
+    content="Navigate the Encino real estate market with trusted local expert Kareem Jamal. Custom listing strategies, buyer representation, and family wealth preservation."
+  />
+  <meta name="keywords" content="Encino Realtor, Encino CA Real Estate, Homes for sale Encino, Royal Oaks Encino homes, Encino Hills properties, Kareem Jamal, Rodeo Realty Fine Estates" />
+  <meta name="theme-color" content="#171a20" />
+  
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Encino Realtor | Kareem Jamal" />
+  <meta property="og:description" content="Strategic real estate guidance and local expertise in Encino and surrounding prestigious Valley communities." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/encino.html" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=90&auto=format&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/encino.html" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Unified Navigation CSS -->
+  <link rel="stylesheet" href="assets/nav-unified.css" />
+  <script src="assets/nav-unified.js" defer></script>
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Kareem Jamal - Encino Realtor",
+      "url": "https://kareemjamaltherealtor.com/encino.html",
+      "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
+      "jobTitle": "Realtor",
+      "telephone": "+1-818-402-7326",
+      "email": "kjamal@rodeore.com",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Encino"
+      },
+      "description": "Kareem Jamal offers elite buyer and seller representation in Encino, focusing on micro-market pricing, charter school alignment, and long-term family wealth preservation.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "21031 Ventura Blvd, #100",
+        "addressLocality": "Woodland Hills",
+        "addressRegion": "CA",
+        "postalCode": "91364",
+        "addressCountry": "US"
+      }
+    }
+  </script>
+
+  <style>
+    /* ══════════════════════════════════════════════════════════════
+       DESIGN TOKENS — Tesla × Apple Hybrid
+    ══════════════════════════════════════════════════════════════ */
+    :root {
+      --black:       #000000;
+      --charcoal:    #171a20;   /* Tesla dark bg */
+      --carbon:      #1d1d1f;   /* Apple heading */
+      --steel:       #424245;
+      --smoke:       #86868b;   /* Apple muted */
+      --cloud:       #f5f5f7;   /* Apple light bg */
+      --white:       #ffffff;
+      --blue:        #0071e3;   /* Apple CTA blue */
+      --blue-hover:  #0077ed;
+
+      --font: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", Helvetica Neue, Arial, sans-serif;
+
+      --section-py:  6.5rem;
+      --container:   1200px;
+      --r-sm:        12px;
+      --r-md:        18px;
+      --r-lg:        28px;
+
+      --shadow-sm:   0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md:   0 8px 24px rgba(0,0,0,0.08);
+      --shadow-lg:   0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--carbon);
+      background: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    section[id], article[id] { scroll-margin-top: 52px; }
+
+    ::selection { background: rgba(0,113,227,0.15); color: var(--carbon); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+
+    /* ── PRELOADER ── */
+    .preloader {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--black);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 600ms ease, visibility 600ms ease;
+    }
+    .preloader-wordmark {
+      font-size: 2.2rem; font-weight: 500; color: var(--white);
+      letter-spacing: -0.02em; opacity: 0; transform: translateY(10px);
+      animation: preloader-fade 800ms ease forwards 100ms;
+    }
+    body.loaded .preloader { opacity: 0; visibility: hidden; pointer-events: none; }
+    @keyframes preloader-fade { to { opacity: 1; transform: translateY(0); } }
+
+    /* ── CONTAINERS & SCROLL REVEALS ── */
+    .wrap { width: min(var(--container), calc(100% - 3rem)); margin: 0 auto; }
+    [data-reveal] {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-reveal].visible { opacity: 1; transform: translateY(0); }
+    [data-reveal][style*="--d"] { transition-delay: calc(var(--d) * 100ms); }
+
+    /* ── TYPOGRAPHY ── */
+    .eyebrow {
+      display: inline-block; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .display-xl {
+      font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 700;
+      line-height: 1.08; letter-spacing: -0.03em; color: var(--white);
+    }
+    .display-lg {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700;
+      line-height: 1.12; letter-spacing: -0.02em; color: var(--carbon);
+    }
+    .body-lg { font-size: 1.1rem; line-height: 1.6; color: var(--smoke); }
+    .body-md { font-size: 0.95rem; line-height: 1.6; color: var(--steel); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; height: 80vh; min-height: 580px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--black); text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0.55;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+    }
+    .hero-content { position: relative; z-index: 10; max-width: 800px; padding: 0 1.5rem; }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 400; color: rgba(255,255,255,0.8);
+      margin: 1.5rem 0 2rem; line-height: 1.5;
+    }
+
+    /* ── STATS GRID ── */
+    .stats-section { padding: 4.5rem 0; background: var(--charcoal); color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-md); padding: 2rem 1.5rem; text-align: center;
+      transition: transform 300ms ease, background 300ms ease;
+    }
+    .stat-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.05); }
+    .stat-val { font-size: 1.8rem; font-weight: 700; color: var(--blue); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); }
+
+    /* ── GRID LAYOUTS ── */
+    .section-py { padding: var(--section-py) 0; }
+    .two-col { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+    /* ── KAREEM'S TAKE ── */
+    .kareems-take {
+      background: var(--cloud); border-radius: var(--r-lg); padding: 3rem;
+      border-left: 4px solid var(--blue); margin-bottom: 3.5rem;
+    }
+    .kareems-take-title { font-size: 1.2rem; font-weight: 600; color: var(--carbon); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .kareems-take-body { font-size: 1.05rem; line-height: 1.65; color: var(--steel); font-style: italic; }
+
+    /* ── NEIGHBORHOOD BREAKDOWN CARDS ── */
+    .breakdown-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; margin-top: 3rem; }
+    .breakdown-card {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--r-md); padding: 2.2rem; transition: all 300ms ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .breakdown-card:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: var(--shadow-md); }
+    .breakdown-card h3 { font-size: 1.2rem; font-weight: 600; color: var(--carbon); margin-bottom: 0.75rem; }
+    .breakdown-card p { font-size: 0.92rem; line-height: 1.6; color: var(--smoke); }
+
+    /* ── ADVICE CARDS ── */
+    .advice-section { background: var(--cloud); }
+    .advice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 3.5rem; }
+    .advice-card {
+      background: var(--white); border-radius: var(--r-lg); padding: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .advice-card h3 { font-size: 1.35rem; font-weight: 600; color: var(--carbon); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .advice-card ul { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+    .advice-card li { position: relative; padding-left: 1.75rem; font-size: 0.95rem; line-height: 1.55; color: var(--steel); }
+    .advice-card li::before { content: "•"; position: absolute; left: 0.5rem; color: var(--blue); font-size: 1.4rem; line-height: 1; }
+
+    /* ── BUTTONS ── */
+    .btn-pair { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.85rem 1.8rem; border-radius: 980px; font-size: 0.82rem; font-weight: 600;
+      transition: all 200ms ease; cursor: pointer; text-decoration: none; line-height: 1;
+    }
+    .btn-blue { background: var(--blue); color: var(--white); border: none; }
+    .btn-blue:hover { background: var(--blue-hover); }
+    .btn-white { background: var(--white); color: var(--carbon); border: none; }
+    .btn-white:hover { background: var(--cloud); }
+    .btn-ghost-white { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+    .btn-ghost-dark { background: transparent; color: var(--carbon); border: 1px solid rgba(0,0,0,0.2); }
+    .btn-ghost-dark:hover { background: var(--cloud); border-color: var(--carbon); }
+    .btn-ghost-dark:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* ── RESOURCES PANEL ── */
+    .resources-panel {
+      background: var(--charcoal); color: var(--white); border-radius: var(--r-lg);
+      padding: 4rem; display: flex; justify-content: space-between; align-items: center;
+      gap: 3rem; margin-top: 4rem;
+    }
+    .resources-content { max-width: 600px; }
+    .resources-content h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .resources-content p { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+    .resources-action { flex-shrink: 0; }
+
+    /* ── CONTACT & WIZARD ── */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+    .contact-info { max-width: 480px; }
+    .contact-details { display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.95rem; }
+    .contact-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .contact-detail span, .contact-detail a { color: var(--steel); line-height: 1.5; }
+    .contact-detail a:hover { color: var(--blue); }
+
+    .lead-form {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--r-lg); padding: 3rem; box-shadow: var(--shadow-lg);
+    }
+    .form-title { font-size: 1.35rem; font-weight: 700; color: var(--carbon); margin-bottom: 2rem; letter-spacing: -0.01em; }
+    
+    /* ── STRATEGY WIZARD CSS ── */
+    .wizard-progress-bar {
+      height: 4px; width: 100%; background: var(--cloud);
+      border-radius: 2px; margin-bottom: 2rem; position: relative; overflow: hidden;
+    }
+    .wizard-progress-fill {
+      position: absolute; left: 0; top: 0; height: 100%; width: 25%;
+      background: var(--blue); transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .wizard-step { display: none; animation: fadeIn 400ms ease; }
+    .wizard-step.active { display: block; }
+    .wizard-step-title { font-size: 1.05rem; font-weight: 600; color: var(--carbon); margin-bottom: 1.25rem; }
+    .wizard-pills { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .wizard-pill {
+      background: var(--white); border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px; padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 500;
+      color: var(--carbon); cursor: pointer; text-align: left; transition: all 180ms ease;
+      display: flex; align-items: center; gap: 0.75rem; width: 100%;
+    }
+    .wizard-pill::before {
+      content: ""; display: inline-block; width: 12px; height: 12px;
+      border-radius: 50%; border: 1.5px solid rgba(0, 0, 0, 0.25);
+      transition: all 180ms ease; flex-shrink: 0;
+    }
+    .wizard-pill:hover { border-color: var(--blue); background: rgba(0, 113, 227, 0.01); }
+    .wizard-pill:hover::before { border-color: var(--blue); }
+    .wizard-pill.selected { border-color: var(--blue); background: rgba(0, 113, 227, 0.04); box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.15); font-weight: 600; }
+    .wizard-pill.selected::before { border-color: var(--blue); background: var(--blue); box-shadow: inset 0 0 0 2.5px var(--white); }
+    .wizard-controls { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+    
+    .wizard-summary-box {
+      background: rgba(0, 113, 227, 0.03); border-left: 3px solid var(--blue);
+      padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;
+      font-size: 0.88rem; line-height: 1.5; color: var(--carbon);
+    }
+    .wizard-summary-box strong { color: var(--blue); font-weight: 600; }
+
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-field.full { grid-column: span 2; }
+    .form-field label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--smoke); }
+    .form-grid input, .form-grid textarea {
+      padding: 0.85rem 1rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.12);
+      font-size: 0.95rem; color: var(--carbon); background: var(--white); transition: border-color 200ms ease;
+    }
+    .form-grid input:focus, .form-grid textarea:focus { outline: none; border-color: var(--blue); }
+    .form-field textarea { height: 110px; resize: vertical; }
+    .form-note { font-size: 0.72rem; color: var(--smoke); margin-top: 1rem; line-height: 1.4; }
+    .form-success { display: none; background: rgba(0, 113, 227, 0.05); color: var(--blue); border: 1px solid rgba(0, 113, 227, 0.2); border-radius: 12px; padding: 1.5rem; font-weight: 500; text-align: center; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── EXPLORE MORE ── */
+    .explore-section { border-top: 1px solid rgba(0,0,0,0.06); padding: 5rem 0; }
+    .explore-grid { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .explore-pill {
+      background: var(--cloud); padding: 0.85rem 2rem; border-radius: 980px;
+      font-size: 0.88rem; font-weight: 500; color: var(--carbon);
+      transition: all 250ms ease; border: 1px solid transparent;
+    }
+    .explore-pill:hover { background: var(--white); border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+    .explore-pill.active { background: var(--blue); color: var(--white); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--charcoal); color: var(--white); padding: 5rem 0 3rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+    .footer-brand strong { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; display: block; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 1.5rem; }
+    .footer-brand .brokerage { font-size: 0.72rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.05em; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; text-transform: uppercase; }
+    .footer-col a { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-bottom: 0.85rem; transition: color 150ms ease; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 2rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .two-col, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .three-col, .breakdown-grid, .advice-grid { grid-template-columns: 1fr; }
+      .resources-panel { flex-direction: column; text-align: center; padding: 2.5rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+    }
+  </style>
+</head>
+<body class="has-motion">
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <span class="preloader-wordmark">Kareem Jamal</span>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap nav-shell">
+      <a class="brand" href="index.html" aria-label="Kareem Jamal home">
+        <strong class="brand-name">Kareem Jamal</strong>
+        <span class="brand-role">Rodeo Realty Fine Estates</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="mission.html">Our Mission</a>
+        <a href="buyers-and-sellers.html#buyer-onboarding">Buyer Representation</a>
+        <a href="buyers-and-sellers.html#seller-onboarding">Listing Strategy</a>
+        <a href="family-wealth-preservation.html">Family Wealth Lens</a>
+        <a href="mls-search.html">Search</a>
+        <a href="free-reports.html">Free Reports</a>
+        <a href="#contact" class="nav-cta">Work With Kareem</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=90&auto=format&fit=crop')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content" data-reveal>
+        <span class="eyebrow">Communities We Serve</span>
+        <h1 class="display-xl">Encino Realtor</h1>
+        <p class="hero-sub">From the highly coveted compounds of Royal Oaks to the serene, panoramic heights of Encino Hills—strategic real estate positioning shaped for modern Valley families.</p>
+        <div class="btn-pair btn-pair-center" style="justify-content: center;">
+          <a class="btn btn-blue" href="#contact">Start Your Strategy</a>
+          <a class="btn btn-ghost-white" href="mls-search.html">Explore Live MLS Listings</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AT A GLANCE STATS -->
+    <section class="stats-section">
+      <div class="wrap">
+        <div class="stats-grid">
+          <div class="stat-card" data-reveal style="--d:1">
+            <div class="stat-val">$900K - $2.0M</div>
+            <div class="stat-label">Median Price Range</div>
+          </div>
+          <div class="stat-card" data-reveal style="--d:2">
+            <div class="stat-val">LAUSD (Charter Focus)</div>
+            <div class="stat-label">School Districts</div>
+          </div>
+          <div class="stat-card" data-reveal style="--d:3">
+            <div class="stat-val">Mid-Century &amp; Modern</div>
+            <div class="stat-label">Typical Inventory</div>
+          </div>
+          <div class="stat-card" data-reveal style="--d:4">
+            <div class="stat-val">18 - 35 Days</div>
+            <div class="stat-label">Average Days on Market</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY ENCINO -->
+    <section class="section-py">
+      <div class="wrap">
+        <div class="two-col">
+          <div data-reveal>
+            <span class="eyebrow">Local Lifestyle</span>
+            <h2 class="display-lg">The Historic Standard of Valley Prestige</h2>
+            <p class="body-md" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+              Encino stands as one of the oldest, most established communities in the San Fernando Valley. Prized for its wide, flat residential avenues, majestic historic oak trees, and vibrant business corridor along Ventura Boulevard, Encino attracts families who prioritize a balanced lifestyle.
+            </p>
+            <p class="body-md">
+              The community represents a rare mix of architectural history, featuring iconic mid-century modern residences alongside state-of-the-art contemporary rebuilds. Boasting highly rated local charter schools and immediate freeway connectivity, Encino continues to preserve strong housing equity.
+            </p>
+          </div>
+          <div data-reveal style="--d:2">
+            <div class="kareems-take">
+              <div class="kareems-take-title">
+                <span>💡</span> Kareem's Take
+              </div>
+              <p class="kareems-take-body">
+                "Royal Oaks represents some of the most prestigious custom estates in the Valley, while Encino Hills offers spectacular panoramic views and strong long-term family value. Navigating the micro-neighborhood boundaries is the secret here."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEIGHBORHOOD BREAKDOWN -->
+        <div style="margin-top: 5rem;">
+          <div class="section-header" data-reveal style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+            <span class="eyebrow">Encino Enclaves</span>
+            <h2 class="display-md">Unique Enclaves &amp; Micro-markets</h2>
+          </div>
+          <div class="breakdown-grid">
+            <div class="breakdown-card" data-reveal style="--d:1">
+              <h3>Royal Oaks</h3>
+              <p>One of the Valley's ultimate luxury estate enclaves, located South of the Boulevard. Known for oversized flat parcels, towering privacy hedges, and celebrity-level custom architectural estates.</p>
+            </div>
+            <div class="breakdown-card" data-reveal style="--d:2">
+              <h3>Encino Hills</h3>
+              <p>A beautiful hillside neighborhood characterized by winding streets and modern architectural structures, offering breath-taking panoramic views of the Valley skyline.</p>
+            </div>
+            <div class="breakdown-card" data-reveal style="--d:3">
+              <h3>Encino Glen</h3>
+              <p>A tranquil, family-oriented pocket offering traditional California ranch homes and wide, walkable streets, highly desired for its close proximity to parks and shopping.</p>
+            </div>
+            <div class="breakdown-card" data-reveal style="--d:4">
+              <h3>Lake Encino</h3>
+              <p>A highly cohesive and prized hillside development featuring custom single-family residences, adjacent to beautiful canyon trails and scenic recreational spaces.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT BUYERS & SELLERS NEED TO KNOW -->
+    <section class="section-py advice-section">
+      <div class="wrap">
+        <div class="section-header" data-reveal style="text-align: center; max-width: 600px; margin: 0 auto 1rem;">
+          <span class="eyebrow">Strategic Advice</span>
+          <h2 class="display-lg">Encino Market Insights</h2>
+        </div>
+        <div class="advice-grid">
+          <div class="advice-card" data-reveal style="--d:1">
+            <h3>For Buyers</h3>
+            <ul>
+              <li><strong>Focus on Charter School Alignments:</strong> Encino is home to top-tier charter schools; confirm exact school-attendance boundaries before making an offer.</li>
+              <li><strong>Hillside Structural Review:</strong> In Encino Hills, prioritize thorough geotechnical and slope stability reviews with local structural engineers.</li>
+              <li><strong>Factor in Development Potential:</strong> Wide flat lots present excellent long-term opportunities for ADU addition or custom expansion.</li>
+            </ul>
+          </div>
+          <div class="advice-card" data-reveal style="--d:2">
+            <h3>For Sellers</h3>
+            <ul>
+              <li><strong>Highlight Lot Dimensions:</strong> Large flat parcels command massive premiums in Encino. Showcase your lot's footprint in marketing plans.</li>
+              <li><strong>Stage Architectural Strengths:</strong> Highlight mid-century features or custom contemporary upgrades to attract premium design-oriented buyers.</li>
+              <li><strong>Promote Commute Convenience:</strong> Position your home's rapid access to the Westside via Sepulveda Pass or 405/101 freeway splits.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FREE RESOURCES PANEL -->
+        <div class="resources-panel" data-reveal>
+          <div class="resources-content">
+            <h3>Download Encino Family Real Estate Guide</h3>
+            <p>Access our comprehensive, hyper-local report covering pricing shifts, school district developments, and demographic trends specifically for Encino.</p>
+          </div>
+          <div class="resources-action">
+            <a class="btn btn-blue" href="free-reports.html">Access Family Guide</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & STRATEGY WIZARD -->
+    <section class="section-py" id="contact">
+      <div class="wrap">
+        <div class="contact-layout">
+          <div class="contact-info" data-reveal>
+            <span class="eyebrow">Let's Connect</span>
+            <h2 class="display-lg">Develop Your Encino Strategy</h2>
+            <p class="body-md" style="margin-top: 1.5rem;">
+              Buying or selling real estate in Encino requires a sophisticated perspective and local precision. Get in touch with Kareem today to build a custom wealth-preservation plan.
+            </p>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <div class="contact-icon">📞</div>
+                <div>
+                  <strong>Direct Line</strong><br/>
+                  <a href="tel:+18184027326">(818) 402-7326</a>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-icon">✉️</div>
+                <div>
+                  <strong>Email</strong><br/>
+                  <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <strong>Office Location</strong><br/>
+                  <span>21031 Ventura Blvd, #100 · Woodland Hills, CA 91364</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WIZARD FORM -->
+          <div class="lead-form" data-reveal style="--d:2">
+            <p class="form-title">Real Estate Strategy Wizard</p>
+            <form id="leadForm" action="https://formspree.io/f/mkgjgboj" method="POST">
+              <div class="wizard-progress-bar">
+                <div class="wizard-progress-fill" id="wizardProgressFill" style="width: 25%"></div>
+              </div>
+
+              <!-- Hidden Intent Tracking -->
+              <input type="hidden" id="wizardGoal" name="goal" value="" />
+              <input type="hidden" id="wizardTimeline" name="timeline" value="" />
+              <input type="hidden" id="wizardBudget" name="budget" value="" />
+
+              <!-- Step 1: Goal -->
+              <div class="wizard-step active" data-step="1">
+                <p class="wizard-step-title">What is your primary focus in Encino?</p>
+                <div class="wizard-pills">
+                  <button type="button" class="wizard-pill" data-value="Buy an Encino home">Buy an Encino home</button>
+                  <button type="button" class="wizard-pill" data-value="Sell an Encino property">Sell an Encino property</button>
+                  <button type="button" class="wizard-pill" data-value="Preserve family wealth">Preserve family wealth</button>
+                  <button type="button" class="wizard-pill" data-value="Co-invest / Partnership">Co-invest / Partnership</button>
+                </div>
+              </div>
+
+              <!-- Step 2: Timeline -->
+              <div class="wizard-step" data-step="2">
+                <p class="wizard-step-title">What is your ideal timeline?</p>
+                <div class="wizard-pills">
+                  <button type="button" class="wizard-pill" data-value="Immediate / 3 Months">Immediate / 3 Months</button>
+                  <button type="button" class="wizard-pill" data-value="3 to 6 Months">3 to 6 Months</button>
+                  <button type="button" class="wizard-pill" data-value="Just planning early">Just planning early</button>
+                </div>
+              </div>
+
+              <!-- Step 3: Budget -->
+              <div class="wizard-step" data-step="3">
+                <p class="wizard-step-title">What is your price comfort zone?</p>
+                <div class="wizard-pills">
+                  <button type="button" class="wizard-pill" data-value="Under $1.0M">Under $1.0M</button>
+                  <button type="button" class="wizard-pill" data-value="$1.0M - $1.8M">$1.0M - $1.8M</button>
+                  <button type="button" class="wizard-pill" data-value="$1.8M - $3.0M">$1.8M - $3.0M</button>
+                  <button type="button" class="wizard-pill" data-value="$3.0M+">$3.0M+</button>
+                </div>
+              </div>
+
+              <!-- Step 4: Contact & Details -->
+              <div class="wizard-step" data-step="4">
+                <p class="wizard-step-title">Let's connect on your strategy</p>
+                
+                <div class="wizard-summary-box" id="wizardSummary">
+                  You are looking to <strong id="summaryGoal">...</strong> within <strong id="summaryTimeline">...</strong> in the <strong id="summaryBudget">...</strong> range.
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Kareem" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Jamal" required />
+                  </div>
+                  <div class="form-field full">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@email.com" required />
+                  </div>
+                  <div class="form-field full">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(818) 000-0000" />
+                  </div>
+                  <div class="form-field full">
+                    <label for="message">Message / Additional Details (optional)</label>
+                    <textarea id="message" name="message" placeholder="Tell me about your Encino real estate goals..."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Wizard Controls -->
+              <div class="wizard-controls">
+                <button type="button" class="btn btn-ghost-dark wizard-back-btn" id="wizardBackBtn" style="display: none;">Back</button>
+                <button type="button" class="btn btn-blue wizard-next-btn" id="wizardNextBtn" disabled>Next</button>
+                <button type="submit" class="btn btn-blue form-submit" id="wizardSubmitBtn" style="display: none;">Send Strategy Request</button>
+              </div>
+
+              <p class="form-note" style="margin-top: 1.25rem; text-align: center;">No pressure. Early conversations are always welcome.</p>
+            </form>
+            <div class="form-success" id="formSuccess">
+              ✓ Message received — Kareem will be in touch shortly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE MORE COMMUNITIES -->
+    <section class="explore-section">
+      <div class="wrap text-center" style="text-align: center;">
+        <span class="eyebrow">Explore More Areas</span>
+        <h2 class="display-md">Communities We Serve</h2>
+        <div class="explore-grid">
+          <a class="explore-pill" href="woodland-hills.html">Woodland Hills</a>
+          <a class="explore-pill" href="calabasas.html">Calabasas</a>
+          <a class="explore-pill" href="hidden-hills.html">Hidden Hills</a>
+          <a class="explore-pill active" href="encino.html">Encino</a>
+          <a class="explore-pill" href="west-hills.html">West Hills</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Kareem Jamal</strong>
+          <p>Southern California Real Estate Strategy &amp; Generational Wealth Preservation. Serving Woodland Hills, Calabasas, Hidden Hills, Encino, and the San Fernando Valley.</p>
+          <span class="brokerage">Rodeo Realty Fine Estates</span>
+        </div>
+        <div class="footer-col">
+          <h4>NAVIGATE</h4>
+          <a href="index.html">Home</a>
+          <a href="mission.html">Our Mission</a>
+          <a href="buyers-and-sellers.html">Buyers &amp; Sellers</a>
+          <a href="landlord-leasing.html">Landlord Representation</a>
+          <a href="real-estate-partnerships.html">Co-Investing Partnerships</a>
+          <a href="family-wealth-preservation.html">Family Wealth Lens</a>
+          <a href="mls-search.html">Home Search</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>COMMUNITIES</h4>
+          <a href="woodland-hills.html">Woodland Hills</a>
+          <a href="calabasas.html">Calabasas</a>
+          <a href="hidden-hills.html">Hidden Hills</a>
+          <a href="encino.html">Encino</a>
+          <a href="west-hills.html">West Hills</a>
+        </div>
+        <div class="footer-col">
+          <h4>CONTACT</h4>
+          <a href="tel:+18184027326">(818) 402-7326</a>
+          <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
+          <a href="https://www.zillow.com/profile/KareemJamal" target="_blank" rel="noopener">Zillow Profile</a>
+          <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener">Rodeo Realty Profile</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Kareem Jamal | CA DRE #01998956</span>
+        <span>Rodeo Realty Fine Estates | Equal Housing Opportunity</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+      }, 600);
+    });
+
+    // Scroll Reveal Intersection Observer
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // Strategy Wizard Controller
+    document.addEventListener('DOMContentLoaded', () => {
+      const wizardForm = document.getElementById('leadForm');
+      if (!wizardForm) return;
+
+      const steps = wizardForm.querySelectorAll('.wizard-step');
+      const progressFill = document.getElementById('wizardProgressFill');
+      const backBtn = document.getElementById('wizardBackBtn');
+      const nextBtn = document.getElementById('wizardNextBtn');
+      const submitBtn = document.getElementById('wizardSubmitBtn');
+      const successMsg = document.getElementById('formSuccess');
+
+      const goalInput = document.getElementById('wizardGoal');
+      const timelineInput = document.getElementById('wizardTimeline');
+      const budgetInput = document.getElementById('wizardBudget');
+
+      const summaryGoal = document.getElementById('summaryGoal');
+      const summaryTimeline = document.getElementById('summaryTimeline');
+      const summaryBudget = document.getElementById('summaryBudget');
+
+      let currentStep = 1;
+      const totalSteps = steps.length;
+
+      function updateWizard() {
+        steps.forEach((step) => {
+          const stepNum = parseInt(step.getAttribute('data-step'), 10);
+          step.classList.toggle('active', stepNum === currentStep);
+        });
+
+        const progressPercentage = (currentStep / totalSteps) * 100;
+        progressFill.style.width = `${progressPercentage}%`;
+
+        if (currentStep === 1) {
+          backBtn.style.display = 'none';
+          nextBtn.style.display = 'inline-flex';
+          submitBtn.style.display = 'none';
+        } else if (currentStep === totalSteps) {
+          backBtn.style.display = 'inline-flex';
+          nextBtn.style.display = 'none';
+          submitBtn.style.display = 'inline-flex';
+
+          summaryGoal.textContent = goalInput.value || '...';
+          summaryTimeline.textContent = timelineInput.value || '...';
+          summaryBudget.textContent = budgetInput.value || '...';
+        } else {
+          backBtn.style.display = 'inline-flex';
+          nextBtn.style.display = 'inline-flex';
+          submitBtn.style.display = 'none';
+        }
+
+        validateNextButton();
+      }
+
+      function validateNextButton() {
+        let isStepValid = false;
+        if (currentStep === 1) {
+          isStepValid = !!goalInput.value;
+        } else if (currentStep === 2) {
+          isStepValid = !!timelineInput.value;
+        } else if (currentStep === 3) {
+          isStepValid = !!budgetInput.value;
+        } else if (currentStep === 4) {
+          isStepValid = true;
+        }
+        nextBtn.disabled = !isStepValid;
+      }
+
+      wizardForm.querySelectorAll('.wizard-pill').forEach((pill) => {
+        pill.addEventListener('click', () => {
+          const stepEl = pill.closest('.wizard-step');
+          const stepNum = parseInt(stepEl.getAttribute('data-step'), 10);
+          const value = pill.getAttribute('data-value');
+
+          stepEl.querySelectorAll('.wizard-pill').forEach((p) => p.classList.remove('selected'));
+          pill.classList.add('selected');
+
+          if (stepNum === 1) {
+            goalInput.value = value;
+          } else if (stepNum === 2) {
+            timelineInput.value = value;
+          } else if (stepNum === 3) {
+            budgetInput.value = value;
+          }
+
+          validateNextButton();
+
+          setTimeout(() => {
+            if (currentStep === stepNum && currentStep < totalSteps) {
+              currentStep++;
+              updateWizard();
+            }
+          }, 300);
+        });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (currentStep < totalSteps) {
+          currentStep++;
+          updateWizard();
+        }
+      });
+
+      backBtn.addEventListener('click', () => {
+        if (currentStep > 1) {
+          currentStep--;
+          updateWizard();
+        }
+      });
+
+      wizardForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.textContent = 'Sending Strategy Request…';
+        submitBtn.disabled = true;
+
+        try {
+          const res = await fetch(wizardForm.action, {
+            method: 'POST',
+            body: new FormData(wizardForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            wizardForm.style.display = 'none';
+            successMsg.style.display = 'block';
+          } else {
+            submitBtn.textContent = 'Try again';
+            submitBtn.disabled = false;
+          }
+        } catch {
+          submitBtn.textContent = 'Try again';
+          submitBtn.disabled = false;
+        }
+      });
+
+      const phoneInput = document.getElementById('phone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+          let input = e.target.value.replace(/\D/g, '');
+          const size = input.length;
+          if (size === 0) {
+            e.target.value = '';
+          } else if (size < 4) {
+            e.target.value = `(${input}`;
+          } else if (size < 7) {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3)}`;
+          } else {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`;
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

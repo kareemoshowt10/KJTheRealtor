@@ -2838,6 +2838,7 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   height: 100vh;
   min-height: 600px;
   width: 100%;
+  background-color: var(--warm-dark);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2940,6 +2941,180 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   .tesla-btn { width: 100%; max-width: 320px; min-width: 0; }
   .tesla-subtitle { font-size: 0.95rem; }
 }
+
+/* ── Journey band heading ── */
+    .journey-intro {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: clamp(64px, 9vw, 110px) clamp(1.5rem, 4vw, 4rem) clamp(2.25rem, 4vw, 3.25rem);
+      text-align: center;
+      display: grid;
+      gap: 1rem;
+      justify-items: center;
+    }
+    .journey-intro .section-kicker { justify-self: center; }
+    .journey-intro h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      max-width: 18ch;
+    }
+    .journey-intro p {
+      max-width: 56ch;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .proof-item { position: relative; }
+    .proof-step {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+      margin-bottom: 0.85rem;
+    }
+    .proof-step::before {
+      content: "";
+      width: 1.6rem;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), rgba(184,139,82,0));
+    }
+
+/* ── Signature Method ── */
+    .method-section {
+      background: linear-gradient(180deg, var(--cream) 0%, var(--sand-soft) 100%);
+      padding: clamp(72px, 11vw, 150px) 0;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(46, 53, 60, 0.08);
+    }
+    .method-section::before {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      right: -160px;
+      top: -160px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(184,139,82,0.12), transparent 65%);
+      pointer-events: none;
+    }
+    .method-head {
+      max-width: 760px;
+      margin: 0 auto clamp(3rem, 6vw, 5rem);
+      text-align: center;
+      display: grid;
+      gap: 1.1rem;
+      justify-items: center;
+      position: relative;
+    }
+    .method-head .section-kicker { justify-self: center; }
+    .method-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      max-width: 16ch;
+    }
+    .method-title sup {
+      font-size: 0.42em;
+      vertical-align: super;
+      color: var(--gold);
+      -webkit-text-fill-color: var(--gold);
+    }
+    .method-intro {
+      color: var(--muted);
+      font-size: 1.06rem;
+      line-height: 1.8;
+      max-width: 62ch;
+    }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.25rem;
+      position: relative;
+    }
+    .method-card {
+      position: relative;
+      padding: 2.75rem 1.85rem 2.1rem;
+      background: rgba(255, 253, 250, 0.92);
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      display: grid;
+      gap: 0.8rem;
+      align-content: start;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 260ms ease, border-color 260ms ease;
+    }
+    .method-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .method-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 60px rgba(76, 64, 48, 0.16);
+      border-color: rgba(184, 139, 82, 0.2);
+    }
+    .method-card:hover::before { transform: scaleX(1); }
+    .method-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.9rem;
+      line-height: 1;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+    }
+    .method-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .method-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.72;
+    }
+    .method-foot {
+      margin-top: clamp(2.5rem, 5vw, 4rem);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem 1.5rem;
+      text-align: center;
+    }
+    .method-foot p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      max-width: 42ch;
+    }
+    @media (max-width: 900px) {
+      .method-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .method-grid { grid-template-columns: 1fr; }
+      .method-card { padding: 2.25rem 1.6rem 1.85rem; }
+    }
   </style>
 </head>
 <body>
@@ -3004,21 +3179,30 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       <div class="hero-scroll-cue" aria-hidden="true"></div>
     </section>
 
-    <section style="padding:0;">
+    <section style="padding:0;" aria-labelledby="journey-heading">
+      <div class="journey-intro" data-reveal>
+        <span class="section-kicker">The Journey</span>
+        <h2 id="journey-heading">Representation that thinks in decades, not days</h2>
+        <p>Most agents show up for the transaction. Kareem shows up for every decision around it — from the first search to the wealth your family still holds a generation later.</p>
+      </div>
       <div class="proof-band">
           <article class="proof-item" data-reveal>
+            <span class="proof-step">01</span>
             <strong>Before Touring</strong>
             <p>Searches get anchored in budget clarity, neighborhood durability, and long-term value — not just what is available right now.</p>
           </article>
           <article class="proof-item" data-reveal>
+            <span class="proof-step">02</span>
             <strong>Before Listing</strong>
             <p>Pricing strategy, staging, and launch timing are shaped to protect your equity and create real buyer demand.</p>
           </article>
           <article class="proof-item" data-reveal>
+            <span class="proof-step">03</span>
             <strong>Before Offering</strong>
             <p>Every property is evaluated through a generational lens — value, terms, risk, and long-term wealth impact — not just emotion.</p>
           </article>
           <article class="proof-item" data-reveal>
+            <span class="proof-step">04</span>
             <strong>Generations Later</strong>
             <p>A great move compounds over time. The wealth your family builds through real estate starts with one strategic decision.</p>
           </article>
@@ -3028,7 +3212,7 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
     <section class="story-section">
       <div class="story-inner">
         <div class="story-photo" data-reveal>
-          <img src="./https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=90&auto=format&fit=crop" alt="Kareem Jamal — personal message" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=90&auto=format&fit=crop" alt="Kareem Jamal — personal message" loading="lazy" />
         </div>
         <div class="story-text" data-reveal>
           <span class="section-kicker">Why Kareem</span>
@@ -3050,6 +3234,42 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
             </div>
           </div>
           <a class="btn btn-primary" href="mission.html" style="margin-top:1rem;width:fit-content;">About Kareem</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="method-section" id="method" aria-labelledby="method-heading">
+      <div class="container">
+        <div class="method-head" data-reveal>
+          <span class="section-kicker">The Method</span>
+          <h2 class="method-title" id="method-heading">The Generational Wealth Method<sup>™</sup></h2>
+          <p class="method-intro">Anyone can open a door. Kareem runs a deliberate system around the single largest asset most families will ever own — so each move is positioned, protected, and built to compound into the next.</p>
+        </div>
+        <div class="method-grid">
+          <article class="method-card" data-reveal>
+            <span class="method-num">01</span>
+            <h3>Position</h3>
+            <p>Before a single showing, we map where your family is today and where it wants to be in ten to twenty years — so every move serves the bigger picture, not just the moment.</p>
+          </article>
+          <article class="method-card" data-reveal>
+            <span class="method-num">02</span>
+            <h3>Protect</h3>
+            <p>Disciplined pricing, negotiation, and terms defend your equity on both sides of the table. The goal is never just to close — it's to close without leaving value behind.</p>
+          </article>
+          <article class="method-card" data-reveal>
+            <span class="method-num">03</span>
+            <h3>Compound</h3>
+            <p>Timing, leverage, and tax-aware strategy — 1031 exchanges, Prop 19 transfers, capital-gains exclusions — turn a single transaction into decades of growth.</p>
+          </article>
+          <article class="method-card" data-reveal>
+            <span class="method-num">04</span>
+            <h3>Transfer</h3>
+            <p>The final move is the one most agents never discuss: structuring ownership so the wealth you build survives the handoff to the next generation intact.</p>
+          </article>
+        </div>
+        <div class="method-foot" data-reveal>
+          <p>This is the difference between owning property and building a legacy.</p>
+          <a class="btn btn-primary" href="family-wealth-preservation.html">See the Full Framework</a>
         </div>
       </div>
     </section>
@@ -3090,7 +3310,7 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       </div>
     </section>
 
-    <section class="tesla-panel" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90&auto=format&fit=crop');">
+    <section class="tesla-panel" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90&auto=format&fit=crop');">
       <div class="tesla-panel-content">
         <span class="tesla-eyebrow">Free Reports</span>
         <h2 class="tesla-title">42 Expert Guides</h2>
@@ -3327,7 +3547,7 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
     const revealElements = document.querySelectorAll("[data-reveal]");
 
     // Stagger grid items
-    document.querySelectorAll(".services-grid, .trust-grid, .signature-grid, .process-grid").forEach(parent => {
+    document.querySelectorAll(".services-grid, .trust-grid, .signature-grid, .process-grid, .method-grid").forEach(parent => {
       parent.querySelectorAll("[data-reveal]").forEach((el, i) => {
         el.style.setProperty("--stagger-i", i);
       });

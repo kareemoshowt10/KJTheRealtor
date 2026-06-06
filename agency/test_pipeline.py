@@ -44,14 +44,17 @@ def head(msg):  print(f"\n{BOLD}{CYAN}{msg}{RESET}")
 def dim(msg):   print(f"  {DIM}{msg}{RESET}")
 
 
-def check_env() -> bool:
+def check_env(offline: bool = False) -> bool:
     head("Environment Check")
     api_key = os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY", "")
     if not api_key:
         err("GOOGLE_API_KEY not set — required for diagnoses and message quality checks")
         print(f"\n  Get a free key at: https://aistudio.google.com/apikey")
         print(f"  {DIM}export GOOGLE_API_KEY=...\n  python3 agency/test_pipeline.py{RESET}\n")
-        return False
+        if not offline:
+            return False
+        warn("Continuing in --offline mode — only smoke_test.py and scoring run without a key")
+        return True
     ok(f"GOOGLE_API_KEY set ({api_key[:12]}...)")
 
     sg = os.environ.get("SENDGRID_API_KEY", "")
@@ -379,17 +382,18 @@ def print_summary(agency_results: dict | None, kareem_results: dict | None, dry_
 
 def main():
     parser = argparse.ArgumentParser(description="KJ Pipeline Test Runner")
-    parser.add_argument("--kareem", action="store_true", help="Run Kareem realtor pipeline only")
-    parser.add_argument("--all",    action="store_true", help="Run both pipelines")
-    parser.add_argument("--send",   action="store_true", help="Actually send messages (SendGrid/Twilio)")
-    parser.add_argument("--leads",  type=int, default=5,  help="Number of mock leads to test (default: 5)")
+    parser.add_argument("--kareem",  action="store_true", help="Run Kareem realtor pipeline only")
+    parser.add_argument("--all",     action="store_true", help="Run both pipelines")
+    parser.add_argument("--send",    action="store_true", help="Actually send messages (SendGrid/Twilio)")
+    parser.add_argument("--offline", action="store_true", help="Run without GOOGLE_API_KEY (template mode)")
+    parser.add_argument("--leads",   type=int, default=5,  help="Number of mock leads to test (default: 5)")
     args = parser.parse_args()
 
     print(f"\n{BOLD}{'='*60}{RESET}")
     print(f"{BOLD}  KJ Lead-Gen Pipeline — Test Runner{RESET}")
     print(f"{BOLD}{'='*60}{RESET}")
 
-    if not check_env():
+    if not check_env(offline=args.offline):
         sys.exit(1)
 
     dry_run = not args.send

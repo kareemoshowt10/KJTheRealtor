@@ -44,6 +44,11 @@
       "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot.jpeg",
       "areaServed": [
         "Woodland Hills",
+        "Calabasas",
+        "Tarzana",
+        "Encino",
+        "Sherman Oaks",
+        "Thousand Oaks",
         "San Fernando Valley",
         "Greater Los Angeles",
         "Southern California"
@@ -1081,6 +1086,219 @@
       line-height: 1.7;
     }
 
+    /* ---- Neighborhoods showcase ---- */
+    .neighborhood-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .neighborhood-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 280px;
+      padding: 1.6rem;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      color: var(--linen);
+      box-shadow: var(--shadow-md);
+      isolation: isolate;
+      transition: transform 320ms ease, box-shadow 320ms ease;
+    }
+
+    .neighborhood-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: var(--scape, linear-gradient(160deg, var(--navy-deep), var(--navy)));
+    }
+
+    .neighborhood-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(0deg, rgba(20, 24, 28, 0.78) 0%, rgba(20, 24, 28, 0.18) 58%, rgba(20, 24, 28, 0.42) 100%);
+    }
+
+    .neighborhood-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .neighborhood-card .eyebrow {
+      color: var(--gold-soft);
+    }
+
+    .neighborhood-card .eyebrow::before {
+      background: var(--gold-soft);
+    }
+
+    .neighborhood-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.85rem;
+      font-weight: 500;
+      margin: 0.4rem 0 0.4rem;
+    }
+
+    .neighborhood-card p {
+      color: rgba(255, 253, 250, 0.82);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      max-width: 32ch;
+    }
+
+    /* Distinct gradient "scape" per city — no stock photography, editorial color-field treatment */
+    .scape-woodland   { --scape: linear-gradient(155deg, #3c4a52 0%, #5b6f63 60%, #8a9579 100%); }
+    .scape-calabasas  { --scape: linear-gradient(155deg, #463a3a 0%, #8a5f4f 55%, #c98569 100%); }
+    .scape-tarzana    { --scape: linear-gradient(155deg, #34424a 0%, #4f6470 55%, #86927f 100%); }
+    .scape-encino     { --scape: linear-gradient(155deg, #3a3530 0%, #6e5c47 55%, #b88b52 100%); }
+    .scape-sherman    { --scape: linear-gradient(155deg, #2f3c48 0%, #51606c 55%, #9aa6a3 100%); }
+    .scape-thousand   { --scape: linear-gradient(155deg, #40342f 0%, #79544a 55%, #c79b63 100%); }
+
+    /* ---- Featured listings showcase (template — sample content) ---- */
+    .showcase-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      background: rgba(184, 139, 82, 0.14);
+      border: 1px solid rgba(184, 139, 82, 0.32);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+
+    .listing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .listing-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      box-shadow: var(--shadow-md);
+      transition: transform 320ms ease, box-shadow 320ms ease;
+    }
+
+    .listing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .listing-art {
+      position: relative;
+      height: 200px;
+      background: var(--lscape, linear-gradient(150deg, var(--sand), var(--gold-soft)));
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .listing-status {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 253, 250, 0.88);
+      color: var(--ink);
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .lscape-1 { --lscape: linear-gradient(150deg, #e7d8c2, #c79b63); }
+    .lscape-2 { --lscape: linear-gradient(150deg, #d8e0d6, #86927f); }
+    .lscape-3 { --lscape: linear-gradient(150deg, #ecdcd2, #c98569); }
+
+    .listing-body {
+      padding: 1.4rem 1.5rem 1.6rem;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .listing-price {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.7rem;
+      color: var(--ink);
+    }
+
+    .listing-meta {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .listing-specs {
+      display: flex;
+      gap: 0.9rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-top: 0.3rem;
+      border-top: 1px solid var(--line);
+      margin-top: 0.2rem;
+    }
+
+    /* ---- Credentials / recognition strip ---- */
+    .credential-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .credential-badge {
+      display: grid;
+      gap: 0.35rem;
+      padding: 1.4rem 1.3rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      text-align: center;
+    }
+
+    .credential-badge strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      color: var(--ink);
+    }
+
+    .credential-badge span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 920px) {
+      .neighborhood-grid,
+      .listing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .credential-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .neighborhood-grid,
+      .listing-grid,
+      .credential-strip {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     .trust-card,
     .ready-card {
       padding: 1.6rem;
@@ -1881,6 +2099,8 @@
         <a href="/family-wealth-preservation">Family Wealth</a>
         <a href="/mls-search">Search</a>
         <a href="#services">Services</a>
+        <a href="#neighborhoods">Neighborhoods</a>
+        <a href="#listings">Listings</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -2277,6 +2497,120 @@
               </div>
             </div>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="neighborhoods">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-kicker">Where We Work</span>
+          <h2 class="section-title">San Fernando Valley living, neighborhood by neighborhood.</h2>
+          <p class="section-copy">
+            Every city in the Valley has its own rhythm — its own schools, commute patterns, lot sizes, and resale story. Knowing those differences in advance is part of how a search gets sharper and an offer gets stronger.
+          </p>
+        </div>
+        <div class="neighborhood-grid">
+          <article class="neighborhood-card scape-woodland" data-reveal>
+            <span class="eyebrow">91364</span>
+            <h3>Woodland Hills</h3>
+            <p>Home base — a mix of established family streets, hillside view lots, and walkable village pockets near the Boulevard.</p>
+          </article>
+          <article class="neighborhood-card scape-calabasas" data-reveal>
+            <span class="eyebrow">91302</span>
+            <h3>Calabasas</h3>
+            <p>Gated communities, top-rated schools, and an equestrian-meets-luxury character that holds its value over time.</p>
+          </article>
+          <article class="neighborhood-card scape-tarzana" data-reveal>
+            <span class="eyebrow">91356</span>
+            <h3>Tarzana</h3>
+            <p>Quiet, leafy streets with a strong sense of privacy — a favorite for buyers moving up from a starter home.</p>
+          </article>
+          <article class="neighborhood-card scape-encino" data-reveal>
+            <span class="eyebrow">91316</span>
+            <h3>Encino</h3>
+            <p>Hillside estates above and classic flatland charm below, with some of the Valley's most consistent appreciation.</p>
+          </article>
+          <article class="neighborhood-card scape-sherman" data-reveal>
+            <span class="eyebrow">91403</span>
+            <h3>Sherman Oaks</h3>
+            <p>Walkable, social, and central — close to the 101 corridor with strong rental and resale demand alike.</p>
+          </article>
+          <article class="neighborhood-card scape-thousand" data-reveal>
+            <span class="eyebrow">91362</span>
+            <h3>Thousand Oaks</h3>
+            <p>A short drive west for buyers who want more land, newer construction, and a slower pace without losing access.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="listings">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="showcase-flag">Showcase layout · Live listings sync here</span>
+          <span class="section-kicker">Featured Listings</span>
+          <h2 class="section-title">A preview of how active listings are presented.</h2>
+          <p class="section-copy">
+            This is a sample layout for how current listings will appear once they go live — built to make every property feel considered, not just catalogued. For real-time inventory today, search the live MLS directly.
+          </p>
+        </div>
+        <div class="listing-grid">
+          <article class="listing-card" data-reveal>
+            <div class="listing-art lscape-1"><span class="listing-status">Sample · Coming Soon</span></div>
+            <div class="listing-body">
+              <span class="listing-price">Listing preview</span>
+              <span class="listing-meta">Woodland Hills layout placeholder</span>
+              <div class="listing-specs"><span>Beds</span><span>Baths</span><span>Sq Ft</span></div>
+            </div>
+          </article>
+          <article class="listing-card" data-reveal>
+            <div class="listing-art lscape-2"><span class="listing-status">Sample · Coming Soon</span></div>
+            <div class="listing-body">
+              <span class="listing-price">Listing preview</span>
+              <span class="listing-meta">Calabasas layout placeholder</span>
+              <div class="listing-specs"><span>Beds</span><span>Baths</span><span>Sq Ft</span></div>
+            </div>
+          </article>
+          <article class="listing-card" data-reveal>
+            <div class="listing-art lscape-3"><span class="listing-status">Sample · Coming Soon</span></div>
+            <div class="listing-body">
+              <span class="listing-price">Listing preview</span>
+              <span class="listing-meta">Encino layout placeholder</span>
+              <div class="listing-specs"><span>Beds</span><span>Baths</span><span>Sq Ft</span></div>
+            </div>
+          </article>
+        </div>
+        <div class="btn-row" style="margin-top: 1.75rem;">
+          <a class="btn btn-primary" href="/mls-search">Search Live Listings</a>
+          <a class="btn btn-secondary" href="#contact">Get Notified About New Listings</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="credentials">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-kicker">Standing & Affiliation</span>
+          <h2 class="section-title">Backed by a name Southern California already trusts.</h2>
+        </div>
+        <div class="credential-strip">
+          <div class="credential-badge" data-reveal>
+            <strong>Rodeo Realty</strong>
+            <span>Fine Estates Division</span>
+          </div>
+          <div class="credential-badge" data-reveal>
+            <strong>CA DRE #01998956</strong>
+            <span>Licensed California Realtor</span>
+          </div>
+          <div class="credential-badge" data-reveal>
+            <strong>San Fernando Valley</strong>
+            <span>Woodland Hills Based</span>
+          </div>
+          <div class="credential-badge" data-reveal>
+            <strong>Family Heritage</strong>
+            <span>Real Estate Runs in the Family</span>
+          </div>
         </div>
       </div>
     </section>

@@ -1086,40 +1086,11 @@
     .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
     .menu-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Responsive Navigation Layout */
-    @media (max-width: 980px) {
-      .menu-toggle { display: flex; }
-      .nav-links {
-        position: fixed;
-        top: 85px; right: 1rem;
-        width: calc(100% - 2rem);
-        max-width: 320px;
-        background: rgba(255, 252, 247, 0.98);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(184, 139, 82, 0.15);
-        border-radius: 24px;
-        padding: 2rem;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.5rem;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      .nav-links.is-active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-      .nav-links a {
-        padding: 1rem 1.25rem;
-        font-size: 0.9rem;
-        text-align: left;
-      }
-      .nav-cta { margin-top: 1rem; text-align: center !important; }
-    }
+    /* Responsive Navigation Layout — handled by the unified nav system below
+       (.site-header .nav-links + body.nav-open, max-height/opacity reveal).
+       The legacy fixed-overlay rules that lived here set position:fixed and
+       visibility:hidden that body.nav-open never reset, so the open menu stayed
+       invisible. Removed. */
 
     .flip-kicker {
       color: var(--gold);
@@ -2326,6 +2297,11 @@
       body.nav-open .site-header .nav-links {
         max-height: 600px; opacity: 1; padding: 0.5rem 0 0.25rem;
       }
+      /* Make the open menu fully opaque so page content doesn't bleed through. */
+      body.nav-open .site-header .container.nav-shell {
+        background: rgba(255, 252, 247, 0.99);
+        box-shadow: 0 24px 60px rgba(55, 46, 36, 0.22);
+      }
       .site-header .nav-links a {
         border-radius: 14px; padding: 0.85rem 1.1rem; font-size: 0.85rem; letter-spacing: 0.08em;
       }
@@ -2653,6 +2629,11 @@ body {
   .social-strip-inner { flex-direction: column; align-items: flex-start; }
   .social-link span { display: none; }
 }
+/* The white .ready-card sits inside .dark-section, which sets light text.
+   Its h3/p were inheriting white → invisible on the white card. Force dark text. */
+.dark-section .ready-card h3 { color: #2a2520 !important; -webkit-text-fill-color: #2a2520 !important; }
+.dark-section .ready-card p { color: #6e655d !important; -webkit-text-fill-color: #6e655d !important; }
+
 /* ── MOBILE POLISH ── */
 @media (max-width: 768px) {
   .hero-shell { background: transparent !important; border: none !important; box-shadow: none !important; }
@@ -2663,6 +2644,9 @@ body {
   .dark-section .container { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
   .dark-section .trust-card, .dark-section .service-card, .dark-section .pulse-card { padding: 1.5rem !important; }
   .proof-band { grid-template-columns: 1fr 1fr; }
+  /* .ready-grid has an inline `grid-template-columns: ... minmax(320px,...)`
+     that forces a 320px column wider than the phone viewport. Override it. */
+  .ready-grid { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 480px) {
   .display-hero { font-size: clamp(36px, 11vw, 52px) !important; line-height: 1.08 !important; }
@@ -2751,6 +2735,19 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       font-size: 0.85rem;
       color: var(--muted);
       line-height: 1.75;
+    }
+    /* Responsive collapse — declared AFTER the base rule so source order wins
+       (media queries add no specificity; the earlier overrides above were
+       being beaten by the base repeat(4) rule, cramming 4 cols on mobile). */
+    @media (max-width: 900px) {
+      .proof-band { grid-template-columns: 1fr 1fr; }
+      .proof-item:nth-child(2n) { border-right: none; }
+      .proof-item:nth-child(-n+2) { border-bottom: 1px solid rgba(46,53,60,0.1); }
+    }
+    @media (max-width: 560px) {
+      .proof-band { grid-template-columns: 1fr; }
+      .proof-item { border-right: none; border-bottom: 1px solid rgba(46,53,60,0.1); padding: 2rem 1.5rem; }
+      .proof-item:last-child { border-bottom: none; }
     }
 
 /* ── Story Section ── */
@@ -3818,20 +3815,9 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       checkSticky();
     }
 
-    // Hamburger nav
-    const navToggle = document.getElementById("nav-toggle");
-    if (navToggle) {
-      navToggle.addEventListener("click", () => {
-        const isOpen = document.body.classList.toggle("nav-open");
-        navToggle.setAttribute("aria-expanded", String(isOpen));
-      });
-      document.addEventListener("click", (e) => {
-        if (document.body.classList.contains("nav-open") && !e.target.closest(".nav-shell")) {
-          document.body.classList.remove("nav-open");
-          navToggle.setAttribute("aria-expanded", "false");
-        }
-      });
-    }
+    // Hamburger nav + active-link is wired once in the "Unified navigation
+    // behavior" IIFE below. A duplicate handler here made every tap toggle
+    // the menu twice (open→close = nothing), so it has been removed.
 
     // Active nav link
     const currentPath = window.location.pathname.replace(/\/$/, "") || "/";

@@ -3312,6 +3312,110 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       .value-item:hover, .btn:hover, .btn-primary:hover, .btn-outline:hover,
       .nav-cta:hover { transform: none; }
     }
+
+    /* ── Advisory Featured Specializations Section ── */
+    .advisory-section {
+      padding: 6rem 0;
+      background: var(--cream);
+      border-top: 1px solid var(--line);
+    }
+    .advisory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    .advisory-card {
+      background: var(--panel);
+      border: 1px solid rgba(24, 35, 45, 0.08);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(14px);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+    .advisory-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 54px rgba(76, 64, 48, 0.12);
+      border-color: rgba(184, 139, 82, 0.14);
+    }
+    .advisory-card--premium {
+      background: var(--linen);
+      border-color: rgba(184, 139, 82, 0.22);
+      box-shadow: 0 14px 44px rgba(184, 139, 82, 0.04);
+    }
+    .advisory-card--premium:hover {
+      border-color: var(--gold);
+      box-shadow: 0 24px 64px rgba(184, 139, 82, 0.1);
+    }
+    .advisory-badge {
+      align-self: flex-start;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(134, 146, 127, 0.1);
+      color: var(--olive);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .advisory-badge--gold {
+      background: rgba(184, 139, 82, 0.15);
+      color: var(--gold);
+    }
+    .advisory-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.6rem;
+      line-height: 1.1;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      color: var(--ink);
+    }
+    .advisory-description {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .advisory-list {
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .advisory-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: 0.96rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+    .advisory-list li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .advisory-footer {
+      margin-top: auto;
+    }
+    @media (max-width: 900px) {
+      .advisory-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .advisory-card {
+        padding: 2.25rem;
+      }
+      .advisory-card h3 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3350,10 +3454,10 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       <nav class="nav-links" id="site-nav" aria-label="Primary">
         <a href="/">Home</a>
         <a href="/buyers-and-sellers">Buy &amp; Sell</a>
-        <a href="/mls-search">Search Homes</a>
-        <a href="/family-wealth-preservation">Family Wealth</a>
+        <a href="/landlord-leasing">Landlords</a>
+        <a href="/real-estate-partnerships">Invest</a>
         <a href="/house-hacking">House Hacking</a>
-        <a href="/wealth-tools">Tools</a>
+        <a href="/mls-search">Search</a>
         <a href="/free-reports">Free Reports</a>
       </nav>
       <a class="nav-cta" href="#contact">Book a Call</a>
@@ -3436,6 +3540,48 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       </div>
     </section>
 
+    <section class="advisory-section" id="partnerships" aria-labelledby="advisory-heading">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="section-kicker">Elite Specializations</span>
+          <h2 class="section-title" id="advisory-heading">Two paths to <em>passive real estate.</em></h2>
+          <p class="section-copy">Whether you are transitioning an inherited home into a compliant rental, or looking to deploy high-income capital into joint-venture acquisitions, Kareem provides structured, professional frameworks.</p>
+        </div>
+        
+        <div class="advisory-grid">
+          <!-- Card 1: Accidental Landlords -->
+          <article class="advisory-card" data-reveal>
+            <div class="advisory-badge">Turnkey Leasing</div>
+            <h3>The Accidental Landlord</h3>
+            <p class="advisory-description">You own a property you don't want to sell, but SoCal's complex tenant laws (AB 1482 rent caps, just-cause evictions) make you hesitant to rent it. We protect your asset with compliance-first leasing and elite tenant vetting.</p>
+            <ul class="advisory-list">
+              <li><strong>AB 1482 Shield:</strong> Compliant lease structures that prevent permanent tenancy encumbrances.</li>
+              <li><strong>Elite Vetting:</strong> Direct background, credit, eviction, and professional cross-verification.</li>
+              <li><strong>Turnkey Transition:</strong> Full vendor prep, rental valuation, and key handoff protocols.</li>
+            </ul>
+            <div class="advisory-footer">
+              <a class="btn btn-outline" href="/landlord-leasing">Leasing Representation</a>
+            </div>
+          </article>
+          
+          <!-- Card 2: High-Income Passive Investors -->
+          <article class="advisory-card advisory-card--premium" data-reveal>
+            <div class="advisory-badge advisory-badge--gold">JV Partnerships</div>
+            <h3>High-Income Co-Investing</h3>
+            <p class="advisory-description">You earn a high income, but lack the time to source off-market deals, manage renovations, or deal with daily tenant operations. Partner with our operational team to build a high-performance SoCal portfolio.</p>
+            <ul class="advisory-list">
+              <li><strong>Depreciation Shields:</strong> Maximize tax benefits and write-offs to protect your W-2 income.</li>
+              <li><strong>Boot-on-Ground Operations:</strong> Sourcing, design, contractor management, and remodeling.</li>
+              <li><strong>High-Alignment JVs:</strong> Structured equity matching where our interests are fully aligned.</li>
+            </ul>
+            <div class="advisory-footer">
+              <a class="btn btn-primary" href="/real-estate-partnerships">Explore Partnerships</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="method-section" id="method" aria-labelledby="method-heading">
       <div class="container">
         <div class="method-head" data-reveal>
@@ -3472,56 +3618,6 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       </div>
     </section>
 
-    <section class="pro-section" id="professionals" aria-labelledby="pro-heading">
-      <div class="container">
-        <div class="pro-grid">
-          <div class="pro-copy" data-reveal>
-            <span class="section-kicker">For Ambitious Professionals</span>
-            <h2 class="pro-title" id="pro-heading">You earn like a professional. Let's <em>build like an investor.</em></h2>
-            <p>You're excellent at what you do — and your income shows it. But a strong salary and real wealth aren't the same thing. The earners who pull ahead are the ones who turn cash flow into appreciating assets early, while time is still on their side.</p>
-            <p>Kareem is the guide for high-earning professionals who want a clear, unhurried strategy for their first home, their next move, and the portfolio underneath it — without the jargon, pressure, or guesswork.</p>
-            <div class="pro-chip-row">
-              <span class="pro-chip">Tech &amp; Engineering</span>
-              <span class="pro-chip">Medicine &amp; Law</span>
-              <span class="pro-chip">Finance</span>
-              <span class="pro-chip">Founders</span>
-            </div>
-          </div>
-          <aside class="value-stack" data-reveal aria-label="Free resources Kareem provides">
-            <div class="value-stack-head">
-              <strong>What you get — free</strong>
-              <span>No cost · no catch</span>
-            </div>
-            <a class="value-item" href="#contact">
-              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-              <span class="value-txt"><strong>1:1 Strategy Session</strong><span>A real plan for your goals — not a sales pitch.</span></span>
-              <span class="value-free">Free</span>
-            </a>
-            <a class="value-item" href="/free-reports">
-              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg></span>
-              <span class="value-txt"><strong>42 Expert Guides</strong><span>Pricing, negotiation, and wealth playbooks.</span></span>
-              <span class="value-free">Free</span>
-            </a>
-            <a class="value-item" href="/wealth-tools">
-              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10"/><line x1="12" y1="10" x2="12" y2="10"/><line x1="16" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg></span>
-              <span class="value-txt"><strong>Wealth Calculators</strong><span>Affordability, equity, and net-proceeds tools.</span></span>
-              <span class="value-free">Free</span>
-            </a>
-            <a class="value-item" href="/mls-search">
-              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-              <span class="value-txt"><strong>Live MLS Access</strong><span>Every active listing, direct — no third-party noise.</span></span>
-              <span class="value-free">Free</span>
-            </a>
-            <a class="value-item" href="/family-wealth-preservation">
-              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6z"/></svg></span>
-              <span class="value-txt"><strong>Annual Portfolio Review</strong><span>A yearly check-in on equity, timing, and tax moves.</span></span>
-              <span class="value-free">Free</span>
-            </a>
-            <a class="value-item" href="/house-hacking">
-              <span class="value-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-              <span class="value-txt"><strong>House Hack Analyzer</strong><span>Model any SoCal deal: FHA duplex, ADU, room rental.</span></span>
-              <span class="value-free">Free</span>
-            </a>
           </aside>
         </div>
       </div>
@@ -3584,36 +3680,36 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
 
     <section class="tesla-panel" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=90&auto=format&fit=crop');">
       <div class="tesla-panel-content">
-        <span class="tesla-eyebrow">Family Wealth</span>
-        <h2 class="tesla-title">Generational Strategy</h2>
-        <p class="tesla-subtitle">Real estate is the longest-running wealth instrument in America. Plan, position, and preserve assets across decades — not just transactions.</p>
+        <span class="tesla-eyebrow">Accidental Landlords</span>
+        <h2 class="tesla-title">Compliance-First Leasing</h2>
+        <p class="tesla-subtitle">Protect your equity and secure high-caliber placements. Navigate California's complex AB 1482 rent caps and legal vetting rules seamlessly.</p>
         <div class="tesla-buttons">
-          <a class="tesla-btn tesla-btn-primary" href="/family-wealth-preservation">Family Strategy</a>
-          <a class="tesla-btn tesla-btn-secondary" href="#contact">Discuss Your Estate</a>
+          <a class="tesla-btn tesla-btn-primary" href="/landlord-leasing">Leasing Strategy</a>
+          <a class="tesla-btn tesla-btn-secondary" href="#contact">Leasing Consultation</a>
         </div>
       </div>
     </section>
 
     <section class="tesla-panel" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=90&auto=format&fit=crop');">
       <div class="tesla-panel-content">
-        <span class="tesla-eyebrow">Live MLS Search</span>
-        <h2 class="tesla-title">Find Your Home</h2>
-        <p class="tesla-subtitle">Search every active Southern California listing — direct from the MLS, no third-party noise. Concierge support when you find what you love.</p>
+        <span class="tesla-eyebrow">Joint Venture Partnerships</span>
+        <h2 class="tesla-title">Passive Co-Investing</h2>
+        <p class="tesla-subtitle">Put your high-income capital to work. Partner with our operational sourcing and remodeling team for long-term tax-shielded cash flow.</p>
         <div class="tesla-buttons">
-          <a class="tesla-btn tesla-btn-primary" href="/mls-search">Search Homes</a>
-          <a class="tesla-btn tesla-btn-secondary" href="/mls-search#concierge">Concierge Search</a>
+          <a class="tesla-btn tesla-btn-primary" href="/real-estate-partnerships">Co-Investing Partnerships</a>
+          <a class="tesla-btn tesla-btn-secondary" href="#contact">Partner With Kareem</a>
         </div>
       </div>
     </section>
 
     <section class="tesla-panel" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=90&auto=format&fit=crop');">
       <div class="tesla-panel-content">
-        <span class="tesla-eyebrow">Free Reports</span>
-        <h2 class="tesla-title">42 Expert Guides</h2>
-        <p class="tesla-subtitle">From pricing strategy to negotiation tactics. Pick the reports that match your goals — delivered directly from Kareem.</p>
+        <span class="tesla-eyebrow">Live MLS &amp; Insights</span>
+        <h2 class="tesla-title">Direct SoCal Deal Flow</h2>
+        <p class="tesla-subtitle">Search active listings directly from the MLS without third-party noise, and download 42 expert investment and strategy playbooks.</p>
         <div class="tesla-buttons">
-          <a class="tesla-btn tesla-btn-primary" href="/free-reports">Browse Reports</a>
-          <a class="tesla-btn tesla-btn-secondary" href="/free-reports#request">Custom Request</a>
+          <a class="tesla-btn tesla-btn-primary" href="/mls-search">Search Homes</a>
+          <a class="tesla-btn tesla-btn-secondary" href="/free-reports">Browse Reports</a>
         </div>
       </div>
     </section>
@@ -3726,22 +3822,36 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <strong>Kareem Jamal</strong>
-          <p>Southern California Real Estate Strategy &amp; Generational Wealth Preservation.</p>
-          <span class="brokerage-line" style="margin-top: 1rem; opacity: 0.6; border-color: rgba(255,255,255,0.1); color: white;">Rodeo Realty Fine Estates</span>
+          <strong class="footer-brand-name">Kareem Jamal</strong>
+          <p>Southern California Real Estate Strategy &amp; Generational Wealth Preservation. Serving Woodland Hills, Calabasas, Hidden Hills, Encino, West Hills, and the San Fernando Valley.</p>
+          <span class="dre">Rodeo Realty Fine Estates · CA DRE #01998956</span>
         </div>
         <div class="footer-col">
           <h4>Navigate</h4>
           <a href="/">Home</a>
-          <a href="/buyers-and-sellers">Buyers & Sellers</a>
+          <a href="/buyers-and-sellers">Buyers &amp; Sellers</a>
+          <a href="/landlord-leasing">Landlord Representation</a>
+          <a href="/real-estate-partnerships">Co-Investing Partnerships</a>
           <a href="/family-wealth-preservation">Family Wealth Lens</a>
           <a href="/mls-search">Home Search</a>
+          <a href="/mission">Our Mission</a>
+        </div>
+        <div class="footer-col">
+          <h4>Communities</h4>
+          <a href="/woodland-hills">Woodland Hills</a>
+          <a href="/calabasas">Calabasas</a>
+          <a href="/hidden-hills">Hidden Hills</a>
+          <a href="/encino">Encino</a>
+          <a href="/west-hills">West Hills</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
           <a href="tel:+18184027326">(818) 402-7326</a>
           <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
           <a href="https://www.zillow.com/profile/KareemJamal" target="_blank" rel="noopener">Zillow Profile</a>
+          <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener">Rodeo Realty Profile</a>
+          <a href="/free-reports">Free Reports</a>
+          <a href="/wealth-tools">Wealth Tools</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -3750,36 +3860,36 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       </div>
     </div>
     <div class="social-strip">
-  <div class="container social-strip-inner">
-    <span class="social-label">Connect with Kareem</span>
-    <div class="social-links">
-      <a href="https://www.instagram.com/kareemjamaltherealtor" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/kareemjamaltherealtor/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-      <a href="https://www.facebook.com/kareemjamaltherealtor/" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        Facebook
-      </a>
-      <a href="https://www.zillow.com/profile/kareemjamal" target="_blank" rel="noopener" aria-label="Zillow" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9.5l1.5 1L12 5l8.5 5.5 1.5-1L12 2zM4 11v9h16v-9l-8 5-8-5z"/></svg>
-        Zillow
-      </a>
-      <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener" aria-label="Rodeo Realty Profile" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Rodeo Realty
-      </a>
-      <a href="https://g.page/r/kareemjamalrealtor/review" target="_blank" rel="noopener" aria-label="Google Reviews" class="social-link">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-        Google Reviews
-      </a>
+      <div class="container social-strip-inner">
+        <span class="social-label">Connect with Kareem</span>
+        <div class="social-links">
+          <a href="https://www.instagram.com/kareemjamaltherealtor" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/kareemjamaltherealtor/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.facebook.com/kareemjamaltherealtor/" target="_blank" rel="noopener" aria-label="Facebook" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.zillow.com/profile/kareemjamal" target="_blank" rel="noopener" aria-label="Zillow" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9.5l1.5 1L12 5l8.5 5.5 1.5-1L12 2zM4 11v9h16v-9l-8 5-8-5z"/></svg>
+            Zillow
+          </a>
+          <a href="https://www.rodeore.com/agents/kareem-jamal" target="_blank" rel="noopener" aria-label="Rodeo Realty Profile" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Rodeo Realty
+          </a>
+          <a href="https://g.page/r/kareemjamalrealtor/review" target="_blank" rel="noopener" aria-label="Google Reviews" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google Reviews
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   </footer>
 
   <script>

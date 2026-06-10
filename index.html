@@ -49,6 +49,7 @@
         "Encino",
         "Sherman Oaks",
         "Thousand Oaks",
+        "Chatsworth",
         "San Fernando Valley",
         "Greater Los Angeles",
         "Southern California"
@@ -1159,6 +1160,56 @@
     .scape-encino     { --scape: linear-gradient(155deg, #3a3530 0%, #6e5c47 55%, #b88b52 100%); }
     .scape-sherman    { --scape: linear-gradient(155deg, #2f3c48 0%, #51606c 55%, #9aa6a3 100%); }
     .scape-thousand   { --scape: linear-gradient(155deg, #40342f 0%, #79544a 55%, #c79b63 100%); }
+    .scape-chatsworth { --scape: linear-gradient(155deg, #3a3a38 0%, #6f6258 55%, #b3a78f 100%); }
+
+    .neighborhood-card .new-flag {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.1rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(184, 139, 82, 0.92);
+      color: var(--linen);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .neighborhood-card--wide {
+      grid-column: span 2;
+    }
+
+    .neighborhood-cta {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 1.6rem;
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      min-height: 280px;
+    }
+
+    .neighborhood-cta h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.85rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0.4rem 0 0.2rem;
+    }
+
+    .neighborhood-cta p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .neighborhood-cta .btn {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
 
     /* ---- Featured listings showcase (template — sample content) ---- */
     .showcase-flag {
@@ -1175,6 +1226,33 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 1.1rem;
+    }
+
+    .listing-teaser {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding: 1.6rem 1.8rem;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(184, 139, 82, 0.12), rgba(201, 133, 105, 0.08));
+      border: 1px solid rgba(184, 139, 82, 0.28);
+      margin-bottom: 1.5rem;
+    }
+
+    .listing-teaser-copy h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0.4rem 0 0.3rem;
+    }
+
+    .listing-teaser-copy p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 52ch;
     }
 
     .listing-grid {
@@ -1296,6 +1374,9 @@
       .listing-grid,
       .credential-strip {
         grid-template-columns: minmax(0, 1fr);
+      }
+      .neighborhood-card--wide {
+        grid-column: span 1;
       }
     }
 
@@ -2541,6 +2622,18 @@
             <h3>Thousand Oaks</h3>
             <p>A short drive west for buyers who want more land, newer construction, and a slower pace without losing access.</p>
           </article>
+          <article class="neighborhood-card neighborhood-card--wide scape-chatsworth" data-reveal>
+            <span class="new-flag">New Service Area</span>
+            <span class="eyebrow">91311</span>
+            <h3>Chatsworth</h3>
+            <p>Wide lots, equestrian-friendly streets, and the dramatic rock formations near Stoney Point at the Valley's western edge — a market that rewards buyers who want room to grow.</p>
+          </article>
+          <article class="neighborhood-cta" data-reveal>
+            <span class="eyebrow">Beyond the Map</span>
+            <h3>Don&apos;t see your area?</h3>
+            <p>Kareem works throughout Greater Los Angeles and Southern California — reach out and let&apos;s talk about your neighborhood.</p>
+            <a class="btn btn-secondary" href="#contact">Start a Conversation</a>
+          </article>
         </div>
       </div>
     </section>
@@ -2554,6 +2647,14 @@
           <p class="section-copy">
             This is a sample layout for how current listings will appear once they go live — built to make every property feel considered, not just catalogued. For real-time inventory today, search the live MLS directly.
           </p>
+        </div>
+        <div class="listing-teaser" data-reveal>
+          <div class="listing-teaser-copy">
+            <span class="eyebrow">In The Works</span>
+            <h3>A new listing is coming together in Chatsworth.</h3>
+            <p>Details, photography, and pricing will post here as soon as everything is finalized. Want a first look before it hits the MLS?</p>
+          </div>
+          <a class="btn btn-primary" href="#contact">Notify Me First</a>
         </div>
         <div class="listing-grid">
           <article class="listing-card" data-reveal>

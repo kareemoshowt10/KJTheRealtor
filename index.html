@@ -2571,6 +2571,186 @@ section { padding: clamp(3.5rem, 7vh, 5.5rem) 0; }
     @media (prefers-reduced-motion: reduce) {
       .hero-scroll-cue::before { animation: none; }
     }
+
+    /* ═══════════════════════════════════════════════════════════════
+       THE ESTATE — Immersive 3D Blueprint Hero
+    ═══════════════════════════════════════════════════════════════ */
+    .estate-hero {
+      position: relative;
+      min-height: 100vh; min-height: 100svh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-start;
+      overflow: hidden;
+      background-color: #0f0b07;
+      background-image:
+        radial-gradient(130% 90% at 50% -10%, rgba(74,56,34,0.55) 0%, rgba(15,11,7,0) 60%),
+        radial-gradient(90% 70% at 50% 116%, rgba(184,139,82,0.22) 0%, rgba(15,11,7,0) 62%),
+        linear-gradient(180deg, #15110b 0%, #0c0805 100%);
+      isolation: isolate;
+    }
+    /* faint blueprint graph paper */
+    .estate-grid {
+      position: absolute; inset: -12%;
+      background-image:
+        linear-gradient(rgba(184,139,82,0.075) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,139,82,0.075) 1px, transparent 1px);
+      background-size: 46px 46px;
+      -webkit-mask-image: radial-gradient(120% 92% at 50% 34%, #000 28%, transparent 82%);
+      mask-image: radial-gradient(120% 92% at 50% 34%, #000 28%, transparent 82%);
+      pointer-events: none; z-index: 0;
+      animation: estate-grid-drift 50s linear infinite;
+    }
+    @keyframes estate-grid-drift { to { background-position: 46px 46px, 46px 46px; } }
+    .estate-vignette {
+      position: absolute; inset: 0; z-index: 6; pointer-events: none;
+      background: radial-gradient(120% 80% at 50% 38%, transparent 52%, rgba(8,5,3,0.72) 100%);
+    }
+
+    /* overlay copy */
+    .estate-copy {
+      position: relative; z-index: 20; text-align: center;
+      max-width: 64ch; margin: 0 auto;
+      padding: clamp(6.5rem, 13.5vh, 9.5rem) 1.5rem 0;
+      display: grid; gap: 1.1rem; justify-items: center;
+    }
+    .estate-eyebrow {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--gold-soft); display: inline-flex; align-items: center; gap: 0.7rem;
+    }
+    .estate-eyebrow::before, .estate-eyebrow::after { content: ""; width: 26px; height: 1px; }
+    .estate-eyebrow::before { background: linear-gradient(90deg, transparent, var(--gold)); }
+    .estate-eyebrow::after  { background: linear-gradient(90deg, var(--gold), transparent); }
+    .estate-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; font-weight: 500;
+      letter-spacing: -0.015em; color: #fff; max-width: 18ch;
+      text-shadow: 0 2px 44px rgba(0,0,0,0.5);
+    }
+    .estate-title em { font-style: italic; font-weight: 400; color: var(--gold-soft); }
+    .estate-sub {
+      max-width: 56ch; color: rgba(255,253,250,0.86);
+      font-size: clamp(1rem, 1.5vw, 1.12rem); line-height: 1.65; font-weight: 500;
+      text-shadow: 0 1px 16px rgba(0,0,0,0.45);
+    }
+    .estate-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-top: 0.35rem; }
+    .estate-btn {
+      min-height: 54px; display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.95rem 1.9rem; border-radius: 999px; font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      transition: transform 160ms cubic-bezier(.22,1,.36,1), box-shadow 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+    .estate-btn-primary { background: linear-gradient(135deg, #c79b63, var(--gold) 60%, #d4aa74); color:#fff; box-shadow: 0 10px 30px rgba(184,139,82,0.45); }
+    .estate-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(184,139,82,0.6); }
+    .estate-btn-ghost { background: rgba(255,255,255,0.08); color:#fff; border: 1px solid rgba(255,255,255,0.42); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .estate-btn-ghost:hover { transform: translateY(-2px); background: rgba(255,255,255,0.95); color: var(--warm-dark); border-color: transparent; }
+    .estate-brokerage { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,253,250,0.6); margin-top: 0.1rem; }
+
+    /* 3D stage + drafting plane */
+    .estate-stage {
+      position: relative; z-index: 10; width: 100%; flex: 1 1 auto;
+      perspective: 1500px; perspective-origin: 50% 42%;
+      min-height: 38vh;
+    }
+    .estate-plane {
+      position: absolute; left: 50%; bottom: 4%;
+      width: min(1180px, 94vw); aspect-ratio: 1040 / 760;
+      transform: translateX(-50%) rotateX(34deg);
+      transform-origin: 50% 100%; transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .estate-svg { width: 100%; height: 100%; overflow: visible; display: block;
+      filter: drop-shadow(0 6px 26px rgba(0,0,0,0.45)) drop-shadow(0 0 1px rgba(184,139,82,0.4)); }
+
+    /* blueprint ink */
+    .estate-svg .ink { fill: none; stroke: var(--gold-soft); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+    .estate-svg .ink-bold { fill: none; stroke: #ecd9b3; stroke-width: 3.4; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+    .estate-svg .ink-thin { fill: none; stroke: rgba(234,215,187,0.55); stroke-width: 1.1; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+    .estate-svg .dim { fill: none; stroke: rgba(184,139,82,0.6); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .estate-svg .furn { fill: none; stroke: rgba(234,215,187,0.72); stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+    .estate-svg text, .estate-svg .ink, .estate-svg .ink-bold, .estate-svg .ink-thin, .estate-svg .dim, .estate-svg .furn { pointer-events: none; }
+
+    .estate-svg .room-name { fill: #fff; font-family: "Cormorant Garamond", serif; font-size: 27px; font-weight: 600; text-anchor: middle; letter-spacing: 0.4px; }
+    .estate-svg .room-tag { fill: var(--gold-soft); font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2.6px; text-anchor: middle; text-transform: uppercase; }
+    .estate-svg .dim-text { fill: rgba(184,139,82,0.78); font-family: "Manrope", sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-anchor: middle; }
+    .estate-svg .compass-text { fill: var(--gold-soft); font-family: "Manrope", sans-serif; font-size: 13px; font-weight: 800; text-anchor: middle; }
+    .estate-svg .tb-title { fill: #fff; font-family: "Cormorant Garamond", serif; font-size: 23px; font-weight: 600; letter-spacing: 0.6px; }
+    .estate-svg .tb-sub { fill: var(--gold-soft); font-family: "Manrope", sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+    .estate-svg .tb-meta { fill: rgba(234,215,187,0.72); font-family: "Manrope", sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 1.4px; }
+
+    /* interactive room hotspots */
+    .estate-svg .room-fill {
+      fill: rgba(184,139,82,0.045); stroke: transparent; stroke-width: 2.5;
+      vector-effect: non-scaling-stroke; pointer-events: all; cursor: pointer;
+      transition: fill 200ms ease, stroke 200ms ease;
+    }
+    .estate-room:hover .room-fill, .estate-room:focus-visible .room-fill { fill: rgba(184,139,82,0.22); stroke: #f2ddb4; }
+    .estate-room { outline: none; }
+
+    /* draw-in / fade-in */
+    .estate-svg .draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: estate-draw 1.5s cubic-bezier(.55,0,.25,1) forwards; }
+    @keyframes estate-draw { to { stroke-dashoffset: 0; } }
+    .estate-svg .fade { opacity: 0; animation: estate-fade 0.9s ease forwards; }
+    @keyframes estate-fade { to { opacity: 1; } }
+    .estate-svg .dl1 { animation-delay: 0.15s; }
+    .estate-svg .dl2 { animation-delay: 0.55s; }
+    .estate-svg .dl3 { animation-delay: 0.95s; }
+    .estate-svg .dl4 { animation-delay: 1.30s; }
+    .estate-svg .dl5 { animation-delay: 1.65s; }
+    .estate-svg .dl6 { animation-delay: 2.00s; }
+
+    /* detail plaque */
+    .estate-plaque {
+      position: absolute; z-index: 22;
+      left: clamp(1rem, 4vw, 3rem); bottom: clamp(1.4rem, 5vh, 3rem);
+      width: min(440px, calc(100% - 2rem));
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.9rem 1.3rem; border-radius: 16px;
+      background: rgba(20,14,9,0.62); border: 1px solid rgba(184,139,82,0.32);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 22px 54px rgba(0,0,0,0.42); text-align: left;
+    }
+    .estate-plaque-key { font-size: 0.6rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); font-weight: 800; flex-shrink: 0; writing-mode: vertical-rl; transform: rotate(180deg); opacity: 0.85; }
+    .estate-plaque-body { display: grid; gap: 0.18rem; min-width: 0; }
+    .estate-plaque-title { font-family: "Cormorant Garamond", serif; font-size: 1.35rem; color: #fff; font-weight: 600; line-height: 1.1; transition: opacity 0.25s ease; }
+    .estate-plaque-desc { font-size: 0.82rem; color: rgba(255,253,250,0.74); line-height: 1.45; transition: opacity 0.25s ease; }
+    .estate-plaque.swap .estate-plaque-title, .estate-plaque.swap .estate-plaque-desc { opacity: 0; }
+
+    .estate-hero .hero-scroll-cue { z-index: 25; }
+
+    /* entrance */
+    .estate-copy > * { opacity: 0; transform: translateY(18px); animation: estate-rise 0.9s cubic-bezier(.22,1,.36,1) forwards; }
+    .estate-copy > *:nth-child(1) { animation-delay: 0.10s; }
+    .estate-copy > *:nth-child(2) { animation-delay: 0.22s; }
+    .estate-copy > *:nth-child(3) { animation-delay: 0.34s; }
+    .estate-copy > *:nth-child(4) { animation-delay: 0.46s; }
+    .estate-copy > *:nth-child(5) { animation-delay: 0.58s; }
+    .estate-plaque { opacity: 0; transform: translateY(18px); animation: estate-rise 0.9s cubic-bezier(.22,1,.36,1) forwards; animation-delay: 0.75s; }
+    @keyframes estate-rise { to { opacity: 1; transform: none; } }
+
+    /* responsive */
+    @media (max-width: 860px) {
+      .estate-stage { perspective: 1150px; }
+      .estate-plane { transform: translateX(-50%) rotateX(26deg); width: 130vw; bottom: 5%; }
+      .estate-svg .room-name { font-size: 31px; }
+      .estate-svg .room-tag { font-size: 13px; }
+      .estate-plaque-key { display: none; }
+      .estate-plaque { left: 50%; transform: translateX(-50%); width: min(520px, calc(100% - 2rem)); text-align: center; justify-content: center; }
+      .estate-plaque.swap .estate-plaque-title, .estate-plaque.swap .estate-plaque-desc { opacity: 0; }
+    }
+    @media (max-width: 560px) {
+      .estate-copy { padding-top: clamp(5.5rem, 13vh, 7rem); }
+      .estate-plane { transform: translateX(-50%) rotateX(20deg); width: 156vw; }
+      .estate-title { font-size: clamp(2.3rem, 8.5vw, 3.3rem); }
+      .estate-btn { flex: 1 1 100%; max-width: 320px; }
+      .estate-hero .hero-scroll-cue { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .estate-grid { animation: none; }
+      .estate-svg .draw { stroke-dashoffset: 0; animation: none; }
+      .estate-svg .fade { opacity: 1; animation: none; }
+      .estate-copy > *, .estate-plaque { opacity: 1; transform: none; animation: none; }
+    }
+
 .trust-card, .service-card, .pulse-card, .stat {
   box-shadow: 0 2px 24px rgba(0,0,0,0.06) !important;
   border: 1px solid rgba(0,0,0,0.05) !important;
@@ -3372,19 +3552,173 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   </header>
 
   <main id="top">
-    <section class="hero-tesla" id="hero">
-      <div class="hero-tesla-top" data-reveal>
-        <span class="hero-tesla-eyebrow">Kareem Jamal · Woodland Hills, CA</span>
-        <h1 class="hero-tesla-title">Real estate that builds <em>generational wealth.</em></h1>
-        <p class="hero-tesla-sub">From your first home to your family legacy — Kareem helps Southern California families buy smarter, sell strategically, and build wealth that lasts.</p>
-      </div>
-      <div class="hero-tesla-bottom" data-reveal>
-        <div class="hero-tesla-buttons">
-          <a class="hero-tesla-btn hero-tesla-btn-primary" href="#contact">Start Your Strategy</a>
-          <a class="hero-tesla-btn hero-tesla-btn-secondary" href="mls-search.html">Search Homes</a>
+    <section class="estate-hero" id="hero" aria-label="The Estate — your real estate journey">
+      <div class="estate-grid" aria-hidden="true"></div>
+
+      <div class="estate-copy">
+        <span class="estate-eyebrow">Kareem Jamal · Woodland Hills, CA</span>
+        <h1 class="estate-title">Build the blueprint for <em>generational wealth.</em></h1>
+        <p class="estate-sub">Every great estate begins as a plan. Kareem helps Southern California families design the move — buy smarter, sell strategically, and build a home where wealth gathers for generations.</p>
+        <div class="estate-ctas">
+          <a class="estate-btn estate-btn-primary" href="#contact">Start Your Strategy</a>
+          <a class="estate-btn estate-btn-ghost" href="/mls-search">Search Homes</a>
         </div>
-        <span class="hero-tesla-brokerage">Rodeo Realty Fine Estates · CA DRE #01998956</span>
+        <span class="estate-brokerage">Rodeo Realty Fine Estates · CA DRE #01998956</span>
       </div>
+
+      <div class="estate-stage" id="estateStage">
+        <div class="estate-plane" id="estatePlane">
+          <svg class="estate-svg" viewBox="0 0 1040 760" role="img" aria-label="Architectural blueprint of an estate. Each room links to a part of Kareem's services.">
+
+            <!-- interactive room hotspots -->
+            <a class="estate-room" href="/family-wealth-preservation" aria-label="The Library — Family wealth preservation" data-title="The Library" data-desc="The long view. Family wealth preservation, 1031 exchanges, Prop 19 &amp; step-up in basis.">
+              <rect class="room-fill" x="70" y="90" width="340" height="260" rx="2"/>
+            </a>
+            <a class="estate-room" href="/wealth-tools" aria-label="The Study — Free wealth calculators and tools" data-title="The Study" data-desc="Run the numbers. Free calculators for affordability, equity &amp; seller net proceeds.">
+              <rect class="room-fill" x="630" y="90" width="340" height="260" rx="2"/>
+            </a>
+            <a class="estate-room" href="/buyers-and-sellers" aria-label="The Great Room — Buying and selling" data-title="The Great Room" data-desc="Where the whole family gathers. Buying &amp; selling, guided with calm, unhurried strategy.">
+              <rect class="room-fill" x="410" y="90" width="220" height="310" rx="2"/>
+            </a>
+            <a class="estate-room" href="/mls-search" aria-label="The Conservatory — Search homes" data-title="The Conservatory" data-desc="Light, space, possibility. Search every home across Southern California.">
+              <rect class="room-fill" x="70" y="350" width="340" height="260" rx="2"/>
+            </a>
+            <a class="estate-room" href="/house-hacking" aria-label="The Guest Wing — House hacking and investing" data-title="The Guest Wing" data-desc="Make the home work for you. House hacking &amp; investment strategy.">
+              <rect class="room-fill" x="630" y="350" width="340" height="260" rx="2"/>
+            </a>
+            <a class="estate-room" href="#contact" aria-label="The Foyer — Start the conversation" data-title="The Foyer" data-desc="Every visit begins with a welcome. Start your strategy — a calm, no-pressure conversation.">
+              <rect class="room-fill" x="410" y="400" width="220" height="210" rx="2"/>
+            </a>
+
+            <!-- outer walls -->
+            <g>
+              <line class="ink-bold draw dl1" x1="70"  y1="90"  x2="970" y2="90"  pathLength="1"/>
+              <line class="ink-bold draw dl1" x1="70"  y1="90"  x2="70"  y2="610" pathLength="1"/>
+              <line class="ink-bold draw dl1" x1="970" y1="90"  x2="970" y2="610" pathLength="1"/>
+              <line class="ink-bold draw dl1" x1="70"  y1="610" x2="460" y2="610" pathLength="1"/>
+              <line class="ink-bold draw dl1" x1="580" y1="610" x2="970" y2="610" pathLength="1"/>
+            </g>
+
+            <!-- partition walls -->
+            <g>
+              <line class="ink draw dl2" x1="410" y1="90"  x2="410" y2="610" pathLength="1"/>
+              <line class="ink draw dl2" x1="630" y1="90"  x2="630" y2="610" pathLength="1"/>
+              <line class="ink draw dl2" x1="70"  y1="350" x2="410" y2="350" pathLength="1"/>
+              <line class="ink draw dl2" x1="630" y1="350" x2="970" y2="350" pathLength="1"/>
+              <line class="ink draw dl2" x1="410" y1="400" x2="630" y2="400" pathLength="1"/>
+            </g>
+
+            <!-- grand entrance: door swing + steps -->
+            <g>
+              <path class="ink-thin draw dl3" d="M460 610 A 120 120 0 0 1 580 610" pathLength="1"/>
+              <line class="ink-thin draw dl3" x1="440" y1="622" x2="600" y2="622" pathLength="1"/>
+              <line class="ink-thin draw dl3" x1="432" y1="634" x2="608" y2="634" pathLength="1"/>
+              <line class="ink-thin draw dl3" x1="424" y1="646" x2="616" y2="646" pathLength="1"/>
+            </g>
+
+            <!-- furniture -->
+            <g>
+              <!-- Great Room: the gathering table -->
+              <rect class="furn draw dl4" x="472" y="178" width="96" height="150" rx="12" pathLength="1"/>
+              <rect class="furn draw dl4" x="448" y="192" width="16" height="26" rx="3" pathLength="1"/>
+              <rect class="furn draw dl4" x="448" y="237" width="16" height="26" rx="3" pathLength="1"/>
+              <rect class="furn draw dl4" x="448" y="282" width="16" height="26" rx="3" pathLength="1"/>
+              <rect class="furn draw dl4" x="576" y="192" width="16" height="26" rx="3" pathLength="1"/>
+              <rect class="furn draw dl4" x="576" y="237" width="16" height="26" rx="3" pathLength="1"/>
+              <rect class="furn draw dl4" x="576" y="282" width="16" height="26" rx="3" pathLength="1"/>
+              <rect class="furn draw dl4" x="502" y="156" width="36" height="15" rx="3" pathLength="1"/>
+              <rect class="furn draw dl4" x="502" y="335" width="36" height="15" rx="3" pathLength="1"/>
+              <!-- Library: bookshelf + reading chair -->
+              <rect class="furn draw dl4" x="92"  y="100" width="300" height="12" rx="2" pathLength="1"/>
+              <line class="furn draw dl4" x1="152" y1="100" x2="152" y2="112" pathLength="1"/>
+              <line class="furn draw dl4" x1="212" y1="100" x2="212" y2="112" pathLength="1"/>
+              <line class="furn draw dl4" x1="272" y1="100" x2="272" y2="112" pathLength="1"/>
+              <line class="furn draw dl4" x1="332" y1="100" x2="332" y2="112" pathLength="1"/>
+              <circle class="furn draw dl4" cx="150" cy="292" r="26" pathLength="1"/>
+              <circle class="furn draw dl4" cx="300" cy="300" r="16" pathLength="1"/>
+              <!-- Study: desk + chair + shelf -->
+              <rect class="furn draw dl4" x="716" y="248" width="168" height="56" rx="5" pathLength="1"/>
+              <circle class="furn draw dl4" cx="800" cy="326" r="20" pathLength="1"/>
+              <rect class="furn draw dl4" x="948" y="130" width="10" height="190" rx="2" pathLength="1"/>
+              <!-- Conservatory: fountain, bench, plants -->
+              <circle class="furn draw dl4" cx="240" cy="500" r="26" pathLength="1"/>
+              <circle class="furn draw dl4" cx="240" cy="500" r="12" pathLength="1"/>
+              <rect class="furn draw dl4" x="150" y="440" width="110" height="20" rx="6" pathLength="1"/>
+              <circle class="furn draw dl4" cx="120" cy="560" r="20" pathLength="1"/>
+              <circle class="furn draw dl4" cx="350" cy="450" r="18" pathLength="1"/>
+              <circle class="furn draw dl4" cx="332" cy="560" r="22" pathLength="1"/>
+              <!-- Guest Wing: two beds -->
+              <rect class="furn draw dl4" x="678" y="432" width="112" height="146" rx="6" pathLength="1"/>
+              <rect class="furn draw dl4" x="686" y="440" width="96"  height="30"  rx="4" pathLength="1"/>
+              <rect class="furn draw dl4" x="820" y="432" width="112" height="146" rx="6" pathLength="1"/>
+              <rect class="furn draw dl4" x="828" y="440" width="96"  height="30"  rx="4" pathLength="1"/>
+              <!-- Foyer: entry rug + grand staircase -->
+              <circle class="furn draw dl4" cx="520" cy="520" r="44" pathLength="1"/>
+              <line class="furn draw dl4" x1="560" y1="430" x2="560" y2="560" pathLength="1"/>
+              <line class="furn draw dl4" x1="616" y1="430" x2="616" y2="560" pathLength="1"/>
+              <line class="furn draw dl4" x1="560" y1="445" x2="616" y2="445" pathLength="1"/>
+              <line class="furn draw dl4" x1="560" y1="462" x2="616" y2="462" pathLength="1"/>
+              <line class="furn draw dl4" x1="560" y1="479" x2="616" y2="479" pathLength="1"/>
+              <line class="furn draw dl4" x1="560" y1="496" x2="616" y2="496" pathLength="1"/>
+              <line class="furn draw dl4" x1="560" y1="513" x2="616" y2="513" pathLength="1"/>
+              <line class="furn draw dl4" x1="560" y1="530" x2="616" y2="530" pathLength="1"/>
+              <line class="furn draw dl4" x1="560" y1="547" x2="616" y2="547" pathLength="1"/>
+            </g>
+
+            <!-- dimension lines + compass -->
+            <g>
+              <line class="dim draw dl5" x1="70" y1="56" x2="970" y2="56" pathLength="1"/>
+              <line class="dim draw dl5" x1="70" y1="49" x2="70"  y2="63" pathLength="1"/>
+              <line class="dim draw dl5" x1="970" y1="49" x2="970" y2="63" pathLength="1"/>
+              <text class="dim-text fade dl5" x="520" y="48">96&#39;-0&quot;</text>
+              <line class="dim draw dl5" x1="46" y1="90" x2="46" y2="610" pathLength="1"/>
+              <line class="dim draw dl5" x1="39" y1="90" x2="53" y2="90" pathLength="1"/>
+              <line class="dim draw dl5" x1="39" y1="610" x2="53" y2="610" pathLength="1"/>
+              <text class="dim-text fade dl5" x="30" y="350" transform="rotate(-90 30 350)">64&#39;-0&quot;</text>
+              <circle class="ink-thin draw dl5" cx="912" cy="48" r="20" pathLength="1"/>
+              <path class="furn draw dl5" d="M912 30 L907 52 L912 46 L917 52 Z" pathLength="1"/>
+              <text class="compass-text fade dl5" x="912" y="22">N</text>
+            </g>
+
+            <!-- title block -->
+            <g>
+              <rect class="ink-thin draw dl6" x="596" y="646" width="376" height="98" rx="4" pathLength="1"/>
+              <line class="ink-thin draw dl6" x1="596" y1="702" x2="972" y2="702" pathLength="1"/>
+              <text class="tb-title fade dl6" x="614" y="680">The Jamal Estate</text>
+              <text class="tb-sub fade dl6"   x="614" y="696">RESIDENCE OF GENERATIONAL WEALTH</text>
+              <text class="tb-meta fade dl6"  x="614" y="722">SHEET A-1</text>
+              <text class="tb-meta fade dl6"  x="614" y="736">SCALE 1/4&quot; = 1&#39;-0&quot;</text>
+              <text class="tb-meta fade dl6"  x="820" y="722">RODEO REALTY</text>
+              <text class="tb-meta fade dl6"  x="820" y="736">DRE #01998956</text>
+            </g>
+
+            <!-- room labels -->
+            <g>
+              <text class="room-name fade dl4" x="240" y="150">The Library</text>
+              <text class="room-tag fade dl5"  x="240" y="172">Family Wealth</text>
+              <text class="room-name fade dl4" x="800" y="150">The Study</text>
+              <text class="room-tag fade dl5"  x="800" y="172">Tools</text>
+              <text class="room-name fade dl4" x="520" y="128">The Great Room</text>
+              <text class="room-tag fade dl5"  x="520" y="148">Buy &amp; Sell</text>
+              <text class="room-name fade dl4" x="240" y="392">The Conservatory</text>
+              <text class="room-tag fade dl5"  x="240" y="414">Search Homes</text>
+              <text class="room-name fade dl4" x="800" y="392">The Guest Wing</text>
+              <text class="room-tag fade dl5"  x="800" y="414">House Hacking</text>
+              <text class="room-name fade dl4" x="520" y="430">The Foyer</text>
+              <text class="room-tag fade dl5"  x="520" y="450">Welcome &middot; Contact</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="estate-plaque" id="estatePlaque" aria-hidden="true">
+          <span class="estate-plaque-key">The Estate</span>
+          <span class="estate-plaque-body">
+            <span class="estate-plaque-title" id="estatePlaqueTitle">A blueprint for generational wealth</span>
+            <span class="estate-plaque-desc" id="estatePlaqueDesc">Explore the estate — each room is a part of your journey with Kareem.</span>
+          </span>
+        </div>
+      </div>
+
       <div class="hero-scroll-cue" aria-hidden="true"></div>
     </section>
 
@@ -4293,6 +4627,72 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   [inc, dp, yr].forEach(function (el) { el.addEventListener('input', calc); });
   calc();
 })();
+  </script>
+  <script>
+  // ══ The Estate — 3D parallax + room-detail plaque ══
+  (function () {
+    var hero = document.getElementById('hero');
+    if (!hero || !hero.classList.contains('estate-hero')) return;
+
+    // Room → plaque readout
+    var plaque = document.getElementById('estatePlaque');
+    var pTitle = document.getElementById('estatePlaqueTitle');
+    var pDesc  = document.getElementById('estatePlaqueDesc');
+    var defTitle = pTitle ? pTitle.textContent : '';
+    var defDesc  = pDesc ? pDesc.textContent : '';
+    var swapT;
+    function setPlaque(t, d) {
+      if (!plaque || !pTitle || !pDesc || pTitle.textContent === t) return;
+      plaque.classList.add('swap');
+      clearTimeout(swapT);
+      swapT = setTimeout(function () {
+        pTitle.textContent = t;
+        pDesc.textContent = d;
+        plaque.classList.remove('swap');
+      }, 180);
+    }
+    Array.prototype.forEach.call(hero.querySelectorAll('.estate-room'), function (a) {
+      function on()  { setPlaque(a.getAttribute('data-title'), a.getAttribute('data-desc')); }
+      function off() { setPlaque(defTitle, defDesc); }
+      a.addEventListener('mouseenter', on);
+      a.addEventListener('mouseleave', off);
+      a.addEventListener('focus', on);
+      a.addEventListener('blur', off);
+    });
+
+    // 3D parallax + idle float — desktop, motion-OK only
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var coarse = window.matchMedia('(pointer: coarse)').matches;
+    var stage = document.getElementById('estateStage');
+    var plane = document.getElementById('estatePlane');
+    if (reduce || coarse || !stage || !plane) return;
+
+    function baseTilt() { var w = window.innerWidth; return w < 560 ? 20 : (w < 860 ? 26 : 34); }
+    var tx = 0, ty = 0, cx = 0, cy = 0, active = false, t0 = performance.now(), raf = 0;
+    stage.addEventListener('mousemove', function (e) {
+      var r = stage.getBoundingClientRect();
+      cx = (e.clientX - r.left) / r.width - 0.5;
+      cy = (e.clientY - r.top) / r.height - 0.5;
+    }, { passive: true });
+    stage.addEventListener('mouseleave', function () { cx = 0; cy = 0; });
+    function loop(now) {
+      if (!active) { raf = 0; return; }
+      tx += (cx - tx) * 0.07;
+      ty += (cy - ty) * 0.07;
+      var t = (now - t0) / 1000;
+      var rx = baseTilt() - ty * 5 + Math.sin(t * 0.6) * 0.9;
+      var ry = tx * 7 + Math.cos(t * 0.5) * 1.1;
+      plane.style.transform = 'translateX(-50%) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+      raf = requestAnimationFrame(loop);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        active = en.isIntersecting;
+        if (active && !raf) { t0 = performance.now(); raf = requestAnimationFrame(loop); }
+      });
+    }, { threshold: 0.04 });
+    io.observe(hero);
+  })();
   </script>
 </body>
 </html>

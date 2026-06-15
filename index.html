@@ -379,10 +379,17 @@
       content: '';
       display: block;
       width: 28px;
-      height: 1px;
-      background: currentColor;
+      height: 9px;
       opacity: 0.55;
       flex-shrink: 0;
+      background:
+        linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+        linear-gradient(currentColor, currentColor) right center / 1px 9px no-repeat;
+    }
+    .section-kicker::after {
+      background:
+        linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+        linear-gradient(currentColor, currentColor) left center / 1px 9px no-repeat;
     }
 
     .section-title {
@@ -2910,6 +2917,39 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   .hero { padding: 3rem 0 2rem !important; }
   .section-head { margin-bottom: 2rem !important; }
 }
+/* ── Blueprint Seam Divider ── */
+    .blueprint-seam {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1.5rem, 4vw, 4rem);
+    }
+    .blueprint-seam .bps-line {
+      flex: 1;
+      height: 1px;
+      max-width: 220px;
+      background: linear-gradient(90deg, transparent, rgba(184, 139, 82, 0.4), transparent);
+    }
+    .blueprint-seam .bps-mark {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.65;
+      white-space: nowrap;
+    }
+    .blueprint-seam.on-dark .bps-line {
+      background: linear-gradient(90deg, transparent, rgba(234, 215, 187, 0.35), transparent);
+    }
+    .blueprint-seam.on-dark .bps-mark {
+      color: var(--gold-soft);
+      opacity: 0.8;
+    }
+
 /* ── Proof Band ── */
     .proof-band {
       display: grid;
@@ -2923,10 +2963,23 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
     .proof-item {
       padding: 2.5rem 2rem;
       border-right: 1px solid rgba(46, 53, 60, 0.1);
+      position: relative;
     }
     .proof-item:last-child {
       border-right: none;
     }
+    .proof-item::after {
+      content: '';
+      position: absolute;
+      top: 0.85rem;
+      right: 0.85rem;
+      width: 11px;
+      height: 11px;
+      border-top: 1px solid rgba(184, 139, 82, 0.4);
+      border-right: 1px solid rgba(184, 139, 82, 0.4);
+      pointer-events: none;
+    }
+    .proof-item:last-child::after { right: 0.5rem; }
     .proof-item strong {
       display: block;
       font-family: "Cormorant Garamond", serif;
@@ -3172,7 +3225,10 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
 
 /* ── Signature Method ── */
     .method-section {
-      background: linear-gradient(180deg, var(--cream) 0%, var(--sand-soft) 100%);
+      background:
+        repeating-linear-gradient(0deg, rgba(184, 139, 82, 0.05) 0 1px, transparent 1px 64px),
+        repeating-linear-gradient(90deg, rgba(184, 139, 82, 0.05) 0 1px, transparent 1px 64px),
+        linear-gradient(180deg, var(--cream) 0%, var(--sand-soft) 100%);
       padding: clamp(4rem, 8vh, 6rem) 0;
       position: relative;
       overflow: hidden;
@@ -3752,6 +3808,12 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
         </div>
     </section>
 
+    <div class="blueprint-seam" aria-hidden="true">
+      <span class="bps-line"></span>
+      <span class="bps-mark">&#10022;</span>
+      <span class="bps-line"></span>
+    </div>
+
     <section class="story-section">
       <div class="story-inner">
         <div class="story-photo" data-reveal>
@@ -3871,6 +3933,12 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
         </div>
       </div>
     </section>
+
+    <div class="blueprint-seam on-dark" style="background: var(--warm-dark);" aria-hidden="true">
+      <span class="bps-line"></span>
+      <span class="bps-mark">&#10022;</span>
+      <span class="bps-line"></span>
+    </div>
 
     <section class="wb-section" id="wealth-builder" aria-labelledby="wb-heading">
       <div class="container">

@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Listing Strategy — A Guided Walkthrough | Kareem Jamal</title>
-  <meta name="description" content="A guided, interactive listing presentation: see exactly how Kareem Jamal positions, markets, and sells your home for maximum value — with a live net-proceeds estimate built around your home." />
-  <link rel="canonical" href="https://kareemjamaltherealtor.com/seller-presentation" />
+  <title>Your Home Search — A Guided Buyer Walkthrough | Kareem Jamal</title>
+  <meta name="description" content="A guided, interactive buyer walkthrough: see exactly how Kareem Jamal helps you find, finance, and win the right home — with a live monthly-payment and cash-to-close estimate built around your search." />
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/buyer-presentation" />
   <link rel="icon" href="/assets/favicon.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Your Listing Strategy — A Guided Walkthrough | Kareem Jamal" />
-  <meta property="og:description" content="See exactly how Kareem positions, markets, and sells your home for maximum value — with a live net-proceeds estimate built around your home." />
-  <meta property="og:url" content="https://kareemjamaltherealtor.com/seller-presentation" />
-  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/hero-estate-night.jpg" />
+  <meta property="og:title" content="Your Home Search — A Guided Buyer Walkthrough | Kareem Jamal" />
+  <meta property="og:description" content="See how Kareem helps you find, finance, and win the right home — with a live monthly-payment and cash-to-close estimate built around your search." />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/buyer-presentation" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/hero-buyers.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -251,7 +251,7 @@
     .intro {
       position: relative; min-height: calc(100svh - var(--header-h));
       display: flex; align-items: center; overflow: hidden;
-      background: linear-gradient(180deg, rgba(20,16,12,0.62), rgba(20,16,12,0.78)), url('/assets/hero-estate-night.jpg') center/cover no-repeat;
+      background: linear-gradient(180deg, rgba(20,16,12,0.55), rgba(20,16,12,0.74)), url('/assets/hero-buyers.jpg') center/cover no-repeat;
     }
     .intro::after {
       content: ""; position: absolute; inset: 0;
@@ -323,39 +323,7 @@
     }
     .input-money input { padding-left: 1.7rem; }
 
-    /* ───────────────────────── Pricing strategy ───────────────────────── */
-    .value-readout {
-      text-align: center; padding: clamp(1.4rem, 4vw, 2.4rem);
-      background: linear-gradient(160deg, #fff, var(--sand-soft));
-      border: 1px solid var(--gold-soft); border-radius: var(--radius-lg);
-    }
-    .value-readout .vlabel { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
-    .value-readout .vrange { font-family: "Cormorant Garamond", serif; font-size: clamp(2.1rem, 6vw, 3.4rem); font-weight: 600; color: var(--ink); line-height: 1.05; margin: 0.5rem 0; font-variant-numeric: tabular-nums; }
-    .value-readout .vrange .mid { color: var(--gold-deep); }
-    .value-readout.is-empty .vrange { font-size: 1.3rem; color: var(--muted); }
-    .value-readout .v-empty-ic { color: var(--gold-soft); display: none; }
-    .value-readout.is-empty .v-empty-ic { display: inline-flex; margin-bottom: 0.3rem; }
-    .value-readout .v-empty-ic .ic { width: 38px; height: 38px; }
-    .value-readout .vsub { font-size: 0.9rem; color: var(--muted); }
-
-    .leverage {
-      margin-top: 1.6rem; background: var(--linen); border: 1px solid var(--line);
-      border-radius: var(--radius-lg); padding: clamp(1.3rem,3vw,1.8rem);
-    }
-    .leverage h3 { font-size: 1.45rem; font-weight: 600; margin-bottom: 0.3rem; }
-    .leverage .curve-wrap { margin: 1rem 0 0.4rem; }
-    .leverage svg.curve { width: 100%; height: auto; display: block; overflow: visible; }
-    .leverage .slider-row { margin: 0.8rem 0 0.4rem; }
-    input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: linear-gradient(90deg, var(--gold) var(--p,50%), rgba(46,53,60,0.12) var(--p,50%)); outline: none; }
-    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 3px solid var(--gold-deep); cursor: pointer; box-shadow: var(--shadow-sm); }
-    input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 3px solid var(--gold-deep); cursor: pointer; }
-    .leverage-out { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.2rem; }
-    .leverage-out .lo { background: var(--cream); border-radius: var(--radius-sm); padding: 0.9rem 1rem; }
-    .leverage-out .lo b { display: block; font-family: "Cormorant Garamond", serif; font-size: 1.7rem; font-weight: 600; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
-    .leverage-out .lo span { font-size: 0.76rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
-    .leverage .verdict { margin-top: 1rem; font-weight: 600; font-size: 0.95rem; padding: 0.7rem 1rem; border-radius: var(--radius-sm); }
-
-    /* ───────────────────────── Marketing plan ───────────────────────── */
+    /* ───────────────────────── Pillars (accordion) ───────────────────────── */
     .pillar { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--linen); overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow 0.4s var(--ease-lux), transform 0.4s var(--ease-lux); }
     .pillar + .pillar { margin-top: 0.9rem; }
     .pillar:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
@@ -373,15 +341,7 @@
     .pillar-body li { display: flex; gap: 0.6rem; font-size: 0.95rem; color: #43403b; }
     .pillar-body li .ic { width: 17px; height: 17px; color: var(--gold); flex-shrink: 0; margin-top: 0.15rem; }
 
-    .timeline-14 { margin-top: 1.8rem; }
-    .tl-track { display: grid; gap: 0.7rem; }
-    .tl-item { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; }
-    .tl-day { font-family: "Cormorant Garamond", serif; font-size: 1.05rem; font-weight: 700; color: var(--gold-deep); min-width: 84px; padding-top: 0.1rem; }
-    .tl-card { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.8rem 1rem; }
-    .tl-card b { font-weight: 700; }
-    .tl-card p { font-size: 0.88rem; color: var(--muted); }
-
-    /* ───────────────────────── Net proceeds ───────────────────────── */
+    /* ───────────────────────── Affordability card ───────────────────────── */
     .np-grid { display: grid; gap: 1.4rem; }
     @media (min-width: 880px) { .np-grid { grid-template-columns: 1fr 1.05fr; align-items: start; } .np-result { position: sticky; top: calc(var(--header-h) + 58px); } }
     .np-net {
@@ -394,7 +354,7 @@
     .np-net > * { position: relative; }
     .np-net .nlabel { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; }
     .np-net .nbig { font-family: "Cormorant Garamond", serif; font-size: clamp(2.6rem, 8vw, 4rem); font-weight: 600; line-height: 1; margin: 0.4rem 0 0.2rem; font-variant-numeric: tabular-nums; }
-    .np-net .nbig.neg { color: var(--terracotta); }
+    .np-net .nbig small { font-family: "Manrope", sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0; }
     .np-net .nsub { font-size: 0.86rem; color: rgba(255,255,255,0.72); }
     .np-keep { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.82rem; font-weight: 700; color: var(--ink); background: var(--gold-soft); padding: 0.35rem 0.8rem; border-radius: 999px; }
     .np-keep .ic { width: 15px; height: 15px; }
@@ -405,9 +365,9 @@
     .np-peak .pk-line { font-size: 0.88rem; color: rgba(255,255,255,0.82); margin-bottom: 0.7rem; }
     .np-peak .pk-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; }
 
-    /* waterfall svg */
-    .np-waterfall { margin: 1.4rem 0 0.6rem; }
-    .np-waterfall svg { width: 100%; height: auto; display: block; overflow: visible; }
+    /* stacked payment bar */
+    .pay-bar { display: flex; height: 16px; border-radius: 999px; overflow: hidden; margin: 1.4rem 0 0.4rem; background: rgba(255,255,255,0.12); }
+    .pay-bar span { height: 100%; transition: width 0.5s var(--ease-lux); }
     .np-lines { display: grid; gap: 0.4rem; margin-top: 1rem; }
     .np-line { display: grid; grid-template-columns: 1fr auto; align-items: center; font-size: 0.92rem; padding: 0.32rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .np-line:last-child { border-bottom: none; }
@@ -415,6 +375,7 @@
     .np-line .swatch { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
     .np-line .lv { font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
     .np-line.subtotal { color: rgba(255,255,255,0.7); font-size: 0.86rem; border-bottom: none; padding-bottom: 0; }
+    .np-line.head { color: var(--gold-soft); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border-bottom: none; padding: 0.7rem 0 0.1rem; margin-top: 0.4rem; }
     .np-line.net { border-top: 1.5px solid rgba(255,255,255,0.25); margin-top: 0.3rem; padding-top: 0.7rem; font-size: 1.05rem; }
     .np-line.net .lv { color: var(--gold-soft); }
 
@@ -537,7 +498,6 @@
       .btn-sm.wide { max-width: none; flex: 1; }
       #backBtn { flex-shrink: 0; }
     }
-    @media (max-width: 400px) { .leverage-out { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -575,9 +535,9 @@
     <section class="step is-active" id="step-0" data-title="Welcome">
       <div class="intro">
         <div class="container">
-          <span class="eyebrow">The Listing Strategy · For Sellers</span>
-          <h1>Your home deserves a <em>strategy</em>, not a sign in the yard.</h1>
-          <p class="sub">A guided walkthrough of exactly how Kareem positions, markets, and negotiates your home for maximum value — built around <em>your</em> property, with a live net-proceeds estimate. About three minutes, no email required.</p>
+          <span class="eyebrow">The Buyer's Strategy · For Buyers</span>
+          <h1>Buy with a <em>strategy</em>, not just a saved search.</h1>
+          <p class="sub">A guided walkthrough of exactly how Kareem helps you find, finance, and win the right home — built around <em>your</em> search, with a live estimate of your monthly payment and the cash you'll need to close. About three minutes, no email required.</p>
           <div class="intro-actions">
             <button class="btn btn-primary" id="beginBtn">Begin the walkthrough
               <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -587,75 +547,74 @@
           <div class="intro-meta">
             <div class="m"><b>7 steps</b><span>Guided, self-paced</span></div>
             <div class="m"><b>~3 min</b><span>Start to finish</span></div>
-            <div class="m"><b>Live</b><span>Net-proceeds estimate</span></div>
+            <div class="m"><b>Live</b><span>Payment estimate</span></div>
           </div>
           <p class="intro-foot">Kareem Jamal · Rodeo Realty Fine Estates · CA DRE #01998956 · Woodland Hills &amp; the San Fernando Valley</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== STEP 1 — Home profile ===== -->
-    <section class="step" id="step-1" data-title="Your Home">
+    <!-- ===== STEP 1 — Search profile ===== -->
+    <section class="step" id="step-1" data-title="Your Search">
       <div class="container">
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 1 of 7</span></span>
-          <h2>Tell us about <em>your home.</em></h2>
-          <p class="lede">A few quick details let us tailor the pricing, marketing plan, and net-proceeds estimate to your specific property. Nothing here is shared until you choose to reach out.</p>
+          <h2>Tell us about <em>your search.</em></h2>
+          <p class="lede">A few quick details let us tailor the affordability estimate and game plan to what you're actually looking for. Nothing here is shared until you choose to reach out.</p>
         </div>
 
         <div class="grid grid-2">
           <div class="card" data-reveal>
             <div class="field">
-              <label for="f-area">Where is the home?</label>
+              <label for="f-area">Where are you looking?</label>
               <select id="f-area" data-state="area">
                 <option value="">Select area…</option>
-                <option data-ppsf="560">Woodland Hills</option>
-                <option data-ppsf="640">Calabasas</option>
-                <option data-ppsf="850">Hidden Hills</option>
-                <option data-ppsf="620">Encino</option>
-                <option data-ppsf="520">West Hills</option>
-                <option data-ppsf="560">Tarzana</option>
-                <option data-ppsf="500">Canoga Park</option>
-                <option data-ppsf="540">Other San Fernando Valley</option>
-                <option data-ppsf="560">Elsewhere in SoCal</option>
+                <option>Woodland Hills</option>
+                <option>Calabasas</option>
+                <option>Hidden Hills</option>
+                <option>Encino</option>
+                <option>West Hills</option>
+                <option>Tarzana</option>
+                <option>Canoga Park</option>
+                <option>Other San Fernando Valley</option>
+                <option>Still deciding</option>
               </select>
             </div>
             <div class="field">
-              <span class="label" id="lbl-type">Property type</span>
-              <div class="seg" data-seg="type" role="radiogroup" aria-labelledby="lbl-type">
-                <button type="button" role="radio" aria-checked="true" data-val="Single-family home">Single-family</button>
-                <button type="button" role="radio" aria-checked="false" data-val="Condo / Townhome">Condo / Townhome</button>
-                <button type="button" role="radio" aria-checked="false" data-val="Multi-unit">Multi-unit</button>
+              <span class="label" id="lbl-buyer">You are a…</span>
+              <div class="seg" data-seg="buyerType" role="radiogroup" aria-labelledby="lbl-buyer">
+                <button type="button" role="radio" aria-checked="true" data-val="First-time buyer">First-time</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Move-up buyer">Move-up</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Investor">Investor</button>
               </div>
             </div>
-            <div class="field-row cols-3">
+            <div class="field">
+              <label for="f-price">Target price <span class="hint">(your ballpark)</span></label>
+              <div class="input-money"><input type="number" id="f-price" min="0" placeholder="850,000" data-state="targetPrice" inputmode="numeric" /></div>
+            </div>
+            <div class="field-row cols-2">
               <div class="field">
-                <label for="f-beds">Beds</label>
-                <input type="number" id="f-beds" min="0" max="20" placeholder="4" data-state="beds" inputmode="numeric" />
+                <label for="f-beds">Beds (min)</label>
+                <input type="number" id="f-beds" min="0" max="20" placeholder="3" data-state="beds" inputmode="numeric" />
               </div>
               <div class="field">
-                <label for="f-baths">Baths</label>
-                <input type="number" id="f-baths" min="0" max="20" step="0.5" placeholder="3" data-state="baths" inputmode="decimal" />
-              </div>
-              <div class="field">
-                <label for="f-sqft">Sq ft</label>
-                <input type="number" id="f-sqft" min="200" max="40000" placeholder="2,400" data-state="sqft" inputmode="numeric" />
+                <label for="f-baths">Baths (min)</label>
+                <input type="number" id="f-baths" min="0" max="20" step="0.5" placeholder="2" data-state="baths" inputmode="decimal" />
               </div>
             </div>
           </div>
 
           <div class="card" data-reveal>
             <div class="field">
-              <span class="label" id="lbl-cond">Condition today</span>
-              <p class="hint">Be honest — it changes the strategy, not the relationship.</p>
-              <div class="seg gold" data-seg="condition" role="radiogroup" aria-labelledby="lbl-cond">
-                <button type="button" role="radio" aria-checked="false" data-val="Turnkey" data-factor="1.08">Turnkey</button>
-                <button type="button" role="radio" aria-checked="true" data-val="Good" data-factor="1.0">Good</button>
-                <button type="button" role="radio" aria-checked="false" data-val="Needs work" data-factor="0.88">Needs work</button>
+              <span class="label" id="lbl-home">Home type</span>
+              <div class="seg" data-seg="homeType" role="radiogroup" aria-labelledby="lbl-home">
+                <button type="button" role="radio" aria-checked="true" data-val="Single-family home">Single-family</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Condo / Townhome">Condo / Townhome</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Multi-unit">Multi-unit</button>
               </div>
             </div>
             <div class="field">
-              <span class="label" id="lbl-time">When would you ideally sell?</span>
+              <span class="label" id="lbl-time">When would you ideally buy?</span>
               <div class="seg" data-seg="timeline" role="radiogroup" aria-labelledby="lbl-time">
                 <button type="button" role="radio" aria-checked="false" data-val="As soon as possible">ASAP</button>
                 <button type="button" role="radio" aria-checked="true" data-val="In 1–3 months">1–3 months</button>
@@ -664,13 +623,13 @@
               </div>
             </div>
             <div class="field">
-              <label for="f-payoff">Approx. remaining mortgage balance <span class="hint">(optional)</span></label>
-              <div class="input-money"><input type="number" id="f-payoff" min="0" placeholder="0" data-state="payoff" inputmode="numeric" /></div>
-              <p class="hint">Used only to estimate your net proceeds. Leave at 0 if owned free &amp; clear.</p>
+              <label for="f-down">Down payment on hand <span class="hint">(optional)</span></label>
+              <div class="input-money"><input type="number" id="f-down" min="0" placeholder="0" data-state="downAvail" inputmode="numeric" /></div>
+              <p class="hint">Helps Kareem and your lender shape the right loan. The next step lets you model any down payment.</p>
             </div>
           </div>
         </div>
-        <p class="disclaimer" data-reveal>Estimates on the next screens are illustrative orientation only — not an appraisal, CMA, or guarantee of value or proceeds. Kareem provides a precise, free comparative market analysis (CMA) for your specific home.</p>
+        <p class="disclaimer" data-reveal>Estimates on the next screens are illustrative orientation only — not a loan pre-approval, offer of credit, or guarantee of terms. Kareem connects you with a vetted lender for real numbers based on your credit and the specific property.</p>
 
         <div class="step-cta" data-reveal data-cta-step="1">
           <span class="step-cta-label">Rather just talk it through?</span>
@@ -682,230 +641,234 @@
       </div>
     </section>
 
-    <!-- ===== STEP 2 — Pricing strategy ===== -->
-    <section class="step" id="step-2" data-title="Pricing">
+    <!-- ===== STEP 2 — Affordability ===== -->
+    <section class="step" id="step-2" data-title="Affordability">
       <div class="container">
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 2 of 7</span></span>
-          <h2>Pricing is a <em>strategy</em>, not a guess.</h2>
-          <p class="lede">The right list price doesn't leave money on the table — and it doesn't scare buyers off. We price to create competition and capture the highest-intent buyers in the first two weeks, when attention peaks.</p>
-        </div>
-
-        <div class="grid grid-2">
-          <div class="value-readout is-empty" id="valueReadout" data-reveal>
-            <div class="vlabel">Illustrative value orientation</div>
-            <span class="v-empty-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 13l9-9 9 9"/><path d="M5 11v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8"/><path d="M9 21v-6h6v6"/></svg></span>
-            <div class="vrange" id="vRange">Add sq ft to estimate</div>
-            <div class="vsub" id="vSub">Enter your home's area and size on Step 1 for a ballpark range.</div>
-          </div>
-
-          <div class="leverage" data-reveal>
-            <h3>The pricing-leverage curve</h3>
-            <p class="muted" style="font-size:0.9rem">Drag to see how list price affects buyer demand and time on market.</p>
-            <div class="curve-wrap">
-              <svg class="curve" viewBox="0 0 320 150" preserveAspectRatio="none" role="img" aria-label="Curve showing days on market rising as list price moves away from the strategic range">
-                <rect id="curveBand" x="0" y="0" width="0" height="150" fill="rgba(90,138,94,0.12)"></rect>
-                <path id="curveArea" d="" fill="rgba(184,139,82,0.12)" stroke="none"></path>
-                <path id="curvePath" d="" fill="none" stroke="var(--gold-deep)" stroke-width="2.5" vector-effect="non-scaling-stroke"></path>
-                <line id="curveMarkerLine" x1="0" y1="0" x2="0" y2="150" stroke="rgba(42,37,32,0.25)" stroke-width="1" vector-effect="non-scaling-stroke"></line>
-                <circle id="curveMarker" cx="0" cy="0" r="6" fill="#fff" stroke="var(--gold-deep)" stroke-width="3"></circle>
-              </svg>
-            </div>
-            <div class="slider-row">
-              <input type="range" id="priceSlider" min="-12" max="12" value="0" step="1" aria-label="List price strategy relative to estimated value" />
-            </div>
-            <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--muted);font-weight:600;">
-              <span>Underpriced</span><span>Strategic</span><span>Overpriced</span>
-            </div>
-            <div class="leverage-out">
-              <div class="lo"><b id="loPrice">—</b><span>List price</span></div>
-              <div class="lo"><b id="loDom">—</b><span>Est. days on market</span></div>
-            </div>
-            <div class="verdict" id="leverageVerdict" aria-live="polite" style="background:rgba(90,138,94,0.12);color:#3f6b43;">Right on target — priced to spark competition.</div>
-          </div>
-        </div>
-
-        <div class="card mt-2" data-reveal>
-          <div class="grid grid-3" style="gap:1.2rem">
-            <div>
-              <div class="eyebrow">What drives the number</div>
-              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">Recent comparable sales, neighborhood durability, current demand, and your home's specific condition and upgrades.</p>
-            </div>
-            <div>
-              <div class="eyebrow">Why the first 2 weeks matter</div>
-              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">A new listing gets its peak audience in the opening window. Strategic pricing turns that attention into multiple offers.</p>
-            </div>
-            <div>
-              <div class="eyebrow">Your next step</div>
-              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">Kareem delivers a precise, address-specific CMA — free, no obligation — so your real price is data, not a slider.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="step-cta" data-reveal data-cta-step="2">
-          <span class="step-cta-label">Want your real number?</span>
-          <div class="step-cta-actions">
-            <a class="chip-cta solid" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text me a free CMA</a>
-            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== STEP 3 — Marketing plan ===== -->
-    <section class="step" id="step-3" data-title="Marketing">
-      <div class="container">
-        <div class="step-head" data-reveal>
-          <span class="kicker"><span class="step-no">Step 3 of 7</span></span>
-          <h2>We treat your home <em>like a brand.</em></h2>
-          <p class="lede">Editorial presentation, a precision launch, and a negotiation style built to protect your equity. Tap each pillar to see what's behind it.</p>
-        </div>
-
-        <div id="pillars" data-reveal>
-          <div class="pillar open">
-            <button class="pillar-head" type="button" aria-expanded="true" aria-controls="pillar-1">
-              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
-              <span>
-                <h3>High-fidelity presentation</h3>
-                <p>Make buyers want it before they walk in.</p>
-              </span>
-              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="pillar-body" id="pillar-1" role="region">
-              <ul>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Strategic staging &amp; a minor-improvement audit that targets equity gains, not vanity fixes</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Production-grade photography, drone, and cinematic video</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Polished, editorial listing copy that tells the home's story</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>A branded property page and social-first creative</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="pillar">
-            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="pillar-2">
-              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
-              <span>
-                <h3>Maximum reach &amp; precision positioning</h3>
-                <p>The right buyers, not just more eyeballs.</p>
-              </span>
-              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="pillar-body" id="pillar-2" role="region">
-              <ul>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>"Coming Soon" whisper campaign to top local agents before launch</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Syndication across every major luxury &amp; consumer property portal</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Direct reach into high-net-worth referral networks</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Open-house "event" status reserved for qualified buyers</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Launch timed to maximize opening-weekend showing volume</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="pillar">
-            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="pillar-3">
-              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M5 7h14M5 7l-3 7a4 4 0 0 0 6 0zM19 7l3 7a4 4 0 0 0-6 0zM8 21h8"/></svg></span>
-              <span>
-                <h3>Aggressive, principled negotiation</h3>
-                <p>We don't just accept offers — we vet them.</p>
-              </span>
-              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="pillar-body" id="pillar-3" role="region">
-              <ul>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Every offer vetted for closing probability, not just price</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Multiple-offer strategy designed to drive terms in your favor</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Escrow &amp; inspection oversight so deals don't fall apart late</li>
-                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>One point of contact who keeps you informed at every step</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-14" data-reveal>
-          <h3 style="font-size:1.6rem;font-weight:600;margin-bottom:0.9rem">The first 14 days</h3>
-          <div class="tl-track">
-            <div class="tl-item"><span class="tl-day">Days 1–3</span><div class="tl-card"><b>Prep &amp; produce.</b><p>Staging walkthrough, improvement audit, and the full photo/video shoot.</p></div></div>
-            <div class="tl-item"><span class="tl-day">Days 4–6</span><div class="tl-card"><b>Whisper launch.</b><p>"Coming Soon" to top agents and the referral network — building demand before public launch.</p></div></div>
-            <div class="tl-item"><span class="tl-day">Day 7</span><div class="tl-card"><b>Go live.</b><p>Listing hits every portal with full media and the branded property page.</p></div></div>
-            <div class="tl-item"><span class="tl-day">Days 8–10</span><div class="tl-card"><b>Showing surge.</b><p>Open-house event plus private showings while attention is at its peak.</p></div></div>
-            <div class="tl-item"><span class="tl-day">Days 11–14</span><div class="tl-card"><b>Review &amp; negotiate.</b><p>Vet offers for terms and certainty; drive toward the strongest deal.</p></div></div>
-          </div>
-        </div>
-
-        <div class="step-cta" data-reveal data-cta-step="3">
-          <span class="step-cta-label">Curious what this looks like for your home?</span>
-          <div class="step-cta-actions">
-            <a class="chip-cta" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
-            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== STEP 4 — Net proceeds ===== -->
-    <section class="step" id="step-4" data-title="Net Proceeds">
-      <div class="container">
-        <div class="step-head" data-reveal>
-          <span class="kicker"><span class="step-no">Step 4 of 7</span></span>
-          <h2>What you'd <em>actually walk away with.</em></h2>
-          <p class="lede">Adjust any number to see your estimated net proceeds update live. Defaults are typical California figures — your real costs depend on your specific transaction.</p>
+          <h2>What you can <em>comfortably afford.</em></h2>
+          <p class="lede">Adjust any number to see your estimated monthly payment and the cash you'd need at closing update live. Defaults are typical California figures — your real numbers depend on your lender, credit, and the property.</p>
         </div>
 
         <div class="np-grid">
           <div class="card" data-reveal>
             <div class="field">
-              <label for="np-price">Estimated sale price</label>
-              <p class="hint">Prefilled from your Step 2 estimate — edit freely.</p>
-              <div class="input-money"><input type="number" id="np-price" min="0" data-np="price" inputmode="numeric" /></div>
+              <label for="aff-price">Home price</label>
+              <p class="hint">Prefilled from your Step 1 target — edit freely.</p>
+              <div class="input-money"><input type="number" id="aff-price" min="0" data-aff="price" inputmode="numeric" /></div>
             </div>
             <div class="field">
-              <label for="np-payoff">Remaining mortgage payoff</label>
-              <div class="input-money"><input type="number" id="np-payoff" min="0" data-np="payoff" inputmode="numeric" /></div>
+              <label for="aff-down">Down payment %</label>
+              <input type="number" id="aff-down" min="0" max="100" step="1" value="20" data-aff="downPct" inputmode="numeric" />
+              <p class="hint">3–5% is common for first-time buyers; 20% avoids mortgage insurance.</p>
             </div>
 
             <details class="assump" open>
               <summary>
                 <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>
-                Cost assumptions (tap to adjust)
+                Loan &amp; cost assumptions (tap to adjust)
                 <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
               </summary>
               <div class="field-row cols-2" style="margin-top:1rem">
                 <div class="field">
-                  <label for="np-comm">Total commission %</label>
-                  <input type="number" id="np-comm" min="0" max="10" step="0.1" value="5" data-np="comm" inputmode="decimal" />
-                  <p class="hint">Negotiable; split between agents.</p>
+                  <label for="aff-rate">Interest rate %</label>
+                  <input type="number" id="aff-rate" min="0" max="15" step="0.1" value="6.5" data-aff="rate" inputmode="decimal" />
                 </div>
                 <div class="field">
-                  <label for="np-closing">Closing costs %</label>
-                  <input type="number" id="np-closing" min="0" max="6" step="0.1" value="1.2" data-np="closing" inputmode="decimal" />
-                  <p class="hint">Title, escrow, transfer tax.</p>
+                  <label for="aff-term">Loan term (years)</label>
+                  <input type="number" id="aff-term" min="5" max="40" step="1" value="30" data-aff="term" inputmode="numeric" />
                 </div>
               </div>
               <div class="field">
-                <label for="np-prep">Prep, staging &amp; repairs</label>
-                <div class="input-money"><input type="number" id="np-prep" min="0" value="6000" data-np="prep" inputmode="numeric" /></div>
+                <label for="aff-tax">Property tax rate %</label>
+                <input type="number" id="aff-tax" min="0" max="4" step="0.05" value="1.1" data-aff="taxRate" inputmode="decimal" />
+                <p class="hint">~1.1% is typical in Los Angeles County.</p>
+              </div>
+              <div class="field-row cols-2">
+                <div class="field">
+                  <label for="aff-ins">Home insurance ($/mo)</label>
+                  <div class="input-money"><input type="number" id="aff-ins" min="0" data-aff="insMo" inputmode="numeric" /></div>
+                </div>
+                <div class="field">
+                  <label for="aff-hoa">HOA ($/mo)</label>
+                  <div class="input-money"><input type="number" id="aff-hoa" min="0" value="0" data-aff="hoa" inputmode="numeric" /></div>
+                </div>
               </div>
             </details>
           </div>
 
           <div class="np-result" data-reveal>
             <div class="np-net">
-              <div class="nlabel">Estimated net proceeds</div>
-              <div class="nbig" id="npNet">$—</div>
-              <div class="nsub" id="npNetSub">Enter a sale price to see your estimate.</div>
-              <span class="np-keep" id="npKeep" style="display:none"></span>
-              <div class="np-waterfall" id="npWaterfall" aria-hidden="true"></div>
-              <div class="np-lines" id="npLines"></div>
-              <div class="np-peak" id="npPeak">
-                <p class="pk-line">This is an estimate. Kareem confirms your real net — free, usually within a day.</p>
+              <div class="nlabel">Estimated monthly payment</div>
+              <div class="nbig"><span id="payMonthly">$—</span><small class="permo" id="perMo"></small></div>
+              <div class="nsub" id="paySub">Enter a home price to see your estimate.</div>
+              <span class="np-keep" id="payKeep" style="display:none"></span>
+              <div class="pay-bar" id="payBar" aria-hidden="true"></div>
+              <div class="np-lines" id="payLines"></div>
+              <div class="np-peak" id="payPeak">
+                <p class="pk-line">This is an estimate. Kareem connects you with a vetted lender to confirm your real budget and rate — free, no obligation.</p>
                 <div class="pk-actions">
-                  <button class="chip-cta solid" id="peakCmaBtn" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Get the real number</button>
+                  <button class="chip-cta solid" id="peakCallBtn" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Connect me with a lender</button>
                   <a class="chip-cta" id="peakSmsBtn" data-sms href="#" style="border-color:rgba(255,255,255,0.5);color:#fff;background:transparent"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text me this</a>
                 </div>
               </div>
             </div>
-            <p class="sr-only" id="npLive" role="status" aria-live="polite" aria-atomic="true"></p>
-            <p class="disclaimer">Estimate only. Not an appraisal, tax advice, or a guarantee of proceeds. Excludes any capital-gains tax, HOA transfer fees, prorated property taxes, or seller-paid buyer credits, which vary by transaction. Confirm exact figures with Kareem and your escrow/tax professional.</p>
+            <p class="sr-only" id="payLive" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p class="disclaimer">Estimate only. Not a loan pre-approval, an offer of credit, or a guarantee of terms. Excludes PMI/MIP (often required under 20% down), Mello-Roos, and closing-cost variation. Confirm exact figures with a licensed lender.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 3 — How buying works ===== -->
+    <section class="step" id="step-3" data-title="How It Works">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 3 of 7</span></span>
+          <h2>How buying with <em>Kareem</em> works.</h2>
+          <p class="lede">More than a door-opener — a true advocate who works for you from the first tour to the keys. Tap each pillar to see what's behind it.</p>
+        </div>
+
+        <div class="pillars" data-reveal>
+          <div class="pillar open">
+            <button class="pillar-head" type="button" aria-expanded="true" aria-controls="bp-1">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+              <span>
+                <h3>Access beyond the apps</h3>
+                <p>See more than what's public on Zillow.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="bp-1" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Off-market and "Coming Soon" listings through Kareem's agent network</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Instant alerts the moment a fitting home hits the MLS</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Private tours on your schedule — no listing-agent middleman</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Honest pros and cons on every home, not a sales pitch</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="bp-2">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+              <span>
+                <h3>Your advocate — not the seller's</h3>
+                <p>Represented by someone on your side of the table.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="bp-2" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>True buyer representation (the BRBC) — a fiduciary duty to you</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Every disclosure and inspection decoded in plain English</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Negotiation focused on your bottom line, not just "getting it done"</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Straight talk on when to walk away</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="bp-3">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88"/></svg></span>
+              <span>
+                <h3>Guided from search to keys</h3>
+                <p>One point of contact for the whole journey.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="bp-3" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Introductions to vetted, competitive local lenders</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Inspection &amp; appraisal coordination</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Escrow and contingency management so nothing slips</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Clear communication at every milestone</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="3">
+          <span class="step-cta-label">Want Kareem in your corner?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta solid" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 4 — Winning the home ===== -->
+    <section class="step" id="step-4" data-title="Your Offer">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 4 of 7</span></span>
+          <h2>Winning the <em>right home.</em></h2>
+          <p class="lede">In a competitive market, the strongest offer isn't always the highest — it's the smartest. Here's how Kareem structures offers that win without overpaying or waiving your protections.</p>
+        </div>
+
+        <div class="pillars" data-reveal>
+          <div class="pillar open">
+            <button class="pillar-head" type="button" aria-expanded="true" aria-controls="of-1">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+              <span>
+                <h3>Price it to win — not to overpay</h3>
+                <p>Data, not emotion, sets your number.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="of-1" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Comparable-sales analysis so your offer is grounded in real value</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Escalation clauses that compete without blowing your budget</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Reading the seller's true motivation (timing, terms, certainty)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="of-2">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg></span>
+              <span>
+                <h3>Terms that stand out</h3>
+                <p>Sometimes the terms win the deal, not the price.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="of-2" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Flexible close dates or a rent-back to fit the seller's timeline</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Right-sized contingencies — competitive, but never reckless</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>A clean, fully-underwritten financing package</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Earnest-money strategy that signals serious without undue risk</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="of-3">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+              <span>
+                <h3>Move fast, decisively</h3>
+                <p>Speed wins homes — when you're ready.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="of-3" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>A strong pre-approval in hand before you tour</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Same-day showings and offers when the right home appears</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Responsive, level-headed guidance through counters and multiple offers</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="4">
+          <span class="step-cta-label">Found one you love?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta solid" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem the listing</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
           </div>
         </div>
       </div>
@@ -916,55 +879,55 @@
       <div class="container">
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 5 of 7</span></span>
-          <h2>From "let's talk" to <em>sold.</em></h2>
-          <p class="lede">A clear, guided path so the process feels managed — not chaotic. Typical timelines below; your pace can be faster or slower.</p>
+          <h2>From <em>pre-approval to keys.</em></h2>
+          <p class="lede">A clear, guided path so buying feels exciting — not overwhelming. Typical timelines below; your pace can be faster or slower.</p>
         </div>
 
         <div class="phases" data-reveal>
           <div class="phase">
             <div class="phase-num">1</div>
             <div class="phase-body">
-              <h3>Strategy &amp; CMA</h3>
-              <div class="dur">Days 1–3</div>
-              <p>We meet, walk the home, and build a precise, data-backed price and plan tailored to your goals and timeline.</p>
+              <h3>Get pre-approved</h3>
+              <div class="dur">Days 1–5</div>
+              <p>Connect with a vetted lender, lock in your true budget, and get a strong pre-approval letter that makes your offers credible.</p>
             </div>
           </div>
           <div class="phase">
             <div class="phase-num">2</div>
             <div class="phase-body">
-              <h3>Prep &amp; produce</h3>
-              <div class="dur">Week 1</div>
-              <p>Targeted improvements, staging, and a production-grade photo and video shoot that makes the home irresistible.</p>
+              <h3>Search &amp; tour</h3>
+              <div class="dur">Weeks 1–4</div>
+              <p>Curated listings plus off-market options, private tours, and candid guidance on each home's fit, condition, and value.</p>
             </div>
           </div>
           <div class="phase">
             <div class="phase-num">3</div>
             <div class="phase-body">
-              <h3>Launch &amp; showings</h3>
-              <div class="dur">Weeks 2–3</div>
-              <p>Whisper campaign, public launch across all portals, open-house event, and private showings during peak attention.</p>
+              <h3>Offer &amp; negotiate</h3>
+              <div class="dur">When the right one appears</div>
+              <p>Craft a competitive, protected offer and negotiate price and terms in your favor — calmly, even in multiple-offer situations.</p>
             </div>
           </div>
           <div class="phase">
             <div class="phase-num">4</div>
             <div class="phase-body">
-              <h3>Offers &amp; negotiation</h3>
-              <div class="dur">Weeks 2–4</div>
-              <p>We vet every offer for price <em>and</em> certainty, then negotiate the strongest combination of terms for you.</p>
+              <h3>Escrow &amp; inspections</h3>
+              <div class="dur">~17–21 days</div>
+              <p>Inspections, appraisal, loan underwriting, and contingency management — with Kareem keeping every deadline on track.</p>
             </div>
           </div>
           <div class="phase">
             <div class="phase-num">5</div>
             <div class="phase-body">
-              <h3>Escrow &amp; close</h3>
+              <h3>Close &amp; get keys</h3>
               <div class="dur">~30 days</div>
-              <p>Inspection, appraisal, and contingency oversight through to final signatures — handled so you can focus on what's next.</p>
+              <p>Final walkthrough, signing, funding, and recording — then the keys to your new home.</p>
             </div>
           </div>
         </div>
 
         <div class="step-cta" data-reveal data-cta-step="5">
-          <span class="step-cta-label">Ready to map your timeline?</span>
+          <span class="step-cta-label">Ready to start the clock?</span>
           <div class="step-cta-actions">
             <a class="chip-cta" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
             <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
@@ -978,8 +941,8 @@
       <div class="container">
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 6 of 7</span></span>
-          <h2>Why sellers choose <em>Kareem.</em></h2>
-          <p class="lede">An editorial eye, a rigorous negotiation style, and a generational-wealth lens — selling your home is treated as a strategic move, not just a transaction.</p>
+          <h2>Why buyers choose <em>Kareem.</em></h2>
+          <p class="lede">Access most buyers never see, an advocate who negotiates for your bottom line, and a generational-wealth lens — buying a home is treated as a strategic move, not just a transaction.</p>
         </div>
 
         <div class="why-grid">
@@ -988,31 +951,31 @@
           </div>
           <div class="why-points" data-reveal>
             <div class="why-point">
-              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
               <div>
-                <h3>Positioning over "listing"</h3>
-                <p>Your home is marketed as a brand — editorial presentation that creates desire and captures the highest-intent buyers.</p>
+                <h3>Access beyond the search apps</h3>
+                <p>Off-market and coming-soon inventory through a deep agent network — not just what's public.</p>
               </div>
             </div>
             <div class="why-point">
               <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
               <div>
-                <h3>Negotiation that protects equity</h3>
-                <p>Offers are vetted for closing certainty, not just headline price. The goal is the strongest <em>net</em> outcome for you.</p>
+                <h3>A true advocate</h3>
+                <p>Represents <em>you</em>, negotiates for your bottom line, and decodes every disclosure and inspection.</p>
               </div>
             </div>
             <div class="why-point">
               <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span>
               <div>
                 <h3>A generational-wealth lens</h3>
-                <p>Whether this sale funds a move-up, a 1031 exchange, or family legacy planning, the strategy looks beyond the closing table.</p>
+                <p>Buys with equity, appreciation, and your long-term plan in mind — your first home as the first move in a bigger strategy.</p>
               </div>
             </div>
             <div class="why-point">
               <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
               <div>
                 <h3>Communication you can count on</h3>
-                <p>Honest, market-grounded updates that keep you fully informed — not just when things are going smoothly.</p>
+                <p>Honest, responsive updates that keep you informed and confident at every step.</p>
               </div>
             </div>
             <div class="creds">
@@ -1038,16 +1001,16 @@
       <div class="container" id="book">
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 7 of 7</span></span>
-          <h2>Let's turn this into <em>your</em> strategy.</h2>
-          <p class="lede">Here's a snapshot of what you built. Send it to Kareem and he'll follow up with a precise, free CMA and a personalized listing plan — no obligation.</p>
+          <h2>Let's find <em>your</em> home.</h2>
+          <p class="lede">Here's a snapshot of your search. Send it to Kareem and he'll follow up with off-market options, a vetted lender intro, and a personalized game plan — no obligation.</p>
         </div>
 
         <div class="final-cta">
           <div data-reveal>
             <div class="recap" id="recap">
-              <h3>Your home, at a glance</h3>
+              <h3>Your search, at a glance</h3>
               <div class="recap-rows" id="recapRows"></div>
-              <p class="disclaimer">All figures are illustrative estimates, not a guarantee. Kareem confirms real numbers with a free, address-specific analysis.</p>
+              <p class="disclaimer">All figures are illustrative estimates, not a guarantee or loan approval. Kareem and a licensed lender confirm your real numbers.</p>
             </div>
             <div class="trust-band">
               <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg><b>Fine Estates</b><span>Rodeo Realty</span></div>
@@ -1059,7 +1022,7 @@
           <div class="card" data-reveal>
             <div class="text-shortcut">
               <span>Prefer to skip the form?</span>
-              <a data-sms href="#">Text Kareem your snapshot →</a>
+              <a data-sms href="#">Text Kareem your search →</a>
             </div>
             <form id="leadForm" novalidate>
               <input type="text" id="lf-hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
@@ -1081,9 +1044,9 @@
               </div>
               <div class="field">
                 <label for="lf-msg">Anything Kareem should know? <span class="hint">(optional)</span></label>
-                <textarea id="lf-msg" rows="3" placeholder="Timing, goals, questions…"></textarea>
+                <textarea id="lf-msg" rows="3" placeholder="Must-haves, neighborhoods, questions…"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary" style="width:100%">Build my snapshot</button>
+              <button type="submit" class="btn btn-primary" style="width:100%">Build my search snapshot</button>
               <p class="disclaimer">Kareem personally replies within a few hours — usually faster. No spam, ever.</p>
             </form>
 
@@ -1135,15 +1098,14 @@
         <nav class="footer-links" aria-label="Footer">
           <a href="/">Home</a>
           <a href="/buyers-and-sellers">Buyers &amp; Sellers</a>
-          <a href="/buyer-presentation">Buying?</a>
+          <a href="/seller-presentation">Selling?</a>
           <a href="/mls-search">Home Search</a>
-          <a href="/free-reports">Free Reports</a>
           <a href="tel:+18184027326">(818) 402-7326</a>
         </nav>
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Kareem Jamal · Rodeo Realty Fine Estates</span>
-        <span>Equal Housing Opportunity · All estimates are illustrative, not a guarantee of value or proceeds.</span>
+        <span>Equal Housing Opportunity · All estimates are illustrative, not a guarantee of value, terms, or loan approval.</span>
       </div>
     </div>
   </footer>
@@ -1157,14 +1119,13 @@
     var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     var state = {
-      area: "", areaPpsf: 0, type: "Single-family home",
-      beds: "", baths: "", sqft: "", condition: "Good", condFactor: 1.0,
-      timeline: "In 1–3 months", payoff: 0,
-      estLow: 0, estMid: 0, estHigh: 0,
-      np: { price: 0, payoff: 0, comm: 5, closing: 1.2, prep: 6000, net: 0 }
+      area: "", buyerType: "First-time buyer", targetPrice: "",
+      beds: "", baths: "", homeType: "Single-family home",
+      timeline: "In 1–3 months", downAvail: "",
+      aff: { price: 0, downPct: 20, rate: 6.5, term: 30, taxRate: 1.1, insMo: 0, hoa: 0, monthly: 0 }
     };
     var current = 0;
-    var STORE = "kj-seller-presentation-v2";
+    var STORE = "kj-buyer-presentation-v1";
 
     function $(s, c) { return (c || document).querySelector(s); }
     function $all(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
@@ -1192,7 +1153,6 @@
         if (p < 1) el._raf = requestAnimationFrame(tick); else { el._val = to; el.textContent = fmtFn(to); }
       }
       el._raf = requestAnimationFrame(tick);
-      // wall-clock safety net: snap to final even if rAF is throttled (background tab)
       el._fallback = setTimeout(function () { if (el._raf) cancelAnimationFrame(el._raf); el._val = to; el.textContent = fmtFn(to); }, dur + 140);
     }
 
@@ -1202,17 +1162,16 @@
       try {
         var raw = sessionStorage.getItem(STORE); if (!raw) return;
         var d = JSON.parse(raw);
-        if (d && d.state) { Object.assign(state, d.state); if (d.state.np) Object.assign(state.np, d.state.np); }
+        if (d && d.state) { Object.assign(state, d.state); if (d.state.aff) Object.assign(state.aff, d.state.aff); }
       } catch (e) {}
     }
 
-    // ---------- header height var ----------
     function setHeaderH() {
       var h = $(".site-header"); if (h) document.documentElement.style.setProperty("--header-h", h.offsetHeight + "px");
     }
 
     // ---------- Stepper ----------
-    var STEP_TITLES = ["Your Home", "Pricing", "Marketing", "Net Proceeds", "Timeline", "Why Kareem", "Book a Call"];
+    var STEP_TITLES = ["Your Search", "Affordability", "How It Works", "Your Offer", "Timeline", "Why Kareem", "Book a Call"];
     var CHECK = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>';
     function buildStepper() {
       var ul = $("#stepper"); ul.innerHTML = "";
@@ -1236,14 +1195,12 @@
         var dot = $(".dot", li);
         btn.setAttribute("aria-current", active ? "step" : "false");
         dot.innerHTML = done ? CHECK : '<span class="num">' + n + '</span>';
-        var label = STEP_TITLES[i] + (done ? " (completed)" : active ? " (current)" : "");
-        btn.setAttribute("aria-label", "Step " + n + ": " + label);
+        btn.setAttribute("aria-label", "Step " + n + ": " + STEP_TITLES[i] + (done ? " (completed)" : active ? " (current)" : ""));
       });
       var pct = current >= 1 ? Math.round(current / TOTAL * 100) : 0;
       $("#progressFill").style.width = pct + "%";
       $("#progressPct").textContent = pct + "%";
       $("#navCur").textContent = current;
-      // keep the active step fully visible in the scrollable strip (horizontal only)
       var act = $("#stepper li.active"), s = $("#stepper");
       if (act && s) {
         var gut = 16, left = act.offsetLeft, right = left + act.offsetWidth, target = null;
@@ -1253,16 +1210,13 @@
       }
     }
 
-    // ---------- momentum / next labels (funnel) ----------
-    var NEXT_LABELS = { 1: "See my value range", 2: "Build my net proceeds", 3: "Calculate my net", 4: "See the timeline", 5: "Why Kareem", 6: "Get my snapshot" };
-    var MOMENTUM = { 5: "Almost there", 6: "Last step before your snapshot", 7: "" };
+    var NEXT_LABELS = { 1: "What can I afford", 2: "How buying works", 3: "Winning the home", 4: "See the timeline", 5: "Why Kareem", 6: "Get my plan" };
+    var MOMENTUM = { 5: "Almost there", 6: "Last step before your plan", 7: "" };
     function updateNavCopy() {
-      var nl = $("#nextLabel");
-      nl.textContent = NEXT_LABELS[current] || "Next";
+      $("#nextLabel").textContent = NEXT_LABELS[current] || "Next";
       $("#navMomentum").textContent = MOMENTUM[current] || "";
     }
 
-    // ---------- reveal ----------
     function revealStep(el) {
       $all("[data-reveal]", el).forEach(function (it, i) {
         it.classList.remove("revealed");
@@ -1285,8 +1239,7 @@
       $("#backBtn").disabled = n <= 1;
       $("#nextBtn").style.display = (n === TOTAL) ? "none" : "";
 
-      if (n === 2) renderPricing();
-      if (n === 4) { ensureNpDefaults(); renderNet(); }
+      if (n === 2) { ensureAffordDefaults(); renderAfford(); }
       if (n === 7) renderRecap();
 
       updateStepper();
@@ -1303,19 +1256,12 @@
     }
 
     // ---------- Step 1 ----------
-    function bindHomeProfile() {
-      var areaSel = $("#f-area");
-      areaSel.addEventListener("change", function () {
-        var opt = areaSel.options[areaSel.selectedIndex];
-        state.area = areaSel.value;
-        state.areaPpsf = opt ? num(opt.getAttribute("data-ppsf")) : 0;
-        save();
-      });
+    function bindSearchProfile() {
+      $("#f-area").addEventListener("change", function () { state.area = this.value; save(); });
       $all("[data-state]").forEach(function (inp) {
         inp.addEventListener("input", function () {
           var k = inp.getAttribute("data-state");
           state[k] = inp.value;
-          if (k === "payoff") state.payoff = num(inp.value);
           save();
         });
       });
@@ -1326,301 +1272,188 @@
           $all("button", group).forEach(function (b) { b.setAttribute("aria-checked", "false"); });
           btn.setAttribute("aria-checked", "true");
           state[key] = btn.getAttribute("data-val");
-          if (key === "condition") state.condFactor = num(btn.getAttribute("data-factor")) || 1;
           save();
         });
       });
     }
 
-    function computeEstimate() {
-      var sqft = num(state.sqft);
-      var ppsf = state.areaPpsf || 540;
-      if (!sqft || !state.area) { state.estLow = state.estMid = state.estHigh = 0; return; }
-      var mid = sqft * ppsf * (state.condFactor || 1);
-      state.estMid = mid; state.estLow = mid * 0.93; state.estHigh = mid * 1.07;
-    }
-
-    // ---------- Step 2 ----------
-    // smooth convex days-on-market model (monotonic away from the sweet spot)
-    function domFor(delta) {
-      var d0 = 8, sweet = -1;
-      var dom = d0 + (delta > sweet ? Math.pow(delta - sweet, 1.5) * 1.1 : Math.pow(sweet - delta, 1.35) * 0.9);
-      return Math.max(6, Math.round(dom));
-    }
-    function renderPricing() {
-      computeEstimate();
-      var ro = $("#valueReadout"), vr = $("#vRange"), vs = $("#vSub");
-      if (!state.estMid) {
-        ro.classList.add("is-empty");
-        vr.textContent = "Add sq ft to estimate";
-        vs.textContent = "Enter your home's area and size on Step 1 for a ballpark range.";
-      } else {
-        ro.classList.remove("is-empty");
-        vr.innerHTML = fmtK(state.estLow) + ' &ndash; <span class="mid">' + fmtK(state.estHigh) + "</span>";
-        vs.textContent = "Illustrative range for a " + (state.sqft ? Number(state.sqft).toLocaleString() + " sq ft " : "") +
-          (state.condition ? state.condition.toLowerCase() + " " : "") + "home" + (state.area ? " in " + state.area : "") + ". Not an appraisal.";
+    // ---------- Step 2 affordability ----------
+    function ensureAffordDefaults() {
+      var p = $("#aff-price");
+      if (!num(p.value) && num(state.targetPrice)) { p.value = Math.round(num(state.targetPrice)); state.aff.price = num(state.targetPrice); }
+      var ins = $("#aff-ins");
+      if (!num(ins.value)) {
+        var pr = num(state.aff.price) || num(state.targetPrice);
+        if (pr) { var d = Math.round(pr * 0.0035 / 12); ins.value = d; state.aff.insMo = d; }
       }
-      drawCurve();
-      renderLeverage(num($("#priceSlider").value));
     }
-    function drawCurve() {
-      // plot dom vs delta over [-12,12] into 320x150 viewBox
-      var W = 320, H = 150, pad = 6;
-      var minD = -12, maxD = 12;
-      var doms = []; for (var d = minD; d <= maxD; d++) doms.push(domFor(d));
-      var maxDom = Math.max.apply(null, doms);
-      function xOf(delta) { return pad + (delta - minD) / (maxD - minD) * (W - 2 * pad); }
-      function yOf(dom) { return pad + (1 - (dom - 6) / (maxDom - 6)) * (H - 2 * pad); }
-      var path = "", area = "";
-      for (var i = 0; i < doms.length; i++) {
-        var x = xOf(minD + i), y = yOf(doms[i]);
-        path += (i === 0 ? "M" : "L") + x.toFixed(1) + " " + y.toFixed(1) + " ";
-      }
-      area = path + "L" + xOf(maxD).toFixed(1) + " " + (H - pad) + " L" + xOf(minD).toFixed(1) + " " + (H - pad) + " Z";
-      $("#curvePath").setAttribute("d", path.trim());
-      $("#curveArea").setAttribute("d", area.trim());
-      // strategic band (delta -3..+1)
-      var bx = xOf(-3), bw = xOf(1) - xOf(-3);
-      var band = $("#curveBand"); band.setAttribute("x", bx); band.setAttribute("width", bw);
-      band.setAttribute("height", H); band.setAttribute("y", 0);
-      $("#valueReadout"); // noop keep
-      drawCurve._xOf = xOf; drawCurve._yOf = yOf;
+    function calcAfford() {
+      var a = state.aff, price = num(a.price);
+      var downPct = num(a.downPct), down = price * downPct / 100, loan = Math.max(price - down, 0);
+      var r = num(a.rate) / 100 / 12, n = num(a.term) * 12;
+      var pi = n > 0 ? (r > 0 ? loan * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1) : loan / n) : 0;
+      var tax = price * num(a.taxRate) / 100 / 12;
+      var ins = num(a.insMo), hoa = num(a.hoa);
+      var monthly = pi + tax + ins + hoa;
+      var closing = price * 0.025;
+      return { price: price, down: down, loan: loan, pi: pi, tax: tax, ins: ins, hoa: hoa, monthly: monthly, closing: closing, cashToClose: down + closing };
     }
-    function renderLeverage(delta) {
-      var base = state.estMid || 1000000;
-      var price = base * (1 + delta / 100);
-      var priceEl = $("#loPrice");
-      animateNumber(priceEl, price, fmtK);
-      var dom = domFor(delta);
-      $("#loDom").textContent = dom + " days";
+    function drawPaymentBar(r) {
+      var bar = $("#payBar"); bar.innerHTML = "";
+      if (!r.monthly) return;
+      [["#ead7bb", r.pi], ["#b88b52", r.tax], ["#c98569", r.ins], ["#86927f", r.hoa]].forEach(function (s) {
+        if (s[1] <= 0) return;
+        var sp = document.createElement("span");
+        sp.style.width = (s[1] / r.monthly * 100) + "%"; sp.style.background = s[0];
+        bar.appendChild(sp);
+      });
+    }
+    function renderAfford() {
+      var r = calcAfford(); state.aff.monthly = r.monthly;
+      var big = $("#payMonthly");
+      $("#perMo").textContent = r.price ? "/mo" : "";
+      if (!r.price) { big._val = 0; big.textContent = "$—"; }
+      else animateNumber(big, r.monthly, fmt);
 
-      var slider = $("#priceSlider");
-      var pctPos = ((num(slider.value) - slider.min) / (slider.max - slider.min)) * 100;
-      slider.style.setProperty("--p", pctPos + "%");
+      var keep = $("#payKeep");
+      if (r.price > 0) {
+        keep.style.display = "inline-flex";
+        keep.innerHTML = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>≈ ' + fmt(r.cashToClose) + ' cash to close';
+      } else keep.style.display = "none";
 
-      // marker on curve
-      if (drawCurve._xOf) {
-        var mx = drawCurve._xOf(delta), my = drawCurve._yOf(dom);
-        var mk = $("#curveMarker"); mk.setAttribute("cx", mx); mk.setAttribute("cy", my);
-        var ml = $("#curveMarkerLine"); ml.setAttribute("x1", mx); ml.setAttribute("x2", mx); ml.setAttribute("y1", my); ml.setAttribute("y2", 150);
+      $("#paySub").textContent = r.price
+        ? "On a " + fmt(r.price) + " home with " + num(state.aff.downPct) + "% down (" + fmt(r.down) + ")."
+        : "Enter a home price to see your estimate.";
+
+      $("#payPeak").classList.toggle("show", r.price > 0);
+      drawPaymentBar(r);
+
+      var lines = $("#payLines"); lines.innerHTML = "";
+      function row(k, v, c, cls) {
+        var el = document.createElement("div"); el.className = "np-line" + (cls ? " " + cls : "");
+        if (cls === "head") { el.innerHTML = '<span class="lk" style="color:inherit">' + k + '</span><span></span>'; lines.appendChild(el); return; }
+        el.innerHTML = '<span class="lk">' + (c ? '<span class="swatch" style="background:' + c + '"></span>' : "") + k + "</span>" +
+          '<span class="lv">' + fmt(v) + "</span>";
+        lines.appendChild(el);
       }
+      row("Principal & interest", r.pi, "#ead7bb");
+      row("Property tax (" + num(state.aff.taxRate) + "%)", r.tax, "#b88b52");
+      row("Home insurance", r.ins, "#c98569");
+      if (r.hoa) row("HOA", r.hoa, "#86927f");
+      row("Monthly payment", r.monthly, null, "net");
+      row("Cash needed up front", 0, null, "head");
+      row("Down payment (" + num(state.aff.downPct) + "%)", r.down, null, "subtotal");
+      row("Est. closing costs (~2.5%)", r.closing, null, "subtotal");
+      row("Cash to close", r.cashToClose, null, "net");
 
-      var v = $("#leverageVerdict"), verdictText;
-      if (delta > 4) {
-        v.style.background = "rgba(201,133,105,0.14)"; v.style.color = "#9a4f33";
-        verdictText = "Overpriced — buyers wait it out, and price cuts signal weakness.";
-      } else if (delta < -6) {
-        v.style.background = "rgba(64,80,95,0.12)"; v.style.color = "#3a4a58";
-        verdictText = "Underpriced — likely fast, but you may leave equity on the table.";
-      } else {
-        v.style.background = "rgba(90,138,94,0.12)"; v.style.color = "#3f6b43";
-        verdictText = "Right on target — priced to spark competition in the first two weeks.";
-      }
-      v.textContent = verdictText;
-      slider.setAttribute("aria-valuetext", fmtK(price) + " list price, about " + dom + " days on market. " + verdictText);
+      clearTimeout(renderAfford._t);
+      renderAfford._t = setTimeout(function () {
+        if (r.price) $("#payLive").textContent = "Estimated monthly payment " + fmt(r.monthly) + " per month, about " + fmt(r.cashToClose) + " cash to close.";
+      }, 450);
+    }
+    function bindAfford() {
+      $all("[data-aff]").forEach(function (inp) {
+        inp.addEventListener("input", function () { state.aff[inp.getAttribute("data-aff")] = inp.value; renderAfford(); save(); });
+      });
+      $("#peakCallBtn").addEventListener("click", function () { goTo(TOTAL); });
     }
 
-    // ---------- Step 3 pillars ----------
+    // ---------- Accordions (steps 3 & 4) ----------
     function bindPillars() {
-      $all("#pillars .pillar-head").forEach(function (head) {
-        head.addEventListener("click", function () {
-          var p = head.parentElement, wasOpen = p.classList.contains("open");
-          $all("#pillars .pillar").forEach(function (x) {
-            x.classList.remove("open");
-            var h = $(".pillar-head", x); if (h) h.setAttribute("aria-expanded", "false");
+      $all(".pillars").forEach(function (group) {
+        $all(".pillar-head", group).forEach(function (head) {
+          head.addEventListener("click", function () {
+            var p = head.parentElement, wasOpen = p.classList.contains("open");
+            $all(".pillar", group).forEach(function (x) {
+              x.classList.remove("open");
+              var h = $(".pillar-head", x); if (h) h.setAttribute("aria-expanded", "false");
+            });
+            if (!wasOpen) { p.classList.add("open"); head.setAttribute("aria-expanded", "true"); }
           });
-          if (!wasOpen) { p.classList.add("open"); head.setAttribute("aria-expanded", "true"); }
         });
       });
     }
 
-    // ---------- Step 4 net proceeds ----------
-    function ensureNpDefaults() {
-      computeEstimate(); // keep estMid fresh regardless of navigation path
-      var priceInput = $("#np-price");
-      if (!num(priceInput.value)) { var seed = state.estMid || 0; if (seed) { priceInput.value = Math.round(seed); state.np.price = seed; } }
-      var payoffInput = $("#np-payoff");
-      if (!num(payoffInput.value) && state.payoff) { payoffInput.value = state.payoff; state.np.payoff = state.payoff; }
-    }
-    function calcNet() {
-      var p = state.np, price = num(p.price);
-      var comm = price * (num(p.comm) / 100), closing = price * (num(p.closing) / 100);
-      var prep = num(p.prep), payoff = num(p.payoff);
-      return { price: price, comm: comm, closing: closing, prep: prep, payoff: payoff, totalCost: comm + closing + prep, net: price - comm - closing - prep - payoff };
-    }
-    function drawWaterfall(r) {
-      // SVG cumulative waterfall: Sale -> step down by each cost/payoff -> Net
-      var wrap = $("#npWaterfall");
-      if (!r.price) { wrap.innerHTML = ""; return; }
-      // build columns with explicit top/bottom values (in dollars)
-      var cols = [{ k: "Sale", top: r.price, bot: 0, c: "rgba(255,255,255,0.45)" }];
-      var running = r.price;
-      [["Comm", r.comm, "#b88b52"], ["Close", r.closing, "#c98569"], ["Prep", r.prep, "#86927f"], ["Payoff", r.payoff, "#7d8a96"]]
-        .forEach(function (d) { if (d[1] > 0) { cols.push({ k: d[0], top: running, bot: running - d[1], c: d[2] }); running -= d[1]; } });
-      var netTop = Math.max(r.net, 0);
-      cols.push({ k: "Net", top: netTop, bot: 0, c: "#ead7bb" });
-
-      var W = 320, H = 150, padB = 18, padT = 8, n = cols.length;
-      var gap = 8, cw = (W - gap * (n - 1)) / n;
-      var maxV = r.price > 0 ? r.price : 1;
-      function y(val) { return (H - padB) - (Math.max(val, 0) / maxV) * (H - padB - padT); }
-
-      var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">';
-      cols.forEach(function (c, i) {
-        var x = i * (cw + gap);
-        var yTop = y(Math.max(c.top, c.bot)), yBot = y(Math.min(c.top, c.bot));
-        var barH = Math.max(2, yBot - yTop);
-        // connector from previous bar at the shared running level (= this column's top)
-        if (i > 0) {
-          var lvlY = y(c.top), prevX2 = (i - 1) * (cw + gap) + cw;
-          svg += '<line x1="' + prevX2.toFixed(1) + '" y1="' + lvlY.toFixed(1) + '" x2="' + x.toFixed(1) + '" y2="' + lvlY.toFixed(1) + '" stroke="rgba(255,255,255,0.3)" stroke-dasharray="2 2" stroke-width="1"></line>';
-        }
-        svg += '<rect x="' + x.toFixed(1) + '" y="' + yTop.toFixed(1) + '" width="' + cw.toFixed(1) + '" height="' + barH.toFixed(1) + '" rx="2" fill="' + c.c + '"></rect>';
-        svg += '<text x="' + (x + cw / 2).toFixed(1) + '" y="' + (H - 5) + '" fill="rgba(255,255,255,0.6)" font-size="8" font-family="Manrope,sans-serif" text-anchor="middle">' + c.k + '</text>';
-      });
-      svg += "</svg>";
-      wrap.innerHTML = svg;
-    }
-    function renderNet() {
-      var r = calcNet(); state.np.net = r.net;
-      var bigEl = $("#npNet");
-      bigEl.classList.toggle("neg", r.net < 0);
-      if (!r.price) { bigEl._val = 0; bigEl.textContent = "$—"; }
-      else animateNumber(bigEl, r.net, fmt);
-
-      var keep = $("#npKeep");
-      if (r.price > 0) {
-        var pct = Math.round(r.net / r.price * 100);
-        keep.style.display = "inline-flex";
-        keep.innerHTML = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>You keep ~' + pct + '% of the sale price';
-      } else keep.style.display = "none";
-
-      $("#npNetSub").textContent = r.price
-        ? "On a " + fmt(r.price) + " sale" + (r.payoff ? " after paying off " + fmt(r.payoff) : "") + "."
-        : "Enter a sale price to see your estimate.";
-
-      // peak-intent CTA
-      $("#npPeak").classList.toggle("show", r.price > 0);
-
-      drawWaterfall(r);
-
-      // line items (waterfall in tabular form)
-      var lines = $("#npLines"); lines.innerHTML = "";
-      function row(k, v, c, cls) {
-        var el = document.createElement("div"); el.className = "np-line" + (cls ? " " + cls : "");
-        el.innerHTML = '<span class="lk">' + (c ? '<span class="swatch" style="background:' + c + '"></span>' : "") + k + "</span>" +
-          '<span class="lv">' + (v < 0 ? "−" + fmt(Math.abs(v)) : fmt(v)) + "</span>";
-        lines.appendChild(el);
-      }
-      row("Sale price", r.price);
-      row("Commission (" + num(state.np.comm) + "%)", -r.comm, "#b88b52");
-      row("Closing costs (" + num(state.np.closing) + "%)", -r.closing, "#c98569");
-      row("Prep & repairs", -r.prep, "#86927f");
-      row("Total cost of sale", -r.totalCost, null, "subtotal");
-      if (r.payoff) row("Mortgage payoff", -r.payoff, "#7d8a96");
-      row("Estimated net proceeds", r.net, "#ead7bb", "net");
-
-      // aria-live (debounced)
-      clearTimeout(renderNet._t);
-      renderNet._t = setTimeout(function () {
-        if (r.price) $("#npLive").textContent = "Estimated net proceeds: " + fmt(r.net) + ", about " + Math.round(r.net / r.price * 100) + " percent of the sale price.";
-      }, 450);
-    }
-    function bindNet() {
-      $all("[data-np]").forEach(function (inp) {
-        inp.addEventListener("input", function () { state.np[inp.getAttribute("data-np")] = inp.value; renderNet(); save(); });
-      });
-      $("#peakCmaBtn").addEventListener("click", function () { goTo(TOTAL); });
-    }
-
     // ---------- SMS / mailto builders ----------
     function snapshotLines(name, phone, email, msg) {
-      var r = calcNet(); var L = [];
-      L.push("Hi Kareem, I went through your listing strategy walkthrough. Here's my home:");
-      L.push("• Type: " + state.type);
+      var r = calcAfford(); var L = [];
+      L.push("Hi Kareem, I went through your buyer walkthrough. Here's what I'm looking for:");
+      L.push("• Buyer type: " + state.buyerType);
       if (state.area) L.push("• Area: " + state.area);
-      var size = [state.beds ? state.beds + " bd" : null, state.baths ? state.baths + " ba" : null, state.sqft ? state.sqft + " sqft" : null].filter(Boolean).join(", ");
-      if (size) L.push("• Details: " + size);
-      L.push("• Condition: " + state.condition);
+      var size = [state.beds ? state.beds + "+ bd" : null, state.baths ? state.baths + "+ ba" : null, state.homeType].filter(Boolean).join(", ");
+      if (size) L.push("• Looking for: " + size);
+      if (num(state.targetPrice)) L.push("• Target price: " + fmt(num(state.targetPrice)));
       L.push("• Ideal timeline: " + state.timeline);
-      if (state.estMid) L.push("• Illustrative value: " + fmtK(state.estLow) + " – " + fmtK(state.estHigh));
-      if (r.price) { L.push("• Modeled sale price: " + fmt(r.price)); L.push("• Est. net proceeds: " + fmt(r.net)); }
+      if (num(state.downAvail)) L.push("• Down payment on hand: " + fmt(num(state.downAvail)));
+      if (r.price) {
+        L.push("• Est. monthly payment: " + fmt(r.monthly) + " (" + num(state.aff.downPct) + "% down, " + num(state.aff.rate) + "% rate)");
+        L.push("• Est. cash to close: " + fmt(r.cashToClose));
+      }
       L.push("");
       if (msg) { L.push("Notes: " + msg); L.push(""); }
-      L.push("Please send a precise CMA and a listing plan.");
+      L.push("Please send off-market options and a game plan.");
       if (name || phone || email) { L.push(""); if (name) L.push(name); if (phone) L.push(phone); if (email) L.push(email); }
       return L.join("\n");
     }
     function buildMailto(name, phone, email, msg) {
-      var subject = "Listing strategy request — " + (state.area || "my home");
+      var subject = "Buyer strategy request — " + (state.area || "home search");
       return "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(snapshotLines(name, phone, email, msg));
     }
     function buildSms(contextBody) {
-      var body = contextBody || snapshotLines("", "", "", "");
-      return "sms:" + PHONE + "?&body=" + encodeURIComponent(body);
+      return "sms:" + PHONE + "?&body=" + encodeURIComponent(contextBody || snapshotLines("", "", "", ""));
     }
-    // contextual SMS bodies per step
     var SMS_CONTEXT = {
-      1: "Hi Kareem — I'm thinking about selling my home and went through your listing walkthrough. Can we talk?",
-      2: "Hi Kareem — I'd like a precise, free CMA for my home (I saw your pricing-leverage step).",
-      3: "Hi Kareem — I like your marketing plan. What would it look like for my home?",
-      5: "Hi Kareem — can we map out a timeline to sell my home?",
-      6: "Hi Kareem — I have a question about listing my home with you."
+      1: "Hi Kareem — I'm looking to buy a home and went through your buyer walkthrough. Can we talk?",
+      3: "Hi Kareem — I'd like you to represent me as my buyer's agent. What's the first step?",
+      4: "Hi Kareem — I found a home I love. How would we structure a winning offer?",
+      5: "Hi Kareem — can we map out a buying timeline and get me pre-approved?",
+      6: "Hi Kareem — I have a question about buying a home with you."
     };
     function bindSmsLinks() {
-      // per-step contextual chips
       $all(".step-cta [data-sms]").forEach(function (a) {
         var step = num(a.closest(".step-cta").getAttribute("data-cta-step"));
         a.setAttribute("href", buildSms(SMS_CONTEXT[step] || ""));
       });
-      // step-4 peak "text me this" + step-7 shortcut use the live snapshot
       function refreshSnapshotSms() {
         $all("#peakSmsBtn, .text-shortcut [data-sms]").forEach(function (a) { a.setAttribute("href", buildSms()); });
       }
       refreshSnapshotSms();
-      // refresh snapshot-based sms whenever inputs change
-      $all("[data-np], [data-state]").forEach(function (inp) { inp.addEventListener("input", refreshSnapshotSms); });
+      $all("[data-aff], [data-state]").forEach(function (inp) { inp.addEventListener("input", refreshSnapshotSms); });
       $("#f-area").addEventListener("change", refreshSnapshotSms);
       $all("[data-seg] button").forEach(function (b) { b.addEventListener("click", refreshSnapshotSms); });
     }
 
     // ---------- Step 7 recap + form ----------
     function renderRecap() {
-      computeEstimate();
-      ensureNpDefaults();
+      ensureAffordDefaults();
       var rows = $("#recapRows");
-      var hasData = state.area || state.sqft || state.beds;
+      var hasData = state.area || state.targetPrice || state.beds;
       if (!hasData) {
-        rows.innerHTML = '<p class="recap-empty">Tell Kareem how to reach you and he\'ll call within the day with a free, no-obligation strategy for your home. Or start at Step 1 to build your personalized snapshot.</p>';
+        rows.innerHTML = '<p class="recap-empty">Tell Kareem what you\'re looking for and he\'ll reach out within the day with off-market options and a game plan. Or start at Step 1 to build your personalized buying snapshot.</p>';
         return;
       }
-      var r = calcNet(); var html = "";
+      var r = calcAfford(); var html = "";
       function add(k, v, hl) { html += '<div class="recap-row' + (hl ? " highlight" : "") + '"><span class="rk">' + k + '</span><span class="rv">' + v + "</span></div>"; }
-      var size = [state.beds ? state.beds + " bd" : null, state.baths ? state.baths + " ba" : null, state.sqft ? Number(state.sqft).toLocaleString() + " sqft" : null].filter(Boolean).join(" · ") || "—";
-      add("Home", state.type + (state.area ? " · " + state.area : ""));
-      add("Details", size);
-      add("Condition", state.condition || "—");
+      var size = [state.beds ? state.beds + "+ bd" : null, state.baths ? state.baths + "+ ba" : null, state.homeType].filter(Boolean).join(" · ") || "—";
+      add("Looking in", (state.area || "—") + " · " + state.buyerType);
+      add("Home", size);
+      if (num(state.targetPrice)) add("Target price", fmt(num(state.targetPrice)));
       add("Ideal timeline", state.timeline || "—");
-      if (state.estMid) add("Illustrative value", fmtK(state.estLow) + " – " + fmtK(state.estHigh));
-      if (r.price) add("Modeled sale price", fmt(r.price));
-      if (r.price) add("Est. net proceeds", fmt(r.net), true);
+      if (r.price) add("Est. monthly payment", fmt(r.monthly) + "/mo");
+      if (r.price) add("Est. cash to close", fmt(r.cashToClose), true);
       rows.innerHTML = html;
     }
 
-    // Guaranteed lead delivery via Formspree (AJAX). Falls back silently to the
-    // Email/Text/Copy buttons if the request fails.
     var FORMSPREE = "https://formspree.io/f/xnjlgvlk";
     function sendToFormspree(name, phone, email, msg, first) {
       var hp = $("#lf-hp");
-      if (hp && hp.value) return; // honeypot tripped — likely a bot
+      if (hp && hp.value) return;
       var sub = $("#successMsg");
       var payload = {
-        name: name,
-        phone: phone,
-        email: email || "(not provided)",
+        name: name, phone: phone, email: email || "(not provided)",
         _replyto: email || EMAIL,
-        goal: "Selling / Listing",
-        _subject: "New listing-strategy lead — " + (state.area || "seller"),
+        goal: "Buying Strategy",
+        _subject: "New buyer-strategy lead — " + (state.area || "buyer"),
         message: snapshotLines(name, phone, email, msg)
       };
       fetch(FORMSPREE, {
@@ -1629,9 +1462,9 @@
         body: JSON.stringify(payload)
       }).then(function (res) {
         if (!res || !res.ok) throw new Error("formspree " + (res && res.status));
-        sub.textContent = "Thanks, " + first + "! ✓ Kareem has your details and will reach out shortly — usually within a few hours. Want to send it yourself too? Use the options below.";
+        sub.textContent = "Thanks, " + first + "! ✓ Kareem has your search and will reach out shortly — usually within a few hours. Want to send it yourself too? Use the options below.";
       }).catch(function () {
-        sub.textContent = "Thanks, " + first + "! Tap below to send your snapshot straight to Kareem — whichever is easiest.";
+        sub.textContent = "Thanks, " + first + "! Tap below to send your search straight to Kareem — whichever is easiest.";
       });
     }
 
@@ -1659,7 +1492,7 @@
         $("#copyBtn")._body = snapshotLines(name, phone, email, msg);
         $("#leadForm").style.display = "none";
         $("#formSuccess").classList.add("show");
-        $("#successMsg").textContent = "Thanks, " + first + "! Sending your details to Kareem…";
+        $("#successMsg").textContent = "Thanks, " + first + "! Sending your search to Kareem…";
         $("#formSuccess").scrollIntoView({ block: "center", behavior: REDUCE ? "auto" : "smooth" });
         sendToFormspree(name, phone, email, msg, first);
       });
@@ -1675,22 +1508,21 @@
     // ---------- Restore inputs ----------
     function restoreInputs() {
       if (state.area) { $all("#f-area option").forEach(function (o) { if (o.value === state.area) o.selected = true; }); }
-      ["beds", "baths", "sqft"].forEach(function (k) { if (state[k]) { var el = $("#f-" + k); if (el) el.value = state[k]; } });
-      if (state.payoff) { var pe = $("#f-payoff"); if (pe) pe.value = state.payoff; }
-      [["type", "type"], ["condition", "condition"], ["timeline", "timeline"]].forEach(function (pair) {
+      ["beds", "baths"].forEach(function (k) { if (state[k]) { var el = $("#f-" + k); if (el) el.value = state[k]; } });
+      if (state.targetPrice) $("#f-price").value = state.targetPrice;
+      if (state.downAvail) $("#f-down").value = state.downAvail;
+      [["buyerType", "buyerType"], ["homeType", "homeType"], ["timeline", "timeline"]].forEach(function (pair) {
         var grp = $('[data-seg="' + pair[0] + '"]'); if (!grp) return;
-        $all("button", grp).forEach(function (b) {
-          var on = b.getAttribute("data-val") === state[pair[1]];
-          b.setAttribute("aria-checked", on ? "true" : "false");
-          if (on && pair[0] === "condition") state.condFactor = num(b.getAttribute("data-factor")) || 1;
-        });
+        $all("button", grp).forEach(function (b) { b.setAttribute("aria-checked", b.getAttribute("data-val") === state[pair[1]] ? "true" : "false"); });
       });
-      if (state.np) {
-        if (state.np.price) $("#np-price").value = Math.round(state.np.price);
-        if (state.np.payoff) $("#np-payoff").value = state.np.payoff;
-        if (state.np.comm) $("#np-comm").value = state.np.comm;
-        if (state.np.closing) $("#np-closing").value = state.np.closing;
-        if (state.np.prep) $("#np-prep").value = state.np.prep;
+      if (state.aff) {
+        if (state.aff.price) $("#aff-price").value = Math.round(state.aff.price);
+        if (state.aff.downPct) $("#aff-down").value = state.aff.downPct;
+        if (state.aff.rate) $("#aff-rate").value = state.aff.rate;
+        if (state.aff.term) $("#aff-term").value = state.aff.term;
+        if (state.aff.taxRate) $("#aff-tax").value = state.aff.taxRate;
+        if (state.aff.insMo) $("#aff-ins").value = state.aff.insMo;
+        if (state.aff.hoa) $("#aff-hoa").value = state.aff.hoa;
       }
     }
 
@@ -1700,9 +1532,9 @@
       load();
       setHeaderH();
       buildStepper();
-      bindHomeProfile();
+      bindSearchProfile();
       bindPillars();
-      bindNet();
+      bindAfford();
       bindForm();
       bindSmsLinks();
       restoreInputs();
@@ -1710,7 +1542,6 @@
       $("#beginBtn").addEventListener("click", function () { goTo(1); });
       $("#nextBtn").addEventListener("click", function () { goTo(current + 1); });
       $("#backBtn").addEventListener("click", function () { goTo(current - 1); });
-      $("#priceSlider").addEventListener("input", function () { renderLeverage(num(this.value)); });
       $all("[data-goto='last']").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); goTo(TOTAL); }); });
 
       window.addEventListener("resize", function () { clearTimeout(window._rz); window._rz = setTimeout(setHeaderH, 150); });

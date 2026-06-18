@@ -1062,6 +1062,7 @@
               <a data-sms href="#">Text Kareem your snapshot →</a>
             </div>
             <form id="leadForm" novalidate>
+              <input type="text" id="lf-hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
               <div class="field">
                 <label for="lf-name">Your name</label>
                 <input type="text" id="lf-name" required autocomplete="name" aria-describedby="err-name" />
@@ -1605,6 +1606,34 @@
       rows.innerHTML = html;
     }
 
+    // Guaranteed lead delivery via Formspree (AJAX). Falls back silently to the
+    // Email/Text/Copy buttons if the request fails.
+    var FORMSPREE = "https://formspree.io/f/xnjlgvlk";
+    function sendToFormspree(name, phone, email, msg, first) {
+      var hp = $("#lf-hp");
+      if (hp && hp.value) return; // honeypot tripped — likely a bot
+      var sub = $("#successMsg");
+      var payload = {
+        name: name,
+        phone: phone,
+        email: email || "(not provided)",
+        _replyto: email || EMAIL,
+        goal: "Selling / Listing",
+        _subject: "New listing-strategy lead — " + (state.area || "seller"),
+        message: snapshotLines(name, phone, email, msg)
+      };
+      fetch(FORMSPREE, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        if (!res || !res.ok) throw new Error("formspree " + (res && res.status));
+        sub.textContent = "Thanks, " + first + "! ✓ Kareem has your details and will reach out shortly — usually within a few hours. Want to send it yourself too? Use the options below.";
+      }).catch(function () {
+        sub.textContent = "Thanks, " + first + "! Tap below to send your snapshot straight to Kareem — whichever is easiest.";
+      });
+    }
+
     function validateForm() {
       var ok = true;
       [["lf-name", "err-name"], ["lf-phone", "err-phone"]].forEach(function (pair) {
@@ -1623,13 +1652,15 @@
         if (!validateForm()) return;
         var name = $("#lf-name").value.trim(), phone = $("#lf-phone").value.trim(),
             email = $("#lf-email").value.trim(), msg = $("#lf-msg").value.trim();
+        var first = name.split(" ")[0];
         $("#mailtoBtn").setAttribute("href", buildMailto(name, phone, email, msg));
         $("#smsBtn").setAttribute("href", buildSms(snapshotLines(name, phone, email, msg)));
-        $("#successMsg").textContent = "Thanks, " + name.split(" ")[0] + "! Choose how to send your snapshot to Kareem — whichever is easiest.";
         $("#copyBtn")._body = snapshotLines(name, phone, email, msg);
         $("#leadForm").style.display = "none";
         $("#formSuccess").classList.add("show");
+        $("#successMsg").textContent = "Thanks, " + first + "! Sending your details to Kareem…";
         $("#formSuccess").scrollIntoView({ block: "center", behavior: REDUCE ? "auto" : "smooth" });
+        sendToFormspree(name, phone, email, msg, first);
       });
       $("#copyBtn").addEventListener("click", function () {
         var body = this._body || snapshotLines("", "", "", "");

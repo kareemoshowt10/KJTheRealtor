@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Listing Strategy — A Guided Walkthrough | Kareem Jamal</title>
+  <meta name="description" content="A guided, interactive listing presentation: see exactly how Kareem Jamal positions, markets, and sells your home for maximum value — with a live net-proceeds estimate built around your home." />
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/seller-presentation" />
+  <link rel="icon" href="/assets/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Your Listing Strategy — A Guided Walkthrough | Kareem Jamal" />
+  <meta property="og:description" content="See exactly how Kareem positions, markets, and sells your home for maximum value — with a live net-proceeds estimate built around your home." />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/seller-presentation" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/hero-estate-night.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --navy: #40505f;
+      --navy-deep: #2f3c48;
+      --sand: #f3e8d7;
+      --sand-soft: #f9f5ee;
+      --linen: #fffdfa;
+      --gold: #b88b52;
+      --gold-deep: #9a7240;
+      --gold-soft: #ead7bb;
+      --terracotta: #c98569;
+      --olive: #86927f;
+      --ink: #2a2520;
+      --muted: #6e655d;
+      --line: rgba(46, 53, 60, 0.12);
+      --panel: rgba(255, 253, 250, 0.9);
+      --shadow-lg: 0 32px 80px rgba(76, 64, 48, 0.14);
+      --shadow-md: 0 14px 38px rgba(76, 64, 48, 0.1);
+      --shadow-sm: 0 6px 18px rgba(76, 64, 48, 0.08);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --container: 1080px;
+      --cream: #f8f4ef;
+      --cream-deep: #f0ead9;
+      --warm-dark: #1c1510;
+      --ok: #5a8a5e;
+      --header-h: 64px;
+      --ease-lux: cubic-bezier(0.2, 0.7, 0.2, 1);
+      --focus: 0 0 0 3px rgba(184, 139, 82, 0.5), 0 0 0 5px rgba(42, 37, 32, 0.55);
+      /* z-index scale: header 100, progress 95, stepnav 90 */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: "Manrope", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(184, 139, 82, 0.08), transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, rgba(64, 80, 95, 0.06), transparent 60%),
+        var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: rgba(184, 139, 82, 0.25); color: var(--ink); }
+
+    h1, h2, h3, h4, .serif { font-family: "Cormorant Garamond", serif; }
+    a { color: inherit; }
+
+    /* Universal focus-visible ring (a11y) */
+    a:focus-visible, button:focus-visible, summary:focus-visible,
+    .btn:focus-visible, .seg button:focus-visible, .step-trigger:focus-visible,
+    .pillar-head:focus-visible, .chip-cta:focus-visible {
+      outline: none; box-shadow: var(--focus); border-radius: 10px;
+    }
+    input[type=range]:focus-visible { box-shadow: 0 0 0 4px rgba(184,139,82,0.3); }
+    input[type=range]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 5px rgba(184,139,82,0.35); }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(1.1rem, 4vw, 2rem); }
+
+    .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+      font-weight: 700; color: var(--gold-deep);
+    }
+    svg.ic { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+
+    /* ───────────────────────── Header ───────────────────────── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100; min-height: var(--header-h);
+      background: linear-gradient(180deg, rgba(248, 244, 239, 0.82), rgba(248, 244, 239, 0.66));
+      backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3);
+      border-bottom: 1px solid rgba(46, 53, 60, 0.06);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+    }
+    .nav-shell { display: flex; align-items: center; gap: 1rem; padding-block: 0.7rem; }
+    .brand { display: grid; gap: 0.12rem; text-decoration: none; margin-right: auto; }
+    .brand-name { font-family: "Cormorant Garamond", serif; font-size: 1.4rem; line-height: 1; color: var(--ink); font-weight: 600; }
+    .brand-role { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    .header-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .header-phone {
+      display: inline-flex; align-items: center; gap: 0.45rem; justify-content: center;
+      font-weight: 600; text-decoration: none; color: var(--ink);
+      font-size: 0.92rem; padding: 0.55rem 0.7rem; border-radius: 999px;
+      min-height: 44px; transition: background 0.25s var(--ease-lux);
+    }
+    .header-phone:hover { background: rgba(184, 139, 82, 0.1); }
+    .header-phone .ic { width: 17px; height: 17px; color: var(--gold-deep); }
+    .header-cta {
+      display: inline-flex; align-items: center; white-space: nowrap; min-height: 44px;
+      background: var(--ink); color: var(--linen); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; padding: 0.6rem 1.1rem; border-radius: 999px;
+      transition: transform 0.25s var(--ease-lux), background 0.25s var(--ease-lux);
+    }
+    .header-cta:hover { background: var(--gold-deep); transform: translateY(-1px); }
+    .header-home { font-size: 0.85rem; color: var(--muted); text-decoration: none; font-weight: 600; padding: 0.5rem 0.4rem; min-height: 44px; display: inline-flex; align-items: center; }
+    .header-home:hover { color: var(--ink); }
+
+    /* ───────────────────────── Progress / stepper ───────────────────────── */
+    .progress-wrap {
+      position: sticky; top: var(--header-h); z-index: 95;
+      background: rgba(248, 244, 239, 0.72);
+      backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3);
+      border-bottom: 1px solid rgba(46, 53, 60, 0.05);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+    }
+    .progress-wrap.hidden { display: none; }
+    .progress-inner { display: flex; align-items: center; gap: 0.9rem; padding-block: 0.6rem; }
+    .stepper {
+      display: flex; align-items: center; flex: 1; min-width: 0;
+      list-style: none; overflow-x: auto; scrollbar-width: none; padding-block: 2px;
+    }
+    .stepper::-webkit-scrollbar { display: none; }
+    .stepper li { display: flex; align-items: center; flex: 1; min-width: 0; }
+    /* connector rail between dots (21st.dev pattern) */
+    .stepper li:not(:first-child)::before {
+      content: ""; height: 2px; flex: 1; min-width: 14px; margin-inline: 4px;
+      background: var(--line); border-radius: 2px;
+      transition: background 0.5s var(--ease-lux);
+    }
+    .stepper li.done::before, .stepper li.active::before {
+      background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+    }
+    .step-trigger {
+      display: inline-flex; align-items: center; gap: 0.45rem; flex-shrink: 0;
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      font-size: 0.8rem; font-weight: 600; color: var(--muted); padding: 0.25rem;
+      min-height: 44px; transition: color 0.3s var(--ease-lux);
+    }
+    .step-trigger .dot {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      display: grid; place-items: center;
+      background: #fff; border: 1.5px solid var(--line);
+      font-size: 0.74rem; color: var(--muted); font-weight: 700;
+      transition: all 0.35s var(--ease-lux);
+    }
+    .step-trigger .dot .ic { width: 15px; height: 15px; }
+    .step-trigger .label { display: none; white-space: nowrap; }
+    .stepper li.active .step-trigger { color: var(--ink); }
+    .stepper li.active .dot { background: var(--gold); border-color: var(--gold); color: #fff; box-shadow: 0 0 0 4px rgba(184,139,82,0.16); transform: scale(1.04); }
+    .stepper li.active .label { display: inline; }
+    .stepper li.done .dot { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .progress-pct { font-size: 0.78rem; font-weight: 700; color: var(--gold-deep); flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .progress-bar { height: 3px; background: rgba(46,53,60,0.08); position: relative; }
+    .progress-bar .fill { position: absolute; inset: 0 auto 0 0; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-deep)); transition: width 0.6s var(--ease-lux); }
+    @media (max-width: 759px) { .stepper li.active .label { display: none; } .step-trigger { gap: 0; padding: 0.35rem 0.2rem; } }
+    @media (min-width: 760px) { .step-trigger .label { display: inline; } .step-trigger { font-size: 0.82rem; } }
+
+    /* ───────────────────────── Steps shell ───────────────────────── */
+    main { min-height: 60vh; }
+    .step { display: none; padding-block: clamp(2.2rem, 6vw, 4.2rem); }
+    .step.is-active { display: block; }
+
+    /* reveal-on-enter (luxury staggered) */
+    [data-reveal] { opacity: 0; transform: translateY(16px); }
+    [data-reveal].revealed { opacity: 1; transform: none; transition: opacity 0.6s var(--ease-lux), transform 0.6s var(--ease-lux); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.05ms !important; }
+    }
+
+    .step-head { max-width: 720px; margin-bottom: 2rem; }
+    .step-head .kicker { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 0.9rem; }
+    .step-head .kicker .step-no {
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 700; color: var(--gold-deep);
+      border: 1px solid var(--gold-soft); border-radius: 999px; padding: 0.25rem 0.7rem;
+      background: rgba(184,139,82,0.06);
+    }
+    .step-head h2 {
+      font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.05; font-weight: 600;
+      letter-spacing: -0.01em; color: var(--ink); margin-bottom: 0.8rem;
+    }
+    .step-head h2 em { font-style: italic; color: var(--gold-deep); }
+    .step-head .lede { font-size: clamp(1.02rem, 2.2vw, 1.18rem); color: var(--muted); max-width: 620px; }
+
+    /* ───────────────────────── Buttons ───────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+      font-family: "Manrope", sans-serif; font-weight: 700; font-size: 0.98rem;
+      padding: 0.95rem 1.7rem; border-radius: 999px; border: none; cursor: pointer;
+      text-decoration: none; line-height: 1; min-height: 48px;
+      transition: transform 0.3s var(--ease-lux), box-shadow 0.3s var(--ease-lux), background 0.3s var(--ease-lux);
+    }
+    .btn-primary { background: linear-gradient(135deg, #c79b63, var(--gold-deep)); color: #fff; box-shadow: 0 10px 26px rgba(154,114,64,0.32); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(154,114,64,0.42); }
+    .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--ink); background: rgba(42,37,32,0.03); }
+    .btn-dark { background: var(--ink); color: var(--linen); }
+    .btn-dark:hover { background: var(--gold-deep); transform: translateY(-2px); }
+    .btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none !important; }
+    .btn .ic { width: 18px; height: 18px; }
+
+    /* in-flow per-step mini-CTA strip */
+    .step-cta {
+      margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1rem;
+      padding: 1rem 1.2rem; border: 1px dashed var(--gold-soft); border-radius: var(--radius-md);
+      background: rgba(184,139,82,0.04);
+    }
+    .step-cta-label { font-size: 0.92rem; color: var(--muted); font-weight: 600; margin-right: auto; }
+    .step-cta-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .chip-cta {
+      display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none;
+      font-weight: 700; font-size: 0.88rem; padding: 0.6rem 1.05rem; border-radius: 999px;
+      min-height: 44px; cursor: pointer; border: 1.5px solid var(--gold);
+      color: var(--gold-deep); background: #fff;
+      transition: background 0.3s var(--ease-lux), color 0.3s var(--ease-lux), transform 0.3s var(--ease-lux);
+    }
+    .chip-cta:hover { background: var(--gold); color: #fff; transform: translateY(-1px); }
+    .chip-cta .ic { width: 16px; height: 16px; }
+    .chip-cta.solid { background: var(--gold-deep); color: #fff; border-color: var(--gold-deep); }
+    .chip-cta.solid:hover { background: var(--ink); border-color: var(--ink); }
+
+    /* ───────────────────────── Intro / hero step ───────────────────────── */
+    #step-0 { padding: 0; }
+    .intro {
+      position: relative; min-height: calc(100svh - var(--header-h));
+      display: flex; align-items: center; overflow: hidden;
+      background: linear-gradient(180deg, rgba(20,16,12,0.62), rgba(20,16,12,0.78)), url('/assets/hero-estate-night.jpg') center/cover no-repeat;
+    }
+    .intro::after {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(900px 500px at 75% 30%, rgba(184,139,82,0.22), transparent 65%);
+      pointer-events: none;
+    }
+    .intro .container { position: relative; z-index: 2; color: #fff; padding-block: clamp(3rem, 9vw, 6rem); }
+    .intro .eyebrow { color: var(--gold-soft); }
+    .intro h1 {
+      font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.02; font-weight: 600;
+      letter-spacing: -0.015em; margin: 1rem 0 1.2rem; max-width: 16ch; color: #fff;
+    }
+    .intro h1 em { font-style: italic; color: var(--gold-soft); }
+    .intro p.sub { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: rgba(255,255,255,0.86); max-width: 56ch; margin-bottom: 2rem; }
+    .intro-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+    .intro-meta {
+      display: flex; flex-wrap: wrap; gap: 1.6rem; margin-top: 2.6rem;
+      padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,0.18);
+    }
+    .intro-meta .m { display: grid; gap: 0.15rem; }
+    .intro-meta .m b { font-family: "Cormorant Garamond", serif; font-size: 1.9rem; font-weight: 600; color: #fff; line-height: 1; }
+    .intro-meta .m span { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+    .intro-foot { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+    /* ───────────────────────── Cards / grids ───────────────────────── */
+    .card {
+      background: var(--linen); border: 1px solid var(--line); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm); padding: clamp(1.3rem, 3vw, 2rem);
+    }
+    .grid { display: grid; gap: 1.1rem; }
+    @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3,1fr); } }
+
+    /* Form fields */
+    .field { display: grid; gap: 0.4rem; margin-bottom: 1.1rem; }
+    .field label { font-size: 0.82rem; font-weight: 700; color: var(--ink); letter-spacing: 0.01em; }
+    .field .hint { font-size: 0.74rem; color: var(--muted); font-weight: 500; }
+    .field input, .field select, .field textarea {
+      font-family: "Manrope", sans-serif; font-size: 16px; color: var(--ink);
+      padding: 0.8rem 0.95rem; border: 1.5px solid var(--line); border-radius: var(--radius-sm);
+      background: #fff; width: 100%; min-height: 48px;
+      transition: border-color 0.25s var(--ease-lux), box-shadow 0.25s var(--ease-lux);
+    }
+    .field textarea { min-height: auto; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(184,139,82,0.12);
+    }
+    .field input[aria-invalid="true"] { border-color: var(--terracotta); box-shadow: 0 0 0 4px rgba(201,133,105,0.15); }
+    .field .err { font-size: 0.76rem; color: #a8472b; font-weight: 600; display: none; }
+    .field .err.show { display: block; }
+    .field-row { display: grid; gap: 1.1rem; }
+    @media (min-width: 560px) { .field-row.cols-2 { grid-template-columns: 1fr 1fr; } .field-row.cols-3 { grid-template-columns: repeat(3,1fr); } }
+
+    /* Segmented control (radiogroup) */
+    .seg { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 4px; background: rgba(46,53,60,0.04); border-radius: calc(var(--radius-sm) + 4px); }
+    .seg button {
+      flex: 1; min-width: 90px; min-height: 46px; font-family: "Manrope", sans-serif; font-weight: 600; font-size: 0.9rem;
+      padding: 0.6rem 0.8rem; border: 1.5px solid transparent; border-radius: var(--radius-sm);
+      background: #fff; color: var(--muted); cursor: pointer; text-align: center;
+      transition: background 0.35s var(--ease-lux), color 0.35s var(--ease-lux), box-shadow 0.35s var(--ease-lux), border-color 0.35s var(--ease-lux);
+    }
+    .seg button:hover { color: var(--ink); box-shadow: var(--shadow-sm); }
+    .seg button[aria-checked="true"] { background: var(--ink); border-color: var(--ink); color: #fff; box-shadow: var(--shadow-sm); }
+    .seg.gold button[aria-checked="true"] { background: linear-gradient(135deg, #c79b63, var(--gold-deep)); border-color: var(--gold-deep); }
+
+    .input-money { position: relative; }
+    .input-money::before {
+      content: "$"; position: absolute; left: 0.95rem; top: 50%; transform: translateY(-50%);
+      color: var(--muted); font-weight: 600; pointer-events: none; z-index: 1;
+    }
+    .input-money input { padding-left: 1.7rem; }
+
+    /* ───────────────────────── Pricing strategy ───────────────────────── */
+    .value-readout {
+      text-align: center; padding: clamp(1.4rem, 4vw, 2.4rem);
+      background: linear-gradient(160deg, #fff, var(--sand-soft));
+      border: 1px solid var(--gold-soft); border-radius: var(--radius-lg);
+    }
+    .value-readout .vlabel { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+    .value-readout .vrange { font-family: "Cormorant Garamond", serif; font-size: clamp(2.1rem, 6vw, 3.4rem); font-weight: 600; color: var(--ink); line-height: 1.05; margin: 0.5rem 0; font-variant-numeric: tabular-nums; }
+    .value-readout .vrange .mid { color: var(--gold-deep); }
+    .value-readout.is-empty .vrange { font-size: 1.3rem; color: var(--muted); }
+    .value-readout .v-empty-ic { color: var(--gold-soft); display: none; }
+    .value-readout.is-empty .v-empty-ic { display: inline-flex; margin-bottom: 0.3rem; }
+    .value-readout .v-empty-ic .ic { width: 38px; height: 38px; }
+    .value-readout .vsub { font-size: 0.9rem; color: var(--muted); }
+
+    .leverage {
+      margin-top: 1.6rem; background: var(--linen); border: 1px solid var(--line);
+      border-radius: var(--radius-lg); padding: clamp(1.3rem,3vw,1.8rem);
+    }
+    .leverage h3 { font-size: 1.45rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .leverage .curve-wrap { margin: 1rem 0 0.4rem; }
+    .leverage svg.curve { width: 100%; height: auto; display: block; overflow: visible; }
+    .leverage .slider-row { margin: 0.8rem 0 0.4rem; }
+    input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: linear-gradient(90deg, var(--gold) var(--p,50%), rgba(46,53,60,0.12) var(--p,50%)); outline: none; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 3px solid var(--gold-deep); cursor: pointer; box-shadow: var(--shadow-sm); }
+    input[type=range]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 3px solid var(--gold-deep); cursor: pointer; }
+    .leverage-out { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.2rem; }
+    .leverage-out .lo { background: var(--cream); border-radius: var(--radius-sm); padding: 0.9rem 1rem; }
+    .leverage-out .lo b { display: block; font-family: "Cormorant Garamond", serif; font-size: 1.7rem; font-weight: 600; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .leverage-out .lo span { font-size: 0.76rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+    .leverage .verdict { margin-top: 1rem; font-weight: 600; font-size: 0.95rem; padding: 0.7rem 1rem; border-radius: var(--radius-sm); }
+
+    /* ───────────────────────── Marketing plan ───────────────────────── */
+    .pillar { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--linen); overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow 0.4s var(--ease-lux), transform 0.4s var(--ease-lux); }
+    .pillar + .pillar { margin-top: 0.9rem; }
+    .pillar:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .pillar.open { box-shadow: var(--shadow-md); }
+    .pillar-head { display: flex; align-items: center; gap: 1rem; padding: 1.15rem 1.3rem; cursor: pointer; width: 100%; background: none; border: none; text-align: left; font-family: inherit; }
+    .pillar-ico { width: 46px; height: 46px; flex-shrink: 0; border-radius: 14px; display: grid; place-items: center; color: var(--gold-deep); background: linear-gradient(135deg, var(--sand), var(--gold-soft)); }
+    .pillar-ico .ic { width: 23px; height: 23px; }
+    .pillar-head h3 { font-size: 1.4rem; font-weight: 600; line-height: 1.1; }
+    .pillar-head p { font-size: 0.86rem; color: var(--muted); margin-top: 0.15rem; }
+    .pillar-head .chev { margin-left: auto; flex-shrink: 0; transition: transform 0.4s var(--ease-lux); color: var(--gold-deep); }
+    .pillar.open .chev { transform: rotate(180deg); }
+    .pillar-body { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease-lux); }
+    .pillar.open .pillar-body { max-height: 640px; }
+    .pillar-body ul { list-style: none; padding: 0 1.3rem 1.3rem 1.3rem; display: grid; gap: 0.65rem; }
+    .pillar-body li { display: flex; gap: 0.6rem; font-size: 0.95rem; color: #43403b; }
+    .pillar-body li .ic { width: 17px; height: 17px; color: var(--gold); flex-shrink: 0; margin-top: 0.15rem; }
+
+    .timeline-14 { margin-top: 1.8rem; }
+    .tl-track { display: grid; gap: 0.7rem; }
+    .tl-item { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; }
+    .tl-day { font-family: "Cormorant Garamond", serif; font-size: 1.05rem; font-weight: 700; color: var(--gold-deep); min-width: 84px; padding-top: 0.1rem; }
+    .tl-card { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.8rem 1rem; }
+    .tl-card b { font-weight: 700; }
+    .tl-card p { font-size: 0.88rem; color: var(--muted); }
+
+    /* ───────────────────────── Net proceeds ───────────────────────── */
+    .np-grid { display: grid; gap: 1.4rem; }
+    @media (min-width: 880px) { .np-grid { grid-template-columns: 1fr 1.05fr; align-items: start; } .np-result { position: sticky; top: calc(var(--header-h) + 58px); } }
+    .np-net {
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, var(--ink), #3a322a);
+      color: #fff; border-radius: var(--radius-lg); padding: clamp(1.4rem, 4vw, 2rem);
+      box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    .np-net::before { content: ""; position: absolute; top: -40%; right: -20%; width: 70%; height: 120%; background: radial-gradient(circle, rgba(184,139,82,0.22), transparent 70%); pointer-events: none; }
+    .np-net > * { position: relative; }
+    .np-net .nlabel { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; }
+    .np-net .nbig { font-family: "Cormorant Garamond", serif; font-size: clamp(2.6rem, 8vw, 4rem); font-weight: 600; line-height: 1; margin: 0.4rem 0 0.2rem; font-variant-numeric: tabular-nums; }
+    .np-net .nbig.neg { color: var(--terracotta); }
+    .np-net .nsub { font-size: 0.86rem; color: rgba(255,255,255,0.72); }
+    .np-keep { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.82rem; font-weight: 700; color: var(--ink); background: var(--gold-soft); padding: 0.35rem 0.8rem; border-radius: 999px; }
+    .np-keep .ic { width: 15px; height: 15px; }
+
+    /* peak-intent CTA inside the dark card */
+    .np-peak { display: none; margin-top: 1.2rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,0.14); }
+    .np-peak.show { display: block; }
+    .np-peak .pk-line { font-size: 0.88rem; color: rgba(255,255,255,0.82); margin-bottom: 0.7rem; }
+    .np-peak .pk-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+
+    /* waterfall svg */
+    .np-waterfall { margin: 1.4rem 0 0.6rem; }
+    .np-waterfall svg { width: 100%; height: auto; display: block; overflow: visible; }
+    .np-lines { display: grid; gap: 0.4rem; margin-top: 1rem; }
+    .np-line { display: grid; grid-template-columns: 1fr auto; align-items: center; font-size: 0.92rem; padding: 0.32rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .np-line:last-child { border-bottom: none; }
+    .np-line .lk { display: flex; align-items: center; gap: 0.55rem; color: rgba(255,255,255,0.86); }
+    .np-line .swatch { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+    .np-line .lv { font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+    .np-line.subtotal { color: rgba(255,255,255,0.7); font-size: 0.86rem; border-bottom: none; padding-bottom: 0; }
+    .np-line.net { border-top: 1.5px solid rgba(255,255,255,0.25); margin-top: 0.3rem; padding-top: 0.7rem; font-size: 1.05rem; }
+    .np-line.net .lv { color: var(--gold-soft); }
+
+    details.assump { margin-top: 1rem; border-top: 1px solid var(--line); padding-top: 0.8rem; }
+    details.assump summary { cursor: pointer; font-weight: 700; font-size: 0.92rem; color: var(--gold-deep); list-style: none; display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; }
+    details.assump summary::-webkit-details-marker { display: none; }
+    details.assump summary .chev { transition: transform 0.4s var(--ease-lux); }
+    details.assump[open] summary .chev { transform: rotate(180deg); }
+    details.assump summary .ic { width: 18px; height: 18px; }
+
+    .disclaimer { font-size: 0.76rem; color: var(--muted); line-height: 1.55; margin-top: 1rem; }
+
+    /* ───────────────────────── Timeline (full) ───────────────────────── */
+    .phases { display: grid; gap: 0; position: relative; }
+    .phase { display: grid; grid-template-columns: auto 1fr; gap: 1.3rem; padding-bottom: 1.6rem; position: relative; }
+    .phase:not(:last-child)::before { content: ""; position: absolute; left: 21px; top: 44px; bottom: -4px; width: 2px; background: linear-gradient(var(--gold-soft), rgba(184,139,82,0.15)); }
+    .phase-num { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: grid; place-items: center; background: var(--linen); border: 2px solid var(--gold); color: var(--gold-deep); font-family: "Cormorant Garamond", serif; font-size: 1.3rem; font-weight: 700; z-index: 1; }
+    .phase-body h3 { font-size: 1.45rem; font-weight: 600; line-height: 1.1; }
+    .phase-body .dur { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); font-weight: 700; margin: 0.2rem 0 0.4rem; }
+    .phase-body p { font-size: 0.95rem; color: var(--muted); }
+
+    /* ───────────────────────── Why Kareem ───────────────────────── */
+    .why-grid { display: grid; gap: 1.6rem; }
+    @media (min-width: 820px) { .why-grid { grid-template-columns: 0.85fr 1.15fr; align-items: center; } }
+    .why-photo { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/5; background: var(--sand); }
+    .why-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .why-points { display: grid; gap: 1rem; }
+    .why-point { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; }
+    .why-point .wp-ico { width: 40px; height: 40px; border-radius: 12px; background: rgba(184,139,82,0.1); display: grid; place-items: center; color: var(--gold-deep); flex-shrink: 0; }
+    .why-point .wp-ico .ic { width: 20px; height: 20px; }
+    .why-point h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.15; }
+    .why-point p { font-size: 0.92rem; color: var(--muted); }
+    .creds { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
+    .creds span { font-size: 0.76rem; font-weight: 600; color: var(--gold-deep); background: rgba(184,139,82,0.08); border: 1px solid var(--gold-soft); border-radius: 999px; padding: 0.35rem 0.8rem; }
+
+    /* ───────────────────────── Final / contact ───────────────────────── */
+    .recap { background: linear-gradient(160deg, #fff, var(--sand-soft)); border: 1px solid var(--gold-soft); border-radius: var(--radius-lg); padding: clamp(1.3rem,3vw,1.8rem); }
+    .recap h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; }
+    .recap-rows { display: grid; gap: 0.55rem; }
+    .recap-row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.94rem; padding: 0.4rem 0; border-bottom: 1px dashed var(--line); }
+    .recap-row:last-child { border-bottom: none; }
+    .recap-row .rk { color: var(--muted); }
+    .recap-row .rv { font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+    .recap-row.highlight .rv { color: var(--gold-deep); }
+    .recap-empty { font-size: 0.96rem; color: var(--muted); }
+
+    .final-cta { display: grid; gap: 1.4rem; }
+    @media (min-width: 880px) { .final-cta { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+    /* trust band */
+    .trust-band { margin-top: 1.2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+    .trust-band .tb { text-align: center; padding: 0.8rem 0.4rem; background: rgba(184,139,82,0.06); border: 1px solid var(--gold-soft); border-radius: var(--radius-sm); }
+    .trust-band .tb .ic { width: 20px; height: 20px; color: var(--gold-deep); margin: 0 auto 0.35rem; }
+    .trust-band .tb b { display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .trust-band .tb span { font-size: 0.7rem; color: var(--muted); }
+    .text-shortcut { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.1rem; font-size: 0.88rem; color: var(--muted); }
+    .text-shortcut a { color: var(--gold-deep); font-weight: 700; text-decoration: none; }
+    .text-shortcut a:hover { text-decoration: underline; }
+
+    .form-success { display: none; }
+    .form-success.show { display: block; }
+    .form-success .check { width: 64px; height: 64px; margin: 0 auto 1rem; border-radius: 50%; background: var(--ok); color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(90,138,94,0.3), 0 0 0 6px rgba(90,138,94,0.12); }
+    .form-success .check .ic { width: 30px; height: 30px; stroke-width: 2.6; }
+    .success-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+    .copy-toast { display: none; margin-top: 0.8rem; font-size: 0.84rem; font-weight: 700; color: var(--ok); }
+    .copy-toast.show { display: block; }
+
+    /* ───────────────────────── Sticky nav footer ───────────────────────── */
+    .stepnav {
+      position: sticky; bottom: 0; z-index: 90;
+      background: rgba(248,244,239,0.82);
+      backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3);
+      border-top: 1px solid rgba(46,53,60,0.07);
+      box-shadow: 0 -8px 24px rgba(76,64,48,0.06);
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    .stepnav.hidden { display: none; }
+    .stepnav-inner { display: flex; align-items: center; gap: 0.8rem; padding-block: 0.7rem; }
+    .stepnav .count { display: grid; gap: 0.1rem; text-align: center; margin-inline: auto; }
+    .stepnav .count .c-step { font-size: 0.82rem; font-weight: 700; color: var(--muted); }
+    .stepnav .count .c-step b { color: var(--ink); }
+    .stepnav .count .c-momentum { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-deep); min-height: 0.85rem; }
+    .btn-sm { padding: 0.7rem 1.2rem; font-size: 0.9rem; min-height: 46px; }
+    .btn-sm.wide { max-width: 60vw; }
+    .btn-sm .nlabel-txt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ───────────────────────── Footer ───────────────────────── */
+    .site-footer { background: var(--warm-dark); color: rgba(255,255,255,0.78); margin-top: 2rem; }
+    .site-footer .container { padding-block: 2.4rem; }
+    .footer-top { display: flex; flex-wrap: wrap; gap: 1.4rem; justify-content: space-between; align-items: start; }
+    .site-footer .fbrand { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; color: #fff; }
+    .site-footer .frole { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .site-footer a { color: rgba(255,255,255,0.82); text-decoration: none; }
+    .site-footer a:hover { color: var(--gold-soft); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.9rem; }
+    .footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
+    .footer-bottom { margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.12); display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+
+    .stack-1 > * + * { margin-top: 1.1rem; }
+    .mt-2 { margin-top: 1.6rem; } .mt-3 { margin-top: 2.4rem; }
+    .center { text-align: center; }
+    .muted { color: var(--muted); }
+
+    @media (max-width: 760px) {
+      .intro { align-items: flex-start; min-height: auto; }
+      .intro .container { padding-block: 2rem 2.6rem; }
+    }
+    @media (max-width: 600px) {
+      .header-phone span.num { display: none; }
+      .header-home { display: none; }
+      .nav-shell { gap: 0.5rem; }
+      .brand-name { font-size: 1.2rem; }
+      .header-cta { padding: 0.55rem 0.9rem; font-size: 0.82rem; }
+      .header-phone { padding: 0.55rem; min-width: 44px; }
+      .trust-band { grid-template-columns: 1fr; }
+      .step-cta-label { margin-right: 0; flex-basis: 100%; }
+      /* tidy bottom nav: drop redundant step count, let buttons fill */
+      .stepnav .count { display: none; }
+      .stepnav-inner { gap: 0.6rem; }
+      .btn-sm.wide { max-width: none; flex: 1; }
+      #backBtn { flex-shrink: 0; }
+    }
+    @media (max-width: 400px) { .leverage-out { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ───────────────────────── Header ───────────────────────── -->
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Kareem Jamal home">
+        <strong class="brand-name">Kareem Jamal</strong>
+        <span class="brand-role">Rodeo Realty Fine Estates</span>
+      </a>
+      <div class="header-actions">
+        <a class="header-home" href="/">← Site</a>
+        <a class="header-phone" href="tel:+18184027326" aria-label="Call Kareem at (818) 402-7326">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="num">(818) 402-7326</span>
+        </a>
+        <a class="header-cta" href="#book" data-goto="last">Book a Call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───────────────────────── Progress ───────────────────────── -->
+  <div class="progress-wrap hidden" id="progressWrap">
+    <div class="container progress-inner">
+      <ul class="stepper" id="stepper" role="list" aria-label="Presentation progress"></ul>
+      <span class="progress-pct" id="progressPct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+  </div>
+
+  <main id="main">
+
+    <!-- ===== STEP 0 — Intro ===== -->
+    <section class="step is-active" id="step-0" data-title="Welcome">
+      <div class="intro">
+        <div class="container">
+          <span class="eyebrow">The Listing Strategy · For Sellers</span>
+          <h1>Your home deserves a <em>strategy</em>, not a sign in the yard.</h1>
+          <p class="sub">A guided walkthrough of exactly how Kareem positions, markets, and negotiates your home for maximum value — built around <em>your</em> property, with a live net-proceeds estimate. About three minutes, no email required.</p>
+          <div class="intro-actions">
+            <button class="btn btn-primary" id="beginBtn">Begin the walkthrough
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <a class="btn btn-ghost" href="tel:+18184027326" style="color:#fff;border-color:rgba(255,255,255,0.45)">Or just call Kareem</a>
+          </div>
+          <div class="intro-meta">
+            <div class="m"><b>7 steps</b><span>Guided, self-paced</span></div>
+            <div class="m"><b>~3 min</b><span>Start to finish</span></div>
+            <div class="m"><b>Live</b><span>Net-proceeds estimate</span></div>
+          </div>
+          <p class="intro-foot">Kareem Jamal · Rodeo Realty Fine Estates · CA DRE #01998956 · Woodland Hills &amp; the San Fernando Valley</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 1 — Home profile ===== -->
+    <section class="step" id="step-1" data-title="Your Home">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 1 of 7</span></span>
+          <h2>Tell us about <em>your home.</em></h2>
+          <p class="lede">A few quick details let us tailor the pricing, marketing plan, and net-proceeds estimate to your specific property. Nothing here is shared until you choose to reach out.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card" data-reveal>
+            <div class="field">
+              <label for="f-area">Where is the home?</label>
+              <select id="f-area" data-state="area">
+                <option value="">Select area…</option>
+                <option data-ppsf="560">Woodland Hills</option>
+                <option data-ppsf="640">Calabasas</option>
+                <option data-ppsf="850">Hidden Hills</option>
+                <option data-ppsf="620">Encino</option>
+                <option data-ppsf="520">West Hills</option>
+                <option data-ppsf="560">Tarzana</option>
+                <option data-ppsf="500">Canoga Park</option>
+                <option data-ppsf="540">Other San Fernando Valley</option>
+                <option data-ppsf="560">Elsewhere in SoCal</option>
+              </select>
+            </div>
+            <div class="field">
+              <span class="label" id="lbl-type">Property type</span>
+              <div class="seg" data-seg="type" role="radiogroup" aria-labelledby="lbl-type">
+                <button type="button" role="radio" aria-checked="true" data-val="Single-family home">Single-family</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Condo / Townhome">Condo / Townhome</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Multi-unit">Multi-unit</button>
+              </div>
+            </div>
+            <div class="field-row cols-3">
+              <div class="field">
+                <label for="f-beds">Beds</label>
+                <input type="number" id="f-beds" min="0" max="20" placeholder="4" data-state="beds" inputmode="numeric" />
+              </div>
+              <div class="field">
+                <label for="f-baths">Baths</label>
+                <input type="number" id="f-baths" min="0" max="20" step="0.5" placeholder="3" data-state="baths" inputmode="decimal" />
+              </div>
+              <div class="field">
+                <label for="f-sqft">Sq ft</label>
+                <input type="number" id="f-sqft" min="200" max="40000" placeholder="2,400" data-state="sqft" inputmode="numeric" />
+              </div>
+            </div>
+          </div>
+
+          <div class="card" data-reveal>
+            <div class="field">
+              <span class="label" id="lbl-cond">Condition today</span>
+              <p class="hint">Be honest — it changes the strategy, not the relationship.</p>
+              <div class="seg gold" data-seg="condition" role="radiogroup" aria-labelledby="lbl-cond">
+                <button type="button" role="radio" aria-checked="false" data-val="Turnkey" data-factor="1.08">Turnkey</button>
+                <button type="button" role="radio" aria-checked="true" data-val="Good" data-factor="1.0">Good</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Needs work" data-factor="0.88">Needs work</button>
+              </div>
+            </div>
+            <div class="field">
+              <span class="label" id="lbl-time">When would you ideally sell?</span>
+              <div class="seg" data-seg="timeline" role="radiogroup" aria-labelledby="lbl-time">
+                <button type="button" role="radio" aria-checked="false" data-val="As soon as possible">ASAP</button>
+                <button type="button" role="radio" aria-checked="true" data-val="In 1–3 months">1–3 months</button>
+                <button type="button" role="radio" aria-checked="false" data-val="In 3–6 months">3–6 months</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Just exploring">Just exploring</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-payoff">Approx. remaining mortgage balance <span class="hint">(optional)</span></label>
+              <div class="input-money"><input type="number" id="f-payoff" min="0" placeholder="0" data-state="payoff" inputmode="numeric" /></div>
+              <p class="hint">Used only to estimate your net proceeds. Leave at 0 if owned free &amp; clear.</p>
+            </div>
+          </div>
+        </div>
+        <p class="disclaimer" data-reveal>Estimates on the next screens are illustrative orientation only — not an appraisal, CMA, or guarantee of value or proceeds. Kareem provides a precise, free comparative market analysis (CMA) for your specific home.</p>
+
+        <div class="step-cta" data-reveal data-cta-step="1">
+          <span class="step-cta-label">Rather just talk it through?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 2 — Pricing strategy ===== -->
+    <section class="step" id="step-2" data-title="Pricing">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 2 of 7</span></span>
+          <h2>Pricing is a <em>strategy</em>, not a guess.</h2>
+          <p class="lede">The right list price doesn't leave money on the table — and it doesn't scare buyers off. We price to create competition and capture the highest-intent buyers in the first two weeks, when attention peaks.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="value-readout is-empty" id="valueReadout" data-reveal>
+            <div class="vlabel">Illustrative value orientation</div>
+            <span class="v-empty-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 13l9-9 9 9"/><path d="M5 11v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8"/><path d="M9 21v-6h6v6"/></svg></span>
+            <div class="vrange" id="vRange">Add sq ft to estimate</div>
+            <div class="vsub" id="vSub">Enter your home's area and size on Step 1 for a ballpark range.</div>
+          </div>
+
+          <div class="leverage" data-reveal>
+            <h3>The pricing-leverage curve</h3>
+            <p class="muted" style="font-size:0.9rem">Drag to see how list price affects buyer demand and time on market.</p>
+            <div class="curve-wrap">
+              <svg class="curve" viewBox="0 0 320 150" preserveAspectRatio="none" role="img" aria-label="Curve showing days on market rising as list price moves away from the strategic range">
+                <rect id="curveBand" x="0" y="0" width="0" height="150" fill="rgba(90,138,94,0.12)"></rect>
+                <path id="curveArea" d="" fill="rgba(184,139,82,0.12)" stroke="none"></path>
+                <path id="curvePath" d="" fill="none" stroke="var(--gold-deep)" stroke-width="2.5" vector-effect="non-scaling-stroke"></path>
+                <line id="curveMarkerLine" x1="0" y1="0" x2="0" y2="150" stroke="rgba(42,37,32,0.25)" stroke-width="1" vector-effect="non-scaling-stroke"></line>
+                <circle id="curveMarker" cx="0" cy="0" r="6" fill="#fff" stroke="var(--gold-deep)" stroke-width="3"></circle>
+              </svg>
+            </div>
+            <div class="slider-row">
+              <input type="range" id="priceSlider" min="-12" max="12" value="0" step="1" aria-label="List price strategy relative to estimated value" />
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--muted);font-weight:600;">
+              <span>Underpriced</span><span>Strategic</span><span>Overpriced</span>
+            </div>
+            <div class="leverage-out">
+              <div class="lo"><b id="loPrice">—</b><span>List price</span></div>
+              <div class="lo"><b id="loDom">—</b><span>Est. days on market</span></div>
+            </div>
+            <div class="verdict" id="leverageVerdict" aria-live="polite" style="background:rgba(90,138,94,0.12);color:#3f6b43;">Right on target — priced to spark competition.</div>
+          </div>
+        </div>
+
+        <div class="card mt-2" data-reveal>
+          <div class="grid grid-3" style="gap:1.2rem">
+            <div>
+              <div class="eyebrow">What drives the number</div>
+              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">Recent comparable sales, neighborhood durability, current demand, and your home's specific condition and upgrades.</p>
+            </div>
+            <div>
+              <div class="eyebrow">Why the first 2 weeks matter</div>
+              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">A new listing gets its peak audience in the opening window. Strategic pricing turns that attention into multiple offers.</p>
+            </div>
+            <div>
+              <div class="eyebrow">Your next step</div>
+              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">Kareem delivers a precise, address-specific CMA — free, no obligation — so your real price is data, not a slider.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="2">
+          <span class="step-cta-label">Want your real number?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta solid" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text me a free CMA</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 3 — Marketing plan ===== -->
+    <section class="step" id="step-3" data-title="Marketing">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 3 of 7</span></span>
+          <h2>We treat your home <em>like a brand.</em></h2>
+          <p class="lede">Editorial presentation, a precision launch, and a negotiation style built to protect your equity. Tap each pillar to see what's behind it.</p>
+        </div>
+
+        <div id="pillars" data-reveal>
+          <div class="pillar open">
+            <button class="pillar-head" type="button" aria-expanded="true" aria-controls="pillar-1">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3.2"/></svg></span>
+              <span>
+                <h3>High-fidelity presentation</h3>
+                <p>Make buyers want it before they walk in.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="pillar-1" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Strategic staging &amp; a minor-improvement audit that targets equity gains, not vanity fixes</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Production-grade photography, drone, and cinematic video</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Polished, editorial listing copy that tells the home's story</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>A branded property page and social-first creative</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="pillar-2">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+              <span>
+                <h3>Maximum reach &amp; precision positioning</h3>
+                <p>The right buyers, not just more eyeballs.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="pillar-2" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>"Coming Soon" whisper campaign to top local agents before launch</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Syndication across every major luxury &amp; consumer property portal</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Direct reach into high-net-worth referral networks</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Open-house "event" status reserved for qualified buyers</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Launch timed to maximize opening-weekend showing volume</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="pillar-3">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M5 7h14M5 7l-3 7a4 4 0 0 0 6 0zM19 7l3 7a4 4 0 0 0-6 0zM8 21h8"/></svg></span>
+              <span>
+                <h3>Aggressive, principled negotiation</h3>
+                <p>We don't just accept offers — we vet them.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="pillar-3" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Every offer vetted for closing probability, not just price</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Multiple-offer strategy designed to drive terms in your favor</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Escrow &amp; inspection oversight so deals don't fall apart late</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>One point of contact who keeps you informed at every step</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-14" data-reveal>
+          <h3 style="font-size:1.6rem;font-weight:600;margin-bottom:0.9rem">The first 14 days</h3>
+          <div class="tl-track">
+            <div class="tl-item"><span class="tl-day">Days 1–3</span><div class="tl-card"><b>Prep &amp; produce.</b><p>Staging walkthrough, improvement audit, and the full photo/video shoot.</p></div></div>
+            <div class="tl-item"><span class="tl-day">Days 4–6</span><div class="tl-card"><b>Whisper launch.</b><p>"Coming Soon" to top agents and the referral network — building demand before public launch.</p></div></div>
+            <div class="tl-item"><span class="tl-day">Day 7</span><div class="tl-card"><b>Go live.</b><p>Listing hits every portal with full media and the branded property page.</p></div></div>
+            <div class="tl-item"><span class="tl-day">Days 8–10</span><div class="tl-card"><b>Showing surge.</b><p>Open-house event plus private showings while attention is at its peak.</p></div></div>
+            <div class="tl-item"><span class="tl-day">Days 11–14</span><div class="tl-card"><b>Review &amp; negotiate.</b><p>Vet offers for terms and certainty; drive toward the strongest deal.</p></div></div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="3">
+          <span class="step-cta-label">Curious what this looks like for your home?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 4 — Net proceeds ===== -->
+    <section class="step" id="step-4" data-title="Net Proceeds">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 4 of 7</span></span>
+          <h2>What you'd <em>actually walk away with.</em></h2>
+          <p class="lede">Adjust any number to see your estimated net proceeds update live. Defaults are typical California figures — your real costs depend on your specific transaction.</p>
+        </div>
+
+        <div class="np-grid">
+          <div class="card" data-reveal>
+            <div class="field">
+              <label for="np-price">Estimated sale price</label>
+              <p class="hint">Prefilled from your Step 2 estimate — edit freely.</p>
+              <div class="input-money"><input type="number" id="np-price" min="0" data-np="price" inputmode="numeric" /></div>
+            </div>
+            <div class="field">
+              <label for="np-payoff">Remaining mortgage payoff</label>
+              <div class="input-money"><input type="number" id="np-payoff" min="0" data-np="payoff" inputmode="numeric" /></div>
+            </div>
+
+            <details class="assump" open>
+              <summary>
+                <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>
+                Cost assumptions (tap to adjust)
+                <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="field-row cols-2" style="margin-top:1rem">
+                <div class="field">
+                  <label for="np-comm">Total commission %</label>
+                  <input type="number" id="np-comm" min="0" max="10" step="0.1" value="5" data-np="comm" inputmode="decimal" />
+                  <p class="hint">Negotiable; split between agents.</p>
+                </div>
+                <div class="field">
+                  <label for="np-closing">Closing costs %</label>
+                  <input type="number" id="np-closing" min="0" max="6" step="0.1" value="1.2" data-np="closing" inputmode="decimal" />
+                  <p class="hint">Title, escrow, transfer tax.</p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="np-prep">Prep, staging &amp; repairs</label>
+                <div class="input-money"><input type="number" id="np-prep" min="0" value="6000" data-np="prep" inputmode="numeric" /></div>
+              </div>
+            </details>
+          </div>
+
+          <div class="np-result" data-reveal>
+            <div class="np-net">
+              <div class="nlabel">Estimated net proceeds</div>
+              <div class="nbig" id="npNet">$—</div>
+              <div class="nsub" id="npNetSub">Enter a sale price to see your estimate.</div>
+              <span class="np-keep" id="npKeep" style="display:none"></span>
+              <div class="np-waterfall" id="npWaterfall" aria-hidden="true"></div>
+              <div class="np-lines" id="npLines"></div>
+              <div class="np-peak" id="npPeak">
+                <p class="pk-line">This is an estimate. Kareem confirms your real net — free, usually within a day.</p>
+                <div class="pk-actions">
+                  <button class="chip-cta solid" id="peakCmaBtn" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Get the real number</button>
+                  <a class="chip-cta" id="peakSmsBtn" data-sms href="#" style="border-color:rgba(255,255,255,0.5);color:#fff;background:transparent"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text me this</a>
+                </div>
+              </div>
+            </div>
+            <p class="sr-only" id="npLive" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p class="disclaimer">Estimate only. Not an appraisal, tax advice, or a guarantee of proceeds. Excludes any capital-gains tax, HOA transfer fees, prorated property taxes, or seller-paid buyer credits, which vary by transaction. Confirm exact figures with Kareem and your escrow/tax professional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 5 — Timeline ===== -->
+    <section class="step" id="step-5" data-title="Timeline">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 5 of 7</span></span>
+          <h2>From "let's talk" to <em>sold.</em></h2>
+          <p class="lede">A clear, guided path so the process feels managed — not chaotic. Typical timelines below; your pace can be faster or slower.</p>
+        </div>
+
+        <div class="phases" data-reveal>
+          <div class="phase">
+            <div class="phase-num">1</div>
+            <div class="phase-body">
+              <h3>Strategy &amp; CMA</h3>
+              <div class="dur">Days 1–3</div>
+              <p>We meet, walk the home, and build a precise, data-backed price and plan tailored to your goals and timeline.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-num">2</div>
+            <div class="phase-body">
+              <h3>Prep &amp; produce</h3>
+              <div class="dur">Week 1</div>
+              <p>Targeted improvements, staging, and a production-grade photo and video shoot that makes the home irresistible.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-num">3</div>
+            <div class="phase-body">
+              <h3>Launch &amp; showings</h3>
+              <div class="dur">Weeks 2–3</div>
+              <p>Whisper campaign, public launch across all portals, open-house event, and private showings during peak attention.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-num">4</div>
+            <div class="phase-body">
+              <h3>Offers &amp; negotiation</h3>
+              <div class="dur">Weeks 2–4</div>
+              <p>We vet every offer for price <em>and</em> certainty, then negotiate the strongest combination of terms for you.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-num">5</div>
+            <div class="phase-body">
+              <h3>Escrow &amp; close</h3>
+              <div class="dur">~30 days</div>
+              <p>Inspection, appraisal, and contingency oversight through to final signatures — handled so you can focus on what's next.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="5">
+          <span class="step-cta-label">Ready to map your timeline?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 6 — Why Kareem ===== -->
+    <section class="step" id="step-6" data-title="Why Kareem">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 6 of 7</span></span>
+          <h2>Why sellers choose <em>Kareem.</em></h2>
+          <p class="lede">An editorial eye, a rigorous negotiation style, and a generational-wealth lens — selling your home is treated as a strategic move, not just a transaction.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-photo" data-reveal>
+            <img src="/assets/kareem-jamal-headshot.jpeg" alt="Portrait of Kareem Jamal, Realtor with Rodeo Realty Fine Estates" loading="lazy" onerror="this.parentElement.style.display='none'" />
+          </div>
+          <div class="why-points" data-reveal>
+            <div class="why-point">
+              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+              <div>
+                <h3>Positioning over "listing"</h3>
+                <p>Your home is marketed as a brand — editorial presentation that creates desire and captures the highest-intent buyers.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+              <div>
+                <h3>Negotiation that protects equity</h3>
+                <p>Offers are vetted for closing certainty, not just headline price. The goal is the strongest <em>net</em> outcome for you.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span>
+              <div>
+                <h3>A generational-wealth lens</h3>
+                <p>Whether this sale funds a move-up, a 1031 exchange, or family legacy planning, the strategy looks beyond the closing table.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+              <div>
+                <h3>Communication you can count on</h3>
+                <p>Honest, market-grounded updates that keep you fully informed — not just when things are going smoothly.</p>
+              </div>
+            </div>
+            <div class="creds">
+              <span>Rodeo Realty Fine Estates</span>
+              <span>CA DRE #01998956</span>
+              <span>Woodland Hills &amp; the SFV</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="6">
+          <span class="step-cta-label">Have a question for Kareem?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta solid" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 7 — Book ===== -->
+    <section class="step" id="step-7" data-title="Book a Call">
+      <div class="container" id="book">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 7 of 7</span></span>
+          <h2>Let's turn this into <em>your</em> strategy.</h2>
+          <p class="lede">Here's a snapshot of what you built. Send it to Kareem and he'll follow up with a precise, free CMA and a personalized listing plan — no obligation.</p>
+        </div>
+
+        <div class="final-cta">
+          <div data-reveal>
+            <div class="recap" id="recap">
+              <h3>Your home, at a glance</h3>
+              <div class="recap-rows" id="recapRows"></div>
+              <p class="disclaimer">All figures are illustrative estimates, not a guarantee. Kareem confirms real numbers with a free, address-specific analysis.</p>
+            </div>
+            <div class="trust-band">
+              <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg><b>Fine Estates</b><span>Rodeo Realty</span></div>
+              <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><b>Licensed</b><span>CA DRE #01998956</span></div>
+              <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><b>Replies same day</b><span>Free, no obligation</span></div>
+            </div>
+          </div>
+
+          <div class="card" data-reveal>
+            <div class="text-shortcut">
+              <span>Prefer to skip the form?</span>
+              <a data-sms href="#">Text Kareem your snapshot →</a>
+            </div>
+            <form id="leadForm" novalidate>
+              <div class="field">
+                <label for="lf-name">Your name</label>
+                <input type="text" id="lf-name" required autocomplete="name" aria-describedby="err-name" />
+                <span class="err" id="err-name" role="alert">Please add your name.</span>
+              </div>
+              <div class="field-row cols-2">
+                <div class="field">
+                  <label for="lf-phone">Phone</label>
+                  <input type="tel" id="lf-phone" required autocomplete="tel" aria-describedby="err-phone" />
+                  <span class="err" id="err-phone" role="alert">A phone number lets Kareem reach you fastest.</span>
+                </div>
+                <div class="field">
+                  <label for="lf-email">Email <span class="hint">(optional)</span></label>
+                  <input type="email" id="lf-email" autocomplete="email" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="lf-msg">Anything Kareem should know? <span class="hint">(optional)</span></label>
+                <textarea id="lf-msg" rows="3" placeholder="Timing, goals, questions…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%">Build my snapshot</button>
+              <p class="disclaimer">Kareem personally replies within a few hours — usually faster. No spam, ever.</p>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+              <div class="check"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <h3 class="center" style="font-size:1.7rem;font-weight:600;margin-bottom:0.4rem">Your snapshot is ready.</h3>
+              <p class="muted center" id="successMsg" style="margin-bottom:1.2rem">Choose how to send it to Kareem — pick whichever is easiest for you.</p>
+              <div class="success-actions">
+                <a class="btn btn-dark btn-sm" id="mailtoBtn" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>Email it</a>
+                <a class="btn btn-primary btn-sm" id="smsBtn" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text it</a>
+                <button class="btn btn-ghost btn-sm" id="copyBtn" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button>
+              </div>
+              <p class="copy-toast center" id="copyToast">Copied — paste it into a text or email to (818) 402-7326.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="center muted mt-3" style="font-size:0.86rem">Prefer to just talk? Call or text <a href="tel:+18184027326" style="color:var(--gold-deep);font-weight:700">(818) 402-7326</a> — Kareem answers his own phone.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ───────────────────────── Sticky step nav ───────────────────────── -->
+  <div class="stepnav hidden" id="stepnav">
+    <div class="container stepnav-inner">
+      <button class="btn btn-ghost btn-sm" id="backBtn">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:16px;height:16px"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Back
+      </button>
+      <span class="count">
+        <span class="c-step">Step <b id="navCur">1</b> of 7</span>
+        <span class="c-momentum" id="navMomentum"></span>
+      </span>
+      <button class="btn btn-primary btn-sm wide" id="nextBtn"><span class="nlabel-txt" id="nextLabel">Next</span>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ───────────────────────── Footer ───────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="fbrand">Kareem Jamal</div>
+          <div class="frole">Rodeo Realty Fine Estates · CA DRE #01998956</div>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="/buyers-and-sellers">Buyers &amp; Sellers</a>
+          <a href="/mls-search">Home Search</a>
+          <a href="/free-reports">Free Reports</a>
+          <a href="tel:+18184027326">(818) 402-7326</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Kareem Jamal · Rodeo Realty Fine Estates</span>
+        <span>Equal Housing Opportunity · All estimates are illustrative, not a guarantee of value or proceeds.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    "use strict";
+    var TOTAL = 7;
+    var PHONE = "+18184027326";
+    var EMAIL = "kjamal@rodeore.com";
+    var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var state = {
+      area: "", areaPpsf: 0, type: "Single-family home",
+      beds: "", baths: "", sqft: "", condition: "Good", condFactor: 1.0,
+      timeline: "In 1–3 months", payoff: 0,
+      estLow: 0, estMid: 0, estHigh: 0,
+      np: { price: 0, payoff: 0, comm: 5, closing: 1.2, prep: 6000, net: 0 }
+    };
+    var current = 0;
+    var STORE = "kj-seller-presentation-v2";
+
+    function $(s, c) { return (c || document).querySelector(s); }
+    function $all(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+    function fmt(n) { if (!isFinite(n)) n = 0; return "$" + Math.round(n).toLocaleString("en-US"); }
+    function fmtK(n) {
+      n = Math.round(n);
+      if (Math.abs(n) >= 1000000) return "$" + (n / 1000000).toFixed(n % 1000000 === 0 ? 0 : 2).replace(/\.?0+$/, "") + "M";
+      if (Math.abs(n) >= 1000) return "$" + Math.round(n / 1000) + "K";
+      return "$" + n;
+    }
+    function num(v) { var x = parseFloat(String(v).replace(/[^0-9.\-]/g, "")); return isFinite(x) ? x : 0; }
+
+    // ---------- count-up animation ----------
+    function animateNumber(el, to, fmtFn) {
+      var from = el._val || 0;
+      if (el._raf) cancelAnimationFrame(el._raf);
+      if (el._fallback) clearTimeout(el._fallback);
+      if (REDUCE || Math.abs(to - from) < 1) { el._val = to; el.textContent = fmtFn(to); return; }
+      var dur = 550, start = (window.performance && performance.now) ? performance.now() : Date.now();
+      function now() { return (window.performance && performance.now) ? performance.now() : Date.now(); }
+      function tick() {
+        var p = Math.min((now() - start) / dur, 1);
+        var v = from + (to - from) * (1 - Math.pow(1 - p, 3));
+        el.textContent = fmtFn(v);
+        if (p < 1) el._raf = requestAnimationFrame(tick); else { el._val = to; el.textContent = fmtFn(to); }
+      }
+      el._raf = requestAnimationFrame(tick);
+      // wall-clock safety net: snap to final even if rAF is throttled (background tab)
+      el._fallback = setTimeout(function () { if (el._raf) cancelAnimationFrame(el._raf); el._val = to; el.textContent = fmtFn(to); }, dur + 140);
+    }
+
+    // ---------- Persistence ----------
+    function save() { try { sessionStorage.setItem(STORE, JSON.stringify({ state: state, current: current })); } catch (e) {} }
+    function load() {
+      try {
+        var raw = sessionStorage.getItem(STORE); if (!raw) return;
+        var d = JSON.parse(raw);
+        if (d && d.state) { Object.assign(state, d.state); if (d.state.np) Object.assign(state.np, d.state.np); }
+      } catch (e) {}
+    }
+
+    // ---------- header height var ----------
+    function setHeaderH() {
+      var h = $(".site-header"); if (h) document.documentElement.style.setProperty("--header-h", h.offsetHeight + "px");
+    }
+
+    // ---------- Stepper ----------
+    var STEP_TITLES = ["Your Home", "Pricing", "Marketing", "Net Proceeds", "Timeline", "Why Kareem", "Book a Call"];
+    var CHECK = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>';
+    function buildStepper() {
+      var ul = $("#stepper"); ul.innerHTML = "";
+      STEP_TITLES.forEach(function (t, i) {
+        var li = document.createElement("li");
+        li.setAttribute("data-step", i + 1);
+        var btn = document.createElement("button");
+        btn.type = "button"; btn.className = "step-trigger";
+        btn.innerHTML = '<span class="dot" aria-hidden="true"><span class="num">' + (i + 1) + '</span></span><span class="label">' + t + '</span>';
+        btn.addEventListener("click", function () { goTo(i + 1); });
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+    }
+    function updateStepper() {
+      $all("#stepper li").forEach(function (li, i) {
+        var n = i + 1, done = n < current, active = n === current;
+        li.classList.toggle("active", active);
+        li.classList.toggle("done", done);
+        var btn = $(".step-trigger", li);
+        var dot = $(".dot", li);
+        btn.setAttribute("aria-current", active ? "step" : "false");
+        dot.innerHTML = done ? CHECK : '<span class="num">' + n + '</span>';
+        var label = STEP_TITLES[i] + (done ? " (completed)" : active ? " (current)" : "");
+        btn.setAttribute("aria-label", "Step " + n + ": " + label);
+      });
+      var pct = current >= 1 ? Math.round(current / TOTAL * 100) : 0;
+      $("#progressFill").style.width = pct + "%";
+      $("#progressPct").textContent = pct + "%";
+      $("#navCur").textContent = current;
+      // keep the active step fully visible in the scrollable strip (horizontal only)
+      var act = $("#stepper li.active"), s = $("#stepper");
+      if (act && s) {
+        var gut = 16, left = act.offsetLeft, right = left + act.offsetWidth, target = null;
+        if (left < s.scrollLeft + gut) target = Math.max(0, left - gut);
+        else if (right > s.scrollLeft + s.clientWidth - gut) target = right - s.clientWidth + gut;
+        if (target !== null) s.scrollLeft = target;
+      }
+    }
+
+    // ---------- momentum / next labels (funnel) ----------
+    var NEXT_LABELS = { 1: "See my value range", 2: "Build my net proceeds", 3: "Calculate my net", 4: "See the timeline", 5: "Why Kareem", 6: "Get my snapshot" };
+    var MOMENTUM = { 5: "Almost there", 6: "Last step before your snapshot", 7: "" };
+    function updateNavCopy() {
+      var nl = $("#nextLabel");
+      nl.textContent = NEXT_LABELS[current] || "Next";
+      $("#navMomentum").textContent = MOMENTUM[current] || "";
+    }
+
+    // ---------- reveal ----------
+    function revealStep(el) {
+      $all("[data-reveal]", el).forEach(function (it, i) {
+        it.classList.remove("revealed");
+        it.style.transitionDelay = (REDUCE ? 0 : i * 70) + "ms";
+        void it.offsetWidth;
+        it.classList.add("revealed");
+      });
+    }
+
+    // ---------- Navigation ----------
+    function goTo(n) {
+      n = Math.max(0, Math.min(TOTAL, n));
+      var prev = current; current = n;
+      $all(".step").forEach(function (s) { s.classList.remove("is-active"); });
+      var el = $("#step-" + n); if (el) el.classList.add("is-active");
+
+      var isIntro = n === 0;
+      $("#progressWrap").classList.toggle("hidden", isIntro);
+      $("#stepnav").classList.toggle("hidden", isIntro);
+      $("#backBtn").disabled = n <= 1;
+      $("#nextBtn").style.display = (n === TOTAL) ? "none" : "";
+
+      if (n === 2) renderPricing();
+      if (n === 4) { ensureNpDefaults(); renderNet(); }
+      if (n === 7) renderRecap();
+
+      updateStepper();
+      updateNavCopy();
+      if (el) revealStep(el);
+
+      setHeaderH();
+      if (!isIntro) {
+        var off = ($(".site-header").offsetHeight || 0) + ($("#progressWrap").offsetHeight || 0) + 10;
+        var top = $("#main").offsetTop - off;
+        window.scrollTo({ top: top < 0 ? 0 : top, behavior: prev === n || REDUCE ? "auto" : "smooth" });
+      } else { window.scrollTo(0, 0); }
+      save();
+    }
+
+    // ---------- Step 1 ----------
+    function bindHomeProfile() {
+      var areaSel = $("#f-area");
+      areaSel.addEventListener("change", function () {
+        var opt = areaSel.options[areaSel.selectedIndex];
+        state.area = areaSel.value;
+        state.areaPpsf = opt ? num(opt.getAttribute("data-ppsf")) : 0;
+        save();
+      });
+      $all("[data-state]").forEach(function (inp) {
+        inp.addEventListener("input", function () {
+          var k = inp.getAttribute("data-state");
+          state[k] = inp.value;
+          if (k === "payoff") state.payoff = num(inp.value);
+          save();
+        });
+      });
+      $all("[data-seg]").forEach(function (group) {
+        var key = group.getAttribute("data-seg");
+        group.addEventListener("click", function (e) {
+          var btn = e.target.closest("button"); if (!btn) return;
+          $all("button", group).forEach(function (b) { b.setAttribute("aria-checked", "false"); });
+          btn.setAttribute("aria-checked", "true");
+          state[key] = btn.getAttribute("data-val");
+          if (key === "condition") state.condFactor = num(btn.getAttribute("data-factor")) || 1;
+          save();
+        });
+      });
+    }
+
+    function computeEstimate() {
+      var sqft = num(state.sqft);
+      var ppsf = state.areaPpsf || 540;
+      if (!sqft || !state.area) { state.estLow = state.estMid = state.estHigh = 0; return; }
+      var mid = sqft * ppsf * (state.condFactor || 1);
+      state.estMid = mid; state.estLow = mid * 0.93; state.estHigh = mid * 1.07;
+    }
+
+    // ---------- Step 2 ----------
+    // smooth convex days-on-market model (monotonic away from the sweet spot)
+    function domFor(delta) {
+      var d0 = 8, sweet = -1;
+      var dom = d0 + (delta > sweet ? Math.pow(delta - sweet, 1.5) * 1.1 : Math.pow(sweet - delta, 1.35) * 0.9);
+      return Math.max(6, Math.round(dom));
+    }
+    function renderPricing() {
+      computeEstimate();
+      var ro = $("#valueReadout"), vr = $("#vRange"), vs = $("#vSub");
+      if (!state.estMid) {
+        ro.classList.add("is-empty");
+        vr.textContent = "Add sq ft to estimate";
+        vs.textContent = "Enter your home's area and size on Step 1 for a ballpark range.";
+      } else {
+        ro.classList.remove("is-empty");
+        vr.innerHTML = fmtK(state.estLow) + ' &ndash; <span class="mid">' + fmtK(state.estHigh) + "</span>";
+        vs.textContent = "Illustrative range for a " + (state.sqft ? Number(state.sqft).toLocaleString() + " sq ft " : "") +
+          (state.condition ? state.condition.toLowerCase() + " " : "") + "home" + (state.area ? " in " + state.area : "") + ". Not an appraisal.";
+      }
+      drawCurve();
+      renderLeverage(num($("#priceSlider").value));
+    }
+    function drawCurve() {
+      // plot dom vs delta over [-12,12] into 320x150 viewBox
+      var W = 320, H = 150, pad = 6;
+      var minD = -12, maxD = 12;
+      var doms = []; for (var d = minD; d <= maxD; d++) doms.push(domFor(d));
+      var maxDom = Math.max.apply(null, doms);
+      function xOf(delta) { return pad + (delta - minD) / (maxD - minD) * (W - 2 * pad); }
+      function yOf(dom) { return pad + (1 - (dom - 6) / (maxDom - 6)) * (H - 2 * pad); }
+      var path = "", area = "";
+      for (var i = 0; i < doms.length; i++) {
+        var x = xOf(minD + i), y = yOf(doms[i]);
+        path += (i === 0 ? "M" : "L") + x.toFixed(1) + " " + y.toFixed(1) + " ";
+      }
+      area = path + "L" + xOf(maxD).toFixed(1) + " " + (H - pad) + " L" + xOf(minD).toFixed(1) + " " + (H - pad) + " Z";
+      $("#curvePath").setAttribute("d", path.trim());
+      $("#curveArea").setAttribute("d", area.trim());
+      // strategic band (delta -3..+1)
+      var bx = xOf(-3), bw = xOf(1) - xOf(-3);
+      var band = $("#curveBand"); band.setAttribute("x", bx); band.setAttribute("width", bw);
+      band.setAttribute("height", H); band.setAttribute("y", 0);
+      $("#valueReadout"); // noop keep
+      drawCurve._xOf = xOf; drawCurve._yOf = yOf;
+    }
+    function renderLeverage(delta) {
+      var base = state.estMid || 1000000;
+      var price = base * (1 + delta / 100);
+      var priceEl = $("#loPrice");
+      animateNumber(priceEl, price, fmtK);
+      var dom = domFor(delta);
+      $("#loDom").textContent = dom + " days";
+
+      var slider = $("#priceSlider");
+      var pctPos = ((num(slider.value) - slider.min) / (slider.max - slider.min)) * 100;
+      slider.style.setProperty("--p", pctPos + "%");
+
+      // marker on curve
+      if (drawCurve._xOf) {
+        var mx = drawCurve._xOf(delta), my = drawCurve._yOf(dom);
+        var mk = $("#curveMarker"); mk.setAttribute("cx", mx); mk.setAttribute("cy", my);
+        var ml = $("#curveMarkerLine"); ml.setAttribute("x1", mx); ml.setAttribute("x2", mx); ml.setAttribute("y1", my); ml.setAttribute("y2", 150);
+      }
+
+      var v = $("#leverageVerdict"), verdictText;
+      if (delta > 4) {
+        v.style.background = "rgba(201,133,105,0.14)"; v.style.color = "#9a4f33";
+        verdictText = "Overpriced — buyers wait it out, and price cuts signal weakness.";
+      } else if (delta < -6) {
+        v.style.background = "rgba(64,80,95,0.12)"; v.style.color = "#3a4a58";
+        verdictText = "Underpriced — likely fast, but you may leave equity on the table.";
+      } else {
+        v.style.background = "rgba(90,138,94,0.12)"; v.style.color = "#3f6b43";
+        verdictText = "Right on target — priced to spark competition in the first two weeks.";
+      }
+      v.textContent = verdictText;
+      slider.setAttribute("aria-valuetext", fmtK(price) + " list price, about " + dom + " days on market. " + verdictText);
+    }
+
+    // ---------- Step 3 pillars ----------
+    function bindPillars() {
+      $all("#pillars .pillar-head").forEach(function (head) {
+        head.addEventListener("click", function () {
+          var p = head.parentElement, wasOpen = p.classList.contains("open");
+          $all("#pillars .pillar").forEach(function (x) {
+            x.classList.remove("open");
+            var h = $(".pillar-head", x); if (h) h.setAttribute("aria-expanded", "false");
+          });
+          if (!wasOpen) { p.classList.add("open"); head.setAttribute("aria-expanded", "true"); }
+        });
+      });
+    }
+
+    // ---------- Step 4 net proceeds ----------
+    function ensureNpDefaults() {
+      computeEstimate(); // keep estMid fresh regardless of navigation path
+      var priceInput = $("#np-price");
+      if (!num(priceInput.value)) { var seed = state.estMid || 0; if (seed) { priceInput.value = Math.round(seed); state.np.price = seed; } }
+      var payoffInput = $("#np-payoff");
+      if (!num(payoffInput.value) && state.payoff) { payoffInput.value = state.payoff; state.np.payoff = state.payoff; }
+    }
+    function calcNet() {
+      var p = state.np, price = num(p.price);
+      var comm = price * (num(p.comm) / 100), closing = price * (num(p.closing) / 100);
+      var prep = num(p.prep), payoff = num(p.payoff);
+      return { price: price, comm: comm, closing: closing, prep: prep, payoff: payoff, totalCost: comm + closing + prep, net: price - comm - closing - prep - payoff };
+    }
+    function drawWaterfall(r) {
+      // SVG cumulative waterfall: Sale -> step down by each cost/payoff -> Net
+      var wrap = $("#npWaterfall");
+      if (!r.price) { wrap.innerHTML = ""; return; }
+      // build columns with explicit top/bottom values (in dollars)
+      var cols = [{ k: "Sale", top: r.price, bot: 0, c: "rgba(255,255,255,0.45)" }];
+      var running = r.price;
+      [["Comm", r.comm, "#b88b52"], ["Close", r.closing, "#c98569"], ["Prep", r.prep, "#86927f"], ["Payoff", r.payoff, "#7d8a96"]]
+        .forEach(function (d) { if (d[1] > 0) { cols.push({ k: d[0], top: running, bot: running - d[1], c: d[2] }); running -= d[1]; } });
+      var netTop = Math.max(r.net, 0);
+      cols.push({ k: "Net", top: netTop, bot: 0, c: "#ead7bb" });
+
+      var W = 320, H = 150, padB = 18, padT = 8, n = cols.length;
+      var gap = 8, cw = (W - gap * (n - 1)) / n;
+      var maxV = r.price > 0 ? r.price : 1;
+      function y(val) { return (H - padB) - (Math.max(val, 0) / maxV) * (H - padB - padT); }
+
+      var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none">';
+      cols.forEach(function (c, i) {
+        var x = i * (cw + gap);
+        var yTop = y(Math.max(c.top, c.bot)), yBot = y(Math.min(c.top, c.bot));
+        var barH = Math.max(2, yBot - yTop);
+        // connector from previous bar at the shared running level (= this column's top)
+        if (i > 0) {
+          var lvlY = y(c.top), prevX2 = (i - 1) * (cw + gap) + cw;
+          svg += '<line x1="' + prevX2.toFixed(1) + '" y1="' + lvlY.toFixed(1) + '" x2="' + x.toFixed(1) + '" y2="' + lvlY.toFixed(1) + '" stroke="rgba(255,255,255,0.3)" stroke-dasharray="2 2" stroke-width="1"></line>';
+        }
+        svg += '<rect x="' + x.toFixed(1) + '" y="' + yTop.toFixed(1) + '" width="' + cw.toFixed(1) + '" height="' + barH.toFixed(1) + '" rx="2" fill="' + c.c + '"></rect>';
+        svg += '<text x="' + (x + cw / 2).toFixed(1) + '" y="' + (H - 5) + '" fill="rgba(255,255,255,0.6)" font-size="8" font-family="Manrope,sans-serif" text-anchor="middle">' + c.k + '</text>';
+      });
+      svg += "</svg>";
+      wrap.innerHTML = svg;
+    }
+    function renderNet() {
+      var r = calcNet(); state.np.net = r.net;
+      var bigEl = $("#npNet");
+      bigEl.classList.toggle("neg", r.net < 0);
+      if (!r.price) { bigEl._val = 0; bigEl.textContent = "$—"; }
+      else animateNumber(bigEl, r.net, fmt);
+
+      var keep = $("#npKeep");
+      if (r.price > 0) {
+        var pct = Math.round(r.net / r.price * 100);
+        keep.style.display = "inline-flex";
+        keep.innerHTML = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>You keep ~' + pct + '% of the sale price';
+      } else keep.style.display = "none";
+
+      $("#npNetSub").textContent = r.price
+        ? "On a " + fmt(r.price) + " sale" + (r.payoff ? " after paying off " + fmt(r.payoff) : "") + "."
+        : "Enter a sale price to see your estimate.";
+
+      // peak-intent CTA
+      $("#npPeak").classList.toggle("show", r.price > 0);
+
+      drawWaterfall(r);
+
+      // line items (waterfall in tabular form)
+      var lines = $("#npLines"); lines.innerHTML = "";
+      function row(k, v, c, cls) {
+        var el = document.createElement("div"); el.className = "np-line" + (cls ? " " + cls : "");
+        el.innerHTML = '<span class="lk">' + (c ? '<span class="swatch" style="background:' + c + '"></span>' : "") + k + "</span>" +
+          '<span class="lv">' + (v < 0 ? "−" + fmt(Math.abs(v)) : fmt(v)) + "</span>";
+        lines.appendChild(el);
+      }
+      row("Sale price", r.price);
+      row("Commission (" + num(state.np.comm) + "%)", -r.comm, "#b88b52");
+      row("Closing costs (" + num(state.np.closing) + "%)", -r.closing, "#c98569");
+      row("Prep & repairs", -r.prep, "#86927f");
+      row("Total cost of sale", -r.totalCost, null, "subtotal");
+      if (r.payoff) row("Mortgage payoff", -r.payoff, "#7d8a96");
+      row("Estimated net proceeds", r.net, "#ead7bb", "net");
+
+      // aria-live (debounced)
+      clearTimeout(renderNet._t);
+      renderNet._t = setTimeout(function () {
+        if (r.price) $("#npLive").textContent = "Estimated net proceeds: " + fmt(r.net) + ", about " + Math.round(r.net / r.price * 100) + " percent of the sale price.";
+      }, 450);
+    }
+    function bindNet() {
+      $all("[data-np]").forEach(function (inp) {
+        inp.addEventListener("input", function () { state.np[inp.getAttribute("data-np")] = inp.value; renderNet(); save(); });
+      });
+      $("#peakCmaBtn").addEventListener("click", function () { goTo(TOTAL); });
+    }
+
+    // ---------- SMS / mailto builders ----------
+    function snapshotLines(name, phone, email, msg) {
+      var r = calcNet(); var L = [];
+      L.push("Hi Kareem, I went through your listing strategy walkthrough. Here's my home:");
+      L.push("• Type: " + state.type);
+      if (state.area) L.push("• Area: " + state.area);
+      var size = [state.beds ? state.beds + " bd" : null, state.baths ? state.baths + " ba" : null, state.sqft ? state.sqft + " sqft" : null].filter(Boolean).join(", ");
+      if (size) L.push("• Details: " + size);
+      L.push("• Condition: " + state.condition);
+      L.push("• Ideal timeline: " + state.timeline);
+      if (state.estMid) L.push("• Illustrative value: " + fmtK(state.estLow) + " – " + fmtK(state.estHigh));
+      if (r.price) { L.push("• Modeled sale price: " + fmt(r.price)); L.push("• Est. net proceeds: " + fmt(r.net)); }
+      L.push("");
+      if (msg) { L.push("Notes: " + msg); L.push(""); }
+      L.push("Please send a precise CMA and a listing plan.");
+      if (name || phone || email) { L.push(""); if (name) L.push(name); if (phone) L.push(phone); if (email) L.push(email); }
+      return L.join("\n");
+    }
+    function buildMailto(name, phone, email, msg) {
+      var subject = "Listing strategy request — " + (state.area || "my home");
+      return "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(snapshotLines(name, phone, email, msg));
+    }
+    function buildSms(contextBody) {
+      var body = contextBody || snapshotLines("", "", "", "");
+      return "sms:" + PHONE + "?&body=" + encodeURIComponent(body);
+    }
+    // contextual SMS bodies per step
+    var SMS_CONTEXT = {
+      1: "Hi Kareem — I'm thinking about selling my home and went through your listing walkthrough. Can we talk?",
+      2: "Hi Kareem — I'd like a precise, free CMA for my home (I saw your pricing-leverage step).",
+      3: "Hi Kareem — I like your marketing plan. What would it look like for my home?",
+      5: "Hi Kareem — can we map out a timeline to sell my home?",
+      6: "Hi Kareem — I have a question about listing my home with you."
+    };
+    function bindSmsLinks() {
+      // per-step contextual chips
+      $all(".step-cta [data-sms]").forEach(function (a) {
+        var step = num(a.closest(".step-cta").getAttribute("data-cta-step"));
+        a.setAttribute("href", buildSms(SMS_CONTEXT[step] || ""));
+      });
+      // step-4 peak "text me this" + step-7 shortcut use the live snapshot
+      function refreshSnapshotSms() {
+        $all("#peakSmsBtn, .text-shortcut [data-sms]").forEach(function (a) { a.setAttribute("href", buildSms()); });
+      }
+      refreshSnapshotSms();
+      // refresh snapshot-based sms whenever inputs change
+      $all("[data-np], [data-state]").forEach(function (inp) { inp.addEventListener("input", refreshSnapshotSms); });
+      $("#f-area").addEventListener("change", refreshSnapshotSms);
+      $all("[data-seg] button").forEach(function (b) { b.addEventListener("click", refreshSnapshotSms); });
+    }
+
+    // ---------- Step 7 recap + form ----------
+    function renderRecap() {
+      computeEstimate();
+      ensureNpDefaults();
+      var rows = $("#recapRows");
+      var hasData = state.area || state.sqft || state.beds;
+      if (!hasData) {
+        rows.innerHTML = '<p class="recap-empty">Tell Kareem how to reach you and he\'ll call within the day with a free, no-obligation strategy for your home. Or start at Step 1 to build your personalized snapshot.</p>';
+        return;
+      }
+      var r = calcNet(); var html = "";
+      function add(k, v, hl) { html += '<div class="recap-row' + (hl ? " highlight" : "") + '"><span class="rk">' + k + '</span><span class="rv">' + v + "</span></div>"; }
+      var size = [state.beds ? state.beds + " bd" : null, state.baths ? state.baths + " ba" : null, state.sqft ? Number(state.sqft).toLocaleString() + " sqft" : null].filter(Boolean).join(" · ") || "—";
+      add("Home", state.type + (state.area ? " · " + state.area : ""));
+      add("Details", size);
+      add("Condition", state.condition || "—");
+      add("Ideal timeline", state.timeline || "—");
+      if (state.estMid) add("Illustrative value", fmtK(state.estLow) + " – " + fmtK(state.estHigh));
+      if (r.price) add("Modeled sale price", fmt(r.price));
+      if (r.price) add("Est. net proceeds", fmt(r.net), true);
+      rows.innerHTML = html;
+    }
+
+    function validateForm() {
+      var ok = true;
+      [["lf-name", "err-name"], ["lf-phone", "err-phone"]].forEach(function (pair) {
+        var inp = $("#" + pair[0]), err = $("#" + pair[1]);
+        if (!inp.value.trim()) { inp.setAttribute("aria-invalid", "true"); err.classList.add("show"); if (ok) inp.focus(); ok = false; }
+        else { inp.removeAttribute("aria-invalid"); err.classList.remove("show"); }
+      });
+      return ok;
+    }
+    function bindForm() {
+      ["lf-name", "lf-phone"].forEach(function (id) {
+        $("#" + id).addEventListener("input", function () { this.removeAttribute("aria-invalid"); var e = $("#err-" + id.split("-")[1]); if (e) e.classList.remove("show"); });
+      });
+      $("#leadForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!validateForm()) return;
+        var name = $("#lf-name").value.trim(), phone = $("#lf-phone").value.trim(),
+            email = $("#lf-email").value.trim(), msg = $("#lf-msg").value.trim();
+        $("#mailtoBtn").setAttribute("href", buildMailto(name, phone, email, msg));
+        $("#smsBtn").setAttribute("href", buildSms(snapshotLines(name, phone, email, msg)));
+        $("#successMsg").textContent = "Thanks, " + name.split(" ")[0] + "! Choose how to send your snapshot to Kareem — whichever is easiest.";
+        $("#copyBtn")._body = snapshotLines(name, phone, email, msg);
+        $("#leadForm").style.display = "none";
+        $("#formSuccess").classList.add("show");
+        $("#formSuccess").scrollIntoView({ block: "center", behavior: REDUCE ? "auto" : "smooth" });
+      });
+      $("#copyBtn").addEventListener("click", function () {
+        var body = this._body || snapshotLines("", "", "", "");
+        var toast = $("#copyToast");
+        function done() { toast.classList.add("show"); setTimeout(function () { toast.classList.remove("show"); }, 4000); }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(body).then(done, done);
+        else { var ta = document.createElement("textarea"); ta.value = body; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} document.body.removeChild(ta); done(); }
+      });
+    }
+
+    // ---------- Restore inputs ----------
+    function restoreInputs() {
+      if (state.area) { $all("#f-area option").forEach(function (o) { if (o.value === state.area) o.selected = true; }); }
+      ["beds", "baths", "sqft"].forEach(function (k) { if (state[k]) { var el = $("#f-" + k); if (el) el.value = state[k]; } });
+      if (state.payoff) { var pe = $("#f-payoff"); if (pe) pe.value = state.payoff; }
+      [["type", "type"], ["condition", "condition"], ["timeline", "timeline"]].forEach(function (pair) {
+        var grp = $('[data-seg="' + pair[0] + '"]'); if (!grp) return;
+        $all("button", grp).forEach(function (b) {
+          var on = b.getAttribute("data-val") === state[pair[1]];
+          b.setAttribute("aria-checked", on ? "true" : "false");
+          if (on && pair[0] === "condition") state.condFactor = num(b.getAttribute("data-factor")) || 1;
+        });
+      });
+      if (state.np) {
+        if (state.np.price) $("#np-price").value = Math.round(state.np.price);
+        if (state.np.payoff) $("#np-payoff").value = state.np.payoff;
+        if (state.np.comm) $("#np-comm").value = state.np.comm;
+        if (state.np.closing) $("#np-closing").value = state.np.closing;
+        if (state.np.prep) $("#np-prep").value = state.np.prep;
+      }
+    }
+
+    // ---------- Init ----------
+    function init() {
+      if ("scrollRestoration" in history) { try { history.scrollRestoration = "manual"; } catch (e) {} }
+      load();
+      setHeaderH();
+      buildStepper();
+      bindHomeProfile();
+      bindPillars();
+      bindNet();
+      bindForm();
+      bindSmsLinks();
+      restoreInputs();
+
+      $("#beginBtn").addEventListener("click", function () { goTo(1); });
+      $("#nextBtn").addEventListener("click", function () { goTo(current + 1); });
+      $("#backBtn").addEventListener("click", function () { goTo(current - 1); });
+      $("#priceSlider").addEventListener("input", function () { renderLeverage(num(this.value)); });
+      $all("[data-goto='last']").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); goTo(TOTAL); }); });
+
+      window.addEventListener("resize", function () { clearTimeout(window._rz); window._rz = setTimeout(setHeaderH, 150); });
+
+      document.addEventListener("keydown", function (e) {
+        var tag = (e.target.tagName || "").toLowerCase();
+        if (tag === "input" || tag === "textarea" || tag === "select") return;
+        if (current === 0) return;
+        if (e.key === "ArrowRight" && current < TOTAL) goTo(current + 1);
+        if (e.key === "ArrowLeft" && current > 1) goTo(current - 1);
+      });
+
+      goTo(current || 0);
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+  })();
+  </script>
+</body>
+</html>

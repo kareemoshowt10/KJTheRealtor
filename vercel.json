@@ -10,6 +10,16 @@
       "source": "/faq-section.html",
       "destination": "/buyers-and-sellers#faq",
       "permanent": true
+    },
+    {
+      "source": "/west-hills-realtor",
+      "destination": "/west-hills",
+      "permanent": true
+    },
+    {
+      "source": "/west-hills-realtor.html",
+      "destination": "/west-hills",
+      "permanent": true
     }
   ],
   "headers": [

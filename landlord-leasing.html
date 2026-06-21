@@ -399,8 +399,28 @@
     .eyebrow::before {
       content: "";
       width: 42px;
-      height: 1px;
-      background: currentColor;
+      height: 9px;
+      flex-shrink: 0;
+      background:
+        linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+        linear-gradient(currentColor, currentColor) right center / 1px 9px no-repeat;
+    }
+    .section-kicker::before,
+    .section-kicker::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 9px;
+      opacity: 0.55;
+      flex-shrink: 0;
+      background:
+        linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+        linear-gradient(currentColor, currentColor) right center / 1px 9px no-repeat;
+    }
+    .section-kicker::after {
+      background:
+        linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+        linear-gradient(currentColor, currentColor) left center / 1px 9px no-repeat;
     }
     .hero-copy, .section-head, .story-copy, .cta-copy {
       display: grid;
@@ -1155,7 +1175,10 @@
 section { padding: 120px 0 !important; }
 @media (max-width: 768px) { section { padding: 80px 0 !important; } }
 .dark-section {
-  background: var(--navy-deep) !important;
+  background:
+    repeating-linear-gradient(0deg, rgba(184,139,82,0.04) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(90deg, rgba(184,139,82,0.04) 0 1px, transparent 1px 80px),
+    var(--navy-deep) !important;
   color: #fff !important;
 }
 .dark-section .section-title,
@@ -1177,7 +1200,10 @@ section { padding: 120px 0 !important; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15,25,35,0.55) 0%, rgba(15,25,35,0.35) 60%, rgba(15,25,35,0.65) 100%);
+  background:
+    repeating-linear-gradient(0deg, rgba(184,139,82,0.06) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(90deg, rgba(184,139,82,0.06) 0 1px, transparent 1px 80px),
+    linear-gradient(180deg, rgba(15,25,35,0.55) 0%, rgba(15,25,35,0.35) 60%, rgba(15,25,35,0.65) 100%);
   z-index: 0;
 }
 .hero-cinematic > * { position: relative; z-index: 1; }

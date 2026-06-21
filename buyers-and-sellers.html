@@ -3377,5 +3377,10 @@ body {
   render();
 })();
   </script>
+
+  <!-- Scroll progress indicator (kj) -->
+  <div id="kjScrollBar" aria-hidden="true"></div>
+  <style>#kjScrollBar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#b88b52,#d4aa74);z-index:9990;pointer-events:none;will-change:transform}</style>
+  <script>(function(){var b=document.getElementById('kjScrollBar');if(!b)return;var t=false;function u(){t=false;var h=document.documentElement,m=(h.scrollHeight-h.clientHeight),y=window.pageYOffset||h.scrollTop||document.body.scrollTop||0;b.style.transform='scaleX('+(m>0?Math.min(y/m,1):0)+')';}function q(){if(!t){t=true;requestAnimationFrame(u);}}addEventListener('scroll',q,{passive:true});addEventListener('resize',q,{passive:true});u();})();</script>
 </body>
 </html>

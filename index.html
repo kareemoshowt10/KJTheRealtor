@@ -1525,6 +1525,17 @@
       padding: 3rem;
       display: grid;
       gap: 1.8rem;
+      --cm: rgba(184,139,82,0.25);
+      background:
+        linear-gradient(var(--cm), var(--cm)) 0.75rem 0.75rem / 12px 1px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) 0.75rem 0.75rem / 1px 12px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) calc(100% - 0.75rem) 0.75rem / 12px 1px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) calc(100% - 0.75rem) 0.75rem / 1px 12px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) 0.75rem calc(100% - 0.75rem) / 12px 1px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) 0.75rem calc(100% - 0.75rem) / 1px 12px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) calc(100% - 0.75rem) calc(100% - 0.75rem) / 12px 1px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) calc(100% - 0.75rem) calc(100% - 0.75rem) / 1px 12px no-repeat,
+        var(--panel);
     }
 
     /* ── Spotlight Hover Glow ── */
@@ -1649,7 +1660,17 @@
       padding: 3rem;
       display: grid;
       gap: 2rem;
-      background: linear-gradient(160deg, #fffdfa 0%, #f8f4ee 100%);
+      --cm: rgba(184,139,82,0.35);
+      background:
+        linear-gradient(var(--cm), var(--cm)) 0.75rem 0.75rem / 14px 1px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) 0.75rem 0.75rem / 1px 14px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) calc(100% - 0.75rem) 0.75rem / 14px 1px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) calc(100% - 0.75rem) 0.75rem / 1px 14px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) 0.75rem calc(100% - 0.75rem) / 14px 1px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) 0.75rem calc(100% - 0.75rem) / 1px 14px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) calc(100% - 0.75rem) calc(100% - 0.75rem) / 14px 1px no-repeat,
+        linear-gradient(var(--cm), var(--cm)) calc(100% - 0.75rem) calc(100% - 0.75rem) / 1px 14px no-repeat,
+        linear-gradient(160deg, #fffdfa 0%, #f8f4ee 100%);
     }
 
     .contact-item {
@@ -1677,7 +1698,10 @@
     /* ── Dark navy footer ── */
     .footer {
       padding: 3.5rem 0 2rem;
-      background: #1c2630;
+      background:
+        repeating-linear-gradient(0deg, rgba(184,139,82,0.04) 0 1px, transparent 1px 80px),
+        repeating-linear-gradient(90deg, rgba(184,139,82,0.04) 0 1px, transparent 1px 80px),
+        #1c2630;
       border-top: 1px solid rgba(184, 139, 82, 0.15);
     }
 
@@ -3173,7 +3197,10 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+  background:
+    repeating-linear-gradient(0deg, rgba(184,139,82,0.06) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(90deg, rgba(184,139,82,0.06) 0 1px, transparent 1px 80px),
+    linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.62) 100%);
   z-index: 1;
 }
 .tesla-panel-content {
@@ -3186,7 +3213,9 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   margin: 0 auto;
 }
 .tesla-eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: 'Manrope', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
@@ -3194,6 +3223,23 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   text-transform: uppercase;
   color: rgba(255,255,255,0.85);
   margin-bottom: 1rem;
+}
+.tesla-eyebrow::before,
+.tesla-eyebrow::after {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 9px;
+  opacity: 0.45;
+  flex-shrink: 0;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+    linear-gradient(currentColor, currentColor) right center / 1px 9px no-repeat;
+}
+.tesla-eyebrow::after {
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat,
+    linear-gradient(currentColor, currentColor) left center / 1px 9px no-repeat;
 }
 .tesla-title {
   font-family: 'Cormorant Garamond', serif;
@@ -3291,19 +3337,25 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
     .proof-step {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
+      justify-content: center;
+      width: 2.6rem;
+      height: 2.6rem;
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       font-weight: 600;
       letter-spacing: 0.04em;
       color: var(--gold);
       margin-bottom: 0.85rem;
+      border: 1px solid rgba(184,139,82,0.35);
+      border-radius: 50%;
+      position: relative;
     }
     .proof-step::before {
       content: "";
-      width: 1.6rem;
-      height: 1px;
-      background: linear-gradient(90deg, var(--gold), rgba(184,139,82,0));
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      border: 1px solid rgba(184,139,82,0.18);
     }
 
 /* ── Signature Method ── */
@@ -3396,12 +3448,27 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
     }
     .method-card:hover::before { transform: scaleX(1); }
     .method-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.4rem;
+      height: 3.4rem;
       font-family: "Cormorant Garamond", serif;
-      font-size: 2.9rem;
+      font-size: 1.5rem;
       line-height: 1;
       font-weight: 600;
       color: var(--gold);
       letter-spacing: -0.02em;
+      border: 1.5px solid rgba(184,139,82,0.35);
+      border-radius: 50%;
+      position: relative;
+    }
+    .method-num::after {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: 50%;
+      border: 1px solid rgba(184,139,82,0.15);
     }
     .method-card h3 {
       font-family: "Cormorant Garamond", serif;
@@ -3537,7 +3604,10 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
 
 /* ── Wealth Builder interactive ── */
     .wb-section {
-      background: var(--warm-dark);
+      background:
+        repeating-linear-gradient(0deg, rgba(184,139,82,0.04) 0 1px, transparent 1px 80px),
+        repeating-linear-gradient(90deg, rgba(184,139,82,0.04) 0 1px, transparent 1px 80px),
+        var(--warm-dark);
       color: #fff;
       padding: clamp(4rem, 8vh, 6rem) 0;
       position: relative;

@@ -1,0 +1,113 @@
+/* ============================================================================
+   polish.css — site-wide premium finishing layer for kareemjamaltherealtor.com
+   Loaded LAST in <head> on every page. Deliberately additive and
+   low-specificity (:where() = 0 specificity) so it fills in missing craft
+   WITHOUT overriding any page's tuned design or its JS transform handlers
+   (magnetic buttons, 3D card tilt). The "developer-touched-every-detail" layer:
+   crisp type, branded selection, custom scrollbar, consistent focus rings,
+   balanced headlines, buttery motion, refined depth.
+   Brand tokens: gold #b88b52 · ink #2a2520 · cream #f8f4ef
+   ========================================================================== */
+
+/* 1 — Crisp, intentional type rendering everywhere ------------------------- */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(184, 139, 82, 0.16);
+}
+
+/* 2 — Typographic finishing: balanced headlines, no orphan widows ---------- */
+:where(h1, h2, h3, .headline) { text-wrap: balance; }
+:where(p, li, blockquote, figcaption, dd) { text-wrap: pretty; }
+
+/* 3 — Branded text selection ---------------------------------------------- */
+::selection { background: rgba(184, 139, 82, 0.92); color: #fff; text-shadow: none; }
+::-moz-selection { background: rgba(184, 139, 82, 0.92); color: #fff; text-shadow: none; }
+
+/* 4 — Custom scrollbar (the quiet "developer cared" detail) ---------------- */
+@media (pointer: fine) {
+  html { scrollbar-width: thin; scrollbar-color: #b88b52 rgba(120, 100, 70, 0.10); }
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-track { background: rgba(120, 100, 70, 0.07); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #c79b63, #b88b52);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #b88b52, #9c7138);
+    background-clip: padding-box;
+  }
+}
+
+/* 5 — Consistent, branded keyboard focus ring ----------------------------- */
+/* Low specificity (0,1,0) so any page-specific :focus-visible still wins.    */
+:where(a, button, [role="button"], input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid #b88b52;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+/* Kill the legacy outline only when a modern focus ring will show instead.   */
+:where(a, button, [role="button"]):focus:not(:focus-visible) { outline: none; }
+
+/* 6 — Buttery default motion on interactive elements ----------------------- */
+/* NOTE: transform is intentionally EXCLUDED — JS handlers (magnetic buttons,  */
+/* card tilt) set transform per-frame; transitioning it would smear them.      */
+:where(a, button, .btn, [role="button"], .card, .service-card, .trust-card, .area-card, .pulse-card) {
+  transition:
+    color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 7 — Buttons: depth bloom on hover (box-shadow only, never transform) ----- */
+:where(.btn-primary):hover {
+  box-shadow: 0 12px 32px rgba(184, 139, 82, 0.40), 0 2px 6px rgba(40, 37, 32, 0.14);
+}
+:where(.btn-secondary, .btn-ghost, .btn-outline, .btn-light):hover {
+  box-shadow: 0 10px 26px rgba(40, 37, 32, 0.14);
+}
+
+/* 8 — Cards: refined lift on hover (additive; stronger page rules win) ----- */
+:where(.service-card, .trust-card, .pulse-card, .contact-card, .area-card, .card, .stat):hover {
+  box-shadow: 0 26px 64px rgba(60, 45, 25, 0.15), 0 6px 16px rgba(60, 45, 25, 0.06);
+}
+
+/* 9 — Elegant inline-link underline (prose only; nav/buttons untouched) ---- */
+:where(p, li, blockquote, dd) a:not([class]) {
+  text-decoration-line: underline;
+  text-decoration-color: rgba(184, 139, 82, 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 240ms ease, color 240ms ease;
+}
+:where(p, li, blockquote, dd) a:not([class]):hover {
+  text-decoration-color: #b88b52;
+}
+
+/* 10 — Media: no blue drag-ghost, smoother decode -------------------------- */
+:where(img, svg, video) { -webkit-user-drag: none; user-select: none; }
+
+/* 11 — Small considered details: list markers, dividers, tactile press ----- */
+:where(ul, ol) :where(li)::marker { color: #b88b52; }
+:where(hr) {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 139, 82, 0.40), transparent);
+}
+/* Tactile press feedback (filter, not transform — safe with JS handlers).    */
+:where(a, button, .btn, [role="button"]):active { filter: brightness(0.96); }
+
+/* 12 — Respect reduced-motion globally ------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

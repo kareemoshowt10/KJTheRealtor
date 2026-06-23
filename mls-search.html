@@ -1867,8 +1867,8 @@ body {
               <span>$900k – $2.5M+</span>
             </div>
             <div class="neighborhood-actions">
-              <button class="btn btn-primary" type="button" data-area-search="Woodland Hills">Search Woodland Hills</button>
-              <button class="btn btn-secondary" type="button" data-area-ask="Woodland Hills">Ask About It</button>
+              <button class="btn btn-primary" type="button" data-area-get="Woodland Hills">Get Woodland Hills Listings</button>
+              <button class="btn btn-secondary" type="button" data-area-browse="Woodland Hills">Browse Live ↗</button>
             </div>
           </article>
 
@@ -1881,8 +1881,8 @@ body {
               <span>$1.2M – $5M+</span>
             </div>
             <div class="neighborhood-actions">
-              <button class="btn btn-primary" type="button" data-area-search="Encino">Search Encino</button>
-              <button class="btn btn-secondary" type="button" data-area-ask="Encino">Ask About It</button>
+              <button class="btn btn-primary" type="button" data-area-get="Encino">Get Encino Listings</button>
+              <button class="btn btn-secondary" type="button" data-area-browse="Encino">Browse Live ↗</button>
             </div>
           </article>
 
@@ -1895,8 +1895,8 @@ body {
               <span>$800k – $3M+</span>
             </div>
             <div class="neighborhood-actions">
-              <button class="btn btn-primary" type="button" data-area-search="Sherman Oaks">Search Sherman Oaks</button>
-              <button class="btn btn-secondary" type="button" data-area-ask="Sherman Oaks">Ask About It</button>
+              <button class="btn btn-primary" type="button" data-area-get="Sherman Oaks">Get Sherman Oaks Listings</button>
+              <button class="btn btn-secondary" type="button" data-area-browse="Sherman Oaks">Browse Live ↗</button>
             </div>
           </article>
 
@@ -1909,8 +1909,8 @@ body {
               <span>$950k – $4M+</span>
             </div>
             <div class="neighborhood-actions">
-              <button class="btn btn-primary" type="button" data-area-search="Tarzana">Search Tarzana</button>
-              <button class="btn btn-secondary" type="button" data-area-ask="Tarzana">Ask About It</button>
+              <button class="btn btn-primary" type="button" data-area-get="Tarzana">Get Tarzana Listings</button>
+              <button class="btn btn-secondary" type="button" data-area-browse="Tarzana">Browse Live ↗</button>
             </div>
           </article>
 
@@ -1923,8 +1923,8 @@ body {
               <span>$1.5M – $10M+</span>
             </div>
             <div class="neighborhood-actions">
-              <button class="btn btn-primary" type="button" data-area-search="Calabasas">Search Calabasas</button>
-              <button class="btn btn-secondary" type="button" data-area-ask="Calabasas">Ask About It</button>
+              <button class="btn btn-primary" type="button" data-area-get="Calabasas">Get Calabasas Listings</button>
+              <button class="btn btn-secondary" type="button" data-area-browse="Calabasas">Browse Live ↗</button>
             </div>
           </article>
 
@@ -1937,8 +1937,8 @@ body {
               <span>$1M – $4M+</span>
             </div>
             <div class="neighborhood-actions">
-              <button class="btn btn-primary" type="button" data-area-search="Studio City">Search Studio City</button>
-              <button class="btn btn-secondary" type="button" data-area-ask="Studio City">Ask About It</button>
+              <button class="btn btn-primary" type="button" data-area-get="Studio City">Get Studio City Listings</button>
+              <button class="btn btn-secondary" type="button" data-area-browse="Studio City">Browse Live ↗</button>
             </div>
           </article>
         </div>
@@ -1972,17 +1972,17 @@ body {
               <div id="search-frame">
                 <div class="mls-launch" id="search-placeholder">
                   <span class="code-pill">Live CRMLS &middot; MLS</span>
-                  <h2>Search the live MLS — the same data agents use.</h2>
-                  <p class="helper-copy">Every active CRMLS listing, updated in real time. Your search opens in a secure full-screen window so it stays fast and accurate — then send anything promising to Kareem for a straight answer before you tour.</p>
+                  <h2>Get a hand-picked list — not just another search box.</h2>
+                  <p class="helper-copy">The public portals show you what everyone else already sees. Kareem pulls a private shortlist from the live CRMLS feed — including coming-soon and quietly-listed homes — matched to exactly what you want, with his honest read on each one before you spend a Saturday touring.</p>
                   <div class="mls-launch-actions">
-                    <a class="btn btn-primary mls-launch-btn" href="https://matrix.crmls.org/Matrix/public/IDX.aspx?idx=169037aa" target="_blank" rel="noopener noreferrer">
-                      Open the Live MLS Search
-                      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                    </a>
-                    <button class="btn btn-secondary" type="button" data-scroll-concierge>Have Kareem search for you</button>
+                    <button class="btn btn-primary mls-launch-btn" type="button" data-scroll-concierge>
+                      Get My Curated List
+                      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                    <a class="btn btn-secondary" href="https://matrix.crmls.org/Matrix/public/IDX.aspx?idx=169037aa" target="_blank" rel="noopener noreferrer">Browse the live MLS yourself &#8599;</a>
                   </div>
                   <div class="mls-launch-trust">
-                    <span>Official CRMLS data</span><i></i><span>No sign-up required</span><i></i><span>Always current</span>
+                    <span>Coming-soon &amp; off-market</span><i></i><span>Matched to your criteria</span><i></i><span>Kareem's honest take</span>
                   </div>
                 </div>
               </div>
@@ -2352,7 +2352,7 @@ body {
 
             <div class="form-actions">
               <button class="btn btn-primary" id="submit-btn" type="submit">Send Search Request</button>
-              <p class="form-note">Messages from this page go straight into Kareem's lead flow, with your search details attached so the response can be more useful right away.</p>
+              <p class="form-note">Goes straight to Kareem — not an assistant, not an auto-drip. Most requests get a personal reply the same day.</p>
             </div>
             <p class="form-status" id="form-status" aria-live="polite"></p>
 
@@ -2368,13 +2368,13 @@ body {
 
           <aside class="status-card">
             <span class="status-pill" id="idx-status">IDX Live</span>
-            <h3>What this page can do right now</h3>
-            <p class="status-line">This version gives you a live branded MLS search plus direct intake for serious buyers who want help turning search activity into action.</p>
+            <h3>Why go through Kareem instead of a portal?</h3>
+            <p class="status-line">The big portals show you yesterday's market and sell your info to three other agents. Kareem gives you the live feed plus a real strategist on your side — free, with zero obligation.</p>
             <ul class="status-list">
-              <li>Browse live CRMLS listings from your own website.</li>
-              <li>Capture curated search requests and property-review inquiries.</li>
-              <li>Route buyer interest into your existing Formspree lead flow.</li>
-              <li>Keep the page ready for a later upgrade to saved searches, account creation, and deeper IDX features.</li>
+              <li>First look at coming-soon and quietly-listed homes.</li>
+              <li>A shortlist matched to your budget, timeline, and must-haves.</li>
+              <li>An honest read on each property before you tour.</li>
+              <li>One direct line to Kareem — no call center, no auto-drip.</li>
             </ul>
             <div class="btn-row">
               <a class="btn btn-primary" href="/buyers-and-sellers#buyer-onboarding">Buyer Process</a>
@@ -2680,30 +2680,41 @@ body {
     });
 
     // ── Neighborhood actions ──
-    document.querySelectorAll("[data-area-search]").forEach((btn) => {
+    // Per-area CRMLS browse links. Empty by default → uses the general search.
+    // To make "Browse Live" open a pre-filtered city search for free: in CRMLS
+    // Matrix, build a saved search for that area, generate its public IDX link,
+    // and paste it here as "Area Name": "https://matrix.crmls.org/...". No other
+    // code change needed.
+    const AREA_IDX = {
+      // "Woodland Hills": "https://matrix.crmls.org/Matrix/public/IDX.aspx?idx=XXXXXXXX",
+    };
+
+    // "Get [Area] Listings" → start a curated request (captures the lead on-site)
+    document.querySelectorAll("[data-area-get]").forEach((btn) => {
       btn.addEventListener("click", () => {
-        document.getElementById("search")?.scrollIntoView({ behavior: "smooth", block: "start" });
-        if (searchStatusLine) {
-          const area = btn.dataset.areaSearch;
-          searchStatusLine.textContent = `Live search ready — try ${area} in the location filter.`;
-        }
-      });
-    });
-    document.querySelectorAll("[data-area-ask]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const area = btn.dataset.areaAsk || "";
+        const area = btn.dataset.areaGet || "";
         setIntent("Curated Search");
         const areaInput = document.getElementById("lead-area");
-        if (areaInput && !areaInput.value.trim()) areaInput.value = area;
-        const messageField = document.getElementById("lead-message");
-        if (messageField) {
-          const note = `I'd like guidance on ${area}.`;
-          const existing = messageField.value.trim();
-          if (!existing.includes(area)) {
-            messageField.value = existing ? `${existing}\n\n${note}` : note;
+        if (areaInput) {
+          const have = areaInput.value.split(",").map((s) => s.trim().toLowerCase());
+          if (!have.includes(area.toLowerCase())) {
+            areaInput.value = areaInput.value.trim() ? `${areaInput.value.trim()}, ${area}` : area;
           }
         }
+        const messageField = document.getElementById("lead-message");
+        if (messageField && !messageField.value.toLowerCase().includes(area.toLowerCase())) {
+          const note = `Please send me current ${area} listings that fit my search.`;
+          messageField.value = messageField.value.trim() ? `${messageField.value.trim()}\n\n${note}` : note;
+        }
         document.getElementById("concierge")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // "Browse Live" → open the live CRMLS search (area-specific link if configured)
+    document.querySelectorAll("[data-area-browse]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const area = btn.dataset.areaBrowse || "";
+        window.open(AREA_IDX[area] || IDX_URL, "_blank", "noopener");
       });
     });
 

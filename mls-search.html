@@ -1719,6 +1719,7 @@ body {
   </style>
 
   <link rel="stylesheet" href="/polish.css">
+  <script src="/track.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#search">Skip to main content</a>
@@ -3006,6 +3007,14 @@ body {
           data.append("page", "MLS Search");
           data.append("_subject", `New Lead: MLS Search | ${lead.name}`);
           data.append("_replyto", lead.email);
+
+          // Lead attribution (from track.js) — so Kareem sees where this lead came from
+          try {
+            const attr = (window.kjAttribution && window.kjAttribution.last) || {};
+            if (attr.lead_source) data.append("lead_source", attr.lead_source);
+            if (window.kjAttribution && window.kjAttribution.first) data.append("first_touch_source", window.kjAttribution.first.lead_source);
+            ["utm_source", "utm_medium", "utm_campaign", "gclid", "referrer"].forEach((k) => { if (attr[k]) data.append(k, attr[k]); });
+          } catch (e) {}
 
           const response = await fetch(FORMSPREE_ENDPOINT, {
             method: "POST",

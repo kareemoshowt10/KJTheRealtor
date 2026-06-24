@@ -2,13 +2,23 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/buyers-and-sellers",
+      "destination": "/buyers",
+      "permanent": true
+    },
+    {
+      "source": "/buyers-and-sellers.html",
+      "destination": "/buyers",
+      "permanent": true
+    },
+    {
       "source": "/faq-section",
-      "destination": "/buyers-and-sellers#faq",
+      "destination": "/buyers#faq",
       "permanent": true
     },
     {
       "source": "/faq-section.html",
-      "destination": "/buyers-and-sellers#faq",
+      "destination": "/buyers#faq",
       "permanent": true
     },
     {

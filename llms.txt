@@ -71,7 +71,10 @@ The purpose behind the combination: use real estate and technology as a vehicle 
 ## Important Pages
 
 - Homepage: https://kareemjamaltherealtor.com/
-- Buyers and sellers: https://kareemjamaltherealtor.com/buyers-and-sellers
+- For buyers (buyer representation + offer strategy): https://kareemjamaltherealtor.com/buyers
+- For sellers (listing strategy + net proceeds): https://kareemjamaltherealtor.com/sellers
+- Interactive buyer walkthrough (affordability + offer strategy): https://kareemjamaltherealtor.com/buyer-presentation
+- Interactive seller/listing presentation (pricing + net proceeds): https://kareemjamaltherealtor.com/seller-presentation
 - Family wealth preservation: https://kareemjamaltherealtor.com/family-wealth-preservation
 - Mission (an agent of families & the family compound): https://kareemjamaltherealtor.com/mission
 - MLS search: https://kareemjamaltherealtor.com/mls-search

@@ -503,7 +503,10 @@
 }
 section { padding: clamp(60px, 10vw, 120px) 0; }
 .dark-section {
-  background: var(--navy-deep) !important;
+  background:
+    repeating-linear-gradient(0deg, rgba(184,139,82,0.04) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(90deg, rgba(184,139,82,0.04) 0 1px, transparent 1px 80px),
+    var(--navy-deep) !important;
   color: #fff !important;
 }
 .dark-section .section-title,

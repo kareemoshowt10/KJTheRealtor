@@ -2770,8 +2770,9 @@ section { padding: clamp(3.5rem, 7vh, 5.5rem) 0; }
       width: min(1180px, 94vw); aspect-ratio: 1040 / 760;
       transform: translateX(-50%) rotateX(34deg);
       transform-origin: 50% 100%; transform-style: preserve-3d;
-      will-change: transform;
+      will-change: transform, opacity;
     }
+    .estate-copy { transition: none; will-change: transform, opacity; }
     .estate-svg { width: 100%; height: 100%; overflow: visible; display: block;
       filter: drop-shadow(0 6px 26px rgba(0,0,0,0.45)) drop-shadow(0 0 1px rgba(184,139,82,0.4)); }
 
@@ -4948,6 +4949,17 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
 
     function baseTilt() { var w = window.innerWidth; return w < 560 ? 20 : (w < 860 ? 26 : 34); }
     var tx = 0, ty = 0, cx = 0, cy = 0, active = false, t0 = performance.now(), raf = 0;
+    var introStart = 0, introDur = 1750;
+    var heroH = hero.offsetHeight || window.innerHeight;
+    var copy = hero.querySelector('.estate-copy');
+    window.addEventListener('resize', function () { heroH = hero.offsetHeight || window.innerHeight; }, { passive: true });
+
+    // Set the "before entrance" frame immediately so there's no pop from the CSS tilt.
+    plane.style.opacity = '0';
+    plane.style.transform = 'translateX(-50%) translateY(72px) scale(0.83) rotateX(' + (baseTilt() + 48) + 'deg)';
+
+    function easeOut(p) { return 1 - Math.pow(1 - p, 3); }
+
     stage.addEventListener('mousemove', function (e) {
       var r = stage.getBoundingClientRect();
       cx = (e.clientX - r.left) / r.width - 0.5;
@@ -4956,12 +4968,37 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
     stage.addEventListener('mouseleave', function () { cx = 0; cy = 0; });
     function loop(now) {
       if (!active) { raf = 0; return; }
+      if (!introStart) introStart = now;
+      var intro = easeOut(Math.min((now - introStart) / introDur, 1));
       tx += (cx - tx) * 0.07;
       ty += (cy - ty) * 0.07;
       var t = (now - t0) / 1000;
-      var rx = baseTilt() - ty * 5 + Math.sin(t * 0.6) * 0.9;
+      var sy = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var dive = Math.min(Math.max(sy / (heroH * 0.92), 0), 1);
+      var diveE = dive * dive; // ease-in: gentle at first, accelerates into the plan
+
+      var base = baseTilt();
+      var flat = base + 48;                                  // laid flat on the drafting table
+      var rx = (flat + (base - flat) * intro)                // camera lifts off the table
+             + diveE * 34                                    // ...then dives back toward flat
+             - ty * 5 + Math.sin(t * 0.6) * 0.9;             // mouse tilt + idle float
       var ry = tx * 7 + Math.cos(t * 0.5) * 1.1;
-      plane.style.transform = 'translateX(-50%) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+
+      var introY = (1 - intro) * 72;
+      var introS = 0.83 + 0.17 * intro;
+      var transY = introY - diveE * 130;                      // dive pushes the plan up & past
+      var scale  = introS * (1 + diveE * 0.4);                // ...and zooms into it
+      var op = intro * (1 - dive * 0.92);
+
+      plane.style.transform =
+        'translateX(-50%) translateY(' + transY.toFixed(1) + 'px) scale(' + scale.toFixed(3) +
+        ') rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+      plane.style.opacity = op.toFixed(3);
+
+      if (copy) {
+        copy.style.transform = 'translateY(' + (-dive * 46 - ty * 8).toFixed(1) + 'px)';
+        copy.style.opacity = Math.max(0, 1 - dive * 1.15).toFixed(3);
+      }
       raf = requestAnimationFrame(loop);
     }
     var io = new IntersectionObserver(function (entries) {
@@ -4969,7 +5006,7 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
         active = en.isIntersecting;
         if (active && !raf) { t0 = performance.now(); raf = requestAnimationFrame(loop); }
       });
-    }, { threshold: 0.04 });
+    }, { threshold: 0.001 });
     io.observe(hero);
   })();
   </script>

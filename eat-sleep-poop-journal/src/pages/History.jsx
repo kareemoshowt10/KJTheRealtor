@@ -1,0 +1,115 @@
+import { useState, useMemo } from 'react'
+import { Trash2, ChevronDown, ChevronUp } from 'lucide-react'
+import { useStore } from '../store/useStore'
+import { formatTime, formatDate, groupByDay, getDurationLabel } from '../utils/dateUtils'
+import { format, parseISO } from 'date-fns'
+
+function EntryCard({ entry, onDelete }) {
+  const [expanded, setExpanded] = useState(false)
+  const time = formatTime(entry.timestamp || entry.startTime)
+
+  let icon, title, subtitle, detail, accentColor
+
+  if (entry.type === 'eat') {
+    icon = '🍽️'; accentColor = 'border-l-orange-400'
+    title = entry.food; subtitle = `${entry.mealType}${entry.calories ? ` · ${entry.calories} cal` : ''}`
+    detail = entry.notes
+  } else if (entry.type === 'sleep') {
+    icon = '😴'; accentColor = 'border-l-violet-400'
+    const dur = getDurationLabel(entry.startTime, entry.endTime)
+    title = `${dur} of sleep`
+    subtitle = `${'⭐'.repeat(entry.quality)} · Woke at ${time}`
+    detail = entry.notes
+  } else if (entry.type === 'poop') {
+    icon = '💩'; accentColor = 'border-l-amber-400'
+    title = `Bristol Type ${entry.bristolType}`
+    subtitle = entry.color
+    detail = entry.notes
+  }
+
+  return (
+    <div className={`bg-white rounded-2xl shadow-sm border-l-4 ${accentColor} mb-2.5 animate-fade-in`}>
+      <div className="flex items-center gap-3 px-4 py-3">
+        <span className="text-xl shrink-0">{icon}</span>
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold text-sm text-gray-900 truncate">{title}</p>
+          <p className="text-xs text-gray-400 mt-0.5">{subtitle}</p>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="text-xs text-gray-400">{time}</span>
+          {detail && (
+            <button onClick={() => setExpanded(x => !x)} className="p-1 text-gray-300 hover:text-gray-500">
+              {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+            </button>
+          )}
+          <button onClick={() => onDelete(entry.id)} className="p-1 text-red-300 hover:text-red-500">
+            <Trash2 size={14} />
+          </button>
+        </div>
+      </div>
+      {expanded && detail && (
+        <div className="px-4 pb-3">
+          <p className="text-sm text-gray-500 bg-gray-50 rounded-xl px-3 py-2">{detail}</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default function History() {
+  const { state, deleteEntry } = useStore()
+  const [filter, setFilter] = useState('all')
+
+  const groups = useMemo(() => {
+    const filtered = filter === 'all'
+      ? state.entries
+      : state.entries.filter(e => e.type === filter)
+    return groupByDay(filtered)
+  }, [state.entries, filter])
+
+  const filters = [
+    { id: 'all',   emoji: '📋', label: 'All' },
+    { id: 'eat',   emoji: '🍽️', label: 'Eat' },
+    { id: 'sleep', emoji: '😴', label: 'Sleep' },
+    { id: 'poop',  emoji: '💩', label: 'Poop' },
+  ]
+
+  return (
+    <div className="flex flex-col h-full bg-gray-50">
+      <div className="bg-white px-5 pt-14 pb-4 shadow-sm">
+        <h1 className="text-2xl font-bold">History</h1>
+        <div className="flex gap-2 mt-3 overflow-x-auto scrollbar-hide pb-1">
+          {filters.map(f => (
+            <button key={f.id} onClick={() => setFilter(f.id)}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                filter === f.id ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'
+              }`}
+            >
+              <span>{f.emoji}</span> {f.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex-1 overflow-y-auto scrollbar-hide px-4 pb-28 pt-4">
+        {groups.length === 0 ? (
+          <div className="text-center py-16">
+            <div className="text-5xl mb-3">🗒️</div>
+            <p className="text-gray-500 font-medium">No entries yet</p>
+            <p className="text-gray-400 text-sm mt-1">Start logging from the Today tab</p>
+          </div>
+        ) : groups.map(({ day, label, items }) => (
+          <div key={day} className="mb-5">
+            <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-2.5">{label}</p>
+            {items
+              .sort((a, b) => new Date(b.timestamp || b.startTime) - new Date(a.timestamp || a.startTime))
+              .map(entry => (
+                <EntryCard key={entry.id} entry={entry} onDelete={deleteEntry} />
+              ))
+            }
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}

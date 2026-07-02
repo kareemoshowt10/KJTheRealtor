@@ -66,3 +66,81 @@ export interface RankedEntry {
   latestRating: Rating | null;
   dynamicScore: number | null;
 }
+
+// ── Phase 2 ─────────────────────────────────────────────────────────
+
+export interface Follow {
+  follower_id: string;
+  followee_id: string;
+  created_at: string;
+}
+
+export type DiscussionTab =
+  | 'reviews'
+  | 'episode_reactions'
+  | 'rankings_debate'
+  | 'similar_titles'
+  | 'spoiler_talk';
+
+export interface DiscussionThread {
+  id: string;
+  title_id: string;
+  tab: DiscussionTab;
+  created_at: string;
+}
+
+export interface DiscussionPost {
+  id: string;
+  thread_id: string;
+  user_id: string;
+  body: string;
+  has_spoilers: boolean;
+  created_at: string;
+}
+
+export interface ReviewVote {
+  id: string;
+  voter_id: string;
+  post_id: string;
+  vote: 1 | -1;
+  created_at: string;
+}
+
+export interface ListRecord {
+  id: string;
+  owner_id: string;
+  title: string;
+  description: string | null;
+  is_collaborative: boolean;
+  created_at: string;
+}
+
+export interface ListItem {
+  list_id: string;
+  title_id: string;
+  rank: number;
+  added_by: string;
+}
+
+export type ActivityType = 'rating' | 'watch_status';
+
+export interface ActivityEvent {
+  activity_type: ActivityType;
+  created_at: string;
+  user_id: string;
+  username: string;
+  title_id: string;
+  title_name: string;
+  media_type: MediaType;
+  tmdb_id: number;
+  poster_path: string | null;
+  metadata: string;
+  is_trusted?: boolean;
+}
+
+export interface PostWithMeta extends DiscussionPost {
+  username: string;
+  net_votes: number;
+  user_vote: 1 | -1 | null;
+  is_trusted: boolean;
+}

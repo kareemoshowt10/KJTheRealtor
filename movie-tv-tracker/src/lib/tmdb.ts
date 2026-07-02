@@ -68,6 +68,25 @@ export async function getTmdbDetails(
   return mapResult({ ...raw, media_type: mediaType });
 }
 
+export async function getTmdbSimilar(
+  tmdbId: number,
+  mediaType: MediaType
+): Promise<TmdbSearchResult[]> {
+  const apiKey = process.env.TMDB_API_KEY;
+  if (!apiKey) return [];
+
+  const url = new URL(`${TMDB_BASE}/${mediaType}/${tmdbId}/similar`);
+  url.searchParams.set('api_key', apiKey);
+
+  const res = await fetch(url.toString());
+  if (!res.ok) return [];
+
+  const data: { results: Omit<TmdbRawResult, 'media_type'>[] } = await res.json();
+  return data.results.slice(0, 12).map((r) =>
+    mapResult({ ...r, media_type: mediaType })
+  );
+}
+
 export function tmdbPosterUrl(posterPath: string | null, size: 'w185' | 'w342' = 'w185') {
   if (!posterPath) return null;
   return `https://image.tmdb.org/t/p/${size}${posterPath}`;

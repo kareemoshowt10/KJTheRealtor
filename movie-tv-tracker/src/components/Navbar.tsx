@@ -26,8 +26,14 @@ export default async function Navbar() {
         <Link href="/search" className="hover:text-accent">
           Search
         </Link>
+        <Link href="/feed" className="hover:text-accent">
+          Feed
+        </Link>
         <Link href="/rankings" className="hover:text-accent">
-          My Rankings
+          Rankings
+        </Link>
+        <Link href="/lists" className="hover:text-accent">
+          Lists
         </Link>
         {username ? (
           <Link href={`/profile/${username}`} className="hover:text-accent">

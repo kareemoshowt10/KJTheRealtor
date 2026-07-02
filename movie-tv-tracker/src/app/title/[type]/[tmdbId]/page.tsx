@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { getTmdbDetails } from '@/lib/tmdb';
 import TitleDetail from '@/components/TitleDetail';
@@ -53,14 +54,24 @@ export default async function TitlePage({ params }: Props) {
     ratings = ratingRows ?? [];
   }
 
+  const discussHref = `/title/${mediaType}/${tmdbId}/discuss`;
+
   if (cachedTitle) {
     return (
-      <TitleDetail
-        isAuthenticated={!!user}
-        source={{ kind: 'cached', title: cachedTitle }}
-        userTitle={userTitle}
-        ratings={ratings}
-      />
+      <>
+        <div className="mb-4 flex gap-4 border-b border-zinc-800 pb-3 text-sm">
+          <span className="border-b-2 border-accent pb-3 text-accent">Overview</span>
+          <Link href={discussHref} className="pb-3 text-zinc-400 hover:text-zinc-200">
+            Discuss
+          </Link>
+        </div>
+        <TitleDetail
+          isAuthenticated={!!user}
+          source={{ kind: 'cached', title: cachedTitle }}
+          userTitle={userTitle}
+          ratings={ratings}
+        />
+      </>
     );
   }
 

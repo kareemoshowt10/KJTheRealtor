@@ -3,5 +3,48 @@
 @tailwind utilities;
 
 body {
-  @apply bg-bg text-zinc-100;
+  @apply bg-bg font-sans text-zinc-100 antialiased;
+  background-image: radial-gradient(
+    60rem 28rem at 50% -8rem,
+    rgba(255, 140, 66, 0.07),
+    transparent
+  );
+}
+
+::selection {
+  @apply bg-accent/30 text-white;
+}
+
+:focus-visible {
+  @apply outline-none ring-2 ring-accent/50;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-line bg-surface;
+  }
+
+  .card-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-card;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-black transition hover:bg-accent-hover hover:shadow-glow active:scale-[0.98] disabled:opacity-50 disabled:shadow-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-line px-4 py-2 text-sm transition hover:border-accent/60 hover:text-accent active:scale-[0.98] disabled:opacity-50;
+  }
+
+  .input {
+    @apply rounded-lg border border-line bg-surface px-3 py-2 text-sm outline-none transition focus:border-accent/70 focus:ring-2 focus:ring-accent/20;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-lg bg-zinc-800/60;
+  }
+
+  .score-badge {
+    @apply inline-flex min-w-[2.75rem] items-center justify-center rounded-lg bg-accent/15 px-2 py-1 text-base font-bold text-accent;
+  }
 }

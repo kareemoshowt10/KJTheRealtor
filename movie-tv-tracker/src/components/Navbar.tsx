@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import NavLinks from './NavLinks';
 
 export default async function Navbar() {
   const supabase = createClient();
@@ -18,32 +19,26 @@ export default async function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between border-b border-zinc-800 px-6 py-4">
-      <Link href="/" className="text-lg font-semibold text-accent">
-        Reels &amp; Reruns
-      </Link>
-      <div className="flex items-center gap-6 text-sm">
-        <Link href="/search" className="hover:text-accent">
-          Search
+    <nav className="sticky top-0 z-40 border-b border-line/70 bg-bg/80 backdrop-blur">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3.5">
+        <Link href="/" className="text-lg font-bold tracking-tight text-accent">
+          Reels &amp; Reruns
         </Link>
-        <Link href="/feed" className="hover:text-accent">
-          Feed
-        </Link>
-        <Link href="/rankings" className="hover:text-accent">
-          Rankings
-        </Link>
-        <Link href="/lists" className="hover:text-accent">
-          Lists
-        </Link>
-        {username ? (
-          <Link href={`/profile/${username}`} className="hover:text-accent">
-            {username}
-          </Link>
-        ) : (
-          <Link href="/login" className="hover:text-accent">
-            Log in
-          </Link>
-        )}
+        <div className="flex items-center gap-1 text-sm sm:gap-3">
+          <NavLinks />
+          {username ? (
+            <Link
+              href={`/profile/${username}`}
+              className="ml-2 rounded-full border border-line bg-surface px-3 py-1 font-medium hover:border-accent/60 hover:text-accent"
+            >
+              {username}
+            </Link>
+          ) : (
+            <Link href="/login" className="btn-primary ml-2 px-3 py-1">
+              Log in
+            </Link>
+          )}
+        </div>
       </div>
     </nav>
   );

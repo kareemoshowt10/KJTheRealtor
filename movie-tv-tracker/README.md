@@ -1,8 +1,8 @@
 # Reels & Reruns — Movie/TV Tracker
 
-Phase 1 MVP of a Letterboxd/Serializd-style tracker with dynamic (not
-static) ranking. See [`BLUEPRINT.md`](./BLUEPRINT.md) for the full product
-design (pages, schema, ranking formula, feature priorities).
+A Letterboxd/Serializd-style tracker with dynamic (not static) ranking.
+See [`BLUEPRINT.md`](./BLUEPRINT.md) for the full product design (pages,
+schema, ranking formula, feature priorities).
 
 Standalone app — its own `package.json` and deploy config, independent of
 the KJTheRealtor site this repo also contains.
@@ -17,8 +17,9 @@ the KJTheRealtor site this repo also contains.
 ## Setup
 
 1. Create a [Supabase](https://supabase.com) project.
-2. Run the migration in `supabase/migrations/0001_init.sql` against it
-   (via the SQL editor, or `supabase db push` if using the CLI).
+2. Run the migrations in `supabase/migrations/` in order (`0001_init.sql`,
+   then `0002_phase2.sql`) via the SQL editor, or `supabase db push` if
+   using the CLI.
 3. Get a [TMDB API key](https://www.themoviedb.org/settings/api) (v3 auth).
 4. Copy `.env.example` to `.env.local` and fill in:
    - `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` — from
@@ -50,12 +51,32 @@ npm run dev
 - Personal ranked list (`/rankings`) and public profile pages
   (`/profile/[username]`)
 
-## Not yet built (Phase 2, schema reserved)
+## What's implemented (Phase 2)
 
-Follow graph, friends feed, per-title discussion tabs, collaborative
-lists, reputation weighting. Tables already exist in the migration
-(`follows`, `lists`, `list_items`, `discussion_threads`,
-`discussion_posts`) so this can be built without a schema migration.
+- Follow graph — follow/unfollow from profiles or the People page
+- Friends activity feed (`/feed`) — ratings and status changes from people
+  you follow, via the `following_activity` Postgres view
+- Per-title discussion (`/title/[type]/[id]/discuss`) with five tabs:
+  Reviews, Episode Reactions, Rankings Debate, Similar Titles (live from
+  TMDB), and Spoiler Talk — posts support ▲/▼ voting and spoiler-hiding
+- Collaborative ranked lists (`/lists`) — inline TMDB search-and-add,
+  reorder, optional "others can add" mode
+- Reputation — net votes on a user's posts (`user_reputation` view);
+  ≥ 10 net votes earns a ★ trusted-reviewer badge shown in feeds,
+  discussions, and the People page
+
+## What's implemented (Phase 3)
+
+- Episode/season progress for TV shows — save S/E on the title page,
+  shown as a chip in ranked lists
+- Score-history sparkline on the title page (append-only ratings enable
+  seeing how a title aged for you)
+- People discovery (`/people`) — search members by username, see follower
+  counts and trusted badges, follow inline
+- UI system pass — design tokens (`card`, `btn-primary`, `btn-ghost`,
+  `input`, `skeleton` classes in `globals.css`), sticky blurred navbar
+  with active-link states, landing hero, dashboard stat tiles, route-level
+  loading skeletons, hover/press micro-interactions
 
 ## Known follow-ups
 

@@ -28,9 +28,14 @@ function eventLabel(event: ActivityEvent) {
 export default function ActivityFeed({ events }: { events: ActivityEvent[] }) {
   if (events.length === 0) {
     return (
-      <div className="rounded bg-surface p-6 text-center text-zinc-400">
+      <div className="card p-8 text-center text-zinc-400">
         <p className="mb-1 font-medium">Nothing yet.</p>
-        <p className="text-sm">Follow some people to see their activity here.</p>
+        <p className="text-sm">
+          <Link href="/people" className="text-accent underline">
+            Follow some people
+          </Link>{' '}
+          to see their activity here.
+        </p>
       </div>
     );
   }
@@ -41,7 +46,7 @@ export default function ActivityFeed({ events }: { events: ActivityEvent[] }) {
         const poster = tmdbPosterUrl(event.poster_path);
         const titleHref = `/title/${event.media_type}/${event.tmdb_id}`;
         return (
-          <li key={i} className="flex items-center gap-3 rounded bg-surface p-3">
+          <li key={i} className="card card-hover flex items-center gap-3 p-3">
             {poster ? (
               <Image
                 src={poster}

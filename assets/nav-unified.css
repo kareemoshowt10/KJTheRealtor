@@ -155,6 +155,11 @@
   gap: 5px;
   width: 36px;
   height: 36px;
+  /* without this, .nav-toggle (no explicit min size) gets squeezed by its
+     flex siblings (.brand is flex-shrink:0-protected, .nav-cta is not hidden
+     on mobile) at narrow viewports — collapses to ~12px (just its own
+     padding), making the hamburger menu invisible and untappable */
+  flex-shrink: 0;
   background: none;
   border: none;
   cursor: pointer;

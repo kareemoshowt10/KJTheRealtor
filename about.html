@@ -466,16 +466,16 @@
     }
     .chapter-cta:hover { color: var(--gold); border-color: var(--gold); gap: 0.8rem; }
 
-    /* chapter rail (progress dots) — 32px hit areas, 10px visual dots */
+    /* chapter rail (progress dots) — 40px hit areas, 10px visual dots */
     .chapter-rail {
       position: absolute; right: clamp(0.4rem, 2vw, 1.7rem); top: 50%;
       transform: translateY(-50%);
-      display: flex; flex-direction: column; gap: 0.2rem;
+      display: flex; flex-direction: column; gap: 0.1rem;
       z-index: 7;
     }
     .rail-dot {
       position: relative;
-      width: 32px; height: 32px;
+      width: 40px; height: 40px;
       background: transparent; border: none; cursor: pointer; padding: 0;
       border-radius: 50%;
     }

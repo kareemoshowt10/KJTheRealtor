@@ -1870,6 +1870,12 @@ body {
 @media (max-width: 480px) { section { padding: 48px 0 !important; } }
 @media (max-width: 768px) {
   .hero-shell { background: transparent !important; border: none !important; box-shadow: none !important; }
+  .hero-shell .hero-title, .hero-shell .display-hero {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--gold) 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+  .hero-shell .hero-text { color: rgba(250, 245, 238, 0.86) !important; }
   .hero-grid { grid-template-columns: 1fr !important; text-align: center; padding: 2rem 1.25rem !important; }
   .hero-proofline { justify-content: center; }
   .btn-row { justify-content: center; flex-wrap: wrap; }

@@ -128,6 +128,13 @@
       --cream: #FAF5EE;
       --linen: #FDFAF4;
       --gold: #C9A84C;
+      /* darker gold specifically for small-caps labels/kickers on light
+         (cream/white/panel) backgrounds -- plain --gold measures ~1.8-2.3:1
+         contrast there (visible but low); matches the --gold-deep convention
+         already used for the same eyebrow/label pattern on index.html and
+         about.html. Do not use this on dark-section/navy backgrounds, where
+         plain --gold already has good contrast. */
+      --gold-deep: #B8893F;
       --terracotta: #c98569;
       --ink: #0B1E3E;
       --muted: #40505F;
@@ -384,7 +391,7 @@
       align-items: center;
     }
     .eyebrow, .section-kicker {
-      color: var(--gold);
+      color: var(--gold-deep);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.24em;
@@ -417,6 +424,14 @@
       font-size: clamp(3rem, 7vw, 5.8rem);
       line-height: 0.92;
       max-width: 9ch;
+      /* Override the shared .hero-title,.section-title ink->gold gradient:
+         this h1 sits on a dark photo (behind a darkening scrim, see
+         .hero-cinematic::before below), so the near-black --ink start of
+         that gradient was invisible against it. Cream->gold reads on dark
+         photo backgrounds the way the scrim intends. */
+      background: linear-gradient(135deg, var(--cream) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .section-title {
       font-size: clamp(2.4rem, 5vw, 4.2rem);
@@ -450,6 +465,11 @@
       line-height: 1.85;
       max-width: 660px;
     }
+    /* .hero-text sits on the dark photo hero (behind the .hero-cinematic::before
+       scrim) -- the shared var(--muted) slate color above is meant for light
+       cream sections and is nearly invisible here. Same specificity as the
+       rule above; wins on source order for color only. */
+    .hero-text { color: rgba(250, 245, 238, 0.86); }
     .btn-row, .tag-row { display: flex; flex-wrap: wrap; gap: 0.9rem; }
     .btn {
       display: inline-flex;
@@ -582,7 +602,7 @@
       border-radius: 999px;
       border: 1px solid rgba(184, 139, 82, 0.22);
       background: rgba(255, 252, 247, 0.88);
-      color: var(--gold);
+      color: var(--gold-deep);
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.18em;
@@ -616,7 +636,7 @@
       box-shadow: 0 0 0 6px rgba(184, 139, 82, 0.09);
     }
     .flip-kicker {
-      color: var(--gold);
+      color: var(--gold-deep);
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.2em;
@@ -712,7 +732,7 @@
     .field { display: grid; gap: 0.5rem; }
     .field-full { grid-column: 1 / -1; }
     .field label {
-      color: var(--gold);
+      color: var(--gold-deep);
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.2em;
@@ -746,7 +766,7 @@
     .contact-list { display: grid; gap: 1rem; margin-top: 1rem; }
     .contact-item span {
       display: block;
-      color: var(--gold);
+      color: var(--gold-deep);
       font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.22em;
@@ -821,7 +841,7 @@
     .compass-center strong {
       font-family: "Fraunces", serif;
       font-size: 1.2rem;
-      color: var(--gold);
+      color: var(--gold-deep);
       line-height: 1;
     }
 
@@ -940,7 +960,7 @@
       align-items: start;
       font-size: 0.88rem;
     }
-    .footer-brand strong {
+    .footer-brand strong, .footer-brand-name {
       display: block;
       font-family: "Fraunces", serif;
       font-size: 1.4rem;
@@ -949,6 +969,11 @@
       margin-bottom: 0.35rem;
     }
     .footer-brand p { line-height: 1.75; color: rgba(255, 252, 247, 0.42); font-size: 0.84rem; }
+    /* .footer-brand-name/.dre are the actual markup classes rendered here (the
+       rules above target a stale ".footer-brand strong" selector that no
+       longer matches anything) -- without this, these spans fell through to
+       an inherited dark navy color, invisible on the dark footer background */
+    .dre { display: block; color: rgba(184, 139, 82, 0.85); font-size: 0.84rem; }
     .footer-col h4 {
       font-size: 0.68rem; font-weight: 800;
       letter-spacing: 0.2em; text-transform: uppercase;
@@ -1162,6 +1187,25 @@ section { padding: 120px 0 !important; }
 .dark-section h3 { color: #fff !important; -webkit-text-fill-color: #fff !important; }
 .dark-section p, .dark-section .section-copy { color: rgba(255,255,255,0.72) !important; }
 .dark-section .eyebrow, .dark-section .section-kicker { color: var(--gold) !important; }
+/* .pillar-card (and the other shared card components) keep the light
+   --panel background (rgba(255,253,250,0.9)) everywhere they're used --
+   including here, inside .dark-section. Without this, the blanket
+   ".dark-section h3/p{color:#fff}" rules above force white text onto
+   these near-white cards, making "Equity Protection" / "Location
+   Durability" / "Legacy Planning" (and their body copy) invisible. */
+.dark-section .pillar-card h3 { color: var(--ink) !important; -webkit-text-fill-color: var(--ink) !important; }
+.dark-section .pillar-card p { color: var(--muted) !important; }
+/* Same issue, different reused card: .contact-card also keeps the light
+   --panel background inside this .dark-section. A prior fix attempt only
+   patched the h2 with an inline style (which the !important rules above
+   still beat), and never touched the "portfolio." <em> or the phone/email
+   <strong> tags -- all were rendering invisible white-on-near-white. */
+.dark-section .contact-card .section-title,
+.dark-section .contact-card .section-title em { color: var(--ink) !important; -webkit-text-fill-color: var(--ink) !important; }
+.dark-section .contact-card .section-copy { color: var(--muted) !important; }
+.dark-section .contact-card .contact-item strong { color: var(--ink) !important; }
+.dark-section .contact-card .section-kicker,
+.dark-section .contact-card .contact-item span { color: var(--gold-deep) !important; }
 .hero-cinematic {
   position: relative;
   min-height: 100vh;
@@ -1410,7 +1454,7 @@ body {
 }
 .checklist-card .check-area-label {
   display: block; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem;
+  text-transform: uppercase; color: var(--gold-deep); margin-bottom: 1.25rem;
 }
 .check-item { display: flex; gap: 0.85rem; padding: 0.85rem 0; border-top: 1px solid rgba(46,53,60,0.08); cursor: pointer; }
 .check-item:first-of-type { border-top: none; }

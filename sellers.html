@@ -543,6 +543,15 @@
       font-size: clamp(3.1rem, 7vw, 6rem);
       line-height: 0.92;
       max-width: 8ch;
+      /* Override the shared .hero-title,.section-title ink->gold gradient:
+         this h1 sits on a dark photo (background-image on .hero-cinematic,
+         behind a darkening scrim, see .hero-cinematic::before below), so
+         the near-black --ink start of that gradient was invisible against
+         it. Cream->gold reads on dark photo backgrounds the way the scrim
+         intends. */
+      background: linear-gradient(135deg, var(--cream) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .section-title {
@@ -582,6 +591,12 @@
       line-height: 1.85;
       max-width: 640px;
     }
+
+    /* .hero-text sits on the dark photo hero (behind the .hero-cinematic::before
+       scrim) -- the shared var(--muted) slate color above is meant for light
+       cream sections and is nearly invisible here. Same specificity as the
+       rule above; wins on source order for color only. */
+    .hero-text { color: rgba(250, 245, 238, 0.86); }
 
     .btn-row,
     .tag-row {
@@ -1155,13 +1170,19 @@
       gap: 2.5rem;
     }
 
-    .footer-brand strong {
+    .footer-brand strong, .footer-brand-name {
       display: block;
       font-family: "Fraunces", serif;
       font-size: 1.5rem;
       color: white;
       margin-bottom: 0.5rem;
     }
+
+    /* .footer-brand-name/.dre are the actual markup classes rendered here (the
+       rule above targets a stale ".footer-brand strong" selector that no
+       longer matches anything) -- without this, these spans fell through to
+       an inherited dark color, invisible on the dark footer background */
+    .dre { display: block; color: rgba(184, 139, 82, 0.85); font-size: 0.84rem; }
 
     .footer-brand p { color: rgba(255,255,255,0.4); font-size: 0.85rem; line-height: 1.7; }
 
@@ -1747,6 +1768,13 @@ section { padding: 120px 0 !important; }
 .dark-section h3 { color: #fff !important; -webkit-text-fill-color: #fff !important; }
 .dark-section p, .dark-section .section-copy { color: rgba(255,255,255,0.72) !important; }
 .dark-section .eyebrow, .dark-section .section-kicker { color: var(--gold) !important; }
+/* .story-card keeps the light --panel background everywhere it's used,
+   including inside this .dark-section (#process). Without this, the
+   blanket ".dark-section h3/p{color:#fff}" rules above force white text
+   onto this near-white card, making "What clients gain from this" and
+   its body copy invisible. */
+.dark-section .story-card h3 { color: var(--ink) !important; -webkit-text-fill-color: var(--ink) !important; }
+.dark-section .story-card p { color: var(--muted) !important; }
 .hero-cinematic {
   position: relative;
   min-height: 100vh;

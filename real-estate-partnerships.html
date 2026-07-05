@@ -414,6 +414,15 @@
       font-size: clamp(3rem, 7vw, 5.8rem);
       line-height: 0.92;
       max-width: 9ch;
+      /* Override the shared .hero-title,.section-title ink->gold gradient:
+         this h1 sits on a dark photo (background-image on .hero-cinematic,
+         behind a darkening scrim, see .hero-cinematic::before below), so
+         the near-black --ink start of that gradient was invisible against
+         it. Cream->gold reads on dark photo backgrounds the way the scrim
+         intends. */
+      background: linear-gradient(135deg, var(--cream) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .section-title {
       font-size: clamp(2.4rem, 5vw, 4.2rem);
@@ -447,6 +456,11 @@
       line-height: 1.85;
       max-width: 660px;
     }
+    /* .hero-text sits on the dark photo hero (behind the .hero-cinematic::before
+       scrim) -- the shared var(--muted) slate color above is meant for light
+       cream sections and is nearly invisible here. Same specificity as the
+       rule above; wins on source order for color only. */
+    .hero-text { color: rgba(250, 245, 238, 0.86); }
     .btn-row, .tag-row { display: flex; flex-wrap: wrap; gap: 0.9rem; }
     .btn {
       display: inline-flex;
@@ -937,7 +951,7 @@
       align-items: start;
       font-size: 0.88rem;
     }
-    .footer-brand strong {
+    .footer-brand strong, .footer-brand-name {
       display: block;
       font-family: "Fraunces", serif;
       font-size: 1.4rem;
@@ -945,6 +959,11 @@
       color: rgba(255, 252, 247, 0.94);
       margin-bottom: 0.35rem;
     }
+    /* .footer-brand-name/.dre are the actual markup classes rendered here (the
+       rule above targets a stale ".footer-brand strong" selector that no
+       longer matches anything) -- without this, these spans fell through to
+       an inherited dark color, invisible on the dark footer background */
+    .dre { display: block; color: rgba(184, 139, 82, 0.85); font-size: 0.84rem; }
     .footer-brand p { line-height: 1.75; color: rgba(255, 252, 247, 0.42); font-size: 0.84rem; }
     .footer-col h4 {
       font-size: 0.68rem; font-weight: 800;

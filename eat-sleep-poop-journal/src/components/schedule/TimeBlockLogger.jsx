@@ -10,10 +10,14 @@ export default function TimeBlockLogger({ onClose, date, existing }) {
   const [subject, setSubject] = useState(existing?.subject || '')
   const [lesson, setLesson] = useState(existing?.lesson || '')
   const [cta, setCta] = useState(existing?.cta || '')
+  const [error, setError] = useState('')
 
   function submit(e) {
     e.preventDefault()
-    if (!task.trim() && !subject.trim()) return
+    if (!task.trim() && !subject.trim()) {
+      setError('Enter at least a task or what happened before saving.')
+      return
+    }
     const payload = {
       type: 'timeblock', date, time,
       task: task.trim(), location: location.trim(),
@@ -64,10 +68,14 @@ export default function TimeBlockLogger({ onClose, date, existing }) {
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100"
               placeholder="Planned task..."
               value={task}
-              onChange={e => setTask(e.target.value)}
+              onChange={e => { setTask(e.target.value); setError('') }}
               autoFocus
             />
           </div>
+
+          {error && (
+            <p className="text-sm text-red-600 bg-red-50 rounded-xl px-3 py-2">{error}</p>
+          )}
 
           <div className="h-px bg-gray-100" />
           <p className="text-xs text-gray-400 font-medium -mb-2">RETROSPECTIVE — fill in after the block happens</p>
@@ -78,7 +86,7 @@ export default function TimeBlockLogger({ onClose, date, existing }) {
               className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 resize-none"
               rows={2}
               value={subject}
-              onChange={e => setSubject(e.target.value)}
+              onChange={e => { setSubject(e.target.value); setError('') }}
             />
           </div>
 

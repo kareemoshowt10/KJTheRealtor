@@ -19,6 +19,15 @@ export function toISOString(date = new Date()) {
   return date.toISOString()
 }
 
+export function localDateKey(isoString) {
+  if (!isoString) return null
+  return format(parseISO(isoString), 'yyyy-MM-dd')
+}
+
+export function isSameLocalDay(isoString, dateStr) {
+  return localDateKey(isoString) === dateStr
+}
+
 export function groupByDay(entries) {
   const groups = {}
   entries.forEach(entry => {

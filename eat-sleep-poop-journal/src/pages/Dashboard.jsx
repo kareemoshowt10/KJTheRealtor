@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { Settings as SettingsIcon, Sparkles, ChevronRight } from 'lucide-react'
 import { format } from 'date-fns'
 import { useStore } from '../store/useStore'
-import { formatTime, getStreaks } from '../utils/dateUtils'
+import { formatTime, getStreaks, isSameLocalDay } from '../utils/dateUtils'
 import { calcReflectionAP } from '../utils/scoring'
 import EatLogger from '../components/tracking/EatLogger'
 import SleepLogger from '../components/tracking/SleepLogger'
@@ -65,10 +65,8 @@ export default function Dashboard({ onNavigate }) {
   const todayStr = format(new Date(), 'yyyy-MM-dd')
 
   const todayEntries = useMemo(() =>
-    state.entries.filter(e => {
-      const ts = e.timestamp || e.startTime
-      return ts && ts.startsWith(todayStr)
-    }).sort((a, b) => new Date(b.timestamp || b.startTime) - new Date(a.timestamp || a.startTime))
+    state.entries.filter(e => isSameLocalDay(e.timestamp || e.startTime, todayStr))
+      .sort((a, b) => new Date(b.timestamp || b.startTime) - new Date(a.timestamp || a.startTime))
   , [state.entries, todayStr])
 
   const todayBlocks = useMemo(() =>

@@ -22,7 +22,7 @@ function Row({ icon, label, children, danger }) {
 }
 
 export default function Settings({ onNavigate }) {
-  const { state, updateSettings, deleteEntry, addHabit, removeHabit } = useStore()
+  const { state, updateSettings, clearAllData, addHabit, removeHabit } = useStore()
   const [name, setName] = useState(state.settings?.name || '')
   const [newHabit, setNewHabit] = useState('')
   const [showConfirm, setShowConfirm] = useState(false)
@@ -41,7 +41,7 @@ export default function Settings({ onNavigate }) {
   }
 
   function clearAll() {
-    state.entries.forEach(e => deleteEntry(e.id))
+    clearAllData()
     setShowConfirm(false)
   }
 
@@ -168,7 +168,7 @@ export default function Settings({ onNavigate }) {
             <div className="text-center">
               <div className="text-5xl mb-3">⚠️</div>
               <h3 className="text-lg font-bold mb-2">Delete all data?</h3>
-              <p className="text-gray-500 text-sm mb-5">This will permanently delete all {totalEntries} entries. This cannot be undone.</p>
+              <p className="text-gray-500 text-sm mb-5">This will permanently delete all {totalEntries} entries plus every objective, reflection, and avoidance check-in. This cannot be undone.</p>
             </div>
             <div className="flex gap-3">
               <button onClick={() => setShowConfirm(false)}

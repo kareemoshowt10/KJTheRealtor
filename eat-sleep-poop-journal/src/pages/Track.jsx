@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { Clock, ChevronRight } from 'lucide-react'
 import { format } from 'date-fns'
 import { useStore } from '../store/useStore'
-import { formatTime, getDurationLabel } from '../utils/dateUtils'
+import { formatTime, getDurationLabel, isSameLocalDay } from '../utils/dateUtils'
 import EatLogger from '../components/tracking/EatLogger'
 import SleepLogger from '../components/tracking/SleepLogger'
 import PoopLogger from '../components/tracking/PoopLogger'
@@ -53,7 +53,7 @@ export default function Track({ onNavigate }) {
 
   const todayEntries = useMemo(() =>
     state.entries
-      .filter(e => e.type !== 'timeblock' && (e.timestamp || e.startTime || '').startsWith(todayStr))
+      .filter(e => e.type !== 'timeblock' && isSameLocalDay(e.timestamp || e.startTime, todayStr))
       .sort((a, b) => new Date(b.timestamp || b.startTime) - new Date(a.timestamp || a.startTime))
   , [state.entries, todayStr])
 

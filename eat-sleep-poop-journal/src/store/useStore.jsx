@@ -76,6 +76,10 @@ export function StoreProvider({ children }) {
     setState(s => ({ ...s, entries: s.entries.filter(e => e.id !== id) }))
   }, [])
 
+  const clearAllData = useCallback(() => {
+    setState(s => ({ ...s, entries: [], dailyRecords: {} }))
+  }, [])
+
   const updateSettings = useCallback((patch) => {
     setState(s => ({ ...s, settings: { ...s.settings, ...patch } }))
   }, [])
@@ -137,18 +141,28 @@ export function StoreProvider({ children }) {
   }, [])
 
   const removeHabit = useCallback((habitId) => {
-    setState(s => ({
-      ...s,
-      settings: {
-        ...s.settings,
-        habitList: s.settings.habitList.filter(h => h.id !== habitId),
-      },
-    }))
+    setState(s => {
+      const dailyRecords = Object.fromEntries(
+        Object.entries(s.dailyRecords).map(([date, record]) => {
+          if (!(habitId in record.habits)) return [date, record]
+          const { [habitId]: _removed, ...habits } = record.habits
+          return [date, { ...record, habits }]
+        })
+      )
+      return {
+        ...s,
+        dailyRecords,
+        settings: {
+          ...s.settings,
+          habitList: s.settings.habitList.filter(h => h.id !== habitId),
+        },
+      }
+    })
   }, [])
 
   return (
     <StoreContext.Provider value={{
-      state, addEntry, updateEntry, deleteEntry, updateSettings,
+      state, addEntry, updateEntry, deleteEntry, clearAllData, updateSettings,
       getDailyRecord, updateObjective, updateReflection,
       toggleHabit, addHabit, removeHabit,
     }}>

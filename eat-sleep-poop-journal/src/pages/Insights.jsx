@@ -3,13 +3,14 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, L
 import { format, subDays } from 'date-fns'
 import { useStore } from '../store/useStore'
 import { calcReflectionAP, calcHabitScore } from '../utils/scoring'
+import { isSameLocalDay } from '../utils/dateUtils'
 
 function getLast7(entries, type, getValue) {
   const days = Array.from({ length: 7 }, (_, i) => {
     const d = subDays(new Date(), 6 - i)
     const key = format(d, 'yyyy-MM-dd')
     const dayEntries = entries.filter(e =>
-      e.type === type && (e.timestamp || e.startTime || '').startsWith(key)
+      e.type === type && isSameLocalDay(e.timestamp || e.startTime, key)
     )
     return { day: format(d, 'EEE'), value: getValue(dayEntries) }
   })
@@ -75,9 +76,9 @@ export default function Insights() {
     const days = Array.from({ length: 7 }, (_, i) => {
       const d = subDays(new Date(), 6 - i)
       const key = format(d, 'yyyy-MM-dd')
-      const meditate = entries.filter(e => e.type === 'meditation' && (e.timestamp || '').startsWith(key))
+      const meditate = entries.filter(e => e.type === 'meditation' && isSameLocalDay(e.timestamp, key))
         .reduce((s, e) => s + (e.durationMin || 0), 0)
-      const read = entries.filter(e => e.type === 'reading' && (e.timestamp || '').startsWith(key))
+      const read = entries.filter(e => e.type === 'reading' && isSameLocalDay(e.timestamp, key))
         .reduce((s, e) => s + (e.durationMin || 0), 0)
       return { day: format(d, 'EEE'), meditate, read }
     })

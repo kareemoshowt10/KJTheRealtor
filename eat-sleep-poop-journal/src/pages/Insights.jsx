@@ -113,7 +113,16 @@ export default function Insights() {
     return vals.length ? Math.round(vals.reduce((a, b) => a + b, 0) / vals.length) : 0
   }, [habitData, state.dailyRecords])
 
-  if (entries.length === 0) {
+  const hasDailyRecordData = useMemo(() =>
+    Object.values(state.dailyRecords).some(record => {
+      const hasObjective = record.objective?.mainObjective?.trim() || record.objective?.keyActions?.length > 0
+      const hasReflection = Object.values(record.reflection || {}).some(v => v?.trim())
+      const hasHabits = Object.values(record.habits || {}).some(Boolean)
+      return hasObjective || hasReflection || hasHabits
+    })
+  , [state.dailyRecords])
+
+  if (entries.length === 0 && !hasDailyRecordData) {
     return (
       <div className="flex flex-col h-full bg-gray-50">
         <div className="bg-white px-5 pt-14 pb-5 shadow-sm">

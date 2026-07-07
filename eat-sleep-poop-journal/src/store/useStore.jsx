@@ -80,6 +80,19 @@ export function StoreProvider({ children }) {
     setState(s => ({ ...s, entries: [], dailyRecords: {} }))
   }, [])
 
+  const importData = useCallback((data) => {
+    setState({
+      entries: Array.isArray(data.entries) ? data.entries : [],
+      dailyRecords: data.dailyRecords && typeof data.dailyRecords === 'object' ? data.dailyRecords : {},
+      settings: {
+        name: '',
+        reminderEnabled: false,
+        habitList: DEFAULT_HABITS,
+        ...(data.settings && typeof data.settings === 'object' ? data.settings : {}),
+      },
+    })
+  }, [])
+
   const updateSettings = useCallback((patch) => {
     setState(s => ({ ...s, settings: { ...s.settings, ...patch } }))
   }, [])
@@ -162,7 +175,7 @@ export function StoreProvider({ children }) {
 
   return (
     <StoreContext.Provider value={{
-      state, addEntry, updateEntry, deleteEntry, clearAllData, updateSettings,
+      state, addEntry, updateEntry, deleteEntry, clearAllData, importData, updateSettings,
       getDailyRecord, updateObjective, updateReflection,
       toggleHabit, addHabit, removeHabit,
     }}>

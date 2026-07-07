@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { Trash2, ChevronDown, ChevronUp, ChevronLeft } from 'lucide-react'
 import { useStore } from '../store/useStore'
 import { formatTime, groupByDay, getDurationLabel } from '../utils/dateUtils'
+import UndoToast from '../components/common/UndoToast'
 
 function EntryCard({ entry, onDelete }) {
   const [expanded, setExpanded] = useState(false)
@@ -78,8 +79,20 @@ function EntryCard({ entry, onDelete }) {
 }
 
 export default function History({ onNavigate }) {
-  const { state, deleteEntry } = useStore()
+  const { state, addEntry, deleteEntry } = useStore()
   const [filter, setFilter] = useState('all')
+  const [deletedEntry, setDeletedEntry] = useState(null)
+
+  function handleDelete(id) {
+    const entry = state.entries.find(e => e.id === id)
+    deleteEntry(id)
+    if (entry) setDeletedEntry(entry)
+  }
+
+  function undoDelete() {
+    if (deletedEntry) addEntry(deletedEntry)
+    setDeletedEntry(null)
+  }
 
   const loggableEntries = useMemo(() =>
     state.entries.filter(e => e.type !== 'timeblock')
@@ -138,12 +151,20 @@ export default function History({ onNavigate }) {
             {items
               .sort((a, b) => new Date(b.timestamp || b.startTime) - new Date(a.timestamp || a.startTime))
               .map(entry => (
-                <EntryCard key={entry.id} entry={entry} onDelete={deleteEntry} />
+                <EntryCard key={entry.id} entry={entry} onDelete={handleDelete} />
               ))
             }
           </div>
         ))}
       </div>
+
+      {deletedEntry && (
+        <UndoToast
+          message="Entry deleted"
+          onUndo={undoDelete}
+          onDismiss={() => setDeletedEntry(null)}
+        />
+      )}
     </div>
   )
 }

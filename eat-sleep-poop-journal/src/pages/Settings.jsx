@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useStore } from '../store/useStore'
-import { ChevronLeft, Trash2, Download, Plus, X } from 'lucide-react'
+import { ChevronLeft, Trash2, Download, Upload, Plus, X } from 'lucide-react'
 
 function Section({ title, children }) {
   return (
@@ -22,10 +22,13 @@ function Row({ icon, label, children, danger }) {
 }
 
 export default function Settings({ onNavigate }) {
-  const { state, updateSettings, clearAllData, addHabit, removeHabit } = useStore()
+  const { state, updateSettings, clearAllData, importData, addHabit, removeHabit } = useStore()
   const [name, setName] = useState(state.settings?.name || '')
   const [newHabit, setNewHabit] = useState('')
   const [showConfirm, setShowConfirm] = useState(false)
+  const [pendingImport, setPendingImport] = useState(null)
+  const [importError, setImportError] = useState('')
+  const fileInputRef = useRef(null)
 
   function saveName() {
     updateSettings({ name: name.trim() })
@@ -43,6 +46,32 @@ export default function Settings({ onNavigate }) {
   function clearAll() {
     clearAllData()
     setShowConfirm(false)
+  }
+
+  function handleFileSelect(e) {
+    const file = e.target.files?.[0]
+    e.target.value = ''
+    if (!file) return
+    setImportError('')
+    const reader = new FileReader()
+    reader.onload = () => {
+      try {
+        const data = JSON.parse(reader.result)
+        if (!data || typeof data !== 'object' || (!('entries' in data) && !('dailyRecords' in data))) {
+          setImportError('That file doesn\'t look like a Life OS backup.')
+          return
+        }
+        setPendingImport(data)
+      } catch {
+        setImportError('Could not read that file — make sure it\'s a valid backup JSON.')
+      }
+    }
+    reader.readAsText(file)
+  }
+
+  function confirmImport() {
+    importData(pendingImport)
+    setPendingImport(null)
   }
 
   function submitHabit(e) {
@@ -132,6 +161,21 @@ export default function Settings({ onNavigate }) {
               <Download size={16} className="text-gray-400" />
             </Row>
           </button>
+          <button onClick={() => fileInputRef.current?.click()} className="w-full">
+            <Row icon="📥" label="Import Backup (JSON)">
+              <Upload size={16} className="text-gray-400" />
+            </Row>
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="application/json"
+            onChange={handleFileSelect}
+            className="hidden"
+          />
+          {importError && (
+            <p className="text-sm text-red-600 bg-red-50 px-4 py-3">{importError}</p>
+          )}
         </Section>
 
         {/* About */}
@@ -178,6 +222,33 @@ export default function Settings({ onNavigate }) {
               <button onClick={clearAll}
                 className="flex-1 bg-red-500 text-white rounded-2xl py-3 font-semibold">
                 Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Confirm import dialog */}
+      {pendingImport && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-6">
+          <div className="bg-white rounded-3xl p-6 w-full max-w-xs animate-bounce-in">
+            <div className="text-center">
+              <div className="text-5xl mb-3">📥</div>
+              <h3 className="text-lg font-bold mb-2">Restore this backup?</h3>
+              <p className="text-gray-500 text-sm mb-5">
+                This will replace all {totalEntries} current entries and daily records with
+                {' '}{Array.isArray(pendingImport.entries) ? pendingImport.entries.length : 0} entries
+                from the backup file. This cannot be undone.
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <button onClick={() => setPendingImport(null)}
+                className="flex-1 bg-gray-100 text-gray-700 rounded-2xl py-3 font-semibold">
+                Cancel
+              </button>
+              <button onClick={confirmImport}
+                className="flex-1 bg-violet-600 text-white rounded-2xl py-3 font-semibold">
+                Restore
               </button>
             </div>
           </div>

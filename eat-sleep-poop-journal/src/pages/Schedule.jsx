@@ -3,6 +3,7 @@ import { Plus, MapPin, Trash2, ChevronLeft, ChevronRight } from 'lucide-react'
 import { format, addDays } from 'date-fns'
 import { useStore } from '../store/useStore'
 import TimeBlockLogger from '../components/schedule/TimeBlockLogger'
+import UndoToast from '../components/common/UndoToast'
 
 function BlockCard({ block, onEdit, onDelete }) {
   return (
@@ -51,9 +52,10 @@ function BlockCard({ block, onEdit, onDelete }) {
 }
 
 export default function Schedule() {
-  const { state, deleteEntry } = useStore()
+  const { state, addEntry, deleteEntry } = useStore()
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [modalBlock, setModalBlock] = useState(undefined) // undefined = closed, null = new, obj = edit
+  const [deletedBlock, setDeletedBlock] = useState(null)
 
   const dateStr = format(selectedDate, 'yyyy-MM-dd')
   const isToday = dateStr === format(new Date(), 'yyyy-MM-dd')
@@ -63,6 +65,17 @@ export default function Schedule() {
       .filter(e => e.type === 'timeblock' && e.date === dateStr)
       .sort((a, b) => a.time.localeCompare(b.time))
   , [state.entries, dateStr])
+
+  function handleDelete(id) {
+    const block = state.entries.find(e => e.id === id)
+    deleteEntry(id)
+    if (block) setDeletedBlock(block)
+  }
+
+  function undoDelete() {
+    if (deletedBlock) addEntry(deletedBlock)
+    setDeletedBlock(null)
+  }
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
@@ -97,7 +110,7 @@ export default function Schedule() {
             <p className="text-gray-400 text-sm mt-1">Plan your day, then fill in what happened</p>
           </div>
         ) : blocks.map(b => (
-          <BlockCard key={b.id} block={b} onEdit={setModalBlock} onDelete={deleteEntry} />
+          <BlockCard key={b.id} block={b} onEdit={setModalBlock} onDelete={handleDelete} />
         ))}
       </div>
 
@@ -106,6 +119,14 @@ export default function Schedule() {
           date={dateStr}
           existing={modalBlock}
           onClose={() => setModalBlock(undefined)}
+        />
+      )}
+
+      {deletedBlock && (
+        <UndoToast
+          message="Time block deleted"
+          onUndo={undoDelete}
+          onDismiss={() => setDeletedBlock(null)}
         />
       )}
     </div>

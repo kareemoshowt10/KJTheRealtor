@@ -1,8 +1,7 @@
 import { useState, useMemo } from 'react'
-import { Trash2, ChevronDown, ChevronUp } from 'lucide-react'
+import { Trash2, ChevronDown, ChevronUp, ChevronLeft } from 'lucide-react'
 import { useStore } from '../store/useStore'
-import { formatTime, formatDate, groupByDay, getDurationLabel } from '../utils/dateUtils'
-import { format, parseISO } from 'date-fns'
+import { formatTime, groupByDay, getDurationLabel } from '../utils/dateUtils'
 
 function EntryCard({ entry, onDelete }) {
   const [expanded, setExpanded] = useState(false)
@@ -25,7 +24,29 @@ function EntryCard({ entry, onDelete }) {
     title = `Bristol Type ${entry.bristolType}`
     subtitle = entry.color
     detail = entry.notes
+  } else if (entry.type === 'meditation') {
+    icon = '🧘'; accentColor = 'border-l-teal-400'
+    title = `${entry.durationMin} min meditation`
+    subtitle = 'Body & Mind'
+    detail = entry.notes
+  } else if (entry.type === 'reading') {
+    icon = '📖'; accentColor = 'border-l-sky-400'
+    title = `${entry.durationMin} min reading`
+    subtitle = 'Body & Mind'
+    detail = entry.notes
+  } else if (entry.type === 'exercise') {
+    icon = '💪'; accentColor = 'border-l-lime-500'
+    title = entry.exercise
+    subtitle = [entry.count, entry.durationLocation].filter(Boolean).join(' · ') || 'Exercise'
+    detail = entry.notes
+  } else if (entry.type === 'contact') {
+    icon = '📇'; accentColor = 'border-l-rose-400'
+    title = entry.name
+    subtitle = entry.subject || 'Contact'
+    detail = entry.description
   }
+
+  if (!icon) return null
 
   return (
     <div className={`bg-white rounded-2xl shadow-sm border-l-4 ${accentColor} mb-2.5 animate-fade-in`}>
@@ -33,7 +54,7 @@ function EntryCard({ entry, onDelete }) {
         <span className="text-xl shrink-0">{icon}</span>
         <div className="flex-1 min-w-0">
           <p className="font-semibold text-sm text-gray-900 truncate">{title}</p>
-          <p className="text-xs text-gray-400 mt-0.5">{subtitle}</p>
+          <p className="text-xs text-gray-400 mt-0.5 truncate">{subtitle}</p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <span className="text-xs text-gray-400">{time}</span>
@@ -56,28 +77,41 @@ function EntryCard({ entry, onDelete }) {
   )
 }
 
-export default function History() {
+export default function History({ onNavigate }) {
   const { state, deleteEntry } = useStore()
   const [filter, setFilter] = useState('all')
 
+  const loggableEntries = useMemo(() =>
+    state.entries.filter(e => e.type !== 'timeblock')
+  , [state.entries])
+
   const groups = useMemo(() => {
     const filtered = filter === 'all'
-      ? state.entries
-      : state.entries.filter(e => e.type === filter)
+      ? loggableEntries
+      : loggableEntries.filter(e => e.type === filter)
     return groupByDay(filtered)
-  }, [state.entries, filter])
+  }, [loggableEntries, filter])
 
   const filters = [
-    { id: 'all',   emoji: '📋', label: 'All' },
-    { id: 'eat',   emoji: '🍽️', label: 'Eat' },
-    { id: 'sleep', emoji: '😴', label: 'Sleep' },
-    { id: 'poop',  emoji: '💩', label: 'Poop' },
+    { id: 'all',        emoji: '📋', label: 'All' },
+    { id: 'eat',        emoji: '🍽️', label: 'Eat' },
+    { id: 'sleep',      emoji: '😴', label: 'Sleep' },
+    { id: 'poop',       emoji: '💩', label: 'Poop' },
+    { id: 'meditation', emoji: '🧘', label: 'Meditate' },
+    { id: 'reading',    emoji: '📖', label: 'Read' },
+    { id: 'exercise',   emoji: '💪', label: 'Exercise' },
+    { id: 'contact',    emoji: '📇', label: 'Contacts' },
   ]
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
       <div className="bg-white px-5 pt-14 pb-4 shadow-sm">
-        <h1 className="text-2xl font-bold">History</h1>
+        <div className="flex items-center gap-3 mb-1">
+          <button onClick={() => onNavigate('track')} className="p-1 -ml-1 rounded-full hover:bg-gray-100">
+            <ChevronLeft size={22} />
+          </button>
+          <h1 className="text-2xl font-bold">History</h1>
+        </div>
         <div className="flex gap-2 mt-3 overflow-x-auto scrollbar-hide pb-1">
           {filters.map(f => (
             <button key={f.id} onClick={() => setFilter(f.id)}
@@ -96,7 +130,7 @@ export default function History() {
           <div className="text-center py-16">
             <div className="text-5xl mb-3">🗒️</div>
             <p className="text-gray-500 font-medium">No entries yet</p>
-            <p className="text-gray-400 text-sm mt-1">Start logging from the Today tab</p>
+            <p className="text-gray-400 text-sm mt-1">Start logging from the Track tab</p>
           </div>
         ) : groups.map(({ day, label, items }) => (
           <div key={day} className="mb-5">

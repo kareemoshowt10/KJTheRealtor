@@ -1,7 +1,8 @@
 import { useMemo } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianGrid } from 'recharts'
-import { format, parseISO, subDays } from 'date-fns'
+import { format, subDays } from 'date-fns'
 import { useStore } from '../store/useStore'
+import { calcReflectionAP, calcHabitScore } from '../utils/scoring'
 
 function getLast7(entries, type, getValue) {
   const days = Array.from({ length: 7 }, (_, i) => {
@@ -13,6 +14,15 @@ function getLast7(entries, type, getValue) {
     return { day: format(d, 'EEE'), value: getValue(dayEntries) }
   })
   return days
+}
+
+function getLast7Records(dailyRecords, habitList, getValue) {
+  return Array.from({ length: 7 }, (_, i) => {
+    const d = subDays(new Date(), 6 - i)
+    const key = format(d, 'yyyy-MM-dd')
+    const record = dailyRecords[key]
+    return { day: format(d, 'EEE'), value: getValue(record, habitList) }
+  })
 }
 
 function StatRow({ label, value, sub }) {
@@ -60,6 +70,47 @@ export default function Insights() {
     const best = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]
     return `Type ${best[0]}`
   }, [entries])
+
+  const mindData = useMemo(() => {
+    const days = Array.from({ length: 7 }, (_, i) => {
+      const d = subDays(new Date(), 6 - i)
+      const key = format(d, 'yyyy-MM-dd')
+      const meditate = entries.filter(e => e.type === 'meditation' && (e.timestamp || '').startsWith(key))
+        .reduce((s, e) => s + (e.durationMin || 0), 0)
+      const read = entries.filter(e => e.type === 'reading' && (e.timestamp || '').startsWith(key))
+        .reduce((s, e) => s + (e.durationMin || 0), 0)
+      return { day: format(d, 'EEE'), meditate, read }
+    })
+    return days
+  }, [entries])
+
+  const exerciseData = useMemo(() => getLast7(entries, 'exercise', d => d.length), [entries])
+  const contactData = useMemo(() => getLast7(entries, 'contact', d => d.length), [entries])
+
+  const apData = useMemo(() =>
+    getLast7Records(state.dailyRecords, state.settings.habitList, (record) =>
+      record ? calcReflectionAP(record.reflection).total : 0
+    )
+  , [state.dailyRecords, state.settings.habitList])
+
+  const habitData = useMemo(() =>
+    getLast7Records(state.dailyRecords, state.settings.habitList, (record, habitList) =>
+      record ? calcHabitScore(record.habits, habitList).pct : 0
+    )
+  , [state.dailyRecords, state.settings.habitList])
+
+  const totalMeditateMin = useMemo(() => mindData.reduce((a, b) => a + b.meditate, 0), [mindData])
+  const totalReadMin = useMemo(() => mindData.reduce((a, b) => a + b.read, 0), [mindData])
+  const totalExercises = useMemo(() => exerciseData.reduce((a, b) => a + b.value, 0), [exerciseData])
+  const totalContacts = useMemo(() => contactData.reduce((a, b) => a + b.value, 0), [contactData])
+  const avgAP = useMemo(() => {
+    const vals = apData.map(d => d.value)
+    return vals.length ? (vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(1) : '—'
+  }, [apData])
+  const avgHabitPct = useMemo(() => {
+    const vals = habitData.map(d => d.value).filter((_, i) => state.dailyRecords[format(subDays(new Date(), 6 - i), 'yyyy-MM-dd')])
+    return vals.length ? Math.round(vals.reduce((a, b) => a + b, 0) / vals.length) : 0
+  }, [habitData, state.dailyRecords])
 
   if (entries.length === 0) {
     return (
@@ -148,6 +199,86 @@ export default function Insights() {
             <StatRow label="7-day total" value={totalPoops} sub="movements" />
             <StatRow label="Most common type" value={bestBristol} />
             <StatRow label="Healthy range" value="1–3" sub="per day" />
+          </div>
+        </div>
+
+        {/* Mind & Focus chart */}
+        <div className="bg-white rounded-2xl p-4 shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xl">🧘</span>
+            <h2 className="font-bold text-gray-900">Mind & Focus</h2>
+          </div>
+          <ResponsiveContainer width="100%" height={140}>
+            <BarChart data={mindData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+              <XAxis dataKey="day" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} allowDecimals={false} />
+              <Tooltip contentStyle={{ borderRadius: 12, border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.12)', fontSize: 12 }} />
+              <Bar dataKey="meditate" stackId="a" fill="#14b8a6" radius={[0,0,0,0]} name="Meditate (min)" />
+              <Bar dataKey="read" stackId="a" fill="#0ea5e9" radius={[6,6,0,0]} name="Read (min)" />
+            </BarChart>
+          </ResponsiveContainer>
+          <div className="mt-3 divide-y divide-gray-100">
+            <StatRow label="Meditation this week" value={totalMeditateMin} sub="min" />
+            <StatRow label="Reading this week" value={totalReadMin} sub="min" />
+          </div>
+        </div>
+
+        {/* Exercise + Contacts */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="bg-white rounded-2xl p-4 shadow-sm">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xl">💪</span>
+              <h2 className="font-bold text-gray-900 text-sm">Workouts</h2>
+            </div>
+            <p className="text-2xl font-bold mt-2">{totalExercises}</p>
+            <p className="text-xs text-gray-400">this week</p>
+          </div>
+          <div className="bg-white rounded-2xl p-4 shadow-sm">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xl">📇</span>
+              <h2 className="font-bold text-gray-900 text-sm">Contacts</h2>
+            </div>
+            <p className="text-2xl font-bold mt-2">{totalContacts}</p>
+            <p className="text-xs text-gray-400">this week</p>
+          </div>
+        </div>
+
+        {/* Awareness Points trend */}
+        <div className="bg-white rounded-2xl p-4 shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xl">✨</span>
+            <h2 className="font-bold text-gray-900">Awareness Points</h2>
+          </div>
+          <ResponsiveContainer width="100%" height={140}>
+            <LineChart data={apData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
+              <XAxis dataKey="day" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} domain={[0, 7]} allowDecimals={false} />
+              <Tooltip contentStyle={{ borderRadius: 12, border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.12)', fontSize: 12 }} />
+              <Line type="monotone" dataKey="value" stroke="#d946ef" strokeWidth={2.5} dot={{ fill: '#d946ef', r: 4 }} name="AP" />
+            </LineChart>
+          </ResponsiveContainer>
+          <div className="mt-3 divide-y divide-gray-100">
+            <StatRow label="Avg per day" value={avgAP} sub="/ 7 AP" />
+          </div>
+        </div>
+
+        {/* Avoidance list success */}
+        <div className="bg-white rounded-2xl p-4 shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xl">🛡️</span>
+            <h2 className="font-bold text-gray-900">Avoidance List Success</h2>
+          </div>
+          <ResponsiveContainer width="100%" height={140}>
+            <BarChart data={habitData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+              <XAxis dataKey="day" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} domain={[0, 100]} tickFormatter={v => `${v}%`} />
+              <Tooltip contentStyle={{ borderRadius: 12, border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.12)', fontSize: 12 }} formatter={v => `${v}%`} />
+              <Bar dataKey="value" fill="#ef4444" radius={[6,6,0,0]} name="% Avoided" />
+            </BarChart>
+          </ResponsiveContainer>
+          <div className="mt-3 divide-y divide-gray-100">
+            <StatRow label="Avg success rate" value={`${avgHabitPct}%`} />
           </div>
         </div>
 

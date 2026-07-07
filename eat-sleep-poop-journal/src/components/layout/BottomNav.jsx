@@ -1,10 +1,11 @@
-import { Home, Clock, BarChart2, Settings } from 'lucide-react'
+import { Home, CalendarClock, ListChecks, Moon, BarChart2 } from 'lucide-react'
 
 const tabs = [
-  { id: 'dashboard', icon: Home,     label: 'Today' },
-  { id: 'history',   icon: Clock,    label: 'History' },
-  { id: 'insights',  icon: BarChart2, label: 'Insights' },
-  { id: 'settings',  icon: Settings, label: 'Settings' },
+  { id: 'dashboard', icon: Home,          label: 'Today' },
+  { id: 'schedule',  icon: CalendarClock, label: 'Schedule' },
+  { id: 'track',     icon: ListChecks,    label: 'Track' },
+  { id: 'reflect',   icon: Moon,          label: 'Reflect' },
+  { id: 'insights',  icon: BarChart2,     label: 'Insights' },
 ]
 
 export default function BottomNav({ active, onNavigate }) {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useStore } from '../store/useStore'
-import { ChevronRight, Trash2, Download, Upload } from 'lucide-react'
+import { ChevronLeft, Trash2, Download, Plus, X } from 'lucide-react'
 
 function Section({ title, children }) {
   return (
@@ -21,16 +21,14 @@ function Row({ icon, label, children, danger }) {
   )
 }
 
-export default function Settings() {
-  const { state, updateSettings, deleteEntry } = useStore()
+export default function Settings({ onNavigate }) {
+  const { state, updateSettings, deleteEntry, addHabit, removeHabit } = useStore()
   const [name, setName] = useState(state.settings?.name || '')
+  const [newHabit, setNewHabit] = useState('')
   const [showConfirm, setShowConfirm] = useState(false)
-  const [saved, setSaved] = useState(false)
 
   function saveName() {
     updateSettings({ name: name.trim() })
-    setSaved(true)
-    setTimeout(() => setSaved(false), 1500)
   }
 
   function exportData() {
@@ -38,7 +36,7 @@ export default function Settings() {
     const blob = new Blob([json], { type: 'application/json' })
     const a = document.createElement('a')
     a.href = URL.createObjectURL(blob)
-    a.download = `esp-journal-${new Date().toISOString().slice(0,10)}.json`
+    a.download = `life-os-${new Date().toISOString().slice(0,10)}.json`
     a.click()
   }
 
@@ -47,14 +45,31 @@ export default function Settings() {
     setShowConfirm(false)
   }
 
+  function submitHabit(e) {
+    e.preventDefault()
+    if (!newHabit.trim()) return
+    addHabit(newHabit.trim())
+    setNewHabit('')
+  }
+
   const totalEntries = state.entries.length
-  const eatCount   = state.entries.filter(e => e.type === 'eat').length
-  const sleepCount = state.entries.filter(e => e.type === 'sleep').length
-  const poopCount  = state.entries.filter(e => e.type === 'poop').length
+  const counts = {
+    eat: state.entries.filter(e => e.type === 'eat').length,
+    sleep: state.entries.filter(e => e.type === 'sleep').length,
+    poop: state.entries.filter(e => e.type === 'poop').length,
+    meditation: state.entries.filter(e => e.type === 'meditation').length,
+    reading: state.entries.filter(e => e.type === 'reading').length,
+    exercise: state.entries.filter(e => e.type === 'exercise').length,
+    contact: state.entries.filter(e => e.type === 'contact').length,
+    timeblock: state.entries.filter(e => e.type === 'timeblock').length,
+  }
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
-      <div className="bg-white px-5 pt-14 pb-5 shadow-sm">
+      <div className="bg-white px-5 pt-14 pb-5 shadow-sm flex items-center gap-3">
+        <button onClick={() => onNavigate('dashboard')} className="p-1 -ml-1 rounded-full hover:bg-gray-100">
+          <ChevronLeft size={22} />
+        </button>
         <h1 className="text-2xl font-bold">Settings</h1>
       </div>
 
@@ -77,9 +92,37 @@ export default function Settings() {
         {/* Stats */}
         <Section title="Your Stats">
           <Row icon="📊" label="Total entries"><span className="text-sm text-gray-500">{totalEntries}</span></Row>
-          <Row icon="🍽️" label="Meals logged"><span className="text-sm text-gray-500">{eatCount}</span></Row>
-          <Row icon="😴" label="Sleep sessions"><span className="text-sm text-gray-500">{sleepCount}</span></Row>
-          <Row icon="💩" label="Bowel movements"><span className="text-sm text-gray-500">{poopCount}</span></Row>
+          <Row icon="🍽️" label="Meals logged"><span className="text-sm text-gray-500">{counts.eat}</span></Row>
+          <Row icon="😴" label="Sleep sessions"><span className="text-sm text-gray-500">{counts.sleep}</span></Row>
+          <Row icon="💩" label="Bowel movements"><span className="text-sm text-gray-500">{counts.poop}</span></Row>
+          <Row icon="🧘" label="Meditation sessions"><span className="text-sm text-gray-500">{counts.meditation}</span></Row>
+          <Row icon="📖" label="Reading sessions"><span className="text-sm text-gray-500">{counts.reading}</span></Row>
+          <Row icon="💪" label="Workouts logged"><span className="text-sm text-gray-500">{counts.exercise}</span></Row>
+          <Row icon="📇" label="Contacts logged"><span className="text-sm text-gray-500">{counts.contact}</span></Row>
+          <Row icon="🗓️" label="Time blocks planned"><span className="text-sm text-gray-500">{counts.timeblock}</span></Row>
+        </Section>
+
+        {/* Avoidance list customization */}
+        <Section title="Avoidance List">
+          {state.settings.habitList.map(h => (
+            <div key={h.id} className="flex items-center gap-3 px-4 py-3">
+              <span className="flex-1 text-sm text-gray-700">{h.text}</span>
+              <button onClick={() => removeHabit(h.id)} className="text-gray-300 hover:text-red-500">
+                <X size={16} />
+              </button>
+            </div>
+          ))}
+          <form onSubmit={submitHabit} className="flex items-center gap-2 px-4 py-3">
+            <input
+              className="flex-1 text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:border-violet-400"
+              placeholder="Add something to avoid..."
+              value={newHabit}
+              onChange={e => setNewHabit(e.target.value)}
+            />
+            <button type="submit" className="bg-violet-600 text-white rounded-lg p-2">
+              <Plus size={16} />
+            </button>
+          </form>
         </Section>
 
         {/* Data */}
@@ -93,20 +136,20 @@ export default function Settings() {
 
         {/* About */}
         <Section title="About">
-          <Row icon="💩" label="Eat Sleep Poop Journal"><span className="text-sm text-gray-400">v1.0</span></Row>
-          <Row icon="❤️" label="Made for your health"><span className="text-xs text-gray-400">Track daily</span></Row>
+          <Row icon="🧭" label="Life OS"><span className="text-sm text-gray-400">v1.0</span></Row>
+          <Row icon="❤️" label="Built for daily productivity"><span className="text-xs text-gray-400">Track daily</span></Row>
         </Section>
 
         {/* Coming soon */}
         <div className="bg-gradient-to-r from-violet-500 to-indigo-600 rounded-2xl p-4 text-white">
           <p className="font-bold mb-1">🔒 Premium Features Coming Soon</p>
           <ul className="text-sm opacity-90 space-y-1 mt-2">
-            <li>• Weight tracking</li>
-            <li>• Water intake</li>
-            <li>• Medication reminders</li>
-            <li>• Blood pressure & heart rate</li>
-            <li>• AI health insights</li>
-            <li>• Cloud sync & backup</li>
+            <li>• Weight & body composition tracking</li>
+            <li>• Water intake & medication reminders</li>
+            <li>• Weekly/monthly Life OS review reports</li>
+            <li>• AI-powered pattern insights & coaching</li>
+            <li>• Spendable rewards shop for Awareness Points</li>
+            <li>• Cloud sync & backup across devices</li>
           </ul>
         </div>
 

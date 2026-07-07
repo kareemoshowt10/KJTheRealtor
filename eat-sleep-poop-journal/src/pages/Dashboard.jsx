@@ -1,11 +1,13 @@
 import { useState, useMemo } from 'react'
-import { Plus, Flame, Utensils, Moon, Waves } from 'lucide-react'
+import { Settings as SettingsIcon, Sparkles, ChevronRight } from 'lucide-react'
 import { format } from 'date-fns'
 import { useStore } from '../store/useStore'
 import { formatTime, getStreaks } from '../utils/dateUtils'
+import { calcReflectionAP } from '../utils/scoring'
 import EatLogger from '../components/tracking/EatLogger'
 import SleepLogger from '../components/tracking/SleepLogger'
 import PoopLogger from '../components/tracking/PoopLogger'
+import ObjectiveCard from '../components/objective/ObjectiveCard'
 
 function QuickStat({ emoji, label, value, color, onClick }) {
   return (
@@ -56,8 +58,8 @@ function RecentEntry({ entry }) {
   return null
 }
 
-export default function Dashboard() {
-  const { state } = useStore()
+export default function Dashboard({ onNavigate }) {
+  const { state, getDailyRecord } = useStore()
   const [modal, setModal] = useState(null) // 'eat' | 'sleep' | 'poop'
 
   const todayStr = format(new Date(), 'yyyy-MM-dd')
@@ -69,6 +71,12 @@ export default function Dashboard() {
     }).sort((a, b) => new Date(b.timestamp || b.startTime) - new Date(a.timestamp || a.startTime))
   , [state.entries, todayStr])
 
+  const todayBlocks = useMemo(() =>
+    state.entries
+      .filter(e => e.type === 'timeblock' && e.date === todayStr)
+      .sort((a, b) => a.time.localeCompare(b.time))
+  , [state.entries, todayStr])
+
   const todayEat   = todayEntries.filter(e => e.type === 'eat').length
   const todaySleep = todayEntries.filter(e => e.type === 'sleep')
   const todayPoop  = todayEntries.filter(e => e.type === 'poop').length
@@ -78,6 +86,9 @@ export default function Dashboard() {
   const eatStreak   = getStreaks(state.entries, 'eat')
   const sleepStreak = getStreaks(state.entries, 'sleep')
   const poopStreak  = getStreaks(state.entries, 'poop')
+
+  const reflection = getDailyRecord(todayStr).reflection
+  const ap = calcReflectionAP(reflection)
 
   const greeting = () => {
     const h = new Date().getHours()
@@ -91,14 +102,56 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col h-full bg-gray-50">
       {/* Header */}
-      <div className="bg-white px-5 pt-14 pb-5 shadow-sm">
-        <p className="text-gray-400 text-sm">{format(new Date(), 'EEEE, MMMM d')}</p>
-        <h1 className="text-2xl font-bold mt-0.5">
-          {greeting()}{name ? `, ${name}` : ''}! 👋
-        </h1>
+      <div className="bg-white px-5 pt-14 pb-5 shadow-sm flex items-start justify-between">
+        <div>
+          <p className="text-gray-400 text-sm">{format(new Date(), 'EEEE, MMMM d')}</p>
+          <h1 className="text-2xl font-bold mt-0.5">
+            {greeting()}{name ? `, ${name}` : ''}! 👋
+          </h1>
+        </div>
+        <button onClick={() => onNavigate('settings')} className="p-2 rounded-full hover:bg-gray-100 mt-1">
+          <SettingsIcon size={20} className="text-gray-500" />
+        </button>
       </div>
 
       <div className="flex-1 overflow-y-auto scrollbar-hide px-4 pb-28 space-y-5 pt-5">
+
+        <ObjectiveCard date={todayStr} />
+
+        {/* AP score + Schedule preview row */}
+        <div className="grid grid-cols-2 gap-3">
+          <button onClick={() => onNavigate('reflect')}
+            className="bg-white rounded-2xl p-4 shadow-sm text-left active:scale-95 transition-transform">
+            <div className="flex items-center gap-1.5 text-fuchsia-600">
+              <Sparkles size={16} />
+              <span className="text-xs font-semibold uppercase tracking-wide">Awareness</span>
+            </div>
+            <p className="text-2xl font-bold mt-1">{ap.total}<span className="text-sm text-gray-400 font-medium">/{ap.max} AP</span></p>
+          </button>
+          <button onClick={() => onNavigate('schedule')}
+            className="bg-white rounded-2xl p-4 shadow-sm text-left active:scale-95 transition-transform">
+            <div className="flex items-center gap-1.5 text-blue-600">
+              <span className="text-xs font-semibold uppercase tracking-wide">🗓️ Schedule</span>
+            </div>
+            <p className="text-2xl font-bold mt-1">{todayBlocks.length}<span className="text-sm text-gray-400 font-medium"> blocks</span></p>
+          </button>
+        </div>
+
+        {/* Schedule preview */}
+        {todayBlocks.length > 0 && (
+          <button onClick={() => onNavigate('schedule')} className="w-full bg-white rounded-2xl p-4 shadow-sm text-left">
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide">Next Up</p>
+              <ChevronRight size={14} className="text-gray-400" />
+            </div>
+            {todayBlocks.slice(0, 2).map(b => (
+              <div key={b.id} className="flex items-center gap-2 py-1">
+                <span className="text-xs font-bold text-blue-600 bg-blue-50 rounded px-1.5 py-0.5">{b.time}</span>
+                <span className="text-sm text-gray-700 truncate">{b.task || 'No task set'}</span>
+              </div>
+            ))}
+          </button>
+        )}
 
         {/* Quick stats */}
         <div>
@@ -133,7 +186,12 @@ export default function Dashboard() {
 
         {/* Quick Add Buttons */}
         <div>
-          <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-3">Quick Log</p>
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide">Quick Log</p>
+            <button onClick={() => onNavigate('track')} className="text-xs text-violet-600 font-semibold flex items-center gap-0.5">
+              More <ChevronRight size={12} />
+            </button>
+          </div>
           <div className="grid grid-cols-3 gap-3">
             <button onClick={() => setModal('eat')}
               className="bg-orange-500 text-white rounded-2xl py-5 flex flex-col items-center gap-2 active:scale-95 transition-transform shadow-sm">

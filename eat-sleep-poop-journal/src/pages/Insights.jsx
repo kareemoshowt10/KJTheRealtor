@@ -38,7 +38,7 @@ function StatRow({ label, value, sub }) {
   )
 }
 
-export default function Insights() {
+export default function Insights({ onNavigate }) {
   const { state } = useStore()
   const entries = state.entries
 
@@ -125,8 +125,12 @@ export default function Insights() {
   if (entries.length === 0 && !hasDailyRecordData) {
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <div className="bg-white px-5 pt-14 pb-5 shadow-sm">
+        <div className="bg-white px-5 pt-14 pb-5 shadow-sm flex items-center justify-between">
           <h1 className="text-2xl font-bold">Insights</h1>
+          <button onClick={() => onNavigate('weeklyreview')}
+            className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm">
+            Weekly Review
+          </button>
         </div>
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
@@ -141,9 +145,15 @@ export default function Insights() {
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
-      <div className="bg-white px-5 pt-14 pb-5 shadow-sm">
-        <h1 className="text-2xl font-bold">Insights</h1>
-        <p className="text-gray-400 text-sm mt-0.5">Last 7 days</p>
+      <div className="bg-white px-5 pt-14 pb-5 shadow-sm flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold">Insights</h1>
+          <p className="text-gray-400 text-sm mt-0.5">Last 7 days</p>
+        </div>
+        <button onClick={() => onNavigate('weeklyreview')}
+          className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm">
+          Weekly Review
+        </button>
       </div>
 
       <div className="flex-1 overflow-y-auto scrollbar-hide px-4 pb-28 pt-5 space-y-5">

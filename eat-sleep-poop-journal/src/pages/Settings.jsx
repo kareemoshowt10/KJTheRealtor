@@ -190,7 +190,7 @@ export default function Settings({ onNavigate }) {
           <ul className="text-sm opacity-90 space-y-1 mt-2">
             <li>• Weight & body composition tracking</li>
             <li>• Water intake & medication reminders</li>
-            <li>• Weekly/monthly Life OS review reports</li>
+            <li>• Monthly Life OS review reports</li>
             <li>• AI-powered pattern insights & coaching</li>
             <li>• Spendable rewards shop for Awareness Points</li>
             <li>• Cloud sync & backup across devices</li>

@@ -418,11 +418,11 @@
       text-transform: uppercase; color: var(--gold);
     }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
-    .nav-links a {
+    .nav-links > a {
       font-size: 0.88rem; font-weight: 500; color: rgba(250, 245, 238, 0.85);
       text-decoration: none; transition: color 0.2s var(--ease);
     }
-    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links > a:hover { color: var(--gold-light); }
     .nav-cta {
       font-size: 0.85rem; font-weight: 600; color: var(--navy);
       background: var(--gold); text-decoration: none;
@@ -455,7 +455,7 @@
         transition: max-height 0.3s var(--ease);
       }
       .nav-links.is-open { max-height: 420px; }
-      .nav-links a {
+      .nav-links > a {
         width: 100%; padding: 1rem var(--gutter);
         border-top: 1px solid rgba(250, 245, 238, 0.07);
         font-size: 1rem;
@@ -918,6 +918,69 @@
       display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.6rem;
       font-size: 0.78rem; color: rgba(250, 245, 238, 0.5);
     }
+  
+    /* ─── My Zip Codes dropdown ─────────────────────────────────────── */
+    .nav-zip { position: relative; }
+    .nav-zip-toggle {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-family: var(--font-sans); font-size: 0.88rem; font-weight: 500;
+      color: rgba(250, 245, 238, 0.85); transition: color 0.2s var(--ease);
+    }
+    .nav-zip-toggle:hover, .nav-zip.is-open .nav-zip-toggle { color: var(--gold-light); }
+    .zip-caret { width: 10px; height: 10px; transition: transform 0.25s var(--ease); flex: none; }
+    .nav-zip.is-open .zip-caret { transform: rotate(180deg); }
+    .nav-zip-menu {
+      position: absolute; top: calc(100% + 1.05rem); left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      min-width: 320px;
+      background: rgba(11, 30, 62, 0.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      border-radius: 12px;
+      padding: 0.55rem;
+      box-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.65);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s;
+    }
+    .nav-zip-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -1.1rem; height: 1.1rem; }
+    .nav-zip.is-open .nav-zip-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .zip-menu-label {
+      display: block; padding: 0.5rem 0.95rem 0.45rem;
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(232, 200, 122, 0.75);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.18); margin-bottom: 0.35rem;
+    }
+    .nav-links .zip-link {
+      display: flex; align-items: baseline; gap: 0.95rem; width: auto;
+      padding: 0.72rem 0.95rem; border-radius: 8px; border-top: none; text-decoration: none;
+      transition: background 0.18s var(--ease);
+    }
+    .nav-links .zip-link:hover, .nav-links .zip-link:focus-visible { background: rgba(201, 168, 76, 0.1); }
+    .zip-link .zip-num {
+      font-family: var(--font-display); font-weight: 500; font-size: 1.22rem;
+      color: var(--gold); letter-spacing: 0.02em; font-variant-numeric: tabular-nums;
+      transition: color 0.18s var(--ease);
+    }
+    .zip-link:hover .zip-num { color: var(--gold-light); }
+    .zip-link .zip-info { display: flex; flex-direction: column; line-height: 1.35; }
+    .zip-link .zip-info strong { font-size: 0.9rem; font-weight: 600; color: var(--cream); }
+    .zip-link .zip-info span { font-size: 0.76rem; color: rgba(250, 245, 238, 0.58); }
+    @media (max-width: 860px) {
+      .nav-links.is-open { max-height: 640px; }
+      .nav-zip { width: 100%; border-top: 1px solid rgba(250, 245, 238, 0.07); }
+      .nav-zip-toggle { width: 100%; justify-content: space-between; padding: 1rem var(--gutter); font-size: 1rem; }
+      .nav-zip-menu {
+        position: static; transform: none; min-width: 0; border: none; border-radius: 0;
+        background: rgba(0, 0, 0, 0.22); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+        padding: 0; max-height: 0; overflow: hidden; opacity: 1; visibility: visible; pointer-events: auto;
+        transition: max-height 0.3s var(--ease);
+      }
+      .nav-zip-menu::before { display: none; }
+      .nav-zip.is-open .nav-zip-menu { max-height: 320px; transform: none; }
+      .zip-menu-label { padding-left: var(--gutter); }
+      .nav-links .zip-link { border-radius: 0; padding-left: var(--gutter); width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -938,7 +1001,27 @@
       <nav class="nav-links" id="site-nav" aria-label="Primary">
         <a href="#library">The Library</a>
         <a href="#method">The Method</a>
-        <a href="/93063">93063 Home Values</a>
+        <div class="nav-zip" id="nav-zip">
+          <button class="nav-zip-toggle" id="zip-toggle" type="button" aria-expanded="false" aria-controls="zip-menu">
+            My Zip Codes
+            <svg class="zip-caret" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="nav-zip-menu" id="zip-menu" aria-label="My Zip Codes">
+            <span class="zip-menu-label">Three zip codes &middot; one family story</span>
+            <a class="zip-link" href="/91311">
+              <span class="zip-num">91311</span>
+              <span class="zip-info"><strong>Chatsworth</strong><span>Where I&rsquo;m from</span></span>
+            </a>
+            <a class="zip-link" href="/93063">
+              <span class="zip-num">93063</span>
+              <span class="zip-info"><strong>East Simi Valley</strong><span>Where I chose home</span></span>
+            </a>
+            <a class="zip-link" href="/91304">
+              <span class="zip-num">91304</span>
+              <span class="zip-info"><strong>West Hills &middot; Canoga Park</strong><span>Where I learned to build</span></span>
+            </a>
+          </div>
+        </div>
         <a href="/about">About</a>
         <a href="#start">Start a Conversation</a>
       </nav>
@@ -1037,7 +1120,7 @@
             <p>Forty-two playbooks on buying, selling, investing, ADUs, and tax strategy — the reference shelf I actually work from, open to you.</p>
             <span class="library-card-foot"><span class="meta">42 reports</span><span class="open">Open free →</span></span>
           </a>
-          <a class="library-card" href="/93063" data-reveal>
+          <a class="library-card" href="/93063/home-value" data-reveal>
             <span class="eyebrow">Local Focus</span>
             <h3>The 93063 Equity Audit</h3>
             <p>See exactly what your Simi Valley home is worth today and discover hidden equity opportunities specific to the 93063 zip code.</p>
@@ -1299,8 +1382,9 @@
           <a href="/hidden-hills">Hidden Hills</a>
           <a href="/encino">Encino</a>
           <a href="/west-hills">West Hills</a>
-          <a href="/chatsworth-realtor">Chatsworth</a>
-          <a href="/93063">Simi Valley</a>
+          <a href="/91311">Chatsworth &middot; 91311</a>
+          <a href="/93063">East Simi Valley &middot; 93063</a>
+          <a href="/91304">Canoga Park &middot; 91304</a>
         </div>
         <div class="footer-col">
           <h4>Direct</h4>
@@ -1418,6 +1502,47 @@
           });
         });
       }
+    })();
+  </script>
+  <script>
+    (function () {
+      "use strict";
+      /* My Zip Codes dropdown */
+      var zip = document.getElementById("nav-zip");
+      var zipToggle = document.getElementById("zip-toggle");
+      if (!zip || !zipToggle) return;
+      var desktop = function () { return window.matchMedia("(min-width: 861px)").matches; };
+      var setOpen = function (open) {
+        zip.classList.toggle("is-open", open);
+        zipToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+      zipToggle.addEventListener("click", function () {
+        setOpen(!zip.classList.contains("is-open"));
+      });
+      var closeTimer = null;
+      zip.addEventListener("mouseenter", function () {
+        if (!desktop()) return;
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+        setOpen(true);
+      });
+      zip.addEventListener("mouseleave", function () {
+        if (!desktop()) return;
+        closeTimer = setTimeout(function () { setOpen(false); }, 160);
+      });
+      document.addEventListener("click", function (e) {
+        if (!zip.contains(e.target)) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && zip.classList.contains("is-open")) {
+          setOpen(false);
+          zipToggle.focus();
+        }
+      });
+      zip.addEventListener("focusout", function () {
+        setTimeout(function () {
+          if (!zip.contains(document.activeElement)) setOpen(false);
+        }, 0);
+      });
     })();
   </script>
   <script src="/track.js" defer></script>

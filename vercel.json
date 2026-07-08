@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/93063",
+      "source": "/93063/home-value",
       "destination": "https://kj-the-realtor-93063-lead-gen.vercel.app/"
     },
     {
@@ -11,6 +11,26 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/chatsworth-realtor",
+      "destination": "/91311",
+      "permanent": true
+    },
+    {
+      "source": "/chatsworth-realtor.html",
+      "destination": "/91311",
+      "permanent": true
+    },
+    {
+      "source": "/simi-valley-realtor",
+      "destination": "/93063",
+      "permanent": true
+    },
+    {
+      "source": "/simi-valley-realtor.html",
+      "destination": "/93063",
+      "permanent": true
+    },
     {
       "source": "/buyers-and-sellers",
       "destination": "/buyers",

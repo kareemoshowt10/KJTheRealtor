@@ -96,7 +96,7 @@ export default function Settings({ onNavigate }) {
   return (
     <div className="flex flex-col h-full bg-gray-50">
       <div className="bg-white px-5 pt-14 pb-5 shadow-sm flex items-center gap-3">
-        <button onClick={() => onNavigate('dashboard')} className="p-1 -ml-1 rounded-full hover:bg-gray-100">
+        <button onClick={() => onNavigate('dashboard')} className="p-1 -ml-1 rounded-full hover:bg-gray-100 active:scale-90 transition-transform">
           <ChevronLeft size={22} />
         </button>
         <h1 className="text-2xl font-bold">Settings</h1>
@@ -136,7 +136,7 @@ export default function Settings({ onNavigate }) {
           {state.settings.habitList.map(h => (
             <div key={h.id} className="flex items-center gap-3 px-4 py-3">
               <span className="flex-1 text-sm text-gray-700">{h.text}</span>
-              <button onClick={() => removeHabit(h.id)} className="text-gray-300 hover:text-red-500">
+              <button onClick={() => removeHabit(h.id)} className="text-gray-300 hover:text-red-500 active:scale-90 transition-transform">
                 <X size={16} />
               </button>
             </div>
@@ -148,7 +148,7 @@ export default function Settings({ onNavigate }) {
               value={newHabit}
               onChange={e => setNewHabit(e.target.value)}
             />
-            <button type="submit" className="bg-violet-600 text-white rounded-lg p-2">
+            <button type="submit" className="bg-violet-600 text-white rounded-lg p-2 active:scale-90 transition-transform">
               <Plus size={16} />
             </button>
           </form>
@@ -156,12 +156,12 @@ export default function Settings({ onNavigate }) {
 
         {/* Data */}
         <Section title="Data">
-          <button onClick={exportData} className="w-full">
+          <button onClick={exportData} className="w-full active:bg-gray-50 transition-colors">
             <Row icon="📤" label="Export Journal (JSON)">
               <Download size={16} className="text-gray-400" />
             </Row>
           </button>
-          <button onClick={() => fileInputRef.current?.click()} className="w-full">
+          <button onClick={() => fileInputRef.current?.click()} className="w-full active:bg-gray-50 transition-colors">
             <Row icon="📥" label="Import Backup (JSON)">
               <Upload size={16} className="text-gray-400" />
             </Row>
@@ -199,7 +199,7 @@ export default function Settings({ onNavigate }) {
 
         {/* Danger zone */}
         <Section title="Danger Zone">
-          <button onClick={() => setShowConfirm(true)} className="w-full text-left">
+          <button onClick={() => setShowConfirm(true)} className="w-full text-left active:bg-red-50 transition-colors">
             <Row icon="🗑️" label="Delete All Data" danger />
           </button>
         </Section>
@@ -216,11 +216,11 @@ export default function Settings({ onNavigate }) {
             </div>
             <div className="flex gap-3">
               <button onClick={() => setShowConfirm(false)}
-                className="flex-1 bg-gray-100 text-gray-700 rounded-2xl py-3 font-semibold">
+                className="flex-1 bg-gray-100 text-gray-700 rounded-2xl py-3 font-semibold active:scale-95 transition-transform">
                 Cancel
               </button>
               <button onClick={clearAll}
-                className="flex-1 bg-red-500 text-white rounded-2xl py-3 font-semibold">
+                className="flex-1 bg-red-500 text-white rounded-2xl py-3 font-semibold active:scale-95 transition-transform">
                 Delete
               </button>
             </div>
@@ -243,11 +243,11 @@ export default function Settings({ onNavigate }) {
             </div>
             <div className="flex gap-3">
               <button onClick={() => setPendingImport(null)}
-                className="flex-1 bg-gray-100 text-gray-700 rounded-2xl py-3 font-semibold">
+                className="flex-1 bg-gray-100 text-gray-700 rounded-2xl py-3 font-semibold active:scale-95 transition-transform">
                 Cancel
               </button>
               <button onClick={confirmImport}
-                className="flex-1 bg-violet-600 text-white rounded-2xl py-3 font-semibold">
+                className="flex-1 bg-violet-600 text-white rounded-2xl py-3 font-semibold active:scale-95 transition-transform">
                 Restore
               </button>
             </div>

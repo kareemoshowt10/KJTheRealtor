@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { X, Utensils } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
+import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
 
 const MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Drink']
@@ -8,6 +9,7 @@ const QUICK_FOODS = ['Coffee ☕', 'Eggs 🍳', 'Salad 🥗', 'Pizza 🍕', 'San
 
 export default function EatLogger({ onClose }) {
   const { addEntry } = useStore()
+  const { showToast } = useToast()
   const [mealType, setMealType] = useState('Breakfast')
   const [food, setFood] = useState('')
   const [calories, setCalories] = useState('')
@@ -26,6 +28,7 @@ export default function EatLogger({ onClose }) {
       calories: calories ? +calories : null,
       notes: notes.trim()
     })
+    showToast('Meal logged 🍽️')
     onClose()
   }
 

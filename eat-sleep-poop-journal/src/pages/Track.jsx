@@ -68,7 +68,7 @@ export default function Track({ onNavigate }) {
           <h1 className="text-2xl font-bold">Track</h1>
           <p className="text-gray-400 text-sm mt-0.5">Body, mind & relationships</p>
         </div>
-        <button onClick={() => onNavigate('history')} className="flex items-center gap-1 text-gray-500 text-sm font-medium">
+        <button onClick={() => onNavigate('history')} className="flex items-center gap-1 text-gray-500 text-sm font-medium active:scale-95 transition-transform">
           <Clock size={16} /> History <ChevronRight size={14} />
         </button>
       </div>

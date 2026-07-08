@@ -128,7 +128,7 @@ export default function Insights({ onNavigate }) {
         <div className="bg-white px-5 pt-14 pb-5 shadow-sm flex items-center justify-between">
           <h1 className="text-2xl font-bold">Insights</h1>
           <button onClick={() => onNavigate('weeklyreview')}
-            className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm">
+            className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm active:scale-95 transition-transform">
             Weekly Review
           </button>
         </div>
@@ -151,7 +151,7 @@ export default function Insights({ onNavigate }) {
           <p className="text-gray-400 text-sm mt-0.5">Last 7 days</p>
         </div>
         <button onClick={() => onNavigate('weeklyreview')}
-          className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm">
+          className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm active:scale-95 transition-transform">
           Weekly Review
         </button>
       </div>

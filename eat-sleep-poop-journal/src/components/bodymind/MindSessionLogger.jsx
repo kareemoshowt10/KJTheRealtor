@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { X } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
+import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
 
 const CONFIG = {
@@ -24,6 +25,7 @@ function minusMinutes(mins) {
 
 export default function MindSessionLogger({ type, onClose }) {
   const { addEntry } = useStore()
+  const { showToast } = useToast()
   const cfg = CONFIG[type]
   const [startTime, setStartTime] = useState(minusMinutes(20))
   const [endTime, setEndTime] = useState(nowTime())
@@ -45,6 +47,7 @@ export default function MindSessionLogger({ type, onClose }) {
       endTime: toISOString(new Date(endISO)),
       durationMin, notes: notes.trim(),
     })
+    showToast(type === 'meditation' ? 'Meditation logged 🧘' : 'Reading logged 📖')
     onClose()
   }
 

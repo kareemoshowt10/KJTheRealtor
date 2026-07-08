@@ -13,7 +13,7 @@ function BlockCard({ block, onEdit, onDelete }) {
         tabIndex={0}
         onClick={() => onEdit(block)}
         onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onEdit(block) }}
-        className="w-full text-left px-4 py-3 cursor-pointer"
+        className="w-full text-left px-4 py-3 cursor-pointer active:bg-gray-50 transition-colors"
       >
         <div className="flex items-start gap-3">
           <span className="text-xs font-bold text-blue-600 bg-blue-50 rounded-lg px-2 py-1 shrink-0 mt-0.5">
@@ -42,7 +42,7 @@ function BlockCard({ block, onEdit, onDelete }) {
               </p>
             )}
           </div>
-          <button onClick={(e) => { e.stopPropagation(); onDelete(block.id) }} className="p-1 text-red-300 hover:text-red-500 shrink-0">
+          <button onClick={(e) => { e.stopPropagation(); onDelete(block.id) }} className="p-1 text-red-300 hover:text-red-500 shrink-0 active:scale-90 transition-transform">
             <Trash2 size={14} />
           </button>
         </div>
@@ -82,13 +82,13 @@ export default function Schedule() {
       <div className="bg-white px-5 pt-14 pb-4 shadow-sm">
         <h1 className="text-2xl font-bold">Schedule</h1>
         <div className="flex items-center justify-between mt-3">
-          <button onClick={() => setSelectedDate(d => addDays(d, -1))} className="p-2 rounded-full hover:bg-gray-100">
+          <button onClick={() => setSelectedDate(d => addDays(d, -1))} className="p-2 rounded-full hover:bg-gray-100 active:scale-90 transition-transform">
             <ChevronLeft size={18} />
           </button>
           <span className="font-medium text-sm text-gray-700">
             {isToday ? 'Today' : format(selectedDate, 'EEE, MMM d')}
           </span>
-          <button onClick={() => setSelectedDate(d => addDays(d, 1))} className="p-2 rounded-full hover:bg-gray-100">
+          <button onClick={() => setSelectedDate(d => addDays(d, 1))} className="p-2 rounded-full hover:bg-gray-100 active:scale-90 transition-transform">
             <ChevronRight size={18} />
           </button>
         </div>
@@ -98,7 +98,7 @@ export default function Schedule() {
         <div className="flex items-center justify-between">
           <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide">Time Blocks</p>
           <button onClick={() => setModalBlock(null)}
-            className="flex items-center gap-1 text-blue-600 text-sm font-semibold bg-blue-50 rounded-full px-3 py-1.5">
+            className="flex items-center gap-1 text-blue-600 text-sm font-semibold bg-blue-50 rounded-full px-3 py-1.5 active:scale-95 transition-transform">
             <Plus size={14} /> Add Block
           </button>
         </div>

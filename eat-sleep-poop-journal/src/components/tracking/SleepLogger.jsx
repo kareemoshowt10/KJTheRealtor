@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { X } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
+import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
 
 const QUALITY_LABELS = ['', 'Terrible 😫', 'Bad 😕', 'Okay 😐', 'Good 😊', 'Amazing 🌟']
@@ -18,6 +19,7 @@ function nowTime() { return new Date().toTimeString().slice(0, 5) }
 
 export default function SleepLogger({ onClose }) {
   const { addEntry } = useStore()
+  const { showToast } = useToast()
   const [startDate, setStartDate] = useState(getYesterday())
   const [startTime, setStartTime] = useState('22:00')
   const [endDate, setEndDate] = useState(getToday())
@@ -39,6 +41,7 @@ export default function SleepLogger({ onClose }) {
       startTime: startISO, endTime: endISO,
       quality, notes: notes.trim()
     })
+    showToast('Sleep logged 😴')
     onClose()
   }
 

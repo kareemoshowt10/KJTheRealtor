@@ -19,11 +19,15 @@ export default function BottomNav({ active, onNavigate }) {
             <button
               key={id}
               onClick={() => onNavigate(id)}
-              className={`flex-1 flex flex-col items-center gap-0.5 py-2 text-xs font-medium transition-colors ${
+              className={`flex-1 flex flex-col items-center gap-0.5 pt-2 pb-1 text-xs font-medium transition-colors active:scale-95 ${
                 isActive ? 'text-violet-600' : 'text-gray-400'
               }`}
             >
-              <Icon size={22} strokeWidth={isActive ? 2.5 : 1.8} />
+              <span className={`flex items-center justify-center w-9 h-7 rounded-full transition-colors duration-200 ${
+                isActive ? 'bg-violet-50' : ''
+              }`}>
+                <Icon size={20} strokeWidth={isActive ? 2.5 : 1.8} />
+              </span>
               {label}
             </button>
           )

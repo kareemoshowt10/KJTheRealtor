@@ -28,7 +28,7 @@ export default function AvoidanceList({ date }) {
             <button
               key={h.id}
               onClick={() => toggleHabit(date, h.id)}
-              className="w-full flex items-center gap-3 text-left"
+              className="w-full flex items-center gap-3 text-left active:scale-[0.98] transition-transform"
             >
               <span className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center shrink-0 transition-colors ${
                 done ? 'bg-red-500 border-red-500' : 'border-gray-300'

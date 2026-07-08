@@ -1,7 +1,7 @@
 {
-  "name": "Eat Sleep Poop Journal",
-  "short_name": "ESP Journal",
-  "description": "Track your eating, sleeping, and pooping habits daily.",
+  "name": "Life OS",
+  "short_name": "Life OS",
+  "description": "Your daily operating system — objectives, schedule, health, and reflection in one place.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f8fafc",
@@ -9,11 +9,11 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💩</text></svg>",
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>",
       "sizes": "any",
       "type": "image/svg+xml"
     }
   ],
-  "categories": ["health", "lifestyle"],
+  "categories": ["health", "lifestyle", "productivity"],
   "screenshots": []
 }

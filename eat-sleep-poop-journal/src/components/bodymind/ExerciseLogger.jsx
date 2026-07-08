@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { X } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
+import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
 
 const QUICK_EXERCISES = ['Pushups', 'Pullups', 'Squats', 'Muscle', 'Run', 'Bike', 'Yoga', 'Lift']
 
 export default function ExerciseLogger({ onClose }) {
   const { addEntry } = useStore()
+  const { showToast } = useToast()
   const [exercise, setExercise] = useState('')
   const [count, setCount] = useState('')
   const [durationLocation, setDurationLocation] = useState('')
@@ -26,6 +28,7 @@ export default function ExerciseLogger({ onClose }) {
       durationLocation: durationLocation.trim(),
       notes: notes.trim(),
     })
+    showToast('Workout logged 💪')
     onClose()
   }
 

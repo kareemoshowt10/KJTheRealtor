@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { X } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
+import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
 
 const BRISTOL = [
@@ -17,6 +18,7 @@ const COLORS = ['Brown', 'Dark Brown', 'Yellow', 'Green', 'Black', 'Red']
 
 export default function PoopLogger({ onClose }) {
   const { addEntry } = useStore()
+  const { showToast } = useToast()
   const [bristolType, setBristolType] = useState(4)
   const [color, setColor] = useState('Brown')
   const [notes, setNotes] = useState('')
@@ -31,6 +33,7 @@ export default function PoopLogger({ onClose }) {
       id: makeId(), type: 'poop', timestamp: toISOString(now),
       bristolType, color, notes: notes.trim()
     })
+    showToast('Logged 💩')
     onClose()
   }
 

@@ -1,16 +1,24 @@
-# React + Vite
+# Life OS
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Your daily operating system — a mobile-first React app for setting a daily objective, planning your day in time blocks, tracking eating/sleep/exercise/meditation/reading, logging contacts, and running an evening reflection with an Awareness Points score.
 
-Currently, two official plugins are available:
+## Modules
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Today** — daily objective, Awareness Points, schedule preview, streaks, quick-log
+- **Schedule** — hourly time-block planner with a plan/retrospective (task → what happened → lesson → next action) flow
+- **Track** — one hub for logging Eat, Sleep, Poop, Meditate, Read, Exercise, and Contacts
+- **Reflect** — evening journal prompts scored as Awareness Points, plus a customizable daily avoidance list
+- **Insights** — 7-day trend charts across every module, plus a Weekly Review recap
+- **Settings** — export/import a full JSON backup, customize the avoidance list, wipe data
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React 19 + Vite + Tailwind CSS 4 + Recharts + date-fns + lucide-react. Data persists to `localStorage` — no backend.
 
-## Expanding the Oxlint configuration
+## Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm install
+npm run dev      # start dev server
+npm run build    # production build to dist/
+```

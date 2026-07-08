@@ -60,11 +60,11 @@ function EntryCard({ entry, onDelete }) {
         <div className="flex items-center gap-2 shrink-0">
           <span className="text-xs text-gray-400">{time}</span>
           {detail && (
-            <button onClick={() => setExpanded(x => !x)} className="p-1 text-gray-300 hover:text-gray-500">
+            <button onClick={() => setExpanded(x => !x)} className="p-1 text-gray-300 hover:text-gray-500 active:scale-90 transition-transform">
               {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
             </button>
           )}
-          <button onClick={() => onDelete(entry.id)} className="p-1 text-red-300 hover:text-red-500">
+          <button onClick={() => onDelete(entry.id)} className="p-1 text-red-300 hover:text-red-500 active:scale-90 transition-transform">
             <Trash2 size={14} />
           </button>
         </div>
@@ -120,7 +120,7 @@ export default function History({ onNavigate }) {
     <div className="flex flex-col h-full bg-gray-50">
       <div className="bg-white px-5 pt-14 pb-4 shadow-sm">
         <div className="flex items-center gap-3 mb-1">
-          <button onClick={() => onNavigate('track')} className="p-1 -ml-1 rounded-full hover:bg-gray-100">
+          <button onClick={() => onNavigate('track')} className="p-1 -ml-1 rounded-full hover:bg-gray-100 active:scale-90 transition-transform">
             <ChevronLeft size={22} />
           </button>
           <h1 className="text-2xl font-bold">History</h1>
@@ -128,7 +128,7 @@ export default function History({ onNavigate }) {
         <div className="flex gap-2 mt-3 overflow-x-auto scrollbar-hide pb-1">
           {filters.map(f => (
             <button key={f.id} onClick={() => setFilter(f.id)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all flex items-center gap-1.5 ${
+              className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all active:scale-95 flex items-center gap-1.5 ${
                 filter === f.id ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-600'
               }`}
             >

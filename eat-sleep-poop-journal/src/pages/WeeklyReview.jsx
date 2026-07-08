@@ -101,7 +101,7 @@ export default function WeeklyReview({ onNavigate }) {
   return (
     <div className="flex flex-col h-full bg-gray-50">
       <div className="bg-white px-5 pt-14 pb-4 shadow-sm flex items-center gap-3">
-        <button onClick={() => onNavigate('insights')} className="p-1 -ml-1 rounded-full hover:bg-gray-100">
+        <button onClick={() => onNavigate('insights')} className="p-1 -ml-1 rounded-full hover:bg-gray-100 active:scale-90 transition-transform">
           <ChevronLeft size={22} />
         </button>
         <div>

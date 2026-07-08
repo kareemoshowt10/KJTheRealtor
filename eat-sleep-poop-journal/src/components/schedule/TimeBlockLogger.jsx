@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { X } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
+import { useToast } from '../../store/ToastContext'
 
 export default function TimeBlockLogger({ onClose, date, existing }) {
   const { addEntry, updateEntry } = useStore()
+  const { showToast } = useToast()
   const [time, setTime] = useState(existing?.time || new Date().toTimeString().slice(0, 5))
   const [task, setTask] = useState(existing?.task || '')
   const [location, setLocation] = useState(existing?.location || '')
@@ -25,8 +27,10 @@ export default function TimeBlockLogger({ onClose, date, existing }) {
     }
     if (existing) {
       updateEntry(existing.id, payload)
+      showToast('Block updated 🗓️')
     } else {
       addEntry({ id: makeId(), ...payload })
+      showToast('Block saved 🗓️')
     }
     onClose()
   }

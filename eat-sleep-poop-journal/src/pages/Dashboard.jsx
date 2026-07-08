@@ -107,7 +107,7 @@ export default function Dashboard({ onNavigate }) {
             {greeting()}{name ? `, ${name}` : ''}! 👋
           </h1>
         </div>
-        <button onClick={() => onNavigate('settings')} className="p-2 rounded-full hover:bg-gray-100 mt-1">
+        <button onClick={() => onNavigate('settings')} className="p-2 rounded-full hover:bg-gray-100 mt-1 active:scale-90 transition-transform">
           <SettingsIcon size={20} className="text-gray-500" />
         </button>
       </div>
@@ -137,7 +137,7 @@ export default function Dashboard({ onNavigate }) {
 
         {/* Schedule preview */}
         {todayBlocks.length > 0 && (
-          <button onClick={() => onNavigate('schedule')} className="w-full bg-white rounded-2xl p-4 shadow-sm text-left">
+          <button onClick={() => onNavigate('schedule')} className="w-full bg-white rounded-2xl p-4 shadow-sm text-left active:scale-[0.98] transition-transform">
             <div className="flex items-center justify-between mb-2">
               <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide">Next Up</p>
               <ChevronRight size={14} className="text-gray-400" />

@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { X } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
+import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
 
 export default function ContactLogger({ onClose }) {
   const { addEntry } = useStore()
+  const { showToast } = useToast()
   const [name, setName] = useState('')
   const [subject, setSubject] = useState('')
   const [description, setDescription] = useState('')
@@ -20,6 +22,7 @@ export default function ContactLogger({ onClose }) {
       id: makeId(), type: 'contact', timestamp: toISOString(now),
       name: name.trim(), subject: subject.trim(), description: description.trim(),
     })
+    showToast('Contact logged 📇')
     onClose()
   }
 

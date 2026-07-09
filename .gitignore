@@ -1,6 +1,8 @@
 .DS_Store
 .vercel
 node_modules
+.env
+.env.local
 KJ-Realtor-Website-Copy
 Command.me/
 KJTheRealtor-Backup-May-07/

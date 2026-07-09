@@ -1,0 +1,13 @@
+{
+  "name": "market-pulse",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Weekly Firecrawl search that refreshes the local-pulse widget data on the zip trilogy pages.",
+  "scripts": {
+    "generate": "node generate.mjs"
+  },
+  "dependencies": {
+    "firecrawl": "^4.30.0"
+  }
+}

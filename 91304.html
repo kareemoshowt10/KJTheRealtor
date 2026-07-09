@@ -406,6 +406,14 @@
     .cal-when { font-family: var(--font-display); font-weight: 500; font-style: italic; font-size: 1.1rem; color: var(--gold-deep); }
     .cal-row h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.3rem; color: var(--navy); margin-bottom: 0.3rem; }
     .cal-row p { font-size: 0.93rem; color: var(--slate); max-width: 66ch; }
+    .pulse-block { margin-top: 2.2rem; padding-top: 2rem; border-top: 1px solid var(--sand-line); }
+    .pulse-block[hidden] { display: none; }
+    .pulse-tag { display: block; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.9rem; }
+    .pulse-items { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .pulse-items li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem; }
+    .pulse-items li a { font-size: 0.93rem; color: var(--navy); text-decoration: none; border-bottom: 1px solid transparent; }
+    .pulse-items li a:hover { border-bottom-color: var(--gold-deep); }
+    .pulse-items li .pulse-date { font-size: 0.78rem; color: var(--slate); }
 
     /* ─── My Story ──────────────────────────────────────────────────────── */
     .mystory { background: linear-gradient(174deg, #1b2a3a 0%, var(--navy) 45%, var(--navy-soft) 100%); color: var(--cream); padding: clamp(5rem, 10vw, 8rem) 0; position: relative; overflow: hidden; }
@@ -811,6 +819,10 @@
             </div>
           </div>
         </div>
+        <div class="pulse-block" data-reveal data-zip="91304" hidden>
+          <span class="pulse-tag">This week in 91304</span>
+          <ul class="pulse-items"></ul>
+        </div>
       </div>
     </section>
 
@@ -1128,6 +1140,39 @@
             status.classList.add("is-err");
           });
         });
+      }
+
+      /* ── Market Pulse (live local data) ───────────────────────────────── */
+      var pulse = document.querySelector(".pulse-block");
+      if (pulse) {
+        var pulseZip = pulse.getAttribute("data-zip");
+        fetch("/data/market-pulse-" + pulseZip + ".json", { cache: "no-store" })
+          .then(function (res) { return res.ok ? res.json() : null; })
+          .then(function (data) {
+            if (!data || !Array.isArray(data.items) || !data.items.length) return;
+            var ageDays = (Date.now() - new Date(data.generatedAt).getTime()) / 86400000;
+            if (!(ageDays >= 0) || ageDays > 21) return;
+            var list = pulse.querySelector(".pulse-items");
+            data.items.slice(0, 3).forEach(function (item) {
+              if (!item || !item.url || !item.title) return;
+              var li = document.createElement("li");
+              var a = document.createElement("a");
+              a.href = item.url;
+              a.target = "_blank";
+              a.rel = "noopener";
+              a.textContent = item.title;
+              li.appendChild(a);
+              if (item.date) {
+                var span = document.createElement("span");
+                span.className = "pulse-date";
+                span.textContent = item.date;
+                li.appendChild(span);
+              }
+              list.appendChild(li);
+            });
+            pulse.hidden = false;
+          })
+          .catch(function () {});
       }
     })();
   </script>

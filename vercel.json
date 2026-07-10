@@ -12,6 +12,12 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.kareemjamaltherealtor.com" }],
+      "destination": "https://kareemjamaltherealtor.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/chatsworth-realtor",
       "destination": "/91311",
       "permanent": true

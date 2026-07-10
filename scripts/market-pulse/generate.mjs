@@ -28,6 +28,7 @@ const DENYLIST =
 
 function toItem(hit) {
   if (!hit || !hit.url || !hit.title) return null;
+  if (hit.title.trim().length < 25) return null;
   if (DENYLIST.test(hit.title)) return null;
   return { title: hit.title, url: hit.url, date: hit.date || null };
 }

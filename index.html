@@ -586,85 +586,100 @@
     .section-head h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); margin-bottom: 1.1rem; }
     .section-head.is-center { margin-left: auto; margin-right: auto; text-align: center; }
 
-    /* ─── Library ───────────────────────────────────────────────────────── */
-    .library { background: var(--cream); border-top: 1px solid var(--sand-line); }
+    /* ─── Library · guide-style panels ──────────────────────────────────── */
+    .library { background: linear-gradient(var(--cream), #fff); border-top: 1px solid var(--sand-line); }
     .library-promise {
       display: inline-flex; align-items: center; gap: 0.55rem;
-      background: var(--white); border: 1px solid var(--sand-line);
-      border-radius: 999px; padding: 0.5rem 1.1rem;
-      font-size: 0.82rem; font-weight: 500; color: var(--stone);
-      margin-top: 1.3rem;
+      background: #fff8e8; border: 1px solid #d6c59f;
+      border-radius: 999px; padding: 0.5rem 1.05rem;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+      color: #7b5e19; margin-top: 1.3rem;
     }
     .library-promise svg { color: var(--gold-deep); flex: none; }
-    .library-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.4rem;
-    }
+    .library-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
     @media (max-width: 980px) { .library-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) { .library-grid { grid-template-columns: 1fr; } }
     .library-card {
-      background: var(--white);
-      border: 1px solid var(--sand-line);
-      border-radius: var(--radius-lg);
-      padding: 1.9rem 1.7rem 1.6rem;
-      display: flex; flex-direction: column;
-      text-decoration: none;
+      position: relative; display: flex; flex-direction: column;
+      background: #fff; border: 1px solid #e3d8c7; border-radius: 24px;
+      overflow: hidden; text-decoration: none;
+      box-shadow: 0 24px 70px rgba(7, 21, 45, 0.08);
       transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
     }
-    .library-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lift);
-      border-color: rgba(201, 168, 76, 0.55);
+    .library-card:hover { transform: translateY(-4px); border-color: rgba(201, 168, 76, 0.65); box-shadow: 0 30px 80px rgba(7, 21, 45, 0.14); }
+    .lib-head {
+      display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 0.9rem;
+      padding: 1.1rem 1.25rem;
+      border-bottom: 1px solid #eee3d0;
+      background: linear-gradient(135deg, #fffaf1, #f8f3ea);
     }
-    .library-card .eyebrow { font-size: 0.66rem; margin-bottom: 0.9rem; }
-    .library-card h3 {
-      font-family: var(--font-display); font-size: 1.42rem; font-weight: 500;
-      line-height: 1.18; margin-bottom: 0.7rem; letter-spacing: -0.01em;
+    .lib-num {
+      display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+      background: var(--navy); color: var(--gold-light);
+      font-family: var(--font-display); font-size: 0.85rem;
     }
-    .library-card p { font-size: 0.92rem; color: var(--slate); flex: 1; }
-    .library-card-foot {
-      margin-top: 1.5rem; padding-top: 1.1rem;
-      border-top: 1px solid var(--sand-line);
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 0.85rem;
+    .lib-kicker { display: block; margin-bottom: 2px; color: var(--gold-deep); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+    .lib-head h3 { margin: 0; font-family: var(--font-display); font-size: 1.18rem; font-weight: 500; line-height: 1.15; letter-spacing: -0.01em; color: var(--navy); }
+    .lib-body { display: flex; flex-direction: column; flex: 1; padding: 1.1rem 1.25rem 1.2rem; }
+    .lib-body p { flex: 1; margin: 0; font-size: 0.85rem; line-height: 1.62; color: var(--slate); }
+    .lib-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-top: 1.15rem; }
+    .lib-meta {
+      padding: 0.34rem 0.62rem; border-radius: 999px;
+      background: #f2e7cc; color: #7d611e;
+      font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
     }
-    .library-card-foot .meta { color: var(--stone-soft); font-size: 0.76rem; }
-    .library-card-foot .open {
-      font-weight: 600; color: var(--gold-deep);
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      transition: gap 0.2s var(--ease);
+    .lib-open {
+      display: inline-flex; align-items: center; gap: 0.3rem; min-height: 36px; padding: 0 0.95rem;
+      border-radius: 999px; background: var(--navy); color: #fff;
+      font-size: 0.66rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap;
+      transition: background 0.2s var(--ease);
     }
-    .library-card:hover .open { gap: 0.6rem; }
+    .library-card:hover .lib-open { background: var(--gold-deep); }
+    /* featured guide panel */
     .library-card--featured {
       grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-      align-items: center;
-      gap: clamp(1.8rem, 5vw, 4rem);
-      overflow: hidden;
+      display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      align-items: center; gap: clamp(1.8rem, 5vw, 4rem);
       padding: clamp(1.8rem, 4vw, 3rem);
-      border-color: rgba(201, 168, 76, 0.45);
+      border-color: rgba(201, 168, 76, 0.5);
       background:
         radial-gradient(circle at 86% 12%, rgba(201, 168, 76, 0.16), transparent 32%),
-        var(--navy);
+        #07152d;
       color: var(--cream);
+      box-shadow: 0 30px 80px rgba(7, 21, 45, 0.35);
     }
+    .library-card--featured::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.11;
+      background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+      background-size: 58px 58px;
+      -webkit-mask-image: linear-gradient(90deg, #000, transparent 75%);
+      mask-image: linear-gradient(90deg, #000, transparent 75%);
+    }
+    .library-card--featured > * { position: relative; z-index: 1; }
     .library-card--featured:hover { border-color: var(--gold); }
-    .library-card--featured .eyebrow { color: var(--gold-light); }
-    .library-card--featured h3 { max-width: 650px; font-size: clamp(1.8rem, 3.5vw, 2.7rem); }
-    .library-card--featured p { max-width: 680px; color: rgba(250, 245, 238, 0.7); font-size: 0.95rem; }
-    .library-card--featured .library-card-foot { border-color: rgba(201, 168, 76, 0.2); }
-    .library-card--featured .library-card-foot .meta { color: rgba(250, 245, 238, 0.48); }
-    .library-card--featured .library-card-foot .open { color: var(--gold-light); }
+    .feat-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 1.1rem;
+      color: var(--gold-light); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .feat-eyebrow::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 5px rgba(201, 168, 76, 0.11); }
+    .library-card--featured h3 { max-width: 650px; margin: 0 0 0.8rem; font-family: var(--font-display); font-weight: 500; font-size: clamp(1.8rem, 3.5vw, 2.7rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--cream); }
+    .library-card--featured p { max-width: 680px; margin: 0; color: rgba(250, 245, 238, 0.7); font-size: 0.95rem; line-height: 1.7; }
+    .library-card--featured .lib-foot { margin-top: 1.5rem; justify-content: flex-start; gap: 1rem; }
+    .lib-meta--dark { background: rgba(201, 168, 76, 0.14); color: var(--gold-light); }
+    .lib-open--gold { background: var(--gold); color: #07152d; }
+    .library-card--featured:hover .lib-open--gold { background: var(--gold-light); }
     .library-chat-preview { display: grid; gap: 10px; padding: 1.1rem; border: 1px solid rgba(201, 168, 76, 0.28); border-radius: 20px; background: rgba(7, 21, 45, 0.72); }
     .library-chat-head { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(250, 245, 238, 0.1); color: rgba(250, 245, 238, 0.7); font-size: 0.72rem; font-weight: 600; }
     .library-chat-head img { width: 34px; height: 34px; border: 2px solid rgba(255,255,255,.9); border-radius: 50%; object-fit: cover; object-position: center 15%; }
     .library-bubble { width: fit-content; max-width: 88%; padding: 0.72rem 0.9rem; border-radius: 16px 16px 16px 5px; background: rgba(250,245,238,.94); color: var(--navy); font-size: 0.78rem; line-height: 1.45; }
     .library-bubble.is-kareem { justify-self: end; border-radius: 16px 16px 5px 16px; background: #1769e0; color: #fff; }
     .library-bubble small { display: block; margin-bottom: 3px; font-size: 0.58rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .62; }
+    .library-grid > *:nth-child(3n+3) { transition-delay: 0.08s; }
+    .library-grid > *:nth-child(3n+4) { transition-delay: 0.16s; }
     @media (max-width: 760px) {
       .library-card--featured { grid-template-columns: 1fr; }
       .library-chat-preview { order: -1; }
+    }
     }
 
     /* ─── Method ────────────────────────────────────────────────────────── */
@@ -1123,53 +1138,97 @@
         <div class="library-grid">
           <a class="library-card library-card--featured" href="/internet-bill-guide" data-reveal>
             <span>
-              <span class="eyebrow">Homeowner Help · New Free Guide</span>
+              <span class="feat-eyebrow">Homeowner help &middot; new free guide</span>
               <h3>Watch me negotiate an internet bill.</h3>
-              <p>I call the competitor, speak with retention, handle the pushback, and confirm the complete offer. Follow every message free—or send me your bill and let me help with the real conversation.</p>
-              <span class="library-card-foot"><span class="meta">Interactive conversation · no signup</span><span class="open">Listen in →</span></span>
+              <p>I call the competitor, speak with retention, handle the pushback, and confirm the complete offer. Follow every message free&mdash;or send me your bill and let me help with the real conversation.</p>
+              <span class="lib-foot"><span class="lib-meta lib-meta--dark">Interactive conversation &middot; no signup</span><span class="lib-open lib-open--gold">Listen in &rarr;</span></span>
             </span>
             <span class="library-chat-preview" aria-hidden="true">
-              <span class="library-chat-head"><img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="" width="160" height="160" />Kareem ↔ ISP retention</span>
+              <span class="library-chat-head"><img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="" width="160" height="160" />Kareem &harr; ISP retention</span>
               <span class="library-bubble"><small>ISP representative</small>I found a loyalty offer for this account.</span>
               <span class="library-bubble is-kareem"><small>Kareem</small>Thank you. What is the best complete rate you can approve today?</span>
               <span class="library-bubble"><small>ISP representative</small>Let me check one more place.</span>
             </span>
           </a>
           <a class="library-card" href="/seller-presentation" data-reveal>
-            <span class="eyebrow">Selling</span>
-            <h3>The Seller Strategy Session</h3>
-            <p>A guided 7-step walkthrough of exactly how I position a listing — net-proceeds waterfall, pricing leverage, and the moves that protect your equity.</p>
-            <span class="library-card-foot"><span class="meta">Interactive · ~3 min</span><span class="open">Open free →</span></span>
+            <span class="lib-head">
+              <span class="lib-num" aria-hidden="true">01</span>
+              <span><span class="lib-kicker">Selling</span><h3>The Seller Strategy Session</h3></span>
+            </span>
+            <span class="lib-body">
+              <p>A guided 7-step walkthrough of exactly how I position a listing &mdash; net-proceeds waterfall, pricing leverage, and the moves that protect your equity.</p>
+              <span class="lib-foot"><span class="lib-meta">Interactive &middot; ~3 min</span><span class="lib-open">Open free &rarr;</span></span>
+            </span>
           </a>
           <a class="library-card" href="/buyer-presentation" data-reveal>
-            <span class="eyebrow">Buying</span>
-            <h3>The Buyer Strategy Session</h3>
-            <p>Affordability, true monthly payment, cash-to-close, and offer strategy — the full framework buyers usually only see after signing with an agent.</p>
-            <span class="library-card-foot"><span class="meta">Interactive · ~3 min</span><span class="open">Open free →</span></span>
+            <span class="lib-head">
+              <span class="lib-num" aria-hidden="true">02</span>
+              <span><span class="lib-kicker">Buying</span><h3>The Buyer Strategy Session</h3></span>
+            </span>
+            <span class="lib-body">
+              <p>Affordability, true monthly payment, cash-to-close, and offer strategy &mdash; the full framework buyers usually only see after signing with an agent.</p>
+              <span class="lib-foot"><span class="lib-meta">Interactive &middot; ~3 min</span><span class="lib-open">Open free &rarr;</span></span>
+            </span>
+          </a>
+          <a class="library-card" href="/investor-mindset" data-reveal>
+            <span class="lib-head">
+              <span class="lib-num" aria-hidden="true">03</span>
+              <span><span class="lib-kicker">Strategy</span><h3>The Investor Mindset</h3></span>
+            </span>
+            <span class="lib-body">
+              <p>The five ways property pays, the equity ladder, and a live deal analyzer &mdash; the lens I bring to every client, published open.</p>
+              <span class="lib-foot"><span class="lib-meta">Framework + analyzer</span><span class="lib-open">Open free &rarr;</span></span>
+            </span>
+          </a>
+          <a class="library-card" href="/answers" data-reveal>
+            <span class="lib-head">
+              <span class="lib-num" aria-hidden="true">04</span>
+              <span><span class="lib-kicker">Straight Answers</span><h3>The Answer Library</h3></span>
+            </span>
+            <span class="lib-body">
+              <p>Commissions, down payments, timing, pricing, renting versus buying &mdash; the questions people Google at midnight, answered plainly.</p>
+              <span class="lib-foot"><span class="lib-meta">Every question &middot; no gate</span><span class="lib-open">Open free &rarr;</span></span>
+            </span>
           </a>
           <a class="library-card" href="/wealth-tools" data-reveal>
-            <span class="eyebrow">Planning</span>
-            <h3>The Wealth Calculators</h3>
-            <p>Model what your income can buy, what your equity can become, and how a move compounds over ten to thirty years. Your numbers, live.</p>
-            <span class="library-card-foot"><span class="meta">Calculators · instant</span><span class="open">Open free →</span></span>
+            <span class="lib-head">
+              <span class="lib-num" aria-hidden="true">05</span>
+              <span><span class="lib-kicker">Planning</span><h3>The Wealth Calculators</h3></span>
+            </span>
+            <span class="lib-body">
+              <p>Model what your income can buy, what your equity can become, and how a move compounds over ten to thirty years. Your numbers, live.</p>
+              <span class="lib-foot"><span class="lib-meta">Calculators &middot; instant</span><span class="lib-open">Open free &rarr;</span></span>
+            </span>
           </a>
           <a class="library-card" href="/family-wealth-preservation" data-reveal>
-            <span class="eyebrow">Preservation</span>
-            <h3>The Family Wealth Framework</h3>
-            <p>How families keep what real estate builds — 1031 exchanges, Prop 19 transfers, step-up in basis, and ownership structured to survive the handoff.</p>
-            <span class="library-card-foot"><span class="meta">Deep guide</span><span class="open">Open free →</span></span>
+            <span class="lib-head">
+              <span class="lib-num" aria-hidden="true">06</span>
+              <span><span class="lib-kicker">Preservation</span><h3>The Family Wealth Framework</h3></span>
+            </span>
+            <span class="lib-body">
+              <p>How families keep what real estate builds &mdash; 1031 exchanges, Prop 19 transfers, step-up in basis, and ownership structured to survive the handoff.</p>
+              <span class="lib-foot"><span class="lib-meta">Deep guide</span><span class="lib-open">Open free &rarr;</span></span>
+            </span>
           </a>
           <a class="library-card" href="/free-reports" data-reveal>
-            <span class="eyebrow">Reports</span>
-            <h3>The Report Library</h3>
-            <p>Forty-two playbooks on buying, selling, investing, ADUs, and tax strategy — the reference shelf I actually work from, open to you.</p>
-            <span class="library-card-foot"><span class="meta">42 reports</span><span class="open">Open free →</span></span>
+            <span class="lib-head">
+              <span class="lib-num" aria-hidden="true">07</span>
+              <span><span class="lib-kicker">Reports</span><h3>The Report Library</h3></span>
+            </span>
+            <span class="lib-body">
+              <p>Forty-two playbooks on buying, selling, investing, ADUs, and tax strategy &mdash; the reference shelf I actually work from, open to you.</p>
+              <span class="lib-foot"><span class="lib-meta">42 reports</span><span class="lib-open">Open free &rarr;</span></span>
+            </span>
           </a>
           <a class="library-card" href="/93063/home-value" data-reveal>
-            <span class="eyebrow">Local Focus</span>
-            <h3>The 93063 Equity Audit</h3>
-            <p>See exactly what your Simi Valley home is worth today and discover hidden equity opportunities specific to the 93063 zip code.</p>
-            <span class="library-card-foot"><span class="meta">Instant Value</span><span class="open">Open free →</span></span>
+            <span class="lib-head">
+              <span class="lib-num" aria-hidden="true">08</span>
+              <span><span class="lib-kicker">Local Focus</span><h3>The 93063 Equity Audit</h3></span>
+            </span>
+            <span class="lib-body">
+              <p>See exactly what your Simi Valley home is worth today and discover hidden equity opportunities specific to the 93063 zip code.</p>
+              <span class="lib-foot"><span class="lib-meta">Instant value</span><span class="lib-open">Open free &rarr;</span></span>
+            </span>
           </a>
         </div>
       </div>

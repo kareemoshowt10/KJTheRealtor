@@ -191,7 +191,7 @@
           "name": "Are Kareem Jamal's guides, calculators, and reports really free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Every resource on kareemjamaltherealtor.com — the seller and buyer strategy walkthroughs, the wealth calculators, the report library, and direct MLS search — is free and open. No email gates, no sign-up walls, and no obligation."
+            "text": "Yes. Every resource on kareemjamaltherealtor.com — the seller and buyer strategy walkthroughs, wealth calculators, report library, internet-bill conversation guide, and direct MLS search — is free and open. No email gates, no sign-up walls, and no obligation."
           }
         },
         {
@@ -635,6 +635,37 @@
       transition: gap 0.2s var(--ease);
     }
     .library-card:hover .open { gap: 0.6rem; }
+    .library-card--featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      align-items: center;
+      gap: clamp(1.8rem, 5vw, 4rem);
+      overflow: hidden;
+      padding: clamp(1.8rem, 4vw, 3rem);
+      border-color: rgba(201, 168, 76, 0.45);
+      background:
+        radial-gradient(circle at 86% 12%, rgba(201, 168, 76, 0.16), transparent 32%),
+        var(--navy);
+      color: var(--cream);
+    }
+    .library-card--featured:hover { border-color: var(--gold); }
+    .library-card--featured .eyebrow { color: var(--gold-light); }
+    .library-card--featured h3 { max-width: 650px; font-size: clamp(1.8rem, 3.5vw, 2.7rem); }
+    .library-card--featured p { max-width: 680px; color: rgba(250, 245, 238, 0.7); font-size: 0.95rem; }
+    .library-card--featured .library-card-foot { border-color: rgba(201, 168, 76, 0.2); }
+    .library-card--featured .library-card-foot .meta { color: rgba(250, 245, 238, 0.48); }
+    .library-card--featured .library-card-foot .open { color: var(--gold-light); }
+    .library-chat-preview { display: grid; gap: 10px; padding: 1.1rem; border: 1px solid rgba(201, 168, 76, 0.28); border-radius: 20px; background: rgba(7, 21, 45, 0.72); }
+    .library-chat-head { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(250, 245, 238, 0.1); color: rgba(250, 245, 238, 0.7); font-size: 0.72rem; font-weight: 600; }
+    .library-chat-head img { width: 34px; height: 34px; border: 2px solid rgba(255,255,255,.9); border-radius: 50%; object-fit: cover; object-position: center 15%; }
+    .library-bubble { width: fit-content; max-width: 88%; padding: 0.72rem 0.9rem; border-radius: 16px 16px 16px 5px; background: rgba(250,245,238,.94); color: var(--navy); font-size: 0.78rem; line-height: 1.45; }
+    .library-bubble.is-kareem { justify-self: end; border-radius: 16px 16px 5px 16px; background: #1769e0; color: #fff; }
+    .library-bubble small { display: block; margin-bottom: 3px; font-size: 0.58rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .62; }
+    @media (max-width: 760px) {
+      .library-card--featured { grid-template-columns: 1fr; }
+      .library-chat-preview { order: -1; }
+    }
 
     /* ─── Method ────────────────────────────────────────────────────────── */
     .method { background: var(--navy); color: var(--cream); position: relative; overflow: hidden; }
@@ -1090,6 +1121,20 @@
           </span>
         </div>
         <div class="library-grid">
+          <a class="library-card library-card--featured" href="/internet-bill-guide" data-reveal>
+            <span>
+              <span class="eyebrow">Homeowner Help · New Free Guide</span>
+              <h3>Watch me negotiate an internet bill.</h3>
+              <p>I call the competitor, speak with retention, handle the pushback, and confirm the complete offer. Follow every message free—or send me your bill and let me help with the real conversation.</p>
+              <span class="library-card-foot"><span class="meta">Interactive conversation · no signup</span><span class="open">Listen in →</span></span>
+            </span>
+            <span class="library-chat-preview" aria-hidden="true">
+              <span class="library-chat-head"><img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="" width="160" height="160" />Kareem ↔ ISP retention</span>
+              <span class="library-bubble"><small>ISP representative</small>I found a loyalty offer for this account.</span>
+              <span class="library-bubble is-kareem"><small>Kareem</small>Thank you. What is the best complete rate you can approve today?</span>
+              <span class="library-bubble"><small>ISP representative</small>Let me check one more place.</span>
+            </span>
+          </a>
           <a class="library-card" href="/seller-presentation" data-reveal>
             <span class="eyebrow">Selling</span>
             <h3>The Seller Strategy Session</h3>

@@ -127,6 +127,10 @@
     .panel-body{padding:27px}
     .objective{margin-bottom:22px;padding:17px 19px;border-left:4px solid var(--gold);border-radius:0 14px 14px 0;background:#fff8e8;color:#4e5968;font-size:12px;line-height:1.65}
     .objective strong{color:var(--ink)}
+    .ally-note{display:grid;grid-template-columns:auto 1fr;align-items:start;gap:14px;margin-top:20px;padding:17px 18px;border:1px solid rgba(201,168,76,.3);border-radius:16px;background:var(--navy-deep);color:rgba(250,245,238,.72)}
+    .ally-note-label{padding:6px 8px;border-radius:8px;background:rgba(201,168,76,.14);color:var(--gold-light);font-size:7px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+    .ally-note strong{display:block;margin-bottom:4px;color:var(--cream);font-family:var(--display);font-size:17px;font-weight:500;line-height:1.2}
+    .ally-note p{margin:0;color:rgba(250,245,238,.64);font-size:10.5px;line-height:1.6}
     .fields{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .field{display:grid;gap:6px}
     .field span{color:#657080;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
@@ -182,6 +186,10 @@
     .bridge-card h3{margin-bottom:12px;font-family:var(--display);font-size:26px;font-weight:500}
     .bridge-card p{font-size:12px}
     .bridge-card .actions{margin-top:20px}
+    .ally-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px}
+    .ally-point{padding:16px;border:1px solid rgba(201,168,76,.2);border-radius:15px;background:rgba(250,245,238,.035)}
+    .ally-point strong{display:block;margin-bottom:5px;color:var(--gold-light);font-family:var(--display);font-size:17px;font-weight:500}
+    .ally-point span{display:block;color:rgba(250,245,238,.58);font-size:10px;line-height:1.55}
     .disclaimer{margin-top:22px!important;color:rgba(250,245,238,.42)!important;font-size:9px!important}
     footer{padding:30px 0;border-top:1px solid rgba(201,168,76,.18);background:var(--navy-deep);color:rgba(250,245,238,.58);font-size:10px}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
@@ -201,6 +209,7 @@
       .guide{padding:52px 0 78px}.guide-intro{grid-template-columns:58px 1fr;gap:12px}.guide-intro img{width:58px;height:58px}.scroll-label{grid-column:1/-1;text-align:center}
       .panel{border-radius:20px}.panel-head{grid-template-columns:38px 1fr;padding:17px 14px}.panel-num{width:38px;height:38px}.panel-head .copy-btn{grid-column:1/-1;width:100%}
       .panel-body{padding:15px 10px}.fields{grid-template-columns:1fr}.chat{padding:16px 7px}.bubble{max-width:84%;font-size:11.5px}.why{margin:16px 7px}
+      .ally-note{grid-template-columns:1fr;gap:9px}.ally-note-label{justify-self:start}.ally-grid{grid-template-columns:1fr}
       .handoff{grid-template-columns:48px 1fr;padding:14px}.handoff img{width:48px;height:48px}.handoff a,.privacy{grid-column:1/-1}.privacy{margin-top:0!important;text-align:center}
       .bridge{padding:70px 0}.footer-inner{align-items:flex-start;flex-direction:column}
     }
@@ -233,7 +242,7 @@
         <div>
           <span class="eyebrow">Free homeowner guide · no signup</span>
           <h1 id="hero-title">Watch your Realtor negotiate an <em>internet bill.</em></h1>
-          <p class="hero-lead">I believe service should begin long before you buy or sell a home. Scroll through the exact conversation I use with ISP sales and retention teams. See what I ask, why I ask it, and how I protect the customer’s choice.</p>
+          <p class="hero-lead">I believe service should begin long before you buy or sell a home. The way I handle a monthly bill is the way I handle a major real-estate decision: establish the facts, create leverage, stay calm under pressure, and protect your right to choose. Watch that process in action.</p>
           <div class="actions">
             <a class="btn btn-gold" href="#guide">Listen in on the call</a>
             <a class="btn btn-outline" href="sms:+18184027326?body=Hi%20Kareem%2C%20I%20want%20help%20with%20my%20internet%20bill.">Have Kareem help with mine</a>
@@ -264,7 +273,7 @@
       <div class="container">
         <div class="guide-intro">
           <img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="Kareem Jamal" width="160" height="160" />
-          <div><h2 id="guide-title">You’re listening while I make the calls.</h2><p>Blue messages are me. Gray messages are the ISP. Gold notes explain the strategy.</p></div>
+          <div><h2 id="guide-title">You’re listening while I make the calls.</h2><p>Blue messages are me. Gray messages are the ISP. Gold notes explain the strategy. Every stage also shows what the same habit means when I represent you in real estate.</p></div>
           <span class="scroll-label">Scroll the full call</span>
         </div>
 
@@ -281,6 +290,7 @@
               <label class="field"><span>Target monthly price</span><input id="lead-target" type="text" inputmode="decimal" placeholder="$___ per month" autocomplete="off" /></label>
             </div>
             <div class="savings" id="savings" aria-live="polite" hidden><span>If the target is available, the difference could be approximately:</span><strong id="savings-value">$0/year</strong></div>
+            <div class="ally-note"><span class="ally-note-label">Powerful ally · Preparation</span><div><strong>I do not let clients make expensive decisions from partial information.</strong><p>Before a home tour, listing launch, or offer, I build the same kind of fact base: true costs, alternatives, timing, risks, and the outcome we are actually trying to achieve.</p></div></div>
             <div class="handoff"><img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="Kareem Jamal" width="160" height="160" /><div><h4>Want me to review the opportunity?</h4><p>Fill in what you know. I’ll place it into a ready-to-send text so we start with the facts.</p></div><a id="snapshot-link" href="sms:+18184027326?body=Hi%20Kareem%2C%20can%20you%20review%20my%20internet%20bill%3F">Text Kareem my snapshot</a><p class="privacy">Your details stay on this page until you choose to open the text.</p></div>
           </div>
         </article>
@@ -303,6 +313,7 @@
                 <div class="row kareem"><div class="bubble">Thank you. I’m going to review it with the customer. May I have your name so we can reference this quote?</div><img class="avatar-kareem" src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="Kareem" /></div>
               </div>
             </div>
+            <div class="ally-note"><span class="ally-note-label">Powerful ally · Leverage</span><div><strong>A strong negotiation begins before anyone starts negotiating.</strong><p>In real estate, I use comparable sales, competing homes, contractor bids, inspection findings, financing terms, and timing pressure the same way: credible evidence creates options and protects your position.</p></div></div>
             <div id="copy-competitor" hidden>Hi, I’m helping a customer compare internet options at their address. They currently pay about $X a month for [speed]. What plan can you offer that matches or improves that service?
 
 What does that price become after the promotional period?
@@ -331,6 +342,7 @@ Thank you. I’m going to review it with the customer. May I have your name so w
                 <div class="row kareem"><div class="bubble">Can you check for loyalty credits or promotion codes that may not have appeared automatically? I want to make sure we review every option before the customer decides.</div><img class="avatar-kareem" src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="Kareem" /></div>
               </div>
             </div>
+            <div class="ally-note"><span class="ally-note-label">Powerful ally · Negotiation</span><div><strong>I can be firm without making the other side defensive.</strong><p>That matters with listing agents, buyers, sellers, inspectors, lenders, and contractors. Calm questions keep information moving while disciplined counters protect your leverage.</p></div></div>
             <div class="handoff"><img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="Kareem Jamal" width="160" height="160" /><div><h4>This is where preparation earns its value.</h4><p>I track the terms, keep the call calm, and make sure the “discount” improves the complete bill.</p></div><a href="sms:+18184027326?body=Hi%20Kareem%2C%20I%20want%20you%20to%20help%20with%20my%20ISP%20call.">Call my ISP with me</a></div>
             <div id="copy-retention" hidden>Hi, I’m on the line with the account holder, who has authorized me to help review the bill. They’ve been a [Provider] customer for [X] years and like the service. We also have a quote from [Competitor] for [speed] at $[price]. We would rather stay, but the current rate no longer makes sense. Can you review the best retention options?
 
@@ -352,6 +364,7 @@ Can you check for loyalty credits or promotion codes that may not have appeared 
               <div class="objection"><div class="row rep"><span class="avatar-isp">ISP</span><div class="bubble">The current plan is already discounted.</div></div><div class="row kareem"><div class="bubble">Please confirm the standard rate, exact discount, and expiration so the customer sees the complete picture.</div><img class="avatar-kareem" src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="Kareem" /></div></div>
               <div class="objection"><div class="row rep"><span class="avatar-isp">ISP</span><div class="bubble">The customer would have to sign a contract.</div></div><div class="row kareem"><div class="bubble">The competing offer has no contract. Is there a month-to-month version of this promotion?</div><img class="avatar-kareem" src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="Kareem" /></div></div>
             </div>
+            <div class="ally-note"><span class="ally-note-label">Powerful ally · Problem solving</span><div><strong>The first “no” is usually information, not the end of the conversation.</strong><p>Inspection surprises, appraisal gaps, repair disputes, and difficult terms all require the same discipline: understand the constraint, narrow the request, and create another path forward.</p></div></div>
           </div>
         </article>
 
@@ -373,6 +386,7 @@ Can you check for loyalty credits or promotion codes that may not have appeared 
               <article class="outcome"><span class="outcome-code">COMPARE</span><h4>They improve it partway</h4><p>I calculate the annual difference. The customer decides whether convenience is worth the remaining gap.</p></article>
               <article class="outcome"><span class="outcome-code">SWITCH</span><h4>They will not move</h4><p>We already have a complete competitor quote. I explain the switch and let the customer choose.</p></article>
             </div>
+            <div class="ally-note"><span class="ally-note-label">Powerful ally · Client control</span><div><strong>My job is to make the decision clearer—not to make it for you.</strong><p>Whether the choice is a provider, a property, an offer, or a sale, I explain the tradeoffs, protect the downside, and give you the confidence to choose without pressure.</p></div></div>
           </div>
         </article>
       </div>
@@ -382,14 +396,20 @@ Can you check for loyalty credits or promotion codes that may not have appeared 
       <div class="container bridge-grid">
         <div>
           <span class="eyebrow">Why your Realtor is making this call</span>
-          <h2 id="why-title">I want to earn trust in the <em>small decisions</em> before the largest one.</h2>
+          <h2 id="why-title">I want to become your <em>powerful ally</em> before the largest decision.</h2>
           <p>My love is real estate and the American dream of owning a home. My passion is technology and making it more useful, understandable, and enjoyable. Those ideas belong together. A home is not only an asset. It is also the internet, devices, systems, bills, and everyday decisions that shape life inside it.</p>
-          <p>I built this as a practical service that supports my real-estate business and is valuable enough to stand on its own. You may need a Realtor today, years from now, or never. The guide is still yours. If I can solve a frustrating problem first, you get to experience how I prepare, communicate, and protect your leverage before deciding whether I am the right person for a real-estate move.</p>
+          <p>I built this as a practical service that supports my real-estate business and is valuable enough to stand on its own. You may need a Realtor today, years from now, or never. The guide is still yours. If I can solve a frustrating problem first, you get to experience how I prepare, communicate, negotiate, and protect your leverage before deciding whether I am the right ally for a real-estate move.</p>
+          <div class="ally-grid" aria-label="How Kareem supports clients through real estate">
+            <div class="ally-point"><strong>Before the transaction</strong><span>Clarify the real goal, total cost, alternatives, risks, and timing before emotion takes over.</span></div>
+            <div class="ally-point"><strong>During negotiation</strong><span>Build leverage, read the other side, stay composed, and keep creating workable options.</span></div>
+            <div class="ally-point"><strong>Through closing</strong><span>Track details, translate surprises, coordinate professionals, and protect the decision all the way through.</span></div>
+            <div class="ally-point"><strong>After the keys</strong><span>Remain useful as the home, technology, costs, and your family’s real-estate plans continue to evolve.</span></div>
+          </div>
         </div>
         <aside class="bridge-card">
           <span>One relationship · more useful</span>
           <h3>Start with the problem in front of you.</h3>
-          <p>Send the internet bill for a personal review. If the bigger question is buying, selling, investing, or protecting family real estate, start that conversation instead.</p>
+          <p>Send the internet bill for a personal review. If the bigger question is buying, selling, investing, or protecting family real estate, bring me that decision instead. You will get the same preparation, calm communication, and loyalty to your outcome.</p>
           <div class="actions"><a class="btn btn-gold" href="sms:+18184027326?body=Hi%20Kareem%2C%20can%20you%20review%20my%20internet%20bill%3F">Text the bill</a><a class="btn btn-outline" href="/#start">Real-estate strategy</a></div>
           <p class="disclaimer">Internet-bill guidance is separate from real-estate brokerage services. Savings and offers vary by provider, plan, location, account history, and competition. Confirm all terms before changing service.</p>
         </aside>
@@ -466,7 +486,7 @@ Can you check for loyalty credits or promotion codes that may not have appeared 
     updateScrollState();
 
     panels.forEach(function(panel){panel.classList.add("guide-reveal");});
-    var motionItems=Array.from(document.querySelectorAll(".row,.why,.outcome,.handoff"));
+    var motionItems=Array.from(document.querySelectorAll(".row,.why,.outcome,.handoff,.ally-note,.ally-point"));
     motionItems.forEach(function(item){item.classList.add("scroll-reveal");});
     if("IntersectionObserver" in window&&!reduceMotion.matches){
       var panelObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");panelObserver.unobserve(entry.target);}});},{rootMargin:"0px 0px -8% 0px",threshold:.06});

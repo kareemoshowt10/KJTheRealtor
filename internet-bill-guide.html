@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>document.documentElement.classList.add("has-js");</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,7 +51,7 @@
       --header:76px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:150px}
+    html{scroll-behavior:smooth;scroll-padding-top:var(--scroll-offset,170px)}
     body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.55}
     a{color:inherit}
     button,input{font:inherit}
@@ -93,7 +94,8 @@
     .portrait-note span{display:block;margin-bottom:5px;color:var(--gold-light);font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
     .portrait-note p{margin:0;color:rgba(250,245,238,.76);font-size:12px}
 
-    .stepper{position:sticky;z-index:60;top:var(--header);border-bottom:1px solid var(--line);background:rgba(255,255,255,.95);box-shadow:0 8px 25px rgba(7,21,45,.08);backdrop-filter:blur(14px)}
+    .stepper{position:sticky;z-index:60;top:var(--header);border-bottom:1px solid var(--line);background:rgba(255,255,255,.95);box-shadow:0 8px 25px rgba(7,21,45,.08);backdrop-filter:blur(14px);transition:border-color .25s,box-shadow .25s,background .25s}
+    .stepper.is-stuck{border-bottom-color:rgba(201,168,76,.62);background:rgba(255,255,255,.98);box-shadow:0 12px 32px rgba(7,21,45,.14)}
     .stepper-inner{padding:10px 0 8px}
     .steps{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}
     .steps::-webkit-scrollbar{display:none}
@@ -101,7 +103,7 @@
     .step[aria-current="step"]{border-color:var(--gold);background:#fff8e8;color:#7e6119}
     .progress-row{display:flex;align-items:center;gap:11px;margin-top:7px}
     .progress-track{flex:1;height:3px;overflow:hidden;border-radius:4px;background:#e7e9ee}
-    .progress{height:100%;width:20%;background:linear-gradient(90deg,var(--gold-deep),var(--gold-light));transition:width .3s}
+    .progress{height:100%;width:0;background:linear-gradient(90deg,var(--gold-deep),var(--gold-light));transition:width .12s linear}
     .progress-text{color:#818894;font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
 
     .guide{padding:80px 0 110px;background:linear-gradient(var(--cream),#fff)}
@@ -110,8 +112,12 @@
     .guide-intro h2{margin-bottom:5px;font-family:var(--display);font-size:clamp(31px,4.6vw,48px);font-weight:500;line-height:1.05;letter-spacing:-.03em}
     .guide-intro p{margin:0;color:var(--slate);font-size:13px}
     .scroll-label{padding:8px 11px;border-radius:999px;background:#f2e7cc;color:#7d611e;font-size:8px;font-weight:800;letter-spacing:.12em;white-space:nowrap}
-    .panel{scroll-margin-top:150px;overflow:hidden;margin-top:30px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
+    .panel{position:relative;scroll-margin-top:var(--scroll-offset,170px);overflow:hidden;margin-top:30px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
     .panel:first-of-type{margin-top:0}
+    .has-js .panel.guide-reveal{opacity:0;transform:translateY(30px) scale(.992);transition:opacity .62s ease,transform .72s cubic-bezier(.2,.75,.2,1)}
+    .has-js .panel.guide-reveal.is-visible{opacity:1;transform:none}
+    .has-js .scroll-reveal{opacity:0;transform:translateY(14px);transition:opacity .48s ease,transform .55s cubic-bezier(.2,.75,.2,1)}
+    .has-js .scroll-reveal.is-visible{opacity:1;transform:none}
     .panel-head{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:16px;padding:23px 26px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,#fffaf1,#f8f3ea)}
     .panel-num{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--gold-light);font-family:var(--display);font-size:14px}
     .panel-kicker{display:block;margin-bottom:3px;color:var(--gold-deep);font-size:8px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
@@ -198,7 +204,11 @@
       .handoff{grid-template-columns:48px 1fr;padding:14px}.handoff img{width:48px;height:48px}.handoff a,.privacy{grid-column:1/-1}.privacy{margin-top:0!important;text-align:center}
       .bridge{padding:70px 0}.footer-inner{align-items:flex-start;flex-direction:column}
     }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.progress{transition:none}}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .btn,.progress,.stepper{transition:none}
+      .has-js .panel.guide-reveal,.has-js .scroll-reveal{opacity:1;transform:none;transition:none}
+    }
   </style>
 </head>
 <body>
@@ -397,22 +407,74 @@ Can you check for loyalty credits or promotion codes that may not have appeared 
     var order=["prepare","competitor","retention","pushback","decision"];
     var buttons=Array.from(document.querySelectorAll("[data-step]"));
     var panels=Array.from(document.querySelectorAll("[data-panel]"));
+    var header=document.querySelector(".site-header");
+    var stepper=document.querySelector(".stepper");
+    var stepsScroller=document.querySelector(".steps");
+    var guide=document.querySelector(".guide");
     var progress=document.getElementById("progress");
     var progressText=document.getElementById("progress-text");
-    function activate(name){
+    var reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+    var activeName="prepare";
+    var framePending=false;
+    function stickyOffset(){return (header?header.offsetHeight:0)+(stepper?stepper.offsetHeight:0)+18;}
+    function syncOffset(){document.documentElement.style.setProperty("--scroll-offset",stickyOffset()+"px");}
+    function centerStep(button){
+      if(!stepsScroller||!button)return;
+      var left=button.offsetLeft-(stepsScroller.clientWidth-button.offsetWidth)/2;
+      if(typeof stepsScroller.scrollTo==="function")stepsScroller.scrollTo({left:Math.max(0,left),behavior:reduceMotion.matches?"auto":"smooth"});
+      else stepsScroller.scrollLeft=Math.max(0,left);
+    }
+    function activate(name,center){
       var index=order.indexOf(name); if(index<0)return;
+      activeName=name;
       buttons.forEach(function(button){
         var active=button.getAttribute("data-step")===name;
-        if(active){button.setAttribute("aria-current","step");button.scrollIntoView({block:"nearest",inline:"center"});}
+        if(active){button.setAttribute("aria-current","step");if(center)centerStep(button);}
         else button.removeAttribute("aria-current");
       });
-      if(progress)progress.style.width=((index+1)/order.length*100)+"%";
       if(progressText)progressText.textContent="Conversation "+(index+1)+" of "+order.length;
     }
-    buttons.forEach(function(button){button.addEventListener("click",function(){var name=button.getAttribute("data-step");var panel=document.getElementById(name);if(panel){panel.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});activate(name);}});});
-    if("IntersectionObserver" in window){
-      var observer=new IntersectionObserver(function(entries){var visible=entries.filter(function(entry){return entry.isIntersecting;}).sort(function(a,b){return b.intersectionRatio-a.intersectionRatio;});if(visible[0])activate(visible[0].target.getAttribute("data-panel"));},{rootMargin:"-30% 0px -55% 0px",threshold:[0,.1,.3]});
-      panels.forEach(function(panel){observer.observe(panel);});
+    function scrollToPanel(name){
+      var panel=document.getElementById(name);if(!panel)return;
+      panel.classList.add("is-visible");
+      syncOffset();
+      var top=panel.getBoundingClientRect().top+window.scrollY-stickyOffset();
+      window.scrollTo({top:Math.max(0,top),behavior:reduceMotion.matches?"auto":"smooth"});
+      activate(name,true);
+    }
+    buttons.forEach(function(button){button.addEventListener("click",function(){scrollToPanel(button.getAttribute("data-step"));});});
+
+    function updateScrollState(){
+      framePending=false;
+      syncOffset();
+      var line=stickyOffset()+42;
+      var current=panels[0];
+      panels.forEach(function(panel){if(panel.getBoundingClientRect().top<=line)current=panel;});
+      var name=current?current.getAttribute("data-panel"):activeName;
+      if(name!==activeName)activate(name,true);
+      if(stepper)stepper.classList.toggle("is-stuck",stepper.getBoundingClientRect().top<=((header?header.offsetHeight:0)+1));
+      if(progress&&panels.length){
+        var firstTop=panels[0].getBoundingClientRect().top+window.scrollY-stickyOffset();
+        var lastBottom=panels[panels.length-1].getBoundingClientRect().bottom+window.scrollY-window.innerHeight*.72;
+        var ratio=Math.max(0,Math.min(1,(window.scrollY-firstTop)/Math.max(1,lastBottom-firstTop)));
+        progress.style.width=(ratio*100)+"%";
+      }
+    }
+    function requestScrollUpdate(){if(framePending)return;framePending=true;window.requestAnimationFrame(updateScrollState);}
+    window.addEventListener("scroll",requestScrollUpdate,{passive:true});
+    window.addEventListener("resize",requestScrollUpdate);
+    updateScrollState();
+
+    panels.forEach(function(panel){panel.classList.add("guide-reveal");});
+    var motionItems=Array.from(document.querySelectorAll(".row,.why,.outcome,.handoff"));
+    motionItems.forEach(function(item){item.classList.add("scroll-reveal");});
+    if("IntersectionObserver" in window&&!reduceMotion.matches){
+      var panelObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");panelObserver.unobserve(entry.target);}});},{rootMargin:"0px 0px -8% 0px",threshold:.06});
+      panels.forEach(function(panel){panelObserver.observe(panel);});
+      var itemObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");itemObserver.unobserve(entry.target);}});},{rootMargin:"0px 0px -6% 0px",threshold:.08});
+      motionItems.forEach(function(item){itemObserver.observe(item);});
+    }else{
+      panels.concat(motionItems).forEach(function(item){item.classList.add("is-visible");});
     }
     function fallbackCopy(text){var area=document.createElement("textarea");area.value=text;area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();document.execCommand("copy");area.remove();}
     document.querySelectorAll("[data-copy]").forEach(function(button){button.addEventListener("click",function(){var target=document.getElementById(button.getAttribute("data-copy"));if(!target)return;var text=target.textContent.trim();var done=function(){var original=button.textContent;button.textContent="Copied ✓";button.classList.add("is-copied");setTimeout(function(){button.textContent=original;button.classList.remove("is-copied");},1800);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done).catch(function(){fallbackCopy(text);done();});}else{fallbackCopy(text);done();}});});

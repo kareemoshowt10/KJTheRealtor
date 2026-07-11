@@ -80,6 +80,16 @@
               "@type": "Question",
               "name": "Why do 91307 and 91304 both say West Hills?",
               "acceptedAnswer": { "@type": "Answer", "text": "West Hills spans both zip codes: 91307 is the heart of the neighborhood, while 91304 is shared with Canoga Park — a line drawn by the 1987 rename, when residents voted their neighborhood a new name. The same street name can price differently across that line, which is exactly the kind of boundary detail worth verifying parcel by parcel before you offer." }
+            },
+            {
+              "@type": "Question",
+              "name": "How do offers actually win in West Hills?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Rarely on price alone. In competitive West Hills pockets the winning offer is the one the seller believes will close: fully underwritten financing, intelligently structured contingencies, and timelines matched to the seller's situation. Clean, certain offers regularly beat higher, shakier ones \u2014 and the listing agent's confidence in your agent carries real weight." }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens after my offer is accepted?",
+              "acceptedAnswer": { "@type": "Answer", "text": "A typical escrow runs about thirty days. Week one: deposit into escrow, inspections scheduled, disclosures reviewed, appraisal ordered. Week two: inspection results and negotiation over repairs or credits. Weeks three and four: final underwriting, appraisal, and contingency removals \u2014 each a decision point. A good agent provides a written timeline on day one and keeps every deadline met so the deposit is never exposed." }
             }
           ]
         }
@@ -397,7 +407,8 @@
     .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
     @media (max-width: 980px) { .notes-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) { .notes-grid { grid-template-columns: 1fr; } }
-    .note-card { background: #fff; border: 1px solid var(--sand-line); border-radius: var(--radius-lg); padding: 1.9rem 1.7rem; display: flex; flex-direction: column; }
+    .note-card { background: #fff; border: 1px solid var(--sand-line); border-radius: var(--radius-lg); padding: 1.9rem 1.7rem; display: flex; flex-direction: column; transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease); }
+    .note-card:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 18px 40px -22px rgba(11, 30, 62, 0.22); }
     .note-card .note-tag { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.9rem; }
     .note-card h3 { font-family: var(--font-display); font-size: 1.32rem; font-weight: 500; margin-bottom: 0.55rem; color: var(--navy); }
     .note-card p { font-size: 0.92rem; color: var(--slate); text-wrap: pretty; }
@@ -540,6 +551,34 @@
     .footer-col a:hover { color: var(--gold-light); }
     .footer-bottom { border-top: 1px solid rgba(250, 245, 238, 0.12); padding: 1.4rem 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.6rem; font-size: 0.78rem; color: rgba(250, 245, 238, 0.5); }
 
+
+    /* ─── Polish: scroll progress, stagger, chips ───────────────────────── */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; z-index: 110;
+      width: 100%; height: 3px; pointer-events: none;
+      background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-light));
+      transform: scaleX(0); transform-origin: 0 50%;
+    }
+    .ledger-grid > *:nth-child(2), .notes-grid > *:nth-child(2), .pocket-grid > *:nth-child(2), .trilogy-grid > *:nth-child(2) { transition-delay: 0.08s; }
+    .ledger-grid > *:nth-child(3), .notes-grid > *:nth-child(3), .pocket-grid > *:nth-child(3), .trilogy-grid > *:nth-child(3) { transition-delay: 0.16s; }
+    .ledger-grid > *:nth-child(4), .notes-grid > *:nth-child(4), .pocket-grid > *:nth-child(4) { transition-delay: 0.24s; }
+    .notes-grid > *:nth-child(5), .pocket-grid > *:nth-child(5) { transition-delay: 0.32s; }
+    .notes-grid > *:nth-child(6), .pocket-grid > *:nth-child(6) { transition-delay: 0.4s; }
+    .answers-more { margin-top: 2.2rem; font-size: 0.96rem; color: var(--slate); }
+    .answers-more a { color: var(--gold-deep); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(184, 137, 63, 0.45); transition: color 0.2s var(--ease), border-color 0.2s var(--ease); }
+    .answers-more a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+    .ask-label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.55rem; }
+    .ask-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.15rem; }
+    .ask-chip {
+      font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; line-height: 1.3;
+      color: var(--navy); background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.45); border-radius: 999px;
+      padding: 0.44rem 0.85rem; cursor: pointer; text-align: left;
+      transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+    .ask-chip:hover { background: rgba(201, 168, 76, 0.2); border-color: var(--gold-deep); transform: translateY(-1px); }
+    .ask-chip[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -549,6 +588,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <div class="container nav-shell">
@@ -763,6 +803,17 @@
             <h3>I learned to build here</h3>
             <p>Part of my childhood ran through these streets — a family of builders and tradespeople, garages full of tools, projects always mid-flight. The full story is on <a href="/91304" style="color: var(--gold-deep);">the 91304 chapter</a> of my zip codes. When I walk a West Hills garage with a client, I&rsquo;m reading it the way my family taught me to.</p>
           </article>
+          <article class="answer" data-reveal>
+            <h3>How do offers actually win in West Hills?</h3>
+            <p>Rarely on price alone. In the pockets buyers compete for — the rim streets, the big lots, anything turnkey near the good schools — the winning offer is usually the one the seller believes will <em>close</em>: financing fully underwritten, appraisal and loan contingencies structured with intent, timelines matched to the seller&rsquo;s actual situation. I&rsquo;ve seen clean, certain offers beat higher, shakier ones repeatedly.</p>
+            <p>The part most buyers never see: the listing agent&rsquo;s read of your agent. An offer from someone who answers the phone, writes tight paperwork, and has closed in this zip carries real weight. Before you write anything here, let&rsquo;s find out what this seller actually needs — price is only one of the levers.</p>
+          </article>
+          <article class="answer" data-reveal>
+            <h3>What happens after my offer is accepted?</h3>
+            <p>The clock starts. A typical escrow here runs about thirty days, and the first week is the busy one: deposit wired into escrow, inspections scheduled, disclosure packages reviewed, appraisal ordered. Week two is discovery — inspection results, and the negotiation-within-the-negotiation over repairs or credits. Weeks three and four are the loan&rsquo;s final underwriting, the appraisal landing, and contingency removals — each one a decision point, not a formality.</p>
+            <p>My job in those thirty days is mostly protecting you from surprises: reading the sewer scope and the roof report the way a builder&rsquo;s kid was raised to, knowing which repair asks are fair and which are theater, and keeping every deadline met so your deposit is never exposed. You&rsquo;ll get a written timeline on day one — you should always know what happens next.</p>
+          </article>
+          <p class="answers-more" data-reveal>Didn&rsquo;t see your question? <a href="#connect">Ask it straight below &mdash; I answer everything, usually same day.</a> More across the site in <a href="/answers">the Answer Library</a>.</p>
         </div>
       </div>
     </section>
@@ -990,6 +1041,15 @@
             <strong>The West Hills conversation</strong>
             <span>Takes 30 seconds. Replied to personally, usually same day.</span>
           </div>
+          <div class="ask-quick">
+            <span class="ask-label">Common questions &mdash; tap to ask</span>
+            <div class="ask-chips">
+              <button type="button" class="ask-chip" aria-pressed="false" data-fill="I want first look at the West Hills lease coming available August 1 — please put me on the list.">Tell me about the August 1 lease</button>
+              <button type="button" class="ask-chip" aria-pressed="false" data-fill="Please pull this week's actual comps for me — here's the pocket I'm watching: ">Pull this week’s comps</button>
+              <button type="button" class="ask-chip" aria-pressed="false" data-fill="I own in or near West Hills and want your honest read on what my home is really worth right now.">What’s my home worth?</button>
+              <button type="button" class="ask-chip" aria-pressed="false" data-fill="We're looking at a home near the open-space edge. Walk me through the honest fire-insurance picture.">Fire insurance near open space — help</button>
+            </div>
+          </div>
           <div class="field">
             <label for="lead-name">Name</label>
             <input type="text" id="lead-name" name="name" required autocomplete="name" placeholder="Your name" />
@@ -1038,6 +1098,7 @@
         </div>
         <div class="footer-col">
           <h4>The Library</h4>
+          <a href="/answers">The Answer Library</a>
           <a href="/seller-presentation">Seller Strategy Session</a>
           <a href="/buyer-presentation">Buyer Strategy Session</a>
           <a href="/wealth-tools">Wealth Calculators</a>
@@ -1126,6 +1187,65 @@
       } else {
         revealEls.forEach(function (el) { el.classList.add("is-in"); });
       }
+
+      /* ── Scroll progress bar ────────────────────────────────────────── */
+      var bar = document.querySelector(".scroll-progress");
+      if (bar && !reduced) {
+        var ticking = false;
+        var paint = function () {
+          var doc = document.documentElement;
+          var max = doc.scrollHeight - doc.clientHeight;
+          bar.style.transform = "scaleX(" + (max > 0 ? doc.scrollTop / max : 0) + ")";
+          ticking = false;
+        };
+        document.addEventListener("scroll", function () {
+          if (!ticking) { ticking = true; requestAnimationFrame(paint); }
+        }, { passive: true });
+        paint();
+      }
+
+      /* ── Ledger count-up ────────────────────────────────────────────── */
+      if (!reduced && "IntersectionObserver" in window) {
+        document.querySelectorAll(".ledger-item strong").forEach(function (el) {
+          var m = el.textContent.trim().match(/^([\d,]+)(\+?)$/);
+          if (!m) return;
+          var target = parseInt(m[1].replace(/,/g, ""), 10);
+          var suffix = m[2];
+          var commas = m[1].indexOf(",") > -1;
+          var from = Math.floor(target * 0.86);
+          var cio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (!en.isIntersecting) return;
+              cio.unobserve(el);
+              var start = null, dur = 1200;
+              var step = function (ts) {
+                if (!start) start = ts;
+                var p = Math.min((ts - start) / dur, 1);
+                var eased = 1 - Math.pow(1 - p, 3);
+                var val = Math.round(from + (target - from) * eased);
+                el.textContent = (commas ? val.toLocaleString("en-US") : String(val)) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+              };
+              requestAnimationFrame(step);
+            });
+          }, { threshold: 0.6 });
+          cio.observe(el);
+        });
+      }
+
+      /* ── Ask chips (prefill the message field) ──────────────────────── */
+      var askChips = document.querySelectorAll(".ask-chip");
+      var msgField = document.getElementById("lead-message");
+      askChips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          askChips.forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+          chip.setAttribute("aria-pressed", "true");
+          if (msgField) {
+            msgField.value = chip.getAttribute("data-fill");
+            msgField.focus();
+          }
+        });
+      });
 
       /* ── Lead form ──────────────────────────────────────────────────── */
       var form = document.getElementById("zipLeadForm");

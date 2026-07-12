@@ -108,11 +108,10 @@ All at the git root:
 
 ## Backlog — high-value unbuilt topics (what people need from a Realtor)
 
-Ordered by likely demand; each names the counterpart(s) and the client win:
+Ordered by likely demand; each names the counterpart(s) and the client win.
+BUILT: appraisal gap (/appraisal-gap-guide, 2026-07-12).
 
-1. **Appraisal gap** — Kareem ↔ lender + listing agent; keeping the deal alive when the
-   appraisal comes in low (rebuttal comps, renegotiation, gap options). Buyer audience.
-2. **Listing-launch pricing** — Kareem ↔ seller client; the honest pricing conversation:
+1. **Listing-launch pricing** — Kareem ↔ seller client; the honest pricing conversation:
    comps, the first-price-is-the-strategy talk, saying no to flattery pricing. Seller audience.
 3. **Rate buydown / lender shopping** — Kareem ↔ two lenders; comparing complete loan offers
    the way the ISP guide compares plans (points, credits, the real APR conversation). Buyer.

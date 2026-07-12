@@ -2,6 +2,7 @@ import './index.css'
 import { StoreProvider } from './store/useStore'
 import { ToastProvider, useToast } from './store/ToastContext'
 import { useHashRoute } from './hooks/useHashRoute'
+import { useReminder } from './hooks/useReminder'
 import BottomNav from './components/layout/BottomNav'
 import SuccessToast from './components/common/SuccessToast'
 import Dashboard from './pages/Dashboard'
@@ -18,6 +19,7 @@ const VALID_PAGES = ['dashboard', 'schedule', 'track', 'reflect', 'history', 'in
 function AppShell() {
   const [page, navigate] = useHashRoute('dashboard', VALID_PAGES)
   const { toast, dismissToast } = useToast()
+  useReminder(navigate)
 
   const pages = {
     dashboard:    <Dashboard onNavigate={navigate} />,

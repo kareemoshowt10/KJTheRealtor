@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { useStore } from '../store/useStore'
-import { ChevronLeft, Trash2, Download, Upload, Plus, X } from 'lucide-react'
+import { useToast } from '../store/ToastContext'
+import { ChevronLeft, Trash2, Download, Upload, Plus, X, Bell } from 'lucide-react'
 
 function Section({ title, children }) {
   return (
@@ -23,15 +24,38 @@ function Row({ icon, label, children, danger }) {
 
 export default function Settings({ onNavigate }) {
   const { state, updateSettings, clearAllData, importData, addHabit, removeHabit } = useStore()
+  const { showToast } = useToast()
   const [name, setName] = useState(state.settings?.name || '')
   const [newHabit, setNewHabit] = useState('')
   const [showConfirm, setShowConfirm] = useState(false)
   const [pendingImport, setPendingImport] = useState(null)
   const [importError, setImportError] = useState('')
+  const [notifBlocked, setNotifBlocked] = useState(
+    typeof Notification !== 'undefined' && Notification.permission === 'denied'
+  )
   const fileInputRef = useRef(null)
 
   function saveName() {
     updateSettings({ name: name.trim() })
+  }
+
+  async function toggleReminder() {
+    const next = !state.settings.reminderEnabled
+    if (next && typeof Notification !== 'undefined') {
+      if (Notification.permission === 'denied') {
+        setNotifBlocked(true)
+        return
+      }
+      if (Notification.permission !== 'granted') {
+        const perm = await Notification.requestPermission()
+        if (perm !== 'granted') {
+          setNotifBlocked(perm === 'denied')
+          return
+        }
+      }
+    }
+    updateSettings({ reminderEnabled: next })
+    showToast(next ? 'Reminder turned on 🔔' : 'Reminder turned off')
   }
 
   function exportData() {
@@ -116,6 +140,39 @@ export default function Settings({ onNavigate }) {
               onKeyDown={e => e.key === 'Enter' && saveName()}
             />
           </Row>
+        </Section>
+
+        {/* Reminders */}
+        <Section title="Reminders">
+          <Row icon={<Bell size={18} />} label="Daily Reflection Reminder">
+            <button
+              onClick={toggleReminder}
+              className={`w-11 h-6 rounded-full relative transition-colors shrink-0 ${state.settings.reminderEnabled ? 'bg-violet-600' : 'bg-gray-200'}`}
+              aria-pressed={state.settings.reminderEnabled}
+            >
+              <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-sm transition-transform ${state.settings.reminderEnabled ? 'translate-x-5' : 'translate-x-0.5'}`} />
+            </button>
+          </Row>
+          {state.settings.reminderEnabled && (
+            <Row icon="⏰" label="Remind me at">
+              <input
+                type="time"
+                value={state.settings.reminderTime}
+                onChange={e => updateSettings({ reminderTime: e.target.value })}
+                className="text-sm text-right text-gray-600 focus:outline-none bg-transparent"
+              />
+            </Row>
+          )}
+          {notifBlocked && (
+            <p className="text-sm text-red-600 bg-red-50 px-4 py-3">
+              Notifications are blocked for this site. Enable them in your browser's site settings to use reminders.
+            </p>
+          )}
+          {!notifBlocked && (
+            <p className="text-xs text-gray-400 px-4 py-3">
+              Fires a browser notification once a day to nudge you toward your evening reflection. Keep the app open in a tab or installed as a PWA for it to work reliably.
+            </p>
+          )}
         </Section>
 
         {/* Stats */}

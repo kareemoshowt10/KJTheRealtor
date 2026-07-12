@@ -17,6 +17,7 @@ function defaultState() {
     settings: {
       name: '',
       reminderEnabled: false,
+      reminderTime: '20:00',
       habitList: DEFAULT_HABITS,
     },
   }
@@ -33,6 +34,7 @@ function load() {
         settings: {
           name: '',
           reminderEnabled: false,
+          reminderTime: '20:00',
           habitList: DEFAULT_HABITS,
           ...(parsed.settings || {}),
         },
@@ -87,6 +89,7 @@ export function StoreProvider({ children }) {
       settings: {
         name: '',
         reminderEnabled: false,
+        reminderTime: '20:00',
         habitList: DEFAULT_HABITS,
         ...(data.settings && typeof data.settings === 'object' ? data.settings : {}),
       },

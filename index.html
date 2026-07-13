@@ -475,7 +475,10 @@
       position: relative;
       overflow: hidden;
       isolation: isolate;
-      background: var(--navy);
+      background:
+        linear-gradient(90deg, rgba(5, 15, 32, 0.34), rgba(5, 15, 32, 0.08)),
+        url('/assets/home-is-personal-poster.jpg') 56% center / cover no-repeat,
+        var(--navy);
       color: var(--cream);
     }
     .hero-film {
@@ -485,7 +488,10 @@
       object-position: 56% center;
       z-index: -3;
       transform: scale(1.015);
+      opacity: 0;
+      transition: opacity 0.7s ease;
     }
+    .hero-film.is-ready { opacity: 1; }
     .hero::before {
       content: '';
       position: absolute; inset: 0; z-index: -2;
@@ -505,6 +511,11 @@
       padding-bottom: clamp(4.5rem, 10vh, 7rem);
     }
     .hero-copy { max-width: 720px; }
+    .hero-copy { animation: hero-arrive 0.75s var(--ease) both; }
+    @keyframes hero-arrive {
+      from { transform: translateY(16px); }
+      to { transform: none; }
+    }
     .hero-eyebrow-row {
       display: flex; align-items: center; gap: 0.9rem;
       margin-bottom: 1.5rem;
@@ -586,6 +597,7 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-film { display: none; }
       .hero { background: linear-gradient(90deg, rgba(5, 15, 32, 0.86), rgba(5, 15, 32, 0.3)), url('/assets/home-is-personal-poster.jpg') 58% center / cover; }
+      .hero-copy { animation: none; }
       .film-toggle { display: none; }
     }
 
@@ -1837,6 +1849,12 @@
     (function () {
       "use strict";
 
+      /* Always present the homepage from the beginning unless a section was requested. */
+      if ("scrollRestoration" in history) { history.scrollRestoration = "manual"; }
+      window.addEventListener("pageshow", function () {
+        if (!window.location.hash) { window.scrollTo(0, 0); }
+      });
+
       /* Mobile nav */
       var toggle = document.getElementById("nav-toggle");
       var nav = document.getElementById("site-nav");
@@ -1858,6 +1876,9 @@
       var filmToggle = document.getElementById("film-toggle");
       var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (film && filmToggle) {
+        var showFilm = function () { film.classList.add("is-ready"); };
+        if (film.readyState >= 2) { showFilm(); }
+        else { film.addEventListener("loadeddata", showFilm, { once: true }); }
         var filmLabel = filmToggle.querySelector("span");
         var filmIcon = filmToggle.querySelector("svg");
         var setFilmState = function (paused) {

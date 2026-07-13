@@ -859,6 +859,25 @@
       color: var(--gold-light); font-size: 0.72rem; font-weight: 700;
       letter-spacing: 0.08em; line-height: 1.45; text-transform: uppercase;
     }
+    .method-workbook {
+      margin-top: 2.2rem; padding: clamp(1.5rem, 4vw, 2.5rem);
+      border-radius: var(--radius-lg); background: var(--cream); color: var(--navy);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+    }
+    .method-workbook-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem; align-items: end; margin-bottom: 1.4rem; }
+    .method-workbook .eyebrow { color: #896b20; }
+    .method-workbook h3 { margin-top: 0.35rem; font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.35rem); font-weight: 600; }
+    .method-workbook-head p { max-width: 350px; color: rgba(7, 21, 45, 0.72); font-size: 0.86rem; }
+    .move-map-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+    .move-map-prompt { padding: 1.15rem; border: 1px solid rgba(7, 21, 45, 0.16); border-radius: var(--radius-md); background: #fff; }
+    .move-map-prompt span { display: block; margin-bottom: 0.35rem; color: #896b20; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+    .move-map-prompt strong { display: block; margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .move-map-prompt p { color: rgba(7, 21, 45, 0.66); font-size: 0.78rem; line-height: 1.5; }
+    .move-map-rule { margin-top: 1rem; padding: 0.9rem 1rem; border-left: 4px solid var(--gold); background: rgba(201, 168, 76, 0.13); color: #263653; font-size: 0.82rem; line-height: 1.55; }
+    @media (max-width: 700px) {
+      .method-workbook-head, .move-map-grid { grid-template-columns: 1fr; }
+      .method-workbook-head { gap: 0.6rem; }
+    }
     .method-audit {
       display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
       gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
@@ -1520,6 +1539,38 @@
             <div class="method-question">The decision: Could your family understand and act on your plan without guessing?</div>
             <div class="method-output">You receive: a Family Handoff Checklist</div>
           </article>
+        </div>
+        <div class="method-workbook" data-reveal>
+          <div class="method-workbook-head">
+            <div>
+              <span class="eyebrow">Use this before you tour</span>
+              <h3>Start your four-line Move Map</h3>
+            </div>
+            <p>Write one sentence for each prompt. These answers become your filter when a beautiful property makes the decision feel emotional.</p>
+          </div>
+          <div class="move-map-grid">
+            <div class="move-map-prompt">
+              <span>01 · Life</span>
+              <strong>This move must make ______ easier.</strong>
+              <p>Example: caring for my parents, working from home, or giving the kids safe outdoor space.</p>
+            </div>
+            <div class="move-map-prompt">
+              <span>02 · Money</span>
+              <strong>Our comfortable all-in monthly ceiling is ______.</strong>
+              <p>Include principal, interest, taxes, insurance, HOA costs, utilities, and a repair reserve.</p>
+            </div>
+            <div class="move-map-prompt">
+              <span>03 · Protection</span>
+              <strong>We will walk away if ______.</strong>
+              <p>Name the condition now: price, inspection risk, appraisal gap, commute, or lost contingency protection.</p>
+            </div>
+            <div class="move-map-prompt">
+              <span>04 · Future</span>
+              <strong>In five years, this home should help us ______.</strong>
+              <p>Examples: build equity, create rental options, rightsize, relocate, or support family nearby.</p>
+            </div>
+          </div>
+          <p class="move-map-rule"><strong>The rule:</strong> if a property does not support at least three of your four answers, it may be attractive—but it is probably not your move.</p>
         </div>
         <div class="method-audit" data-reveal>
           <div class="method-audit-copy">

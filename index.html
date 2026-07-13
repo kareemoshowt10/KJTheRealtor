@@ -831,6 +831,7 @@
       padding: 1.8rem 1.5rem;
       background: rgba(250, 245, 238, 0.03);
       transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+      display: flex; flex-direction: column;
     }
     .method-card:hover { background: rgba(250, 245, 238, 0.06); border-color: rgba(201, 168, 76, 0.6); }
     .method-num {
@@ -843,6 +844,35 @@
       margin-bottom: 0.65rem;
     }
     .method-card p { font-size: 0.9rem; color: rgba(250, 245, 238, 0.72); }
+    .method-question {
+      margin: 1.1rem 0 0.9rem; padding-top: 1rem;
+      border-top: 1px solid rgba(250, 245, 238, 0.12);
+      color: var(--cream); font-size: 0.78rem; font-weight: 700; line-height: 1.45;
+    }
+    .method-output {
+      margin-top: auto; padding-top: 1rem;
+      color: var(--gold-light); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; line-height: 1.45; text-transform: uppercase;
+    }
+    .method-audit {
+      display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+      gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+      margin-top: 2.2rem; padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid rgba(201, 168, 76, 0.42); border-radius: var(--radius-lg);
+      background: rgba(250, 245, 238, 0.055);
+    }
+    .method-audit h3 {
+      margin-bottom: 0.65rem; font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500;
+    }
+    .method-audit-copy > p { color: rgba(250, 245, 238, 0.72); font-size: 0.92rem; }
+    .method-checklist { display: grid; gap: 0.72rem; margin-top: 1.25rem; list-style: none; }
+    .method-checklist li { display: flex; gap: 0.7rem; color: rgba(250, 245, 238, 0.9); font-size: 0.86rem; line-height: 1.45; }
+    .method-checklist li::before { content: '\2713'; flex: 0 0 auto; color: var(--gold-light); font-weight: 800; }
+    .method-audit-action { padding: 1.25rem; border-radius: var(--radius-md); background: var(--cream); color: var(--navy); }
+    .method-audit-action strong { display: block; margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; }
+    .method-audit-action p { margin-bottom: 1rem; color: rgba(7, 21, 45, 0.72); font-size: 0.82rem; }
+    .method-audit-action .btn { width: 100%; justify-content: center; }
+    @media (max-width: 760px) { .method-audit { grid-template-columns: 1fr; } }
     .method-foot {
       margin-top: 3rem; text-align: center;
     }
@@ -1448,35 +1478,61 @@
           <span class="eyebrow">The Method</span>
           <h2 class="display" id="method-heading">The Generational Wealth Method<sup style="font-size:0.45em;">™</sup></h2>
           <p class="lead">
-            Anyone can open a door. This is a deliberate system around the largest asset
-            your family will ever own — so each move compounds into the next.
+            Before I recommend a home, price, or offer, we answer four decisions most
+            transactions skip. You leave with a plan you can see, use, and revisit.
           </p>
         </div>
         <div class="method-grid">
           <article class="method-card" data-reveal>
             <span class="method-num">No. 01</span>
             <h3>Position</h3>
-            <p>Map where your family is today and where it should be in ten to twenty years — before a single showing. Every move serves the bigger picture.</p>
+            <p>We define what this move must improve: monthly comfort, commute, schools, space, care needs, or long-term equity.</p>
+            <div class="method-question">The decision: Does this home improve your life without weakening your next move?</div>
+            <div class="method-output">You receive: a one-page Move Map</div>
           </article>
           <article class="method-card" data-reveal>
             <span class="method-num">No. 02</span>
             <h3>Protect</h3>
-            <p>Disciplined pricing, negotiation, and terms defend your equity on both sides of the table. The goal is never just to close — it's to close without leaving value behind.</p>
+            <p>We set the walk-away number, contingency strategy, repair priorities, and negotiation limits before emotion takes over.</p>
+            <div class="method-question">The decision: What must be true for this deal to remain a smart deal?</div>
+            <div class="method-output">You receive: written Offer Guardrails</div>
           </article>
           <article class="method-card" data-reveal>
             <span class="method-num">No. 03</span>
             <h3>Compound</h3>
-            <p>Timing, leverage, and tax-aware strategy — 1031 exchanges, Prop 19 transfers, capital-gains exclusions — turn one transaction into decades of growth.</p>
+            <p>We model how your equity, payment, ownership timeline, and future options work together after closing—not only on closing day.</p>
+            <div class="method-question">The decision: Will this property create flexibility or consume it?</div>
+            <div class="method-output">You receive: a 3-horizon Equity Plan</div>
           </article>
           <article class="method-card" data-reveal>
             <span class="method-num">No. 04</span>
             <h3>Transfer</h3>
-            <p>The move most agents never discuss: structuring ownership so the wealth you build survives the handoff to the next generation intact.</p>
+            <p>We identify the ownership, records, family conversations, and licensed advisors needed to make the asset easier to manage and eventually pass on.</p>
+            <div class="method-question">The decision: Could your family understand and act on your plan without guessing?</div>
+            <div class="method-output">You receive: a Family Handoff Checklist</div>
           </article>
         </div>
+        <div class="method-audit" data-reveal>
+          <div class="method-audit-copy">
+            <span class="eyebrow">A 60-second self-audit</span>
+            <h3>Is your next move actually ready?</h3>
+            <p>If you cannot answer “yes” to all four, the next step is clarity—not another listing alert.</p>
+            <ul class="method-checklist">
+              <li>I know the maximum monthly cost that still lets my family live well.</li>
+              <li>I know my walk-away price and which protections I will not surrender.</li>
+              <li>I can explain how this move supports my five- and ten-year goals.</li>
+              <li>The right people could locate and understand my property plan.</li>
+            </ul>
+          </div>
+          <div class="method-audit-action">
+            <strong>Missing an answer?</strong>
+            <p>Bring me the situation. I’ll help you identify the decision that matters before you commit to a property.</p>
+            <a class="btn btn-gold" href="#contact">Build My Move Map</a>
+          </div>
+        </div>
         <div class="method-foot" data-reveal>
-          <p>The difference between owning property and building a legacy.</p>
-          <a class="btn btn-gold" href="/family-wealth-preservation">Read the Full Framework — Free</a>
+          <p>A better transaction begins with better decisions.</p>
+          <a class="btn btn-outline" href="/family-wealth-preservation">Explore the Full Family Wealth Guide</a>
         </div>
       </div>
     </section>

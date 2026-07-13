@@ -812,11 +812,13 @@
     }
 
     /* ─── Method ────────────────────────────────────────────────────────── */
-    .method { background: var(--navy); color: var(--cream); position: relative; overflow: hidden; }
+    .method { background: #061126; color: var(--cream); position: relative; overflow: hidden; }
     .method::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 55% 50% at 92% 8%, rgba(201, 168, 76, 0.08), transparent 60%);
+      background:
+        radial-gradient(ellipse 55% 50% at 92% 8%, rgba(201, 168, 76, 0.15), transparent 60%),
+        linear-gradient(135deg, #061126 0%, #0b2448 52%, #07172f 100%);
       pointer-events: none;
     }
     .method .container { position: relative; z-index: 1; }
@@ -826,14 +828,17 @@
     @media (max-width: 980px) { .method-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .method-grid { grid-template-columns: 1fr; } }
     .method-card {
-      border: 1px solid rgba(201, 168, 76, 0.28);
+      border: 1px solid rgba(201, 168, 76, 0.42);
+      border-top: 4px solid var(--gold);
       border-radius: var(--radius-lg);
       padding: 1.8rem 1.5rem;
-      background: rgba(250, 245, 238, 0.03);
+      background: rgba(5, 15, 34, 0.72);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
       transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
       display: flex; flex-direction: column;
     }
-    .method-card:hover { background: rgba(250, 245, 238, 0.06); border-color: rgba(201, 168, 76, 0.6); }
+    .method-card:hover { background: #102d56; border-color: var(--gold); }
+    .method-card:nth-child(even) { background: rgba(20, 48, 83, 0.82); }
     .method-num {
       font-family: var(--font-display); font-style: italic;
       font-size: 1rem; color: var(--gold);
@@ -858,8 +863,9 @@
       display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
       gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
       margin-top: 2.2rem; padding: clamp(1.5rem, 4vw, 2.5rem);
-      border: 1px solid rgba(201, 168, 76, 0.42); border-radius: var(--radius-lg);
-      background: rgba(250, 245, 238, 0.055);
+      border: 1px solid rgba(221, 190, 105, 0.7); border-radius: var(--radius-lg);
+      background: linear-gradient(120deg, rgba(201, 168, 76, 0.19), rgba(7, 28, 57, 0.96) 58%);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
     }
     .method-audit h3 {
       margin-bottom: 0.65rem; font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500;
@@ -868,9 +874,12 @@
     .method-checklist { display: grid; gap: 0.72rem; margin-top: 1.25rem; list-style: none; }
     .method-checklist li { display: flex; gap: 0.7rem; color: rgba(250, 245, 238, 0.9); font-size: 0.86rem; line-height: 1.45; }
     .method-checklist li::before { content: '\2713'; flex: 0 0 auto; color: var(--gold-light); font-weight: 800; }
-    .method-audit-action { padding: 1.25rem; border-radius: var(--radius-md); background: var(--cream); color: var(--navy); }
-    .method-audit-action strong { display: block; margin-bottom: 0.5rem; font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; }
-    .method-audit-action p { margin-bottom: 1rem; color: rgba(7, 21, 45, 0.72); font-size: 0.82rem; }
+    .method-audit-action {
+      padding: 1.4rem; border: 1px solid rgba(221, 190, 105, 0.58); border-radius: var(--radius-md);
+      background: #07152d; color: var(--cream); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .method-audit-action strong { display: block; margin-bottom: 0.5rem; color: var(--gold-light); font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; }
+    .method-audit-action p { margin-bottom: 1rem; color: rgba(250, 245, 238, 0.76); font-size: 0.82rem; }
     .method-audit-action .btn { width: 100%; justify-content: center; }
     @media (max-width: 760px) { .method-audit { grid-template-columns: 1fr; } }
     .method-foot {

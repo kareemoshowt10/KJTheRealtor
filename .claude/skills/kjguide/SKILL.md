@@ -109,7 +109,8 @@ All at the git root:
 ## Backlog — high-value unbuilt topics (what people need from a Realtor)
 
 Ordered by likely demand; each names the counterpart(s) and the client win.
-BUILT: appraisal gap (/appraisal-gap-guide, 2026-07-12).
+BUILT: appraisal gap (/appraisal-gap-guide, 2026-07-12); handyman vs contractor
+(/contractor-handyman-guide, 2026-07-15 — also covers the old "contractor bid review" topic).
 
 1. **Listing-launch pricing** — Kareem ↔ seller client; the honest pricing conversation:
    comps, the first-price-is-the-strategy talk, saying no to flattery pricing. Seller audience.
@@ -121,7 +122,5 @@ BUILT: appraisal gap (/appraisal-gap-guide, 2026-07-12).
    screening, pricing the rent, and protecting the asset. Owner/investor audience.
 6. **The estate/inherited home call** — Kareem ↔ heirs + probate professional; the calm
    first conversation after inheriting property (tax basis, Prop 19, sell vs keep). Family.
-7. **Contractor bid review** — Kareem ↔ two contractors; getting comparable bids for a
-   pre-sale or post-purchase project and reading the spread. Owner audience.
-8. **HOA / condo document review** — Kareem ↔ HOA manager; the questions that surface
+7. **HOA / condo document review** — Kareem ↔ HOA manager; the questions that surface
    special assessments and litigation before they're your problem. Buyer audience.

@@ -35,8 +35,8 @@ export default async function HomePage() {
           <Link href="/login" className="btn-primary">
             Get started
           </Link>
-          <Link href="/search" className="btn-ghost">
-            Browse titles
+          <Link href="/discover" className="btn-ghost">
+            See what's trending
           </Link>
         </div>
         <div className="grid gap-4 text-left sm:grid-cols-3">

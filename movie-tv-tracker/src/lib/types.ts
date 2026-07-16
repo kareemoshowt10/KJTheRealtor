@@ -144,3 +144,18 @@ export interface PostWithMeta extends DiscussionPost {
   user_vote: 1 | -1 | null;
   is_trusted: boolean;
 }
+
+// ── Phase 4 ─────────────────────────────────────────────────────────
+
+export interface CommunityStat {
+  title_id: string;
+  rating_count: number;
+  avg_score: number;
+  weighted_score: number;
+  last_rated_at: string;
+}
+
+export interface CommunityEntry {
+  title: Title;
+  stat: CommunityStat;
+}

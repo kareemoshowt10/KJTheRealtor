@@ -18,8 +18,8 @@ the KJTheRealtor site this repo also contains.
 
 1. Create a [Supabase](https://supabase.com) project.
 2. Run the migrations in `supabase/migrations/` in order (`0001_init.sql`,
-   then `0002_phase2.sql`) via the SQL editor, or `supabase db push` if
-   using the CLI.
+   `0002_phase2.sql`, `0003_community_rankings.sql`) via the SQL editor,
+   or `supabase db push` if using the CLI.
 3. Get a [TMDB API key](https://www.themoviedb.org/settings/api) (v3 auth).
 4. Copy `.env.example` to `.env.local` and fill in:
    - `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` — from
@@ -77,6 +77,19 @@ npm run dev
   `input`, `skeleton` classes in `globals.css`), sticky blurred navbar
   with active-link states, landing hero, dashboard stat tiles, route-level
   loading skeletons, hover/press micro-interactions
+
+## What's implemented (Phase 4)
+
+- Community consensus ranking (`/discover`) — the "community" and
+  "confidence" ranking dimensions from the original spec: a per-title
+  weighted average across every rater (trusted reviewers weighted 1.5x),
+  gated behind a minimum rating count (`CONFIDENCE_THRESHOLD` in
+  `src/lib/discover.ts`) so a single rating can't look like consensus.
+  Toggle Movies/TV and Trending (last 30 days) vs All-time. Publicly
+  readable — the landing page links logged-out visitors straight to it.
+- Backed by two new views in `0003_community_rankings.sql`:
+  `latest_ratings` (one row per user/title) and `title_community_stats`
+  (rating_count, avg_score, weighted_score, last_rated_at).
 
 ## Known follow-ups
 

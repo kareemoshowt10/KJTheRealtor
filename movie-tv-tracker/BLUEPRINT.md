@@ -84,6 +84,11 @@ lists(id uuid pk, owner_id uuid, title text, description text, is_collaborative 
 list_items(list_id uuid, title_id uuid, rank int, added_by uuid, pk(list_id, title_id))
 discussion_threads(id uuid pk, title_id uuid, tab text, created_at)
 discussion_posts(id uuid pk, thread_id uuid, user_id uuid, body text, has_spoilers bool, created_at)
+
+-- Phase 4 views (no new tables)
+-- latest_ratings: one row per (user, title) — DISTINCT ON latest by created_at
+-- title_community_stats: rating_count, avg_score, weighted_score (trusted
+--   reviewers weighted 1.5x), last_rated_at — powers /discover
 ```
 
 RLS: every table scoped so a user can write only their own `user_titles` /
@@ -122,3 +127,15 @@ climb after a rewatch, a show can rise or fall as new episodes land.
    Similar Titles / Spoiler Talk)
 3. Collaborative lists
 4. Reputation system weighting trusted reviewers in discovery
+
+**Phase 3 (built)**
+1. TV episode/season progress tracking
+2. Score-history sparkline
+3. People discovery / follow search
+4. UI system pass (design tokens, loading states, micro-interactions)
+
+**Phase 4 (built)**
+1. Community consensus ranking (`/discover`) — the "community" +
+   "confidence" dimensions from the original ranking spec: aggregate
+   score across all raters, weighted toward trusted reviewers, gated by
+   a minimum rating count so thin data doesn't masquerade as consensus

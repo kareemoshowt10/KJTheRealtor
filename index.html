@@ -474,7 +474,7 @@
       align-items: end;
       position: relative;
       overflow: hidden;
-      isolation: isolate;
+      z-index: 0; /* stacking context to contain the negative-z film/gradient layers (equivalent to isolation:isolate, wider renderer support) */
       background:
         linear-gradient(90deg, rgba(5, 15, 32, 0.34), rgba(5, 15, 32, 0.08)),
         url('/assets/home-is-personal-poster.jpg') 56% center / cover no-repeat,
@@ -509,6 +509,7 @@
       width: 100%;
       padding-top: clamp(7rem, 17vh, 10rem);
       padding-bottom: clamp(4.5rem, 10vh, 7rem);
+      position: relative; z-index: 1; /* keep copy above the negative-z film/gradient layers — some renderers otherwise paint it beneath them */
     }
     .hero-copy { max-width: 720px; }
     .hero-copy { animation: hero-arrive 0.75s var(--ease) both; }
@@ -622,7 +623,7 @@
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-lg);
-      isolation: isolate;
+      z-index: 0; /* stacking context (equivalent to isolation:isolate, wider renderer support) */
       min-height: 260px;
     }
     .home-moment:first-child { grid-row: 1 / 3; }

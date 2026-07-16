@@ -486,7 +486,7 @@
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: 56% center;
-      z-index: -3;
+      z-index: 0; /* positive stack: film 0 → gradients 1/2 → copy 3. Negative z-index layers were mispainted over the hero copy in some browsers. */
       transform: scale(1.015);
       opacity: 0;
       transition: opacity 0.7s ease;
@@ -494,14 +494,15 @@
     .hero-film.is-ready { opacity: 1; }
     .hero::before {
       content: '';
-      position: absolute; inset: 0; z-index: -2;
+      position: absolute; inset: 0; z-index: 1;
+      pointer-events: none;
       background:
         linear-gradient(90deg, rgba(5, 15, 32, 0.88) 0%, rgba(5, 15, 32, 0.64) 43%, rgba(5, 15, 32, 0.16) 72%),
         linear-gradient(0deg, rgba(5, 15, 32, 0.74) 0%, transparent 47%, rgba(5, 15, 32, 0.2) 100%);
     }
     .hero::after {
       content: '';
-      position: absolute; inset: 0; z-index: -1;
+      position: absolute; inset: 0; z-index: 2;
       background: linear-gradient(180deg, transparent 70%, rgba(11, 30, 62, 0.36));
       pointer-events: none;
     }
@@ -509,7 +510,7 @@
       width: 100%;
       padding-top: clamp(7rem, 17vh, 10rem);
       padding-bottom: clamp(4.5rem, 10vh, 7rem);
-      position: relative; z-index: 1; /* keep copy above the negative-z film/gradient layers — some renderers otherwise paint it beneath them */
+      position: relative; z-index: 3;
     }
     .hero-copy { max-width: 720px; }
     .hero-copy { animation: hero-arrive 0.75s var(--ease) both; }
@@ -559,6 +560,7 @@
     .hero-controls {
       position: absolute; right: var(--gutter); bottom: 2rem;
       display: flex; align-items: center; gap: 0.7rem;
+      z-index: 4;
     }
     .film-toggle {
       display: inline-flex; align-items: center; gap: 0.55rem;

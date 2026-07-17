@@ -158,7 +158,12 @@ export default async function DiscussPage({ params, searchParams }: Props) {
 
           <div className="flex flex-col gap-3">
             {posts.map((post) => (
-              <PostCard key={post.id} post={post} isAuthenticated={!!user} />
+              <PostCard
+                key={post.id}
+                post={post}
+                isAuthenticated={!!user}
+                currentUserId={user?.id ?? null}
+              />
             ))}
           </div>
 

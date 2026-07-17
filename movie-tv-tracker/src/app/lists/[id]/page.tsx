@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
+import { getDocsByIds } from '@/lib/firestore-helpers';
 import ListEditor from '@/components/ListEditor';
 import type { ListRecord, Title } from '@/lib/types';
 
@@ -17,28 +19,37 @@ interface ListItemWithTitle {
 }
 
 export default async function ListDetailPage({ params }: Props) {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
+  const db = getAdminDb();
 
-  const { data: list } = await supabase
-    .from('lists')
-    .select('*, profiles!owner_id(username)')
-    .eq('id', params.id)
-    .maybeSingle<ListRecord & { profiles: { username: string } }>();
+  const listSnap = await db.collection('lists').doc(params.id).get();
+  if (!listSnap.exists) notFound();
+  const list = { id: listSnap.id, ...listSnap.data() } as ListRecord;
 
-  if (!list) notFound();
+  const ownerSnap = await db.collection('profiles').doc(list.owner_id).get();
+  const ownerUsername = ownerSnap.data()?.username as string | undefined;
 
-  const { data: items } = await supabase
-    .from('list_items')
-    .select('*, titles(*)')
-    .eq('list_id', params.id)
-    .order('rank', { ascending: true })
-    .returns<ListItemWithTitle[]>();
+  const itemsSnap = await db
+    .collection('listItems')
+    .where('list_id', '==', params.id)
+    .orderBy('rank', 'asc')
+    .get();
+  const rawItems = itemsSnap.docs.map((d) => d.data() as Omit<ListItemWithTitle, 'titles'>);
 
-  const canEdit =
-    !!user && (list.owner_id === user.id || list.is_collaborative);
+  const titleMap = await getDocsByIds<Title>(
+    db,
+    'titles',
+    rawItems.map((i) => i.title_id)
+  );
+
+  const items: ListItemWithTitle[] = rawItems
+    .map((i) => {
+      const title = titleMap.get(i.title_id);
+      return title ? { ...i, titles: title } : null;
+    })
+    .filter((i): i is ListItemWithTitle => i !== null);
+
+  const canEdit = !!user && (list.owner_id === user.uid || list.is_collaborative);
 
   return (
     <div>
@@ -51,21 +62,18 @@ export default async function ListDetailPage({ params }: Props) {
             </span>
           )}
         </div>
-        {list.description && (
-          <p className="mb-2 text-sm text-zinc-400">{list.description}</p>
+        {list.description && <p className="mb-2 text-sm text-zinc-400">{list.description}</p>}
+        {ownerUsername && (
+          <p className="text-xs text-zinc-500">
+            by{' '}
+            <Link href={`/profile/${ownerUsername}`} className="hover:text-accent">
+              {ownerUsername}
+            </Link>
+          </p>
         )}
-        <p className="text-xs text-zinc-500">
-          by{' '}
-          <Link
-            href={`/profile/${(list as ListRecord & { profiles: { username: string } }).profiles?.username}`}
-            className="hover:text-accent"
-          >
-            {(list as ListRecord & { profiles: { username: string } }).profiles?.username}
-          </Link>
-        </p>
       </div>
 
-      <ListEditor listId={params.id} initialItems={items ?? []} canEdit={canEdit} />
+      <ListEditor listId={params.id} initialItems={items} canEdit={canEdit} />
     </div>
   );
 }

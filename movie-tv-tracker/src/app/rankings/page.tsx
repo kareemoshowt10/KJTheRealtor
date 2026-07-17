@@ -1,19 +1,16 @@
 import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
 import { getRankedLibrary } from '@/lib/library';
 import RankedList from '@/components/RankedList';
 
 export default async function RankingsPage() {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
 
   if (!user) {
     redirect('/login');
   }
 
-  const entries = await getRankedLibrary(supabase, user.id);
+  const entries = await getRankedLibrary(user.uid);
 
   return (
     <div>

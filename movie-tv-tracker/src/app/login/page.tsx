@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { createClient } from '@/lib/supabase/client';
+import { sendSignInLinkToEmail } from 'firebase/auth';
+import { getFirebaseAuth } from '@/lib/firebase/client';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -13,29 +14,27 @@ export default function LoginPage() {
     setStatus('sending');
     setError(null);
 
-    const supabase = createClient();
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
-      options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
-      },
-    });
-
-    if (error) {
+    try {
+      const auth = getFirebaseAuth();
+      await sendSignInLinkToEmail(auth, email, {
+        url: `${window.location.origin}/auth/callback`,
+        handleCodeInApp: true,
+      });
+      window.localStorage.setItem('emailForSignIn', email);
+      setStatus('sent');
+    } catch (err) {
       setStatus('error');
-      setError(error.message);
-      return;
+      setError(err instanceof Error ? err.message : 'Failed to send sign-in link');
     }
-
-    setStatus('sent');
   }
 
   return (
     <div className="mx-auto max-w-sm">
-      <h1 className="mb-6 text-2xl font-semibold">Log in</h1>
+      <h1 className="mb-6 text-2xl font-bold tracking-tight">Log in</h1>
       {status === 'sent' ? (
         <p className="text-zinc-300">
-          Check <strong>{email}</strong> for a magic link to finish signing in.
+          Check <strong>{email}</strong> for a sign-in link to finish logging in. Open it on
+          this device/browser.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -45,14 +44,10 @@ export default function LoginPage() {
             placeholder="you@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="rounded border border-zinc-700 bg-surface px-3 py-2 outline-none focus:border-accent"
+            className="input"
           />
-          <button
-            type="submit"
-            disabled={status === 'sending'}
-            className="rounded bg-accent px-3 py-2 font-medium text-black disabled:opacity-50"
-          >
-            {status === 'sending' ? 'Sending…' : 'Send magic link'}
+          <button type="submit" disabled={status === 'sending'} className="btn-primary">
+            {status === 'sending' ? 'Sending…' : 'Send sign-in link'}
           </button>
           {error && <p className="text-sm text-red-400">{error}</p>}
         </form>

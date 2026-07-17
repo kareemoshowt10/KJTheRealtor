@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
+import { titleDocId } from '@/lib/firestore-ids';
 import { getOrNullThread, getPostsWithMeta } from '@/lib/discuss';
 import { getTmdbSimilar, tmdbPosterUrl } from '@/lib/tmdb';
 import PostCard from '@/components/PostCard';
@@ -31,17 +33,10 @@ export default async function DiscussPage({ params, searchParams }: Props) {
   const rawTab = searchParams.tab ?? 'reviews';
   const activeTab = (TABS.find((t) => t.key === rawTab)?.key ?? 'reviews') as DiscussionTab;
 
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
 
-  const { data: title } = await supabase
-    .from('titles')
-    .select('*')
-    .eq('tmdb_id', tmdbId)
-    .eq('media_type', mediaType)
-    .maybeSingle<Title>();
+  const titleSnap = await getAdminDb().collection('titles').doc(titleDocId(mediaType, tmdbId)).get();
+  const title = titleSnap.exists ? ({ id: titleSnap.id, ...titleSnap.data() } as Title) : null;
 
   if (!title) {
     return (
@@ -64,11 +59,11 @@ export default async function DiscussPage({ params, searchParams }: Props) {
   // Fetch content for active tab
   const isSimilar = activeTab === 'similar_titles';
   const [thread, similar] = await Promise.all([
-    isSimilar ? Promise.resolve(null) : getOrNullThread(supabase, title.id, activeTab),
+    isSimilar ? Promise.resolve(null) : getOrNullThread(title.id, activeTab),
     isSimilar ? getTmdbSimilar(tmdbId, mediaType) : Promise.resolve([]),
   ]);
 
-  const posts = thread ? await getPostsWithMeta(supabase, thread.id, user?.id ?? null) : [];
+  const posts = thread ? await getPostsWithMeta(thread.id, user?.uid ?? null) : [];
 
   return (
     <div>
@@ -162,7 +157,7 @@ export default async function DiscussPage({ params, searchParams }: Props) {
                 key={post.id}
                 post={post}
                 isAuthenticated={!!user}
-                currentUserId={user?.id ?? null}
+                currentUserId={user?.uid ?? null}
               />
             ))}
           </div>

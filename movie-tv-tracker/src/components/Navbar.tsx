@@ -1,21 +1,16 @@
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
 import NavLinks from './NavLinks';
+import LogoutButton from './LogoutButton';
 
 export default async function Navbar() {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
 
   let username: string | null = null;
   if (user) {
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('username')
-      .eq('id', user.id)
-      .single();
-    username = profile?.username ?? null;
+    const profileSnap = await getAdminDb().collection('profiles').doc(user.uid).get();
+    username = (profileSnap.data()?.username as string | undefined) ?? null;
   }
 
   return (
@@ -27,12 +22,15 @@ export default async function Navbar() {
         <div className="flex items-center gap-1 text-sm sm:gap-3">
           <NavLinks />
           {username ? (
-            <Link
-              href={`/profile/${username}`}
-              className="ml-2 rounded-full border border-line bg-surface px-3 py-1 font-medium hover:border-accent/60 hover:text-accent"
-            >
-              {username}
-            </Link>
+            <>
+              <Link
+                href={`/profile/${username}`}
+                className="ml-2 rounded-full border border-line bg-surface px-3 py-1 font-medium hover:border-accent/60 hover:text-accent"
+              >
+                {username}
+              </Link>
+              <LogoutButton />
+            </>
           ) : (
             <Link href="/login" className="btn-primary ml-2 px-3 py-1">
               Log in

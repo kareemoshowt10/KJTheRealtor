@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
+import { titleDocId, userTitleDocId } from '@/lib/firestore-ids';
 import { getTmdbDetails } from '@/lib/tmdb';
 import TitleDetail from '@/components/TitleDetail';
 import type { MediaType, Rating, Title, UserTitle } from '@/lib/types';
@@ -20,38 +22,32 @@ export default async function TitlePage({ params }: Props) {
     notFound();
   }
 
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
+  const db = getAdminDb();
 
-  const { data: cachedTitle } = await supabase
-    .from('titles')
-    .select('*')
-    .eq('tmdb_id', tmdbId)
-    .eq('media_type', mediaType)
-    .maybeSingle<Title>();
+  const titleId = titleDocId(mediaType, tmdbId);
+  const titleSnap = await db.collection('titles').doc(titleId).get();
+  const cachedTitle = titleSnap.exists ? ({ id: titleSnap.id, ...titleSnap.data() } as Title) : null;
 
   let userTitle: UserTitle | null = null;
   let ratings: Rating[] = [];
 
   if (cachedTitle && user) {
-    const { data: ut } = await supabase
-      .from('user_titles')
-      .select('*')
-      .eq('user_id', user.id)
-      .eq('title_id', cachedTitle.id)
-      .maybeSingle<UserTitle>();
-    userTitle = ut;
+    const userTitleSnap = await db
+      .collection('userTitles')
+      .doc(userTitleDocId(user.uid, cachedTitle.id))
+      .get();
+    userTitle = userTitleSnap.exists
+      ? ({ id: userTitleSnap.id, ...userTitleSnap.data() } as UserTitle)
+      : null;
 
-    const { data: ratingRows } = await supabase
-      .from('ratings')
-      .select('*')
-      .eq('user_id', user.id)
-      .eq('title_id', cachedTitle.id)
-      .order('created_at', { ascending: false })
-      .returns<Rating[]>();
-    ratings = ratingRows ?? [];
+    const ratingsSnap = await db
+      .collection('ratings')
+      .where('user_id', '==', user.uid)
+      .where('title_id', '==', cachedTitle.id)
+      .orderBy('created_at', 'desc')
+      .get();
+    ratings = ratingsSnap.docs.map((d) => ({ id: d.id, ...d.data() }) as Rating);
   }
 
   const discussHref = `/title/${mediaType}/${tmdbId}/discuss`;

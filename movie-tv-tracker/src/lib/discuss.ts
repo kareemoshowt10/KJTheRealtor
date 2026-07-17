@@ -1,72 +1,64 @@
-import type { SupabaseClient } from '@supabase/supabase-js';
-import type { DiscussionPost, DiscussionThread, PostWithMeta } from './types';
-import { TRUSTED_REVIEWER_THRESHOLD } from './feed';
+import { getAdminDb } from './firebase/admin';
+import { getDocsByIds, queryWhereIn } from './firestore-helpers';
+import { getReputationMap, TRUSTED_REVIEWER_THRESHOLD } from './reputation';
+import { threadDocId } from './firestore-ids';
+import type { DiscussionPost, DiscussionTab, DiscussionThread, PostWithMeta, Profile } from './types';
 
 export async function getOrNullThread(
-  supabase: SupabaseClient,
   titleId: string,
-  tab: string
+  tab: DiscussionTab
 ): Promise<DiscussionThread | null> {
-  const { data } = await supabase
-    .from('discussion_threads')
-    .select('*')
-    .eq('title_id', titleId)
-    .eq('tab', tab)
-    .maybeSingle<DiscussionThread>();
-  return data;
+  const snap = await getAdminDb().collection('discussionThreads').doc(threadDocId(titleId, tab)).get();
+  if (!snap.exists) return null;
+  return { id: snap.id, ...(snap.data() as object) } as DiscussionThread;
 }
 
 export async function getPostsWithMeta(
-  supabase: SupabaseClient,
   threadId: string,
   currentUserId: string | null
 ): Promise<PostWithMeta[]> {
-  const { data: posts } = await supabase
-    .from('discussion_posts')
-    .select('*')
-    .eq('thread_id', threadId)
-    .order('created_at', { ascending: false })
-    .returns<DiscussionPost[]>();
+  const db = getAdminDb();
 
-  if (!posts || posts.length === 0) return [];
+  const postsSnap = await db
+    .collection('discussionPosts')
+    .where('thread_id', '==', threadId)
+    .orderBy('created_at', 'desc')
+    .get();
 
+  if (postsSnap.empty) return [];
+
+  const posts = postsSnap.docs.map(
+    (d) => ({ id: d.id, ...(d.data() as object) }) as DiscussionPost
+  );
   const postIds = posts.map((p) => p.id);
   const authorIds = [...new Set(posts.map((p) => p.user_id))];
 
-  const [{ data: allVotes }, { data: reputations }, { data: profiles }] = await Promise.all([
-    supabase.from('review_votes').select('post_id, voter_id, vote').in('post_id', postIds),
-    supabase
-      .from('user_reputation')
-      .select('user_id, net_votes')
-      .in('user_id', authorIds),
-    supabase.from('profiles').select('id, username').in('id', authorIds),
+  const [allVotes, profileMap, repMap] = await Promise.all([
+    queryWhereIn<{ post_id: string; voter_id: string; vote: 1 | -1 }>(
+      db,
+      'reviewVotes',
+      'post_id',
+      postIds
+    ),
+    getDocsByIds<Profile>(db, 'profiles', authorIds),
+    getReputationMap(authorIds),
   ]);
 
   const netVotesByPost = new Map<string, number>();
   const userVoteByPost = new Map<string, 1 | -1>();
-  for (const v of allVotes ?? []) {
+  for (const v of allVotes) {
     netVotesByPost.set(v.post_id, (netVotesByPost.get(v.post_id) ?? 0) + v.vote);
     if (currentUserId && v.voter_id === currentUserId) {
-      userVoteByPost.set(v.post_id, v.vote as 1 | -1);
+      userVoteByPost.set(v.post_id, v.vote);
     }
-  }
-
-  const repByUser = new Map<string, number>();
-  for (const r of reputations ?? []) {
-    repByUser.set(r.user_id, r.net_votes);
-  }
-
-  const usernameByUser = new Map<string, string>();
-  for (const p of profiles ?? []) {
-    usernameByUser.set(p.id, p.username);
   }
 
   const enriched: PostWithMeta[] = posts.map((post) => ({
     ...post,
-    username: usernameByUser.get(post.user_id) ?? 'unknown',
+    username: profileMap.get(post.user_id)?.username ?? 'unknown',
     net_votes: netVotesByPost.get(post.id) ?? 0,
     user_vote: userVoteByPost.get(post.id) ?? null,
-    is_trusted: (repByUser.get(post.user_id) ?? 0) >= TRUSTED_REVIEWER_THRESHOLD,
+    is_trusted: (repMap.get(post.user_id) ?? 0) >= TRUSTED_REVIEWER_THRESHOLD,
   }));
 
   return enriched.sort((a, b) => b.net_votes - a.net_votes);

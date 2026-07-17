@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
 import { getRankedLibrary } from '@/lib/library';
 import RankedList from '@/components/RankedList';
 
@@ -10,10 +10,7 @@ const FEATURES = [
 ];
 
 export default async function HomePage() {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
 
   if (!user) {
     return (
@@ -51,7 +48,7 @@ export default async function HomePage() {
     );
   }
 
-  const entries = await getRankedLibrary(supabase, user.id);
+  const entries = await getRankedLibrary(user.uid);
   const watching = entries.filter((e) => e.userTitle.status === 'watching');
   const completed = entries.filter((e) => e.userTitle.status === 'completed');
   const scored = entries.filter((e) => e.dynamicScore !== null);

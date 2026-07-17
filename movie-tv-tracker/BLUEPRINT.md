@@ -10,7 +10,9 @@ with people whose taste you trust."*
 ## Stack
 
 - **Next.js 14** (App Router, TypeScript) — frontend + API routes
-- **Supabase** — Postgres, Auth (magic link), Row Level Security
+- **Firebase** — Firestore (data), Firebase Auth (email-link sign-in).
+  Originally built on Supabase/Postgres; migrated to Firebase in Phase 5
+  (see "Data model" below for what changed).
 - **TMDB API** — title metadata/search/posters (movies + TV in one source)
 - **Tailwind CSS** — styling
 - Deploy target: Vercel (own project, own env vars, independent of the
@@ -21,7 +23,7 @@ with people whose taste you trust."*
 | Route | Purpose |
 |---|---|
 | `/` | Activity feed / "currently watching" dashboard for the logged-in user |
-| `/login` | Magic-link auth |
+| `/login` | Email-link (passwordless) auth |
 | `/search` | Search TMDB for a movie or show, add to library |
 | `/title/[type]/[tmdbId]` | Title detail page: poster, overview, your status, score, rating control |
 | `/profile/[username]` | A user's library, split by movies/TV, with ranked list |
@@ -36,64 +38,48 @@ with people whose taste you trust."*
 | `/lists` , `/lists/[id]` | Collaborative ranked lists |
 | `/u/[username]/following` | Follow graph |
 
-## Database schema (Supabase Postgres)
+## Data model (Firestore)
 
-```sql
-profiles(id uuid pk -> auth.users, username unique, avatar_url, bio, created_at)
+Collections mirror the original relational schema; deterministic doc IDs
+(`src/lib/firestore-ids.ts`) replace SQL unique constraints, and a
+separate `usernames/{username} → uid` collection reserves usernames
+(written transactionally alongside profile creation).
 
-titles(
-  id uuid pk,
-  tmdb_id int,
-  media_type text check in ('movie','tv'),
-  name text,
-  poster_path text,
-  release_date date,
-  overview text,
-  unique(tmdb_id, media_type)
-)
+```
+profiles/{uid}          — username, avatar_url, bio, created_at
+usernames/{username}    — { uid }  (uniqueness reservation)
 
-user_titles(
-  id uuid pk,
-  user_id uuid -> profiles,
-  title_id uuid -> titles,
-  status text check in ('watchlist','watching','completed','dropped'),
-  last_watched_at timestamptz,
-  rewatch_count int default 0,
-  current_season int,
-  current_episode int,
-  started_at timestamptz,
-  completed_at timestamptz,
-  created_at timestamptz default now(),
-  updated_at timestamptz default now(),
-  unique(user_id, title_id)
-)
+titles/{media_type}_{tmdb_id}
+  tmdb_id, media_type, name, poster_path, release_date, overview, created_at
 
-ratings(
-  id uuid pk,
-  user_id uuid -> profiles,
-  title_id uuid -> titles,
-  score numeric(3,1) check (score between 0 and 10),
-  reason text check in ('initial','rewatch','finale','time_decay_review','manual'),
-  created_at timestamptz default now()
-)
--- append-only score history; "current score" = latest row per (user, title)
+userTitles/{uid}_{titleId}
+  user_id, title_id, status, last_watched_at, rewatch_count,
+  current_season, current_episode, started_at, completed_at,
+  created_at, updated_at
 
--- Phase 2 reserved tables
-follows(follower_id uuid, followee_id uuid, created_at, pk(follower_id, followee_id))
-lists(id uuid pk, owner_id uuid, title text, description text, is_collaborative bool, created_at)
-list_items(list_id uuid, title_id uuid, rank int, added_by uuid, pk(list_id, title_id))
-discussion_threads(id uuid pk, title_id uuid, tab text, created_at)
-discussion_posts(id uuid pk, thread_id uuid, user_id uuid, body text, has_spoilers bool, created_at)
+ratings/{autoId}
+  user_id, title_id, score, reason, created_at
+  -- append-only score history; "current score" = latest doc per (user, title)
 
--- Phase 4 views (no new tables)
--- latest_ratings: one row per (user, title) — DISTINCT ON latest by created_at
--- title_community_stats: rating_count, avg_score, weighted_score (trusted
---   reviewers weighted 1.5x), last_rated_at — powers /discover
+follows/{followerId}_{followeeId}       — follower_id, followee_id, created_at
+lists/{autoId}                          — owner_id, title, description, is_collaborative, created_at
+listItems/{listId}_{titleId}            — list_id, title_id, rank, added_by
+discussionThreads/{titleId}_{tab}       — title_id, tab, created_at
+discussionPosts/{autoId}                — thread_id, user_id, body, has_spoilers, created_at
+reviewVotes/{voterId}_{postId}          — voter_id, post_id, vote, created_at
 ```
 
-RLS: every table scoped so a user can write only their own `user_titles` /
-`ratings` rows; `profiles`, `titles` readable by anyone; writes to `titles`
-happen via the server (service role) when caching TMDB results.
+No SQL views exist in Firestore, so the aggregations they used to provide
+(reputation, activity feed, community consensus) are computed in
+application code — see "Data model notes" in `README.md` for details and
+tradeoffs (`src/lib/reputation.ts`, `src/lib/feed.ts`,
+`src/lib/discover.ts`).
+
+**Security**: only the Next.js server touches Firestore, via the Admin
+SDK (full trust, bypasses rules). The browser only ever talks to Firebase
+Auth. `firestore.rules` denies all direct client access as defense in
+depth; every real authorization check (ownership, no self-follow, etc.)
+lives in the API routes under `src/app/api/`.
 
 ## Dynamic ranking formula (v1)
 
@@ -114,7 +100,7 @@ climb after a rewatch, a show can rise or fall as new episodes land.
 ## Feature priorities
 
 **Phase 1 (this build)**
-1. Auth (magic link) + profile creation
+1. Auth (email-link sign-in) + profile creation
 2. TMDB search → add title to library (creates `titles` + `user_titles` rows)
 3. Mark watchlist / watching / completed, track last-watched date and
    season/episode progress for TV
@@ -139,3 +125,9 @@ climb after a rewatch, a show can rise or fall as new episodes land.
    "confidence" dimensions from the original ranking spec: aggregate
    score across all raters, weighted toward trusted reviewers, gated by
    a minimum rating count so thin data doesn't masquerade as consensus
+
+**Phase 5 (built)**
+1. Full backend migration from Supabase/Postgres to Firebase
+   (Firestore + Firebase Auth) — every `lib/*.ts` file, every API route,
+   auth flow, and page rewritten; see "Data model" above
+2. Edit/delete for your own discussion posts

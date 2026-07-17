@@ -12,7 +12,7 @@
   if (window.__kjContactWidget) return;
   window.__kjContactWidget = true;
 
-  var PHOTO = "/assets/kareem-jamal-headshot.jpeg";
+  var PHOTO = "/assets/kareem-jamal-headshot-2026-thumb.jpg";
   var FORMSPREE = "https://formspree.io/f/xnjlgvlk";
   var TEL = "+18184027326";
 

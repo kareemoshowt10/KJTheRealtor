@@ -9,6 +9,7 @@
 .kjx {
   position: relative;
   overflow: hidden;
+  contain: paint; /* guarantees the translated hover layer can never bleed outside the button on any engine */
 }
 .kjx .kjx-label {
   position: relative;

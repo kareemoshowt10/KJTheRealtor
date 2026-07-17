@@ -86,8 +86,9 @@
     /* ── Nav ────────────────────────────────────────────────── */
     .site-header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(18,13,9,0.88);
-      backdrop-filter: blur(14px);
+      /* solid bg, no backdrop-filter: a filtered header becomes the containing
+         block for the fixed mobile nav-links, which then renders see-through */
+      background: #120d09;
       border-bottom: 1px solid rgba(201,168,76,0.15);
       padding: 0;
     }

@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://kareemjamaltherealtor.com/sitemap.xml
-Host: kareemjamaltherealtor.com

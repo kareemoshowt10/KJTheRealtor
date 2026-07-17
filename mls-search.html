@@ -1951,6 +1951,48 @@ body {
               <button class="btn btn-secondary" type="button" data-area-browse="Studio City">Browse Live ↗</button>
             </div>
           </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Where Kareem Is From</span>
+            <h3>Chatsworth &middot; 91311</h3>
+            <p>Horse properties, big lots, and rocky-hill views at West Valley prices that still surprise people. I grew up here &mdash; I know which streets hold value and which pockets are quietly improving. <a href="/91311">Read my 91311 deep dive &rarr;</a></p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$700k – $1.8M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-get="Chatsworth">Get Chatsworth Listings</button>
+              <button class="btn btn-secondary" type="button" data-area-browse="Chatsworth">Browse Live ↗</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Where Kareem Lives</span>
+            <h3>Simi Valley &middot; 93063</h3>
+            <p>One drive over the Santa Susana Pass and your money simply buys more. I ran that math on my own life and moved here &mdash; newer housing stock, more land, and honest value. <a href="/93063">Read my 93063 deep dive &rarr;</a></p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$600k – $1.4M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-get="Simi Valley">Get Simi Valley Listings</button>
+              <button class="btn btn-secondary" type="button" data-area-browse="Simi Valley">Browse Live ↗</button>
+            </div>
+          </article>
+
+          <article class="neighborhood-card">
+            <span class="neighborhood-tag">Where Kareem Learned to Build</span>
+            <h3>West Hills &middot; 91304</h3>
+            <p>Family neighborhoods with strong school pull and lots that reward a builder&rsquo;s eye &mdash; ADU potential, value-add remodels, and quiet streets people stay on for decades. <a href="/west-hills">Read the West Hills guide &rarr;</a></p>
+            <div class="neighborhood-band">
+              <span>Typical Range</span>
+              <span>$800k – $1.6M+</span>
+            </div>
+            <div class="neighborhood-actions">
+              <button class="btn btn-primary" type="button" data-area-get="West Hills">Get West Hills Listings</button>
+              <button class="btn btn-secondary" type="button" data-area-browse="West Hills">Browse Live ↗</button>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -2697,7 +2739,18 @@ body {
     // and paste it here as "Area Name": "https://matrix.crmls.org/...". No other
     // code change needed.
     const AREA_IDX = {
+      // Paste each area's CRMLS Matrix public IDX link between the quotes and
+      // remove the leading "//". Any area left commented out falls back to the
+      // general search link automatically.
       // "Woodland Hills": "https://matrix.crmls.org/Matrix/public/IDX.aspx?idx=XXXXXXXX",
+      // "Encino": "",
+      // "Sherman Oaks": "",
+      // "Tarzana": "",
+      // "Calabasas": "",
+      // "Studio City": "",
+      // "Chatsworth": "",
+      // "Simi Valley": "",
+      // "West Hills": "",
     };
 
     // "Get [Area] Listings" → start a curated request (captures the lead on-site)

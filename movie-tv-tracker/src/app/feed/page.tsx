@@ -1,18 +1,15 @@
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
 import { getFollowingActivity } from '@/lib/feed';
 import ActivityFeed from '@/components/ActivityFeed';
 
 export default async function FeedPage() {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
 
   if (!user) redirect('/login');
 
-  const events = await getFollowingActivity(supabase, user.id);
+  const events = await getFollowingActivity(user.uid);
 
   return (
     <div>

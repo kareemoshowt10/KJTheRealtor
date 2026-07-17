@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
 import { getCommunityRankings, CONFIDENCE_THRESHOLD } from '@/lib/discover';
 import CommunityList from '@/components/CommunityList';
 import type { MediaType } from '@/lib/types';
@@ -25,8 +24,7 @@ export default async function DiscoverPage({ searchParams }: Props) {
     : 'all') as MediaType | 'all';
   const windowTab = searchParams.window === 'all-time' ? 'all-time' : 'trending';
 
-  const supabase = createClient();
-  const entries = await getCommunityRankings(supabase, {
+  const entries = await getCommunityRankings({
     mediaType: mediaTab === 'all' ? undefined : mediaTab,
     trending: windowTab === 'trending',
     limit: 25,

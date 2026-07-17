@@ -1,6 +1,9 @@
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
-import { TRUSTED_REVIEWER_THRESHOLD } from '@/lib/feed';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
+import { getDocsByIds, queryWhereIn } from '@/lib/firestore-helpers';
+import { getReputationMap, TRUSTED_REVIEWER_THRESHOLD } from '@/lib/reputation';
+import { followDocId } from '@/lib/firestore-ids';
 import FollowButton from '@/components/FollowButton';
 import type { Profile } from '@/lib/types';
 
@@ -9,46 +12,47 @@ interface Props {
 }
 
 export default async function PeoplePage({ searchParams }: Props) {
-  const query = searchParams.q?.trim() ?? '';
+  // Firestore has no substring search, so this is a "starts with" match on
+  // the (already-lowercase) username rather than a full ilike '%q%'.
+  const query = (searchParams.q?.trim() ?? '').toLowerCase();
 
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getCurrentUser();
+  const db = getAdminDb();
 
-  let profileQuery = supabase.from('profiles').select('*').limit(20);
+  let profiles: Profile[];
   if (query) {
-    profileQuery = profileQuery.ilike('username', `%${query}%`);
+    const snap = await db
+      .collection('profiles')
+      .where('username', '>=', query)
+      .where('username', '<', `${query}`)
+      .limit(20)
+      .get();
+    profiles = snap.docs.map((d) => ({ id: d.id, ...d.data() }) as Profile);
   } else {
-    profileQuery = profileQuery.order('created_at', { ascending: false });
+    const snap = await db.collection('profiles').orderBy('created_at', 'desc').limit(20).get();
+    profiles = snap.docs.map((d) => ({ id: d.id, ...d.data() }) as Profile);
   }
-  const { data: profiles } = await profileQuery.returns<Profile[]>();
 
-  const others = (profiles ?? []).filter((p) => p.id !== user?.id);
+  const others = profiles.filter((p) => p.id !== user?.uid);
   const ids = others.map((p) => p.id);
 
-  const [followerRows, myFollows, repRows] = await Promise.all([
-    ids.length
-      ? supabase.from('follows').select('followee_id').in('followee_id', ids)
-      : Promise.resolve({ data: [] as { followee_id: string }[] }),
-    user && ids.length
-      ? supabase
-          .from('follows')
-          .select('followee_id')
-          .eq('follower_id', user.id)
-          .in('followee_id', ids)
-      : Promise.resolve({ data: [] as { followee_id: string }[] }),
-    ids.length
-      ? supabase.from('user_reputation').select('user_id, net_votes').in('user_id', ids)
-      : Promise.resolve({ data: [] as { user_id: string; net_votes: number }[] }),
+  const [followerRows, myFollowMap, repMap] = await Promise.all([
+    queryWhereIn<{ followee_id: string }>(db, 'follows', 'followee_id', ids),
+    user
+      ? getDocsByIds<{ followee_id: string }>(
+          db,
+          'follows',
+          ids.map((id) => followDocId(user.uid, id))
+        )
+      : Promise.resolve(new Map<string, { followee_id: string }>()),
+    getReputationMap(ids),
   ]);
 
   const followerCounts = new Map<string, number>();
-  for (const row of followerRows.data ?? []) {
+  for (const row of followerRows) {
     followerCounts.set(row.followee_id, (followerCounts.get(row.followee_id) ?? 0) + 1);
   }
-  const followingSet = new Set((myFollows.data ?? []).map((r) => r.followee_id));
-  const repMap = new Map((repRows.data ?? []).map((r) => [r.user_id, r.net_votes]));
+  const followingSet = new Set([...myFollowMap.values()].map((f) => f.followee_id));
 
   return (
     <div className="animate-fade-in-up">

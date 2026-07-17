@@ -1,39 +1,39 @@
 import { notFound } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
 import { getRankedLibrary } from '@/lib/library';
 import { getFollowCounts, isFollowing } from '@/lib/feed';
 import RankedList from '@/components/RankedList';
 import FollowButton from '@/components/FollowButton';
+import type { Profile } from '@/lib/types';
 
 interface Props {
   params: { username: string };
 }
 
 export default async function ProfilePage({ params }: Props) {
-  const supabase = createClient();
-  const {
-    data: { user: currentUser },
-  } = await supabase.auth.getUser();
+  const currentUser = await getCurrentUser();
+  const db = getAdminDb();
 
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('username', params.username)
-    .maybeSingle();
+  const usernameSnap = await db.collection('usernames').doc(params.username).get();
+  if (!usernameSnap.exists) notFound();
 
-  if (!profile) notFound();
+  const uid = usernameSnap.data()!.uid as string;
+  const profileSnap = await db.collection('profiles').doc(uid).get();
+  if (!profileSnap.exists) notFound();
+  const profile = { id: uid, ...profileSnap.data() } as Profile;
 
   const [entries, counts, following] = await Promise.all([
-    getRankedLibrary(supabase, profile.id),
-    getFollowCounts(supabase, profile.id),
-    currentUser && currentUser.id !== profile.id
-      ? isFollowing(supabase, currentUser.id, profile.id)
+    getRankedLibrary(profile.id),
+    getFollowCounts(profile.id),
+    currentUser && currentUser.uid !== profile.id
+      ? isFollowing(currentUser.uid, profile.id)
       : Promise.resolve(false),
   ]);
 
   const movies = entries.filter((e) => e.title.media_type === 'movie');
   const shows = entries.filter((e) => e.title.media_type === 'tv');
-  const isOwnProfile = currentUser?.id === profile.id;
+  const isOwnProfile = currentUser?.uid === profile.id;
 
   return (
     <div>

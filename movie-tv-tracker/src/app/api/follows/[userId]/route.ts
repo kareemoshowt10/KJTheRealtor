@@ -1,43 +1,33 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
+import { followDocId } from '@/lib/firestore-ids';
 
 export async function POST(_req: Request, { params }: { params: { userId: string } }) {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-  if (user.id === params.userId) {
+  if (user.uid === params.userId) {
     return NextResponse.json({ error: 'Cannot follow yourself' }, { status: 400 });
   }
 
-  const { error } = await supabase
-    .from('follows')
-    .insert({ follower_id: user.id, followee_id: params.userId });
-
-  if (error && error.code !== '23505') {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
+  const ref = getAdminDb().collection('follows').doc(followDocId(user.uid, params.userId));
+  await ref.set(
+    {
+      follower_id: user.uid,
+      followee_id: params.userId,
+      created_at: new Date().toISOString(),
+    },
+    { merge: true }
+  );
 
   return NextResponse.json({ following: true });
 }
 
 export async function DELETE(_req: Request, { params }: { params: { userId: string } }) {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
-  const { error } = await supabase
-    .from('follows')
-    .delete()
-    .eq('follower_id', user.id)
-    .eq('followee_id', params.userId);
-
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  await getAdminDb().collection('follows').doc(followDocId(user.uid, params.userId)).delete();
 
   return NextResponse.json({ following: false });
 }

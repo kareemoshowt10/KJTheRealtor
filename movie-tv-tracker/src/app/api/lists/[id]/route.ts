@@ -1,46 +1,42 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
 
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
   const body = await request.json();
+  const ref = getAdminDb().collection('lists').doc(params.id);
+  const snap = await ref.get();
 
-  const { data, error } = await supabase
-    .from('lists')
-    .update(body)
-    .eq('id', params.id)
-    .eq('owner_id', user.id)
-    .select()
-    .single();
-
-  if (error || !data) {
-    return NextResponse.json({ error: error?.message ?? 'Not found or not owner' }, { status: 404 });
+  if (!snap.exists || snap.data()?.owner_id !== user.uid) {
+    return NextResponse.json({ error: 'Not found or not owner' }, { status: 404 });
   }
 
-  return NextResponse.json({ list: data });
+  await ref.update(body);
+  const updated = await ref.get();
+
+  return NextResponse.json({ list: { id: updated.id, ...updated.data() } });
 }
 
 export async function DELETE(_req: Request, { params }: { params: { id: string } }) {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
-  const { error } = await supabase
-    .from('lists')
-    .delete()
-    .eq('id', params.id)
-    .eq('owner_id', user.id);
+  const db = getAdminDb();
+  const ref = db.collection('lists').doc(params.id);
+  const snap = await ref.get();
 
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  if (!snap.exists || snap.data()?.owner_id !== user.uid) {
+    return NextResponse.json({ error: 'Not found or not owner' }, { status: 404 });
+  }
+
+  const itemsSnap = await db.collection('listItems').where('list_id', '==', params.id).get();
+  const batch = db.batch();
+  itemsSnap.docs.forEach((d) => batch.delete(d.ref));
+  batch.delete(ref);
+  await batch.commit();
 
   return NextResponse.json({ deleted: true });
 }

@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
+import { threadDocId } from '@/lib/firestore-ids';
 import type { DiscussionTab } from '@/lib/types';
 
-// GET /api/discuss/threads?title_id=…&tab=… — get or create the thread for a tab
+// GET /api/discuss/threads?title_id=…&tab=… — look up the thread for a tab
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const title_id = searchParams.get('title_id');
@@ -12,49 +14,27 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'title_id and tab required' }, { status: 400 });
   }
 
-  const supabase = createClient();
+  const snap = await getAdminDb().collection('discussionThreads').doc(threadDocId(title_id, tab)).get();
+  if (!snap.exists) return NextResponse.json({ thread: null });
 
-  const { data: existing } = await supabase
-    .from('discussion_threads')
-    .select('*')
-    .eq('title_id', title_id)
-    .eq('tab', tab)
-    .maybeSingle();
-
-  if (existing) return NextResponse.json({ thread: existing });
-
-  return NextResponse.json({ thread: null });
+  return NextResponse.json({ thread: { id: snap.id, ...snap.data() } });
 }
 
-// POST /api/discuss/threads — upsert (get or create) a thread
+// POST /api/discuss/threads — get or create a thread
 export async function POST(request: Request) {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
   const { title_id, tab }: { title_id: string; tab: DiscussionTab } = await request.json();
 
-  const { data: existing } = await supabase
-    .from('discussion_threads')
-    .select('*')
-    .eq('title_id', title_id)
-    .eq('tab', tab)
-    .maybeSingle();
-
-  if (existing) return NextResponse.json({ thread: existing });
-
-  const { data: thread, error } = await supabase
-    .from('discussion_threads')
-    .insert({ title_id, tab })
-    .select()
-    .single();
-
-  if (error || !thread) {
-    return NextResponse.json({ error: error?.message ?? 'Failed to create thread' }, { status: 500 });
+  const ref = getAdminDb().collection('discussionThreads').doc(threadDocId(title_id, tab));
+  const existing = await ref.get();
+  if (existing.exists) {
+    return NextResponse.json({ thread: { id: existing.id, ...existing.data() } });
   }
 
-  return NextResponse.json({ thread });
+  const data = { title_id, tab, created_at: new Date().toISOString() };
+  await ref.set(data);
+
+  return NextResponse.json({ thread: { id: ref.id, ...data } });
 }

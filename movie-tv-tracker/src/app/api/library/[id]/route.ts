@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
 import type { WatchStatus } from '@/lib/types';
 
 interface UpdateBody {
@@ -13,31 +14,22 @@ interface UpdateBody {
 }
 
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getCurrentUser();
   if (!user) {
     return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
   }
 
   const body: UpdateBody = await request.json();
+  const db = getAdminDb();
+  const ref = db.collection('userTitles').doc(params.id);
+  const snap = await ref.get();
 
-  const { data, error } = await supabase
-    .from('user_titles')
-    .update(body)
-    .eq('id', params.id)
-    .eq('user_id', user.id)
-    .select()
-    .single();
-
-  if (error || !data) {
-    return NextResponse.json(
-      { error: error?.message ?? 'Failed to update library entry' },
-      { status: 500 }
-    );
+  if (!snap.exists || snap.data()?.user_id !== user.uid) {
+    return NextResponse.json({ error: 'Failed to update library entry' }, { status: 404 });
   }
 
-  return NextResponse.json({ userTitle: data });
+  await ref.update({ ...body, updated_at: new Date().toISOString() });
+  const updated = await ref.get();
+
+  return NextResponse.json({ userTitle: { id: updated.id, ...updated.data() } });
 }

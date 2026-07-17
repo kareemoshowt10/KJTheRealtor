@@ -1,35 +1,23 @@
 import { NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase/server';
+import { getCurrentUser } from '@/lib/firebase/session';
+import { getAdminDb } from '@/lib/firebase/admin';
 
 export async function DELETE(
   _req: Request,
   { params }: { params: { id: string; titleId: string } }
 ) {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
+  const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
-  const { data: list } = await supabase
-    .from('lists')
-    .select('owner_id, is_collaborative')
-    .eq('id', params.id)
-    .maybeSingle();
+  const db = getAdminDb();
+  const listSnap = await db.collection('lists').doc(params.id).get();
+  if (!listSnap.exists) return NextResponse.json({ error: 'List not found' }, { status: 404 });
 
-  if (!list) return NextResponse.json({ error: 'List not found' }, { status: 404 });
-
-  const canEdit = list.owner_id === user.id || list.is_collaborative;
+  const list = listSnap.data()!;
+  const canEdit = list.owner_id === user.uid || list.is_collaborative;
   if (!canEdit) return NextResponse.json({ error: 'Not authorized' }, { status: 403 });
 
-  const { error } = await supabase
-    .from('list_items')
-    .delete()
-    .eq('list_id', params.id)
-    .eq('title_id', params.titleId);
-
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  await db.collection('listItems').doc(`${params.id}_${params.titleId}`).delete();
 
   return NextResponse.json({ deleted: true });
 }

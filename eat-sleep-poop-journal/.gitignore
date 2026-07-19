@@ -8,9 +8,11 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
 dist-ssr
 *.local
+
+# dist is committed on purpose: Vercel branch previews serve it directly
+# for live testing at /eat-sleep-poop-journal/dist/
 
 # Editor directories and files
 .vscode/*

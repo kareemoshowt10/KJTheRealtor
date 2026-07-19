@@ -2,9 +2,10 @@ import { useState, useMemo } from 'react'
 import { Trash2, ChevronDown, ChevronUp, ChevronLeft } from 'lucide-react'
 import { useStore } from '../store/useStore'
 import { formatTime, groupByDay, getDurationLabel } from '../utils/dateUtils'
+import { entryMemberId, memberColor } from '../utils/memberUtils'
 import UndoToast from '../components/common/UndoToast'
 
-function EntryCard({ entry, onDelete }) {
+function EntryCard({ entry, member, showMember, onDelete }) {
   const [expanded, setExpanded] = useState(false)
   const time = formatTime(entry.timestamp || entry.startTime)
 
@@ -55,7 +56,14 @@ function EntryCard({ entry, onDelete }) {
         <span className="text-xl shrink-0">{icon}</span>
         <div className="flex-1 min-w-0">
           <p className="font-semibold text-sm text-gray-900 truncate">{title}</p>
-          <p className="text-xs text-gray-400 mt-0.5 truncate">{subtitle}</p>
+          <p className="text-xs text-gray-400 mt-0.5 truncate">
+            {showMember && member && (
+              <span className={`inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 mr-1.5 text-[10px] font-semibold ${memberColor(member).soft}`}>
+                {member.emoji} {member.name}
+              </span>
+            )}
+            {subtitle}
+          </p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <span className="text-xs text-gray-400">{time}</span>
@@ -81,7 +89,12 @@ function EntryCard({ entry, onDelete }) {
 export default function History({ onNavigate }) {
   const { state, addEntry, deleteEntry } = useStore()
   const [filter, setFilter] = useState('all')
+  const [memberFilter, setMemberFilter] = useState('all')
   const [deletedEntry, setDeletedEntry] = useState(null)
+  const { members } = state.settings
+  const membersById = useMemo(() =>
+    Object.fromEntries(members.map(m => [m.id, m]))
+  , [members])
 
   function handleDelete(id) {
     const entry = state.entries.find(e => e.id === id)
@@ -99,11 +112,14 @@ export default function History({ onNavigate }) {
   , [state.entries])
 
   const groups = useMemo(() => {
-    const filtered = filter === 'all'
+    let filtered = filter === 'all'
       ? loggableEntries
       : loggableEntries.filter(e => e.type === filter)
+    if (memberFilter !== 'all') {
+      filtered = filtered.filter(e => entryMemberId(e) === memberFilter)
+    }
     return groupByDay(filtered)
-  }, [loggableEntries, filter])
+  }, [loggableEntries, filter, memberFilter])
 
   const filters = [
     { id: 'all',        emoji: '📋', label: 'All' },
@@ -136,6 +152,24 @@ export default function History({ onNavigate }) {
             </button>
           ))}
         </div>
+        {members.length > 1 && (
+          <div className="flex gap-2 mt-2 overflow-x-auto scrollbar-hide pb-1">
+            <button onClick={() => setMemberFilter('all')}
+              className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all active:scale-95 ${
+                memberFilter === 'all' ? 'bg-violet-600 text-white' : 'bg-gray-100 text-gray-600'
+              }`}>
+              👨‍👩‍👧‍👦 Everyone
+            </button>
+            {members.map(m => (
+              <button key={m.id} onClick={() => setMemberFilter(m.id)}
+                className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition-all active:scale-95 ${
+                  memberFilter === m.id ? `${memberColor(m).solid} text-white` : 'bg-gray-100 text-gray-600'
+                }`}>
+                {m.emoji} {m.name}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="flex-1 overflow-y-auto scrollbar-hide px-4 pb-28 pt-4">
@@ -151,7 +185,13 @@ export default function History({ onNavigate }) {
             {items
               .sort((a, b) => new Date(b.timestamp || b.startTime) - new Date(a.timestamp || a.startTime))
               .map(entry => (
-                <EntryCard key={entry.id} entry={entry} onDelete={handleDelete} />
+                <EntryCard
+                  key={entry.id}
+                  entry={entry}
+                  member={membersById[entryMemberId(entry)]}
+                  showMember={members.length > 1 && memberFilter === 'all'}
+                  onDelete={handleDelete}
+                />
               ))
             }
           </div>

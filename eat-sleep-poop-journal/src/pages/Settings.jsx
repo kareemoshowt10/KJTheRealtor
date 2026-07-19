@@ -1,7 +1,9 @@
 import { useState, useRef } from 'react'
 import { useStore } from '../store/useStore'
 import { useToast } from '../store/ToastContext'
-import { ChevronLeft, Trash2, Download, Upload, Plus, X, Bell } from 'lucide-react'
+import { ChevronLeft, Trash2, Download, Upload, Plus, X, Bell, Pencil } from 'lucide-react'
+import MemberAvatar from '../components/family/MemberAvatar'
+import MemberModal from '../components/family/MemberModal'
 
 function Section({ title, children }) {
   return (
@@ -23,8 +25,11 @@ function Row({ icon, label, children, danger }) {
 }
 
 export default function Settings({ onNavigate }) {
-  const { state, updateSettings, clearAllData, importData, addHabit, removeHabit } = useStore()
+  const { state, updateSettings, clearAllData, importData, addHabit, removeHabit,
+    addMember, updateMember, removeMember } = useStore()
   const { showToast } = useToast()
+  const [memberModal, setMemberModal] = useState(undefined) // undefined = closed, null = new, obj = edit
+  const [confirmRemoveMember, setConfirmRemoveMember] = useState(null)
   const [name, setName] = useState(state.settings?.name || '')
   const [newHabit, setNewHabit] = useState('')
   const [showConfirm, setShowConfirm] = useState(false)
@@ -140,6 +145,31 @@ export default function Settings({ onNavigate }) {
               onKeyDown={e => e.key === 'Enter' && saveName()}
             />
           </Row>
+        </Section>
+
+        {/* Family */}
+        <Section title="Family">
+          {state.settings.members.map(m => (
+            <div key={m.id} className="flex items-center gap-3 px-4 py-3">
+              <MemberAvatar member={m} size="md" />
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-gray-800 truncate">{m.name}</p>
+                <p className="text-xs text-gray-400 capitalize">{m.role === 'child' ? 'Kid' : 'Adult'}</p>
+              </div>
+              <button onClick={() => setMemberModal(m)} className="p-1.5 text-gray-300 hover:text-violet-500 active:scale-90 transition-transform">
+                <Pencil size={15} />
+              </button>
+              {state.settings.members.length > 1 && (
+                <button onClick={() => setConfirmRemoveMember(m)} className="p-1.5 text-gray-300 hover:text-red-500 active:scale-90 transition-transform">
+                  <X size={16} />
+                </button>
+              )}
+            </div>
+          ))}
+          <button onClick={() => setMemberModal(null)}
+            className="w-full flex items-center gap-2 px-4 py-3.5 text-violet-600 text-sm font-semibold active:bg-violet-50 transition-colors">
+            <Plus size={16} /> Add Family Member
+          </button>
         </Section>
 
         {/* Reminders */}
@@ -279,6 +309,50 @@ export default function Settings({ onNavigate }) {
               <button onClick={clearAll}
                 className="flex-1 bg-red-500 text-white rounded-2xl py-3 font-semibold active:scale-95 transition-transform">
                 Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Member add/edit modal */}
+      {memberModal !== undefined && (
+        <MemberModal
+          existing={memberModal}
+          onSave={(data) => {
+            if (memberModal) {
+              updateMember(memberModal.id, data)
+              showToast(`${data.name} updated`)
+            } else {
+              addMember(data)
+              showToast(`${data.name} added to the family 🎉`)
+            }
+          }}
+          onClose={() => setMemberModal(undefined)}
+        />
+      )}
+
+      {/* Confirm remove member dialog */}
+      {confirmRemoveMember && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-6">
+          <div className="bg-white rounded-3xl p-6 w-full max-w-xs animate-bounce-in">
+            <div className="text-center">
+              <div className="text-5xl mb-3">{confirmRemoveMember.emoji}</div>
+              <h3 className="text-lg font-bold mb-2">Remove {confirmRemoveMember.name}?</h3>
+              <p className="text-gray-500 text-sm mb-5">
+                This removes {confirmRemoveMember.name} and permanently deletes all
+                {' '}{state.entries.filter(e => e.memberId === confirmRemoveMember.id).length} of their logged entries.
+                This cannot be undone.
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <button onClick={() => setConfirmRemoveMember(null)}
+                className="flex-1 bg-gray-100 text-gray-700 rounded-2xl py-3 font-semibold active:scale-95 transition-transform">
+                Cancel
+              </button>
+              <button onClick={() => { removeMember(confirmRemoveMember.id); setConfirmRemoveMember(null) }}
+                className="flex-1 bg-red-500 text-white rounded-2xl py-3 font-semibold active:scale-95 transition-transform">
+                Remove
               </button>
             </div>
           </div>

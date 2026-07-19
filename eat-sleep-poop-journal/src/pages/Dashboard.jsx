@@ -4,10 +4,12 @@ import { format } from 'date-fns'
 import { useStore } from '../store/useStore'
 import { formatTime, getStreaks, isSameLocalDay } from '../utils/dateUtils'
 import { calcReflectionAP } from '../utils/scoring'
+import { getMember, entryMemberId } from '../utils/memberUtils'
 import EatLogger from '../components/tracking/EatLogger'
 import SleepLogger from '../components/tracking/SleepLogger'
 import PoopLogger from '../components/tracking/PoopLogger'
 import ObjectiveCard from '../components/objective/ObjectiveCard'
+import FamilyTodayCard from '../components/family/FamilyTodayCard'
 
 function QuickStat({ emoji, label, value, color, onClick }) {
   return (
@@ -63,11 +65,18 @@ export default function Dashboard({ onNavigate }) {
   const [modal, setModal] = useState(null) // 'eat' | 'sleep' | 'poop'
 
   const todayStr = format(new Date(), 'yyyy-MM-dd')
+  const { members, activeMemberId } = state.settings
+  const activeMember = getMember(members, activeMemberId)
+  const isChildView = activeMember.role === 'child'
+
+  const memberEntries = useMemo(() =>
+    state.entries.filter(e => e.type !== 'timeblock' && entryMemberId(e) === activeMember.id)
+  , [state.entries, activeMember.id])
 
   const todayEntries = useMemo(() =>
-    state.entries.filter(e => isSameLocalDay(e.timestamp || e.startTime, todayStr))
+    memberEntries.filter(e => isSameLocalDay(e.timestamp || e.startTime, todayStr))
       .sort((a, b) => new Date(b.timestamp || b.startTime) - new Date(a.timestamp || a.startTime))
-  , [state.entries, todayStr])
+  , [memberEntries, todayStr])
 
   const todayBlocks = useMemo(() =>
     state.entries
@@ -81,9 +90,9 @@ export default function Dashboard({ onNavigate }) {
   const sleepHours = todaySleep.reduce((acc, e) =>
     acc + (new Date(e.endTime) - new Date(e.startTime)) / 3600000, 0)
 
-  const eatStreak   = getStreaks(state.entries, 'eat')
-  const sleepStreak = getStreaks(state.entries, 'sleep')
-  const poopStreak  = getStreaks(state.entries, 'poop')
+  const eatStreak   = getStreaks(memberEntries, 'eat')
+  const sleepStreak = getStreaks(memberEntries, 'sleep')
+  const poopStreak  = getStreaks(memberEntries, 'poop')
 
   const reflection = getDailyRecord(todayStr).reflection
   const ap = calcReflectionAP(reflection)
@@ -104,7 +113,9 @@ export default function Dashboard({ onNavigate }) {
         <div>
           <p className="text-gray-400 text-sm">{format(new Date(), 'EEEE, MMMM d')}</p>
           <h1 className="text-2xl font-bold mt-0.5">
-            {greeting()}{name ? `, ${name}` : ''}! 👋
+            {isChildView
+              ? <>{activeMember.emoji} {activeMember.name}'s Day</>
+              : <>{greeting()}{name ? `, ${name}` : ''}! 👋</>}
           </h1>
         </div>
         <button onClick={() => onNavigate('settings')} className="p-2 rounded-full hover:bg-gray-100 mt-1 active:scale-90 transition-transform">
@@ -114,9 +125,12 @@ export default function Dashboard({ onNavigate }) {
 
       <div className="flex-1 overflow-y-auto scrollbar-hide px-4 pb-28 space-y-5 pt-5">
 
-        <ObjectiveCard date={todayStr} />
+        <FamilyTodayCard onNavigate={onNavigate} />
+
+        {!isChildView && <ObjectiveCard date={todayStr} />}
 
         {/* AP score + Schedule preview row */}
+        {!isChildView && (
         <div className="grid grid-cols-2 gap-3">
           <button onClick={() => onNavigate('reflect')}
             className="bg-white rounded-2xl p-4 shadow-sm text-left active:scale-95 transition-transform">
@@ -134,9 +148,10 @@ export default function Dashboard({ onNavigate }) {
             <p className="text-2xl font-bold mt-1">{todayBlocks.length}<span className="text-sm text-gray-400 font-medium"> blocks</span></p>
           </button>
         </div>
+        )}
 
         {/* Schedule preview */}
-        {todayBlocks.length > 0 && (
+        {!isChildView && todayBlocks.length > 0 && (
           <button onClick={() => onNavigate('schedule')} className="w-full bg-white rounded-2xl p-4 shadow-sm text-left active:scale-[0.98] transition-transform">
             <div className="flex items-center justify-between mb-2">
               <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide">Next Up</p>
@@ -153,7 +168,9 @@ export default function Dashboard({ onNavigate }) {
 
         {/* Quick stats */}
         <div>
-          <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-3">Today's Overview</p>
+          <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-3">
+            {members.length > 1 && activeMember.name !== 'Me' ? `${activeMember.name}'s Overview` : "Today's Overview"}
+          </p>
           <div className="flex gap-3">
             <QuickStat emoji="🍽️" label={`meal${todayEat !== 1 ? 's' : ''}`} value={todayEat}
               color="bg-orange-50 text-orange-900" onClick={() => setModal('eat')} />
@@ -222,7 +239,9 @@ export default function Dashboard({ onNavigate }) {
         {todayEntries.length === 0 && (
           <div className="text-center py-10">
             <div className="text-5xl mb-3">📋</div>
-            <p className="text-gray-500 font-medium">Nothing logged yet today</p>
+            <p className="text-gray-500 font-medium">
+              {members.length > 1 && activeMember.name !== 'Me' ? `Nothing logged for ${activeMember.name} today` : 'Nothing logged yet today'}
+            </p>
             <p className="text-gray-400 text-sm mt-1">Tap a button above to get started!</p>
           </div>
         )}

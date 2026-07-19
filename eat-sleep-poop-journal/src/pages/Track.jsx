@@ -3,6 +3,8 @@ import { Clock, ChevronRight } from 'lucide-react'
 import { format } from 'date-fns'
 import { useStore } from '../store/useStore'
 import { formatTime, getDurationLabel, isSameLocalDay } from '../utils/dateUtils'
+import { getMember, entryMemberId } from '../utils/memberUtils'
+import MemberSwitcher from '../components/family/MemberSwitcher'
 import EatLogger from '../components/tracking/EatLogger'
 import SleepLogger from '../components/tracking/SleepLogger'
 import PoopLogger from '../components/tracking/PoopLogger'
@@ -45,17 +47,25 @@ function RecentEntry({ entry }) {
   )
 }
 
+const FAMILY_TILE_IDS = ['eat', 'sleep', 'poop']
+
 export default function Track({ onNavigate }) {
-  const { state } = useStore()
+  const { state, setActiveMember } = useStore()
   const [modal, setModal] = useState(null)
 
   const todayStr = format(new Date(), 'yyyy-MM-dd')
+  const { members, activeMemberId } = state.settings
+  const activeMember = getMember(members, activeMemberId)
+  const isChildView = activeMember.role === 'child'
+  const tiles = isChildView ? TILES.filter(t => FAMILY_TILE_IDS.includes(t.id)) : TILES
 
   const todayEntries = useMemo(() =>
     state.entries
-      .filter(e => e.type !== 'timeblock' && isSameLocalDay(e.timestamp || e.startTime, todayStr))
+      .filter(e => e.type !== 'timeblock' &&
+        entryMemberId(e) === activeMember.id &&
+        isSameLocalDay(e.timestamp || e.startTime, todayStr))
       .sort((a, b) => new Date(b.timestamp || b.startTime) - new Date(a.timestamp || a.startTime))
-  , [state.entries, todayStr])
+  , [state.entries, activeMember.id, todayStr])
 
   const totalCalories = useMemo(() =>
     todayEntries.filter(e => e.type === 'eat' && e.calories).reduce((sum, e) => sum + e.calories, 0)
@@ -63,19 +73,28 @@ export default function Track({ onNavigate }) {
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
-      <div className="bg-white px-5 pt-14 pb-4 shadow-sm flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold">Track</h1>
-          <p className="text-gray-400 text-sm mt-0.5">Body, mind & relationships</p>
+      <div className="bg-white px-5 pt-14 pb-4 shadow-sm">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold">Track</h1>
+            <p className="text-gray-400 text-sm mt-0.5">
+              {isChildView ? `Tracking for ${activeMember.name}` : 'Body, mind & relationships'}
+            </p>
+          </div>
+          <button onClick={() => onNavigate('history')} className="flex items-center gap-1 text-gray-500 text-sm font-medium active:scale-95 transition-transform">
+            <Clock size={16} /> History <ChevronRight size={14} />
+          </button>
         </div>
-        <button onClick={() => onNavigate('history')} className="flex items-center gap-1 text-gray-500 text-sm font-medium active:scale-95 transition-transform">
-          <Clock size={16} /> History <ChevronRight size={14} />
-        </button>
+        {members.length > 1 && (
+          <div className="mt-3">
+            <MemberSwitcher members={members} activeId={activeMemberId} onSelect={setActiveMember} />
+          </div>
+        )}
       </div>
 
       <div className="flex-1 overflow-y-auto scrollbar-hide px-4 pb-28 pt-4 space-y-5">
-        <div className="grid grid-cols-4 gap-2.5">
-          {TILES.map(t => (
+        <div className={`grid gap-2.5 ${isChildView ? 'grid-cols-3' : 'grid-cols-4'}`}>
+          {tiles.map(t => (
             <button key={t.id} onClick={() => setModal(t.id)}
               className={`${t.color} text-white rounded-2xl py-4 flex flex-col items-center gap-1.5 active:scale-95 transition-transform shadow-sm`}>
               <span className="text-2xl">{t.emoji}</span>
@@ -93,7 +112,9 @@ export default function Track({ onNavigate }) {
 
         {todayEntries.length > 0 ? (
           <div>
-            <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-3">Today's Log</p>
+            <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-3">
+              {members.length > 1 && activeMember.name !== 'Me' ? `${activeMember.name}'s Log Today` : "Today's Log"}
+            </p>
             <div className="bg-white rounded-2xl px-4 shadow-sm divide-y divide-gray-50">
               {todayEntries.map(e => <RecentEntry key={e.id} entry={e} />)}
             </div>
@@ -101,7 +122,9 @@ export default function Track({ onNavigate }) {
         ) : (
           <div className="text-center py-10">
             <div className="text-5xl mb-3">📋</div>
-            <p className="text-gray-500 font-medium">Nothing tracked yet today</p>
+            <p className="text-gray-500 font-medium">
+              {members.length > 1 && activeMember.name !== 'Me' ? `Nothing tracked for ${activeMember.name} today` : 'Nothing tracked yet today'}
+            </p>
             <p className="text-gray-400 text-sm mt-1">Tap a tile above to log something</p>
           </div>
         )}

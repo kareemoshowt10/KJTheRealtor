@@ -3,6 +3,8 @@ import { X } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
 import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
+import { getMember } from '../../utils/memberUtils'
+import LoggerMemberPicker from '../family/LoggerMemberPicker'
 
 const BRISTOL = [
   { type: 1, emoji: '🪨', label: 'Type 1', desc: 'Separate hard lumps' },
@@ -17,8 +19,10 @@ const BRISTOL = [
 const COLORS = ['Brown', 'Dark Brown', 'Yellow', 'Green', 'Black', 'Red']
 
 export default function PoopLogger({ onClose }) {
-  const { addEntry } = useStore()
+  const { state, addEntry } = useStore()
   const { showToast } = useToast()
+  const { members, activeMemberId } = state.settings
+  const [memberId, setMemberId] = useState(activeMemberId)
   const [bristolType, setBristolType] = useState(4)
   const [color, setColor] = useState('Brown')
   const [notes, setNotes] = useState('')
@@ -30,10 +34,11 @@ export default function PoopLogger({ onClose }) {
     const [h, m] = time.split(':')
     now.setHours(+h, +m, 0, 0)
     addEntry({
-      id: makeId(), type: 'poop', timestamp: toISOString(now),
+      id: makeId(), type: 'poop', timestamp: toISOString(now), memberId,
       bristolType, color, notes: notes.trim()
     })
-    showToast('Logged 💩')
+    const member = getMember(members, memberId)
+    showToast(members.length > 1 ? `Logged for ${member.name} 💩` : 'Logged 💩')
     onClose()
   }
 
@@ -53,6 +58,8 @@ export default function PoopLogger({ onClose }) {
         </div>
 
         <form onSubmit={submit} className="space-y-4">
+          <LoggerMemberPicker members={members} value={memberId} onChange={setMemberId} />
+
           <div>
             <label className="text-xs text-gray-500 font-medium block mb-2">BRISTOL SCALE (What type?)</label>
             <div className="grid grid-cols-7 gap-1.5">

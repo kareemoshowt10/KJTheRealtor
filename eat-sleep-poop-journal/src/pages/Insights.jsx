@@ -4,6 +4,8 @@ import { format, subDays } from 'date-fns'
 import { useStore } from '../store/useStore'
 import { calcReflectionAP, calcHabitScore } from '../utils/scoring'
 import { isSameLocalDay } from '../utils/dateUtils'
+import { getMember, entryMemberId } from '../utils/memberUtils'
+import MemberSwitcher from '../components/family/MemberSwitcher'
 
 function getLast7(entries, type, getValue) {
   const days = Array.from({ length: 7 }, (_, i) => {
@@ -39,8 +41,14 @@ function StatRow({ label, value, sub }) {
 }
 
 export default function Insights({ onNavigate }) {
-  const { state } = useStore()
-  const entries = state.entries
+  const { state, setActiveMember } = useStore()
+  const { members, activeMemberId } = state.settings
+  const activeMember = getMember(members, activeMemberId)
+  const isChildView = activeMember.role === 'child'
+
+  const entries = useMemo(() =>
+    state.entries.filter(e => e.type === 'timeblock' || entryMemberId(e) === activeMember.id)
+  , [state.entries, activeMember.id])
 
   const eatData = useMemo(() => getLast7(entries, 'eat', d => d.length), [entries])
   const sleepData = useMemo(() => getLast7(entries, 'sleep', d => {
@@ -122,20 +130,29 @@ export default function Insights({ onNavigate }) {
     })
   , [state.dailyRecords])
 
-  if (entries.length === 0 && !hasDailyRecordData) {
+  if (entries.length === 0 && (isChildView || !hasDailyRecordData)) {
     return (
       <div className="flex flex-col h-full bg-gray-50">
-        <div className="bg-white px-5 pt-14 pb-5 shadow-sm flex items-center justify-between">
-          <h1 className="text-2xl font-bold">Insights</h1>
-          <button onClick={() => onNavigate('weeklyreview')}
-            className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm active:scale-95 transition-transform">
-            Weekly Review
-          </button>
+        <div className="bg-white px-5 pt-14 pb-5 shadow-sm">
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold">Insights</h1>
+            <button onClick={() => onNavigate('weeklyreview')}
+              className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm active:scale-95 transition-transform">
+              Weekly Review
+            </button>
+          </div>
+          {members.length > 1 && (
+            <div className="mt-3">
+              <MemberSwitcher members={members} activeId={activeMemberId} onSelect={setActiveMember} />
+            </div>
+          )}
         </div>
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <div className="text-5xl mb-3">📊</div>
-            <p className="text-gray-500 font-medium">No data yet</p>
+            <p className="text-gray-500 font-medium">
+              {members.length > 1 ? `No data for ${activeMember.name} yet` : 'No data yet'}
+            </p>
             <p className="text-gray-400 text-sm mt-1">Log a few days to see insights</p>
           </div>
         </div>
@@ -145,15 +162,24 @@ export default function Insights({ onNavigate }) {
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
-      <div className="bg-white px-5 pt-14 pb-5 shadow-sm flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold">Insights</h1>
-          <p className="text-gray-400 text-sm mt-0.5">Last 7 days</p>
+      <div className="bg-white px-5 pt-14 pb-5 shadow-sm">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold">Insights</h1>
+            <p className="text-gray-400 text-sm mt-0.5">
+              {members.length > 1 ? `${activeMember.name} · Last 7 days` : 'Last 7 days'}
+            </p>
+          </div>
+          <button onClick={() => onNavigate('weeklyreview')}
+            className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm active:scale-95 transition-transform">
+            Weekly Review
+          </button>
         </div>
-        <button onClick={() => onNavigate('weeklyreview')}
-          className="bg-violet-600 text-white text-sm font-semibold rounded-full px-4 py-2 shadow-sm active:scale-95 transition-transform">
-          Weekly Review
-        </button>
+        {members.length > 1 && (
+          <div className="mt-3">
+            <MemberSwitcher members={members} activeId={activeMemberId} onSelect={setActiveMember} />
+          </div>
+        )}
       </div>
 
       <div className="flex-1 overflow-y-auto scrollbar-hide px-4 pb-28 pt-5 space-y-5">
@@ -222,7 +248,8 @@ export default function Insights({ onNavigate }) {
           </div>
         </div>
 
-        {/* Mind & Focus chart */}
+        {/* Personal modules — adults only */}
+        {!isChildView && (<>
         <div className="bg-white rounded-2xl p-4 shadow-sm">
           <div className="flex items-center gap-2 mb-4">
             <span className="text-xl">🧘</span>
@@ -301,6 +328,7 @@ export default function Insights({ onNavigate }) {
             <StatRow label="Avg success rate" value={`${avgHabitPct}%`} />
           </div>
         </div>
+        </>)}
 
         {/* Health tip */}
         <div className="bg-gradient-to-r from-violet-500 to-indigo-600 rounded-2xl p-4 text-white">

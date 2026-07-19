@@ -7,7 +7,8 @@ import { toISOString } from '../../utils/dateUtils'
 const QUICK_EXERCISES = ['Pushups', 'Pullups', 'Squats', 'Muscle', 'Run', 'Bike', 'Yoga', 'Lift']
 
 export default function ExerciseLogger({ onClose }) {
-  const { addEntry } = useStore()
+  const { state, addEntry } = useStore()
+  const activeMemberId = state.settings.activeMemberId
   const { showToast } = useToast()
   const [exercise, setExercise] = useState('')
   const [count, setCount] = useState('')
@@ -22,7 +23,7 @@ export default function ExerciseLogger({ onClose }) {
     const [h, m] = time.split(':')
     now.setHours(+h, +m, 0, 0)
     addEntry({
-      id: makeId(), type: 'exercise', timestamp: toISOString(now),
+      id: makeId(), type: 'exercise', timestamp: toISOString(now), memberId: activeMemberId,
       exercise: exercise.trim(),
       count: count.trim(),
       durationLocation: durationLocation.trim(),

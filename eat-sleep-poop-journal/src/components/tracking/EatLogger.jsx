@@ -3,13 +3,17 @@ import { X, Utensils } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
 import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
+import { getMember } from '../../utils/memberUtils'
+import LoggerMemberPicker from '../family/LoggerMemberPicker'
 
 const MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Drink']
 const QUICK_FOODS = ['Coffee ☕', 'Eggs 🍳', 'Salad 🥗', 'Pizza 🍕', 'Sandwich 🥪', 'Fruit 🍎', 'Water 💧', 'Smoothie 🥤']
 
 export default function EatLogger({ onClose }) {
-  const { addEntry } = useStore()
+  const { state, addEntry } = useStore()
   const { showToast } = useToast()
+  const { members, activeMemberId } = state.settings
+  const [memberId, setMemberId] = useState(activeMemberId)
   const [mealType, setMealType] = useState('Breakfast')
   const [food, setFood] = useState('')
   const [calories, setCalories] = useState('')
@@ -23,12 +27,13 @@ export default function EatLogger({ onClose }) {
     const [h, m] = time.split(':')
     now.setHours(+h, +m, 0, 0)
     addEntry({
-      id: makeId(), type: 'eat', timestamp: toISOString(now),
+      id: makeId(), type: 'eat', timestamp: toISOString(now), memberId,
       mealType, food: food.trim(),
       calories: calories ? +calories : null,
       notes: notes.trim()
     })
-    showToast('Meal logged 🍽️')
+    const member = getMember(members, memberId)
+    showToast(members.length > 1 ? `Meal logged for ${member.name} 🍽️` : 'Meal logged 🍽️')
     onClose()
   }
 
@@ -50,6 +55,8 @@ export default function EatLogger({ onClose }) {
         </div>
 
         <form onSubmit={submit} className="space-y-4">
+          <LoggerMemberPicker members={members} value={memberId} onChange={setMemberId} />
+
           {/* Meal type */}
           <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
             {MEAL_TYPES.map(t => (

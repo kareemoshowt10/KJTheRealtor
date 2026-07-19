@@ -3,6 +3,8 @@ import { X } from 'lucide-react'
 import { useStore, makeId } from '../../store/useStore'
 import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
+import { getMember } from '../../utils/memberUtils'
+import LoggerMemberPicker from '../family/LoggerMemberPicker'
 
 const QUALITY_LABELS = ['', 'Terrible 😫', 'Bad 😕', 'Okay 😐', 'Good 😊', 'Amazing 🌟']
 
@@ -18,8 +20,10 @@ function getToday() { return new Date().toISOString().slice(0, 10) }
 function nowTime() { return new Date().toTimeString().slice(0, 5) }
 
 export default function SleepLogger({ onClose }) {
-  const { addEntry } = useStore()
+  const { state, addEntry } = useStore()
   const { showToast } = useToast()
+  const { members, activeMemberId } = state.settings
+  const [memberId, setMemberId] = useState(activeMemberId)
   const [startDate, setStartDate] = useState(getYesterday())
   const [startTime, setStartTime] = useState('22:00')
   const [endDate, setEndDate] = useState(getToday())
@@ -36,12 +40,13 @@ export default function SleepLogger({ onClose }) {
       return
     }
     addEntry({
-      id: makeId(), type: 'sleep',
+      id: makeId(), type: 'sleep', memberId,
       timestamp: endISO,
       startTime: startISO, endTime: endISO,
       quality, notes: notes.trim()
     })
-    showToast('Sleep logged 😴')
+    const member = getMember(members, memberId)
+    showToast(members.length > 1 ? `Sleep logged for ${member.name} 😴` : 'Sleep logged 😴')
     onClose()
   }
 
@@ -65,6 +70,8 @@ export default function SleepLogger({ onClose }) {
         </div>
 
         <form onSubmit={submit} className="space-y-4">
+          <LoggerMemberPicker members={members} value={memberId} onChange={setMemberId} />
+
           {validDuration && (
             <div className="text-center bg-violet-50 rounded-2xl py-3">
               <span className="text-3xl font-bold text-violet-600">{durationH}h</span>

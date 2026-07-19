@@ -10,6 +10,10 @@ const DEFAULT_HABITS = [
   { id: 'h5', text: 'Avoid immediate gratification (starve it)' },
 ]
 
+const DEFAULT_MEMBERS = [
+  { id: 'me', name: 'Me', emoji: '😀', color: 'violet', role: 'adult' },
+]
+
 function defaultState() {
   return {
     entries: [],
@@ -19,8 +23,36 @@ function defaultState() {
       reminderEnabled: false,
       reminderTime: '20:00',
       habitList: DEFAULT_HABITS,
+      members: DEFAULT_MEMBERS,
+      activeMemberId: 'me',
     },
   }
+}
+
+function normalizeSettings(raw) {
+  const settings = {
+    name: '',
+    reminderEnabled: false,
+    reminderTime: '20:00',
+    habitList: DEFAULT_HABITS,
+    members: DEFAULT_MEMBERS,
+    activeMemberId: 'me',
+    ...(raw && typeof raw === 'object' ? raw : {}),
+  }
+  if (!Array.isArray(settings.members) || settings.members.length === 0) {
+    settings.members = DEFAULT_MEMBERS
+  }
+  if (!settings.members.some(m => m.id === settings.activeMemberId)) {
+    settings.activeMemberId = settings.members[0].id
+  }
+  return settings
+}
+
+function normalizeEntries(entries) {
+  // Pre-family entries carry no memberId — stamp them as the owner's.
+  return (Array.isArray(entries) ? entries : []).map(e =>
+    e.memberId || e.type === 'timeblock' ? e : { ...e, memberId: 'me' }
+  )
 }
 
 function load() {
@@ -29,15 +61,9 @@ function load() {
     if (raw) {
       const parsed = JSON.parse(raw)
       return {
-        entries: parsed.entries || [],
+        entries: normalizeEntries(parsed.entries),
         dailyRecords: parsed.dailyRecords || {},
-        settings: {
-          name: '',
-          reminderEnabled: false,
-          reminderTime: '20:00',
-          habitList: DEFAULT_HABITS,
-          ...(parsed.settings || {}),
-        },
+        settings: normalizeSettings(parsed.settings),
       }
     }
   } catch {}
@@ -84,15 +110,9 @@ export function StoreProvider({ children }) {
 
   const importData = useCallback((data) => {
     setState({
-      entries: Array.isArray(data.entries) ? data.entries : [],
+      entries: normalizeEntries(data.entries),
       dailyRecords: data.dailyRecords && typeof data.dailyRecords === 'object' ? data.dailyRecords : {},
-      settings: {
-        name: '',
-        reminderEnabled: false,
-        reminderTime: '20:00',
-        habitList: DEFAULT_HABITS,
-        ...(data.settings && typeof data.settings === 'object' ? data.settings : {}),
-      },
+      settings: normalizeSettings(data.settings),
     })
   }, [])
 
@@ -156,6 +176,51 @@ export function StoreProvider({ children }) {
     }))
   }, [])
 
+  const addMember = useCallback((member) => {
+    setState(s => ({
+      ...s,
+      settings: {
+        ...s.settings,
+        members: [...s.settings.members, { id: makeId(), ...member }],
+      },
+    }))
+  }, [])
+
+  const updateMember = useCallback((memberId, patch) => {
+    setState(s => ({
+      ...s,
+      settings: {
+        ...s.settings,
+        members: s.settings.members.map(m => m.id === memberId ? { ...m, ...patch } : m),
+      },
+    }))
+  }, [])
+
+  const removeMember = useCallback((memberId) => {
+    setState(s => {
+      if (s.settings.members.length <= 1) return s
+      const members = s.settings.members.filter(m => m.id !== memberId)
+      return {
+        ...s,
+        entries: s.entries.filter(e => e.memberId !== memberId),
+        settings: {
+          ...s.settings,
+          members,
+          activeMemberId: s.settings.activeMemberId === memberId
+            ? members[0].id
+            : s.settings.activeMemberId,
+        },
+      }
+    })
+  }, [])
+
+  const setActiveMember = useCallback((memberId) => {
+    setState(s => ({
+      ...s,
+      settings: { ...s.settings, activeMemberId: memberId },
+    }))
+  }, [])
+
   const removeHabit = useCallback((habitId) => {
     setState(s => {
       const dailyRecords = Object.fromEntries(
@@ -181,6 +246,7 @@ export function StoreProvider({ children }) {
       state, addEntry, updateEntry, deleteEntry, clearAllData, importData, updateSettings,
       getDailyRecord, updateObjective, updateReflection,
       toggleHabit, addHabit, removeHabit,
+      addMember, updateMember, removeMember, setActiveMember,
     }}>
       {children}
     </StoreContext.Provider>

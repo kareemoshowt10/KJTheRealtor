@@ -5,7 +5,8 @@ import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
 
 export default function ContactLogger({ onClose }) {
-  const { addEntry } = useStore()
+  const { state, addEntry } = useStore()
+  const activeMemberId = state.settings.activeMemberId
   const { showToast } = useToast()
   const [name, setName] = useState('')
   const [subject, setSubject] = useState('')
@@ -19,7 +20,7 @@ export default function ContactLogger({ onClose }) {
     const [h, m] = time.split(':')
     now.setHours(+h, +m, 0, 0)
     addEntry({
-      id: makeId(), type: 'contact', timestamp: toISOString(now),
+      id: makeId(), type: 'contact', timestamp: toISOString(now), memberId: activeMemberId,
       name: name.trim(), subject: subject.trim(), description: description.trim(),
     })
     showToast('Contact logged 📇')

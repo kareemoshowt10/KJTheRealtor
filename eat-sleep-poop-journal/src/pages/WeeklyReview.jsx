@@ -3,6 +3,7 @@ import { ChevronLeft, Trophy, AlertTriangle, Sparkles } from 'lucide-react'
 import { format, subDays } from 'date-fns'
 import { useStore } from '../store/useStore'
 import { isSameLocalDay } from '../utils/dateUtils'
+import { entryMemberId } from '../utils/memberUtils'
 import { calcReflectionAP, calcHabitScore } from '../utils/scoring'
 
 function last7Keys() {
@@ -22,10 +23,17 @@ function StatTile({ emoji, label, value, sub }) {
 export default function WeeklyReview({ onNavigate }) {
   const { state } = useStore()
   const days = useMemo(() => last7Keys(), [])
+  const { members } = state.settings
+  // The weekly review is the owner's personal Life OS report — family members'
+  // entries are excluded so kids' meals don't inflate the owner's stats.
+  const owner = members[0]
   const rangeLabel = `${format(subDays(new Date(), 6), 'MMM d')} – ${format(new Date(), 'MMM d')}`
+    + (members.length > 1 ? ` · ${owner.name}` : '')
 
   const forDay = (key, type) => state.entries.filter(e =>
-    e.type === type && isSameLocalDay(e.timestamp || e.startTime, key)
+    e.type === type &&
+    entryMemberId(e) === owner.id &&
+    isSameLocalDay(e.timestamp || e.startTime, key)
   )
 
   const stats = useMemo(() => {

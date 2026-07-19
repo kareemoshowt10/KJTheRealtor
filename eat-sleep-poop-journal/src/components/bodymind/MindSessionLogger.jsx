@@ -24,7 +24,8 @@ function minusMinutes(mins) {
 }
 
 export default function MindSessionLogger({ type, onClose }) {
-  const { addEntry } = useStore()
+  const { state, addEntry } = useStore()
+  const activeMemberId = state.settings.activeMemberId
   const { showToast } = useToast()
   const cfg = CONFIG[type]
   const [startTime, setStartTime] = useState(minusMinutes(20))
@@ -41,7 +42,7 @@ export default function MindSessionLogger({ type, onClose }) {
     e.preventDefault()
     if (!valid) { alert('End time must be after start time.'); return }
     addEntry({
-      id: makeId(), type,
+      id: makeId(), type, memberId: activeMemberId,
       timestamp: toISOString(new Date(endISO)),
       startTime: toISOString(new Date(startISO)),
       endTime: toISOString(new Date(endISO)),

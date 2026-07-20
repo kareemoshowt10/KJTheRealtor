@@ -110,7 +110,8 @@ All at the git root:
 
 Ordered by likely demand; each names the counterpart(s) and the client win.
 BUILT: appraisal gap (/appraisal-gap-guide, 2026-07-12); handyman vs contractor
-(/contractor-handyman-guide, 2026-07-15 — also covers the old "contractor bid review" topic).
+(/contractor-handyman-guide, 2026-07-15 — also covers the old "contractor bid review" topic);
+yard/garage sale (/yard-sale-guide, 2026-07-20 — counterparts: homeowner client + shoppers/characters).
 
 1. **Listing-launch pricing** — Kareem ↔ seller client; the honest pricing conversation:
    comps, the first-price-is-the-strategy talk, saying no to flattery pricing. Seller audience.

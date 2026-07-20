@@ -143,6 +143,16 @@ than a typical Postgres app:
   Toggle Movies/TV and Trending (last 30 days) vs All-time. Publicly
   readable — the landing page links logged-out visitors straight to it.
 
+## What's implemented (Phase 6)
+
+- Watch planner (`/planner`) — a drag-and-drop month calendar for
+  scheduling when you'll watch something. Drag any watchlist/watching
+  title from the "To schedule" sidebar onto a date to plan it; drag a
+  scheduled title onto another date to reschedule, or back to the
+  sidebar to unschedule. Native HTML5 drag-and-drop, no extra dependency.
+  Backed by a new `plannedWatches/{uid}_{titleId}` collection
+  (`src/lib/planner.ts`, `src/app/api/planner/`).
+
 ## Known follow-ups
 
 - Next.js is pinned to the latest `14.2.x` patch; a handful of `npm

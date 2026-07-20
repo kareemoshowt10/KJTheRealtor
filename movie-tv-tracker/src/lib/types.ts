@@ -159,3 +159,20 @@ export interface CommunityEntry {
   title: Title;
   stat: CommunityStat;
 }
+
+// ── Phase 6 ─────────────────────────────────────────────────────────
+
+export interface PlannedWatch {
+  user_id: string;
+  title_id: string;
+  /** YYYY-MM-DD, local calendar date the user plans to watch this. */
+  scheduled_date: string;
+  created_at: string;
+}
+
+export interface PlannerEntry {
+  userTitle: UserTitle;
+  title: Title;
+  /** null when not yet scheduled onto the calendar. */
+  scheduledDate: string | null;
+}

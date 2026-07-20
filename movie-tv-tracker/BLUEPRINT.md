@@ -67,6 +67,7 @@ listItems/{listId}_{titleId}            — list_id, title_id, rank, added_by
 discussionThreads/{titleId}_{tab}       — title_id, tab, created_at
 discussionPosts/{autoId}                — thread_id, user_id, body, has_spoilers, created_at
 reviewVotes/{voterId}_{postId}          — voter_id, post_id, vote, created_at
+plannedWatches/{uid}_{titleId}          — user_id, title_id, scheduled_date, created_at
 ```
 
 No SQL views exist in Firestore, so the aggregations they used to provide
@@ -131,3 +132,9 @@ climb after a rewatch, a show can rise or fall as new episodes land.
    (Firestore + Firebase Auth) — every `lib/*.ts` file, every API route,
    auth flow, and page rewritten; see "Data model" above
 2. Edit/delete for your own discussion posts
+
+**Phase 6 (built)**
+1. Drag-and-drop watch planner (`/planner`) — a month calendar for
+   scheduling watchlist/watching titles onto specific dates, native
+   HTML5 drag-and-drop (no external DnD library), backed by a new
+   `plannedWatches/{uid}_{titleId}` collection

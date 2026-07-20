@@ -21,3 +21,7 @@ export function threadDocId(titleId: string, tab: string): string {
 export function voteDocId(voterId: string, postId: string): string {
   return `${voterId}_${postId}`;
 }
+
+export function plannedWatchDocId(uid: string, titleId: string): string {
+  return `${uid}_${titleId}`;
+}

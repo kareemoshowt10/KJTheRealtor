@@ -111,12 +111,18 @@ All at the git root:
 Ordered by likely demand; each names the counterpart(s) and the client win.
 BUILT: appraisal gap (/appraisal-gap-guide, 2026-07-12); handyman vs contractor
 (/contractor-handyman-guide, 2026-07-15 — also covers the old "contractor bid review" topic);
-yard/garage sale (/yard-sale-guide, 2026-07-20 — counterparts: homeowner client + shoppers/characters).
+rate buydown (/rate-buydown-guide, 2026-07-18 — built in a separate session); living trust /
+family compound estate planning (/living-trust-guide, 2026-07-16 — built in a separate session);
+yard/garage sale (/yard-sale-guide, 2026-07-20 — counterparts: homeowner client + shoppers/characters);
+assumable loan takeover (/assumable-loan-guide, 2026-07-20 — counterparts: loan servicer +
+listing agent; rare-knowledge angle most agents have never run).
+
+NOTE: before adding a new homepage library card, grep `lib-num` across the WHOLE grid in
+index.html — guides may have shipped in a separate session since your last check, and reused
+numbers will silently collide (this happened once, fixed 2026-07-20).
 
 1. **Listing-launch pricing** — Kareem ↔ seller client; the honest pricing conversation:
    comps, the first-price-is-the-strategy talk, saying no to flattery pricing. Seller audience.
-3. **Rate buydown / lender shopping** — Kareem ↔ two lenders; comparing complete loan offers
-   the way the ISP guide compares plans (points, credits, the real APR conversation). Buyer.
 4. **The low offer** — Kareem ↔ listing agent; presenting a below-ask offer without killing
    the relationship (evidence framing, seller-need discovery, escalation paths). Buyer/investor.
 5. **Accidental landlord's first lease** — Kareem ↔ prospective tenant + owner client;

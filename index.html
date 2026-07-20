@@ -1285,7 +1285,15 @@
 
     <!-- ── CINEMATIC HOME ───────────────────────────────────────────────── -->
     <section class="hero on-dark" id="top" aria-labelledby="home-heading">
-      <video class="hero-film" id="home-film" autoplay muted loop playsinline preload="metadata" poster="/assets/home-is-personal-poster.jpg" aria-hidden="true">
+      <!-- ═══ YOUR OWN FILM SLOT ═══════════════════════════════════════════
+           To feature your own hero video: upload it to /assets/hero-film.mp4
+           (landscape, ~10-30s, keep it under ~8MB; optional matching poster
+           at /assets/hero-film-poster.jpg). The browser tries your film
+           first and falls back to the stock film automatically — no code
+           changes needed. Delete /assets/hero-film.mp4 to revert.
+           ════════════════════════════════════════════════════════════════ -->
+      <video class="hero-film" id="home-film" autoplay muted loop playsinline preload="auto" poster="/assets/home-is-personal-poster.jpg" aria-hidden="true">
+        <source src="/assets/hero-film.mp4" type="video/mp4" />
         <source src="/assets/home-is-personal.mp4" type="video/mp4" />
       </video>
       <div class="container hero-cinematic-content">
@@ -1936,7 +1944,17 @@
       if (film && filmToggle) {
         var showFilm = function () { film.classList.add("is-ready"); };
         if (film.readyState >= 2) { showFilm(); }
-        else { film.addEventListener("loadeddata", showFilm, { once: true }); }
+        else {
+          ["loadeddata", "canplay", "playing"].forEach(function (ev) {
+            film.addEventListener(ev, showFilm, { once: true });
+          });
+          /* belt-and-suspenders: some browsers reach readyState without firing
+             the events above when autoplay is throttled — poll briefly. */
+          var filmPoll = setInterval(function () {
+            if (film.readyState >= 2) { showFilm(); clearInterval(filmPoll); }
+          }, 400);
+          setTimeout(function () { clearInterval(filmPoll); }, 12000);
+        }
         var filmLabel = filmToggle.querySelector("span");
         var filmIcon = filmToggle.querySelector("svg");
         var setFilmState = function (paused) {

@@ -2619,27 +2619,6 @@ section { padding: clamp(3.5rem, 7vh, 5.5rem) 0; }
         linear-gradient(180deg, #15110b 0%, #0c0805 100%);
       isolation: isolate;
     }
-    /* the welcoming photo — a real Southern California home the hero invites you into */
-    .estate-photo { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-    .estate-photo::before {
-      content: "";
-      position: absolute; inset: -5%;
-      background-image:
-        linear-gradient(180deg, rgba(13,9,6,0.62) 0%, rgba(13,9,6,0.22) 34%, rgba(13,9,6,0.38) 66%, rgba(10,7,4,0.94) 100%),
-        radial-gradient(120% 90% at 50% 28%, rgba(74,56,34,0.18) 0%, rgba(15,11,7,0) 62%),
-        url('/assets/hero-buyers.jpg');
-      background-size: cover, cover, cover;
-      background-position: center, center, center 38%;
-      background-repeat: no-repeat;
-      filter: saturate(0.94) brightness(0.98);
-      animation: estate-photo-kenburns 26s ease-in-out infinite alternate;
-      will-change: transform;
-    }
-    @keyframes estate-photo-kenburns {
-      from { transform: scale(1.06) translate3d(0,0,0); }
-      to   { transform: scale(1.15) translate3d(-1%,-1.6%,0); }
-    }
-    @media (prefers-reduced-motion: reduce) { .estate-photo::before { animation: none; transform: scale(1.06); } }
     /* faint blueprint graph paper */
     .estate-grid {
       position: absolute; inset: -12%;
@@ -3842,7 +3821,6 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
 
   <main id="top">
     <section class="estate-hero" id="hero" aria-label="The Estate — your real estate journey">
-      <div class="estate-photo" aria-hidden="true"></div>
       <div class="estate-grid" aria-hidden="true"></div>
 
       <div class="estate-copy">

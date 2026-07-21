@@ -2769,12 +2769,11 @@ section { padding: clamp(3.5rem, 7vh, 5.5rem) 0; }
       position: absolute; left: 50%; bottom: 4%;
       width: min(1180px, 94vw); aspect-ratio: 1040 / 760;
       transform: translateX(-50%) rotateX(34deg);
-      transform-origin: 50% 100%; transform-style: preserve-3d;
+      transform-origin: 50% 100%; transform-style: flat;
       will-change: transform, opacity;
     }
     .estate-copy { transition: none; will-change: transform, opacity; }
-    .estate-svg { width: 100%; height: 100%; overflow: visible; display: block;
-      filter: drop-shadow(0 6px 26px rgba(0,0,0,0.45)) drop-shadow(0 0 1px rgba(184,139,82,0.4)); }
+    .estate-svg { width: 100%; height: 100%; overflow: visible; display: block; }
 
     /* blueprint ink */
     .estate-svg .ink { fill: none; stroke: var(--gold-soft); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
@@ -2820,8 +2819,7 @@ section { padding: clamp(3.5rem, 7vh, 5.5rem) 0; }
       width: min(440px, calc(100% - 2rem));
       display: flex; align-items: center; gap: 1rem;
       padding: 0.9rem 1.3rem; border-radius: 16px;
-      background: rgba(20,14,9,0.62); border: 1px solid rgba(184,139,82,0.32);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      background: rgba(17,12,8,0.88); border: 1px solid rgba(184,139,82,0.32);
       box-shadow: 0 22px 54px rgba(0,0,0,0.42); text-align: left;
     }
     .estate-plaque-key { font-size: 0.6rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); font-weight: 800; flex-shrink: 0; writing-mode: vertical-rl; transform: rotate(180deg); opacity: 0.85; }

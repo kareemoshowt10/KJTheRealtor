@@ -2629,95 +2629,10 @@ section { padding: clamp(3.5rem, 7vh, 5.5rem) 0; }
       -webkit-mask-image: radial-gradient(120% 92% at 50% 34%, #000 28%, transparent 82%);
       mask-image: radial-gradient(120% 92% at 50% 34%, #000 28%, transparent 82%);
       pointer-events: none; z-index: 0;
-      animation: estate-grid-drift 50s linear infinite;
     }
-    @keyframes estate-grid-drift { to { background-position: 46px 46px, 46px 46px; } }
     .estate-vignette {
       position: absolute; inset: 0; z-index: 6; pointer-events: none;
       background: radial-gradient(120% 80% at 50% 38%, transparent 52%, rgba(8,5,3,0.72) 100%);
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       BLUEPRINT PARALLAX BACKDROP — the page is a drafting table.
-       A fixed canvas of drafting grid + dimension lines + callouts that
-       drift at three depths as you scroll. Content sections sit on it as
-       translucent vellum, so navigating the page = navigating a blueprint.
-    ═══════════════════════════════════════════════════════════════ */
-    .bp-stage {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      overflow: hidden;
-      pointer-events: none;
-      background:
-        radial-gradient(140% 120% at 50% 0%, #fbf8f3 0%, #f3ece1 55%, #ece2d3 100%);
-    }
-    .bp-stage .bp-grid {
-      position: absolute;
-      inset: -12%;
-      will-change: transform;
-      background-image:
-        linear-gradient(rgba(64,80,95,0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(64,80,95,0.055) 1px, transparent 1px),
-        linear-gradient(rgba(184,139,82,0.085) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,139,82,0.085) 1px, transparent 1px);
-      background-size: 34px 34px, 34px 34px, 170px 170px, 170px 170px;
-    }
-    .bp-stage .bp-layer {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      will-change: transform;
-    }
-    .bp-stage .bp-layer svg {
-      position: absolute;
-      overflow: visible;
-    }
-    .bp-ink   { stroke: rgba(64,80,95,0.20);  fill: none; stroke-width: 1; }
-    .bp-gold  { stroke: rgba(184,139,82,0.32); fill: none; stroke-width: 1; }
-    .bp-gold-2{ stroke: rgba(184,139,82,0.22); fill: none; stroke-width: 1; }
-    .bp-dash  { stroke-dasharray: 7 7; }
-    .bp-fill-gold { fill: rgba(184,139,82,0.07); stroke: none; }
-    .bp-label {
-      font-family: "Cormorant Garamond", serif;
-      fill: rgba(184,139,82,0.42);
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-    /* soft glow so content edges separate cleanly from the moving lines */
-    .bp-stage::after {
-      content: "";
-      position: absolute; inset: 0;
-      background: radial-gradient(150% 100% at 50% 50%, transparent 40%, rgba(236,226,211,0.55) 100%);
-      pointer-events: none;
-    }
-
-    /* Content sits above the backdrop. Translucent vellum sections let the
-       blueprint drift through; opaque "room" sections (dark panels) cover it. */
-    body.bp-on .story-section,
-    body.bp-on .pro-section {
-      background: rgba(255, 253, 250, 0.86) !important;
-      backdrop-filter: blur(2px);
-    }
-    body.bp-on .method-section {
-      background:
-        repeating-linear-gradient(0deg, rgba(184, 139, 82, 0.05) 0 1px, transparent 1px 64px),
-        repeating-linear-gradient(90deg, rgba(184, 139, 82, 0.05) 0 1px, transparent 1px 64px),
-        linear-gradient(180deg, rgba(248,244,239,0.84) 0%, rgba(249,245,238,0.9) 100%) !important;
-      backdrop-filter: blur(2px);
-    }
-    body.bp-on .proof-band {
-      background: rgba(240, 234, 217, 0.82) !important;
-      backdrop-filter: blur(2px);
-    }
-    body.bp-on .blueprint-seam:not(.on-dark) {
-      background: transparent !important;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .bp-stage .bp-grid,
-      .bp-stage .bp-layer { transform: none !important; }
     }
 
     /* overlay copy */
@@ -2759,20 +2674,17 @@ section { padding: clamp(3.5rem, 7vh, 5.5rem) 0; }
     .estate-btn-ghost:hover { transform: translateY(-2px); background: rgba(255,255,255,0.95); color: var(--warm-dark); border-color: transparent; }
     .estate-brokerage { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,253,250,0.6); margin-top: 0.1rem; }
 
-    /* 3D stage + drafting plane */
+    /* drafting plane — static, flat, mobile-friendly */
     .estate-stage {
       position: relative; z-index: 10; width: 100%; flex: 1 1 auto;
-      perspective: 1500px; perspective-origin: 50% 42%;
       min-height: 38vh;
     }
     .estate-plane {
       position: absolute; left: 50%; bottom: 4%;
       width: min(1180px, 94vw); aspect-ratio: 1040 / 760;
-      transform: translateX(-50%) rotateX(34deg);
-      transform-origin: 50% 100%; transform-style: flat;
-      will-change: transform, opacity;
+      transform: translateX(-50%);
+      transform-origin: 50% 100%;
     }
-    .estate-copy { transition: none; will-change: transform, opacity; }
     .estate-svg { width: 100%; height: 100%; overflow: visible; display: block; }
 
     /* blueprint ink */
@@ -2842,8 +2754,7 @@ section { padding: clamp(3.5rem, 7vh, 5.5rem) 0; }
 
     /* responsive */
     @media (max-width: 860px) {
-      .estate-stage { perspective: 1150px; }
-      .estate-plane { transform: translateX(-50%) rotateX(26deg); width: 130vw; bottom: 5%; }
+      .estate-plane { bottom: 5%; }
       .estate-svg .room-name { font-size: 31px; }
       .estate-svg .room-tag { font-size: 13px; }
       .estate-plaque-key { display: none; }
@@ -2852,13 +2763,12 @@ section { padding: clamp(3.5rem, 7vh, 5.5rem) 0; }
     }
     @media (max-width: 560px) {
       .estate-copy { padding-top: clamp(5.5rem, 13vh, 7rem); }
-      .estate-plane { transform: translateX(-50%) rotateX(20deg); width: 156vw; }
+      .estate-plane { width: 96vw; }
       .estate-title { font-size: clamp(2.3rem, 8.5vw, 3.3rem); }
       .estate-btn { flex: 1 1 100%; max-width: 320px; }
       .estate-hero .hero-scroll-cue { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .estate-grid { animation: none; }
       .estate-svg .draw { stroke-dashoffset: 0; animation: none; }
       .estate-svg .fade { opacity: 1; animation: none; }
       .estate-copy > *, .estate-plaque { opacity: 1; transform: none; animation: none; }
@@ -3714,64 +3624,6 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
   </style>
 </head>
 <body>
-  <!-- ═══ Blueprint parallax backdrop — the drafting table the whole site sits on ═══ -->
-  <div class="bp-stage" id="bpStage" aria-hidden="true">
-    <div class="bp-grid" id="bpGrid"></div>
-
-    <!-- far layer: framing & dimensions -->
-    <div class="bp-layer" data-depth="0.04" data-amp="160">
-      <svg width="520" height="420" viewBox="0 0 520 420" style="left:-60px; top:8vh;">
-        <rect class="bp-gold-2 bp-dash" x="40" y="40" width="440" height="320" rx="2"/>
-        <line class="bp-gold-2" x1="40" y1="22" x2="480" y2="22"/>
-        <line class="bp-gold-2" x1="40" y1="16" x2="40" y2="28"/>
-        <line class="bp-gold-2" x1="480" y1="16" x2="480" y2="28"/>
-        <text class="bp-label" x="208" y="18">96'-0"</text>
-        <text class="bp-label" x="60" y="78">Residence of Generational Wealth</text>
-      </svg>
-      <svg width="360" height="360" viewBox="0 0 360 360" style="right:-40px; top:54vh;">
-        <circle class="bp-gold-2" cx="180" cy="180" r="150"/>
-        <circle class="bp-gold-2 bp-dash" cx="180" cy="180" r="110"/>
-        <line class="bp-gold-2" x1="180" y1="10" x2="180" y2="350"/>
-        <line class="bp-gold-2" x1="10" y1="180" x2="350" y2="180"/>
-        <text class="bp-label" x="150" y="40">N</text>
-      </svg>
-    </div>
-
-    <!-- mid layer: detail callouts -->
-    <div class="bp-layer" data-depth="0.10" data-amp="320">
-      <svg width="280" height="280" viewBox="0 0 280 280" style="left:6vw; top:38vh;">
-        <circle class="bp-gold" cx="140" cy="140" r="74"/>
-        <circle class="bp-fill-gold" cx="140" cy="140" r="74"/>
-        <line class="bp-gold" x1="140" y1="66" x2="140" y2="214"/>
-        <line class="bp-gold" x1="66" y1="140" x2="214" y2="140"/>
-        <text class="bp-label" x="104" y="34">Detail A</text>
-      </svg>
-      <svg width="320" height="240" viewBox="0 0 320 240" style="right:4vw; top:14vh;">
-        <line class="bp-gold" x1="20" y1="120" x2="300" y2="120"/>
-        <path class="bp-gold" d="M20 120 l14 -7 v14 z"/>
-        <path class="bp-gold" d="M300 120 l-14 -7 v14 z"/>
-        <line class="bp-gold bp-dash" x1="20" y1="60" x2="20" y2="180"/>
-        <line class="bp-gold bp-dash" x1="300" y1="60" x2="300" y2="180"/>
-        <text class="bp-label" x="132" y="108">64'-0"</text>
-      </svg>
-    </div>
-
-    <!-- near layer: drafting marks -->
-    <div class="bp-layer" data-depth="0.18" data-amp="520">
-      <svg width="200" height="200" viewBox="0 0 200 200" style="left:42vw; top:66vh;">
-        <path class="bp-gold" d="M40 160 L160 40"/>
-        <circle class="bp-gold" cx="40" cy="160" r="10"/>
-        <circle class="bp-gold" cx="160" cy="40" r="10"/>
-        <text class="bp-label" x="70" y="120">A-1</text>
-      </svg>
-      <svg width="180" height="180" viewBox="0 0 180 180" style="right:16vw; top:78vh;">
-        <rect class="bp-gold" x="40" y="40" width="100" height="100" rx="2"/>
-        <line class="bp-gold" x1="40" y1="40" x2="140" y2="140"/>
-        <line class="bp-gold" x1="140" y1="40" x2="40" y2="140"/>
-      </svg>
-    </div>
-  </div>
-
   <a class="skip-link" href="#top">Skip to main content</a>
 
   <!-- Scroll Progress Indicator -->
@@ -4907,12 +4759,11 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
 })();
   </script>
   <script>
-  // ══ The Estate — 3D parallax + room-detail plaque ══
+  // ══ The Estate — room-detail plaque on hover/focus (static, mobile-friendly) ══
   (function () {
     var hero = document.getElementById('hero');
     if (!hero || !hero.classList.contains('estate-hero')) return;
 
-    // Room → plaque readout
     var plaque = document.getElementById('estatePlaque');
     var pTitle = document.getElementById('estatePlaqueTitle');
     var pDesc  = document.getElementById('estatePlaqueDesc');
@@ -4937,118 +4788,6 @@ footer.footer, .footer { padding: 3.5rem 0 !important; }
       a.addEventListener('focus', on);
       a.addEventListener('blur', off);
     });
-
-    // 3D parallax + idle float — desktop, motion-OK only
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var coarse = window.matchMedia('(pointer: coarse)').matches;
-    var stage = document.getElementById('estateStage');
-    var plane = document.getElementById('estatePlane');
-    if (reduce || coarse || !stage || !plane) return;
-
-    function baseTilt() { var w = window.innerWidth; return w < 560 ? 20 : (w < 860 ? 26 : 34); }
-    var tx = 0, ty = 0, cx = 0, cy = 0, active = false, t0 = performance.now(), raf = 0;
-    var introStart = 0, introDur = 1750;
-    var heroH = hero.offsetHeight || window.innerHeight;
-    var copy = hero.querySelector('.estate-copy');
-    window.addEventListener('resize', function () { heroH = hero.offsetHeight || window.innerHeight; }, { passive: true });
-
-    // Set the "before entrance" frame immediately so there's no pop from the CSS tilt.
-    plane.style.opacity = '0';
-    plane.style.transform = 'translateX(-50%) translateY(72px) scale(0.83) rotateX(' + (baseTilt() + 48) + 'deg)';
-
-    function easeOut(p) { return 1 - Math.pow(1 - p, 3); }
-
-    stage.addEventListener('mousemove', function (e) {
-      var r = stage.getBoundingClientRect();
-      cx = (e.clientX - r.left) / r.width - 0.5;
-      cy = (e.clientY - r.top) / r.height - 0.5;
-    }, { passive: true });
-    stage.addEventListener('mouseleave', function () { cx = 0; cy = 0; });
-    function loop(now) {
-      if (!active) { raf = 0; return; }
-      if (!introStart) introStart = now;
-      var intro = easeOut(Math.min((now - introStart) / introDur, 1));
-      tx += (cx - tx) * 0.07;
-      ty += (cy - ty) * 0.07;
-      var t = (now - t0) / 1000;
-      var sy = window.pageYOffset || document.documentElement.scrollTop || 0;
-      var dive = Math.min(Math.max(sy / (heroH * 0.92), 0), 1);
-      var diveE = dive * dive; // ease-in: gentle at first, accelerates into the plan
-
-      var base = baseTilt();
-      var flat = base + 48;                                  // laid flat on the drafting table
-      var rx = (flat + (base - flat) * intro)                // camera lifts off the table
-             + diveE * 34                                    // ...then dives back toward flat
-             - ty * 5 + Math.sin(t * 0.6) * 0.9;             // mouse tilt + idle float
-      var ry = tx * 7 + Math.cos(t * 0.5) * 1.1;
-
-      var introY = (1 - intro) * 72;
-      var introS = 0.83 + 0.17 * intro;
-      var transY = introY - diveE * 130;                      // dive pushes the plan up & past
-      var scale  = introS * (1 + diveE * 0.4);                // ...and zooms into it
-      var op = intro * (1 - dive * 0.92);
-
-      plane.style.transform =
-        'translateX(-50%) translateY(' + transY.toFixed(1) + 'px) scale(' + scale.toFixed(3) +
-        ') rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
-      plane.style.opacity = op.toFixed(3);
-
-      if (copy) {
-        copy.style.transform = 'translateY(' + (-dive * 46 - ty * 8).toFixed(1) + 'px)';
-        copy.style.opacity = Math.max(0, 1 - dive * 1.15).toFixed(3);
-      }
-      raf = requestAnimationFrame(loop);
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        active = en.isIntersecting;
-        if (active && !raf) { t0 = performance.now(); raf = requestAnimationFrame(loop); }
-      });
-    }, { threshold: 0.001 });
-    io.observe(hero);
-  })();
-  </script>
-
-  <!-- Blueprint parallax: drift the drafting backdrop as you scroll the page -->
-  <script>
-  (function () {
-    var stage = document.getElementById('bpStage');
-    var grid  = document.getElementById('bpGrid');
-    if (!stage) return;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // The vellum-on-blueprint treatment is always on; only the motion is gated.
-    document.body.classList.add('bp-on');
-    if (reduce) return;
-
-    var layers = Array.prototype.slice.call(stage.querySelectorAll('.bp-layer'));
-    var ticking = false;
-
-    function maxScroll() {
-      return Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    }
-    function render() {
-      ticking = false;
-      var sy = window.pageYOffset || document.documentElement.scrollTop || 0;
-      var p  = sy / maxScroll();            // 0..1 through the page
-      // Seamless grid drift — coarse gold grid moves slower than fine grid for depth.
-      var gf = sy * 0.42, gc = sy * 0.26;
-      grid.style.backgroundPosition =
-        '0 ' + gf + 'px, 0 ' + gf + 'px, 0 ' + gc + 'px, 0 ' + gc + 'px';
-      // Discrete callout layers: bounded vertical drift (no jumps) + gentle sway.
-      for (var i = 0; i < layers.length; i++) {
-        var amp = parseFloat(layers[i].getAttribute('data-amp')) || 200;
-        var ty  = (p - 0.5) * amp;
-        var tx  = Math.sin(p * Math.PI) * amp * 0.10;
-        layers[i].style.transform =
-          'translate3d(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px,0)';
-      }
-    }
-    function onScroll() {
-      if (!ticking) { ticking = true; requestAnimationFrame(render); }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-    render();
   })();
   </script>
 </body>

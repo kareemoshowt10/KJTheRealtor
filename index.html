@@ -25,13 +25,25 @@
   <meta name="twitter:title" content="Home, Beautifully Represented | Kareem Jamal" />
   <meta name="twitter:description" content="Every home is different. Every definition is personal. Let yours be beautifully represented." />
   <meta name="twitter:image" content="https://kareemjamaltherealtor.com/assets/home-is-personal-poster.jpg" />
-  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="icon" href="/assets/favicon-jamal.png" type="image/png" />
+  <!-- LCP paint hero poster immediately film loads later only on c -->
+  <link rel="preload" as="image" href="/assets/home-is-personal-poster.webp" type="image/webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Non-blocking Google Fonts (display swap already media-print -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+    media="print"
+    onload="this.media='all'"
   />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+    />
+  </noscript>
+  <link rel="stylesheet" href="/assets/cinematic-serene.css" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,7 +55,7 @@
           "alternateName": "Kareem Jamal The Realtor",
           "url": "https://kareemjamaltherealtor.com/",
           "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot-2026-web.jpg",
-          "logo": "https://kareemjamaltherealtor.com/assets/favicon.png",
+          "logo": "https://kareemjamaltherealtor.com/assets/jamal-real-estate-logo.png",
           "jobTitle": "Realtor",
           "telephone": "+1-818-402-7326",
           "email": "kjamal@rodeore.com",
@@ -382,10 +394,10 @@
     }
     .btn-outline-dark:hover { border-color: var(--navy); background: var(--navy); color: var(--cream); }
 
-    /* ─── Reveal ────────────────────────────────────────────────────────── */
+    /* ─── Reveal (cinematic: calm fade/rise; refined further in cinematic-serene.css) ── */
     [data-reveal] {
-      opacity: 0; transform: translateY(22px);
-      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
     }
     [data-reveal].is-in { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) {
@@ -406,11 +418,15 @@
     }
     .brand { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
     .brand-mark {
-      width: 40px; height: 40px; flex: none;
+      width: 44px; height: 44px; flex: none;
       display: grid; place-items: center;
-      border: 1.5px solid var(--gold); border-radius: 4px;
-      font-family: var(--font-display); font-weight: 600; font-size: 1rem;
-      color: var(--gold); letter-spacing: 0.04em;
+      border: 1px solid rgba(201, 168, 76, 0.35); border-radius: 8px;
+      background: #000;
+      overflow: hidden;
+      padding: 0;
+    }
+    .brand-mark img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
     }
     .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
     .brand-name {
@@ -497,8 +513,8 @@
       position: absolute; inset: 0; z-index: 1;
       pointer-events: none;
       background:
-        linear-gradient(90deg, rgba(5, 15, 32, 0.88) 0%, rgba(5, 15, 32, 0.64) 43%, rgba(5, 15, 32, 0.16) 72%),
-        linear-gradient(0deg, rgba(5, 15, 32, 0.74) 0%, transparent 47%, rgba(5, 15, 32, 0.2) 100%);
+        linear-gradient(105deg, rgba(5, 12, 28, 0.88) 0%, rgba(5, 15, 32, 0.52) 44%, rgba(5, 15, 32, 0.14) 70%),
+        linear-gradient(0deg, rgba(5, 12, 28, 0.72) 0%, transparent 50%, rgba(5, 15, 32, 0.16) 100%);
     }
     .hero::after {
       content: '';
@@ -562,6 +578,7 @@
       display: flex; align-items: center; gap: 0.7rem;
       z-index: 4;
     }
+    .hero-cinematic-content { position: relative; z-index: 2; }
     .film-toggle {
       display: inline-flex; align-items: center; gap: 0.55rem;
       border: 1px solid rgba(250, 245, 238, 0.38);
@@ -584,7 +601,9 @@
     }
     @media (max-width: 720px) {
       .hero { min-height: calc(100svh - 68px); }
-      .hero-film { object-position: 62% center; }
+      /* Mobile: poster only — skip multi-MB film bandwidth */
+      .hero-film { display: none; }
+      .film-toggle { display: none; }
       .hero::before {
         background:
           linear-gradient(90deg, rgba(5, 15, 32, 0.78), rgba(5, 15, 32, 0.34)),
@@ -630,6 +649,7 @@
     }
     .home-moment:first-child { grid-row: 1 / 3; }
     .home-moment:nth-child(4) { grid-column: 2 / 4; }
+    .home-moment picture { display: block; width: 100%; height: 100%; }
     .home-moment img {
       width: 100%; height: 100%; object-fit: cover;
       transition: transform 0.9s var(--ease);
@@ -669,6 +689,7 @@
       aspect-ratio: 4 / 5;
       background: #eef0f3;
     }
+    .home-belief-portrait picture { display: block; width: 100%; height: 100%; }
     .home-belief-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
     .home-belief-copy { padding-right: clamp(0rem, 3vw, 2rem); }
     .home-belief-copy h2 { font-size: clamp(2.3rem, 5vw, 4.4rem); margin: 0.8rem 0 1.2rem; }
@@ -1236,12 +1257,13 @@
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
 </head>
 <body>
+  <div class="cinema-grain" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="container nav-shell">
       <a class="brand" href="/" aria-label="Kareem Jamal home">
-        <span class="brand-mark" aria-hidden="true">KJ</span>
+        <span class="brand-mark" aria-hidden="true"><img src="/assets/jamal-real-estate-logo.png" alt="" width="40" height="40" decoding="async" /></span>
         <span class="brand-text">
           <strong class="brand-name">Kareem Jamal</strong>
           <span class="brand-role">Generational Wealth Realtor</span>
@@ -1283,7 +1305,7 @@
 
   <main id="main">
 
-    <!-- ── CINEMATIC HOME ───────────────────────────────────────────────── -->
+    <!-- CINEMATIC HOME -->
     <section class="hero on-dark" id="top" aria-labelledby="home-heading">
       <!-- ═══ YOUR OWN FILM SLOT ═══════════════════════════════════════════
            To feature your own hero video: upload it to /assets/hero-film.mp4
@@ -1315,12 +1337,13 @@
           <p class="hero-meta"><span>Southern California</span><span>Rodeo Realty Fine Estates</span><span>CA DRE #01998956</span></p>
         </div>
       </div>
+
       <div class="hero-controls">
         <button class="film-toggle" id="film-toggle" type="button" aria-pressed="false" aria-label="Pause background film">
           <svg class="film-toggle-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.5 2.5h3v11h-3zm6 0h3v11h-3z"/></svg>
-          <span>Pause film</span>
+          <span>Pause</span>
         </button>
-        <a class="hero-scroll-cue" href="#meaning">Scroll ↓</a>
+        <a class="hero-scroll-cue" href="#meaning">Discover</a>
       </div>
     </section>
 
@@ -1352,27 +1375,42 @@
         </div>
 
         <div class="home-mosaic" aria-label="Many meanings of home">
-          <article class="home-moment" data-reveal>
-            <img src="/assets/home-is-personal-poster.jpg" alt="A family laughing and playing together at home" width="1600" height="900" loading="lazy" />
+          <article class="home-moment cinema-frame" data-reveal>
+            <picture>
+              <source srcset="/assets/home-is-personal-poster.webp" type="image/webp" />
+              <img src="/assets/home-is-personal-poster.jpg" alt="A family laughing and playing together at home" width="1600" height="900" loading="lazy" decoding="async" />
+            </picture>
             <div class="home-moment-copy"><small>Sometimes it is loud</small><h3>The beautiful chaos of a full house.</h3></div>
           </article>
-          <article class="home-moment" data-reveal>
-            <img src="/assets/hero-buyers.jpg" alt="A light-filled living room opening to the Southern California landscape" width="1024" height="1024" loading="lazy" />
+          <article class="home-moment cinema-frame" data-reveal>
+            <picture>
+              <source srcset="/assets/hero-buyers.webp" type="image/webp" />
+              <img src="/assets/hero-buyers.jpg" alt="A light-filled living room opening to the Southern California landscape" width="900" height="900" loading="lazy" decoding="async" />
+            </picture>
             <div class="home-moment-copy"><small>Sometimes it is simple</small><h3>Just enough room to begin.</h3></div>
           </article>
-          <article class="home-moment" data-reveal>
-            <img src="/assets/mansion-pool-night.jpg" alt="A grand modern home glowing beside a pool at night" width="1024" height="687" loading="lazy" />
+          <article class="home-moment cinema-frame" data-reveal>
+            <picture>
+              <source srcset="/assets/mansion-pool-night.webp" type="image/webp" />
+              <img src="/assets/mansion-pool-night.jpg" alt="A grand modern home glowing beside a pool at night" width="900" height="603" loading="lazy" decoding="async" />
+            </picture>
             <div class="home-moment-copy"><small>Sometimes it is big</small><h3>A dream finally made real.</h3></div>
           </article>
-          <article class="home-moment" data-reveal>
-            <img src="/assets/hero-estate-night.jpg" alt="A warmly lit estate under a quiet night sky" width="1024" height="687" loading="lazy" />
+          <article class="home-moment cinema-frame" data-reveal>
+            <picture>
+              <source srcset="/assets/hero-estate-night.webp" type="image/webp" />
+              <img src="/assets/hero-estate-night.jpg" alt="A warmly lit estate under a quiet night sky" width="900" height="603" loading="lazy" decoding="async" />
+            </picture>
             <div class="home-moment-copy"><small>Sometimes it is quiet</small><h3>The place that holds generations.</h3></div>
           </article>
         </div>
 
         <div class="home-belief" data-reveal>
-          <div class="home-belief-portrait">
-            <img src="/assets/kareem-jamal-headshot-2026-web.jpg" alt="Kareem Jamal, Southern California Realtor" width="749" height="1000" loading="lazy" />
+          <div class="home-belief-portrait cinema-frame">
+            <picture>
+              <source srcset="/assets/kareem-jamal-headshot-2026-web.webp" type="image/webp" />
+              <img src="/assets/kareem-jamal-headshot-2026-web.jpg" alt="Kareem Jamal, Southern California Realtor" width="749" height="1000" loading="lazy" decoding="async" />
+            </picture>
           </div>
           <div class="home-belief-copy">
             <span class="eyebrow eyebrow--gold">How I represent it</span>
@@ -1402,7 +1440,7 @@
       </div>
     </div>
 
-    <!-- ── THE LIBRARY (value given away upfront) ───────────────────────── -->
+    <!-- THE LIBRARY (value given away upfront) -->
     <section class="library section" id="library" aria-labelledby="library-heading">
       <div class="container">
         <div class="section-head is-center" data-reveal>
@@ -1426,7 +1464,7 @@
               <span class="lib-foot"><span class="lib-meta lib-meta--dark">Interactive conversation &middot; no signup</span><span class="lib-open lib-open--gold">Listen in &rarr;</span></span>
             </span>
             <span class="library-chat-preview" aria-hidden="true">
-              <span class="library-chat-head"><img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="" width="160" height="160" />Kareem &harr; ISP retention</span>
+              <span class="library-chat-head"><picture><source srcset="/assets/kareem-jamal-headshot-2026-thumb.webp" type="image/webp" /><img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="" width="160" height="160" loading="lazy" decoding="async" /></picture>Kareem &harr; ISP retention</span>
               <span class="library-bubble"><small>ISP representative</small>I found a loyalty offer for this account.</span>
               <span class="library-bubble is-kareem"><small>Kareem</small>Thank you. What is the best complete rate you can approve today?</span>
               <span class="library-bubble"><small>ISP representative</small>Let me check one more place.</span>
@@ -1596,7 +1634,7 @@
       </div>
     </section>
 
-    <!-- ── THE METHOD ───────────────────────────────────────────────────── -->
+    <!-- THE METHOD -->
     <section class="method section on-dark" id="method" aria-labelledby="method-heading">
       <div class="container">
         <div class="section-head is-center" data-reveal>
@@ -1694,12 +1732,15 @@
       </div>
     </section>
 
-    <!-- ── ABOUT ────────────────────────────────────────────────────────── -->
+    <!-- ABOUT -->
     <section class="about section" id="about" aria-labelledby="about-heading">
       <div class="container about-grid">
         <div class="about-photo" data-reveal>
-          <div class="about-photo-frame">
-            <img src="/assets/kareem-jamal-headshot-2026-web.jpg" alt="Kareem Jamal" loading="lazy" width="749" height="1000" />
+          <div class="about-photo-frame cinema-frame">
+            <picture>
+              <source srcset="/assets/kareem-jamal-headshot-2026-web.webp" type="image/webp" />
+              <img src="/assets/kareem-jamal-headshot-2026-web.jpg" alt="Kareem Jamal" loading="lazy" decoding="async" width="749" height="1000" />
+            </picture>
           </div>
           <dl class="about-photo-card">
             <div><dt>Brokerage</dt><dd>Rodeo Realty Fine Estates</dd></div>
@@ -1751,7 +1792,7 @@
       </div>
     </section>
 
-    <!-- ── HOW THIS WORKS (transparency) ────────────────────────────────── -->
+    <!-- HOW THIS WORKS (transparency) -->
     <section class="promise section" aria-labelledby="promise-heading">
       <div class="container">
         <div class="section-head is-center" data-reveal>
@@ -1785,7 +1826,7 @@
       </div>
     </section>
 
-    <!-- ── START (the one funnel entry) ─────────────────────────────────── -->
+    <!-- START (the one funnel entry) -->
     <section class="start section on-dark" id="start" aria-labelledby="start-heading">
       <div class="container start-grid">
         <div data-reveal>
@@ -1858,7 +1899,7 @@
             <textarea id="lead-message" name="message" placeholder="Timeline, property, goals — whatever is useful."></textarea>
           </div>
 
-          <!-- Honeypot: hidden from users, catches bots -->
+          <!-- Honeypot hidden from users catches bots -->
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp-field" />
           <input type="hidden" name="_subject" value="New conversation request — kareemjamaltherealtor.com" />
 
@@ -1957,10 +1998,15 @@
         });
       }
 
-      /* Cinematic hero film control */
+      /* Cinematic hero film — load only on desktop, good connection, motion OK */
       var film = document.getElementById("home-film");
       var filmToggle = document.getElementById("film-toggle");
       var reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var isNarrow = window.matchMedia && window.matchMedia("(max-width: 720px)").matches;
+      var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      var saveData = !!(conn && (conn.saveData || /2g/.test(conn.effectiveType || "")));
+      var canLoadFilm = film && !reducedMotion && !isNarrow && !saveData;
+
       if (film && filmToggle) {
         var showFilm = function () { film.classList.add("is-ready"); };
         if (film.readyState >= 2) { showFilm(); }
@@ -1977,23 +2023,62 @@
         }
         var filmLabel = filmToggle.querySelector("span");
         var filmIcon = filmToggle.querySelector("svg");
+        var filmLoaded = false;
         var setFilmState = function (paused) {
           filmToggle.setAttribute("aria-pressed", paused ? "true" : "false");
           filmToggle.setAttribute("aria-label", paused ? "Play background film" : "Pause background film");
-          filmLabel.textContent = paused ? "Play film" : "Pause film";
-          filmIcon.innerHTML = paused
-            ? '<path d="M4 2.25v11.5L13 8z"/>'
-            : '<path d="M3.5 2.5h3v11h-3zm6 0h3v11h-3z"/>';
+          if (filmLabel) filmLabel.textContent = paused ? "Play" : "Pause";
+          if (filmIcon) {
+            filmIcon.innerHTML = paused
+              ? '<path d="M4 2.25v11.5L13 8z"/>'
+              : '<path d="M3.5 2.5h3v11h-3zm6 0h3v11h-3z"/>';
+          }
         };
-        if (reducedMotion) {
-          film.pause();
+        var ensureFilmSource = function () {
+          if (filmLoaded) return Promise.resolve();
+          filmLoaded = true;
+          var source = document.createElement("source");
+          source.src = "/assets/home-is-personal.mp4";
+          source.type = "video/mp4";
+          film.appendChild(source);
+          film.load();
+          return new Promise(function (resolve) {
+            var done = function () {
+              film.classList.add("is-ready");
+              resolve();
+            };
+            if (film.readyState >= 2) done();
+            else {
+              film.addEventListener("loadeddata", done, { once: true });
+              film.addEventListener("error", resolve, { once: true });
+            }
+          });
+        };
+        var playFilm = function () {
+          return ensureFilmSource().then(function () {
+            return film.play().then(function () { setFilmState(false); }).catch(function () { setFilmState(true); });
+          });
+        };
+
+        if (!canLoadFilm) {
           setFilmState(true);
+          if (filmToggle) filmToggle.hidden = true;
         } else {
-          film.play().catch(function () { setFilmState(true); });
+          var start = function () { playFilm(); };
+          if ("requestIdleCallback" in window) {
+            requestIdleCallback(start, { timeout: 1800 });
+          } else {
+            window.addEventListener("load", function () { setTimeout(start, 400); });
+          }
         }
+
         filmToggle.addEventListener("click", function () {
-          if (film.paused) {
-            film.play().then(function () { setFilmState(false); }).catch(function () {});
+          if (!canLoadFilm && !filmLoaded) {
+            canLoadFilm = true;
+            filmToggle.hidden = false;
+          }
+          if (film.paused || !filmLoaded) {
+            playFilm();
           } else {
             film.pause();
             setFilmState(true);
@@ -2122,6 +2207,7 @@
       });
     })();
   </script>
+  <script src="/assets/cinematic-serene.js" defer></script>
   <script src="/track.js" defer></script>
   <script src="/assets/kj-interactive.js" defer></script>
 </body>

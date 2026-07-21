@@ -26,7 +26,7 @@
   <meta name="twitter:image" content="https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot-2026-web.jpg" />
   <link rel="canonical" href="https://kareemjamaltherealtor.com/sellers" />
   <link rel="alternate" hreflang="en-US" href="https://kareemjamaltherealtor.com/sellers" />
-  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="icon" href="/assets/favicon-jamal.png" type="image/png" />
   <link rel="preload" as="image" href="assets/mansion-pool-night.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -2048,6 +2048,17 @@ body {
       .playbook-timeline { padding-left: 2.6rem; }
       .playbook-step::before { left: -42px; }
     }
+  
+    /* JAMAL primary logo mark */
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      border: 1px solid rgba(201, 168, 76, 0.35); border-radius: 8px;
+      background: #000; overflow: hidden; padding: 0;
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
   </style>
   <link rel="stylesheet" href="/polish.css">
   <script src="/track.js" defer></script>
@@ -2071,9 +2082,10 @@ body {
           <header class="site-header" id="siteHeader">
     <div class="container nav-shell">
       <a class="brand" href="/" aria-label="Kareem Jamal — Home">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/jamal-real-estate-logo.png" alt="" width="40" height="40" decoding="async" /></span>
+        <span class="brand-text">
         <span class="brand-name">Kareem Jamal</span>
-        <span class="brand-sub">Rodeo Realty Fine Estates</span>
-      </a>
+        <span class="brand-sub">Rodeo Realty Fine Estates</span>`n        </span>`n      </a>
       <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>
@@ -3067,7 +3079,18 @@ body {
 
   <!-- Scroll progress indicator (kj) -->
   <div id="kjScrollBar" aria-hidden="true"></div>
-  <style>#kjScrollBar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#C9A84C,#E8C87A);z-index:9990;pointer-events:none;will-change:transform}</style>
+  <style>#kjScrollBar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#C9A84C,#E8C87A);z-index:9990;pointer-events:none;will-change:transform}
+    /* JAMAL primary logo mark */
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      border: 1px solid rgba(201, 168, 76, 0.35); border-radius: 8px;
+      background: #000; overflow: hidden; padding: 0;
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+  </style>
   <script>(function(){var b=document.getElementById('kjScrollBar');if(!b)return;var t=false;function u(){t=false;var h=document.documentElement,m=(h.scrollHeight-h.clientHeight),y=window.pageYOffset||h.scrollTop||document.body.scrollTop||0;b.style.transform='scaleX('+(m>0?Math.min(y/m,1):0)+')';}function q(){if(!t){t=true;requestAnimationFrame(u);}}addEventListener('scroll',q,{passive:true});addEventListener('resize',q,{passive:true});u();})();</script>
   <script src="/assets/kj-interactive.js" defer></script>
 </body>

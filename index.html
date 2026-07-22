@@ -282,6 +282,8 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 86px;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
     [id] { scroll-margin-top: 86px; }
     @media (prefers-reduced-motion: reduce) {
@@ -527,7 +529,7 @@
       padding-bottom: clamp(4.5rem, 10vh, 7rem);
       position: relative; z-index: 3;
     }
-    .hero-copy { max-width: 720px; }
+    .hero-copy { max-width: 38rem; }
     .hero-copy { animation: hero-arrive 0.75s var(--ease) both; }
     @keyframes hero-arrive {
       from { transform: translateY(16px); }
@@ -535,36 +537,56 @@
     }
     .hero-eyebrow-row {
       display: flex; align-items: center; gap: 0.9rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.35rem;
     }
     .hero-eyebrow-row::before {
       content: ''; width: 42px; height: 1px; background: var(--gold);
     }
+    /* Multi-word headline — previous scale was tuned for a single word ("Home.") */
     .hero h1 {
-      font-size: clamp(4.2rem, 12vw, 9.5rem);
-      line-height: 0.84;
-      letter-spacing: -0.055em;
-      margin-bottom: 1.5rem;
+      font-size: clamp(2.65rem, 6.2vw, 4.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.15rem;
       text-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
     }
-    .hero-definition {
+    .hero h1 em {
       display: block;
-      max-width: 24ch;
-      margin-bottom: 1.25rem;
-      font-family: var(--font-display);
-      font-size: clamp(1.45rem, 3vw, 2.4rem);
+      margin-top: 0.08em;
       font-style: italic;
-      line-height: 1.22;
+      font-weight: 400;
       color: var(--gold-light);
-      text-wrap: balance;
+    }
+    .hero-promise {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.35rem;
+    }
+    .hero-promise span {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.42rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(201, 168, 76, 0.38);
+      background: rgba(5, 15, 32, 0.38);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     .hero .lead {
-      max-width: 42rem;
-      margin-bottom: 2rem;
-      font-size: clamp(1rem, 1.7vw, 1.18rem);
-      color: rgba(250, 245, 238, 0.86);
+      max-width: 36rem;
+      margin-bottom: 1.85rem;
+      font-size: clamp(1rem, 1.55vw, 1.12rem);
+      line-height: 1.65;
+      color: rgba(250, 245, 238, 0.88);
     }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center; }
+    .hero-actions .btn { white-space: normal; text-align: center; }
     .hero-meta {
       display: flex; align-items: center; flex-wrap: wrap; gap: 0.7rem 1rem;
       margin-top: 2rem;
@@ -599,21 +621,82 @@
       text-transform: uppercase;
     }
     @media (max-width: 720px) {
-      .hero { min-height: calc(100svh - 68px); }
+      /* Prefer content-driven height on phones so CTAs aren't crushed by 100vh */
+      .hero {
+        min-height: min(100svh - 68px, 860px);
+        align-items: end;
+      }
       /* Mobile: poster only — skip multi-MB film bandwidth */
       .hero-film { display: none; }
       .film-toggle { display: none; }
       .hero::before {
         background:
-          linear-gradient(90deg, rgba(5, 15, 32, 0.78), rgba(5, 15, 32, 0.34)),
-          linear-gradient(0deg, rgba(5, 15, 32, 0.9) 0%, rgba(5, 15, 32, 0.2) 70%);
+          linear-gradient(180deg, rgba(5, 15, 32, 0.55) 0%, rgba(5, 15, 32, 0.28) 28%, rgba(5, 15, 32, 0.78) 72%, rgba(5, 12, 28, 0.94) 100%),
+          linear-gradient(90deg, rgba(5, 15, 32, 0.72), rgba(5, 15, 32, 0.22));
       }
-      .hero-cinematic-content { padding-top: 8rem; padding-bottom: 6.8rem; }
-      .hero h1 { font-size: clamp(4.5rem, 25vw, 7rem); }
-      .hero-actions { align-items: stretch; }
-      .hero-actions .btn { width: 100%; }
-      .hero-controls { left: var(--gutter); right: auto; bottom: 1.4rem; }
+      .hero-cinematic-content {
+        padding-top: 5.75rem;
+        padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+      }
+      .hero-eyebrow-row { margin-bottom: 1rem; }
+      .hero-eyebrow-row::before { width: 28px; }
+      .hero h1 {
+        font-size: clamp(2.35rem, 10.5vw, 3.15rem);
+        line-height: 1.05;
+        margin-bottom: 0.95rem;
+      }
+      .hero-promise { gap: 0.4rem; margin-bottom: 1.05rem; }
+      .hero-promise span {
+        font-size: 0.62rem;
+        letter-spacing: 0.06em;
+        padding: 0.4rem 0.7rem;
+        min-height: 32px;
+      }
+      .hero .lead {
+        font-size: 0.98rem;
+        line-height: 1.6;
+        margin-bottom: 1.35rem;
+      }
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      .hero-actions .btn {
+        width: 100%;
+        min-height: 48px;
+        padding: 0.95rem 1.25rem;
+        white-space: normal;
+      }
+      .hero-meta {
+        margin-top: 1.25rem;
+        gap: 0.35rem 0.75rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+      }
       .hero-meta span + span::before { display: none; }
+      /* Scroll cue sits in flow gap, not over buttons */
+      .hero-controls {
+        left: var(--gutter);
+        right: auto;
+        bottom: calc(0.85rem + env(safe-area-inset-bottom, 0px));
+      }
+      .hero-scroll-cue {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 0.35rem 0.15rem;
+      }
+    }
+    /* Short phones (SE / mini landscape-ish heights) */
+    @media (max-width: 720px) and (max-height: 700px) {
+      .hero { min-height: 0; }
+      .hero-cinematic-content {
+        padding-top: 5.25rem;
+        padding-bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));
+      }
+      .hero h1 { font-size: clamp(2.1rem, 9vw, 2.6rem); }
+      .hero .lead { margin-bottom: 1.1rem; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
     }
     @media (prefers-reduced-motion: reduce) {
       .hero-film { display: none; }
@@ -707,10 +790,38 @@
       .home-belief-portrait { max-width: 420px; aspect-ratio: 4 / 4.4; }
     }
     @media (max-width: 560px) {
-      .home-mosaic { display: flex; gap: 0.8rem; overflow-x: auto; scroll-snap-type: x mandatory; margin-right: calc(var(--gutter) * -1); padding-right: var(--gutter); scrollbar-width: none; }
+      .home-story-intro h2 { font-size: clamp(2rem, 9vw, 2.6rem); }
+      .home-mosaic {
+        display: flex;
+        gap: 0.75rem;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: var(--gutter);
+        margin-right: calc(var(--gutter) * -1);
+        padding-right: var(--gutter);
+        padding-bottom: 0.25rem;
+        scrollbar-width: none;
+        touch-action: pan-x;
+      }
       .home-mosaic::-webkit-scrollbar { display: none; }
-      .home-moment, .home-moment:first-child, .home-moment:nth-child(4) { flex: 0 0 82vw; min-height: 430px; scroll-snap-align: start; }
-      .home-belief { margin-left: calc(var(--gutter) * -0.3); margin-right: calc(var(--gutter) * -0.3); }
+      .home-moment, .home-moment:first-child, .home-moment:nth-child(4) {
+        flex: 0 0 min(78vw, 300px);
+        min-height: 360px;
+        scroll-snap-align: start;
+      }
+      .home-moment-copy { left: 1.1rem; right: 1.1rem; bottom: 1.1rem; }
+      .home-moment-copy h3 { font-size: clamp(1.25rem, 5vw, 1.55rem); }
+      .home-belief {
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: var(--radius-lg);
+        padding: 1.15rem;
+      }
+      .home-belief-copy h2 { font-size: clamp(1.85rem, 8vw, 2.4rem); }
+      .home-belief .hero-actions { flex-direction: column; align-items: stretch; }
+      .home-belief .hero-actions .btn { width: 100%; min-height: 48px; }
     }
 
     /* ─── Discipline strip ──────────────────────────────────────────────── */
@@ -841,9 +952,339 @@
     .library-grid > *:nth-child(3n+3) { transition-delay: 0.08s; }
     .library-grid > *:nth-child(3n+4) { transition-delay: 0.16s; }
     @media (max-width: 760px) {
-      .library-card--featured { grid-template-columns: 1fr; }
+      .library-card--featured {
+        grid-template-columns: 1fr;
+        padding: 1.35rem 1.2rem;
+        gap: 1.25rem;
+      }
+      .library-card--featured h3 { font-size: clamp(1.55rem, 6.5vw, 2rem); }
       .library-chat-preview { order: -1; }
+      .lib-head { padding: 1rem 1.1rem; gap: 0.75rem; }
+      .lib-body { padding: 1rem 1.1rem 1.1rem; }
+      .lib-body p { font-size: 0.88rem; }
+      .lib-open, .lib-meta { min-height: 36px; align-self: center; }
     }
+
+    /* Compact "more in the library" — keeps homepage scannable */
+    .library-more {
+      margin-top: clamp(1.75rem, 4vw, 2.5rem);
+      border: 1px solid #e3d8c7;
+      border-radius: calc(var(--radius-lg) + 2px);
+      background: #fff;
+      box-shadow: 0 12px 40px rgba(7, 21, 45, 0.05);
+      overflow: hidden;
+    }
+    .library-more > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1.15rem 1.4rem;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--navy);
+      transition: background 0.2s var(--ease);
+    }
+    .library-more > summary::-webkit-details-marker { display: none; }
+    .library-more > summary:hover { background: #fffaf1; }
+    .library-more > summary:focus-visible {
+      outline: 2px solid var(--gold-deep);
+      outline-offset: -2px;
+    }
+    .library-more-summary-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      align-items: flex-start;
+    }
+    .library-more-summary-text strong { font-weight: 600; letter-spacing: -0.01em; }
+    .library-more-summary-text span {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--slate);
+    }
+    .library-more-chevron {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex: none;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      background: var(--navy);
+      color: var(--cream);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .library-more-chevron svg {
+      width: 14px; height: 14px;
+      transition: transform 0.25s var(--ease);
+    }
+    .library-more[open] .library-more-chevron svg { transform: rotate(180deg); }
+    .library-more[open] .library-more-chevron .label-closed { display: none; }
+    .library-more:not([open]) .library-more-chevron .label-open { display: none; }
+    .library-more-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid #eee3d0;
+    }
+    @media (max-width: 760px) {
+      .library-more-list { grid-template-columns: 1fr; }
+    }
+    .library-more-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.95rem 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid #f0e9dc;
+      transition: background 0.18s var(--ease);
+      cursor: pointer;
+    }
+    .library-more-list > .library-more-item:nth-child(odd) {
+      border-right: 1px solid #f0e9dc;
+    }
+    @media (max-width: 760px) {
+      .library-more-list > .library-more-item:nth-child(odd) { border-right: none; }
+    }
+    .library-more-item:hover { background: #fffaf1; }
+    .library-more-item:focus-visible {
+      outline: 2px solid var(--gold-deep);
+      outline-offset: -2px;
+    }
+    .library-more-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.28rem 0.55rem;
+      border-radius: 999px;
+      background: #f2e7cc;
+      color: #7d611e;
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .library-more-item strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .library-more-item em {
+      display: block;
+      margin-top: 0.15rem;
+      font-style: normal;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      color: var(--slate);
+    }
+    .library-more-arrow {
+      color: var(--gold-deep);
+      font-size: 0.95rem;
+      font-weight: 600;
+      opacity: 0.7;
+      transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
+    }
+    .library-more-item:hover .library-more-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+    @media (max-width: 560px) {
+      .library-more > summary {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.05rem 1.1rem;
+        gap: 0.85rem;
+        min-height: 0;
+      }
+      .library-more-chevron {
+        justify-content: center;
+        min-height: 44px;
+        width: 100%;
+      }
+      .library-more-item {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "tag arrow"
+          "copy arrow";
+        gap: 0.35rem 0.75rem;
+        padding: 1rem 1.05rem;
+        min-height: 72px;
+      }
+      .library-more-tag { grid-area: tag; justify-self: start; }
+      .library-more-item > span:nth-child(2) { grid-area: copy; }
+      .library-more-arrow { grid-area: arrow; align-self: center; }
+      .library-more-item strong { font-size: 0.95rem; }
+      .library-more-item em { font-size: 0.76rem; }
+    }
+
+    /* ─── Start Here · personal zip guides ───────────────────────────────── */
+    .zip-guides {
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(201, 168, 76, 0.08), transparent 55%),
+        linear-gradient(180deg, #FDFAF4 0%, #F7F1E7 100%);
+      border-top: 1px solid var(--sand-line);
+      border-bottom: 1px solid var(--sand-line);
+    }
+    .zip-guides .section-head { max-width: 640px; }
+    .zip-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 960px) {
+      .zip-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
+    }
+    .zip-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      border-radius: calc(var(--radius-lg) + 4px);
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--cream);
+      background: var(--navy);
+      box-shadow: 0 18px 50px -18px rgba(7, 21, 45, 0.35);
+      transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease);
+      cursor: pointer;
+    }
+    .zip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 64px -16px rgba(7, 21, 45, 0.45);
+    }
+    .zip-card:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    .zip-card-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+    }
+    .zip-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease);
+    }
+    .zip-card:hover .zip-card-media img { transform: scale(1.04); }
+    .zip-card-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5, 15, 32, 0.05) 0%, rgba(5, 15, 32, 0.55) 100%);
+      pointer-events: none;
+    }
+    .zip-card-num {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      background: rgba(5, 15, 32, 0.72);
+      border: 1px solid rgba(201, 168, 76, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--gold-light);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .zip-card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.65rem;
+      padding: 1.35rem 1.4rem 1.4rem;
+      background:
+        linear-gradient(165deg, #0f2748 0%, #0B1E3E 55%, #081526 100%);
+    }
+    .zip-card-kicker {
+      display: block;
+      color: var(--gold);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .zip-card-body h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+    }
+    .zip-card-body p {
+      flex: 1;
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(250, 245, 238, 0.72);
+    }
+    .zip-card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+      padding-top: 0.95rem;
+      border-top: 1px solid rgba(201, 168, 76, 0.18);
+    }
+    .zip-card-meta {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250, 245, 238, 0.55);
+    }
+    .zip-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: gap 0.2s var(--ease), color 0.2s var(--ease);
+    }
+    .zip-card:hover .zip-card-cta {
+      gap: 0.55rem;
+      color: var(--gold);
+    }
+    @media (max-width: 560px) {
+      .zip-guides .section-head h2 { font-size: clamp(1.85rem, 8vw, 2.4rem); }
+      .zip-grid { max-width: none; gap: 1rem; }
+      .zip-card-media { aspect-ratio: 16 / 9; }
+      .zip-card-body { padding: 1.15rem 1.15rem 1.2rem; gap: 0.5rem; }
+      .zip-card-body h3 { font-size: 1.35rem; }
+      .zip-card-body p { font-size: 0.88rem; }
+      .zip-card-foot { margin-top: 0.65rem; padding-top: 0.8rem; }
+      .zip-card-cta { min-height: 36px; }
+    }
+    @media (hover: none) {
+      .zip-card:hover { transform: none; box-shadow: 0 18px 50px -18px rgba(7, 21, 45, 0.35); }
+      .library-card:hover { transform: none; }
+      .zip-card:active { transform: scale(0.995); }
     }
 
     /* ─── Method ────────────────────────────────────────────────────────── */
@@ -1110,8 +1551,9 @@
       font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500;
       color: var(--slate); background: var(--white);
       border: 1px solid var(--sand-line); border-radius: 999px;
-      padding: 0.65rem 1.05rem; min-height: 40px; cursor: pointer;
+      padding: 0.65rem 1.05rem; min-height: 44px; cursor: pointer;
       transition: all 0.18s var(--ease);
+      -webkit-tap-highlight-color: transparent;
     }
     .chip:hover { border-color: var(--gold); color: var(--navy); }
     .chip.is-active {
@@ -1127,7 +1569,7 @@
       margin: 1.4rem 0 1.2rem;
     }
     .consent-box input[type="checkbox"] {
-      width: 19px; height: 19px; flex: none; margin-top: 2px;
+      width: 22px; height: 22px; flex: none; margin-top: 1px;
       accent-color: var(--gold-deep); cursor: pointer;
     }
     .consent-box label {
@@ -1135,7 +1577,46 @@
     }
     .consent-box label strong { font-weight: 600; }
 
-    .lead-form .btn { width: 100%; padding: 1.1rem; font-size: 1rem; }
+    .lead-form .btn { width: 100%; min-height: 48px; padding: 1.1rem; font-size: 1rem; }
+
+    /* ─── Global phone polish (375–560) ─────────────────────────────────── */
+    @media (max-width: 560px) {
+      :root { --gutter: 1.1rem; }
+      .section {
+        padding-top: clamp(3.25rem, 12vw, 4.5rem);
+        padding-bottom: clamp(3.25rem, 12vw, 4.5rem);
+      }
+      .section-head { margin-bottom: 1.75rem; }
+      .section-head h2 { font-size: clamp(1.85rem, 8vw, 2.45rem); }
+      .section-head .lead { font-size: 0.98rem; }
+      .brand-name { font-size: 0.98rem; }
+      .brand-role { font-size: 0.58rem; letter-spacing: 0.1em; }
+      .brand-mark { width: 40px; height: 40px; }
+      .library-promise {
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.45;
+        padding: 0.55rem 0.9rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.06em;
+      }
+      .start-direct-links a {
+        min-height: 44px;
+        align-items: center;
+        padding: 0.25rem 0;
+      }
+      .lead-form { padding: 1.25rem 1.1rem; }
+      .consent-box { padding: 0.95rem 1rem; gap: 0.7rem; }
+      .method-card { padding: 1.2rem 1.1rem; }
+      .footer-grid { gap: 1.75rem; }
+      .btn { min-height: 44px; }
+    }
+    /* Very narrow (iPhone SE 320–374) */
+    @media (max-width: 374px) {
+      .hero-promise span { letter-spacing: 0.04em; padding: 0.36rem 0.55rem; font-size: 0.58rem; }
+      .hero-eyebrow-row .eyebrow { font-size: 0.64rem; letter-spacing: 0.1em; }
+      .nav-shell { gap: 0.75rem; }
+    }
     .lead-form .btn[disabled] { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
     .form-status {
       margin-top: 0.9rem; font-size: 0.88rem; font-weight: 500;
@@ -1322,16 +1803,20 @@
           <div class="hero-eyebrow-row">
             <span class="eyebrow eyebrow--gold">Kareem Jamal · Rodeo Realty Fine Estates</span>
           </div>
-          <h1 class="display" id="home-heading">Homeownership, explained.</h1>
-          <span class="hero-definition">Not sold. Not gatekept. Not rushed.</span>
+          <h1 class="display" id="home-heading">Homeownership,<em> explained.</em></h1>
+          <div class="hero-promise" aria-label="How this site works">
+            <span>Not sold</span>
+            <span>Not gatekept</span>
+            <span>Not rushed</span>
+          </div>
           <p class="lead">
             You don't need a sales pitch. You need the real numbers and the honest trade-offs —
             the same strategy work I do with clients, published open, before you ever have to
             talk to me.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-gold" href="/buyer-presentation">Open the Buyer Strategy Session</a>
-            <a class="btn btn-outline-light" href="/mls-search">Find yours</a>
+            <a class="btn btn-gold" href="/buyer-presentation">Buyer Strategy Session</a>
+            <a class="btn btn-outline-light" href="/mls-search">Search homes</a>
           </div>
           <p class="hero-meta"><span>Southern California</span><span>Rodeo Realty Fine Estates</span><span>CA DRE #01998956</span></p>
         </div>
@@ -1347,7 +1832,7 @@
     </section>
 
     <!-- ── START HERE — three real zip codes, one real story ────────────── -->
-    <section class="library section" id="zip-guides" aria-labelledby="zip-guides-heading">
+    <section class="zip-guides section" id="zip-guides" aria-labelledby="zip-guides-heading">
       <div class="container">
         <div class="section-head is-center" data-reveal>
           <span class="eyebrow">Start Here</span>
@@ -1357,36 +1842,51 @@
             family in another, and learned to build in the third. Start with yours.
           </p>
         </div>
-        <div class="library-grid">
-          <a class="library-card" href="/91311" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">01</span>
-              <span><span class="lib-kicker">91311 · Chatsworth</span><h3>Where I'm from</h3></span>
-            </span>
-            <span class="lib-body">
+        <div class="zip-grid">
+          <a class="zip-card" href="/91311" data-reveal>
+            <div class="zip-card-media">
+              <img src="/assets/cliffside-sunset.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+              <span class="zip-card-num" aria-hidden="true">01</span>
+            </div>
+            <div class="zip-card-body">
+              <span class="zip-card-kicker">91311 · Chatsworth</span>
+              <h3>Where I'm from</h3>
               <p>The zip code I grew up in. Price history, what's actually changed, and what I'd tell a friend buying here today.</p>
-              <span class="lib-foot"><span class="lib-meta">Zip guide</span><span class="lib-open">Open free &rarr;</span></span>
-            </span>
+              <span class="zip-card-foot">
+                <span class="zip-card-meta">Free zip guide</span>
+                <span class="zip-card-cta">Open &rarr;</span>
+              </span>
+            </div>
           </a>
-          <a class="library-card" href="/93063" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">02</span>
-              <span><span class="lib-kicker">93063 · East Simi Valley</span><h3>Where I chose home</h3></span>
-            </span>
-            <span class="lib-body">
+          <a class="zip-card" href="/93063" data-reveal>
+            <div class="zip-card-media">
+              <img src="/assets/hero-buyers.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+              <span class="zip-card-num" aria-hidden="true">02</span>
+            </div>
+            <div class="zip-card-body">
+              <span class="zip-card-kicker">93063 · East Simi Valley</span>
+              <h3>Where I chose home</h3>
               <p>Where I chose to raise my own family. The same honest breakdown — no gloss, no gatekeeping.</p>
-              <span class="lib-foot"><span class="lib-meta">Zip guide</span><span class="lib-open">Open free &rarr;</span></span>
-            </span>
+              <span class="zip-card-foot">
+                <span class="zip-card-meta">Free zip guide</span>
+                <span class="zip-card-cta">Open &rarr;</span>
+              </span>
+            </div>
           </a>
-          <a class="library-card" href="/91304" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">03</span>
-              <span><span class="lib-kicker">91304 · West Hills · Canoga Park</span><h3>Where I learned to build</h3></span>
-            </span>
-            <span class="lib-body">
+          <a class="zip-card" href="/91304" data-reveal>
+            <div class="zip-card-media">
+              <img src="/assets/mansion-pool-night.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+              <span class="zip-card-num" aria-hidden="true">03</span>
+            </div>
+            <div class="zip-card-body">
+              <span class="zip-card-kicker">91304 · West Hills · Canoga Park</span>
+              <h3>Where I learned to build</h3>
               <p>Where I learned what construction actually costs. Lot sizes, ADU potential, and the real numbers behind a renovation.</p>
-              <span class="lib-foot"><span class="lib-meta">Zip guide</span><span class="lib-open">Open free &rarr;</span></span>
-            </span>
+              <span class="zip-card-foot">
+                <span class="zip-card-meta">Free zip guide</span>
+                <span class="zip-card-cta">Open &rarr;</span>
+              </span>
+            </div>
           </a>
         </div>
       </div>
@@ -1473,15 +1973,15 @@
       </div>
     </div>
 
-    <!-- THE LIBRARY (value given away upfront) -->
+    <!-- THE LIBRARY (curated core + expandable more) -->
     <section class="library section" id="library" aria-labelledby="library-heading">
       <div class="container">
         <div class="section-head is-center" data-reveal>
           <span class="eyebrow">The Library</span>
-          <h2 class="display" id="library-heading">Take the value. <em>All of it.</em></h2>
+          <h2 class="display" id="library-heading">Take the value. <em>Start with these.</em></h2>
           <p class="lead">
-            This is the same strategy work I do with clients — published open. Use it on
-            your own, with another agent, or with me. It stays free either way.
+            The same strategy work I do with clients &mdash; published open. Six essentials first.
+            Everything else is one click away, still free either way.
           </p>
           <span class="library-promise">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
@@ -1491,7 +1991,7 @@
         <div class="library-grid">
           <a class="library-card library-card--featured" href="/internet-bill-guide" data-reveal>
             <span>
-              <span class="feat-eyebrow">Homeowner help &middot; new free guide</span>
+              <span class="feat-eyebrow">Homeowner help &middot; free guide</span>
               <h3>Watch me negotiate an internet bill.</h3>
               <p>I call the competitor, speak with retention, handle the pushback, and confirm the complete offer. Follow every message free&mdash;or send me your bill and let me help with the real conversation.</p>
               <span class="lib-foot"><span class="lib-meta lib-meta--dark">Interactive conversation &middot; no signup</span><span class="lib-open lib-open--gold">Listen in &rarr;</span></span>
@@ -1523,24 +2023,24 @@
               <span class="lib-foot"><span class="lib-meta">Interactive &middot; ~3 min</span><span class="lib-open">Open free &rarr;</span></span>
             </span>
           </a>
-          <a class="library-card" href="/investor-mindset" data-reveal>
+          <a class="library-card" href="/homeowners" data-reveal>
             <span class="lib-head">
               <span class="lib-num" aria-hidden="true">03</span>
+              <span><span class="lib-kicker">Owning</span><h3>The Homeowner&rsquo;s Ally</h3></span>
+            </span>
+            <span class="lib-body">
+              <p>Who to call for what, a seasonal maintenance rhythm, what actually adds value, and honest answers on refinancing, ADUs, and property taxes &mdash; useful whether or not you ever move.</p>
+              <span class="lib-foot"><span class="lib-meta">Resource hub &middot; no signup</span><span class="lib-open">Open it &rarr;</span></span>
+            </span>
+          </a>
+          <a class="library-card" href="/investor-mindset" data-reveal>
+            <span class="lib-head">
+              <span class="lib-num" aria-hidden="true">04</span>
               <span><span class="lib-kicker">Strategy</span><h3>The Investor Mindset</h3></span>
             </span>
             <span class="lib-body">
               <p>The five ways property pays, the equity ladder, and a live deal analyzer &mdash; the lens I bring to every client, published open.</p>
               <span class="lib-foot"><span class="lib-meta">Framework + analyzer</span><span class="lib-open">Open free &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/answers" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">04</span>
-              <span><span class="lib-kicker">Straight Answers</span><h3>The Answer Library</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>Commissions, down payments, timing, pricing, renting versus buying &mdash; the questions people Google at midnight, answered plainly.</p>
-              <span class="lib-foot"><span class="lib-meta">Every question &middot; no gate</span><span class="lib-open">Open free &rarr;</span></span>
             </span>
           </a>
           <a class="library-card" href="/wealth-tools" data-reveal>
@@ -1563,107 +2063,73 @@
               <span class="lib-foot"><span class="lib-meta">Deep guide</span><span class="lib-open">Open free &rarr;</span></span>
             </span>
           </a>
-          <a class="library-card" href="/free-reports" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">07</span>
-              <span><span class="lib-kicker">Reports</span><h3>The Report Library</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>Forty-two playbooks on buying, selling, investing, ADUs, and tax strategy &mdash; the reference shelf I actually work from, open to you.</p>
-              <span class="lib-foot"><span class="lib-meta">42 reports</span><span class="lib-open">Open free &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/93063/home-value" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">08</span>
-              <span><span class="lib-kicker">Local Focus</span><h3>The 93063 Equity Audit</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>See exactly what your Simi Valley home is worth today and discover hidden equity opportunities specific to the 93063 zip code.</p>
-              <span class="lib-foot"><span class="lib-meta">Instant value</span><span class="lib-open">Open free &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/repair-credit-guide" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">09</span>
-              <span><span class="lib-kicker">Negotiation</span><h3>The Repair-Credit Negotiation</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>Watch me read an inspection report, price the findings with a contractor, and negotiate the credit with the listing agent &mdash; every message shown.</p>
-              <span class="lib-foot"><span class="lib-meta">Conversation guide &middot; no signup</span><span class="lib-open">Watch it &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/appraisal-gap-guide" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">10</span>
-              <span><span class="lib-kicker">Negotiation</span><h3>The Appraisal-Gap Negotiation</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>The appraisal came in low. Watch me read it for leverage, build a comp-based rebuttal with the lender, and renegotiate the gap with the listing agent &mdash; every message shown.</p>
-              <span class="lib-foot"><span class="lib-meta">Conversation guide &middot; no signup</span><span class="lib-open">Watch it &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/contractor-handyman-guide" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">11</span>
-              <span><span class="lib-kicker">Homeowner Help</span><h3>Handyman or Contractor?</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>Watch me sort a project list, price the punch list with a handyman, and vet a licensed contractor &mdash; plus California&rsquo;s $1,000 rule and the deposit cap, in plain English.</p>
-              <span class="lib-foot"><span class="lib-meta">Conversation guide &middot; no signup</span><span class="lib-open">Watch it &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/homeowners" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">12</span>
-              <span><span class="lib-kicker">For Homeowners</span><h3>The Homeowner&rsquo;s Ally</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>Who to call for what, a seasonal maintenance rhythm, what actually adds value, and honest answers on refinancing, ADUs, and property taxes &mdash; useful whether or not you ever move.</p>
-              <span class="lib-foot"><span class="lib-meta">Resource hub &middot; no signup</span><span class="lib-open">Open it &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/yard-sale-guide" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">13</span>
-              <span><span class="lib-kicker">Weekend Money</span><h3>The Yard-Sale Playbook</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>What sells, how to price it, and every haggle handled word for word &mdash; the smallest negotiation on the site, run with the same rules as the biggest.</p>
-              <span class="lib-foot"><span class="lib-meta">Conversation guide &middot; no signup</span><span class="lib-open">Watch it &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/rate-buydown-guide" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">14</span>
-              <span><span class="lib-kicker">Negotiation</span><h3>The Rate-Buydown Negotiation</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>The rate is scary? Watch me structure a seller-paid buydown &mdash; the lender math, the listing-agent ask, the pushback, and the contract language, every message shown. Same seller dollars, roughly double the monthly relief.</p>
-              <span class="lib-foot"><span class="lib-meta">Conversation guide &middot; no signup</span><span class="lib-open">Watch it &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/living-trust-guide" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">15</span>
-              <span><span class="lib-kicker">Family Compound &middot; Estate Planning</span><h3>Why Every Family Compound Needs a Living Trust</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>Probate avoidance, incapacity protection, and how to keep a multi-property compound from being sold off at the first generational handoff &mdash; plus the four mistakes I see most.</p>
-              <span class="lib-foot"><span class="lib-meta">Guide &middot; no signup</span><span class="lib-open">Read it &rarr;</span></span>
-            </span>
-          </a>
-          <a class="library-card" href="/assumable-loan-guide" data-reveal>
-            <span class="lib-head">
-              <span class="lib-num" aria-hidden="true">16</span>
-              <span><span class="lib-kicker">Rare Knowledge &middot; New</span><h3>Take Over a Seller&rsquo;s Low-Rate Loan</h3></span>
-            </span>
-            <span class="lib-body">
-              <p>Most agents skip past &ldquo;assumable&rdquo; in the listing remarks. Watch me find one, verify it with the actual loan servicer, and structure the equity gap &mdash; every message shown, so you know it's real before you chase it.</p>
-              <span class="lib-foot"><span class="lib-meta">Conversation guide &middot; no signup</span><span class="lib-open">Watch it &rarr;</span></span>
-            </span>
-          </a>
         </div>
+
+        <details class="library-more" data-reveal>
+          <summary>
+            <span class="library-more-summary-text">
+              <strong>10 more free guides</strong>
+              <span>Negotiations, reports, local tools, estate planning &mdash; still ungated</span>
+            </span>
+            <span class="library-more-chevron">
+              <span class="label-closed">Show more</span>
+              <span class="label-open">Show less</span>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </summary>
+          <div class="library-more-list">
+            <a class="library-more-item" href="/answers">
+              <span class="library-more-tag">Answers</span>
+              <span><strong>The Answer Library</strong><em>Commissions, timing, rent vs buy &mdash; midnight questions, plain answers</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="library-more-item" href="/free-reports">
+              <span class="library-more-tag">Reports</span>
+              <span><strong>The Report Library</strong><em>42 playbooks on buying, selling, investing, ADUs, and tax</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="library-more-item" href="/93063/home-value">
+              <span class="library-more-tag">Local</span>
+              <span><strong>93063 Equity Audit</strong><em>What your Simi Valley home is worth today &mdash; instant</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="library-more-item" href="/repair-credit-guide">
+              <span class="library-more-tag">Negotiate</span>
+              <span><strong>Repair-Credit Negotiation</strong><em>Inspection to credit &mdash; every message shown</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="library-more-item" href="/appraisal-gap-guide">
+              <span class="library-more-tag">Negotiate</span>
+              <span><strong>Appraisal-Gap Negotiation</strong><em>Low appraisal, comp rebuttal, gap renegotiation</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="library-more-item" href="/rate-buydown-guide">
+              <span class="library-more-tag">Negotiate</span>
+              <span><strong>Rate-Buydown Negotiation</strong><em>Seller-paid buydown math, ask, and contract language</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="library-more-item" href="/assumable-loan-guide">
+              <span class="library-more-tag">New</span>
+              <span><strong>Assumable Loan Takeover</strong><em>Find, verify, and structure a seller&rsquo;s low-rate loan</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="library-more-item" href="/contractor-handyman-guide">
+              <span class="library-more-tag">Own</span>
+              <span><strong>Handyman or Contractor?</strong><em>California $1,000 rule, deposits, and who to hire</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="library-more-item" href="/living-trust-guide">
+              <span class="library-more-tag">Legacy</span>
+              <span><strong>Living Trust for Family Compounds</strong><em>Probate, incapacity, and generational handoffs</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="library-more-item" href="/yard-sale-guide">
+              <span class="library-more-tag">Practice</span>
+              <span><strong>The Yard-Sale Playbook</strong><em>Smallest negotiation on the site &mdash; same rules as the biggest</em></span>
+              <span class="library-more-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </details>
       </div>
     </section>
 

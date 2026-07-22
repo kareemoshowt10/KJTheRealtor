@@ -60,6 +60,20 @@ export default {
       boxShadow: {
         gold: "0 18px 40px -22px rgba(11, 30, 62, 0.22), 0 0 0 1px rgba(201, 168, 76, 0.08)",
       },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "marquee-reverse": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 35s linear infinite",
+        "marquee-reverse": "marquee-reverse 35s linear infinite",
+      },
     },
   },
   plugins: [],

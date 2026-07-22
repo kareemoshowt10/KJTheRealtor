@@ -34,3 +34,10 @@
     @apply bg-gold-light text-navy;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none !important;
+  }
+}

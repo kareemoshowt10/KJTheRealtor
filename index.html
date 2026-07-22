@@ -780,19 +780,31 @@
       border-radius: calc(var(--radius-lg) + 4px);
     }
     .home-belief-portrait {
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
       border-radius: var(--radius-lg);
       aspect-ratio: 4 / 5;
-      background: #eef0f3;
+      width: 100%;
+      max-width: 420px;
+      /* Soft studio fill behind white-cutout headshot so an empty frame never reads as "broken" */
+      background:
+        radial-gradient(ellipse 80% 70% at 50% 40%, #2a3d5c 0%, #0B1E3E 70%);
+      box-shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.55);
     }
-    .home-belief-portrait picture {
-      position: absolute; inset: 0;
-      display: block; width: 100%; height: 100%; margin: 0;
+    .home-belief-portrait picture,
+    .home-belief-portrait img {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: 0;
     }
     .home-belief-portrait img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center 22%;
-      display: block;
+      object-fit: cover;
+      object-position: center 12%;
+      z-index: 1;
     }
     .home-belief-copy { padding-right: clamp(0rem, 3vw, 2rem); }
     .home-belief-copy h2 { font-size: clamp(2.3rem, 5vw, 4.4rem); margin: 0.8rem 0 1.2rem; }
@@ -808,7 +820,7 @@
       .home-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 300px); max-height: none; }
       .home-moment:first-child { grid-column: 1 / 3; grid-row: auto; }
       .home-moment:nth-child(4) { grid-column: 1 / 3; }
-      .home-belief-portrait { max-width: 420px; aspect-ratio: 4 / 4.4; }
+      .home-belief-portrait { max-width: 420px; margin-inline: auto; aspect-ratio: 4 / 5; }
     }
     @media (max-width: 560px) {
       .home-story-intro h2 { font-size: clamp(2rem, 9vw, 2.6rem); }
@@ -967,7 +979,16 @@
     .library-card--featured:hover .lib-open--gold { background: var(--gold-light); }
     .library-chat-preview { display: grid; gap: 10px; padding: 1.1rem; border: 1px solid rgba(201, 168, 76, 0.28); border-radius: 20px; background: rgba(7, 21, 45, 0.72); }
     .library-chat-head { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(250, 245, 238, 0.1); color: rgba(250, 245, 238, 0.7); font-size: 0.72rem; font-weight: 600; }
-    .library-chat-head img { width: 34px; height: 34px; border: 2px solid rgba(255,255,255,.9); border-radius: 50%; object-fit: cover; object-position: center 15%; }
+    .library-chat-head picture {
+      width: 34px; height: 34px; flex: none;
+      display: block; border-radius: 50%; overflow: hidden;
+      border: 2px solid rgba(255,255,255,.9);
+      background: #1a2740;
+    }
+    .library-chat-head img {
+      width: 34px; height: 34px; display: block;
+      border-radius: 50%; object-fit: cover; object-position: center 12%;
+    }
     .library-bubble { width: fit-content; max-width: 88%; padding: 0.72rem 0.9rem; border-radius: 16px 16px 16px 5px; background: rgba(250,245,238,.94); color: var(--navy); font-size: 0.78rem; line-height: 1.45; }
     .library-bubble.is-kareem { justify-self: end; border-radius: 16px 16px 5px 16px; background: #1769e0; color: #fff; }
     .library-bubble small { display: block; margin-bottom: 3px; font-size: 0.58rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .62; }
@@ -1430,10 +1451,28 @@
       border-radius: var(--radius-lg); overflow: hidden;
       box-shadow: var(--shadow-lift);
       position: relative;
+      aspect-ratio: 3 / 4;
+      width: 100%;
+      background:
+        radial-gradient(ellipse 80% 70% at 50% 40%, #2a3d5c 0%, #0B1E3E 70%);
     }
-    .about-photo-frame img { width: 100%; height: auto; }
+    .about-photo-frame picture,
+    .about-photo-frame img {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border: 0;
+    }
+    .about-photo-frame img {
+      object-fit: cover;
+      object-position: center 12%;
+      z-index: 1;
+    }
     .about-photo-frame::after {
-      content: ''; position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0; z-index: 2;
       border: 1px solid rgba(201, 168, 76, 0.4);
       border-radius: var(--radius-lg); pointer-events: none;
     }
@@ -1965,10 +2004,15 @@
 
         <div class="home-belief" data-reveal>
           <div class="home-belief-portrait cinema-frame">
-            <picture>
-              <source srcset="/assets/kareem-jamal-headshot-2026-web.webp" type="image/webp" />
-              <img src="/assets/kareem-jamal-headshot-2026-web.jpg" alt="Kareem Jamal, Southern California Realtor" width="749" height="1000" loading="lazy" decoding="async" />
-            </picture>
+            <!-- JPG only: white-cutout headshot is more reliable without <picture>/webp layering -->
+            <img
+              src="/assets/kareem-jamal-headshot-2026-web.jpg"
+              alt="Kareem Jamal, Southern California Realtor"
+              width="749"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <div class="home-belief-copy">
             <span class="eyebrow eyebrow--gold">How I represent it</span>
@@ -2022,7 +2066,7 @@
               <span class="lib-foot"><span class="lib-meta lib-meta--dark">Interactive conversation &middot; no signup</span><span class="lib-open lib-open--gold">Listen in &rarr;</span></span>
             </span>
             <span class="library-chat-preview" aria-hidden="true">
-              <span class="library-chat-head"><picture><source srcset="/assets/kareem-jamal-headshot-2026-thumb.webp" type="image/webp" /><img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="" width="160" height="160" loading="lazy" decoding="async" /></picture>Kareem &harr; ISP retention</span>
+              <span class="library-chat-head"><img src="/assets/kareem-jamal-headshot-2026-thumb.jpg" alt="" width="160" height="160" loading="lazy" decoding="async" />Kareem &harr; ISP retention</span>
               <span class="library-bubble"><small>ISP representative</small>I found a loyalty offer for this account.</span>
               <span class="library-bubble is-kareem"><small>Kareem</small>Thank you. What is the best complete rate you can approve today?</span>
               <span class="library-bubble"><small>ISP representative</small>Let me check one more place.</span>
@@ -2266,10 +2310,14 @@
       <div class="container about-grid">
         <div class="about-photo" data-reveal>
           <div class="about-photo-frame cinema-frame">
-            <picture>
-              <source srcset="/assets/kareem-jamal-headshot-2026-web.webp" type="image/webp" />
-              <img src="/assets/kareem-jamal-headshot-2026-web.jpg" alt="Kareem Jamal" loading="lazy" decoding="async" width="749" height="1000" />
-            </picture>
+            <img
+              src="/assets/kareem-jamal-headshot-2026-web.jpg"
+              alt="Kareem Jamal"
+              width="749"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <dl class="about-photo-card">
             <div><dt>Brokerage</dt><dd>Rodeo Realty Fine Estates</dd></div>

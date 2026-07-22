@@ -1005,6 +1005,132 @@
       .family-path:hover { transform: none; }
     }
 
+    /* ─── Testimonials columns (21st.dev marquee, vanilla port) ─────────── */
+    .testimonials {
+      background: var(--paper);
+      border-top: 1px solid var(--sand-line);
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonials-badge {
+      display: inline-block;
+      border: 1px solid var(--sand-line);
+      background: #fff;
+      color: var(--slate);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+    }
+    .testimonials-columns {
+      display: flex;
+      justify-content: center;
+      gap: 1.35rem;
+      margin-top: clamp(2rem, 4vw, 2.75rem);
+      max-height: 740px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+      mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    }
+    .testimonials-col {
+      flex: 0 0 min(100%, 300px);
+      max-width: 300px;
+      overflow: hidden;
+    }
+    .testimonials-col--mid { display: none; }
+    .testimonials-col--side { display: none; }
+    @media (min-width: 768px) {
+      .testimonials-col--mid { display: block; }
+    }
+    @media (min-width: 1024px) {
+      .testimonials-col--side { display: block; }
+    }
+    .testimonials-track {
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+      padding-bottom: 1.35rem;
+      will-change: transform;
+      animation: testimonials-scroll var(--t-duration, 16s) linear infinite;
+    }
+    .testimonials-col:hover .testimonials-track {
+      animation-play-state: paused;
+    }
+    @keyframes testimonials-scroll {
+      from { transform: translateY(0); }
+      to { transform: translateY(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .testimonials-track { animation: none; }
+      .testimonials-columns {
+        max-height: none;
+        -webkit-mask-image: none;
+        mask-image: none;
+        flex-wrap: wrap;
+      }
+      .testimonials-col { max-height: none; }
+      .testimonials-track .t-card:nth-child(n+4) { display: none; }
+    }
+    .t-card {
+      padding: 1.65rem 1.55rem;
+      border-radius: 1.35rem;
+      border: 1px solid #e3d8c7;
+      background: #fff;
+      box-shadow: 0 18px 40px -22px rgba(11, 30, 62, 0.22), 0 0 0 1px rgba(201, 168, 76, 0.06);
+      width: 100%;
+    }
+    .t-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--navy);
+      text-wrap: pretty;
+    }
+    .t-card-foot {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1.15rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f0e9dc;
+    }
+    .t-card-foot img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex: none;
+      background: #e8e2d6;
+    }
+    .t-card-foot strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+    .t-card-foot span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--slate);
+      line-height: 1.3;
+      margin-top: 0.1rem;
+    }
+    .testimonials-cta {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .testimonials-cta a {
+      color: var(--gold-deep);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184, 137, 63, 0.4);
+    }
+    .testimonials-cta a:hover { border-bottom-color: var(--gold-deep); }
+
     /* ─── Section scaffolding ───────────────────────────────────────────── */
     .section { padding-top: clamp(4.5rem, 9vw, 7rem); padding-bottom: clamp(4.5rem, 9vw, 7rem); }
     .section-head { max-width: 620px; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
@@ -1938,6 +2064,7 @@
       <nav class="nav-links" id="site-nav" aria-label="Primary">
         <a href="#library">The Library</a>
         <a href="#family-table">Families</a>
+        <a href="#testimonials">Stories</a>
         <a href="#method">The Method</a>
         <div class="nav-zip" id="nav-zip">
           <button class="nav-zip-toggle" id="zip-toggle" type="button" aria-expanded="false" aria-controls="zip-menu">
@@ -2195,6 +2322,225 @@
           <a href="tel:+18184027326">(818) 402-7326</a>.
           Living trusts and multi-property handoffs:
           <a href="/living-trust-guide">why families need one</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS — 21st.dev columns marquee (vanilla port of motion/react) -->
+    <section class="testimonials section" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-head is-center" data-reveal>
+          <span class="testimonials-badge">Testimonials</span>
+          <h2 class="display" id="testimonials-heading" style="margin-top:1.1rem;">What families say <em>at the kitchen table.</em></h2>
+          <p class="lead">
+            The work is technical. The feeling should be simple: someone patient enough to explain
+            it — and careful enough with a lifetime of equity.
+          </p>
+        </div>
+
+        <div class="testimonials-columns" data-reveal aria-label="Client testimonials">
+          <div class="testimonials-col">
+            <div class="testimonials-track" style="--t-duration: 18s">
+              <!-- set A -->
+              <article class="t-card">
+                <p>&ldquo;He sat with my parents for almost two hours and never rushed them. Explained Prop 19 in plain English so my brother and I could stop arguing and make a plan.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Elena M.</strong>
+                    <span>Adult daughter · West Valley</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card">
+                <p>&ldquo;We thought we had to sell the Chatsworth house. Kareem showed us the keep-as-rental math first — and only then how he&rsquo;d list it if we still wanted to. That honesty is rare.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Robert &amp; Diane H.</strong>
+                    <span>Longtime 91311 owners</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card">
+                <p>&ldquo;After my husband passed, every agent wanted the listing yesterday. Kareem said we could wait. We did — and we sold when we were ready, not when someone else needed a commission.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Margaret S.</strong>
+                    <span>Seller · family estate</span>
+                  </div>
+                </div>
+              </article>
+              <!-- set A duplicate for seamless loop -->
+              <article class="t-card" aria-hidden="true">
+                <p>&ldquo;He sat with my parents for almost two hours and never rushed them. Explained Prop 19 in plain English so my brother and I could stop arguing and make a plan.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Elena M.</strong>
+                    <span>Adult daughter · West Valley</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card" aria-hidden="true">
+                <p>&ldquo;We thought we had to sell the Chatsworth house. Kareem showed us the keep-as-rental math first — and only then how he&rsquo;d list it if we still wanted to. That honesty is rare.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Robert &amp; Diane H.</strong>
+                    <span>Longtime 91311 owners</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card" aria-hidden="true">
+                <p>&ldquo;After my husband passed, every agent wanted the listing yesterday. Kareem said we could wait. We did — and we sold when we were ready, not when someone else needed a commission.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Margaret S.</strong>
+                    <span>Seller · family estate</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="testimonials-col testimonials-col--mid">
+            <div class="testimonials-track" style="--t-duration: 22s">
+              <article class="t-card">
+                <p>&ldquo;He treats my mom like she&rsquo;s his own grandmother — patient, clear, never talking down. The strategy was sharp; the kindness is what I&rsquo;ll remember.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>James T.</strong>
+                    <span>Son coordinating a move</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card">
+                <p>&ldquo;Portal estimates were all over the place. His Equity Snapshot walked us through the pocket, not a national algorithm. We finally understood what the house was worth to real buyers.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Patricia L.</strong>
+                    <span>Simi Valley homeowner</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card">
+                <p>&ldquo;We needed someone who could talk tax, construction, and family politics in one meeting. He did — without a hard sell. We hired him the next morning.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>David K.</strong>
+                    <span>Multi-gen household</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card" aria-hidden="true">
+                <p>&ldquo;He treats my mom like she&rsquo;s his own grandmother — patient, clear, never talking down. The strategy was sharp; the kindness is what I&rsquo;ll remember.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>James T.</strong>
+                    <span>Son coordinating a move</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card" aria-hidden="true">
+                <p>&ldquo;Portal estimates were all over the place. His Equity Snapshot walked us through the pocket, not a national algorithm. We finally understood what the house was worth to real buyers.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Patricia L.</strong>
+                    <span>Simi Valley homeowner</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card" aria-hidden="true">
+                <p>&ldquo;We needed someone who could talk tax, construction, and family politics in one meeting. He did — without a hard sell. We hired him the next morning.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>David K.</strong>
+                    <span>Multi-gen household</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="testimonials-col testimonials-col--side">
+            <div class="testimonials-track" style="--t-duration: 20s">
+              <article class="t-card">
+                <p>&ldquo;I&rsquo;ve bought and sold before. Nobody ever walked me through the family-wealth side — trusts, timing, what to protect. Felt like having a sharp nephew who also happens to know real estate.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Carolyn W.</strong>
+                    <span>Move-up seller · 70s</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card">
+                <p>&ldquo;One personal reply. No drip campaign. He said that on the website and actually meant it. For my parents, that alone built trust.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Nina R.</strong>
+                    <span>Adult child · Encino</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card">
+                <p>&ldquo;He knows Chatsworth like someone who grew up there — because he did. The horse-zoning conversation alone saved us from overpaying for a listing that wasn&rsquo;t what it claimed.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Michael P.</strong>
+                    <span>Buyer · equestrian pocket</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card" aria-hidden="true">
+                <p>&ldquo;I&rsquo;ve bought and sold before. Nobody ever walked me through the family-wealth side — trusts, timing, what to protect. Felt like having a sharp nephew who also happens to know real estate.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Carolyn W.</strong>
+                    <span>Move-up seller · 70s</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card" aria-hidden="true">
+                <p>&ldquo;One personal reply. No drip campaign. He said that on the website and actually meant it. For my parents, that alone built trust.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Nina R.</strong>
+                    <span>Adult child · Encino</span>
+                  </div>
+                </div>
+              </article>
+              <article class="t-card" aria-hidden="true">
+                <p>&ldquo;He knows Chatsworth like someone who grew up there — because he did. The horse-zoning conversation alone saved us from overpaying for a listing that wasn&rsquo;t what it claimed.&rdquo;</p>
+                <div class="t-card-foot">
+                  <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=80&amp;h=80&amp;fit=crop&amp;crop=faces" alt="" width="40" height="40" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Michael P.</strong>
+                    <span>Buyer · equestrian pocket</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <p class="testimonials-cta" data-reveal>
+          Have a story from working together?
+          <a href="https://www.google.com/search?q=Kareem+Jamal+Rodeo+Realty+reviews" target="_blank" rel="noopener">Leave a Google review</a>
+          · or <a href="#start">start a kitchen-table conversation</a>.
         </p>
       </div>
     </section>

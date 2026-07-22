@@ -11,6 +11,7 @@ move its section to the bottom under "Retired" — don't delete the record.
 | # | Loop | Trigger | Action | Verify | State | Status |
 |---|------|---------|--------|--------|-------|--------|
 | 1 | market-pulse | GitHub Actions cron, Mon 13:00 UTC | `scripts/market-pulse/generate.mjs` refreshes 3 zip JSON files | DENYLIST filters grim headlines; commit only on change | `data/market-pulse-*.json` | live |
+| 2 | link-audit | GitHub Actions cron, Mon 14:00 UTC + every PR touching HTML | `node scripts/verify.mjs` across all pages | nonzero exit fails the run | opens/updates a `link-audit` issue on scheduled failure | live |
 
 ---
 
@@ -49,7 +50,6 @@ Then: add the row + section above, wire the trigger, and do one manual run befor
 trusting the schedule.
 
 ## Candidate loops (backlog — not yet built)
-- **link-audit:** weekly `node scripts/verify.mjs` across all pages; open an issue on failure.
 - **guide-cadence:** periodically pick the top unbuilt topic from the `kjguide` backlog,
   draft it, run the skill's critique loop, and open a PR for Kareem to approve.
 - **sitemap-sync:** regenerate `sitemap.xml` whenever a root `*.html` page is added/removed.

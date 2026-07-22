@@ -1,0 +1,48 @@
+name: Guide Cadence
+
+# Loop #3 — drafts the next conversation guide from the kjguide backlog and opens a PR
+# for Kareem to approve. It never ships to production; the PR is the approval gate.
+# Goal spec the run follows: loops/guide-cadence.md
+#
+# Prerequisites (one-time, in repo Settings → Secrets and variables → Actions):
+#   - ANTHROPIC_API_KEY  — an Anthropic API key with Claude access.
+# Run it MANUALLY the first time (workflow_dispatch) to confirm the setup before
+# trusting the monthly schedule.
+
+on:
+  schedule:
+    - cron: "0 15 1 * *" # 15:00 UTC on the 1st of each month
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # create the branch
+  pull-requests: write # open the PR
+
+jobs:
+  draft-guide:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Draft the next guide
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # The run reads the goal spec from disk and follows it. Keeping the prompt
+          # short and the contract on disk is deliberate (the loop re-reads the spec,
+          # not this YAML).
+          prompt: |
+            Read loops/guide-cadence.md and follow it exactly. That file is the
+            contract for this run: draft the next conversation guide from the
+            kjguide backlog, wire it into the site, and open a PR for approval.
+            Do not push to main. Do not deploy. Do not run a browser.
+            Verify with: node scripts/verify.mjs <slug>-guide.html index.html
+          # Scope what the run may do. No deploy, no force-push, no browser.
+          claude_args: |
+            --allowedTools "Read,Edit,Write,Grep,Glob,Bash(node scripts/verify.mjs:*),Bash(cp:*),Bash(git:*)"

@@ -726,31 +726,34 @@
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-lg);
-      z-index: 0; /* stacking context (equivalent to isolation:isolate, wider renderer support) */
+      z-index: 0;
       min-height: 260px;
-      height: 100%; /* fill grid row so absolute media can size */
-      background: #0a1628; /* visible placeholder while image decodes */
+      height: 100%;
+      background: linear-gradient(160deg, #152640, #0a1628);
     }
     .home-moment:first-child { grid-row: 1 / 3; }
     .home-moment:nth-child(4) { grid-column: 2 / 4; }
-    /* Absolute fill — percentage height on <picture> fails when parent only has min-height (esp. mobile carousel) */
-    .home-moment picture {
+    /* Bulletproof fill: never nest height:100% inside <picture> without absolute img */
+    .home-moment > img,
+    .home-moment picture,
+    .home-moment picture img {
       position: absolute;
       inset: 0;
       display: block;
       width: 100%;
       height: 100%;
       margin: 0;
-    }
-    .home-moment img {
-      width: 100%;
-      height: 100%;
+      border: 0;
       object-fit: cover;
       object-position: center;
-      display: block;
-      transition: transform 0.9s var(--ease);
     }
-    .home-moment:hover img { transform: scale(1.035); }
+    .home-moment > img,
+    .home-moment picture img {
+      transition: transform 0.9s var(--ease);
+      z-index: 0;
+    }
+    .home-moment:hover > img,
+    .home-moment:hover picture img { transform: scale(1.035); }
     .home-moment::after {
       content: ''; position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(0deg, rgba(5, 15, 32, 0.86) 0%, rgba(5, 15, 32, 0.02) 62%);
@@ -786,10 +789,13 @@
       aspect-ratio: 4 / 5;
       width: 100%;
       max-width: 420px;
-      /* Soft studio fill behind white-cutout headshot so an empty frame never reads as "broken" */
       background:
         radial-gradient(ellipse 80% 70% at 50% 40%, #2a3d5c 0%, #0B1E3E 70%);
       box-shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.55);
+    }
+    .home-belief-portrait--scene {
+      aspect-ratio: 4 / 3;
+      max-width: 520px;
     }
     .home-belief-portrait picture,
     .home-belief-portrait img {
@@ -803,8 +809,11 @@
     }
     .home-belief-portrait img {
       object-fit: cover;
-      object-position: center 12%;
+      object-position: center 30%;
       z-index: 1;
+    }
+    .home-belief-portrait--scene img {
+      object-position: center 40%;
     }
     .home-belief-copy { padding-right: clamp(0rem, 3vw, 2rem); }
     .home-belief-copy h2 { font-size: clamp(2.3rem, 5vw, 4.4rem); margin: 0.8rem 0 1.2rem; }
@@ -820,7 +829,8 @@
       .home-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 300px); max-height: none; }
       .home-moment:first-child { grid-column: 1 / 3; grid-row: auto; }
       .home-moment:nth-child(4) { grid-column: 1 / 3; }
-      .home-belief-portrait { max-width: 420px; margin-inline: auto; aspect-ratio: 4 / 5; }
+      .home-belief-portrait { max-width: 520px; margin-inline: auto; }
+      .home-belief-portrait--scene { aspect-ratio: 16 / 10; }
     }
     @media (max-width: 560px) {
       .home-story-intro h2 { font-size: clamp(2rem, 9vw, 2.6rem); }
@@ -1909,7 +1919,7 @@
         <div class="zip-grid">
           <a class="zip-card" href="/91311" data-reveal>
             <div class="zip-card-media">
-              <img src="/assets/cliffside-sunset.jpg" alt="Santa Susana sandstone at sunset near Chatsworth" width="1024" height="687" loading="lazy" decoding="async" />
+              <img src="/assets/cliffside-sunset.jpg" alt="Chatsworth sandstone rocks and equestrian trail at golden hour" width="1600" height="900" loading="lazy" decoding="async" />
               <span class="zip-card-num" aria-hidden="true">01</span>
             </div>
             <div class="zip-card-body">
@@ -1924,7 +1934,7 @@
           </a>
           <a class="zip-card" href="/93063" data-reveal>
             <div class="zip-card-media">
-              <img src="/assets/hero-buyers.jpg" alt="Light-filled Southern California living room" width="1024" height="1024" loading="lazy" decoding="async" />
+              <img src="/assets/zip-home-warm-porch.jpg" alt="Longtime homeowners on a warm ranch porch at sunset" width="1600" height="900" loading="lazy" decoding="async" />
               <span class="zip-card-num" aria-hidden="true">02</span>
             </div>
             <div class="zip-card-body">
@@ -1939,7 +1949,7 @@
           </a>
           <a class="zip-card" href="/91304" data-reveal>
             <div class="zip-card-media">
-              <img src="/assets/mansion-pool-night.jpg" alt="Modern home and pool glowing at night" width="1024" height="687" loading="lazy" decoding="async" />
+              <img src="/assets/zip-estate-twilight.jpg" alt="A family compound ranch home glowing under oak trees at twilight" width="1600" height="900" loading="lazy" decoding="async" />
               <span class="zip-card-num" aria-hidden="true">03</span>
             </div>
             <div class="zip-card-body">
@@ -1965,69 +1975,57 @@
             <h2 class="display" id="meaning-heading">It is never just <em>square footage.</em></h2>
           </div>
           <p class="lead" data-reveal>
-            Home is the morning rush, the quiet Sunday, the first set of keys, the room everyone
-            gathers in, and the place where grandparents still know every corner. My job is to see
-            that story clearly — then help you find it, protect it, or present it beautifully.
+            Home is the Sunday table, the porch chair that faces the hills, the keys a parent
+            hands a child, and the house grandparents still know by every creak in the floor.
+            My job is to protect that story — with patience, plain English, and the same care
+            a family would want from one of their own.
           </p>
         </div>
 
         <div class="home-mosaic" aria-label="Many meanings of home">
           <article class="home-moment cinema-frame" data-reveal>
-            <picture>
-              <source srcset="/assets/home-is-personal-poster.webp" type="image/webp" />
-              <img src="/assets/home-is-personal-poster.jpg" alt="A family laughing and playing together at home" width="1600" height="900" loading="lazy" decoding="async" />
-            </picture>
-            <div class="home-moment-copy"><small>Sometimes it is loud</small><h3>The beautiful chaos of a full house.</h3></div>
+            <img src="/assets/home-is-personal-poster.jpg" alt="Three generations gathered around a Sunday table in a Southern California home" width="1600" height="900" loading="lazy" decoding="async" />
+            <div class="home-moment-copy"><small>Sometimes it is loud</small><h3>The table where the whole family still fits.</h3></div>
           </article>
           <article class="home-moment cinema-frame" data-reveal>
-            <picture>
-              <source srcset="/assets/hero-buyers.webp" type="image/webp" />
-              <img src="/assets/hero-buyers.jpg" alt="A light-filled living room opening to the Southern California landscape" width="900" height="900" loading="lazy" decoding="async" />
-            </picture>
-            <div class="home-moment-copy"><small>Sometimes it is simple</small><h3>Just enough room to begin.</h3></div>
+            <img src="/assets/hero-buyers.jpg" alt="A warm, simple living room with family photos and hills beyond the windows" width="1200" height="1200" loading="lazy" decoding="async" />
+            <div class="home-moment-copy"><small>Sometimes it is simple</small><h3>Quiet rooms that still hold everyone.</h3></div>
           </article>
           <article class="home-moment cinema-frame" data-reveal>
-            <picture>
-              <source srcset="/assets/mansion-pool-night.webp" type="image/webp" />
-              <img src="/assets/mansion-pool-night.jpg" alt="A grand modern home glowing beside a pool at night" width="900" height="603" loading="lazy" decoding="async" />
-            </picture>
-            <div class="home-moment-copy"><small>Sometimes it is big</small><h3>A dream finally made real.</h3></div>
+            <img src="/assets/mansion-pool-night.jpg" alt="A dignified ranch estate glowing at twilight under mature oak trees" width="1600" height="900" loading="lazy" decoding="async" />
+            <div class="home-moment-copy"><small>Sometimes it is the dream</small><h3>The home you spent a lifetime building.</h3></div>
           </article>
           <article class="home-moment cinema-frame" data-reveal>
-            <picture>
-              <source srcset="/assets/hero-estate-night.webp" type="image/webp" />
-              <img src="/assets/hero-estate-night.jpg" alt="A warmly lit estate under a quiet night sky" width="900" height="603" loading="lazy" decoding="async" />
-            </picture>
-            <div class="home-moment-copy"><small>Sometimes it is quiet</small><h3>The place that holds generations.</h3></div>
+            <img src="/assets/hero-estate-night.jpg" alt="An older couple enjoying golden hour coffee on their ranch-home porch" width="1600" height="900" loading="lazy" decoding="async" />
+            <div class="home-moment-copy"><small>Sometimes it is quiet</small><h3>The porch that knows every sunrise.</h3></div>
           </article>
         </div>
 
         <div class="home-belief" data-reveal>
-          <div class="home-belief-portrait cinema-frame">
-            <!-- JPG only: white-cutout headshot is more reliable without <picture>/webp layering -->
+          <div class="home-belief-portrait cinema-frame home-belief-portrait--scene">
             <img
-              src="/assets/kareem-jamal-headshot-2026-web.jpg"
-              alt="Kareem Jamal, Southern California Realtor"
-              width="749"
-              height="1000"
+              src="/assets/kareem-with-seniors-kitchen.jpg"
+              alt="Kareem Jamal at a kitchen table with longtime homeowners, reviewing plans with care"
+              width="1600"
+              height="900"
               loading="lazy"
               decoding="async"
             />
           </div>
           <div class="home-belief-copy">
-            <span class="eyebrow eyebrow--gold">How I represent it</span>
-            <h2 class="display">First I find the story. <em>Then I make people feel it.</em></h2>
+            <span class="eyebrow eyebrow--gold">How families experience me</span>
+            <h2 class="display">The patience of family. <em>The skill of a strategist.</em></h2>
             <p class="lead">
-              Selling a home well is more than publishing rooms and measurements. I look for the
-              light, the rhythm, the view, the details, and the life a buyer can imagine there.
-              That is how beauty becomes attention — and attention becomes a seller who signs
-              with certainty, not just relief.
+              The clients who hire me most often are the ones who want someone they can trust
+              like family — patient enough to sit at the kitchen table, sharp enough to protect
+              a lifetime of equity. Grandparents, parents, and the adult children helping them
+              decide. I treat that trust like inheritance.
             </p>
             <div class="hero-actions">
               <a class="btn btn-gold" href="/seller-presentation">See my seller strategy</a>
-              <a class="btn btn-outline-light" href="#start">Tell me about your home</a>
+              <a class="btn btn-outline-light" href="#start">Tell me about your family&rsquo;s home</a>
             </div>
-            <p class="home-signature">Kareem Jamal · Realtor · Strategist · Powerful ally</p>
+            <p class="home-signature">Kareem Jamal · Realtor · Strategist · The ally at your table</p>
           </div>
         </div>
       </div>

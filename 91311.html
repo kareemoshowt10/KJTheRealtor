@@ -348,6 +348,115 @@
     .section-head { max-width: 720px; margin-bottom: clamp(2.4rem, 5vw, 3.6rem); }
     .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); margin-top: 1rem; }
     .section-head p { margin-top: 1rem; }
+    .section-head.is-center { margin-left: auto; margin-right: auto; text-align: center; }
+
+    /* ─── Family table strip — parents + adult children ─────────────────── */
+    .family-table {
+      background:
+        radial-gradient(ellipse 70% 60% at 12% 20%, rgba(201, 168, 76, 0.1), transparent 55%),
+        linear-gradient(180deg, #FDFAF4 0%, #F3EDE3 100%);
+      border-top: 1px solid var(--sand-line);
+      border-bottom: 1px solid var(--sand-line);
+      padding: clamp(4.5rem, 9vw, 7rem) 0;
+    }
+    .family-table .section-head { max-width: 640px; }
+    .family-table-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.15rem;
+    }
+    @media (max-width: 900px) {
+      .family-table-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
+    }
+    .family-path {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.45rem 1.4rem 1.5rem;
+      background: #fff;
+      border: 1px solid #e3d8c7;
+      border-radius: calc(var(--radius-lg) + 2px);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 16px 40px -24px rgba(11, 30, 62, 0.2);
+      transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+      cursor: pointer;
+      min-height: 100%;
+    }
+    .family-path:hover {
+      transform: translateY(-3px);
+      border-color: rgba(201, 168, 76, 0.7);
+      box-shadow: 0 24px 50px -20px rgba(11, 30, 62, 0.28);
+    }
+    .family-path:focus-visible {
+      outline: 2px solid var(--gold-deep);
+      outline-offset: 3px;
+    }
+    .family-path-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+    }
+    .family-path-kicker::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15);
+    }
+    .family-path h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+    }
+    .family-path p {
+      margin: 0;
+      flex: 1;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--slate);
+    }
+    .family-path-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .family-path:hover .family-path-cta { color: var(--gold-deep); }
+    .family-table-note {
+      margin-top: clamp(1.75rem, 4vw, 2.4rem);
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--slate);
+      max-width: 42rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .family-table-note a {
+      color: var(--gold-deep);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184, 137, 63, 0.4);
+    }
+    .family-table-note a:hover { border-bottom-color: var(--gold-deep); }
+    @media (hover: none) {
+      .family-path:hover { transform: none; }
+    }
 
     /* ─── The Long Story (timeline) ─────────────────────────────────────── */
     .story { background: var(--paper); padding: clamp(4.5rem, 9vw, 7rem) 0; }
@@ -583,6 +692,7 @@
       </button>
       <nav class="nav-links" id="site-nav" aria-label="Primary">
         <a href="/#library">The Library</a>
+        <a href="#family-table">Families</a>
         <a href="/#method">The Method</a>
         <div class="nav-zip" id="nav-zip">
           <button class="nav-zip-toggle" id="zip-toggle" type="button" aria-expanded="false" aria-controls="zip-menu" data-here="true">
@@ -984,7 +1094,58 @@
       </div>
     </section>
 
-    <!-- ── CONNECT ──────────────────────────────────────────────────────── -->
+    <!-- ── FOR PARENTS & THE KIDS HELPING THEM ───────────────────────────── -->
+    <section class="family-table" id="family-table" aria-labelledby="family-table-heading">
+      <div class="container">
+        <div class="section-head is-center" data-reveal>
+          <span class="eyebrow">For parents &amp; the kids helping them &middot; 91311</span>
+          <h2 class="display" id="family-table-heading">Three kitchen-table decisions. <em>No pressure.</em></h2>
+          <p class="lead">
+            Long-held Chatsworth homes are often more than a listing — they&rsquo;re the family&rsquo;s
+            main asset. Start with the decision that matches where you are. I&rsquo;ll answer
+            personally, usually the same day.
+          </p>
+        </div>
+        <div class="family-table-grid">
+          <a class="family-path" href="/family-wealth-preservation" data-reveal>
+            <span class="family-path-kicker">Prop 19 · inheritance</span>
+            <h3>Will the low tax bill survive the handoff?</h3>
+            <p>
+              Decades in 91311 can mean a huge gap between Prop 13 and market value. Prop 19 only
+              protects that base if the next generation structures it correctly — plain English, no scare tactics.
+            </p>
+            <span class="family-path-cta">Family wealth guide &rarr;</span>
+          </a>
+          <a class="family-path" href="/seller-presentation" data-reveal>
+            <span class="family-path-kicker">Hold vs sell</span>
+            <h3>Should we list — or keep this Chatsworth lot working?</h3>
+            <p>
+              Big lots, ADU potential, horse facilities, RV demand — keep-as-rental math is often
+              real here. I run sell and hold before anyone puts a sign on the street.
+            </p>
+            <span class="family-path-cta">Seller strategy session &rarr;</span>
+          </a>
+          <a class="family-path" href="/91311/home-value" data-reveal>
+            <span class="family-path-kicker">Equity Snapshot</span>
+            <h3>What is this 91311 home actually worth — carefully?</h3>
+            <p>
+              Pocket-level read for Chatsworth owners: value range, zoning flags, and a clear next
+              step. One personal reply. No drip campaign. I&rsquo;ll say &ldquo;do nothing yet&rdquo; when that&rsquo;s smartest.
+            </p>
+            <span class="family-path-cta">Request a free snapshot &rarr;</span>
+          </a>
+        </div>
+        <p class="family-table-note" data-reveal>
+          Adult children helping a parent in Chatsworth: start here, or
+          <a href="#connect">tell me the situation</a> —
+          <a href="tel:+18184027326">(818) 402-7326</a> call or text.
+          Living trusts for land that should stay in the family:
+          <a href="/living-trust-guide">read the guide</a>.
+          Full owner playbook below.
+        </p>
+      </div>
+    </section>
+
     <!-- ── OWNER'S PLAYBOOK ─────────────────────────────────────────────── -->
     <section class="notes" id="owners" aria-labelledby="owners-heading">
       <div class="container">

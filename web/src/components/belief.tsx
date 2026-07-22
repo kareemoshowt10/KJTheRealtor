@@ -1,19 +1,22 @@
+"use client";
+
 import Image from "next/image";
+import { Reveal } from "@/components/ui/reveal";
 
 export function Belief() {
   return (
     <section className="bg-paper py-16 md:py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-2 md:px-8">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+        <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
           <Image
             src="/assets/kareem-with-seniors-kitchen.jpg"
             alt="Kareem Jamal at a kitchen table with longtime homeowners"
             fill
-            className="object-cover object-[center_40%]"
+            className="object-cover object-[center_40%] transition duration-700 hover:scale-105"
             sizes="(max-width:768px) 100vw, 50vw"
           />
-        </div>
-        <div>
+        </Reveal>
+        <Reveal delay={0.1}>
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold-deep">
             How families experience me
           </p>
@@ -43,7 +46,7 @@ export function Belief() {
               Tell me about your family&apos;s home
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

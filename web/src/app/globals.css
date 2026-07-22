@@ -37,7 +37,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
-  .animate-marquee-reverse {
+  .animate-marquee-reverse,
+  .animate-shimmer {
     animation: none !important;
   }
 }

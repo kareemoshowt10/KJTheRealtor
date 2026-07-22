@@ -69,10 +69,15 @@ export default {
           from: { transform: "translateX(-50%)" },
           to: { transform: "translateX(0)" },
         },
+        shimmer: {
+          "0%": { transform: "translateX(-120%) skewX(-18deg)" },
+          "100%": { transform: "translateX(220%) skewX(-18deg)" },
+        },
       },
       animation: {
         marquee: "marquee 35s linear infinite",
         "marquee-reverse": "marquee-reverse 35s linear infinite",
+        shimmer: "shimmer 2.8s ease-in-out infinite",
       },
     },
   },

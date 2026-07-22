@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+import { Reveal } from "@/components/ui/reveal";
 
 const zips = [
   {
@@ -27,11 +31,18 @@ const zips = [
   },
 ];
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export function ZipCards() {
+  const reduced = useReducedMotion();
+
   return (
-    <section id="zips" className="bg-gradient-to-b from-paper to-[#F7F1E7] py-16 md:py-24">
+    <section
+      id="zips"
+      className="bg-gradient-to-b from-paper to-[#F7F1E7] py-16 md:py-24"
+    >
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <div className="mx-auto mb-10 max-w-xl text-center">
+        <Reveal className="mx-auto mb-10 max-w-xl text-center">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold-deep">
             Start here
           </p>
@@ -39,25 +50,36 @@ export function ZipCards() {
             Three zip codes.{" "}
             <em className="font-normal italic text-gold-deep">One real story.</em>
           </h2>
-        </div>
+        </Reveal>
+
         <div className="grid gap-4 md:grid-cols-3">
-          {zips.map((z) => (
-            <a
+          {zips.map((z, i) => (
+            <motion.a
               key={z.href}
               href={z.href}
-              className="group overflow-hidden rounded-2xl bg-navy text-cream shadow-lg transition hover:-translate-y-1"
+              initial={reduced ? false : { opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.55, delay: i * 0.1, ease }}
+              whileHover={reduced ? undefined : { y: -6 }}
+              whileTap={{ scale: 0.985 }}
+              className="group overflow-hidden rounded-2xl bg-navy text-cream shadow-lg"
             >
-              <div className="relative aspect-[16/10]">
+              <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
                   src={z.img}
                   alt=""
                   fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                  className="object-cover transition duration-700 ease-out group-hover:scale-110 group-active:scale-105"
                   sizes="(max-width:768px) 100vw, 33vw"
                 />
-                <span className="absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-gold/45 bg-navy/70 font-display text-sm text-gold-light backdrop-blur">
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent opacity-80" />
+                <motion.span
+                  className="absolute left-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-gold/45 bg-navy/70 font-display text-sm text-gold-light backdrop-blur"
+                  whileHover={{ scale: 1.08 }}
+                >
                   {z.num}
-                </span>
+                </motion.span>
               </div>
               <div className="space-y-2 p-5">
                 <p className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-gold">
@@ -65,11 +87,11 @@ export function ZipCards() {
                 </p>
                 <h3 className="font-display text-xl text-cream">{z.title}</h3>
                 <p className="text-sm leading-relaxed text-cream/70">{z.body}</p>
-                <p className="pt-2 text-xs font-bold uppercase tracking-wide text-gold-light">
+                <p className="pt-2 text-xs font-bold uppercase tracking-wide text-gold-light transition group-hover:translate-x-1">
                   Open free →
                 </p>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>

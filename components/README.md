@@ -37,6 +37,13 @@ Files staged here for a future React app:
 
 - `ui/testimonials-columns-1.tsx` — column marquee primitive  
 - `ui/testimonials-demo.tsx` — full section + sample data  
+- `ui/animated-text-cycle.tsx` — rotating word (framer-motion)  
+- `ui/animated-text-cycle-demo.tsx` — hero-style demo  
+
+Live homepage ports (no React required):
+
+- `#testimonials` — CSS column marquee  
+- `#home-heading [data-text-cycle]` — animated word cycle
 
 ---
 
@@ -86,14 +93,19 @@ npm install motion
 
 ---
 
-## Dependencies for the React component
+## Dependencies for the React components
 
 ```bash
-npm install motion
+npm install motion framer-motion
 # peer: react, react-dom (from Next/Vite)
 ```
 
-No Lucide icons required for this component.
+| Component | Package |
+|-----------|---------|
+| Testimonials columns | `motion` |
+| Animated text cycle | `framer-motion` |
+
+No Lucide icons required for these components.
 
 ---
 

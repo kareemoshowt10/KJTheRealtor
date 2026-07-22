@@ -557,6 +557,61 @@
       font-weight: 400;
       color: var(--gold-light);
     }
+    /* Animated text cycle (vanilla port of framer-motion AnimatedTextCycle) */
+    .hero-cycle {
+      display: block;
+      margin-top: 0.08em;
+      position: relative;
+      vertical-align: bottom;
+    }
+    .hero-cycle-slot {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      vertical-align: bottom;
+      transition: width 0.45s cubic-bezier(0.34, 1.2, 0.64, 1);
+      min-height: 1.05em;
+    }
+    .hero-cycle-word {
+      display: inline-block;
+      white-space: nowrap;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold-light);
+      will-change: transform, opacity, filter;
+    }
+    .hero-cycle-word.is-enter {
+      animation: cycle-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .hero-cycle-word.is-exit {
+      position: absolute;
+      left: 0;
+      top: 0;
+      animation: cycle-out 0.32s ease-in both;
+    }
+    @keyframes cycle-in {
+      from { opacity: 0; transform: translateY(-0.45em); filter: blur(8px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    @keyframes cycle-out {
+      from { opacity: 1; transform: translateY(0); filter: blur(0); }
+      to { opacity: 0; transform: translateY(0.45em); filter: blur(8px); }
+    }
+    .hero-cycle-measure {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      visibility: hidden;
+      pointer-events: none;
+      white-space: nowrap;
+      font-style: italic;
+      font-weight: 400;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-cycle-slot { transition: none; }
+      .hero-cycle-word.is-enter,
+      .hero-cycle-word.is-exit { animation: none; }
+    }
     .hero-promise {
       display: flex;
       flex-wrap: wrap;
@@ -2112,7 +2167,20 @@
           <div class="hero-eyebrow-row">
             <span class="eyebrow eyebrow--gold">Kareem Jamal · Rodeo Realty Fine Estates</span>
           </div>
-          <h1 class="display" id="home-heading">Homeownership,<em> explained.</em></h1>
+          <h1 class="display" id="home-heading">
+            Homeownership,
+            <span
+              class="hero-cycle"
+              data-text-cycle
+              data-interval="3200"
+              data-words='["explained.","protected.","planned.","handed down."]'
+            >
+              <span class="hero-cycle-measure" aria-hidden="true"></span>
+              <span class="hero-cycle-slot" aria-live="polite">
+                <em class="hero-cycle-word">explained.</em>
+              </span>
+            </span>
+          </h1>
           <div class="hero-promise" aria-label="How this site works">
             <span>Not sold</span>
             <span>Not gatekept</span>
@@ -3078,6 +3146,81 @@
           }
         });
       }
+
+      /* Animated text cycle — vanilla port of framer-motion AnimatedTextCycle */
+      (function initTextCycles() {
+        var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var nodes = document.querySelectorAll("[data-text-cycle]");
+        nodes.forEach(function (root) {
+          var words;
+          try {
+            words = JSON.parse(root.getAttribute("data-words") || "[]");
+          } catch (e) {
+            words = [];
+          }
+          if (!words.length) return;
+
+          var interval = parseInt(root.getAttribute("data-interval") || "3200", 10) || 3200;
+          var measure = root.querySelector(".hero-cycle-measure");
+          var slot = root.querySelector(".hero-cycle-slot");
+          if (!measure || !slot) return;
+
+          /* Pre-render words for width measurement (matches React measureRef) */
+          measure.innerHTML = "";
+          words.forEach(function (w) {
+            var s = document.createElement("span");
+            s.className = "hero-cycle-word";
+            s.textContent = w;
+            measure.appendChild(s);
+          });
+
+          var index = 0;
+          var setWidth = function (i) {
+            var el = measure.children[i];
+            if (!el) return;
+            /* small buffer so italics never clip */
+            slot.style.width = Math.ceil(el.getBoundingClientRect().width + 10) + "px";
+          };
+          setWidth(0);
+
+          if (reduced || words.length < 2) return;
+
+          var timer = null;
+          var tick = function () {
+            var next = (index + 1) % words.length;
+            var current = slot.querySelector(".hero-cycle-word:not(.is-exit)");
+            if (current) {
+              current.classList.remove("is-enter");
+              current.classList.add("is-exit");
+            }
+            setWidth(next);
+            var incoming = document.createElement("em");
+            incoming.className = "hero-cycle-word is-enter";
+            incoming.textContent = words[next];
+            slot.appendChild(incoming);
+            index = next;
+            setTimeout(function () {
+              var exits = slot.querySelectorAll(".hero-cycle-word.is-exit");
+              for (var i = 0; i < exits.length; i++) exits[i].remove();
+            }, 340);
+          };
+          var start = function () {
+            if (timer) return;
+            timer = setInterval(tick, interval);
+          };
+          var stop = function () {
+            if (!timer) return;
+            clearInterval(timer);
+            timer = null;
+          };
+          start();
+          document.addEventListener("visibilitychange", function () {
+            if (document.hidden) stop();
+            else start();
+          });
+          window.addEventListener("resize", function () { setWidth(index); });
+        });
+      })();
 
       /* Cinematic hero film — load only on desktop, good connection, motion OK */
       var film = document.getElementById("home-film");

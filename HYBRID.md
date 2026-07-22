@@ -5,9 +5,21 @@
 | Layer | Location | Role |
 |-------|----------|------|
 | **Production** | Repo root static HTML | Live `kareemjamaltherealtor.com` |
-| **Hybrid preview** | `web/` Next.js app | New homepage + React/shadcn stack |
+| **Hybrid (deployed)** | `web/` Next.js · Vercel project `kjtherealtor-hybrid` | New homepage + `/91311` |
 
-Production is **not** cut over until you deploy `web/` deliberately.
+### Live hybrid URLs
+
+- **https://kjtherealtor-hybrid.vercel.app** — homepage  
+- **https://kjtherealtor-hybrid.vercel.app/91311** — Chatsworth  
+
+Production domain is **still the static site** until you assign `kareemjamaltherealtor.com` to the hybrid project (only after deep pages are migrated or served from `public/`).
+
+Redeploy hybrid:
+
+```bash
+cd web
+vercel --prod --yes
+```
 
 ## Quick start
 

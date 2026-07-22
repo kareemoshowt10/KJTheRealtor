@@ -6,15 +6,33 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const links = [
-  { href: "#family-table", label: "Families" },
-  { href: "#testimonials", label: "Stories" },
-  { href: "#zips", label: "Zip codes" },
-  { href: "https://kareemjamaltherealtor.com/91311", label: "91311", external: true },
-  { href: "https://kareemjamaltherealtor.com/#library", label: "Library", external: true },
+type NavLink = {
+  href: string;
+  label: string;
+  external?: boolean;
+};
+
+const defaultLinks: NavLink[] = [
+  { href: "/#family-table", label: "Families" },
+  { href: "/#testimonials", label: "Stories" },
+  { href: "/#zips", label: "Zip codes" },
+  { href: "/91311", label: "91311" },
+  {
+    href: "https://kareemjamaltherealtor.com/#library",
+    label: "Library",
+    external: true,
+  },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({
+  links = defaultLinks,
+  ctaHref = "/#start",
+  ctaLabel = "Start a conversation",
+}: {
+  links?: NavLink[];
+  ctaHref?: string;
+  ctaLabel?: string;
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -43,19 +61,18 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-6 md:flex">
           {links.map((l) => (
             <a
-              key={l.href}
+              key={l.href + l.label}
               href={l.href}
               className="text-sm font-medium text-cream/85 transition hover:text-gold-light"
-              {...(l.external ? { target: "_self" } : {})}
             >
               {l.label}
             </a>
           ))}
           <a
-            href="#start"
+            href={ctaHref}
             className="rounded-md bg-gold px-4 py-2 text-sm font-semibold text-navy transition hover:bg-gold-light"
           >
-            Start a conversation
+            {ctaLabel}
           </a>
         </nav>
 
@@ -79,7 +96,7 @@ export function SiteHeader() {
         <div className="flex flex-col px-5 py-3">
           {links.map((l) => (
             <a
-              key={l.href}
+              key={l.href + l.label}
               href={l.href}
               className="border-t border-cream/10 py-3 text-base text-cream/90"
               onClick={() => setOpen(false)}
@@ -88,11 +105,11 @@ export function SiteHeader() {
             </a>
           ))}
           <a
-            href="#start"
-            className="mt-2 mb-2 rounded-md bg-gold px-4 py-3 text-center text-sm font-semibold text-navy"
+            href={ctaHref}
+            className="mb-2 mt-2 rounded-md bg-gold px-4 py-3 text-center text-sm font-semibold text-navy"
             onClick={() => setOpen(false)}
           >
-            Start a conversation
+            {ctaLabel}
           </a>
         </div>
       </div>

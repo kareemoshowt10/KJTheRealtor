@@ -6,7 +6,7 @@ const zips = [
     code: "91311 · Chatsworth",
     title: "Where I'm from",
     body: "Price history, horse zoning honesty, and what I'd tell a friend buying here today.",
-    href: "https://kareemjamaltherealtor.com/91311",
+    href: "/91311",
     img: "/assets/cliffside-sunset.jpg",
   },
   {

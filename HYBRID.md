@@ -18,14 +18,33 @@ npm run dev
 # → http://localhost:3000
 ```
 
+## Hybrid routes
+
+| Route | Status |
+|-------|--------|
+| `/` | Homepage (hero cycle, zips, families, testimonials, form) |
+| `/91311` | Chatsworth chapter (story, pockets, families, owners, connect) |
+
+Still on production static until cutover: deep guides, 93063, 91304, library pages.
+
 ## What’s in the hybrid homepage
 
 1. Hero + animated word cycle (`explained / protected / planned / handed down`)
-2. Three zip cards (links to live 91311 / 93063 / 91304)
+2. Three zip cards (91311 is internal; 93063 / 91304 still link live)
 3. Kitchen-table belief section
 4. Families strip (Prop 19 · hold/sell · Equity Snapshot)
 5. Testimonials columns (motion)
 6. Lead form (Formspree)
+
+## What’s in hybrid `/91311`
+
+1. Chatsworth hero (cliffside art)
+2. Ledger numbers (1861 · 2,000+ · 1904 · K zoning)
+3. Condensed origin story timeline
+4. Six-pocket market map
+5. Families kitchen-table strip (Chatsworth-specific)
+6. Owner’s playbook
+7. Connect form with ask-chips (Formspree)
 
 ## Stack
 

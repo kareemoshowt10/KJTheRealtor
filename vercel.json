@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/91311/home-value",
-      "destination": "/91311-home-value.html"
+      "destination": "/91311-home-value"
     },
     {
       "source": "/93063/home-value",

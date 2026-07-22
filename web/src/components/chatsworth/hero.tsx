@@ -33,10 +33,10 @@ export function ChatsworthHero() {
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <a
-            href="#connect"
+            href="#story"
             className="inline-flex min-h-12 items-center justify-center rounded-md bg-gold px-6 text-sm font-semibold text-navy transition hover:bg-gold-light"
           >
-            Talk 91311 with me
+            Scroll the story
           </a>
           <a
             href="https://kareemjamaltherealtor.com/91311/home-value"
@@ -45,10 +45,10 @@ export function ChatsworthHero() {
             Owners: Equity Snapshot
           </a>
           <a
-            href="#family-table"
+            href="#connect"
             className="inline-flex min-h-12 items-center justify-center text-sm font-semibold text-gold-light underline-offset-4 hover:underline"
           >
-            Parents &amp; kids helping them →
+            Talk 91311 with me →
           </a>
         </div>
         <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-cream/55">

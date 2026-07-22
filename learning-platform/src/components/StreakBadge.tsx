@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function StreakBadge({ streak }: { streak: number }) {
   return (
-    <div className="flex items-center gap-1 rounded-full bg-white/5 px-3 py-1.5 text-sm font-medium text-amber-300">
+    <div className="flex items-center gap-1 rounded-full bg-cream-deep px-3 py-1.5 text-sm font-semibold text-gold">
       <motion.span
         key={streak > 0 ? "lit" : "unlit"}
         animate={streak > 0 ? { scale: [1, 1.25, 1] } : {}}

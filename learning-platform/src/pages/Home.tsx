@@ -14,12 +14,12 @@ export default function Home() {
   return (
     <PageTransition>
       <div className="mb-8">
-        <p className="text-sm text-zinc-500">
+        <p className="text-sm text-ink-soft">
           {streak > 0
             ? `${streak} day streak — keep the flame going.`
             : "Start today. One idea is all it takes."}
         </p>
-        <h1 className="font-display mt-1 text-3xl font-medium tracking-tight text-white">
+        <h1 className="font-display mt-1 text-3xl font-medium tracking-tight text-ink">
           Today's idea
         </h1>
       </div>
@@ -33,50 +33,50 @@ export default function Home() {
         >
           {/* front */}
           <div
-            className="absolute inset-0 flex flex-col justify-between rounded-3xl border border-white/8 p-6 [backface-visibility:hidden]"
+            className="absolute inset-0 flex flex-col justify-between rounded-3xl border border-cream-line p-6 shadow-sm [backface-visibility:hidden]"
             style={{
-              background: `linear-gradient(160deg, ${book.accent}26, rgba(255,255,255,0.02))`,
+              background: `linear-gradient(160deg, ${book.accent}1a, #ffffff)`,
             }}
           >
             <div>
               <span
                 className="rounded-full px-2.5 py-1 text-xs font-medium"
-                style={{ backgroundColor: `${book.accent}33`, color: book.accentSoft }}
+                style={{ backgroundColor: `${book.accent}1f`, color: book.accent }}
               >
                 {book.title}
               </span>
-              <h2 className="font-display mt-4 text-2xl font-medium leading-snug text-white">
+              <h2 className="font-display mt-4 text-2xl font-medium leading-snug text-ink">
                 {todaysLesson.title}
               </h2>
-              <p className="mt-3 text-[15px] leading-relaxed text-zinc-300">
+              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
                 {todaysLesson.coreIdea}
               </p>
             </div>
-            <p className="text-xs text-zinc-500">Tap the card to see today's action →</p>
+            <p className="text-xs text-ink-soft/80">Tap the card to see today's action →</p>
           </div>
 
           {/* back */}
           <div
-            className="absolute inset-0 flex flex-col justify-between rounded-3xl border border-white/8 p-6 [backface-visibility:hidden] [transform:rotateY(180deg)]"
+            className="absolute inset-0 flex flex-col justify-between rounded-3xl border border-cream-line p-6 shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)]"
             style={{
-              background: `linear-gradient(160deg, ${book.accent}33, rgba(255,255,255,0.03))`,
+              background: `linear-gradient(160deg, ${book.accent}2e, #fffdf6)`,
             }}
           >
             <div>
-              <span className="text-xs font-medium uppercase tracking-wide text-zinc-400">
+              <span className="text-xs font-medium uppercase tracking-wide text-ink-soft">
                 Why it matters
               </span>
-              <p className="mt-2 text-[15px] leading-relaxed text-zinc-300">
+              <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">
                 {todaysLesson.whyItMatters}
               </p>
-              <span className="mt-5 block text-xs font-medium uppercase tracking-wide text-zinc-400">
+              <span className="mt-5 block text-xs font-medium uppercase tracking-wide text-ink-soft">
                 Try today
               </span>
-              <p className="mt-2 text-[15px] leading-relaxed text-white">
+              <p className="mt-2 text-[15px] leading-relaxed text-ink">
                 {todaysLesson.tryToday}
               </p>
             </div>
-            <p className="text-xs text-zinc-500">Tap to flip back</p>
+            <p className="text-xs text-ink-soft/80">Tap to flip back</p>
           </div>
         </motion.div>
       </div>
@@ -90,8 +90,8 @@ export default function Home() {
           disabled={done}
           className="flex-1 rounded-full px-5 py-3 text-sm font-semibold transition-all disabled:opacity-60"
           style={{
-            backgroundColor: done ? "rgba(255,255,255,0.06)" : book.accent,
-            color: done ? "#a1a1aa" : "#0b0b0f",
+            backgroundColor: done ? "var(--color-cream-deep)" : book.accent,
+            color: done ? "var(--color-ink-soft)" : "#fffdf6",
           }}
         >
           <AnimatePresence mode="wait">
@@ -109,15 +109,15 @@ export default function Home() {
         </button>
         <Link
           to={`/book/${book.id}/lesson/${todaysLesson.id}`}
-          className="rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-zinc-300 hover:bg-white/5"
+          className="rounded-full border border-cream-line px-5 py-3 text-sm font-medium text-ink-soft hover:bg-cream-deep"
         >
           Full lesson
         </Link>
       </div>
 
-      <div className="mt-10 flex items-center justify-between rounded-2xl border border-white/8 bg-white/[0.02] px-4 py-3">
-        <span className="text-sm text-zinc-400">Overall progress</span>
-        <span className="font-display text-sm font-medium text-white">
+      <div className="mt-10 flex items-center justify-between rounded-2xl border border-cream-line bg-white/60 px-4 py-3">
+        <span className="text-sm text-ink-soft">Overall progress</span>
+        <span className="font-display text-sm font-medium text-ink">
           {totalDone} / {totalLessons} lessons
         </span>
       </div>

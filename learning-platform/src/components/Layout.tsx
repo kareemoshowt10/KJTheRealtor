@@ -11,14 +11,14 @@ export default function Layout({ children }: { children: ReactNode }) {
   const isLibrary = location.pathname.startsWith("/library");
 
   return (
-    <div className="grain min-h-full bg-[#0b0b0f] text-zinc-100">
-      <header className="sticky top-0 z-20 border-b border-white/5 bg-[#0b0b0f]/80 backdrop-blur-md">
+    <div className="grain min-h-full bg-cream text-ink">
+      <header className="sticky top-0 z-20 border-b border-cream-line bg-cream/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-2xl items-center justify-between px-5 py-4">
           <Link to="/" className="flex items-center gap-2">
             <span className="text-lg">💡</span>
-            <span className="font-display text-lg tracking-tight">Distill</span>
+            <span className="font-display text-lg tracking-tight text-ink">Distill</span>
           </Link>
-          <nav className="flex items-center gap-1 rounded-full bg-white/5 p-1 text-sm">
+          <nav className="flex items-center gap-1 rounded-full bg-cream-deep p-1 text-sm">
             <NavPill to="/" active={isHome} label="Today" />
             <NavPill to="/library" active={isLibrary} label="Library" />
           </nav>
@@ -32,15 +32,15 @@ export default function Layout({ children }: { children: ReactNode }) {
 
 function NavPill({ to, active, label }: { to: string; active: boolean; label: string }) {
   return (
-    <Link to={to} className="relative rounded-full px-3 py-1.5 text-zinc-300">
+    <Link to={to} className="relative rounded-full px-3 py-1.5 text-sm text-ink-soft">
       {active && (
         <motion.span
           layoutId="nav-pill"
-          className="absolute inset-0 rounded-full bg-white/10"
+          className="absolute inset-0 rounded-full bg-teal shadow-sm"
           transition={{ type: "spring", stiffness: 400, damping: 30 }}
         />
       )}
-      <span className={`relative z-10 ${active ? "text-white" : ""}`}>{label}</span>
+      <span className={`relative z-10 ${active ? "font-medium text-cream" : ""}`}>{label}</span>
     </Link>
   );
 }

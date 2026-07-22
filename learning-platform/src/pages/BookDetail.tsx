@@ -17,25 +17,25 @@ export default function BookDetail() {
 
   return (
     <PageTransition>
-      <Link to="/library" className="text-sm text-zinc-500 hover:text-zinc-300">
+      <Link to="/library" className="text-sm text-ink-soft hover:text-ink">
         ← Library
       </Link>
 
       <div
-        className="mt-4 rounded-3xl border border-white/8 p-6"
-        style={{ background: `linear-gradient(160deg, ${book.accent}22, rgba(255,255,255,0.02))` }}
+        className="mt-4 rounded-3xl border border-cream-line p-6 shadow-sm"
+        style={{ background: `linear-gradient(160deg, ${book.accent}1a, #ffffff)` }}
       >
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-medium uppercase tracking-wide" style={{ color: book.accentSoft }}>
+            <p className="text-xs font-medium uppercase tracking-wide" style={{ color: book.accent }}>
               {book.theme}
             </p>
-            <h1 className="font-display mt-1 text-2xl font-medium text-white">{book.title}</h1>
-            <p className="mt-0.5 text-sm text-zinc-400">{book.author}</p>
+            <h1 className="font-display mt-1 text-2xl font-medium text-ink">{book.title}</h1>
+            <p className="mt-0.5 text-sm text-ink-soft">{book.author}</p>
           </div>
           <ProgressRing progress={progress} color={book.accent} label={`${done}/${book.lessons.length}`} />
         </div>
-        <p className="mt-4 text-[15px] leading-relaxed text-zinc-300">{book.blurb}</p>
+        <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">{book.blurb}</p>
       </div>
 
       <div className="mt-6 flex flex-col gap-2">
@@ -50,19 +50,19 @@ export default function BookDetail() {
             >
               <Link
                 to={`/book/${book.id}/lesson/${lesson.id}`}
-                className="flex items-center gap-3 rounded-xl border border-white/6 bg-white/[0.02] px-4 py-3 transition-colors hover:border-white/15 hover:bg-white/[0.05]"
+                className="flex items-center gap-3 rounded-xl border border-cream-line bg-white/60 px-4 py-3 transition-colors hover:border-teal/30 hover:bg-white"
               >
                 <span
                   className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold"
                   style={{
-                    backgroundColor: isDone ? book.accent : "rgba(255,255,255,0.08)",
-                    color: isDone ? "#0b0b0f" : "#9ca3af",
+                    backgroundColor: isDone ? book.accent : "rgba(43,36,25,0.08)",
+                    color: isDone ? "#fffdf6" : "var(--color-ink-soft)",
                   }}
                 >
                   {isDone ? "✓" : lesson.order}
                 </span>
-                <span className="flex-1 text-[15px] text-zinc-200">{lesson.title}</span>
-                <span className="text-xs text-zinc-600">{lesson.minutes} min</span>
+                <span className="flex-1 text-[15px] text-ink">{lesson.title}</span>
+                <span className="text-xs text-ink-soft/70">{lesson.minutes} min</span>
               </Link>
             </motion.div>
           );

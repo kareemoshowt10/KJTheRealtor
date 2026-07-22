@@ -6,8 +6,8 @@ export default function Library() {
   return (
     <PageTransition>
       <div className="mb-6">
-        <h1 className="font-display text-3xl font-medium tracking-tight text-white">Library</h1>
-        <p className="mt-1 text-sm text-zinc-500">
+        <h1 className="font-display text-3xl font-medium tracking-tight text-ink">Library</h1>
+        <p className="mt-1 text-sm text-ink-soft">
           Four books, distilled into small daily lessons.
         </p>
       </div>

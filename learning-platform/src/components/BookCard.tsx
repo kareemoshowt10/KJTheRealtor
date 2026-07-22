@@ -24,11 +24,11 @@ export default function BookCard({ book, index }: { book: Book; index: number })
     >
       <Link
         to={`/book/${book.id}`}
-        className="group flex items-center gap-4 rounded-2xl border border-white/8 bg-white/[0.03] p-4 transition-colors hover:border-white/15 hover:bg-white/[0.06]"
+        className="group flex items-center gap-4 rounded-2xl border border-cream-line bg-white/60 p-4 shadow-sm transition-colors hover:border-teal/30 hover:bg-white"
       >
         <div
           className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-display text-lg font-semibold"
-          style={{ backgroundColor: `${book.accent}22`, color: book.accent }}
+          style={{ backgroundColor: `${book.accent}1f`, color: book.accent }}
         >
           {book.title
             .split(" ")
@@ -37,8 +37,8 @@ export default function BookCard({ book, index }: { book: Book; index: number })
             .join("")}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="font-display text-base font-medium text-zinc-100">{book.title}</p>
-          <p className="truncate text-sm text-zinc-500">{book.author}</p>
+          <p className="font-display text-base font-medium text-ink">{book.title}</p>
+          <p className="truncate text-sm text-ink-soft">{book.author}</p>
         </div>
         <ProgressRing progress={progress} size={40} stroke={4} color={book.accent} />
       </Link>

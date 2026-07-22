@@ -24,8 +24,8 @@ export const books: Book[] = [
     id: "atomic-habits",
     title: "Atomic Habits",
     author: "James Clear",
-    accent: "#f97316",
-    accentSoft: "#fed7aa",
+    accent: "#b45309",
+    accentSoft: "#faedc7",
     theme: "Small habits, compounded",
     blurb:
       "How tiny, consistent changes to your systems — not your goals — build the identity and the life you actually want.",
@@ -120,8 +120,8 @@ export const books: Book[] = [
     id: "one-thing",
     title: "The One Thing",
     author: "Gary Keller",
-    accent: "#2563eb",
-    accentSoft: "#bfdbfe",
+    accent: "#17a398",
+    accentSoft: "#d9f0ec",
     theme: "Extraordinary results from narrow focus",
     blurb:
       "Success isn't about doing more things — it's about finding the one thing that makes everything else easier or unnecessary.",
@@ -216,8 +216,8 @@ export const books: Book[] = [
     id: "limitless",
     title: "Limitless",
     author: "Jim Kwik",
-    accent: "#7c3aed",
-    accentSoft: "#ddd6fe",
+    accent: "#d9a404",
+    accentSoft: "#faedc7",
     theme: "Upgrade your brain, learning, and life",
     blurb:
       "Your brain is trainable, not fixed. Small shifts in mindset, motivation, and method unlock faster learning and sharper focus.",
@@ -312,8 +312,8 @@ export const books: Book[] = [
     id: "deep-work",
     title: "Deep Work",
     author: "Cal Newport",
-    accent: "#0d9488",
-    accentSoft: "#99f6e4",
+    accent: "#0f6e64",
+    accentSoft: "#d9f0ec",
     theme: "Focused success in a distracted world",
     blurb:
       "The ability to focus without distraction on cognitively demanding work is increasingly rare — and increasingly valuable.",

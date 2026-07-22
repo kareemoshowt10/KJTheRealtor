@@ -4,7 +4,7 @@ export default function ProgressRing({
   progress,
   size = 56,
   stroke = 5,
-  color = "#f97316",
+  color = "#0f6e64",
   label,
 }: {
   progress: number; // 0..1
@@ -24,7 +24,7 @@ export default function ProgressRing({
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="rgba(255,255,255,0.08)"
+          stroke="rgba(43,36,25,0.1)"
           strokeWidth={stroke}
         />
         <motion.circle
@@ -42,7 +42,7 @@ export default function ProgressRing({
         />
       </svg>
       {label && (
-        <span className="absolute text-xs font-semibold text-zinc-200">{label}</span>
+        <span className="absolute text-xs font-semibold text-ink">{label}</span>
       )}
     </div>
   );

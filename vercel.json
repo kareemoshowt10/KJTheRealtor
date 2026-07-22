@@ -2,6 +2,10 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/91311/home-value",
+      "destination": "/91311-home-value.html"
+    },
+    {
       "source": "/93063/home-value",
       "destination": "https://kj-the-realtor-93063-lead-gen.vercel.app/"
     },

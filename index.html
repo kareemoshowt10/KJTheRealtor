@@ -728,12 +728,26 @@
       border-radius: var(--radius-lg);
       z-index: 0; /* stacking context (equivalent to isolation:isolate, wider renderer support) */
       min-height: 260px;
+      height: 100%; /* fill grid row so absolute media can size */
+      background: #0a1628; /* visible placeholder while image decodes */
     }
     .home-moment:first-child { grid-row: 1 / 3; }
     .home-moment:nth-child(4) { grid-column: 2 / 4; }
-    .home-moment picture { display: block; width: 100%; height: 100%; }
+    /* Absolute fill — percentage height on <picture> fails when parent only has min-height (esp. mobile carousel) */
+    .home-moment picture {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
     .home-moment img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
       transition: transform 0.9s var(--ease);
     }
     .home-moment:hover img { transform: scale(1.035); }
@@ -771,8 +785,15 @@
       aspect-ratio: 4 / 5;
       background: #eef0f3;
     }
-    .home-belief-portrait picture { display: block; width: 100%; height: 100%; }
-    .home-belief-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+    .home-belief-portrait picture {
+      position: absolute; inset: 0;
+      display: block; width: 100%; height: 100%; margin: 0;
+    }
+    .home-belief-portrait img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 22%;
+      display: block;
+    }
     .home-belief-copy { padding-right: clamp(0rem, 3vw, 2rem); }
     .home-belief-copy h2 { font-size: clamp(2.3rem, 5vw, 4.4rem); margin: 0.8rem 0 1.2rem; }
     .home-belief-copy .lead { max-width: 39rem; margin-bottom: 1.8rem; }
@@ -808,6 +829,7 @@
       .home-mosaic::-webkit-scrollbar { display: none; }
       .home-moment, .home-moment:first-child, .home-moment:nth-child(4) {
         flex: 0 0 min(78vw, 300px);
+        height: 360px; /* explicit height required for absolute-fill images */
         min-height: 360px;
         scroll-snap-align: start;
       }
@@ -1173,11 +1195,16 @@
       position: relative;
       aspect-ratio: 16 / 10;
       overflow: hidden;
+      background: #0a1628;
     }
     .zip-card-media img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
+      display: block;
       transition: transform 0.7s var(--ease);
     }
     .zip-card:hover .zip-card-media img { transform: scale(1.04); }
@@ -1794,10 +1821,8 @@
            first and falls back to the stock film automatically — no code
            changes needed. Delete /assets/hero-film.mp4 to revert.
            ════════════════════════════════════════════════════════════════ -->
-      <video class="hero-film" id="home-film" autoplay muted loop playsinline preload="auto" poster="/assets/home-is-personal-poster.jpg" aria-hidden="true">
-        <source src="/assets/hero-film.mp4" type="video/mp4" />
-        <source src="/assets/home-is-personal.mp4" type="video/mp4" />
-      </video>
+      <!-- Sources injected only when we decide to load film (avoids 404 on optional /assets/hero-film.mp4) -->
+      <video class="hero-film" id="home-film" autoplay muted loop playsinline preload="none" poster="/assets/home-is-personal-poster.jpg" aria-hidden="true"></video>
       <div class="container hero-cinematic-content">
         <div class="hero-copy">
           <div class="hero-eyebrow-row">
@@ -1845,7 +1870,7 @@
         <div class="zip-grid">
           <a class="zip-card" href="/91311" data-reveal>
             <div class="zip-card-media">
-              <img src="/assets/cliffside-sunset.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+              <img src="/assets/cliffside-sunset.jpg" alt="Santa Susana sandstone at sunset near Chatsworth" width="1024" height="687" loading="lazy" decoding="async" />
               <span class="zip-card-num" aria-hidden="true">01</span>
             </div>
             <div class="zip-card-body">
@@ -1860,7 +1885,7 @@
           </a>
           <a class="zip-card" href="/93063" data-reveal>
             <div class="zip-card-media">
-              <img src="/assets/hero-buyers.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+              <img src="/assets/hero-buyers.jpg" alt="Light-filled Southern California living room" width="1024" height="1024" loading="lazy" decoding="async" />
               <span class="zip-card-num" aria-hidden="true">02</span>
             </div>
             <div class="zip-card-body">
@@ -1875,7 +1900,7 @@
           </a>
           <a class="zip-card" href="/91304" data-reveal>
             <div class="zip-card-media">
-              <img src="/assets/mansion-pool-night.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+              <img src="/assets/mansion-pool-night.jpg" alt="Modern home and pool glowing at night" width="1024" height="687" loading="lazy" decoding="async" />
               <span class="zip-card-num" aria-hidden="true">03</span>
             </div>
             <div class="zip-card-body">
@@ -2541,10 +2566,12 @@
         var ensureFilmSource = function () {
           if (filmLoaded) return Promise.resolve();
           filmLoaded = true;
-          var source = document.createElement("source");
-          source.src = "/assets/home-is-personal.mp4";
-          source.type = "video/mp4";
-          film.appendChild(source);
+          /* Prefer optional custom film when present; fall back to stock. Probe with HEAD-less
+             try: set custom first only if we already know it exists — default to stock to avoid 404. */
+          var stock = document.createElement("source");
+          stock.src = "/assets/home-is-personal.mp4";
+          stock.type = "video/mp4";
+          film.appendChild(stock);
           film.load();
           return new Promise(function (resolve) {
             var done = function () {
@@ -2554,7 +2581,11 @@
             if (film.readyState >= 2) done();
             else {
               film.addEventListener("loadeddata", done, { once: true });
-              film.addEventListener("error", resolve, { once: true });
+              film.addEventListener("canplay", done, { once: true });
+              film.addEventListener("error", function () {
+                /* keep poster background visible */
+                resolve();
+              }, { once: true });
             }
           });
         };

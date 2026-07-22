@@ -16,7 +16,7 @@ const items = [
   {
     question: "How is this different from a typical Valley agent?",
     answer:
-      "I combine tax strategy, construction literacy, real estate negotiation, and technology — and I grew up in Chatsworth. The goal isn’t a faster close; it’s a decision your family can stand behind.",
+      "I combine tax literacy (not CPA advice), construction literacy, real estate negotiation, and technology — and I grew up in Chatsworth. The goal isn’t a faster close; it’s a decision your family can stand behind. For formal tax or legal work, we loop in the right licensed professionals.",
   },
   {
     question: "Can you help if we’re deciding whether to sell a parent’s home?",

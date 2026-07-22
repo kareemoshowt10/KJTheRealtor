@@ -1,0 +1,107 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/91311/home-value",
+      "destination": "/91311-home-value"
+    },
+    {
+      "source": "/93063/home-value",
+      "destination": "https://kj-the-realtor-93063-lead-gen.vercel.app/"
+    },
+    {
+      "source": "/93063/:match*",
+      "destination": "https://kj-the-realtor-93063-lead-gen.vercel.app/:match*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.kareemjamaltherealtor.com" }],
+      "destination": "https://kareemjamaltherealtor.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/chatsworth-realtor",
+      "destination": "/91311",
+      "permanent": true
+    },
+    {
+      "source": "/chatsworth-realtor.html",
+      "destination": "/91311",
+      "permanent": true
+    },
+    {
+      "source": "/simi-valley-realtor",
+      "destination": "/93063",
+      "permanent": true
+    },
+    {
+      "source": "/simi-valley-realtor.html",
+      "destination": "/93063",
+      "permanent": true
+    },
+    {
+      "source": "/buyers-and-sellers",
+      "destination": "/buyers",
+      "permanent": true
+    },
+    {
+      "source": "/buyers-and-sellers.html",
+      "destination": "/buyers",
+      "permanent": true
+    },
+    {
+      "source": "/faq-section",
+      "destination": "/buyers#faq",
+      "permanent": true
+    },
+    {
+      "source": "/faq-section.html",
+      "destination": "/buyers#faq",
+      "permanent": true
+    },
+    {
+      "source": "/west-hills-realtor",
+      "destination": "/west-hills",
+      "permanent": true
+    },
+    {
+      "source": "/west-hills-realtor.html",
+      "destination": "/west-hills",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

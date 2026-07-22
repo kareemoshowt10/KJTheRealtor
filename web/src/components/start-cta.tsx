@@ -1,11 +1,58 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { Lock, MessageSquareHeart, Sparkles } from "lucide-react";
+import { LeadForm } from "@/components/lead-form";
+
+const chips = [
+  {
+    label: "Parents' home",
+    fill: "We're figuring out what to do with my parents' home — hold, sell, or transfer. Need a clear starting read.",
+  },
+  {
+    label: "Prop 19 / transfer",
+    fill: "I have questions about Prop 19 and whether a transfer actually makes sense for our family.",
+  },
+  {
+    label: "What's it worth?",
+    fill: "I want an honest read on what my home is really worth right now — not a high-ball listing pitch.",
+  },
+  {
+    label: "Buy & sell timing",
+    fill: "We're weighing buy/sell timing in the Valley. Need a kitchen-table strategy, not pressure.",
+  },
+  {
+    label: "Just exploring",
+    fill: "Not ready to decide anything yet — just want a grounded conversation about options.",
+  },
+];
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export function StartCta() {
+  const reduced = useReducedMotion();
+
   return (
     <section
       id="start"
-      className="bg-navy py-16 text-cream md:py-24"
+      className="relative overflow-hidden bg-navy py-16 text-cream md:py-24"
     >
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2 md:px-8">
-        <div>
+      {!reduced && (
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute -right-24 top-1/4 h-80 w-80 rounded-full bg-gold/15 blur-3xl"
+          animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.08, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+      )}
+
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-2 md:px-8">
+        <motion.div
+          initial={reduced ? false : { opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.55, ease }}
+        >
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold">
             When you&apos;re ready
           </p>
@@ -19,8 +66,45 @@ export function StartCta() {
             Tell me what you&apos;re working toward. One personal reply from me —
             a real starting strategy, not a sales script.
           </p>
+
+          <ul className="mt-8 space-y-3">
+            {[
+              {
+                icon: MessageSquareHeart,
+                text: "Replied to by me — not a team inbox",
+              },
+              {
+                icon: Lock,
+                text: "One reply only. No drip, no list, ever",
+              },
+              {
+                icon: Sparkles,
+                text: "Usually same day on weekdays",
+              },
+            ].map((item, i) => (
+              <motion.li
+                key={item.text}
+                className="flex items-start gap-3 text-sm text-cream/75"
+                initial={reduced ? false : { opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + i * 0.08, duration: 0.4, ease }}
+              >
+                <item.icon
+                  size={18}
+                  className="mt-0.5 shrink-0 text-gold"
+                  aria-hidden
+                />
+                {item.text}
+              </motion.li>
+            ))}
+          </ul>
+
           <div className="mt-8 space-y-2 text-sm">
-            <a href="tel:+18184027326" className="block font-display text-xl text-cream hover:text-gold-light">
+            <a
+              href="tel:+18184027326"
+              className="block font-display text-xl text-cream transition hover:text-gold-light"
+            >
               (818) 402-7326
               <span className="mt-0.5 block font-sans text-xs font-semibold uppercase tracking-wider text-cream/50">
                 Call or text
@@ -28,7 +112,7 @@ export function StartCta() {
             </a>
             <a
               href="mailto:kjamal@rodeore.com"
-              className="block font-display text-xl text-cream hover:text-gold-light"
+              className="block font-display text-xl text-cream transition hover:text-gold-light"
             >
               kjamal@rodeore.com
               <span className="mt-0.5 block font-sans text-xs font-semibold uppercase tracking-wider text-cream/50">
@@ -36,67 +120,16 @@ export function StartCta() {
               </span>
             </a>
           </div>
-        </div>
+        </motion.div>
 
-        <form
-          action="https://formspree.io/f/xnjlgvlk"
-          method="POST"
-          className="rounded-2xl border border-gold/50 bg-paper p-6 text-navy shadow-2xl md:p-8"
-        >
-          <h3 className="font-display text-xl font-medium">Kitchen-table start</h3>
-          <p className="mt-1 text-sm text-slateink">
-            Takes 30 seconds. Replied to personally, usually same day.
-          </p>
-          <input type="hidden" name="_subject" value="Hybrid Next homepage lead — kareemjamaltherealtor" />
-          <input type="hidden" name="source" value="web hybrid homepage" />
-          <label className="mt-5 block text-xs font-semibold uppercase tracking-wide text-slateink">
-            Name
-            <input
-              required
-              name="name"
-              className="mt-1.5 w-full rounded-md border border-[#e3d8c7] bg-white px-3 py-2.5 text-base text-navy outline-none focus:border-gold-deep focus:ring-2 focus:ring-gold/30"
-            />
-          </label>
-          <label className="mt-4 block text-xs font-semibold uppercase tracking-wide text-slateink">
-            Email
-            <input
-              required
-              type="email"
-              name="email"
-              className="mt-1.5 w-full rounded-md border border-[#e3d8c7] bg-white px-3 py-2.5 text-base text-navy outline-none focus:border-gold-deep focus:ring-2 focus:ring-gold/30"
-            />
-          </label>
-          <label className="mt-4 block text-xs font-semibold uppercase tracking-wide text-slateink">
-            What&apos;s on your mind? <span className="font-normal normal-case tracking-normal text-slateink/70">(optional)</span>
-            <textarea
-              name="message"
-              rows={3}
-              className="mt-1.5 w-full resize-y rounded-md border border-[#e3d8c7] bg-white px-3 py-2.5 text-base text-navy outline-none focus:border-gold-deep focus:ring-2 focus:ring-gold/30"
-              placeholder="Parents' home, Prop 19, buy/sell timing…"
-            />
-          </label>
-          <label className="mt-4 flex items-start gap-3 rounded-lg border border-gold/40 bg-cream p-3 text-sm">
-            <input
-              required
-              type="checkbox"
-              name="consent"
-              value="Yes — explicit permission granted"
-              className="mt-0.5 h-5 w-5 accent-gold-deep"
-            />
-            <span>
-              You have my explicit permission to reply once. No drip campaign, no list, ever.
-            </span>
-          </label>
-          <button
-            type="submit"
-            className="mt-5 w-full rounded-md bg-gold py-3.5 text-sm font-semibold text-navy transition hover:bg-gold-light"
-          >
-            Send it to Kareem
-          </button>
-          <p className="mt-3 text-center text-[0.72rem] text-slateink/70">
-            CA DRE #01998956 · Raised in Chatsworth &amp; West Hills
-          </p>
-        </form>
+        <LeadForm
+          title="Kitchen-table start"
+          subject="Website lead — kareemjamaltherealtor (hybrid)"
+          source="web hybrid homepage"
+          chips={chips}
+          showPhone
+          enablePathPrefill
+        />
       </div>
     </section>
   );

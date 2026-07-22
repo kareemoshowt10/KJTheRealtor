@@ -4,17 +4,17 @@
 
 | Layer | Location | Role |
 |-------|----------|------|
-| **Production** | Repo root static HTML | Live `kareemjamaltherealtor.com` |
-| **Hybrid (deployed)** | `web/` Next.js · Vercel project `kjtherealtor-hybrid` | New homepage + `/91311` |
+| **Production (target)** | `web/` Next.js · Vercel `kjtherealtor-hybrid` | Homepage + `/91311` + static deep pages in `public/` |
+| **Legacy static project** | Repo root · Vercel `kjtherealtor` | Previous host of domain; keep as backup |
 
-### Live hybrid URLs
+### Live URLs
 
-- **https://kjtherealtor-hybrid.vercel.app** — homepage  
-- **https://kjtherealtor-hybrid.vercel.app/91311** — Chatsworth  
+- **https://kareemjamaltherealtor.com** — production (hybrid after cutover)  
+- **https://kjtherealtor-hybrid.vercel.app** — same project alias  
 
-Production domain is **still the static site** until you assign `kareemjamaltherealtor.com` to the hybrid project (only after deep pages are migrated or served from `public/`).
+Deep guides / zip HTML live under `web/public/*.html` (cleanUrls). Next owns `/` and `/91311`.
 
-Redeploy hybrid:
+Redeploy production:
 
 ```bash
 cd web

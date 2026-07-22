@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calabasas Luxury Real Estate | Homes For Sale | Kareem Jamal</title>
+  <meta
+    name="description"
+    content="Navigate the Calabasas luxury real estate market with trusted expert Kareem Jamal. Access exclusive guard-gated estates, custom listing plans, and wealth-building insights."
+  />
+  <meta name="keywords" content="Calabasas Luxury Homes, Calabasas Realtor, The Oaks Calabasas homes, guard-gated Calabasas, Kareem Jamal, Rodeo Realty Fine Estates" />
+  <meta name="theme-color" content="#0B1E3E" />
+  
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Calabasas Luxury Real Estate | Kareem Jamal" />
+  <meta property="og:description" content="Strategic luxury real estate guidance and local expertise in Calabasas and surrounding gated communities." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/calabasas" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/mansion-pool-night.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/calabasas" />
+  <link rel="icon" href="assets/favicon-jamal.png" type="image/png" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Unified Navigation CSS -->
+  <link rel="stylesheet" href="assets/nav-unified.css" />
+  <script src="assets/nav-unified.js" defer></script>
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Kareem Jamal - Calabasas Luxury Realtor",
+      "url": "https://kareemjamaltherealtor.com/calabasas",
+      "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot-2026-web.jpg",
+      "jobTitle": "Realtor",
+      "telephone": "+1-818-402-7326",
+      "email": "kjamal@rodeore.com",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Calabasas"
+      },
+      "description": "Kareem Jamal offers elite buyer and seller representation in Calabasas, focusing on guard-gated security, high-end design trends, and premium wealth preservation.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "21031 Ventura Blvd, #100",
+        "addressLocality": "Woodland Hills",
+        "addressRegion": "CA",
+        "postalCode": "91364",
+        "addressCountry": "US"
+      }
+    }
+  </script>
+
+  <style>
+    /* ══════════════════════════════════════════════════════════════
+       DESIGN TOKENS — Tesla × Apple Hybrid
+    ══════════════════════════════════════════════════════════════ */
+    :root {
+      --black:       #0f1419;
+      --charcoal:    #0B1E3E;   /* Brand dark bg */
+      --carbon:      #0B1E3E;   /* Brand dark text */
+      --steel:       #40505F;   /* Brand muted */
+      --smoke:       #40505F;   /* Brand muted */
+      --cloud:       #efe9dc;   /* Brand deep cream */
+      --white:       #FAF5EE;   /* Brand light cream */
+      --blue:        #C9A84C;   /* Brand gold */
+      --blue-hover:  #E8C87A;   /* Brand gold light */
+
+      --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --serif: "Fraunces", Georgia, serif;
+
+      --section-py:  6.5rem;
+      --container:   1200px;
+      --r-sm:        12px;
+      --r-md:        18px;
+      --r-lg:        28px;
+
+      --shadow-sm:   0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md:   0 8px 24px rgba(0,0,0,0.08);
+      --shadow-lg:   0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    h1, h2, h3, .display-xl, .display-lg { font-family: var(--serif); font-weight: 600; }
+    body {
+      font-family: var(--font);
+      color: var(--carbon);
+      background: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    section[id], article[id] { scroll-margin-top: 52px; }
+
+    ::selection { background: rgba(184, 139, 82, 0.2); color: var(--carbon); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+
+    /* ── PRELOADER ── */
+    .preloader {
+      position: fixed; inset: 0; z-index: 99999;
+      background: var(--black);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 600ms ease, visibility 600ms ease;
+    }
+    .preloader-wordmark {
+      font-size: 2.2rem; font-weight: 500; color: var(--white);
+      letter-spacing: -0.02em; opacity: 0; transform: translateY(10px);
+      animation: preloader-fade 800ms ease forwards 100ms;
+    }
+    body.loaded .preloader { opacity: 0; visibility: hidden; pointer-events: none; }
+    @keyframes preloader-fade { to { opacity: 1; transform: translateY(0); } }
+
+    /* ── CONTAINERS & SCROLL REVEALS ── */
+    .wrap { width: min(var(--container), calc(100% - 3rem)); margin: 0 auto; }
+    [data-reveal] {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-reveal].visible { opacity: 1; transform: translateY(0); }
+    [data-reveal][style*="--d"] { transition-delay: calc(var(--d) * 100ms); }
+
+    /* ── TYPOGRAPHY ── */
+    .eyebrow {
+      display: inline-block; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue);
+      margin-bottom: 1rem;
+    }
+    .display-xl {
+      font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 700;
+      line-height: 1.08; letter-spacing: -0.03em; color: var(--white);
+    }
+    .display-lg {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700;
+      line-height: 1.12; letter-spacing: -0.02em; color: var(--carbon);
+    }
+    .body-lg { font-size: 1.1rem; line-height: 1.6; color: var(--smoke); }
+    .body-md { font-size: 0.95rem; line-height: 1.6; color: var(--steel); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; height: 80vh; min-height: 580px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--black); text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0.55;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+    }
+    .hero-content { position: relative; z-index: 10; max-width: 800px; padding: 0 1.5rem; }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 400; color: rgba(255,255,255,0.8);
+      margin: 1.5rem 0 2rem; line-height: 1.5;
+    }
+
+    /* ── STATS GRID ── */
+    .stats-section { padding: 4.5rem 0; background: var(--charcoal); color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-md); padding: 2rem 1.5rem; text-align: center;
+      transition: transform 300ms ease, background 300ms ease;
+    }
+    .stat-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.05); }
+    .stat-val { font-size: 1.8rem; font-weight: 700; color: var(--blue); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); }
+
+    /* ── GRID LAYOUTS ── */
+    .section-py { padding: var(--section-py) 0; }
+    .two-col { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+    /* ── KAREEM'S TAKE ── */
+    .kareems-take {
+      background: var(--cloud); border-radius: var(--r-lg); padding: 3rem;
+      border-left: 4px solid var(--blue); margin-bottom: 3.5rem;
+    }
+    .kareems-take-title { font-size: 1.2rem; font-weight: 600; color: var(--carbon); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .kareems-take-h1, h2, h3, .display-xl, .display-lg { font-family: var(--serif); font-weight: 600; }
+    body { font-size: 1.05rem; line-height: 1.65; color: var(--steel); font-style: italic; }
+
+    /* ── NEIGHBORHOOD BREAKDOWN CARDS ── */
+    .breakdown-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; margin-top: 3rem; }
+    .breakdown-card {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--r-md); padding: 2.2rem; transition: all 300ms ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .breakdown-card:hover { transform: translateY(-3px); border-color: var(--blue); box-shadow: var(--shadow-md); }
+    .breakdown-card h3 { font-size: 1.2rem; font-weight: 600; color: var(--carbon); margin-bottom: 0.75rem; }
+    .breakdown-card p { font-size: 0.92rem; line-height: 1.6; color: var(--smoke); }
+
+    /* ── ADVICE CARDS ── */
+    .advice-section { background: var(--cloud); }
+    .advice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 3.5rem; }
+    .advice-card {
+      background: var(--white); border-radius: var(--r-lg); padding: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .advice-card h3 { font-size: 1.35rem; font-weight: 600; color: var(--carbon); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .advice-card ul { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
+    .advice-card li { position: relative; padding-left: 1.75rem; font-size: 0.95rem; line-height: 1.55; color: var(--steel); }
+    .advice-card li::before { content: "•"; position: absolute; left: 0.5rem; color: var(--blue); font-size: 1.4rem; line-height: 1; }
+
+    /* ── BUTTONS ── */
+    .btn-pair { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.85rem 1.8rem; border-radius: 980px; font-size: 0.82rem; font-weight: 600;
+      transition: all 200ms ease; cursor: pointer; text-decoration: none; line-height: 1;
+    }
+    .btn-blue { background: var(--blue); color: var(--white); border: none; }
+    .btn-blue:hover { background: var(--blue-hover); }
+    .btn-white { background: var(--white); color: var(--carbon); border: none; }
+    .btn-white:hover { background: var(--cloud); }
+    .btn-ghost-white { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+    .btn-ghost-dark { background: transparent; color: var(--carbon); border: 1px solid rgba(0,0,0,0.2); }
+    .btn-ghost-dark:hover { background: var(--cloud); border-color: var(--carbon); }
+    .btn-ghost-dark:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* ── RESOURCES PANEL ── */
+    .resources-panel {
+      background: var(--charcoal); color: var(--white); border-radius: var(--r-lg);
+      padding: 4rem; display: flex; justify-content: space-between; align-items: center;
+      gap: 3rem; margin-top: 4rem;
+    }
+    .resources-content { max-width: 600px; }
+    .resources-content h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .resources-content p { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+    .resources-action { flex-shrink: 0; }
+
+    /* ── CONTACT & WIZARD ── */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+    .contact-info { max-width: 480px; }
+    .contact-details { display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.95rem; }
+    .contact-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .contact-detail span, .contact-detail a { color: var(--steel); line-height: 1.5; }
+    .contact-detail a:hover { color: var(--blue); }
+
+    .lead-form {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--r-lg); padding: 3rem; box-shadow: var(--shadow-lg);
+    }
+    .form-title { font-size: 1.35rem; font-weight: 700; color: var(--carbon); margin-bottom: 2rem; letter-spacing: -0.01em; }
+    
+    /* ── STRATEGY WIZARD CSS ── */
+    .wizard-progress-bar {
+      height: 4px; width: 100%; background: var(--cloud);
+      border-radius: 2px; margin-bottom: 2rem; position: relative; overflow: hidden;
+    }
+    .wizard-progress-fill {
+      position: absolute; left: 0; top: 0; height: 100%; width: 25%;
+      background: var(--blue); transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .wizard-step { display: none; animation: fadeIn 400ms ease; }
+    .wizard-step.active { display: block; }
+    .wizard-step-title { font-size: 1.05rem; font-weight: 600; color: var(--carbon); margin-bottom: 1.25rem; }
+    .wizard-pills { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .wizard-pill {
+      background: var(--white); border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px; padding: 1rem 1.25rem; font-size: 0.9rem; font-weight: 500;
+      color: var(--carbon); cursor: pointer; text-align: left; transition: all 180ms ease;
+      display: flex; align-items: center; gap: 0.75rem; width: 100%;
+    }
+    .wizard-pill::before {
+      content: ""; display: inline-block; width: 12px; height: 12px;
+      border-radius: 50%; border: 1.5px solid rgba(0, 0, 0, 0.25);
+      transition: all 180ms ease; flex-shrink: 0;
+    }
+    .wizard-pill:hover { border-color: var(--blue); background: rgba(0, 113, 227, 0.01); }
+    .wizard-pill:hover::before { border-color: var(--blue); }
+    .wizard-pill.selected { border-color: var(--blue); background: rgba(0, 113, 227, 0.04); box-shadow: 0 0 0 2px rgba(184, 139, 82, 0.2); font-weight: 600; }
+    .wizard-pill.selected::before { border-color: var(--blue); background: var(--blue); box-shadow: inset 0 0 0 2.5px var(--white); }
+    .wizard-controls { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+    
+    .wizard-summary-box {
+      background: rgba(0, 113, 227, 0.03); border-left: 3px solid var(--blue);
+      padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;
+      font-size: 0.88rem; line-height: 1.5; color: var(--carbon);
+    }
+    .wizard-summary-box strong { color: var(--blue); font-weight: 600; }
+
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-field.full { grid-column: span 2; }
+    .form-field label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--smoke); }
+    .form-field input, .form-field textarea {
+      padding: 0.85rem 1rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.12);
+      font-size: 16px; color: var(--carbon); background: var(--white); transition: border-color 200ms ease;
+    }
+    .form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--blue); }
+    .form-field textarea { height: 110px; resize: vertical; }
+    .form-note { font-size: 0.72rem; color: var(--smoke); margin-top: 1rem; line-height: 1.4; }
+    .form-success { display: none; background: rgba(0, 113, 227, 0.05); color: var(--blue); border: 1px solid rgba(184, 139, 82, 0.2); border-radius: 12px; padding: 1.5rem; font-weight: 500; text-align: center; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── EXPLORE MORE ── */
+    .explore-section { border-top: 1px solid rgba(0,0,0,0.06); padding: 5rem 0; }
+    .explore-grid { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .explore-pill {
+      background: var(--cloud); padding: 0.85rem 2rem; border-radius: 980px;
+      font-size: 0.88rem; font-weight: 500; color: var(--carbon);
+      transition: all 250ms ease; border: 1px solid transparent;
+    }
+    .explore-pill:hover { background: var(--white); border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+    .explore-pill.active { background: var(--blue); color: var(--white); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--charcoal); color: var(--white); padding: 5rem 0 3rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+    .footer-brand strong { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; display: block; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 1.5rem; }
+    .footer-brand .brokerage { font-size: 0.72rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.05em; }
+    .footer-col h4 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; text-transform: uppercase; }
+    .footer-col a { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-bottom: 0.85rem; transition: color 150ms ease; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 2rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .two-col, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .three-col, .breakdown-grid, .advice-grid { grid-template-columns: 1fr; }
+      .resources-panel { flex-direction: column; text-align: center; padding: 2.5rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+    }
+  
+    /* JAMAL primary logo mark */
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      border: 1px solid rgba(201, 168, 76, 0.35); border-radius: 8px;
+      background: #000; overflow: hidden; padding: 0;
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+  </style>
+  <link rel="stylesheet" href="/polish.css">
+  <script src="/track.js" defer></script>
+  <script src="/contact-widget.js" defer></script>
+  <script src="/progressive-form.js" defer></script>
+  <link rel="stylesheet" href="/assets/kj-interactive.css" />
+</head>
+<body class="has-motion">
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <span class="preloader-wordmark">Kareem Jamal</span>
+  </div>
+
+  <!-- Navigation -->
+        <header class="site-header" id="siteHeader">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Kareem Jamal — Home">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/jamal-real-estate-logo.png" alt="" width="40" height="40" decoding="async" /></span>
+        <span class="brand-text">
+        <span class="brand-name">Kareem Jamal</span>
+        <span class="brand-sub">Rodeo Realty Fine Estates</span>`n        </span>`n      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/buyers">Buy</a>
+        <a href="/sellers">Sell</a>
+        <a href="/landlord-leasing">Landlords</a>
+        <a href="/real-estate-partnerships">Invest</a>
+        <a href="/house-hacking">House Hacking</a>
+        <a href="/mls-search">Search</a>
+        <a href="/free-reports">Free Reports</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Book a Call</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-bg" style="background-image: url('assets/mansion-pool-night.jpg')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content" data-reveal>
+        <span class="eyebrow">Communities We Serve</span>
+        <h1 class="display-xl">Calabasas Luxury Real Estate</h1>
+        <p class="hero-sub">Secure elite guard-gated estates, preserve equity with premium marketing strategies, and make moves aligned with generations of family wealth.</p>
+        <div class="btn-pair btn-pair-center" style="justify-content: center;">
+          <a class="btn btn-blue" href="#contact">Start Your Strategy</a>
+          <a class="btn btn-ghost-white" href="/mls-search">Explore Live MLS Listings</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AT A GLANCE STATS -->
+    <section class="stats-section">
+      <div class="wrap">
+        <div class="stats-grid">
+          <div class="stat-card" data-reveal style="--d:1">
+            <div class="stat-val">$1.2M - $3.0M+</div>
+            <div class="stat-label">Median Price Range</div>
+          </div>
+          <div class="stat-card" data-reveal style="--d:2">
+            <div class="stat-val">LVUSD</div>
+            <div class="stat-label">School Districts</div>
+          </div>
+          <div class="stat-card" data-reveal style="--d:3">
+            <div class="stat-val">4 - 5+ Beds Luxury</div>
+            <div class="stat-label">Typical Inventory</div>
+          </div>
+          <div class="stat-card" data-reveal style="--d:4">
+            <div class="stat-val">20 - 40 Days</div>
+            <div class="stat-label">Average Days on Market</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CALABASAS -->
+    <section class="section-py">
+      <div class="wrap">
+        <div class="two-col">
+          <div data-reveal>
+            <span class="eyebrow">Local Lifestyle</span>
+            <h2 class="display-lg">The Standard of Privacy &amp; Prestige</h2>
+            <p class="body-md" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+              Celebrated globally for its guard-gated safety, world-class schools, and absolute privacy, Calabasas is the premier destination for discerning families, executives, and high-profile residents.
+            </p>
+            <p class="body-md">
+              Located in the foothills of the Santa Monica Mountains, this community blends peaceful outdoor hiking trails with dynamic shopping destinations like The Commons at Calabasas. Real estate here represents a highly reliable vehicle for equity preservation.
+            </p>
+          </div>
+          <div data-reveal style="--d:2">
+            <div class="kareems-take">
+              <div class="kareems-take-title">
+                <span><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span> Kareem's Take
+              </div>
+              <p class="kareems-take-body">
+                "The Oaks represents the gold standard of gated security and architectural prominence, but buyers looking for character and value should look at Calabasas Highlands. Calabasas offers some of the strongest equity preservation in the nation."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEIGHBORHOOD BREAKDOWN -->
+        <div style="margin-top: 5rem;">
+          <div class="section-header" data-reveal style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+            <span class="eyebrow">Calabasas Sub-areas</span>
+            <h2 class="display-md">Unique Enclaves &amp; Micro-markets</h2>
+          </div>
+          <div class="breakdown-grid">
+            <div class="breakdown-card" data-reveal style="--d:1">
+              <h3>The Oaks</h3>
+              <p>The premier guard-gated luxury development in Calabasas. Offering custom estates, premium amenities, private parks, and absolute celebrity-level security.</p>
+            </div>
+            <div class="breakdown-card" data-reveal style="--d:2">
+              <h3>Park Calabasas</h3>
+              <p>A beautiful luxury development overlooking the Calabasas Country Club golf course, offering serene rolling fairways, security, and walking paths.</p>
+            </div>
+            <div class="breakdown-card" data-reveal style="--d:3">
+              <h3>Vista Del Lago</h3>
+              <p>A gated residential enclave adjacent to Calabasas Lake, prized for its water-adjacent views, high-end family custom homes, and premium neighborhood feel.</p>
+            </div>
+            <div class="breakdown-card" data-reveal style="--d:4">
+              <h3>Calabasas Highlands</h3>
+              <p>An eclectic hillside enclave that blends rustic mountain architecture with custom modern luxury, offering exceptional canyon views and highly attractive valuations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT BUYERS & SELLERS NEED TO KNOW -->
+    <section class="section-py advice-section">
+      <div class="wrap">
+        <div class="section-header" data-reveal style="text-align: center; max-width: 600px; margin: 0 auto 1rem;">
+          <span class="eyebrow">Strategic Advice</span>
+          <h2 class="display-lg">Calabasas Market Insights</h2>
+        </div>
+        <div class="advice-grid">
+          <div class="advice-card" data-reveal style="--d:1">
+            <h3>For Buyers</h3>
+            <ul>
+              <li><strong>Verify HOA Guidelines:</strong> Calabasas developments (like The Oaks) have meticulous architectural, aesthetic, and HOA structural rules.</li>
+              <li><strong>Ensure Gate Pre-Clearance:</strong> Premium guard-gated listings require absolute agent pre-approval and guest scheduling.</li>
+              <li><strong>Evaluate School Ratings:</strong> Las Virgenes Unified (LVUSD) schools are consistently top-performing; verify exact property lines.</li>
+            </ul>
+          </div>
+          <div class="advice-card" data-reveal style="--d:2">
+            <h3>For Sellers</h3>
+            <ul>
+              <li><strong>Highlight Guard-Gated Safety:</strong> Market safety and privacy—they are the highest value-added traits for premium international buyers.</li>
+              <li><strong>Optimize Staging &amp; Design:</strong> High-end buyers expect modern, sleek interiors with clean landscaping and elite outdoor dining capability.</li>
+              <li><strong>Position Strategically:</strong> Price with precision based on exact gated comps rather than general city-wide Calabasas metrics.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FREE RESOURCES PANEL -->
+        <div class="resources-panel" data-reveal>
+          <div class="resources-content">
+            <h3>Download Calabasas Wealth Preservation Report</h3>
+            <p>Access our exclusive market report highlighting guard-gated pricing trends, custom estate analysis, and wealth preservation guidance for Calabasas.</p>
+          </div>
+          <div class="resources-action">
+            <a class="btn btn-blue" href="/free-reports">Access Report For Free</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & STRATEGY WIZARD -->
+    <section class="section-py" id="contact">
+      <div class="wrap">
+        <div class="contact-layout">
+          <div class="contact-info" data-reveal>
+            <span class="eyebrow">Let's Connect</span>
+            <h2 class="display-lg">Develop Your Calabasas Strategy</h2>
+            <p class="body-md" style="margin-top: 1.5rem;">
+              Buying or selling real estate in Calabasas requires an experienced perspective and elite positioning. Get in touch with Kareem today to build a custom wealth-preservation plan.
+            </p>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <div class="contact-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                <div>
+                  <strong>Direct Line</strong><br/>
+                  <a href="tel:+18184027326">(818) 402-7326</a>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div>
+                <div>
+                  <strong>Email</strong><br/>
+                  <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <div class="contact-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                <div>
+                  <strong>Office Location</strong><br/>
+                  <span>21031 Ventura Blvd, #100 · Woodland Hills, CA 91364</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WIZARD FORM -->
+          <div class="lead-form" data-reveal style="--d:2">
+            <p class="form-title">Real Estate Strategy Wizard</p>
+            <form id="leadForm" action="https://formspree.io/f/xnjlgvlk" method="POST">
+              <div class="wizard-progress-bar">
+                <div class="wizard-progress-fill" id="wizardProgressFill" style="width: 25%"></div>
+              </div>
+
+              <!-- Hidden Intent Tracking -->
+              <input type="hidden" id="wizardGoal" name="goal" value="" />
+              <input type="hidden" id="wizardTimeline" name="timeline" value="" />
+              <input type="hidden" id="wizardBudget" name="budget" value="" />
+
+              <!-- Step 1: Goal -->
+              <div class="wizard-step active" data-step="1">
+                <p class="wizard-step-title">What is your primary focus in Calabasas?</p>
+                <div class="wizard-pills">
+                  <button type="button" class="wizard-pill" data-value="Buy a Calabasas home">Buy a Calabasas home</button>
+                  <button type="button" class="wizard-pill" data-value="Sell a Calabasas property">Sell a Calabasas property</button>
+                  <button type="button" class="wizard-pill" data-value="Preserve family wealth">Preserve family wealth</button>
+                  <button type="button" class="wizard-pill" data-value="Co-invest / Partnership">Co-invest / Partnership</button>
+                </div>
+              </div>
+
+              <!-- Step 2: Timeline -->
+              <div class="wizard-step" data-step="2">
+                <p class="wizard-step-title">What is your ideal timeline?</p>
+                <div class="wizard-pills">
+                  <button type="button" class="wizard-pill" data-value="Immediate / 3 Months">Immediate / 3 Months</button>
+                  <button type="button" class="wizard-pill" data-value="3 to 6 Months">3 to 6 Months</button>
+                  <button type="button" class="wizard-pill" data-value="Just planning early">Just planning early</button>
+                </div>
+              </div>
+
+              <!-- Step 3: Budget -->
+              <div class="wizard-step" data-step="3">
+                <p class="wizard-step-title">What is your price comfort zone?</p>
+                <div class="wizard-pills">
+                  <button type="button" class="wizard-pill" data-value="Under $1.5M">Under $1.5M</button>
+                  <button type="button" class="wizard-pill" data-value="$1.5M - $2.5M">$1.5M - $2.5M</button>
+                  <button type="button" class="wizard-pill" data-value="$2.5M - $4.0M">$2.5M - $4.0M</button>
+                  <button type="button" class="wizard-pill" data-value="$4.0M+">$4.0M+</button>
+                </div>
+              </div>
+
+              <!-- Step 4: Contact & Details -->
+              <div class="wizard-step" data-step="4">
+                <p class="wizard-step-title">Let's connect on your strategy</p>
+                
+                <div class="wizard-summary-box" id="wizardSummary">
+                  You are looking to <strong id="summaryGoal">...</strong> within <strong id="summaryTimeline">...</strong> in the <strong id="summaryBudget">...</strong> range.
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Kareem" required />
+                  </div>
+                  <div class="form-field">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Jamal" required />
+                  </div>
+                  <div class="form-field full">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@email.com" required />
+                  </div>
+                  <div class="form-field full">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(818) 000-0000" />
+                  </div>
+                  <div class="form-field full">
+                    <label for="message">Message / Additional Details (optional)</label>
+                    <textarea id="message" name="message" placeholder="Tell me about your Calabasas real estate goals..."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Wizard Controls -->
+              <div class="wizard-controls">
+                <button type="button" class="btn btn-ghost-dark wizard-back-btn" id="wizardBackBtn" style="display: none;">Back</button>
+                <button type="button" class="btn btn-blue wizard-next-btn" id="wizardNextBtn" disabled>Next</button>
+                <button type="submit" class="btn btn-blue form-submit" id="wizardSubmitBtn" style="display: none;">Send Strategy Request</button>
+              </div>
+
+              <p class="form-note" style="margin-top: 1.25rem; text-align: center;">No pressure. Early conversations are always welcome.</p>
+            </form>
+            <div class="form-success" id="formSuccess">
+              ✓ Message received — Kareem will be in touch shortly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE MORE COMMUNITIES -->
+    <section class="explore-section">
+      <div class="wrap text-center" style="text-align: center;">
+        <span class="eyebrow">Explore More Areas</span>
+        <h2 class="display-md">Communities We Serve</h2>
+        <div class="explore-grid">
+          <a class="explore-pill" href="/woodland-hills">Woodland Hills</a>
+          <a class="explore-pill active" href="/calabasas">Calabasas</a>
+          <a class="explore-pill" href="/hidden-hills">Hidden Hills</a>
+          <a class="explore-pill" href="/encino">Encino</a>
+          <a class="explore-pill" href="/west-hills">West Hills</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+      <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-brand-name">Kareem Jamal</span>
+          <p>Southern California Real Estate Strategy &amp; Generational Wealth Preservation. Serving Woodland Hills, Calabasas, Hidden Hills, Encino, West Hills, and the San Fernando Valley.</p>
+          <span class="dre">Rodeo Realty Fine Estates · CA DRE #01998956</span>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="/">Home</a>
+          <a href="/buyers">Buyers</a>
+          <a href="/sellers">Sellers</a>
+          <a href="/seller-presentation">Listing Strategy</a>
+          <a href="/buyer-presentation">Buyer Strategy</a>
+          <a href="/landlord-leasing">Landlord Representation</a>
+          <a href="/real-estate-partnerships">Co-Investing Partnerships</a>
+          <a href="/family-wealth-preservation">Family Wealth Lens</a>
+          <a href="/mls-search">Home Search</a>
+          <a href="/mission">Our Mission</a>
+        </div>
+        <div class="footer-col">
+          <h4>Communities</h4>
+          <a href="/woodland-hills">Woodland Hills</a>
+          <a href="/calabasas">Calabasas</a>
+          <a href="/hidden-hills">Hidden Hills</a>
+          <a href="/encino">Encino</a>
+          <a href="/west-hills">West Hills</a>
+          <a href="/91311">Chatsworth</a>
+          <a href="/93063">Simi Valley</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+18184027326">(818) 402-7326</a>
+          <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
+          <a href="https://www.zillow.com/profile/KareemJamal" target="_blank" rel="noopener">Zillow Profile</a>
+          <a href="https://www.rodeore.com/real-estate-agent/2094/kareem-jamal" target="_blank" rel="noopener">Rodeo Realty Profile</a>
+          <a href="/free-reports">Free Reports</a>
+          <a href="/wealth-tools">Wealth Tools</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Kareem Jamal | CA DRE #01998956</span>
+        <span>Rodeo Realty Fine Estates | Equal Housing Opportunity</span>
+      </div>
+    </div>
+
+    <!-- Social Strip -->
+    <div class="social-strip">
+      <div class="container social-strip-inner">
+        <span class="social-label">Connect with Kareem</span>
+        <div class="social-links">
+          <a href="https://www.instagram.com/kareemjamaltherealtor" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/kareemjamaltherealtor/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.facebook.com/kareemjamaltherealtor/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.zillow.com/profile/kareemjamal" target="_blank" rel="noopener" class="social-link" aria-label="Zillow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9.5l1.5 1L12 5l8.5 5.5 1.5-1L12 2zM4 11v9h16v-9l-8 5-8-5z"/></svg>
+            Zillow
+          </a>
+          <a href="https://www.rodeore.com/real-estate-agent/2094/kareem-jamal" target="_blank" rel="noopener" class="social-link" aria-label="Rodeo Realty">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Rodeo Realty
+          </a>
+          <a href="https://g.page/r/kareemjamalrealtor/review" target="_blank" rel="noopener" class="social-link" aria-label="Google Reviews">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google Reviews
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Preloader
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+      }, 600);
+    });
+
+    // Scroll Reveal Intersection Observer
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // Strategy Wizard Controller
+    document.addEventListener('DOMContentLoaded', () => {
+      const wizardForm = document.getElementById('leadForm');
+      if (!wizardForm) return;
+
+      const steps = wizardForm.querySelectorAll('.wizard-step');
+      const progressFill = document.getElementById('wizardProgressFill');
+      const backBtn = document.getElementById('wizardBackBtn');
+      const nextBtn = document.getElementById('wizardNextBtn');
+      const submitBtn = document.getElementById('wizardSubmitBtn');
+      const successMsg = document.getElementById('formSuccess');
+
+      const goalInput = document.getElementById('wizardGoal');
+      const timelineInput = document.getElementById('wizardTimeline');
+      const budgetInput = document.getElementById('wizardBudget');
+
+      const summaryGoal = document.getElementById('summaryGoal');
+      const summaryTimeline = document.getElementById('summaryTimeline');
+      const summaryBudget = document.getElementById('summaryBudget');
+
+      let currentStep = 1;
+      const totalSteps = steps.length;
+
+      function updateWizard() {
+        steps.forEach((step) => {
+          const stepNum = parseInt(step.getAttribute('data-step'), 10);
+          step.classList.toggle('active', stepNum === currentStep);
+        });
+
+        const progressPercentage = (currentStep / totalSteps) * 100;
+        progressFill.style.width = `${progressPercentage}%`;
+
+        if (currentStep === 1) {
+          backBtn.style.display = 'none';
+          nextBtn.style.display = 'inline-flex';
+          submitBtn.style.display = 'none';
+        } else if (currentStep === totalSteps) {
+          backBtn.style.display = 'inline-flex';
+          nextBtn.style.display = 'none';
+          submitBtn.style.display = 'inline-flex';
+
+          summaryGoal.textContent = goalInput.value || '...';
+          summaryTimeline.textContent = timelineInput.value || '...';
+          summaryBudget.textContent = budgetInput.value || '...';
+        } else {
+          backBtn.style.display = 'inline-flex';
+          nextBtn.style.display = 'inline-flex';
+          submitBtn.style.display = 'none';
+        }
+
+        validateNextButton();
+      }
+
+      function validateNextButton() {
+        let isStepValid = false;
+        if (currentStep === 1) {
+          isStepValid = !!goalInput.value;
+        } else if (currentStep === 2) {
+          isStepValid = !!timelineInput.value;
+        } else if (currentStep === 3) {
+          isStepValid = !!budgetInput.value;
+        } else if (currentStep === 4) {
+          isStepValid = true;
+        }
+        nextBtn.disabled = !isStepValid;
+      }
+
+      wizardForm.querySelectorAll('.wizard-pill').forEach((pill) => {
+        pill.addEventListener('click', () => {
+          const stepEl = pill.closest('.wizard-step');
+          const stepNum = parseInt(stepEl.getAttribute('data-step'), 10);
+          const value = pill.getAttribute('data-value');
+
+          stepEl.querySelectorAll('.wizard-pill').forEach((p) => p.classList.remove('selected'));
+          pill.classList.add('selected');
+
+          if (stepNum === 1) {
+            goalInput.value = value;
+          } else if (stepNum === 2) {
+            timelineInput.value = value;
+          } else if (stepNum === 3) {
+            budgetInput.value = value;
+          }
+
+          validateNextButton();
+
+          setTimeout(() => {
+            if (currentStep === stepNum && currentStep < totalSteps) {
+              currentStep++;
+              updateWizard();
+            }
+          }, 300);
+        });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (currentStep < totalSteps) {
+          currentStep++;
+          updateWizard();
+        }
+      });
+
+      backBtn.addEventListener('click', () => {
+        if (currentStep > 1) {
+          currentStep--;
+          updateWizard();
+        }
+      });
+
+      wizardForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.textContent = 'Sending Strategy Request…';
+        submitBtn.disabled = true;
+
+        try {
+          const res = await fetch(wizardForm.action, {
+            method: 'POST',
+            body: new FormData(wizardForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            wizardForm.style.display = 'none';
+            successMsg.style.display = 'block';
+          } else {
+            submitBtn.textContent = 'Try again';
+            submitBtn.disabled = false;
+          }
+        } catch {
+          submitBtn.textContent = 'Try again';
+          submitBtn.disabled = false;
+        }
+      });
+
+      const phoneInput = document.getElementById('phone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+          let input = e.target.value.replace(/\D/g, '');
+          const size = input.length;
+          if (size === 0) {
+            e.target.value = '';
+          } else if (size < 4) {
+            e.target.value = `(${input}`;
+          } else if (size < 7) {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3)}`;
+          } else {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`;
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Scroll progress indicator (kj) -->
+  <div id="kjScrollBar" aria-hidden="true"></div>
+  <style>#kjScrollBar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#C9A84C,#E8C87A);z-index:9990;pointer-events:none;will-change:transform}
+    /* JAMAL primary logo mark */
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      border: 1px solid rgba(201, 168, 76, 0.35); border-radius: 8px;
+      background: #000; overflow: hidden; padding: 0;
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+  </style>
+  <script>(function(){var b=document.getElementById('kjScrollBar');if(!b)return;var t=false;function u(){t=false;var h=document.documentElement,m=(h.scrollHeight-h.clientHeight),y=window.pageYOffset||h.scrollTop||document.body.scrollTop||0;b.style.transform='scaleX('+(m>0?Math.min(y/m,1):0)+')';}function q(){if(!t){t=true;requestAnimationFrame(u);}}addEventListener('scroll',q,{passive:true});addEventListener('resize',q,{passive:true});u();})();</script>
+  <script src="/assets/kj-interactive.js" defer></script>
+</body>
+</html>

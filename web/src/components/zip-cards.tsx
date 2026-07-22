@@ -71,7 +71,8 @@ export function ZipCards() {
                   alt=""
                   fill
                   className="object-cover transition duration-700 ease-out group-hover:scale-110 group-active:scale-105"
-                  sizes="(max-width:768px) 100vw, 33vw"
+                  sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 380px"
+                  quality={70}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent opacity-80" />
                 <motion.span

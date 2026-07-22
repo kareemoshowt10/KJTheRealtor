@@ -7,7 +7,7 @@ const stats = [
     value: 4,
     suffix: "",
     label: "Disciplines in one advisor",
-    note: "Tax · Real estate · Construction · Tech",
+    note: "Tax literacy · RE · Construction · Tech",
   },
   {
     value: 3,

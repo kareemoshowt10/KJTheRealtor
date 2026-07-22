@@ -13,21 +13,16 @@ type NavLink = {
 };
 
 const defaultLinks: NavLink[] = [
+  { href: "/#start-here", label: "Start here" },
+  { href: "/#method", label: "Method" },
   { href: "/#family-table", label: "Families" },
-  { href: "/#testimonials", label: "Stories" },
-  { href: "/#zips", label: "Zip codes" },
   { href: "/91311", label: "91311" },
-  {
-    href: "https://kareemjamaltherealtor.com/#library",
-    label: "Library",
-    external: true,
-  },
 ];
 
 export function SiteHeader({
   links = defaultLinks,
   ctaHref = "/#start",
-  ctaLabel = "Start a conversation",
+  ctaLabel = "Talk",
 }: {
   links?: NavLink[];
   ctaHref?: string;
@@ -42,7 +37,7 @@ export function SiteHeader({
           <span className="relative h-10 w-10 overflow-hidden rounded-lg border border-gold/35 bg-black">
             <Image
               src="/assets/jamal-real-estate-logo.png"
-              alt=""
+              alt="Kareem Jamal real estate logo"
               width={40}
               height={40}
               className="object-cover"

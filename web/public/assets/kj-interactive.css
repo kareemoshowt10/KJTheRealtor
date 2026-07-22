@@ -1,0 +1,128 @@
+/* ── KJ interactive components (vanilla ports) ─────────────────────────
+   1. Interactive hover button — label slides out, arrow layer slides in,
+      gold dot expands to fill (port of shadcn "interactive-hover-button")
+   2. Zoom parallax — scroll-pinned zooming image collage
+      (port of "zoom-parallax", homepage pilot)
+──────────────────────────────────────────────────────────────────────── */
+
+/* 1 ─ Interactive hover button */
+.kjx {
+  position: relative;
+  overflow: hidden;
+  contain: paint; /* guarantees the translated hover layer can never bleed outside the button on any engine */
+}
+.kjx .kjx-label {
+  position: relative;
+  display: inline-block;
+  z-index: 2;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.kjx:hover .kjx-label,
+.kjx:focus-visible .kjx-label {
+  transform: translateX(3rem);
+  opacity: 0;
+}
+.kjx .kjx-hover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  color: #fff;
+  transform: translateX(3rem);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+.kjx:hover .kjx-hover,
+.kjx:focus-visible .kjx-hover {
+  transform: translateX(0);
+  opacity: 1;
+}
+.kjx .kjx-hover svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+.kjx .kjx-dot {
+  position: absolute;
+  left: 20%;
+  top: 40%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  background: var(--gold-deep, #B8893F);
+  transition: left 0.3s ease, top 0.3s ease, width 0.3s ease, height 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+}
+.kjx:hover .kjx-dot,
+.kjx:focus-visible .kjx-dot {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.8);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kjx .kjx-label,
+  .kjx .kjx-hover,
+  .kjx .kjx-dot {
+    transition: none;
+  }
+  .kjx:hover .kjx-label { transform: none; opacity: 1; }
+  .kjx:hover .kjx-hover,
+  .kjx:hover .kjx-dot { opacity: 0; }
+}
+
+/* 2 ─ Zoom parallax */
+.kj-zoom {
+  position: relative;
+  height: 300vh;
+}
+.kj-zoom-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.kj-zoom-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+.kj-zoom-item > div {
+  position: relative;
+  width: 25vw;
+  height: 25vh;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.kj-zoom-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* offsets mirror the source component's per-index placements */
+.kj-zoom-item:nth-child(2) > div { top: -30vh; left: 5vw;    width: 35vw; height: 30vh; }
+.kj-zoom-item:nth-child(3) > div { top: -10vh; left: -25vw;  width: 20vw; height: 45vh; }
+.kj-zoom-item:nth-child(4) > div { left: 27.5vw;             width: 25vw; height: 25vh; }
+.kj-zoom-item:nth-child(5) > div { top: 27.5vh; left: 5vw;   width: 20vw; height: 25vh; }
+.kj-zoom-item:nth-child(6) > div { top: 27.5vh; left: -22.5vw; width: 30vw; height: 25vh; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kj-zoom { height: auto; }
+  .kj-zoom-sticky { position: static; height: auto; }
+  .kj-zoom-item { position: static; display: none; }
+  .kj-zoom-item:first-child { display: flex; padding: 3rem 0; }
+  .kj-zoom-item:first-child > div { width: min(90vw, 900px); height: 52vh; }
+}

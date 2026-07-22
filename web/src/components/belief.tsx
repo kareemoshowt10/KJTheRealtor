@@ -13,7 +13,8 @@ export function Belief() {
             alt="Kareem Jamal at a kitchen table with longtime homeowners"
             fill
             className="object-cover object-[center_40%] transition duration-700 hover:scale-105"
-            sizes="(max-width:768px) 100vw, 50vw"
+            sizes="(max-width:768px) 100vw, 520px"
+            quality={72}
           />
         </Reveal>
         <Reveal delay={0.1}>

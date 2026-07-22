@@ -88,16 +88,17 @@ export function Testimonials() {
           className="mx-auto flex max-w-[540px] flex-col items-center"
         >
           <div className="rounded-full border border-[#e3d8c7] bg-white px-4 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-slateink">
-            Testimonials
+            Kitchen-table voices
           </div>
           <h2 className="mt-4 text-center font-display text-[clamp(1.9rem,4vw,3rem)] font-medium tracking-tight text-navy">
-            What families say{" "}
+            Situations families bring{" "}
             <em className="font-normal italic text-gold-deep">
-              at the kitchen table.
+              to the table.
             </em>
           </h2>
           <p className="mt-4 text-center text-slateink">
-            Patient strategy for parents, adult children, and long-held homes.
+            Composite scenarios drawn from common multi-gen, Prop 19, and
+            long-held-home conversations — not individual verified reviews.
           </p>
         </motion.div>
 
@@ -114,6 +115,18 @@ export function Testimonials() {
             duration={17}
           />
         </div>
+
+        <p className="mx-auto mt-6 max-w-xl text-center text-[0.72rem] leading-relaxed text-slateink/70">
+          Illustrative composites for education only. Names and photos are not
+          real client identities. For verified reviews, ask for current Google
+          or brokerage references when we talk.{" "}
+          <a
+            href="#start"
+            className="font-semibold text-gold-deep hover:underline"
+          >
+            Start a conversation →
+          </a>
+        </p>
       </div>
     </section>
   );

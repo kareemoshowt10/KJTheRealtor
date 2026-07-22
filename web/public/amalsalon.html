@@ -1,0 +1,3123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Amal' Salon | Premium Hair House</title>
+  <meta
+    id="pageDescription"
+    name="description"
+    content="Amal' Salon is a premium California hair house with a heritage Chatsworth salon and a private La Quinta desert retreat."
+  />
+  <meta id="themeColorMeta" name="theme-color" content="#ffffff" />
+  <meta name="robots" content="noindex, follow" />
+  <meta id="ogTitle" property="og:title" content="Amal' Salon | Premium Hair House" />
+  <meta
+    id="ogDescription"
+    property="og:description"
+    content="Heritage hair care in Chatsworth. A private desert retreat in La Quinta. One elevated house of beauty."
+  />
+  <meta property="og:type" content="website" />
+  <meta id="twitterTitle" name="twitter:title" content="Amal' Salon | Premium Hair House" />
+  <meta
+    id="twitterDescription"
+    name="twitter:description"
+    content="Heritage hair care in Chatsworth. A private desert retreat in La Quinta. One elevated house of beauty."
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      "name": "Amal's Salon",
+      "alternateName": "Amal' Salon",
+      "url": "https://www.amalhairsalon.com/",
+      "telephone": "+1-818-341-8865",
+      "email": "amalhair@aol.com",
+      "description": "A full-service salon in Chatsworth with a luxury La Quinta retreat experience.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10102 Topanga Canyon Blvd",
+        "addressLocality": "Chatsworth",
+        "addressRegion": "CA",
+        "postalCode": "91311",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "15:00"
+        }
+      ]
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface-strong: #f8f3ea;
+      --surface-dark: #efe6d7;
+      --text: #241c13;
+      --muted: #7d7468;
+      --border: #e8ddc9;
+      --sage: #c5a356;
+      --sage-deep: #98752c;
+      --terracotta: #d9c18c;
+      --terracotta-deep: #b99749;
+      --shadow: 0 24px 64px rgba(36, 28, 19, 0.07);
+      --shadow-soft: 0 12px 28px rgba(36, 28, 19, 0.055);
+      --gold-line: linear-gradient(90deg, transparent, rgba(197, 163, 86, 0.72), transparent);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 12px;
+      --container: 1240px;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --font-display: "Cormorant Garamond", serif;
+      --font-body: "Jost", sans-serif;
+      --mx: 50%;
+      --my: 18%;
+      --mx-num: 50;
+      --my-num: 18;
+    }
+
+    body[data-theme="dark"] {
+      --bg: #15130f;
+      --surface: #1e1a14;
+      --surface-strong: #2a241b;
+      --surface-dark: #342b1f;
+      --text: #fffaf1;
+      --muted: #c7bba7;
+      --border: rgba(232, 221, 201, 0.16);
+      --sage: #d7ba70;
+      --sage-deep: #f0d995;
+      --terracotta: #bda16a;
+      --terracotta-deep: #e2c987;
+      --shadow: 0 28px 70px rgba(0, 0, 0, 0.24);
+      --shadow-soft: 0 16px 36px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, var(--bg) 0%, var(--bg) 50%, color-mix(in srgb, var(--bg) 82%, var(--surface-strong) 18%) 100%);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background 220ms ease, color 220ms ease;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.8;
+      z-index: 10;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, transparent 0 34%, rgba(255, 255, 255, 0.16) 43%, transparent 55%),
+        radial-gradient(70rem 42rem at var(--mx) var(--my), rgba(197, 163, 86, 0.13), transparent 58%);
+      mix-blend-mode: soft-light;
+      opacity: 0.48;
+      z-index: 11;
+      transition: opacity 260ms ease;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    ::selection {
+      background: rgba(197, 163, 86, 0.24);
+      color: var(--text);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      z-index: 40;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      background: var(--text);
+      color: var(--surface);
+      transition: top 180ms ease;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-topbar {
+      position: relative;
+      z-index: 12;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(16px);
+    }
+
+    .site-topbar::after,
+    .site-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: var(--gold-line);
+      opacity: 0.58;
+      pointer-events: none;
+    }
+
+    body[data-theme="dark"] .site-topbar {
+      background: rgba(29, 24, 20, 0.76);
+    }
+
+    .topbar-inner {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(18px);
+      transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease, padding 220ms ease;
+    }
+
+    body[data-theme="dark"] .site-header {
+      background: rgba(29, 24, 20, 0.68);
+    }
+
+    .site-header.is-scrolled {
+      padding: 0.85rem 0;
+      border-bottom-color: var(--border);
+      box-shadow: 0 10px 30px rgba(36, 28, 19, 0.055);
+    }
+
+    .header-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 88%, white 12%), var(--surface-strong));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .brand:hover .brand-mark,
+    .brand:focus-visible .brand-mark {
+      transform: translateY(-2px) rotate(-3deg);
+      box-shadow: 0 18px 38px rgba(36, 28, 19, 0.11);
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: -45%;
+      background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.54) 48%, transparent 62%);
+      transform: translateX(-58%) rotate(12deg);
+      transition: transform 620ms ease;
+    }
+
+    .brand:hover .brand-mark::after,
+    .brand:focus-visible .brand-mark::after {
+      transform: translateX(58%) rotate(12deg);
+    }
+
+    .brand-mark svg {
+      width: 30px;
+      height: 30px;
+      color: var(--sage);
+    }
+
+    .brand-wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 0.9;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .brand-tagline {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-shell {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 1.6rem;
+      align-items: center;
+    }
+
+    .nav-list a {
+      position: relative;
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      transition: color 180ms ease;
+    }
+
+    .nav-list a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.45rem;
+      width: 100%;
+      height: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+      background: linear-gradient(90deg, var(--sage) 0%, var(--terracotta) 100%);
+    }
+
+    .nav-list a:hover,
+    .nav-list a:focus-visible,
+    .nav-list a.is-active {
+      color: var(--text);
+    }
+
+    .nav-list a:hover::after,
+    .nav-list a:focus-visible::after,
+    .nav-list a.is-active::after {
+      transform: scaleX(1);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .theme-toggle {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow-soft);
+      color: var(--text);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    body[data-theme="dark"] .theme-toggle {
+      background: rgba(38, 32, 27, 0.92);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      transform: translateY(-2px) rotate(8deg);
+      border-color: color-mix(in srgb, var(--sage) 46%, var(--border));
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0.95rem 1.45rem;
+      border-radius: 999px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease,
+        color 180ms ease,
+        border-color 180ms ease;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 0 32%, rgba(255, 255, 255, 0.32) 47%, transparent 62%);
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
+      z-index: -1;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .btn:hover::after,
+    .btn:focus-visible::after {
+      transform: translateX(120%);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #d7b968 0%, #9f792a 100%);
+      color: #fffdf8;
+      box-shadow: 0 16px 36px rgba(159, 121, 42, 0.24);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-terracotta {
+      background: linear-gradient(135deg, var(--text) 0%, #4b3a24 100%);
+      color: #fff8ed;
+      box-shadow: 0 16px 36px rgba(36, 28, 19, 0.16);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav-toggle-line,
+    .nav-toggle-line::before,
+    .nav-toggle-line::after {
+      content: "";
+      display: block;
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .nav-toggle-line::before {
+      transform: translateY(-6px);
+    }
+
+    .nav-toggle-line::after {
+      transform: translateY(4px);
+    }
+
+    body[data-nav-open="true"] .nav-toggle-line {
+      background: transparent;
+    }
+
+    body[data-nav-open="true"] .nav-toggle-line::before {
+      transform: translateY(0) rotate(45deg);
+    }
+
+    body[data-nav-open="true"] .nav-toggle-line::after {
+      transform: translateY(-2px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .page-section {
+      display: none;
+      padding: 2.5rem 0 5rem;
+      min-height: calc(100vh - 140px);
+    }
+
+    .page-section.is-active {
+      display: block;
+      animation: pageIn 520ms ease both;
+    }
+
+    .hero-grid,
+    .split-grid,
+    .salon-layout,
+    .contact-layout,
+    .retreat-hero-grid,
+    .retreat-value-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-10);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--sage);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .hero-copy,
+    .page-copy {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .display-title,
+    .section-title,
+    .page-title {
+      font-family: var(--font-display);
+      line-height: 0.96;
+      letter-spacing: 0;
+      font-weight: 500;
+    }
+
+    .display-title {
+      font-size: clamp(3.5rem, 7vw, 6.75rem);
+      max-width: 11ch;
+      text-wrap: balance;
+    }
+
+    .section-title,
+    .page-title {
+      font-size: clamp(2.5rem, 4vw, 4.75rem);
+    }
+
+    .display-title em,
+    .section-title em,
+    .page-title em {
+      color: var(--terracotta);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .lead,
+    .section-copy,
+    .page-copy p {
+      font-size: 1.03rem;
+      color: var(--muted);
+      line-height: 1.9;
+      max-width: 60ch;
+    }
+
+    .hero-actions,
+    .cta-row,
+    .chip-row {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.84rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    body[data-theme="dark"] .chip {
+      background: rgba(38, 32, 27, 0.9);
+    }
+
+    .hero-visual,
+    .media-card,
+    .panel,
+    .retreat-hero-card,
+    .form-shell,
+    .map-shell,
+    .quote-card,
+    .work-card,
+    .service-card,
+    .team-card,
+    .detail-card,
+    .itinerary-card,
+    .faq-item,
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .about-card,
+    .split-card,
+    .journal-shell,
+    .form-shell {
+      position: relative;
+    }
+
+    .about-card::before,
+    .split-card::before,
+    .form-shell::before {
+      content: "";
+      position: absolute;
+      left: 1.2rem;
+      right: 1.2rem;
+      top: 0;
+      height: 1px;
+      background: var(--gold-line);
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 1.1rem;
+      overflow: hidden;
+      transform: perspective(1200px) rotateX(calc((var(--my-num, 50) - 50) * -0.03deg)) rotateY(calc((var(--mx-num, 50) - 50) * 0.035deg));
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 1.1rem;
+      border-radius: calc(var(--radius-xl) - 8px);
+      background:
+        linear-gradient(120deg, transparent 0 42%, rgba(255, 255, 255, 0.44) 50%, transparent 58%),
+        radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.2), transparent 34%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.42;
+      z-index: 2;
+      transition: opacity 220ms ease;
+    }
+
+    .hero-visual:hover {
+      box-shadow: 0 36px 90px rgba(36, 28, 19, 0.1);
+    }
+
+    .hero-visual:hover::before {
+      opacity: 0.68;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      border-radius: calc(var(--radius-xl) - 8px);
+      background: linear-gradient(180deg, #ffffff 0%, #f6efe1 100%);
+      transform: scale(1);
+      transition: transform 720ms ease, filter 320ms ease;
+    }
+
+    .hero-visual:hover img {
+      transform: scale(1.018);
+      filter: saturate(1.04) contrast(1.02);
+    }
+
+    .hero-note {
+      margin-top: var(--space-4);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .section-stack {
+      display: grid;
+      gap: var(--space-16);
+      margin-top: var(--space-16);
+    }
+
+    .stat-band {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-item {
+      position: relative;
+      padding: 1.2rem 1.25rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 0.5rem;
+      min-height: 100%;
+      overflow: hidden;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .stat-item::after {
+      content: "";
+      position: absolute;
+      inset: auto 1.25rem 0;
+      height: 3px;
+      border-radius: 999px 999px 0 0;
+      background: linear-gradient(90deg, var(--sage), var(--terracotta));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 260ms ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-4px);
+      border-color: color-mix(in srgb, var(--sage) 38%, var(--border));
+      box-shadow: 0 20px 42px rgba(36, 28, 19, 0.08);
+    }
+
+    .stat-item:hover::after {
+      transform: scaleX(1);
+    }
+
+    body[data-theme="dark"] .stat-item {
+      background: rgba(38, 32, 27, 0.92);
+    }
+
+    .stat-item strong {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    .stat-item span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .editorial-band,
+    .retreat-band {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .editorial-band.four-up,
+    .retreat-band.four-up {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .editorial-card,
+    .retreat-fact,
+    .journal-shell {
+      padding: 1.4rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    body[data-theme="dark"] .editorial-card,
+    body[data-theme="dark"] .retreat-fact,
+    body[data-theme="dark"] .journal-shell {
+      background: rgba(38, 32, 27, 0.9);
+    }
+
+    .editorial-card {
+      display: grid;
+      gap: 0.8rem;
+      min-height: 100%;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .editorial-card:hover,
+    .split-card:hover,
+    .quote-card:hover,
+    .service-group:hover,
+    .team-card:hover,
+    .detail-card:hover,
+    .itinerary-card:hover,
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: color-mix(in srgb, var(--terracotta) 34%, var(--border));
+      box-shadow: 0 22px 48px rgba(36, 28, 19, 0.085);
+    }
+
+    .editorial-card span,
+    .retreat-fact span {
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-weight: 700;
+    }
+
+    .editorial-card h3,
+    .journal-shell h3,
+    .retreat-fact strong {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .editorial-card p,
+    .journal-shell p,
+    .retreat-fact p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .journal-shell {
+      display: grid;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .journal-shell::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 1.4rem;
+      right: 1.4rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--terracotta), var(--sage), transparent);
+      opacity: 0.72;
+    }
+
+    .journal-shell::after {
+      content: "";
+      position: absolute;
+      right: -3rem;
+      bottom: -4rem;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(197, 163, 86, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .journal-shell blockquote {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+      max-width: 18ch;
+      color: var(--text);
+    }
+
+    .about-card,
+    .split-card,
+    .retreat-price,
+    .story-card,
+    .legal-card {
+      padding: clamp(1.4rem, 2vw, 2rem);
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    body[data-theme="dark"] .about-card,
+    body[data-theme="dark"] .split-card,
+    body[data-theme="dark"] .retreat-price,
+    body[data-theme="dark"] .story-card,
+    body[data-theme="dark"] .legal-card {
+      background: rgba(38, 32, 27, 0.9);
+    }
+
+    .about-card p + p,
+    .story-card p + p {
+      margin-top: 1rem;
+    }
+
+    .split-card {
+      display: grid;
+      gap: 1rem;
+      min-height: 100%;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .split-card strong,
+    .retreat-price strong {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    .split-card h3,
+    .retreat-price h3,
+    .service-group h3,
+    .team-card h3,
+    .itinerary-card h3,
+    .detail-card h3,
+    .contact-card h3,
+    .quote-card h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .split-card p,
+    .retreat-price p,
+    .detail-card p,
+    .contact-card p,
+    .team-card p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .split-card ul,
+    .service-list,
+    .inclusion-list,
+    .detail-list,
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .split-card li,
+    .service-list li,
+    .inclusion-list li,
+    .detail-list li,
+    .contact-list li {
+      position: relative;
+      padding-left: 1.05rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .split-card li::before,
+    .service-list li::before,
+    .inclusion-list li::before,
+    .detail-list li::before,
+    .contact-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage) 0%, var(--terracotta) 100%);
+    }
+
+    .quote-grid,
+    .work-grid,
+    .service-grid,
+    .team-grid,
+    .detail-grid,
+    .contact-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .quote-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .work-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .team-grid,
+    .detail-grid,
+    .contact-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .quote-card,
+    .work-card,
+    .service-card,
+    .team-card,
+    .detail-card,
+    .itinerary-card,
+    .contact-card,
+    .form-shell {
+      padding: 1.45rem;
+    }
+
+    .quote-card {
+      display: grid;
+      gap: 1rem;
+      min-height: 100%;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .quote-card blockquote {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1.12;
+      color: var(--text);
+    }
+
+    .quote-card cite {
+      color: var(--muted);
+      font-style: normal;
+      font-size: 0.9rem;
+    }
+
+    .work-card {
+      overflow: hidden;
+      position: relative;
+      min-height: 100%;
+      display: grid;
+      gap: 0.8rem;
+      transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+    }
+
+    .work-card::after,
+    .gallery-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0 58%, rgba(255, 255, 255, 0.22) 100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 240ms ease;
+    }
+
+    .work-card:hover,
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      border-color: color-mix(in srgb, var(--sage) 36%, var(--border));
+      box-shadow: 0 24px 52px rgba(36, 28, 19, 0.095);
+    }
+
+    .work-card:hover::after,
+    .gallery-card:hover::after {
+      opacity: 1;
+    }
+
+    .work-visual {
+      border-radius: calc(var(--radius-lg) - 10px);
+      overflow: hidden;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 60%, white 40%), var(--surface-strong));
+      border: 1px solid var(--border);
+      aspect-ratio: 4 / 5;
+    }
+
+    .work-visual svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 520ms ease;
+    }
+
+    .work-card:hover .work-visual svg,
+    .gallery-card:hover .gallery-visual svg {
+      transform: scale(1.035);
+    }
+
+    .work-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: baseline;
+    }
+
+    .work-meta strong {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .work-meta span,
+    .service-price,
+    .team-role {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .service-section,
+    .gallery-section,
+    .retreat-section {
+      display: grid;
+      gap: var(--space-12);
+    }
+
+    .service-group {
+      display: grid;
+      gap: 1rem;
+      padding: 1.6rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    body[data-theme="dark"] .service-group {
+      background: rgba(38, 32, 27, 0.9);
+    }
+
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+    }
+
+    .service-header small {
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .page-intro {
+      display: grid;
+      gap: 1rem;
+      max-width: 60rem;
+    }
+
+    .retreat-hero-card,
+    .retreat-visual,
+    .map-shell {
+      overflow: hidden;
+    }
+
+    .retreat-visual svg,
+    .map-shell svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .retreat-hero-card {
+      padding: 0;
+      min-height: 540px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .retreat-hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(118deg, transparent 0 42%, rgba(255, 255, 255, 0.16) 52%, transparent 62%);
+      transform: translateX(-30%);
+      animation: slowSheen 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .retreat-price {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .price-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: baseline;
+    }
+
+    .price-line strong {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 0.95;
+      color: var(--text);
+      letter-spacing: 0;
+    }
+
+    .price-line span {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .itinerary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .itinerary-card small {
+      color: var(--terracotta);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .itinerary-card {
+      display: grid;
+      gap: 0.9rem;
+      min-height: 100%;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .itinerary-card p {
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .retreat-value-grid {
+      align-items: start;
+    }
+
+    .retreat-fact {
+      display: grid;
+      gap: 0.65rem;
+      min-height: 100%;
+    }
+
+    .inclusion-panel {
+      display: grid;
+      gap: 1.2rem;
+      padding: 1.8rem;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      padding: 1.25rem 1.35rem;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .faq-item[open] {
+      border-color: color-mix(in srgb, var(--sage) 42%, var(--border));
+      box-shadow: 0 18px 38px rgba(43, 31, 20, 0.08);
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--text);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      flex-shrink: 0;
+      color: var(--terracotta);
+      font-size: 1.1rem;
+      transition: transform 180ms ease;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding-top: 0.95rem;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .filter-btn {
+      min-height: 40px;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    body[data-theme="dark"] .filter-btn {
+      background: rgba(38, 32, 27, 0.9);
+    }
+
+    .filter-btn.is-active,
+    .filter-btn:hover,
+    .filter-btn:focus-visible {
+      background: var(--sage);
+      color: #f8f4ee;
+      border-color: var(--sage);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .gallery-card {
+      position: relative;
+      display: grid;
+      gap: 0.9rem;
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 220ms ease, opacity 180ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .gallery-card[hidden] {
+      display: none;
+    }
+
+    .gallery-visual {
+      border-radius: calc(var(--radius-lg) - 10px);
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), var(--surface-strong));
+    }
+
+    .gallery-visual svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 520ms ease;
+    }
+
+    .gallery-card strong {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .gallery-card span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .map-shell {
+      aspect-ratio: 16 / 10;
+      min-height: 100%;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 1rem;
+      min-height: 100%;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .form-shell {
+      display: grid;
+      gap: 1.2rem;
+      transition: border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .form-shell:focus-within {
+      border-color: color-mix(in srgb, var(--sage) 48%, var(--border));
+      box-shadow: 0 22px 52px rgba(36, 28, 19, 0.09);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .field label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      min-height: 50px;
+      padding: 0.85rem 0.95rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--text);
+      transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      outline: none;
+      border-color: var(--sage);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--sage) 18%, transparent);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    body[data-theme="dark"] .field input,
+    body[data-theme="dark"] .field textarea,
+    body[data-theme="dark"] .field select {
+      background: rgba(49, 41, 34, 0.9);
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .fine-note {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 0 0 6rem;
+    }
+
+    .footer-shell {
+      display: grid;
+      gap: 1.4rem;
+      padding: 1.6rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    body[data-theme="dark"] .footer-shell {
+      background: rgba(38, 32, 27, 0.9);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem 1.2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .legal-copy {
+      display: grid;
+      gap: 0.6rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    .mobile-sticky-cta {
+      display: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 480ms ease, transform 480ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 80ms;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 160ms;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 240ms;
+    }
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slowSheen {
+      0%,
+      38% {
+        transform: translateX(-42%);
+        opacity: 0;
+      }
+
+      54% {
+        opacity: 0.78;
+      }
+
+      72%,
+      100% {
+        transform: translateX(42%);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .split-grid,
+      .salon-layout,
+      .contact-layout,
+      .retreat-hero-grid,
+      .retreat-value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-grid,
+      .work-grid,
+      .gallery-grid,
+      .detail-grid,
+      .contact-grid,
+      .stat-band,
+      .editorial-band,
+      .retreat-band,
+      .editorial-band.four-up,
+      .retreat-band.four-up {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .team-grid,
+      .itinerary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .topbar-inner,
+      .header-shell {
+        gap: 0.8rem;
+      }
+
+      .nav-list,
+      .header-actions .btn {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        inset: 92px 1rem auto 1rem;
+        display: grid;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 24px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        transform: translateY(-16px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+        z-index: 18;
+      }
+
+      body[data-nav-open="true"] .mobile-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .mobile-menu nav {
+        display: grid;
+        gap: 0.6rem;
+      }
+
+      .mobile-menu a {
+        padding: 0.85rem 0.95rem;
+        border-radius: 14px;
+        background: color-mix(in srgb, var(--surface) 80%, white 20%);
+        border: 1px solid var(--border);
+      }
+
+      body[data-theme="dark"] .mobile-menu a {
+        background: color-mix(in srgb, var(--surface) 90%, black 10%);
+      }
+
+      .hero-grid,
+      .service-grid,
+      .quote-grid,
+      .work-grid,
+      .gallery-grid,
+      .contact-grid,
+      .detail-grid,
+      .stat-band,
+      .form-grid,
+      .editorial-band,
+      .retreat-band,
+      .editorial-band.four-up,
+      .retreat-band.four-up {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .site-header {
+        padding: 0.8rem 0;
+      }
+
+      .brand-title {
+        font-size: 1.65rem;
+      }
+
+      .brand-tagline {
+        display: none;
+      }
+
+      .page-section {
+        padding: 1.4rem 0 5.5rem;
+      }
+
+      .display-title {
+        font-size: clamp(2.75rem, 13vw, 4.4rem);
+      }
+
+      .section-title,
+      .page-title {
+        font-size: clamp(2.2rem, 12vw, 3.3rem);
+      }
+
+      .hero-actions,
+      .cta-row {
+        flex-direction: column;
+      }
+
+      .hero-visual img {
+        aspect-ratio: 1 / 1.15;
+      }
+
+      .mobile-sticky-cta {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 30;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 56px;
+        padding: 0.95rem 1rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--sage) 0%, var(--sage-deep) 100%);
+        color: #f8f4ee;
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        box-shadow: 0 18px 36px rgba(159, 121, 42, 0.24);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .page-section.is-active {
+        animation: none;
+      }
+
+      body::after,
+      .hero-visual::before,
+      .retreat-hero-card::after {
+        display: none;
+      }
+
+      .hero-visual {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <div class="site-topbar">
+    <div class="container topbar-inner">
+      <span>10102 Topanga Canyon Blvd, Chatsworth, CA 91311</span>
+      <span>Heritage salon + private desert retreat</span>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-shell">
+      <a class="brand" href="#home" aria-label="Amal' Salon home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 6C10.8 6 7 9.8 7 15.1C7 20.5 10.9 24.4 16.1 24.4C19.7 24.4 22.5 22.8 24.4 20.1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M10.8 25.6L16.4 8.5L22.1 25.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.9 14.4C24.7 14.6 27 16.2 27 19C27 22.4 23.5 24.8 18.7 24.8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-wordmark">
+          <span class="brand-title">Amal' Salon</span>
+          <span class="brand-tagline">A House of Hair Meets Home</span>
+        </span>
+      </a>
+
+      <div class="nav-shell">
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#home" data-route-link>Home</a></li>
+            <li><a href="#salon" data-route-link>Salon</a></li>
+            <li><a href="#retreat" data-route-link>The Retreat</a></li>
+            <li><a href="#work" data-route-link>Our Work</a></li>
+            <li><a href="#contact" data-route-link>Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3V5.5"/>
+              <path d="M12 18.5V21"/>
+              <path d="M3 12H5.5"/>
+              <path d="M18.5 12H21"/>
+              <path d="M5.6 5.6L7.3 7.3"/>
+              <path d="M16.7 16.7L18.4 18.4"/>
+              <path d="M16.7 7.3L18.4 5.6"/>
+              <path d="M5.6 18.4L7.3 16.7"/>
+              <circle cx="12" cy="12" r="4.2"/>
+            </svg>
+          </button>
+          <a class="btn btn-primary" href="#contact" id="headerPrimaryCta">Book Now</a>
+          <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-label="Open menu">
+            <span class="nav-toggle-line" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
+    <nav>
+      <a href="#home" data-route-link>Home</a>
+      <a href="#salon" data-route-link>Salon</a>
+      <a href="#retreat" data-route-link>The Retreat</a>
+      <a href="#work" data-route-link>Our Work</a>
+      <a href="#contact" data-route-link>Contact</a>
+    </nav>
+    <a class="btn btn-primary" href="#contact">Book Now</a>
+  </aside>
+
+  <main id="mainContent">
+    <section class="page-section" data-page="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">Premium hair house</p>
+          <h1 class="display-title reveal reveal-delay-1">A House of Hair Meets <em>Refinement</em></h1>
+          <p class="lead reveal reveal-delay-2">
+            Heritage hair care in Chatsworth and a private La Quinta retreat for clients who want
+            discretion, polish, and a beauty experience that feels considered from first call to final finish.
+          </p>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a class="btn btn-primary" href="#salon">Book at the Salon</a>
+            <a class="btn btn-terracotta" href="#retreat">Explore the Retreat</a>
+          </div>
+          <div class="chip-row reveal reveal-delay-3">
+            <span class="chip">Serving Chatsworth since 1985</span>
+            <span class="chip">Consultation-led hair care</span>
+            <span class="chip">Private La Quinta retreats</span>
+          </div>
+        </div>
+
+        <figure class="hero-visual reveal reveal-delay-1">
+          <img src="./amal-brand-art.jpeg" alt="Amal' Salon brand artwork" />
+          <figcaption class="hero-note">
+            Known locally as Amal's Salon, this is a beauty house shaped around discretion,
+            hospitality, and the quiet confidence of being personally cared for.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="container section-stack">
+        <div class="stat-band">
+          <article class="stat-item reveal">
+            <strong>1985</strong>
+            <span>Serving Chatsworth with continuity, community values, and a loyal client base.</span>
+          </article>
+
+          <article class="stat-item reveal reveal-delay-1">
+            <strong>2 worlds</strong>
+            <span>A heritage salon for ongoing care and a rare desert house experience.</span>
+          </article>
+
+          <article class="stat-item reveal reveal-delay-2">
+            <strong>$5,000</strong>
+            <span>The private La Quinta package with lodging, full hair services, and hosting.</span>
+          </article>
+
+          <article class="stat-item reveal reveal-delay-3">
+            <strong>~2 / mo</strong>
+            <span>Retreat availability stays intentionally limited to protect quality and privacy.</span>
+          </article>
+        </div>
+
+        <div class="about-card reveal">
+          <p class="eyebrow">About Amal'</p>
+          <h2 class="section-title">A private-feeling salon with a standard built over <em>decades</em>.</h2>
+          <p class="section-copy">
+            Amal has spent decades building trust one appointment at a time. Her work is direct,
+            personal, and precise: beautiful hair, honest guidance, and a level of familiarity that
+            cannot be manufactured.
+          </p>
+        </div>
+
+        <div class="editorial-band">
+          <article class="editorial-card reveal">
+            <span>The House Standard</span>
+            <h3>Quiet polish before performance.</h3>
+            <p>
+              The experience is designed to feel composed, gracious, and personal without becoming cold.
+            </p>
+          </article>
+
+          <article class="editorial-card reveal reveal-delay-1">
+            <span>The Work</span>
+            <h3>Hair that holds its value.</h3>
+            <p>
+              The best result is not only beautiful on day one. It is wearable, maintained, and true to the client.
+            </p>
+          </article>
+
+          <article class="editorial-card reveal reveal-delay-2">
+            <span>The Feeling</span>
+            <h3>Luxury with relationship.</h3>
+            <p>
+              The premium quality comes from attention, discretion, and the trust of being known.
+            </p>
+          </article>
+        </div>
+
+        <div class="split-grid">
+          <article class="split-card reveal">
+            <strong>The Chatsworth Salon</strong>
+            <h3>Heritage salon service, elevated by judgment.</h3>
+            <p>
+              The everyday expression of the brand: cuts, color, treatments, scalp care,
+              extensions, and styling guided by consultation and long-term hair health.
+            </p>
+            <ul>
+              <li>10102 Topanga Canyon Blvd, Chatsworth, CA 91311</li>
+              <li>Consultation-led service with direct, experienced guidance</li>
+              <li>For maintenance, reinvention, and polished everyday presentation</li>
+            </ul>
+          </article>
+
+          <article class="split-card reveal reveal-delay-1">
+            <strong>The La Quinta Retreat</strong>
+            <h3>The private flagship.</h3>
+            <p>
+              A private 2 to 3 day hair retreat at Amal's personal La Quinta home with a built-in
+              salon suite, residential hospitality, and a complete transformation designed around one client.
+            </p>
+            <ul>
+              <li>Private lodging in a residential setting</li>
+              <li>All hair services, meals, content, and aftercare included</li>
+              <li>For brides, creators, executives, and discreet full resets</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="journal-shell reveal">
+          <p class="eyebrow">From Amal's world</p>
+          <blockquote>
+            "Beauty should never feel rushed. It should be honest, intentional, and cared for."
+          </blockquote>
+          <p>
+            That is the through-line of the brand: Chatsworth offers the rhythm of trusted repeat
+            care, while La Quinta gives that same philosophy the privacy and pace of a full retreat.
+          </p>
+        </article>
+
+        <div class="quote-grid">
+          <article class="quote-card reveal">
+            <h3>What clients notice</h3>
+            <blockquote>"The experience feels personal, polished, and completely unrushed."</blockquote>
+            <cite>Attention that feels rare</cite>
+          </article>
+
+          <article class="quote-card reveal reveal-delay-1">
+            <h3>Why they return</h3>
+            <blockquote>"The hair is beautiful, but the trust is what makes it irreplaceable."</blockquote>
+            <cite>Relationship over transaction</cite>
+          </article>
+
+          <article class="quote-card reveal reveal-delay-2">
+            <h3>What sets it apart</h3>
+            <blockquote>"It feels elevated without feeling staged. Calm, private, and real."</blockquote>
+            <cite>Premium care without pretense</cite>
+          </article>
+        </div>
+
+        <div class="page-copy reveal">
+          <p class="eyebrow">Our Work</p>
+          <h2 class="section-title">Color, texture, shape, and <em>finish</em>.</h2>
+          <p class="section-copy">
+            The work is built around refinement: dimensional color, healthy texture, flattering shape,
+            and finish that photographs beautifully without losing the person underneath.
+          </p>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <div class="work-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Warm brunette transformation illustration">
+                <rect width="320" height="400" fill="#efe5d8"/>
+                <path d="M84 115C84 75 114 44 160 44C209 44 238 80 238 128C238 183 204 239 204 294H116C116 241 84 190 84 115Z" fill="#5b3a2d"/>
+                <path d="M115 290C132 246 188 246 205 290V356H115V290Z" fill="#d9b96a"/>
+                <path d="M132 108C132 86 145 73 163 73C184 73 196 87 196 107C196 125 187 144 163 153C140 145 132 126 132 108Z" fill="#f0d9c3"/>
+                <path d="M95 153C118 190 143 204 163 204C185 204 211 188 227 160" stroke="#8a7968" stroke-width="8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="work-meta">
+              <strong>Dimensional Brunette</strong>
+              <span>Color</span>
+            </div>
+          </article>
+
+          <article class="work-card reveal reveal-delay-1">
+            <div class="work-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Soft blonde styling illustration">
+                <rect width="320" height="400" fill="#f4ecdf"/>
+                <path d="M77 140C77 73 124 42 164 42C215 42 248 85 248 149C248 208 219 268 199 332H110C95 260 77 213 77 140Z" fill="#c7a97d"/>
+                <circle cx="164" cy="127" r="40" fill="#f4dbc4"/>
+                <path d="M103 287C136 263 186 262 223 286" stroke="#c5a356" stroke-width="8" stroke-linecap="round"/>
+                <path d="M116 316H210" stroke="#d9b96a" stroke-width="10" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="work-meta">
+              <strong>Soft Blonde Finish</strong>
+              <span>Cut + Style</span>
+            </div>
+          </article>
+
+          <article class="work-card reveal reveal-delay-2">
+            <div class="work-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Textured curl definition illustration">
+                <rect width="320" height="400" fill="#ede3d6"/>
+                <path d="M88 103C88 69 115 44 159 44C206 44 234 71 234 117C234 162 218 193 218 232C218 286 197 332 160 332C123 332 102 285 102 231C102 195 88 153 88 103Z" fill="#433126"/>
+                <path d="M126 114C126 94 142 82 160 82C180 82 194 98 194 118C194 141 180 154 160 162C142 155 126 138 126 114Z" fill="#f0d7bf"/>
+                <path d="M102 246C123 278 140 289 161 289C182 289 200 278 221 246" stroke="#c5a356" stroke-width="10" stroke-linecap="round"/>
+                <path d="M92 215C111 236 123 240 138 240" stroke="#433126" stroke-width="12" stroke-linecap="round"/>
+                <path d="M182 240C199 240 210 236 228 214" stroke="#433126" stroke-width="12" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="work-meta">
+              <strong>Defined Texture Reset</strong>
+              <span>Texture / Curl</span>
+            </div>
+          </article>
+
+          <article class="work-card reveal reveal-delay-3">
+            <div class="work-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retreat transformation illustration">
+                <rect width="320" height="400" fill="#f6efe3"/>
+                <rect x="52" y="86" width="216" height="230" rx="28" fill="#c5a356"/>
+                <rect x="72" y="106" width="176" height="190" rx="20" fill="#efe4d5"/>
+                <path d="M116 153C116 117 139 97 160 97C184 97 206 120 206 154C206 177 194 193 160 224C129 193 116 177 116 153Z" fill="#d9b96a"/>
+                <path d="M102 315H219" stroke="#241c13" stroke-width="10" stroke-linecap="round"/>
+                <circle cx="110" cy="66" r="15" fill="#d7cab6"/>
+                <circle cx="210" cy="66" r="15" fill="#d7cab6"/>
+              </svg>
+            </div>
+            <div class="work-meta">
+              <strong>Desert House Story</strong>
+              <span>Retreat Work</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" data-page="salon">
+      <div class="container salon-layout">
+        <div class="page-copy reveal">
+          <p class="eyebrow">Chatsworth Salon</p>
+          <h1 class="page-title">Premium salon care with <em>heritage</em>.</h1>
+          <p>
+            The Chatsworth salon is the day-to-day house of the brand: polished, familiar,
+            consultation-led, and grounded in a community Amal has served since 1985.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://www.amalhairsalon.com/" target="_blank" rel="noreferrer">Book at the Salon</a>
+            <a class="btn btn-secondary" href="https://maps.google.com/?q=10102+Topanga+Canyon+Blvd+Chatsworth+CA+91311" target="_blank" rel="noreferrer">Get Directions</a>
+          </div>
+        </div>
+
+        <div class="map-shell reveal reveal-delay-1" aria-hidden="true">
+          <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated map block for Chatsworth salon">
+            <rect width="640" height="400" fill="#efe6da"/>
+            <path d="M0 115H640" stroke="#d7cab6" stroke-width="22"/>
+            <path d="M0 260H640" stroke="#d7cab6" stroke-width="18"/>
+            <path d="M145 0V400" stroke="#dfd3c4" stroke-width="18"/>
+            <path d="M360 0V400" stroke="#dfd3c4" stroke-width="24"/>
+            <path d="M520 0V400" stroke="#dfd3c4" stroke-width="14"/>
+            <rect x="245" y="145" width="150" height="110" rx="28" fill="#c5a356"/>
+            <rect x="264" y="164" width="112" height="72" rx="20" fill="#ffffff"/>
+            <circle cx="320" cy="138" r="22" fill="#d9b96a"/>
+            <path d="M320 107C308 107 298 117 298 129C298 149 320 171 320 171C320 171 342 149 342 129C342 117 332 107 320 107Z" fill="#d9b96a"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="container section-stack">
+        <div class="page-intro reveal">
+          <p class="eyebrow">Services</p>
+          <h2 class="section-title">Cuts, color, care, and refined <em>finish</em>.</h2>
+          <p class="section-copy">
+            Each service is shaped by hair history, density, condition, lifestyle, and the level of
+            upkeep the client wants to sustain.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-group reveal">
+            <div class="service-header">
+              <div>
+                <small>Cut + Style</small>
+                <h3>Precision shaping</h3>
+              </div>
+              <span class="service-price">From $95</span>
+            </div>
+            <ul class="service-list">
+              <li>Women's cut, shape, and finish</li>
+              <li>Men's cut and refined grooming</li>
+              <li>Blowouts and occasion-ready finishing</li>
+            </ul>
+          </article>
+
+          <article class="service-group reveal reveal-delay-1">
+            <div class="service-header">
+              <div>
+                <small>Color</small>
+                <h3>Dimensional color strategy</h3>
+              </div>
+              <span class="service-price">From $210</span>
+            </div>
+            <ul class="service-list">
+              <li>Single-process color and root maintenance</li>
+              <li>Highlights, gloss, and custom tonal refinement</li>
+              <li>Corrective work planned by consultation</li>
+            </ul>
+          </article>
+
+          <article class="service-group reveal">
+            <div class="service-header">
+              <div>
+                <small>Treatments</small>
+                <h3>Restorative hair care</h3>
+              </div>
+              <span class="service-price">From $65</span>
+            </div>
+            <ul class="service-list">
+              <li>Repair masks and conditioning rituals</li>
+              <li>Scalp care and hydration support</li>
+              <li>Texture, softness, and long-term maintenance plans</li>
+            </ul>
+          </article>
+
+          <article class="service-group reveal reveal-delay-1">
+            <div class="service-header">
+              <div>
+                <small>Length + Event</small>
+                <h3>Extensions and event styling</h3>
+              </div>
+              <span class="service-price">By consultation</span>
+            </div>
+            <ul class="service-list">
+              <li>Extensions tailored to density and goals</li>
+              <li>Bridal, event, and content-day styling</li>
+              <li>Best priced after consultation and hair assessment</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="page-intro reveal">
+          <p class="eyebrow">Meet the Team</p>
+          <h2 class="section-title">Small team, high-touch <em>service</em>.</h2>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card reveal">
+            <h3>Amal</h3>
+            <p class="team-role">Owner, stylist, host</p>
+            <p>
+              Known for direct guidance, strong instincts, and the rare ability to make a client
+              feel calm, understood, and beautifully directed.
+            </p>
+          </article>
+
+          <article class="team-card reveal reveal-delay-1">
+            <h3>Nora</h3>
+            <p class="team-role">Salon support and guest care</p>
+            <p>
+              Helps maintain the welcoming rhythm that makes the salon feel attentive, organized,
+              and personal.
+            </p>
+          </article>
+
+          <article class="team-card reveal reveal-delay-2">
+            <h3>The Salon Experience</h3>
+            <p class="team-role">Consultation-led service</p>
+            <p>
+              Every appointment is shaped around hair history, condition, lifestyle, and the
+              client's own pace of maintenance and change.
+            </p>
+          </article>
+        </div>
+
+        <div class="editorial-band">
+          <article class="editorial-card reveal">
+            <span>Why locals stay</span>
+            <h3>Consistency with memory.</h3>
+            <p>
+              Clients return because the room remembers them, their hair, and the standard they expect.
+            </p>
+          </article>
+
+          <article class="editorial-card reveal reveal-delay-1">
+            <span>How Amal works</span>
+            <h3>Direct, attentive, exact.</h3>
+            <p>
+              The guidance is clear and loving, which is part of why the room feels so trustworthy.
+            </p>
+          </article>
+
+          <article class="editorial-card reveal reveal-delay-2">
+            <span>What matters most</span>
+            <h3>Condition, shape, fit.</h3>
+            <p>
+              The best result is not just dramatic. It is something the client can truly carry well.
+            </p>
+          </article>
+        </div>
+
+        <div class="detail-grid">
+          <article class="detail-card reveal">
+            <h3>Visit</h3>
+            <ul class="detail-list">
+              <li>10102 Topanga Canyon Blvd, Chatsworth, CA 91311</li>
+              <li>Phone: (818) 341-8865</li>
+              <li>Email: amalhair@aol.com</li>
+            </ul>
+          </article>
+
+          <article class="detail-card reveal reveal-delay-1">
+            <h3>Hours</h3>
+            <ul class="detail-list">
+              <li>Tuesday to Friday: 8:00 AM - 5:00 PM</li>
+              <li>Saturday: 9:00 AM - 3:00 PM</li>
+              <li>Sunday and Monday: Closed</li>
+            </ul>
+          </article>
+
+          <article class="detail-card reveal reveal-delay-2">
+            <h3>Perks</h3>
+            <ul class="detail-list">
+              <li>Free consultation</li>
+              <li>Family-owned and female-owned</li>
+              <li>Venmo accepted</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" data-page="retreat">
+      <div class="container retreat-section">
+        <div class="retreat-hero-grid">
+          <div class="page-copy reveal">
+            <p class="eyebrow">La Quinta Desert House Experience</p>
+            <h1 class="page-title">The Desert House <em>Experience</em>.</h1>
+            <p>
+              A private 2 to 3 day hair retreat at Amal's personal La Quinta home with a built-in
+              salon. It is residential hospitality, full-service hair work, privacy, rest, and
+              detailed beauty planning in one rare package.
+            </p>
+            <div class="retreat-price">
+              <strong>The Desert House Experience</strong>
+              <div class="price-line">
+                <strong>$5,000</strong>
+                <span>private 1-on-1 residential retreat package</span>
+              </div>
+              <p>
+                Intentionally limited to preserve privacy, pacing, and the standard of attention
+                that makes the experience worth traveling for.
+              </p>
+              <div class="cta-row">
+                <a class="btn btn-terracotta" href="#contact">Reserve Your Dates</a>
+                <a class="btn btn-secondary" href="#contact">Ask a Question</a>
+              </div>
+            </div>
+          </div>
+
+          <figure class="retreat-hero-card reveal reveal-delay-1" aria-hidden="true">
+            <div class="retreat-visual">
+              <svg viewBox="0 0 720 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Golden-hour desert house illustration">
+                <defs>
+                  <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#f4d7b2"/>
+                    <stop offset="55%" stop-color="#d8c08a"/>
+                    <stop offset="100%" stop-color="#b99749"/>
+                  </linearGradient>
+                  <linearGradient id="pool" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#e4d4b2"/>
+                    <stop offset="100%" stop-color="#c5a356"/>
+                  </linearGradient>
+                </defs>
+                <rect width="720" height="720" fill="url(#sky)"/>
+                <rect y="460" width="720" height="260" fill="#b9a47f"/>
+                <rect x="138" y="280" width="444" height="212" rx="20" fill="#f1e0cb"/>
+                <rect x="168" y="246" width="162" height="280" rx="24" fill="#efe4cf"/>
+                <rect x="370" y="246" width="182" height="246" rx="24" fill="#f4eadb"/>
+                <rect x="210" y="342" width="78" height="110" rx="14" fill="#c5a356"/>
+                <rect x="408" y="324" width="114" height="98" rx="16" fill="#8b7d66"/>
+                <rect x="126" y="520" width="468" height="96" rx="38" fill="url(#pool)"/>
+                <rect x="102" y="600" width="520" height="32" rx="16" fill="#d9c18c"/>
+                <circle cx="102" cy="188" r="48" fill="#f4efe7" opacity="0.38"/>
+                <circle cx="610" cy="132" r="62" fill="#f5ead8" opacity="0.24"/>
+                <path d="M62 520C98 476 127 443 151 395" stroke="#9f792a" stroke-width="14" stroke-linecap="round"/>
+                <path d="M88 514C76 470 71 432 75 378" stroke="#9f792a" stroke-width="12" stroke-linecap="round"/>
+                <path d="M642 515C618 469 594 429 571 396" stroke="#9f792a" stroke-width="14" stroke-linecap="round"/>
+                <path d="M614 517C622 471 625 428 620 375" stroke="#9f792a" stroke-width="12" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </figure>
+        </div>
+
+        <div class="page-intro reveal">
+          <p class="eyebrow">Three-day rhythm</p>
+          <h2 class="section-title">A private retreat shaped around <em>consultation, transformation, and aftercare</em>.</h2>
+        </div>
+
+        <div class="retreat-band four-up">
+          <article class="retreat-fact reveal">
+            <span>Format</span>
+            <strong>Private 1-on-1</strong>
+            <p>One client, or one approved duo, is hosted during each retreat window.</p>
+          </article>
+
+          <article class="retreat-fact reveal reveal-delay-1">
+            <span>Setting</span>
+            <strong>Private residence</strong>
+            <p>A personal La Quinta environment with a salon suite built into the home.</p>
+          </article>
+
+          <article class="retreat-fact reveal reveal-delay-2">
+            <span>Pacing</span>
+            <strong>2 to 3 days</strong>
+            <p>Enough time for hair assessment, service work, rest, content, and care planning.</p>
+          </article>
+
+          <article class="retreat-fact reveal reveal-delay-3">
+            <span>Availability</span>
+            <strong>Limited monthly</strong>
+            <p>The limited calendar protects quality, discretion, and the intimacy of the experience.</p>
+          </article>
+        </div>
+
+        <div class="itinerary-grid">
+          <article class="itinerary-card reveal">
+            <small>Day 1</small>
+            <h3>Arrival and private consultation</h3>
+            <p>
+              Settle in, review hair history and goals, assess condition, align the full plan,
+              and begin the retreat with privacy and calm.
+            </p>
+          </article>
+
+          <article class="itinerary-card reveal reveal-delay-1">
+            <small>Day 2</small>
+            <h3>Full-service transformation</h3>
+            <p>
+              Color, cut, treatment, blowout, styling, and the focused hands-on work that turns
+              the retreat into a complete reset.
+            </p>
+          </article>
+
+          <article class="itinerary-card reveal reveal-delay-2">
+            <small>Day 3</small>
+            <h3>Finish, document, and depart</h3>
+            <p>
+              Refine the final look, walk through styling techniques, capture content if desired,
+              review the care plan, and leave with a polished result.
+            </p>
+          </article>
+        </div>
+
+        <div class="retreat-value-grid">
+          <article class="form-shell reveal">
+            <p class="eyebrow">What the package includes</p>
+            <h2 class="section-title">A complete private hair <em>residency</em>.</h2>
+            <ul class="inclusion-list">
+              <li>Private lodging at Amal's La Quinta home for the full retreat</li>
+              <li>All hair services: color, cut, treatment, blowout, and styling</li>
+              <li>Welcome gift bag with professional products</li>
+              <li>Breakfast, lunch, and curated snacks throughout the retreat</li>
+              <li>Personal content and before/after photo session</li>
+              <li>Custom hair care plan to take home</li>
+              <li>One follow-up virtual consultation within 30 days</li>
+            </ul>
+          </article>
+
+          <article class="form-shell reveal reveal-delay-1">
+            <p class="eyebrow">Who it serves best</p>
+            <h2 class="section-title">For clients whose moment requires more than an <em>appointment</em>.</h2>
+            <ul class="inclusion-list">
+              <li>Brides and pre-wedding transformations</li>
+              <li>Creators and personal brand clients</li>
+              <li>Executives and professionals who value discretion</li>
+              <li>Women or men seeking a complete hair reset</li>
+              <li>Partners, families, or corporate gift purchasers</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="editorial-band">
+          <article class="editorial-card reveal">
+            <span>Why it matters</span>
+            <h3>Time elevates the result.</h3>
+            <p>
+              The retreat allows consultation, processing, rest, and finishing without the compression of a normal salon day.
+            </p>
+          </article>
+
+          <article class="editorial-card reveal reveal-delay-1">
+            <span>What feels rare</span>
+            <h3>One client, one focus.</h3>
+            <p>
+              There is no splitting attention, no rotation of chairs, and no loss of intimacy once the work begins.
+            </p>
+          </article>
+
+          <article class="editorial-card reveal reveal-delay-2">
+            <span>What lasts</span>
+            <h3>Beyond the reveal.</h3>
+            <p>
+              The package ends with a take-home care plan and a follow-up consultation so the transformation holds.
+            </p>
+          </article>
+        </div>
+
+        <div class="page-intro reveal">
+          <p class="eyebrow">Retreat FAQ</p>
+          <h2 class="section-title">Important details, clearly <em>handled</em>.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal" open>
+            <summary>Who is this experience designed for?</summary>
+            <div class="faq-answer">
+              Brides and pre-wedding transformations, creators and personal brand clients,
+              executives and professionals who value discretion, women or men seeking a complete
+              hair reset, and thoughtful gift purchasers.
+            </div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>What is the cancellation policy?</summary>
+            <div class="faq-answer">
+              A 50% non-refundable deposit is required to reserve dates. The remaining 50% is due
+              7 days prior to arrival. Cancellations within 72 hours of arrival forfeit the full
+              amount. Rescheduling is permitted once with 14 or more days notice.
+            </div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-2">
+            <summary>What does private lodging mean?</summary>
+            <div class="faq-answer">
+              Clients stay in Amal's private La Quinta home, not a hotel. It is a personal,
+              home-like environment with a fully equipped salon suite inside the residence.
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>How many clients per retreat?</summary>
+            <div class="faq-answer">
+              This is a 1-on-1 experience. Maximum one client or one duo, such as mother/daughter
+              or bride and maid of honor, per retreat. Duo pricing is available upon request.
+            </div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>Is travel included?</summary>
+            <div class="faq-answer">
+              Travel to and from La Quinta is the client's responsibility. Palm Springs
+              International Airport is roughly 20 minutes away, and car service referrals are
+              available on request.
+            </div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-2">
+            <summary>What if I have a severe allergy or scalp condition?</summary>
+            <div class="faq-answer">
+              A pre-retreat intake form is required. Active scalp conditions, known severe chemical
+              allergies, and recent chemical treatments must be disclosed in advance. Services may
+              be modified based on hair health.
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Can I bring a guest?</summary>
+            <div class="faq-answer">
+              One non-participating guest may accompany the client. Additional guests are not
+              permitted during active service hours, though one guest may join for meals or
+              evenings.
+            </div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>What hair types do you specialize in?</summary>
+            <div class="faq-answer">
+              Amal specializes in textured, curly, wavy, and color-treated hair. The retreat is
+              especially strong for hair types 2B through 4C, with techniques adapted to condition
+              and texture.
+            </div>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-2">
+            <summary>Is this experience confidential?</summary>
+            <div class="faq-answer">
+              Yes. Amal' Salon does not share client photos, names, or content without explicit
+              written consent. A confidentiality agreement can be provided upon request.
+            </div>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>When should I book?</summary>
+            <div class="faq-answer">
+              Retreats are limited to roughly two per month. Booking 4 to 8 weeks in advance is
+              recommended, especially during bridal and fall/winter seasons.
+            </div>
+          </details>
+        </div>
+
+        <div class="form-shell reveal">
+          <p class="eyebrow">Retreat inquiry</p>
+          <h2 class="section-title">Begin the private <em>inquiry</em>.</h2>
+          <form id="retreatForm" data-email-form data-subject="La Quinta Retreat Inquiry">
+            <div class="form-grid">
+              <div class="field">
+                <label for="retreat-name">Name</label>
+                <input id="retreat-name" name="name" type="text" required />
+              </div>
+              <div class="field">
+                <label for="retreat-email">Email</label>
+                <input id="retreat-email" name="email" type="email" required />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="retreat-phone">Phone</label>
+                <input id="retreat-phone" name="phone" type="tel" />
+              </div>
+              <div class="field">
+                <label for="retreat-hear">How did you hear about us?</label>
+                <input id="retreat-hear" name="hear" type="text" />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="field">
+                <label for="retreat-date-one">Preferred dates - option 1</label>
+                <input id="retreat-date-one" name="date_one" type="text" placeholder="Month / dates" />
+              </div>
+              <div class="field">
+                <label for="retreat-date-two">Preferred dates - option 2</label>
+                <input id="retreat-date-two" name="date_two" type="text" placeholder="Alternate option" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="retreat-goals">Hair type and goals</label>
+              <textarea id="retreat-goals" name="goals" placeholder="Share your hair type, current condition, desired result, and anything Amal should understand before advising." required></textarea>
+            </div>
+            <div class="field">
+              <label for="retreat-notes">Special requests or notes</label>
+              <textarea id="retreat-notes" name="notes" placeholder="Travel needs, guest questions, timing requests, allergy notes, or anything else."></textarea>
+            </div>
+            <div class="cta-row">
+              <button class="btn btn-terracotta" type="submit">Reserve Your Dates</button>
+            </div>
+            <p class="fine-note">
+              By submitting an inquiry, you begin Amal' Salon's intake process for the private
+              residential retreat experience.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" data-page="work">
+      <div class="container gallery-section">
+        <div class="page-intro reveal">
+          <p class="eyebrow">Our Work</p>
+          <h1 class="page-title">A portfolio of color, shape, texture, and <em>finish</em>.</h1>
+          <p class="section-copy">
+            Explore the categories behind the house standard: dimensional color, sculpted cuts,
+            texture care, extensions, and retreat-level resets.
+          </p>
+        </div>
+
+        <div class="filter-row reveal" role="tablist" aria-label="Gallery filters">
+          <button class="filter-btn is-active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="color">Color</button>
+          <button class="filter-btn" type="button" data-filter="cut">Cut</button>
+          <button class="filter-btn" type="button" data-filter="texture">Texture / Curl</button>
+          <button class="filter-btn" type="button" data-filter="extensions">Extensions</button>
+          <button class="filter-btn" type="button" data-filter="retreat">Retreat Work</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <article class="gallery-card reveal" data-category="color">
+            <div class="gallery-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Honey beige highlight illustration">
+                <rect width="320" height="400" fill="#f0e6d8"/>
+                <path d="M78 112C78 73 108 42 156 42C214 42 243 86 243 141C243 218 195 248 195 324H121C121 253 78 211 78 112Z" fill="#c7a278"/>
+                <path d="M118 104C118 86 134 72 157 72C181 72 198 89 198 112C198 130 187 150 157 160C130 149 118 127 118 104Z" fill="#f4dcc6"/>
+                <path d="M118 294C131 266 186 266 202 294" stroke="#d9b96a" stroke-width="9" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <strong>Champagne Dimension</strong>
+            <span>Color</span>
+          </article>
+
+          <article class="gallery-card reveal reveal-delay-1" data-category="cut">
+            <div class="gallery-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Soft bob illustration">
+                <rect width="320" height="400" fill="#f4ebde"/>
+                <path d="M90 134C90 76 131 44 162 44C208 44 238 82 238 140C238 196 205 220 190 262H132C121 224 90 190 90 134Z" fill="#5b4131"/>
+                <circle cx="162" cy="134" r="42" fill="#f2d9c2"/>
+                <path d="M118 264H208" stroke="#c5a356" stroke-width="10" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <strong>Polished Shape</strong>
+            <span>Cut</span>
+          </article>
+
+          <article class="gallery-card reveal reveal-delay-2" data-category="texture">
+            <div class="gallery-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Curl definition illustration">
+                <rect width="320" height="400" fill="#eee5d8"/>
+                <path d="M86 116C86 70 121 44 160 44C205 44 236 74 236 128C236 184 219 222 206 275C198 309 184 332 160 332C135 332 122 309 114 274C102 225 86 175 86 116Z" fill="#3f2e26"/>
+                <circle cx="160" cy="126" r="40" fill="#efd5bd"/>
+                <path d="M108 224C126 250 143 259 160 259C178 259 196 249 213 224" stroke="#c5a356" stroke-width="9" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <strong>Texture Refinement</strong>
+            <span>Texture / Curl</span>
+          </article>
+
+          <article class="gallery-card reveal" data-category="extensions">
+            <div class="gallery-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Long extension transformation illustration">
+                <rect width="320" height="400" fill="#f1e7da"/>
+                <path d="M94 103C94 71 120 44 158 44C210 44 236 77 236 125C236 207 212 279 212 352H108C108 283 94 194 94 103Z" fill="#60362b"/>
+                <circle cx="160" cy="116" r="38" fill="#f2d9c3"/>
+                <path d="M110 328C126 316 146 310 160 310C177 310 197 316 211 328" stroke="#d9b96a" stroke-width="9" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <strong>Luxury Length</strong>
+            <span>Extensions</span>
+          </article>
+
+          <article class="gallery-card reveal reveal-delay-1" data-category="retreat">
+            <div class="gallery-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retreat result illustration">
+                <rect width="320" height="400" fill="#efe4d7"/>
+                <rect x="56" y="52" width="208" height="296" rx="28" fill="#c5a356"/>
+                <rect x="76" y="72" width="168" height="256" rx="20" fill="#f4ecdf"/>
+                <path d="M118 128C118 102 138 84 160 84C183 84 202 102 202 128C202 145 192 165 160 190C129 165 118 145 118 128Z" fill="#d9b96a"/>
+                <path d="M102 286C122 266 143 258 160 258C180 258 199 266 220 286" stroke="#c5a356" stroke-width="8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <strong>Private Retreat Reset</strong>
+            <span>Retreat Work</span>
+          </article>
+
+          <article class="gallery-card reveal reveal-delay-2" data-category="color cut">
+            <div class="gallery-visual">
+              <svg viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gloss and movement illustration">
+                <rect width="320" height="400" fill="#f4ece1"/>
+                <path d="M82 126C82 78 117 44 161 44C212 44 241 84 241 141C241 196 204 234 192 282H124C113 230 82 185 82 126Z" fill="#7a4d38"/>
+                <circle cx="160" cy="128" r="41" fill="#f2d9c3"/>
+                <path d="M116 250C132 224 149 214 160 214C174 214 188 223 206 250" stroke="#d9b96a" stroke-width="10" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <strong>Glossed Movement</strong>
+            <span>Color + Cut</span>
+          </article>
+        </div>
+
+        <div class="about-card reveal">
+          <h2 class="section-title">Ready for a more considered <em>result</em>?</h2>
+          <p class="section-copy">
+            Whether it begins in Chatsworth or unfolds in La Quinta, Amal' Salon is built for
+            clients who want beauty handled with discretion, taste, and experienced judgment.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Book Now</a>
+            <a class="btn btn-secondary" href="#retreat">View the Retreat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" data-page="contact">
+      <div class="container contact-layout">
+        <div class="page-copy reveal">
+          <p class="eyebrow">Contact and Book</p>
+          <h1 class="page-title">Choose the salon or request the <em>retreat</em>.</h1>
+          <p>
+            Book Chatsworth for ongoing hair care. Inquire privately for La Quinta when the moment
+            calls for more time, privacy, and hospitality.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card reveal">
+            <h3>Chatsworth booking</h3>
+            <ul class="contact-list">
+              <li>Call (818) 341-8865</li>
+              <li>10102 Topanga Canyon Blvd, Chatsworth, CA 91311</li>
+              <li>Tuesday to Friday 8:00 AM - 5:00 PM</li>
+              <li>Saturday 9:00 AM - 3:00 PM</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://www.amalhairsalon.com/" target="_blank" rel="noreferrer">Book at the Salon</a>
+            </div>
+          </article>
+
+          <article class="contact-card reveal reveal-delay-1">
+            <h3>Private retreat inquiry</h3>
+            <ul class="contact-list">
+              <li>Private 2 to 3 day La Quinta hair retreat</li>
+              <li>$5,000 package</li>
+              <li>Approximately two openings per month</li>
+              <li>Duo pricing available on request</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn-terracotta" href="#retreat">View the Retreat</a>
+            </div>
+          </article>
+
+          <article class="contact-card reveal reveal-delay-2">
+            <h3>House contact</h3>
+            <ul class="contact-list">
+              <li>Email: amalhair@aol.com</li>
+              <li>Website: amalhairsalon.com</li>
+              <li>Client sharing available by consent</li>
+              <li>Confidentiality requests welcomed</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="container section-stack">
+        <div class="contact-layout">
+          <div class="form-shell reveal">
+            <p class="eyebrow">Salon inquiry</p>
+            <h2 class="section-title">Begin with the Chatsworth <em>salon</em>.</h2>
+            <form id="salonForm" data-email-form data-subject="Chatsworth Salon Inquiry">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="salon-name">Name</label>
+                  <input id="salon-name" name="name" type="text" required />
+                </div>
+                <div class="field">
+                  <label for="salon-email">Email</label>
+                  <input id="salon-email" name="email" type="email" required />
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="salon-phone">Phone</label>
+                  <input id="salon-phone" name="phone" type="tel" />
+                </div>
+                <div class="field">
+                  <label for="salon-service">Service</label>
+                  <select id="salon-service" name="service">
+                    <option>Haircut</option>
+                    <option>Color</option>
+                    <option>Treatment</option>
+                    <option>Blowout / Styling</option>
+                    <option>Extensions</option>
+                    <option>Consultation</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="salon-notes">What would you like Amal to know?</label>
+                <textarea id="salon-notes" name="notes" placeholder="Hair goals, history, timing, preferred days, or any important details." required></textarea>
+              </div>
+              <div class="cta-row">
+                <button class="btn btn-primary" type="submit">Send Salon Inquiry</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="form-shell reveal reveal-delay-1">
+            <p class="eyebrow">Retreat contact</p>
+            <h2 class="section-title">Or request the La Quinta <em>residency</em>.</h2>
+            <form id="contactRetreatForm" data-email-form data-subject="Retreat Contact Inquiry">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="contact-retreat-name">Name</label>
+                  <input id="contact-retreat-name" name="name" type="text" required />
+                </div>
+                <div class="field">
+                  <label for="contact-retreat-email">Email</label>
+                  <input id="contact-retreat-email" name="email" type="email" required />
+                </div>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="contact-retreat-phone">Phone</label>
+                  <input id="contact-retreat-phone" name="phone" type="tel" />
+                </div>
+                <div class="field">
+                  <label for="contact-retreat-timing">Preferred timing</label>
+                  <input id="contact-retreat-timing" name="timing" type="text" placeholder="Month / season / event timeline" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="contact-retreat-notes">What would make this retreat valuable?</label>
+                <textarea id="contact-retreat-notes" name="notes" placeholder="Bridal transformation, personal reset, content creation, confidential retreat, or another meaningful moment." required></textarea>
+              </div>
+              <div class="cta-row">
+                <button class="btn btn-terracotta" type="submit">Inquire About the Retreat</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-shell">
+      <div class="footer-links">
+        <a href="#home" data-route-link>Home</a>
+        <a href="#salon" data-route-link>Salon</a>
+        <a href="#retreat" data-route-link>The Retreat</a>
+        <a href="#work" data-route-link>Our Work</a>
+        <a href="#contact" data-route-link>Contact</a>
+      </div>
+      <div class="footer-socials">
+        <a href="tel:+18183418865">Call</a>
+        <a href="mailto:amalhair@aol.com">Email</a>
+        <a href="https://www.amalhairsalon.com/" target="_blank" rel="noreferrer">Website</a>
+      </div>
+      <div class="legal-copy">
+        <p>Results may vary based on hair condition, history, and type.</p>
+        <p>Retreat services are non-refundable per cancellation policy.</p>
+        <p>Amal' Salon is a private residential salon experience in California. By submitting an inquiry, you agree to our intake process.</p>
+        <p>Privacy notice: your contact information is used only to respond to your inquiry.</p>
+        <p>&copy; 2026 Amal' Salon. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="mobile-sticky-cta" id="mobileStickyCta" href="#contact">Book Now</a>
+
+  <script>
+    const body = document.body;
+    const header = document.getElementById("siteHeader");
+    const themeToggle = document.getElementById("themeToggle");
+    const headerPrimaryCta = document.getElementById("headerPrimaryCta");
+    const navToggle = document.getElementById("navToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const routeLinks = Array.from(document.querySelectorAll("[data-route-link]"));
+    const pages = Array.from(document.querySelectorAll("[data-page]"));
+    const revealItems = Array.from(document.querySelectorAll(".reveal"));
+    const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+    const galleryCards = Array.from(document.querySelectorAll(".gallery-card"));
+    const motionAllowed = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const stickyCta = document.getElementById("mobileStickyCta");
+    const forms = Array.from(document.querySelectorAll("[data-email-form]"));
+    const pageTitle = document.getElementById("pageTitle");
+    const pageDescription = document.getElementById("pageDescription");
+    const ogTitle = document.getElementById("ogTitle");
+    const ogDescription = document.getElementById("ogDescription");
+    const twitterTitle = document.getElementById("twitterTitle");
+    const twitterDescription = document.getElementById("twitterDescription");
+    const themeColorMeta = document.getElementById("themeColorMeta");
+
+    const routeNames = new Set(["home", "salon", "retreat", "work", "contact"]);
+    const routeMeta = {
+      home: {
+        title: "Amal' Salon | Premium Hair House",
+        description: "Heritage hair care in Chatsworth and a private La Quinta retreat for clients who value discretion, polish, and high-touch beauty."
+      },
+      salon: {
+        title: "Chatsworth Heritage Salon | Amal' Salon",
+        description: "Premium consultation-led hair care in Chatsworth with cuts, color, treatments, extensions, and refined finishing."
+      },
+      retreat: {
+        title: "The Desert House Residency | Amal' Salon",
+        description: "A private 2 to 3 day La Quinta hair residency with lodging, full-service hair care, hospitality, privacy, and aftercare."
+      },
+      work: {
+        title: "Portfolio | Amal' Salon",
+        description: "Explore Amal' Salon's portfolio across dimensional color, sculpted cuts, texture care, extensions, and retreat-level resets."
+      },
+      contact: {
+        title: "Book or Inquire | Amal' Salon",
+        description: "Book the Chatsworth salon or request a private inquiry for the La Quinta Desert House Residency."
+      }
+    };
+
+    const closeMenu = () => {
+      body.dataset.navOpen = "false";
+      if (navToggle) {
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    };
+
+    const setHeaderState = () => {
+      if (!header) return;
+      header.classList.toggle("is-scrolled", window.scrollY > 14);
+    };
+
+    const getRoute = () => {
+      const hash = window.location.hash.replace("#", "").trim();
+      return routeNames.has(hash) ? hash : "home";
+    };
+
+    const updateStickyCta = (route) => {
+      if (!stickyCta) return;
+      if (route === "retreat") {
+        stickyCta.textContent = "Request the Retreat";
+        stickyCta.href = "#contact";
+      } else if (route === "salon") {
+        stickyCta.textContent = "Book the Salon";
+        stickyCta.href = "#contact";
+      } else {
+        stickyCta.textContent = "Begin Inquiry";
+        stickyCta.href = "#contact";
+      }
+    };
+
+    const updateHeaderCta = (route) => {
+      if (!headerPrimaryCta) return;
+      if (route === "retreat") {
+        headerPrimaryCta.textContent = "Request Retreat";
+        headerPrimaryCta.href = "#contact";
+      } else if (route === "salon") {
+        headerPrimaryCta.textContent = "Book the Salon";
+        headerPrimaryCta.href = "https://www.amalhairsalon.com/";
+        headerPrimaryCta.target = "_blank";
+        headerPrimaryCta.rel = "noreferrer";
+        return;
+      } else if (route === "work") {
+        headerPrimaryCta.textContent = "See the Retreat";
+        headerPrimaryCta.href = "#retreat";
+      } else {
+        headerPrimaryCta.textContent = "Begin Inquiry";
+        headerPrimaryCta.href = "#contact";
+      }
+      headerPrimaryCta.removeAttribute("target");
+      headerPrimaryCta.removeAttribute("rel");
+    };
+
+    const updateMeta = (route) => {
+      const meta = routeMeta[route] || routeMeta.home;
+      if (pageTitle) pageTitle.textContent = meta.title;
+      if (pageDescription) pageDescription.setAttribute("content", meta.description);
+      if (ogTitle) ogTitle.setAttribute("content", meta.title);
+      if (ogDescription) ogDescription.setAttribute("content", meta.description);
+      if (twitterTitle) twitterTitle.setAttribute("content", meta.title);
+      if (twitterDescription) twitterDescription.setAttribute("content", meta.description);
+      if (themeColorMeta) {
+        themeColorMeta.setAttribute("content", body.dataset.theme === "dark" ? "#15130f" : "#ffffff");
+      }
+    };
+
+    const setActiveRoute = () => {
+      const route = getRoute();
+      pages.forEach((page) => {
+        const isActive = page.dataset.page === route;
+        page.classList.toggle("is-active", isActive);
+      });
+
+      routeLinks.forEach((link) => {
+        const target = link.getAttribute("href").replace("#", "");
+        link.classList.toggle("is-active", target === route);
+      });
+
+      closeMenu();
+      updateHeaderCta(route);
+      updateStickyCta(route);
+      updateMeta(route);
+      window.scrollTo(0, 0);
+    };
+
+    const savedTheme = window.localStorage.getItem("amal-theme");
+    if (savedTheme === "dark" || savedTheme === "light") {
+      body.dataset.theme = savedTheme;
+    }
+
+    const setThemeIcon = () => {
+      if (!themeToggle) return;
+      const isDark = body.dataset.theme === "dark";
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      themeToggle.innerHTML = isDark
+        ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>`
+        : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3V5.5"/><path d="M12 18.5V21"/><path d="M3 12H5.5"/><path d="M18.5 12H21"/><path d="M5.6 5.6L7.3 7.3"/><path d="M16.7 16.7L18.4 18.4"/><path d="M16.7 7.3L18.4 5.6"/><path d="M5.6 18.4L7.3 16.7"/><circle cx="12" cy="12" r="4.2"/></svg>`;
+    };
+
+    setThemeIcon();
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        const next = body.dataset.theme === "dark" ? "light" : "dark";
+        body.dataset.theme = next;
+        window.localStorage.setItem("amal-theme", next);
+        setThemeIcon();
+        updateMeta(getRoute());
+      });
+    }
+
+    if (navToggle) {
+      navToggle.addEventListener("click", () => {
+        const open = body.dataset.navOpen === "true";
+        body.dataset.navOpen = open ? "false" : "true";
+        navToggle.setAttribute("aria-expanded", open ? "false" : "true");
+      });
+    }
+
+    routeLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMenu();
+      });
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener("hashchange", setActiveRoute);
+    setActiveRoute();
+    setHeaderState();
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+
+    if (motionAllowed) {
+      window.addEventListener(
+        "pointermove",
+        (event) => {
+          const x = Math.round((event.clientX / window.innerWidth) * 100);
+          const y = Math.round((event.clientY / window.innerHeight) * 100);
+          body.style.setProperty("--mx", `${x}%`);
+          body.style.setProperty("--my", `${y}%`);
+          body.style.setProperty("--mx-num", x);
+          body.style.setProperty("--my-num", y);
+        },
+        { passive: true }
+      );
+    }
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.16, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const value = button.dataset.filter;
+        filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+        galleryCards.forEach((card) => {
+          const categories = card.dataset.category.split(" ");
+          const show = value === "all" || categories.includes(value);
+          card.hidden = !show;
+        });
+      });
+    });
+
+    forms.forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const subject = form.dataset.subject || "Amal' Salon Inquiry";
+        const lines = [];
+
+        Array.from(form.elements).forEach((element) => {
+          if (!element.name) return;
+          const label = form.querySelector(`label[for="${element.id}"]`);
+          const labelText = label ? label.textContent.trim() : element.name;
+          const value = data.get(element.name);
+          if (typeof value === "string" && value.trim()) {
+            lines.push(`${labelText}: ${value.trim()}`);
+          }
+        });
+
+        window.location.href = `mailto:amalhair@aol.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+      });
+    });
+  </script>
+</body>
+</html>

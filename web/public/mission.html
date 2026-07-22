@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Mission — Normalizing the Family Compound | Kareem Jamal</title>
+  <meta
+    name="description"
+    content="Kareem Jamal is an agent of families — helping Southern California households build family compounds: shared land and multigenerational homes that keep families close and compound wealth across generations."
+  />
+  <meta name="keywords" content="family compound, multigenerational living, generational wealth preservation, generational wealth creation, family land, ADU Southern California, Kareem Jamal Realtor, keeping wealth in the family" />
+  <meta name="theme-color" content="#0B1E3E" />
+
+  <meta property="og:title" content="Normalizing the Family Compound — Kareem Jamal" />
+  <meta property="og:description" content="An agent of families and generational wealth. Building family compounds across Southern California — shared land, multigenerational homes, and equity that stays in the family." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/mission" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90&auto=format&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Normalizing the Family Compound — Kareem Jamal" />
+  <meta name="twitter:description" content="An agent of families and generational wealth — building family compounds across Southern California." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90&auto=format&fit=crop" />
+  
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/mission" />
+  <link rel="icon" href="/assets/favicon-jamal.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/nav-unified.css" />
+  <script src="assets/nav-unified.js" defer></script>
+  
+  <style>
+    :root {
+      --navy: #0B1E3E;
+      --navy-deep: #0f1419;
+      --linen: #FAF5EE;
+      --gold: #C9A84C;
+      --terracotta: #0B1E3E;
+      --ink: #0B1E3E;
+      --muted: #40505F;
+      --panel: rgba(255, 252, 247, 0.95);
+      --shadow-lg: 0 20px 40px rgba(28,21,16,0.08);
+      --shadow-md: 0 10px 20px rgba(28,21,16,0.04);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --container: 1160px;
+      
+      --font-serif: "Fraunces", Georgia, serif;
+      --font-sans: "Inter", -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Text Selection ── */
+    ::selection {
+      background: rgba(184, 139, 82, 0.2);
+      color: var(--ink);
+    }
+
+
+    #cursor-dot {
+      position: fixed;
+      top: 0; left: 0;
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 60ms linear, width 200ms ease, height 200ms ease, opacity 200ms ease;
+    }
+
+    #cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(184, 139, 82, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 180ms cubic-bezier(0.2, 0, 0.2, 1), width 200ms ease, height 200ms ease, opacity 200ms ease, background 200ms ease, border-color 200ms ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cursor-text {
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 200ms ease;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    body:hover #cursor-dot { opacity: 1; }
+
+    a:hover ~ #cursor-ring,
+    button:hover ~ #cursor-ring,
+    select:hover ~ #cursor-ring,
+    option:hover ~ #cursor-ring,
+    input:hover ~ #cursor-ring,
+    textarea:hover ~ #cursor-ring {
+      width: 52px; height: 52px;
+      border-color: var(--gold);
+    }
+
+    /* ── Site Preloader ── */
+    .site-preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 800ms ease, visibility 800ms ease;
+    }
+    .preloader-logo {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      opacity: 0;
+      animation: preloader-fade 1.2s ease forwards;
+    }
+    .preloader-progress {
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      margin-top: 1.5rem;
+      animation: preloader-line 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+    }
+    body.is-loaded .site-preloader {
+      opacity: 0;
+      visibility: hidden;
+    }
+    @keyframes preloader-fade {
+      0%   { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes preloader-line {
+      0%   { width: 0; }
+      100% { width: 140px; }
+    }
+
+    /* ── Custom Scrollbar ── */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #FDFAF4; }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(184, 139, 82, 0.2);
+      border: 3px solid #FDFAF4;
+      border-radius: 10px;
+      transition: background 300ms ease;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+    /* ── Page-Enter Fade ── */
+    @keyframes page-enter {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    body.is-loaded main {
+      animation: page-enter 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(0, 113, 227, 0.05), transparent 28%),
+        radial-gradient(circle at 100% 10%, rgba(201, 133, 105, 0.04), transparent 24%),
+        linear-gradient(180deg, #FDFAF4 0%, #FAF5EE 46%, #FDFAF4 100%);
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    section[id] { scroll-margin-top: 110px; }
+    .container { width: min(var(--container), calc(100% - 2rem)); margin: 0 auto; }
+
+    /* ── Floating UX Overlay Components ── */
+    body.no-scroll { overflow: hidden; }
+    #scrollProgress { position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg, var(--gold),#E8C87A); z-index:100; transition:width 80ms linear; pointer-events:none; }
+    .float-call { position:fixed; bottom:2rem; right:2rem; z-index:90; display:flex; align-items:center; gap:0.65rem; padding:0.9rem 1.4rem; background:var(--navy); color:white; border-radius:999px; font-size:0.78rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; box-shadow:0 8px 28px rgba(40,55,70,0.35); transition:all 280ms cubic-bezier(0.2,0,0.2,1); opacity:0; transform:translateY(16px); pointer-events:none; }
+    .float-call.is-visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .float-call:hover { background:var(--gold); transform:translateY(-3px); }
+    .back-to-top { position:fixed; bottom:2rem; left:2rem; z-index:90; width:46px; height:46px; background:rgba(255,252,247,0.92); border:1px solid rgba(184, 139, 82, 0.2); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:1.1rem; box-shadow:0 8px 24px rgba(0,0,0,0.08); backdrop-filter:blur(12px); cursor:pointer; text-decoration:none; opacity:0; transform:translateY(12px); transition:all 280ms cubic-bezier(0.2,0,0.2,1); pointer-events:none; }
+    .back-to-top.is-visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .back-to-top:hover { background:var(--gold); color:white; transform:translateY(-3px); }
+    .mobile-cta-bar { display:none; position:fixed; bottom:0; left:0; right:0; z-index:85; background:rgba(255,252,247,0.97); backdrop-filter:blur(20px); border-top:1px solid rgba(184, 139, 82, 0.2); padding:1rem 1.25rem; gap:0.75rem; align-items:center; justify-content:space-between; box-shadow:0 -8px 28px rgba(0,0,0,0.06); transform:translateY(100%); transition:transform 320ms cubic-bezier(0.2,0,0.2,1); }
+    .mobile-cta-bar.is-visible { transform:translateY(0); }
+    .mobile-cta-bar p { font-size:0.82rem; font-weight:700; color:var(--muted); line-height:1.3; flex:1; }
+    .mobile-cta-bar p strong { display:block; color:var(--ink); font-size:0.9rem; }
+    @media (max-width: 768px) { .mobile-cta-bar { display:flex; } .float-call { display:none; } }
+
+    /* ── SCROLL REVEAL ── */
+    [data-reveal] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    body.has-motion [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+    body.has-motion [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+    /* ── HERO SECTION (Dark) ── */
+    .hero {
+      padding: 5rem 0;
+      padding-top: 3rem;
+    }
+    .hero-shell {
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(23, 26, 32, 0.94), rgba(0, 0, 0, 0.96)),
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=90&auto=format&fit=crop') center/cover no-repeat;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      color: #ffffff;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      padding: clamp(2rem, 5vw, 5.5rem) clamp(2rem, 4vw, 4rem);
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-copy { display: grid; gap: 1.5rem; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: currentColor;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .hero-title em {
+      font-style: normal;
+      font-weight: 400;
+      background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        var(--gold) 40%,
+        var(--gold) 60%,
+        #ffffff 100%
+      );
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: text-shimmer 4s linear infinite;
+    }
+    @keyframes text-shimmer {
+      100% { background-position: 200% center; }
+    }
+    .hero-text {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.1rem;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 1.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #C9A84C 0%, #2997ff 40%, #C9A84C 100%);
+      background-size: 200% auto;
+      color: white;
+      box-shadow: 0 4px 20px rgba(0, 113, 227, 0.35);
+      animation: btn-shimmer 3.5s linear infinite;
+    }
+    .btn-primary:hover { box-shadow: 0 8px 28px rgba(184, 139, 82, 0.5); transform: translateY(-2px); }
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.16); transform: translateY(-2px); }
+    
+    @keyframes btn-shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .hero-visual {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem 1.25rem;
+      text-align: center;
+    }
+    .hero-badge strong { display: block; font-size: 0.95rem; font-weight: 600; color: #ffffff; }
+    .hero-badge span { display: block; font-size: 0.72rem; color: var(--gold); margin-top: 0.35rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* ── EDITORIAL SECTION (Light) ── */
+    .section { padding: 7.5rem 0; }
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 5rem;
+      align-items: start;
+    }
+    .section-head { display: grid; gap: 1rem; }
+    .section-head h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    .editorial-content { display: grid; gap: 2rem; color: var(--muted); font-size: 1.1rem; line-height: 1.85; }
+    .editorial-content p strong { color: var(--ink); font-weight: 600; }
+    .editorial-quote {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      color: var(--gold);
+      line-height: 1.4;
+      border-left: 3px solid var(--gold);
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    /* ── THE JOURNEY MAP (Linen step layout) ── */
+    .journey-section { background: var(--linen); border-top: 1px solid rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+    .journey-header { text-align: center; max-width: 700px; margin: 0 auto 5rem; display: grid; gap: 1rem; }
+    .journey-header h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -0.02em; }
+    .journey-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; }
+    .journey-timeline::before {
+      content: "";
+      position: absolute;
+      top: 2rem; left: 10%; right: 10%;
+      height: 1px;
+      background: rgba(184, 139, 82, 0.2);
+      z-index: 1;
+    }
+    .journey-step {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      position: relative;
+      z-index: 2;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      gap: 1.25rem;
+      transition: transform 260ms ease, box-shadow 260ms ease;
+    }
+    .journey-step:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .step-num {
+      width: 4rem; height: 4rem;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      border: 1.5px dashed rgba(0, 113, 227, 0.35);
+      color: var(--gold);
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+    .journey-step h3 { font-family: var(--font-serif); font-size: 1.45rem; font-weight: 500; color: var(--ink); }
+    .journey-step p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+    .step-tag {
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; color: var(--gold); text-transform: uppercase;
+      padding: 0.35rem 0.75rem; background: var(--gold-soft); border-radius: 999px; width: fit-content;
+    }
+
+    /* ── CARD PROFILE GRID (Spotlight Effect) ── */
+    .profiles-section { padding: 8rem 0; }
+    .profiles-header { max-width: 650px; margin-bottom: 5rem; display: grid; gap: 1rem; }
+    .profiles-header h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -0.02em; }
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .grid-label {
+      grid-column: 1 / -1;
+      font-size: 0.78rem; font-weight: 800; letter-spacing: 0.22em; color: var(--muted); text-transform: uppercase;
+      margin-top: 1.5rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .grid-label::after { content: ""; flex: 1; height: 1px; background: rgba(0, 0, 0, 0.08); }
+    
+    .profile-card {
+      background: #ffffff;
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 2.5rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .profile-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(0, 113, 227, 0.12);
+    }
+    .profile-card > * { position: relative; z-index: 1; }
+    
+    /* Spotlight Hover Glow */
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 113, 227, 0.07),
+        transparent 40%
+      );
+      opacity: 0;
+      transition: opacity 300ms ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .profile-card:hover::before { opacity: 1; }
+
+    /* Alternate dark style for big investors */
+    .profile-card.dark {
+      background: var(--navy-deep);
+      border-color: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+    .profile-card.dark h3 { color: #ffffff; }
+    .profile-card.dark .profile-bullet::before { color: var(--gold); }
+    .profile-card.dark::before {
+      background: radial-gradient(
+        600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.12),
+        transparent 40%
+      );
+    }
+
+    .profile-icon { font-size: 2rem; }
+    .profile-card h3 { font-family: var(--font-serif); font-size: 1.55rem; font-weight: 500; color: var(--ink); }
+    .profile-summary { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+    .profile-card.dark .profile-summary { color: rgba(255, 255, 255, 0.65); }
+    .profile-bullets { display: grid; gap: 0.65rem; font-size: 0.84rem; color: var(--muted); }
+    .profile-card.dark .profile-bullets { color: rgba(255, 255, 255, 0.55); }
+    .profile-bullet { display: flex; align-items: flex-start; gap: 0.55rem; line-height: 1.5; }
+    .profile-bullet::before { content: "•"; color: var(--gold); font-weight: bold; }
+    
+    .profile-action-hint {
+      margin-top: auto; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.15em; color: var(--gold); text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+    }
+
+    /* ── INTERACTIVE CONNECT FORM ── */
+    .connect-section { background: var(--linen); border-top: 1px solid rgba(0, 0, 0, 0.05); }
+    .connect-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(350px, 0.9fr);
+      gap: 4rem;
+      align-items: start;
+    }
+    .connect-info { display: grid; gap: 1.5rem; }
+    .connect-info h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; letter-spacing: -0.02em; }
+    .connect-info p { color: var(--muted); font-size: 1.05rem; line-height: 1.8; }
+    .sms-lead-band {
+      margin-top: 1.5rem; padding: 1.25rem; background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-md); box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 1rem;
+    }
+    .sms-icon { width: 3rem; height: 3rem; border-radius: 50%; background: var(--gold-soft); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+    .sms-copy strong { display: block; font-size: 0.95rem; font-weight: 600; }
+    .sms-copy a { color: var(--gold); font-weight: 700; }
+
+    .lead-form {
+      background: #ffffff;
+      border: 1px solid rgba(46, 53, 60, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .form-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 500; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .field { display: grid; gap: 0.5rem; }
+    .field-full { grid-column: 1 / -1; }
+    .field label { color: var(--gold); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; }
+    .field input, .field select, .field textarea {
+      width: 100%; border: 1px solid rgba(0, 0, 0, 0.12); border-radius: 12px; background: rgba(255, 255, 255, 0.85);
+      color: var(--ink); padding: 0.95rem 1rem; outline: none; transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-color: var(--gold); box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12); background: white;
+    }
+
+    /* Dynamic context block styling */
+    .form-context-block {
+      background: var(--gold-soft); border-left: 3px solid var(--gold); padding: 1.25rem; border-radius: 0 10px 10px 0;
+      margin-top: 0.5rem; font-size: 0.88rem; line-height: 1.6; color: var(--ink);
+    }
+    .form-context-block strong { color: var(--gold); font-weight: 700; }
+
+    .form-status { min-height: 1.5rem; color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-top: 1rem; }
+    .form-status[data-state="error"] { color: #9b4537; }
+    .form-status[data-state="success"] { color: #356e57; }
+
+    /* ── FOOTER SECTION ── */
+    .site-footer {
+      background: #1c2630;
+      border-top: 1px solid rgba(184, 139, 82, 0.2);
+      padding: 4rem 0 2rem;
+      color: rgba(255, 252, 247, 0.55);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: start;
+      font-size: 0.88rem;
+    }
+    .footer-brand strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+      color: rgba(255, 252, 247, 0.94);
+      margin-bottom: 0.35rem;
+    }
+    .footer-brand p { line-height: 1.75; color: rgba(255, 252, 247, 0.42); font-size: 0.84rem; }
+    .footer-col h4 {
+      font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.2em;
+      color: var(--gold); margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+    .footer-col a { display: block; color: rgba(255, 252, 247, 0.48); line-height: 2.1; transition: color 180ms ease; }
+    .footer-col a:hover { color: rgba(255, 252, 247, 0.9); }
+    .footer-bottom {
+      margin-top: 2.5rem; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 252, 247, 0.07);
+      font-size: 0.78rem; color: rgba(255, 252, 247, 0.28);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    /* ── RESPONSIVE OVERRIDES ── */
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 2rem; }
+      .hero-visual { aspect-ratio: 16/9; max-height: 380px; }
+      .editorial-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .journey-timeline { grid-template-columns: 1fr; gap: 2rem; }
+      .journey-timeline::before { display: none; }
+      .profiles-grid { grid-template-columns: repeat(2, 1fr); }
+      .connect-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 640px) {
+      .profiles-grid { grid-template-columns: 1fr; }
+      .lead-form { padding: 2rem 1.5rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .section { padding: 4.5rem 0; }
+      .editorial-grid { gap: 2rem; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── Family Compound centerpiece ── */
+    .compound-head { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+    .compound-head h2 { margin-top: 0.5rem; }
+    .compound-head p { color: var(--muted); font-size: 1.08rem; line-height: 1.65; margin-top: 1rem; }
+    .compound-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .compound-pillar {
+      background: var(--panel);
+      border: 1px solid rgba(28, 21, 16, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 2.1rem 1.6rem;
+      box-shadow: var(--shadow-md);
+    }
+    .pillar-num { font-family: var(--font-serif); font-size: 1.7rem; color: var(--gold); font-weight: 600; margin-bottom: 0.55rem; }
+    .compound-pillar h3 { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.12; color: var(--ink); margin-bottom: 0.55rem; }
+    .compound-pillar p { color: var(--muted); font-size: 0.98rem; line-height: 1.6; }
+    .compound-statement { margin: 3rem auto 0; max-width: 780px; text-align: center; }
+    .compound-statement p { font-family: var(--font-serif); font-size: clamp(1.35rem, 2.5vw, 1.78rem); line-height: 1.4; color: var(--ink); margin-bottom: 1.6rem; }
+    .compound-statement strong { color: var(--gold); font-style: italic; font-weight: 600; }
+    @media (max-width: 900px) { .compound-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .compound-grid { grid-template-columns: 1fr; } }
+  
+    /* JAMAL primary logo mark */
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      border: 1px solid rgba(201, 168, 76, 0.35); border-radius: 8px;
+      background: #000; overflow: hidden; padding: 0;
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "name": "About Kareem Jamal — Mission & Values",
+      "url": "https://kareemjamaltherealtor.com/mission",
+      "description": "The mission and values of Kareem Jamal, a Southern California Realtor with Rodeo Realty Fine Estates focused on honest guidance, strong representation, and building generational wealth through real estate.",
+      "mainEntity": {
+        "@type": "RealEstateAgent",
+        "@id": "https://kareemjamaltherealtor.com/#agent",
+        "name": "Kareem Jamal",
+        "jobTitle": "Realtor",
+        "telephone": "+1-818-402-7326",
+        "email": "kjamal@rodeore.com",
+        "image": "https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot-2026-web.jpg",
+        "worksFor": { "@type": "Organization", "name": "Rodeo Realty Fine Estates" },
+        "sameAs": [
+          "https://www.instagram.com/kareemjamaltherealtor",
+          "https://www.linkedin.com/in/kareemjamaltherealtor/",
+          "https://www.facebook.com/kareemjamaltherealtor/"
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kareemjamaltherealtor.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Mission", "item": "https://kareemjamaltherealtor.com/mission" }
+      ]
+    }
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/polish.css">
+  <script src="/track.js" defer></script>
+  <script src="/contact-widget.js" defer></script>
+  <script src="/progressive-form.js" defer></script>
+  <link rel="stylesheet" href="/assets/kj-interactive.css" />
+</head>
+<body class="has-motion">
+  <!-- Preloader -->
+  <div class="site-preloader" aria-hidden="true">
+    <div class="preloader-logo">KJ</div>
+    <div class="preloader-progress"></div>
+  </div>
+
+
+  <div id="scrollProgress" aria-hidden="true"></div>
+  <a class="float-call" href="tel:+18184027326" id="floatCall" aria-label="Call Kareem Jamal">
+    <span style="margin-right:0.2rem"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> Call Kareem
+  </a>
+  <a class="back-to-top" href="#top" id="backToTop" aria-label="Back to top">↑</a>
+  
+  <div class="mobile-cta-bar" id="mobileCta">
+    <p><strong>Plan your compound?</strong>Let's map it together.</p>
+    <a class="btn btn-primary" href="#contact" style="min-height:44px; padding:0.75rem 1.1rem; font-size:0.72rem;">Connect Now</a>
+  </div>
+
+        <header class="site-header" id="siteHeader">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Kareem Jamal — Home">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/jamal-real-estate-logo.png" alt="" width="40" height="40" decoding="async" /></span>
+        <span class="brand-text">
+        <span class="brand-name">Kareem Jamal</span>
+        <span class="brand-sub">Rodeo Realty Fine Estates</span>`n        </span>`n      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/buyers">Buy</a>
+        <a href="/sellers">Sell</a>
+        <a href="/landlord-leasing">Landlords</a>
+        <a href="/real-estate-partnerships">Invest</a>
+        <a href="/house-hacking">House Hacking</a>
+        <a href="/mls-search">Search</a>
+        <a href="/free-reports">Free Reports</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Book a Call</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO SECTION (Dark Viewport) -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-grid">
+            <div class="hero-copy" data-reveal>
+              <span class="eyebrow">An Agent of Families</span>
+              <h1 class="hero-title">Bringing back the <em>family compound.</em></h1>
+              <p class="hero-text">
+                For most of history, families lived on shared land — generations within walking distance, equity that never left the bloodline. I help Southern California families make that normal again: building compounds that keep us close and compound wealth for the generations who haven't been born yet.
+              </p>
+              <div class="btn-row">
+                <a class="btn btn-primary" href="#contact">Start Your Family's Plan</a>
+                <a class="btn btn-secondary" href="#compound">Why a Compound?</a>
+              </div>
+            </div>
+            <div class="hero-visual" data-reveal style="--d:2">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=90&auto=format&fit=crop" alt="A multigenerational family estate at dusk" />
+              <div class="hero-badge">
+                <strong>Family · Land · Legacy</strong>
+                <span>Wealth that stays in the family</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NARRATIVE EDITORIAL (Light Columns) -->
+    <section class="section" id="philosophy">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="section-head" data-reveal>
+            <span class="eyebrow">The Thesis</span>
+            <h2>Why the family compound is the most powerful wealth engine a family will ever build.</h2>
+          </div>
+          <div class="editorial-content" data-reveal style="--d:2">
+            <p>
+              The modern American dream quietly sold us on isolation: everyone in their own house, on their own mortgage, scattered across cities — so every generation starts over from zero. It is the most expensive way a family has ever been asked to live.
+            </p>
+            <p>
+              It was not always like this. <strong>Family compounds</strong> — parents, children, and cousins on shared or adjacent land — are how most of the world has always built stability. Pooled resources, shared childcare and eldercare, and land that passes down instead of being sold off to a stranger.
+            </p>
+            <p>
+              I am not a transaction agent. I am an <em>agent of families</em>. My work is <strong>generational wealth preservation and creation</strong> — helping you acquire, structure, and hold property so it strengthens your family for decades, not just closes in thirty days.
+            </p>
+            <blockquote class="editorial-quote">
+              "When a family controls its land together, it stops renting its future from the market — and starts compounding it."
+            </blockquote>
+            <p>
+              The compound is not nostalgia. Done right, it is the single most resilient, tax-aware, and durable way for a normal family to build real wealth — and to make sure the next generation inherits a launchpad instead of a fresh mortgage.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAMILY COMPOUND CENTERPIECE -->
+    <section class="section compound-section" id="compound">
+      <div class="container">
+        <div class="compound-head" data-reveal>
+          <span class="eyebrow">The Goal</span>
+          <h2>Normalizing the family compound.</h2>
+          <p>A family compound is simple: two or more generations of one family, living on shared or adjacent property they own together — close enough to share life, structured so the equity stays in the family.</p>
+        </div>
+        <div class="compound-grid">
+          <article class="compound-pillar" data-reveal style="--d:1">
+            <div class="pillar-num">01</div>
+            <h3>Proximity, by design</h3>
+            <p>Adjacent lots, a main home with ADUs, a duplex, or a large-lot estate — structured so grandparents, parents, and kids live close without living on top of each other.</p>
+          </article>
+          <article class="compound-pillar" data-reveal style="--d:2">
+            <div class="pillar-num">02</div>
+            <h3>Pooled, not scattered</h3>
+            <p>A family pooling income qualifies for more, carries less risk per person, and shares childcare and eldercare in-house instead of paying strangers for both.</p>
+          </article>
+          <article class="compound-pillar" data-reveal style="--d:3">
+            <div class="pillar-num">03</div>
+            <h3>Equity that stays home</h3>
+            <p>Held in the right structure, the land passes down instead of being sold off — so the next generation inherits a launchpad, not a fresh thirty-year mortgage.</p>
+          </article>
+          <article class="compound-pillar" data-reveal style="--d:4">
+            <div class="pillar-num">04</div>
+            <h3>Wealth that compounds</h3>
+            <p>Appreciation, rental income from extra units, and tax advantages stack across decades — the quiet math that turns one smart purchase into family infrastructure.</p>
+          </article>
+        </div>
+        <div class="compound-statement" data-reveal>
+          <p>I am <strong>an agent of families</strong> — focused on generational wealth preservation and creation. Most agents close a sale. My job is to help your family buy the right land, in the right structure, and hold it together so it is still working for you forty years from now.</p>
+          <a class="btn btn-primary" href="#contact">Map your family's compound</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY MAP TIMELINE (Linen) -->
+    <section class="section journey-section" id="journey">
+      <div class="container">
+        <div class="journey-header" data-reveal>
+          <span class="eyebrow">The Path</span>
+          <h2>How a family builds a compound</h2>
+          <p style="color:var(--muted); font-size:1.05rem;">Three chapters designed to meet your family where it is today, build a real plan together, and acquire land you hold for generations.</p>
+        </div>
+
+        <div class="journey-timeline">
+          <article class="journey-step" data-reveal style="--d:1">
+            <div class="step-num">01</div>
+            <span class="step-tag">Vision &amp; Education</span>
+            <h3>See What's Possible</h3>
+            <p>No barriers, no pressure. We map what a compound could look like for your family — adjacent homes, an ADU plan, a multi-unit property — and the honest numbers behind each path.</p>
+          </article>
+
+          <article class="journey-step" data-reveal style="--d:2">
+            <div class="step-num">02</div>
+            <span class="step-tag">Assemble the Plan</span>
+            <h3>Align the Family</h3>
+            <p>The real work: who contributes, how you finance it together, the right property type — and a living trust that documents who gets which unit before anyone has to guess. <a href="/living-trust-guide" style="color:var(--gold);text-decoration:underline">Why I always recommend one &rarr;</a></p>
+          </article>
+
+          <article class="journey-step" data-reveal style="--d:3">
+            <div class="step-num">03</div>
+            <span class="step-tag">Acquire &amp; Compound</span>
+            <h3>Build for Generations</h3>
+            <p>Buy the land, add units or ADUs over time, and hold it together — so the asset keeps compounding and passes down instead of being sold off.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MULTI-PROFILE PARTNERSHIP GRID (Spotlight) -->
+    <section class="section" id="channels">
+      <div class="container">
+        <div class="profiles-header" data-reveal>
+          <span class="eyebrow">Every Role Counts</span>
+          <h2>A compound takes the whole family</h2>
+          <p style="color:var(--muted); font-size:1.05rem;">From a child learning how equity works to the partners who help fund and build it, everyone has a role in a family compound. Find where you start.</p>
+        </div>
+
+        <div class="profiles-grid">
+          
+          <!-- SMALL INVESTORS -->
+          <div class="grid-label">Starting Inside the Family</div>
+
+          <!-- KIDS -->
+          <article class="profile-card" data-reveal style="--d:1" data-segment="kids">
+            <div class="profile-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+            <h3>Kids & Young Teens</h3>
+            <p class="profile-summary">Building financial literacy early by translating real estate concepts into simple, pocket-money equity models.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Micro-savings ledgers & simple compound models</span>
+              <span class="profile-bullet">Learn how a property accrues value over time</span>
+              <span class="profile-bullet">Hands-on family workshops</span>
+            </div>
+            <span class="profile-action-hint">Explore Micro-Track →</span>
+          </article>
+
+          <!-- YOUNG ADULTS -->
+          <article class="profile-card" data-reveal style="--d:2" data-segment="young-adults">
+            <div class="profile-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></div>
+            <h3>Young Adults</h3>
+            <p class="profile-summary">For high school and college students looking to establish their credit and master their first residential acquisition.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">FHA loan hacks & credit repair blueprints</span>
+              <span class="profile-bullet">House-hacking tutorials (renting rooms)</span>
+              <span class="profile-bullet">Micro co-investment partnerships</span>
+            </div>
+            <span class="profile-action-hint">Launch Starter Track →</span>
+          </article>
+
+          <!-- SKEPTICAL ADULTS -->
+          <article class="profile-card" data-reveal style="--d:3" data-segment="skeptical">
+            <div class="profile-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <h3>Skeptical Adults</h3>
+            <p class="profile-summary">The zero-BS zone. If you are wary of the 'get-rich-quick' gurus, we invite you to inspect raw numbers, slow holding data, and free tools.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Free ISP negotiation scripts & AI resources</span>
+              <span class="profile-bullet">Raw historical portfolio metrics (cash-on-cash)</span>
+              <span class="profile-bullet">Slow, patient wealth-preservation philosophy</span>
+            </div>
+            <span class="profile-action-hint">Inspect Raw Data →</span>
+          </article>
+
+          <!-- BIG INVESTORS -->
+          <div class="grid-label">Partners Who Help Build It</div>
+
+          <!-- EQUITY PARTNERS -->
+          <article class="profile-card dark" data-reveal style="--d:1" data-segment="equity">
+            <div class="profile-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <h3>Equity Partners</h3>
+            <p class="profile-summary">High-net-worth individuals and passive capital seeking durable, patient real estate returns anchored in community value.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Curated co-ownership of premium rentals</span>
+              <span class="profile-bullet">Slow-compounding wealth focus</span>
+              <span class="profile-bullet">Direct partnership with Kareem Jamal</span>
+            </div>
+            <span class="profile-action-hint">Request Prospectus →</span>
+          </article>
+
+          <!-- TRADE LABOR -->
+          <article class="profile-card dark" data-reveal style="--d:2" data-segment="trade">
+            <div class="profile-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
+            <h3>Trade Skill Partners</h3>
+            <p class="profile-summary">Carpenters, plumbers, and electricians trading their physical craftsmanship directly for asset equity units in the properties they upgrade.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Sweat equity translated into co-ownership</span>
+              <span class="profile-bullet">Work with high-design, high-spec properties</span>
+              <span class="profile-bullet">Trade labor for permanent generational wealth</span>
+            </div>
+            <span class="profile-action-hint">Partner Craft →</span>
+          </article>
+
+          <!-- YOUNG PROFESSIONALS -->
+          <article class="profile-card dark" data-reveal style="--d:3" data-segment="professionals">
+            <div class="profile-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <h3>Young Professionals</h3>
+            <p class="profile-summary">High income, zero time. Tech workers and corporate professionals co-investing passively in curated SoCal properties without management headaches.</p>
+            <div class="profile-bullets">
+              <span class="profile-bullet">Hassle-free real estate exposure</span>
+              <span class="profile-bullet">Meticulous operations and project reports</span>
+              <span class="profile-bullet">Co-investing with institutional execution</span>
+            </div>
+            <span class="profile-action-hint">Join Co-Investment →</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CONTACT FORM -->
+    <section class="section connect-section" id="contact">
+      <div class="container">
+        <div class="connect-grid">
+          
+          <div class="connect-info" data-reveal>
+            <span class="eyebrow">Connect With Kareem</span>
+            <h2>Ready to plan your family's compound?</h2>
+            <p>
+              Whether you are dreaming years out, ready to buy adjacent lots, or figuring out how to keep the home that is already in the family — let's map a path that fits your people and your timeline.
+            </p>
+            <p>
+              No high-pressure sales pitches, no transactional urgency. Just patient, honest alignment — the way an agent of families should work.
+            </p>
+            
+            <div class="sms-lead-band">
+              <div class="sms-icon"><svg class="e-ic" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:-0.125em"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+              <div class="sms-copy">
+                <strong>Prefer text or a direct message?</strong>
+                <span>SMS Kareem directly at <a href="sms:+18184027326">+1 (818) 402-7326</a></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lead-form" data-reveal style="--d:2">
+            <h3 class="form-title" id="formTitle">Start Your Family's Plan</h3>
+            <form id="missionLeadForm" action="https://formspree.io/f/xnjlgvlk" method="POST">
+              <input type="hidden" name="_subject" value="New family-compound inquiry — Mission page" />
+              <input type="hidden" name="goal" value="Family Compound / Mission" />
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true" />
+              <div class="form-grid">
+                
+                <div class="field">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="Kareem" required />
+                </div>
+                
+                <div class="field">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Jamal" required />
+                </div>
+
+                <div class="field full field-full">
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                </div>
+
+                <div class="field full field-full">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="(818) 402-7326" />
+                </div>
+
+                <div class="field full field-full">
+                  <label for="investorProfile">Your Journey Profile</label>
+                  <select id="investorProfile" name="investorProfile" required>
+                    <option value="">Choose your starting format...</option>
+                    <option value="kids">🧸 Kid / Young Teen (Micro-allocations)</option>
+                    <option value="young-adults">🎓 Young Adult (starter hacks & credit-building)</option>
+                    <option value="skeptical">🔍 Skeptical Adult (Inspecting raw data / Free scripts)</option>
+                    <option value="equity">💼 Equity Partner (Passive long-term capital)</option>
+                    <option value="trade">🛠️ Trade Skill Specialist (Sweat-equity trade)</option>
+                    <option value="professionals">⚡ Young Professional (Tech / passive co-investment)</option>
+                  </select>
+                </div>
+
+                <!-- DYNAMIC CONTEXT BLOCK (Populated by JS) -->
+                <div class="field full field-full" id="dynamicContext" style="display:none;">
+                  <div class="form-context-block" id="dynamicContextText">
+                    <!-- Dynamic Text Appears Here -->
+                  </div>
+                </div>
+
+                <div class="field full field-full">
+                  <label for="customMessage" id="messageLabel">Message</label>
+                  <textarea id="customMessage" name="message" placeholder="Tell us a little bit about what you want to learn, grow, or trade..."></textarea>
+                </div>
+
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%; margin-top:1.5rem;" id="submitBtn">Send My Path</button>
+              <div class="form-status" id="formStatus"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+      <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="footer-brand-name">Kareem Jamal</span>
+          <p>Southern California Real Estate Strategy &amp; Generational Wealth Preservation. Serving Woodland Hills, Calabasas, Hidden Hills, Encino, West Hills, and the San Fernando Valley.</p>
+          <span class="dre">Rodeo Realty Fine Estates · CA DRE #01998956</span>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="/">Home</a>
+          <a href="/buyers">Buyers</a>
+          <a href="/sellers">Sellers</a>
+          <a href="/seller-presentation">Listing Strategy</a>
+          <a href="/buyer-presentation">Buyer Strategy</a>
+          <a href="/landlord-leasing">Landlord Representation</a>
+          <a href="/real-estate-partnerships">Co-Investing Partnerships</a>
+          <a href="/family-wealth-preservation">Family Wealth Lens</a>
+          <a href="/mls-search">Home Search</a>
+          <a href="/mission">Our Mission</a>
+        </div>
+        <div class="footer-col">
+          <h4>Communities</h4>
+          <a href="/woodland-hills">Woodland Hills</a>
+          <a href="/calabasas">Calabasas</a>
+          <a href="/hidden-hills">Hidden Hills</a>
+          <a href="/encino">Encino</a>
+          <a href="/west-hills">West Hills</a>
+          <a href="/91311">Chatsworth</a>
+          <a href="/93063">Simi Valley</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+18184027326">(818) 402-7326</a>
+          <a href="mailto:kjamal@rodeore.com">kjamal@rodeore.com</a>
+          <a href="https://www.zillow.com/profile/KareemJamal" target="_blank" rel="noopener">Zillow Profile</a>
+          <a href="https://www.rodeore.com/real-estate-agent/2094/kareem-jamal" target="_blank" rel="noopener">Rodeo Realty Profile</a>
+          <a href="/free-reports">Free Reports</a>
+          <a href="/wealth-tools">Wealth Tools</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Kareem Jamal | CA DRE #01998956</span>
+        <span>Rodeo Realty Fine Estates | Equal Housing Opportunity</span>
+      </div>
+    </div>
+
+    <!-- Social Strip -->
+    <div class="social-strip">
+      <div class="container social-strip-inner">
+        <span class="social-label">Connect with Kareem</span>
+        <div class="social-links">
+          <a href="https://www.instagram.com/kareemjamaltherealtor" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/kareemjamaltherealtor/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.facebook.com/kareemjamaltherealtor/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.zillow.com/profile/kareemjamal" target="_blank" rel="noopener" class="social-link" aria-label="Zillow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 9.5l1.5 1L12 5l8.5 5.5 1.5-1L12 2zM4 11v9h16v-9l-8 5-8-5z"/></svg>
+            Zillow
+          </a>
+          <a href="https://www.rodeore.com/real-estate-agent/2094/kareem-jamal" target="_blank" rel="noopener" class="social-link" aria-label="Rodeo Realty">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Rodeo Realty
+          </a>
+          <a href="https://g.page/r/kareemjamalrealtor/review" target="_blank" rel="noopener" class="social-link" aria-label="Google Reviews">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google Reviews
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── PRELOADER & MOTION ─────────────────────────────────────────
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.body.classList.add('is-loaded');
+      }, 700);
+    });
+
+    // ── SCROLL PROGRESS & OVERLAYS ─────────────────────────────────
+    const progress = document.getElementById('scrollProgress');
+    const floatCall = document.getElementById('floatCall');
+    const backToTop = document.getElementById('backToTop');
+    const mobileCta = document.getElementById('mobileCta');
+
+    window.addEventListener('scroll', () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = (window.scrollY / scrollHeight) * 100;
+      if (progress) progress.style.width = pct + '%';
+
+      const showOverlay = window.scrollY > 300;
+      floatCall?.classList.toggle('is-visible', showOverlay);
+      backToTop?.classList.toggle('is-visible', showOverlay);
+      mobileCta?.classList.toggle('is-visible', showOverlay);
+    }, { passive: true });
+
+    // ── SCROLL REVEAL ─────────────────────────────────────────────
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    // ── SPOTLIGHT MOUSE GLOW EFFECT ────────────────────────────────
+    const cards = document.querySelectorAll('.profile-card, .journey-step');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+
+    // ── DESKTOP CUSTOM CURSOR ──────────────────────────────────────
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    const cursorText = ring?.querySelector('.cursor-text');
+
+    if (dot && ring) {
+      window.addEventListener('mousemove', (e) => {
+        dot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+        ring.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      });
+
+      document.querySelectorAll('a, button, select, option, input, textarea').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          dot.style.width = '0px'; dot.style.height = '0px';
+          ring.style.width = '52px'; ring.style.height = '52px'; ring.style.background = 'rgba(0,113,227,0.06)';
+          if (cursorText && el.tagName === 'A' && el.getAttribute('href')?.startsWith('#')) {
+            cursorText.textContent = "GO"; cursorText.style.opacity = 1;
+          }
+        });
+        el.addEventListener('mouseleave', () => {
+          dot.style.width = '8px'; dot.style.height = '8px';
+          ring.style.width = '36px'; ring.style.height = '36px'; ring.style.background = 'transparent';
+          if (cursorText) { cursorText.textContent = ""; cursorText.style.opacity = 0; }
+        });
+      });
+    }
+
+    // ── PROFILE CARD CLICK TRIGGER ─────────────────────────────────
+    document.querySelectorAll('.profile-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const segment = card.getAttribute('data-segment');
+        const select = document.getElementById('investorProfile');
+        if (select && segment) {
+          select.value = segment;
+          select.dispatchEvent(new Event('change'));
+          document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ── DYNAMIC CONNECT FORM CONTEXTS ──────────────────────────────
+    const profileSelect = document.getElementById('investorProfile');
+    const dynamicBlock = document.getElementById('dynamicContext');
+    const dynamicText = document.getElementById('dynamicContextText');
+    const messageLabel = document.getElementById('messageLabel');
+    const customMessage = document.getElementById('customMessage');
+    const formTitle = document.getElementById('formTitle');
+
+    const profileData = {
+      "kids": {
+        title: "Micro-Savings Inquiry",
+        context: "<strong>Hey there!</strong> We love that you are thinking about compound savings early! Tell us what you want to learn about pocket-money investing, or ask how we can help your parents set up a micro-ledger for you.",
+        placeholder: "E.g., I'm 12, I save $5 a week, and I want to know how that buy units in a house one day...",
+        label: "What's your micro-savings plan or question?"
+      },
+      "young-adults": {
+        title: "Starter Track Application",
+        context: "<strong>Ready to launch?</strong> We will prioritize sending you our FHA House-Hacking blueprint, credit building guidelines, and local starter property opportunities. Let us know your career path and current timeline.",
+        placeholder: "E.g., I am in college, starting a job in tech next year, and want to know how to buy my first duplex in Woodland Hills...",
+        label: "Tell us about your credit-building or house-hacking goals"
+      },
+      "skeptical": {
+        title: "Data Integrity Request",
+        context: "<strong>Zero fluff.</strong> Ask for our exact cash-flow spreadsheets, historical appreciation charts, or direct results of the Spectrum/ISP scripts. No marketing pitches, just cold data.",
+        placeholder: "E.g., Please email the full financial breakdown of the 4-bedroom rental property model in Woodland Hills, plus the Spectrum PDF script...",
+        label: "What exact spreadsheets, data, or scripts would you like?"
+      },
+      "equity": {
+        title: "Equity Partnership Request",
+        context: "<strong>Strategic Co-Investing.</strong> Kareem Jamal will reach out directly to review active portfolio parameters, passive cash-flow distributions, and historical IRR results. Your capital stays focused on intentional SoCal community assets.",
+        placeholder: "E.g., Looking to allocate capital in Q3, please schedule a private alignment call and send the active portfolio prospectus...",
+        label: "Specify your capital timelines or investment preferences"
+      },
+      "trade": {
+        title: "Sweat Equity Craft Guild",
+        context: "<strong>Trade Labor for Real Wealth.</strong> Let's trade your valuable construction craftsmanship directly for real equity co-ownership units in our properties. Tell us about your specialized craft (carpentry, framing, electrical, plumbing) and your portfolio goals.",
+        placeholder: "E.g., I am a licensed electrician, looking to trade $15k of labor/installation on the next rental asset for co-ownership shares...",
+        label: "Describe your specialized craft and years of experience"
+      },
+      "professionals": {
+        title: "Young Professional Passive Channel",
+        context: "<strong>Passive High-Design Rentals.</strong> Curated for corporate or tech workers who want real estate exposure without operational or property management headaches. We will send you co-investment portfolios.",
+        placeholder: "E.g., I work in tech, have $30k disposable income to deploy passively, and want to learn about co-investing next to Kareem...",
+        label: "Tell us about your corporate/tech background and disposable capital goals"
+      }
+    };
+
+    profileSelect?.addEventListener('change', () => {
+      const val = profileSelect.value;
+      if (val && profileData[val]) {
+        const d = profileData[val];
+        formTitle.textContent = d.title;
+        dynamicText.innerHTML = d.context;
+        dynamicBlock.style.display = 'block';
+        messageLabel.textContent = d.label;
+        customMessage.placeholder = d.placeholder;
+      } else {
+        formTitle.textContent = "Start Your Family's Plan";
+        dynamicBlock.style.display = 'none';
+        messageLabel.textContent = "Message";
+        customMessage.placeholder = "Tell us a little bit about your family and what you'd like to build...";
+      }
+    });
+
+    // ── FORM SUBMISSION ────────────────────────────────────────────
+    const form = document.getElementById('missionLeadForm');
+    const status = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      status.textContent = '';
+      status.removeAttribute('data-state');
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          form.reset();
+          dynamicBlock.style.display = 'none';
+          formTitle.textContent = "Message Received!";
+          status.textContent = '✓ Your journey inquiry has been successfully sent. Kareem will reach out directly.';
+          status.setAttribute('data-state', 'success');
+          submitBtn.textContent = 'Sent Successfully';
+        } else {
+          status.textContent = '✗ Submission failed. Please try again or SMS Kareem directly.';
+          status.setAttribute('data-state', 'error');
+          submitBtn.textContent = 'Try Again';
+          submitBtn.disabled = false;
+        }
+      } catch (err) {
+        status.textContent = '✗ Connection error. Please try again or email kjamal@rodeore.com directly.';
+        status.setAttribute('data-state', 'error');
+        submitBtn.textContent = 'Try Again';
+        submitBtn.disabled = false;
+      }
+    });
+
+    // Phone Input Auto-Formatter
+    document.addEventListener('DOMContentLoaded', () => {
+      const phoneInput = document.getElementById('phone');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+          let input = e.target.value.replace(/\D/g, '');
+          const size = input.length;
+          if (size === 0) {
+            e.target.value = '';
+          } else if (size < 4) {
+            e.target.value = `(${input}`;
+          } else if (size < 7) {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3)}`;
+          } else {
+            e.target.value = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`;
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Scroll progress indicator (kj) -->
+  <div id="kjScrollBar" aria-hidden="true"></div>
+  <style>#kjScrollBar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#C9A84C,#E8C87A);z-index:9990;pointer-events:none;will-change:transform}
+    /* JAMAL primary logo mark */
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      border: 1px solid rgba(201, 168, 76, 0.35); border-radius: 8px;
+      background: #000; overflow: hidden; padding: 0;
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+  </style>
+  <script>(function(){var b=document.getElementById('kjScrollBar');if(!b)return;var t=false;function u(){t=false;var h=document.documentElement,m=(h.scrollHeight-h.clientHeight),y=window.pageYOffset||h.scrollTop||document.body.scrollTop||0;b.style.transform='scaleX('+(m>0?Math.min(y/m,1):0)+')';}function q(){if(!t){t=true;requestAnimationFrame(u);}}addEventListener('scroll',q,{passive:true});addEventListener('resize',q,{passive:true});u();})();</script>
+  <script src="/assets/kj-interactive.js" defer></script>
+</body>
+</html>

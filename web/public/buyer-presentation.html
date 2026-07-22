@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Home Search — A Guided Buyer Walkthrough | Kareem Jamal</title>
+  <meta name="description" content="A guided, interactive buyer walkthrough: see exactly how Kareem Jamal helps you find, finance, and win the right home — with a live monthly-payment and cash-to-close estimate built around your search." />
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/buyer-presentation" />
+  <link rel="icon" href="/assets/favicon-jamal.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Your Home Search — A Guided Buyer Walkthrough | Kareem Jamal" />
+  <meta property="og:description" content="See how Kareem helps you find, finance, and win the right home — with a live monthly-payment and cash-to-close estimate built around your search." />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/buyer-presentation" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/hero-buyers.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --navy: #40505f;
+      --navy-deep: #2f3c48;
+      --sand: #f3e8d7;
+      --sand-soft: #FAF5EE;
+      --linen: #FDFAF4;
+      --gold: #C9A84C;
+      --gold-deep: #B8893F;
+      --gold-soft: #f3e5c8;
+      --terracotta: #c98569;
+      --olive: #86927f;
+      --ink: #0B1E3E;
+      --muted: #40505F;
+      --line: rgba(46, 53, 60, 0.12);
+      --panel: rgba(255, 253, 250, 0.9);
+      --shadow-lg: 0 32px 80px rgba(76, 64, 48, 0.14);
+      --shadow-md: 0 14px 38px rgba(76, 64, 48, 0.1);
+      --shadow-sm: 0 6px 18px rgba(76, 64, 48, 0.08);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --container: 1080px;
+      --cream: #FAF5EE;
+      --cream-deep: #f0ead9;
+      --warm-dark: #0B1E3E;
+      --ok: #5a8a5e;
+      --header-h: 64px;
+      --ease-lux: cubic-bezier(0.2, 0.7, 0.2, 1);
+      --focus: 0 0 0 3px rgba(184, 139, 82, 0.5), 0 0 0 5px rgba(42, 37, 32, 0.55);
+      /* z-index scale: header 100, progress 95, stepnav 90 */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(184, 139, 82, 0.08), transparent 60%),
+        radial-gradient(900px 500px at -10% 110%, rgba(64, 80, 95, 0.06), transparent 60%),
+        var(--cream);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: rgba(184, 139, 82, 0.25); color: var(--ink); }
+
+    h1, h2, h3, h4, .serif { font-family: "Fraunces", serif; }
+    a { color: inherit; }
+
+    /* Universal focus-visible ring (a11y) */
+    a:focus-visible, button:focus-visible, summary:focus-visible,
+    .btn:focus-visible, .seg button:focus-visible, .step-trigger:focus-visible,
+    .pillar-head:focus-visible, .chip-cta:focus-visible {
+      outline: none; box-shadow: var(--focus); border-radius: 10px;
+    }
+    input[type=range]:focus-visible { box-shadow: 0 0 0 4px rgba(184,139,82,0.3); }
+    input[type=range]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 5px rgba(184,139,82,0.35); }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(1.1rem, 4vw, 2rem); }
+
+    .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+      font-weight: 700; color: var(--gold-deep);
+    }
+    svg.ic { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+
+    /* ───────────────────────── Header ───────────────────────── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100; min-height: var(--header-h);
+      background: linear-gradient(180deg, rgba(248, 244, 239, 0.82), rgba(248, 244, 239, 0.66));
+      backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3);
+      border-bottom: 1px solid rgba(46, 53, 60, 0.06);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+    }
+    .nav-shell { display: flex; align-items: center; gap: 1rem; padding-block: 0.7rem; }
+    .brand { display: grid; gap: 0.12rem; text-decoration: none; margin-right: auto; }
+    .brand-name { font-family: "Fraunces", serif; font-size: 1.4rem; line-height: 1; color: var(--ink); font-weight: 600; }
+    .brand-role { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+    .header-actions { display: flex; align-items: center; gap: 0.5rem; }
+    .header-phone {
+      display: inline-flex; align-items: center; gap: 0.45rem; justify-content: center;
+      font-weight: 600; text-decoration: none; color: var(--ink);
+      font-size: 0.92rem; padding: 0.55rem 0.7rem; border-radius: 999px;
+      min-height: 44px; transition: background 0.25s var(--ease-lux);
+    }
+    .header-phone:hover { background: rgba(184, 139, 82, 0.1); }
+    .header-phone .ic { width: 17px; height: 17px; color: var(--gold-deep); }
+    .header-cta {
+      display: inline-flex; align-items: center; white-space: nowrap; min-height: 44px;
+      background: var(--ink); color: var(--linen); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; padding: 0.6rem 1.1rem; border-radius: 999px;
+      transition: transform 0.25s var(--ease-lux), background 0.25s var(--ease-lux);
+    }
+    .header-cta:hover { background: var(--gold-deep); transform: translateY(-1px); }
+    .header-home { font-size: 0.85rem; color: var(--muted); text-decoration: none; font-weight: 600; padding: 0.5rem 0.4rem; min-height: 44px; display: inline-flex; align-items: center; }
+    .header-home:hover { color: var(--ink); }
+
+    /* ───────────────────────── Progress / stepper ───────────────────────── */
+    .progress-wrap {
+      position: sticky; top: var(--header-h); z-index: 95;
+      background: rgba(248, 244, 239, 0.72);
+      backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3);
+      border-bottom: 1px solid rgba(46, 53, 60, 0.05);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+    }
+    .progress-wrap.hidden { display: none; }
+    .progress-inner { display: flex; align-items: center; gap: 0.9rem; padding-block: 0.6rem; }
+    .stepper {
+      display: flex; align-items: center; flex: 1; min-width: 0;
+      list-style: none; overflow-x: auto; scrollbar-width: none; padding-block: 2px;
+    }
+    .stepper::-webkit-scrollbar { display: none; }
+    .stepper li { display: flex; align-items: center; flex: 1; min-width: 0; }
+    /* connector rail between dots (21st.dev pattern) */
+    .stepper li:not(:first-child)::before {
+      content: ""; height: 2px; flex: 1; min-width: 14px; margin-inline: 4px;
+      background: var(--line); border-radius: 2px;
+      transition: background 0.5s var(--ease-lux);
+    }
+    .stepper li.done::before, .stepper li.active::before {
+      background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+    }
+    .step-trigger {
+      display: inline-flex; align-items: center; gap: 0.45rem; flex-shrink: 0;
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      font-size: 0.8rem; font-weight: 600; color: var(--muted); padding: 0.25rem;
+      min-height: 44px; transition: color 0.3s var(--ease-lux);
+    }
+    .step-trigger .dot {
+      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+      display: grid; place-items: center;
+      background: #fff; border: 1.5px solid var(--line);
+      font-size: 0.74rem; color: var(--muted); font-weight: 700;
+      transition: all 0.35s var(--ease-lux);
+    }
+    .step-trigger .dot .ic { width: 15px; height: 15px; }
+    .step-trigger .label { display: none; white-space: nowrap; }
+    .stepper li.active .step-trigger { color: var(--ink); }
+    .stepper li.active .dot { background: var(--gold); border-color: var(--gold); color: #fff; box-shadow: 0 0 0 4px rgba(184,139,82,0.16); transform: scale(1.04); }
+    .stepper li.active .label { display: inline; }
+    .stepper li.done .dot { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .progress-pct { font-size: 0.78rem; font-weight: 700; color: var(--gold-deep); flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .progress-bar { height: 3px; background: rgba(46,53,60,0.08); position: relative; }
+    .progress-bar .fill { position: absolute; inset: 0 auto 0 0; width: 0; background: linear-gradient(90deg, var(--gold), var(--gold-deep)); transition: width 0.6s var(--ease-lux); }
+    @media (max-width: 759px) { .stepper li.active .label { display: none; } .step-trigger { gap: 0; padding: 0.35rem 0.2rem; min-width: 40px; justify-content: center; } }
+    @media (min-width: 760px) { .step-trigger .label { display: inline; } .step-trigger { font-size: 0.82rem; } }
+
+    /* ───────────────────────── Steps shell ───────────────────────── */
+    main { min-height: 60vh; }
+    .step { display: none; padding-block: clamp(2.2rem, 6vw, 4.2rem); }
+    .step.is-active { display: block; }
+
+    /* reveal-on-enter (luxury staggered) */
+    [data-reveal] { opacity: 0; transform: translateY(16px); }
+    [data-reveal].revealed { opacity: 1; transform: none; transition: opacity 0.6s var(--ease-lux), transform 0.6s var(--ease-lux); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.05ms !important; }
+    }
+
+    .step-head { max-width: 720px; margin-bottom: 2rem; }
+    .step-head .kicker { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 0.9rem; }
+    .step-head .kicker .step-no {
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 700; color: var(--gold-deep);
+      border: 1px solid var(--gold-soft); border-radius: 999px; padding: 0.25rem 0.7rem;
+      background: rgba(184,139,82,0.06);
+    }
+    .step-head h2 {
+      font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.05; font-weight: 600;
+      letter-spacing: -0.01em; color: var(--ink); margin-bottom: 0.8rem;
+    }
+    .step-head h2 em { font-style: italic; color: var(--gold-deep); }
+    .step-head .lede { font-size: clamp(1.02rem, 2.2vw, 1.18rem); color: var(--muted); max-width: 620px; }
+
+    /* ───────────────────────── Buttons ───────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+      font-family: "Inter", sans-serif; font-weight: 700; font-size: 0.98rem;
+      padding: 0.95rem 1.7rem; border-radius: 999px; border: none; cursor: pointer;
+      text-decoration: none; line-height: 1; min-height: 48px;
+      transition: transform 0.3s var(--ease-lux), box-shadow 0.3s var(--ease-lux), background 0.3s var(--ease-lux);
+    }
+    .btn-primary { background: linear-gradient(135deg, #C9A84C, var(--gold-deep)); color: #fff; box-shadow: 0 10px 26px rgba(154,114,64,0.32); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(154,114,64,0.42); }
+    .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--ink); background: rgba(42,37,32,0.03); }
+    .btn-dark { background: var(--ink); color: var(--linen); }
+    .btn-dark:hover { background: var(--gold-deep); transform: translateY(-2px); }
+    .btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none !important; }
+    .btn .ic { width: 18px; height: 18px; }
+
+    /* in-flow per-step mini-CTA strip */
+    .step-cta {
+      margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1rem;
+      padding: 1rem 1.2rem; border: 1px dashed var(--gold-soft); border-radius: var(--radius-md);
+      background: rgba(184,139,82,0.04);
+    }
+    .step-cta-label { font-size: 0.92rem; color: var(--muted); font-weight: 600; margin-right: auto; }
+    .step-cta-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .chip-cta {
+      display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none;
+      font-weight: 700; font-size: 0.88rem; padding: 0.6rem 1.05rem; border-radius: 999px;
+      min-height: 44px; cursor: pointer; border: 1.5px solid var(--gold);
+      color: var(--gold-deep); background: #fff;
+      transition: background 0.3s var(--ease-lux), color 0.3s var(--ease-lux), transform 0.3s var(--ease-lux);
+    }
+    .chip-cta:hover { background: var(--gold); color: #fff; transform: translateY(-1px); }
+    .chip-cta .ic { width: 16px; height: 16px; }
+    .chip-cta.solid { background: var(--gold-deep); color: #fff; border-color: var(--gold-deep); }
+    .chip-cta.solid:hover { background: var(--ink); border-color: var(--ink); }
+
+    /* ───────────────────────── Intro / hero step ───────────────────────── */
+    #step-0 { padding: 0; }
+    .intro {
+      position: relative; min-height: calc(100svh - var(--header-h));
+      display: flex; align-items: center; overflow: hidden;
+      background: linear-gradient(180deg, rgba(20,16,12,0.55), rgba(20,16,12,0.74)), url('/assets/hero-buyers.jpg') center/cover no-repeat;
+    }
+    .intro::after {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(900px 500px at 75% 30%, rgba(184,139,82,0.22), transparent 65%);
+      pointer-events: none;
+    }
+    .intro .container { position: relative; z-index: 2; color: #fff; padding-block: clamp(3rem, 9vw, 6rem); }
+    .intro .eyebrow { color: var(--gold-soft); }
+    .intro h1 {
+      font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.02; font-weight: 600;
+      letter-spacing: -0.015em; margin: 1rem 0 1.2rem; max-width: 16ch; color: #fff;
+    }
+    .intro h1 em { font-style: italic; color: var(--gold-soft); }
+    .intro p.sub { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: rgba(255,255,255,0.86); max-width: 56ch; margin-bottom: 2rem; }
+    .intro-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+    .intro-meta {
+      display: flex; flex-wrap: wrap; gap: 1.6rem; margin-top: 2.6rem;
+      padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,0.18);
+    }
+    .intro-meta .m { display: grid; gap: 0.15rem; }
+    .intro-meta .m b { font-family: "Fraunces", serif; font-size: 1.9rem; font-weight: 600; color: #fff; line-height: 1; }
+    .intro-meta .m span { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+    .intro-foot { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+
+    /* ───────────────────────── Cards / grids ───────────────────────── */
+    .card {
+      background: var(--linen); border: 1px solid var(--line); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm); padding: clamp(1.3rem, 3vw, 2rem);
+    }
+    .grid { display: grid; gap: 1.1rem; }
+    @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3,1fr); } }
+
+    /* Form fields */
+    .field { display: grid; gap: 0.4rem; margin-bottom: 1.1rem; }
+    .field label { font-size: 0.82rem; font-weight: 700; color: var(--ink); letter-spacing: 0.01em; }
+    .field .hint { font-size: 0.74rem; color: var(--muted); font-weight: 500; }
+    .field input, .field select, .field textarea {
+      font-family: "Inter", sans-serif; font-size: 16px; color: var(--ink);
+      padding: 0.8rem 0.95rem; border: 1.5px solid var(--line); border-radius: var(--radius-sm);
+      background: #fff; width: 100%; min-height: 48px;
+      transition: border-color 0.25s var(--ease-lux), box-shadow 0.25s var(--ease-lux);
+    }
+    .field textarea { min-height: auto; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(184,139,82,0.12);
+    }
+    .field input[aria-invalid="true"] { border-color: var(--terracotta); box-shadow: 0 0 0 4px rgba(201,133,105,0.15); }
+    .field .err { font-size: 0.76rem; color: #a8472b; font-weight: 600; display: none; }
+    .field .err.show { display: block; }
+    .field-row { display: grid; gap: 1.1rem; }
+    @media (min-width: 560px) { .field-row.cols-2 { grid-template-columns: 1fr 1fr; } .field-row.cols-3 { grid-template-columns: repeat(3,1fr); } }
+
+    /* Segmented control (radiogroup) */
+    .seg { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 4px; background: rgba(46,53,60,0.04); border-radius: calc(var(--radius-sm) + 4px); }
+    .seg button {
+      flex: 1; min-width: 90px; min-height: 46px; font-family: "Inter", sans-serif; font-weight: 600; font-size: 0.9rem;
+      padding: 0.6rem 0.8rem; border: 1.5px solid transparent; border-radius: var(--radius-sm);
+      background: #fff; color: var(--muted); cursor: pointer; text-align: center;
+      transition: background 0.35s var(--ease-lux), color 0.35s var(--ease-lux), box-shadow 0.35s var(--ease-lux), border-color 0.35s var(--ease-lux);
+    }
+    .seg button:hover { color: var(--ink); box-shadow: var(--shadow-sm); }
+    .seg button[aria-checked="true"] { background: var(--ink); border-color: var(--ink); color: #fff; box-shadow: var(--shadow-sm); }
+    .seg.gold button[aria-checked="true"] { background: linear-gradient(135deg, #C9A84C, var(--gold-deep)); border-color: var(--gold-deep); }
+
+    .input-money { position: relative; }
+    .input-money::before {
+      content: "$"; position: absolute; left: 0.95rem; top: 50%; transform: translateY(-50%);
+      color: var(--muted); font-weight: 600; pointer-events: none; z-index: 1;
+    }
+    .input-money input { padding-left: 1.7rem; }
+
+    /* ───────────────────────── Pillars (accordion) ───────────────────────── */
+    .pillar { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--linen); overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow 0.4s var(--ease-lux), transform 0.4s var(--ease-lux); }
+    .pillar + .pillar { margin-top: 0.9rem; }
+    .pillar:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .pillar.open { box-shadow: var(--shadow-md); }
+    .pillar-head { display: flex; align-items: center; gap: 1rem; padding: 1.15rem 1.3rem; cursor: pointer; width: 100%; background: none; border: none; text-align: left; font-family: inherit; }
+    .pillar-ico { width: 46px; height: 46px; flex-shrink: 0; border-radius: 14px; display: grid; place-items: center; color: var(--gold-deep); background: linear-gradient(135deg, var(--sand), var(--gold-soft)); }
+    .pillar-ico .ic { width: 23px; height: 23px; }
+    .pillar-head h3 { font-size: 1.4rem; font-weight: 600; line-height: 1.1; }
+    .pillar-head p { font-size: 0.86rem; color: var(--muted); margin-top: 0.15rem; }
+    .pillar-head .chev { margin-left: auto; flex-shrink: 0; transition: transform 0.4s var(--ease-lux); color: var(--gold-deep); }
+    .pillar.open .chev { transform: rotate(180deg); }
+    .pillar-body { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease-lux); }
+    .pillar.open .pillar-body { max-height: 640px; }
+    .pillar-body ul { list-style: none; padding: 0 1.3rem 1.3rem 1.3rem; display: grid; gap: 0.65rem; }
+    .pillar-body li { display: flex; gap: 0.6rem; font-size: 0.95rem; color: #43403b; }
+    .pillar-body li .ic { width: 17px; height: 17px; color: var(--gold); flex-shrink: 0; margin-top: 0.15rem; }
+
+    /* ───────────────────────── Affordability card ───────────────────────── */
+    .np-grid { display: grid; gap: 1.4rem; }
+    @media (min-width: 880px) { .np-grid { grid-template-columns: 1fr 1.05fr; align-items: start; } .np-result { position: sticky; top: calc(var(--header-h) + 58px); } }
+    .np-net {
+      position: relative; overflow: hidden;
+      background: linear-gradient(160deg, var(--ink), #3a322a);
+      color: #fff; border-radius: var(--radius-lg); padding: clamp(1.4rem, 4vw, 2rem);
+      box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.12);
+    }
+    .np-net::before { content: ""; position: absolute; top: -40%; right: -20%; width: 70%; height: 120%; background: radial-gradient(circle, rgba(184,139,82,0.22), transparent 70%); pointer-events: none; }
+    .np-net > * { position: relative; }
+    .np-net .nlabel { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; }
+    .np-net .nbig { font-family: "Fraunces", serif; font-size: clamp(2.6rem, 8vw, 4rem); font-weight: 600; line-height: 1; margin: 0.4rem 0 0.2rem; font-variant-numeric: tabular-nums; }
+    .np-net .nbig small { font-family: "Inter", sans-serif; font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0; }
+    .np-net .nsub { font-size: 0.86rem; color: rgba(255,255,255,0.72); }
+    .np-keep { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.82rem; font-weight: 700; color: var(--ink); background: var(--gold-soft); padding: 0.35rem 0.8rem; border-radius: 999px; }
+    .np-keep .ic { width: 15px; height: 15px; }
+
+    /* peak-intent CTA inside the dark card */
+    .np-peak { display: none; margin-top: 1.2rem; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,0.14); }
+    .np-peak.show { display: block; }
+    .np-peak .pk-line { font-size: 0.88rem; color: rgba(255,255,255,0.82); margin-bottom: 0.7rem; }
+    .np-peak .pk-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+
+    /* stacked payment bar */
+    .pay-bar { display: flex; height: 16px; border-radius: 999px; overflow: hidden; margin: 1.4rem 0 0.4rem; background: rgba(255,255,255,0.12); }
+    .pay-bar span { height: 100%; transition: width 0.5s var(--ease-lux); }
+    .np-lines { display: grid; gap: 0.4rem; margin-top: 1rem; }
+    .np-line { display: grid; grid-template-columns: 1fr auto; align-items: center; font-size: 0.92rem; padding: 0.32rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .np-line:last-child { border-bottom: none; }
+    .np-line .lk { display: flex; align-items: center; gap: 0.55rem; color: rgba(255,255,255,0.86); }
+    .np-line .swatch { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+    .np-line .lv { font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+    .np-line.subtotal { color: rgba(255,255,255,0.7); font-size: 0.86rem; border-bottom: none; padding-bottom: 0; }
+    .np-line.head { color: var(--gold-soft); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border-bottom: none; padding: 0.7rem 0 0.1rem; margin-top: 0.4rem; }
+    .np-line.net { border-top: 1.5px solid rgba(255,255,255,0.25); margin-top: 0.3rem; padding-top: 0.7rem; font-size: 1.05rem; }
+    .np-line.net .lv { color: var(--gold-soft); }
+
+    details.assump { margin-top: 1rem; border-top: 1px solid var(--line); padding-top: 0.8rem; }
+    details.assump summary { cursor: pointer; font-weight: 700; font-size: 0.92rem; color: var(--gold-deep); list-style: none; display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; }
+    details.assump summary::-webkit-details-marker { display: none; }
+    details.assump summary .chev { transition: transform 0.4s var(--ease-lux); }
+    details.assump[open] summary .chev { transform: rotate(180deg); }
+    details.assump summary .ic { width: 18px; height: 18px; }
+
+    .disclaimer { font-size: 0.76rem; color: var(--muted); line-height: 1.55; margin-top: 1rem; }
+
+    /* ───────────────────────── Timeline (full) ───────────────────────── */
+    .phases { display: grid; gap: 0; position: relative; }
+    .phase { display: grid; grid-template-columns: auto 1fr; gap: 1.3rem; padding-bottom: 1.6rem; position: relative; }
+    .phase:not(:last-child)::before { content: ""; position: absolute; left: 21px; top: 44px; bottom: -4px; width: 2px; background: linear-gradient(var(--gold-soft), rgba(184,139,82,0.15)); }
+    .phase-num { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: grid; place-items: center; background: var(--linen); border: 2px solid var(--gold); color: var(--gold-deep); font-family: "Fraunces", serif; font-size: 1.3rem; font-weight: 700; z-index: 1; }
+    .phase-body h3 { font-size: 1.45rem; font-weight: 600; line-height: 1.1; }
+    .phase-body .dur { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); font-weight: 700; margin: 0.2rem 0 0.4rem; }
+    .phase-body p { font-size: 0.95rem; color: var(--muted); }
+
+    /* ───────────────────────── Why Kareem ───────────────────────── */
+    .why-grid { display: grid; gap: 1.6rem; }
+    @media (min-width: 820px) { .why-grid { grid-template-columns: 0.85fr 1.15fr; align-items: center; } }
+    .why-photo { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); aspect-ratio: 4/5; background: var(--sand); }
+    .why-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .why-points { display: grid; gap: 1rem; }
+    .why-point { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; }
+    .why-point .wp-ico { width: 40px; height: 40px; border-radius: 12px; background: rgba(184,139,82,0.1); display: grid; place-items: center; color: var(--gold-deep); flex-shrink: 0; }
+    .why-point .wp-ico .ic { width: 20px; height: 20px; }
+    .why-point h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.15; }
+    .why-point p { font-size: 0.92rem; color: var(--muted); }
+    .creds { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
+    .creds span { font-size: 0.76rem; font-weight: 600; color: var(--gold-deep); background: rgba(184,139,82,0.08); border: 1px solid var(--gold-soft); border-radius: 999px; padding: 0.35rem 0.8rem; }
+
+    /* ───────────────────────── Final / contact ───────────────────────── */
+    .recap { background: linear-gradient(160deg, #fff, var(--sand-soft)); border: 1px solid var(--gold-soft); border-radius: var(--radius-lg); padding: clamp(1.3rem,3vw,1.8rem); }
+    .recap h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; }
+    .recap-rows { display: grid; gap: 0.55rem; }
+    .recap-row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.94rem; padding: 0.4rem 0; border-bottom: 1px dashed var(--line); }
+    .recap-row:last-child { border-bottom: none; }
+    .recap-row .rk { color: var(--muted); }
+    .recap-row .rv { font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+    .recap-row.highlight .rv { color: var(--gold-deep); }
+    .recap-empty { font-size: 0.96rem; color: var(--muted); }
+
+    .final-cta { display: grid; gap: 1.4rem; }
+    @media (min-width: 880px) { .final-cta { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+    /* trust band */
+    .trust-band { margin-top: 1.2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+    .trust-band .tb { text-align: center; padding: 0.8rem 0.4rem; background: rgba(184,139,82,0.06); border: 1px solid var(--gold-soft); border-radius: var(--radius-sm); }
+    .trust-band .tb .ic { width: 20px; height: 20px; color: var(--gold-deep); margin: 0 auto 0.35rem; }
+    .trust-band .tb b { display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .trust-band .tb span { font-size: 0.7rem; color: var(--muted); }
+    .text-shortcut { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.1rem; font-size: 0.88rem; color: var(--muted); }
+    .text-shortcut a { color: var(--gold-deep); font-weight: 700; text-decoration: none; }
+    .text-shortcut a:hover { text-decoration: underline; }
+
+    .form-success { display: none; }
+    .form-success.show { display: block; }
+    .form-success .check { width: 64px; height: 64px; margin: 0 auto 1rem; border-radius: 50%; background: var(--ok); color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(90,138,94,0.3), 0 0 0 6px rgba(90,138,94,0.12); }
+    .form-success .check .ic { width: 30px; height: 30px; stroke-width: 2.6; }
+    .success-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+    .copy-toast { display: none; margin-top: 0.8rem; font-size: 0.84rem; font-weight: 700; color: var(--ok); }
+    .copy-toast.show { display: block; }
+
+    /* ───────────────────────── Sticky nav footer ───────────────────────── */
+    .stepnav {
+      position: sticky; bottom: 0; z-index: 90;
+      background: rgba(248,244,239,0.82);
+      backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3);
+      border-top: 1px solid rgba(46,53,60,0.07);
+      box-shadow: 0 -8px 24px rgba(76,64,48,0.06);
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    .stepnav.hidden { display: none; }
+    .stepnav-inner { display: flex; align-items: center; gap: 0.8rem; padding-block: 0.7rem; }
+    .stepnav .count { display: grid; gap: 0.1rem; text-align: center; margin-inline: auto; }
+    .stepnav .count .c-step { font-size: 0.82rem; font-weight: 700; color: var(--muted); }
+    .stepnav .count .c-step b { color: var(--ink); }
+    .stepnav .count .c-momentum { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-deep); min-height: 0.85rem; }
+    .btn-sm { padding: 0.7rem 1.2rem; font-size: 0.9rem; min-height: 46px; }
+    .btn-sm.wide { max-width: 60vw; }
+    .btn-sm .nlabel-txt { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* ───────────────────────── Footer ───────────────────────── */
+    .site-footer { background: var(--warm-dark); color: rgba(255,255,255,0.78); margin-top: 2rem; }
+    .site-footer .container { padding-block: 2.4rem; }
+    .footer-top { display: flex; flex-wrap: wrap; gap: 1.4rem; justify-content: space-between; align-items: start; }
+    .site-footer .fbrand { font-family: "Fraunces", serif; font-size: 1.5rem; color: #fff; }
+    .site-footer .frole { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .site-footer a { color: rgba(255,255,255,0.82); text-decoration: none; }
+    .site-footer a:hover { color: var(--gold-soft); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.9rem; }
+    .footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
+    .footer-bottom { margin-top: 1.8rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.12); display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+
+    .stack-1 > * + * { margin-top: 1.1rem; }
+    .mt-2 { margin-top: 1.6rem; } .mt-3 { margin-top: 2.4rem; }
+    .center { text-align: center; }
+    .muted { color: var(--muted); }
+
+    @media (max-width: 760px) {
+      .intro { align-items: flex-start; min-height: auto; }
+      .intro .container { padding-block: 2rem 2.6rem; }
+    }
+    @media (max-width: 600px) {
+      .header-phone span.num { display: none; }
+      .header-home { display: none; }
+      .nav-shell { gap: 0.5rem; }
+      .brand-name { font-size: 1.2rem; }
+      .header-cta { padding: 0.55rem 0.9rem; font-size: 0.82rem; }
+      .header-phone { padding: 0.55rem; min-width: 44px; }
+      .trust-band { grid-template-columns: 1fr; }
+      .step-cta-label { margin-right: 0; flex-basis: 100%; }
+      /* tidy bottom nav: drop redundant step count, let buttons fill */
+      .stepnav .count { display: none; }
+      .stepnav-inner { gap: 0.6rem; }
+      .btn-sm.wide { max-width: none; flex: 1; }
+      #backBtn { flex-shrink: 0; }
+    }
+  
+    /* JAMAL primary logo mark */
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 44px; height: 44px; flex: none;
+      display: grid; place-items: center;
+      border: 1px solid rgba(201, 168, 76, 0.35); border-radius: 8px;
+      background: #000; overflow: hidden; padding: 0;
+    }
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+  </style>
+  <link rel="stylesheet" href="/polish.css">
+  <script src="/track.js" defer></script>
+  <script src="/contact-widget.js" defer></script>
+  <script src="/progressive-form.js" defer></script>
+  <link rel="stylesheet" href="/assets/kj-interactive.css" />
+</head>
+<body>
+
+  <!-- ───────────────────────── Header ───────────────────────── -->
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="/" aria-label="Kareem Jamal home">
+        <span class="brand-mark" aria-hidden="true"><img src="/assets/jamal-real-estate-logo.png" alt="" width="40" height="40" decoding="async" /></span>
+        <span class="brand-text">
+        <strong class="brand-name">Kareem Jamal</strong>
+        <span class="brand-role">Rodeo Realty Fine Estates</span>`n        </span>`n      </a>
+      <div class="header-actions">
+        <a class="header-home" href="/">← Site</a>
+        <a class="header-phone" href="tel:+18184027326" aria-label="Call Kareem at (818) 402-7326">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="num">(818) 402-7326</span>
+        </a>
+        <a class="header-cta" href="#book" data-goto="last">Book a Call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───────────────────────── Progress ───────────────────────── -->
+  <div class="progress-wrap hidden" id="progressWrap">
+    <div class="container progress-inner">
+      <ul class="stepper" id="stepper" role="list" aria-label="Presentation progress"></ul>
+      <span class="progress-pct" id="progressPct">0%</span>
+    </div>
+    <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+  </div>
+
+  <main id="main">
+
+    <!-- ===== STEP 0 — Intro ===== -->
+    <section class="step is-active" id="step-0" data-title="Welcome">
+      <div class="intro">
+        <div class="container">
+          <span class="eyebrow">The Buyer's Strategy · For Buyers</span>
+          <h1>Buy with a <em>strategy</em>, not just a saved search.</h1>
+          <p class="sub">A guided walkthrough of exactly how Kareem helps you find, finance, and win the right home — built around <em>your</em> search, with a live estimate of your monthly payment and the cash you'll need to close. About three minutes, no email required.</p>
+          <div class="intro-actions">
+            <button class="btn btn-primary" id="beginBtn">Begin the walkthrough
+              <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <a class="btn btn-ghost" href="tel:+18184027326" style="color:#fff;border-color:rgba(255,255,255,0.45)">Or just call Kareem</a>
+          </div>
+          <div class="intro-meta">
+            <div class="m"><b>7 steps</b><span>Guided, self-paced</span></div>
+            <div class="m"><b>~3 min</b><span>Start to finish</span></div>
+            <div class="m"><b>Live</b><span>Payment estimate</span></div>
+          </div>
+          <p class="intro-foot">Kareem Jamal · Rodeo Realty Fine Estates · CA DRE #01998956 · Woodland Hills &amp; the San Fernando Valley</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 1 — Search profile ===== -->
+    <section class="step" id="step-1" data-title="Your Search">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 1 of 7</span></span>
+          <h2>Tell us about <em>your search.</em></h2>
+          <p class="lede">A few quick details let us tailor the affordability estimate and game plan to what you're actually looking for. Nothing here is shared until you choose to reach out.</p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card" data-reveal>
+            <div class="field">
+              <label for="f-area">Where are you looking?</label>
+              <select id="f-area" data-state="area">
+                <option value="">Select area…</option>
+                <option>Woodland Hills</option>
+                <option>Calabasas</option>
+                <option>Hidden Hills</option>
+                <option>Encino</option>
+                <option>West Hills</option>
+                <option>Tarzana</option>
+                <option>Canoga Park</option>
+                <option>Other San Fernando Valley</option>
+                <option>Still deciding</option>
+              </select>
+            </div>
+            <div class="field">
+              <span class="label" id="lbl-buyer">You are a…</span>
+              <div class="seg" data-seg="buyerType" role="radiogroup" aria-labelledby="lbl-buyer">
+                <button type="button" role="radio" aria-checked="true" data-val="First-time buyer">First-time</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Move-up buyer">Move-up</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Investor">Investor</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-price">Target price <span class="hint">(your ballpark)</span></label>
+              <div class="input-money"><input type="number" id="f-price" min="0" placeholder="850,000" data-state="targetPrice" inputmode="numeric" /></div>
+            </div>
+            <div class="field-row cols-2">
+              <div class="field">
+                <label for="f-beds">Beds (min)</label>
+                <input type="number" id="f-beds" min="0" max="20" placeholder="3" data-state="beds" inputmode="numeric" />
+              </div>
+              <div class="field">
+                <label for="f-baths">Baths (min)</label>
+                <input type="number" id="f-baths" min="0" max="20" step="0.5" placeholder="2" data-state="baths" inputmode="decimal" />
+              </div>
+            </div>
+          </div>
+
+          <div class="card" data-reveal>
+            <div class="field">
+              <span class="label" id="lbl-home">Home type</span>
+              <div class="seg" data-seg="homeType" role="radiogroup" aria-labelledby="lbl-home">
+                <button type="button" role="radio" aria-checked="true" data-val="Single-family home">Single-family</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Condo / Townhome">Condo / Townhome</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Multi-unit">Multi-unit</button>
+              </div>
+            </div>
+            <div class="field">
+              <span class="label" id="lbl-time">When would you ideally buy?</span>
+              <div class="seg" data-seg="timeline" role="radiogroup" aria-labelledby="lbl-time">
+                <button type="button" role="radio" aria-checked="false" data-val="As soon as possible">ASAP</button>
+                <button type="button" role="radio" aria-checked="true" data-val="In 1–3 months">1–3 months</button>
+                <button type="button" role="radio" aria-checked="false" data-val="In 3–6 months">3–6 months</button>
+                <button type="button" role="radio" aria-checked="false" data-val="Just exploring">Just exploring</button>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-down">Down payment on hand <span class="hint">(optional)</span></label>
+              <div class="input-money"><input type="number" id="f-down" min="0" placeholder="0" data-state="downAvail" inputmode="numeric" /></div>
+              <p class="hint">Helps Kareem and your lender shape the right loan. The next step lets you model any down payment.</p>
+            </div>
+          </div>
+        </div>
+        <p class="disclaimer" data-reveal>Estimates on the next screens are illustrative orientation only — not a loan pre-approval, offer of credit, or guarantee of terms. Kareem connects you with a vetted lender for real numbers based on your credit and the specific property.</p>
+
+        <div class="step-cta" data-reveal data-cta-step="1">
+          <span class="step-cta-label">Rather just talk it through?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 2 — Affordability ===== -->
+    <section class="step" id="step-2" data-title="Affordability">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 2 of 7</span></span>
+          <h2>What you can <em>comfortably afford.</em></h2>
+          <p class="lede">Adjust any number to see your estimated monthly payment and the cash you'd need at closing update live. Defaults are typical California figures — your real numbers depend on your lender, credit, and the property.</p>
+        </div>
+
+        <div class="np-grid">
+          <div class="card" data-reveal>
+            <div class="field">
+              <label for="aff-price">Home price</label>
+              <p class="hint">Prefilled from your Step 1 target — edit freely.</p>
+              <div class="input-money"><input type="number" id="aff-price" min="0" data-aff="price" inputmode="numeric" /></div>
+            </div>
+            <div class="field">
+              <label for="aff-down">Down payment %</label>
+              <input type="number" id="aff-down" min="0" max="100" step="1" value="20" data-aff="downPct" inputmode="numeric" />
+              <p class="hint">3–5% is common for first-time buyers; 20% avoids mortgage insurance.</p>
+            </div>
+
+            <details class="assump" open>
+              <summary>
+                <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/></svg>
+                Loan &amp; cost assumptions (tap to adjust)
+                <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <div class="field-row cols-2" style="margin-top:1rem">
+                <div class="field">
+                  <label for="aff-rate">Interest rate %</label>
+                  <input type="number" id="aff-rate" min="0" max="15" step="0.1" value="6.5" data-aff="rate" inputmode="decimal" />
+                </div>
+                <div class="field">
+                  <label for="aff-term">Loan term (years)</label>
+                  <input type="number" id="aff-term" min="5" max="40" step="1" value="30" data-aff="term" inputmode="numeric" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="aff-tax">Property tax rate %</label>
+                <input type="number" id="aff-tax" min="0" max="4" step="0.05" value="1.1" data-aff="taxRate" inputmode="decimal" />
+                <p class="hint">~1.1% is typical in Los Angeles County.</p>
+              </div>
+              <div class="field-row cols-2">
+                <div class="field">
+                  <label for="aff-ins">Home insurance ($/mo)</label>
+                  <div class="input-money"><input type="number" id="aff-ins" min="0" data-aff="insMo" inputmode="numeric" /></div>
+                </div>
+                <div class="field">
+                  <label for="aff-hoa">HOA ($/mo)</label>
+                  <div class="input-money"><input type="number" id="aff-hoa" min="0" value="0" data-aff="hoa" inputmode="numeric" /></div>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="np-result" data-reveal>
+            <div class="np-net">
+              <div class="nlabel">Estimated monthly payment</div>
+              <div class="nbig"><span id="payMonthly">$—</span><small class="permo" id="perMo"></small></div>
+              <div class="nsub" id="paySub">Enter a home price to see your estimate.</div>
+              <span class="np-keep" id="payKeep" style="display:none"></span>
+              <div class="pay-bar" id="payBar" aria-hidden="true"></div>
+              <div class="np-lines" id="payLines"></div>
+              <div class="np-peak" id="payPeak">
+                <p class="pk-line">This is an estimate. Kareem connects you with a vetted lender to confirm your real budget and rate — free, no obligation.</p>
+                <div class="pk-actions">
+                  <button class="chip-cta solid" id="peakCallBtn" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Connect me with a lender</button>
+                  <a class="chip-cta" id="peakSmsBtn" data-sms href="#" style="border-color:rgba(255,255,255,0.5);color:#fff;background:transparent"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text me this</a>
+                </div>
+              </div>
+            </div>
+            <p class="sr-only" id="payLive" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p class="disclaimer">Estimate only. Not a loan pre-approval, an offer of credit, or a guarantee of terms. Excludes PMI/MIP (often required under 20% down), Mello-Roos, and closing-cost variation. Confirm exact figures with a licensed lender.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 3 — How buying works ===== -->
+    <section class="step" id="step-3" data-title="How It Works">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 3 of 7</span></span>
+          <h2>How buying with <em>Kareem</em> works.</h2>
+          <p class="lede">More than a door-opener — a true advocate who works for you from the first tour to the keys. Tap each pillar to see what's behind it.</p>
+        </div>
+
+        <div class="pillars" data-reveal>
+          <div class="pillar open">
+            <button class="pillar-head" type="button" aria-expanded="true" aria-controls="bp-1">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+              <span>
+                <h3>Access beyond the apps</h3>
+                <p>See more than what's public on Zillow.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="bp-1" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Off-market and "Coming Soon" listings through Kareem's agent network</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Instant alerts the moment a fitting home hits the MLS</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Private tours on your schedule — no listing-agent middleman</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Honest pros and cons on every home, not a sales pitch</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="bp-2">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+              <span>
+                <h3>Your advocate — not the seller's</h3>
+                <p>Represented by someone on your side of the table.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="bp-2" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>True buyer representation (the BRBC) — a fiduciary duty to you</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Every disclosure and inspection decoded in plain English</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Negotiation focused on your bottom line, not just "getting it done"</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Straight talk on when to walk away</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="bp-3">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88"/></svg></span>
+              <span>
+                <h3>Guided from search to keys</h3>
+                <p>One point of contact for the whole journey.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="bp-3" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Introductions to vetted, competitive local lenders</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Inspection &amp; appraisal coordination</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Escrow and contingency management so nothing slips</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Clear communication at every milestone</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="3">
+          <span class="step-cta-label">Want Kareem in your corner?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta solid" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 4 — Winning the home ===== -->
+    <section class="step" id="step-4" data-title="Your Offer">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 4 of 7</span></span>
+          <h2>Winning the <em>right home.</em></h2>
+          <p class="lede">In a competitive market, the strongest offer isn't always the highest — it's the smartest. Here's how Kareem structures offers that win without overpaying or waiving your protections.</p>
+        </div>
+
+        <div class="pillars" data-reveal>
+          <div class="pillar open">
+            <button class="pillar-head" type="button" aria-expanded="true" aria-controls="of-1">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+              <span>
+                <h3>Price it to win — not to overpay</h3>
+                <p>Data, not emotion, sets your number.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="of-1" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Comparable-sales analysis so your offer is grounded in real value</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Escalation clauses that compete without blowing your budget</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Reading the seller's true motivation (timing, terms, certainty)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="of-2">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg></span>
+              <span>
+                <h3>Terms that stand out</h3>
+                <p>Sometimes the terms win the deal, not the price.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="of-2" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Flexible close dates or a rent-back to fit the seller's timeline</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Right-sized contingencies — competitive, but never reckless</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>A clean, fully-underwritten financing package</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Earnest-money strategy that signals serious without undue risk</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <button class="pillar-head" type="button" aria-expanded="false" aria-controls="of-3">
+              <span class="pillar-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+              <span>
+                <h3>Move fast, decisively</h3>
+                <p>Speed wins homes — when you're ready.</p>
+              </span>
+              <svg class="ic chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pillar-body" id="of-3" role="region">
+              <ul>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>A strong pre-approval in hand before you tour</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Same-day showings and offers when the right home appears</li>
+                <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>Responsive, level-headed guidance through counters and multiple offers</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="4">
+          <span class="step-cta-label">Found one you love?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta solid" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem the listing</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 5 — Timeline ===== -->
+    <section class="step" id="step-5" data-title="Timeline">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 5 of 7</span></span>
+          <h2>From <em>pre-approval to keys.</em></h2>
+          <p class="lede">A clear, guided path so buying feels exciting — not overwhelming. Typical timelines below; your pace can be faster or slower.</p>
+        </div>
+
+        <div class="phases" data-reveal>
+          <div class="phase">
+            <div class="phase-num">1</div>
+            <div class="phase-body">
+              <h3>Get pre-approved</h3>
+              <div class="dur">Days 1–5</div>
+              <p>Connect with a vetted lender, lock in your true budget, and get a strong pre-approval letter that makes your offers credible.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-num">2</div>
+            <div class="phase-body">
+              <h3>Search &amp; tour</h3>
+              <div class="dur">Weeks 1–4</div>
+              <p>Curated listings plus off-market options, private tours, and candid guidance on each home's fit, condition, and value.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-num">3</div>
+            <div class="phase-body">
+              <h3>Offer &amp; negotiate</h3>
+              <div class="dur">When the right one appears</div>
+              <p>Craft a competitive, protected offer and negotiate price and terms in your favor — calmly, even in multiple-offer situations.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-num">4</div>
+            <div class="phase-body">
+              <h3>Escrow &amp; inspections</h3>
+              <div class="dur">~17–21 days</div>
+              <p>Inspections, appraisal, loan underwriting, and contingency management — with Kareem keeping every deadline on track.</p>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-num">5</div>
+            <div class="phase-body">
+              <h3>Close &amp; get keys</h3>
+              <div class="dur">~30 days</div>
+              <p>Final walkthrough, signing, funding, and recording — then the keys to your new home.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="5">
+          <span class="step-cta-label">Ready to start the clock?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 6 — Why Kareem ===== -->
+    <section class="step" id="step-6" data-title="Why Kareem">
+      <div class="container">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 6 of 7</span></span>
+          <h2>Why Buyers Buy <em>Certain.</em></h2>
+          <p class="lede">Access most buyers never see, an advocate who negotiates for your bottom line, and a generational-wealth lens — so the offer you make is one you feel sure about, not one you're hoping works out.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-photo" data-reveal>
+            <img src="/assets/kareem-jamal-headshot-2026-web.jpg" alt="Portrait of Kareem Jamal, Realtor with Rodeo Realty Fine Estates" loading="lazy" onerror="this.parentElement.style.display='none'" />
+          </div>
+          <div class="why-points" data-reveal>
+            <div class="why-point">
+              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+              <div>
+                <h3>Access beyond the search apps</h3>
+                <p>Off-market and coming-soon inventory through a deep agent network — not just what's public.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+              <div>
+                <h3>A true advocate</h3>
+                <p>Represents <em>you</em>, negotiates for your bottom line, and decodes every disclosure and inspection.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span>
+              <div>
+                <h3>A generational-wealth lens</h3>
+                <p>Buys with equity, appreciation, and your long-term plan in mind — your first home as the first move in a bigger strategy.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <span class="wp-ico"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+              <div>
+                <h3>Communication you can count on</h3>
+                <p>Honest, responsive updates that keep you informed and confident at every step.</p>
+              </div>
+            </div>
+            <div class="creds">
+              <span>Rodeo Realty Fine Estates</span>
+              <span>CA DRE #01998956</span>
+              <span>Woodland Hills &amp; the SFV</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-cta" data-reveal data-cta-step="6">
+          <span class="step-cta-label">Have a question for Kareem?</span>
+          <div class="step-cta-actions">
+            <a class="chip-cta solid" data-sms href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text Kareem</a>
+            <a class="chip-cta" href="tel:+18184027326"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 7 — Book ===== -->
+    <section class="step" id="step-7" data-title="Book a Call">
+      <div class="container" id="book">
+        <div class="step-head" data-reveal>
+          <span class="kicker"><span class="step-no">Step 7 of 7</span></span>
+          <h2>Let's find <em>your</em> home.</h2>
+          <p class="lede">Here's a snapshot of your search. Send it to Kareem and he'll follow up with off-market options, a vetted lender intro, and a personalized game plan — no obligation.</p>
+        </div>
+
+        <div class="final-cta">
+          <div data-reveal>
+            <div class="recap" id="recap">
+              <h3>Your search, at a glance</h3>
+              <div class="recap-rows" id="recapRows"></div>
+              <p class="disclaimer">All figures are illustrative estimates, not a guarantee or loan approval. Kareem and a licensed lender confirm your real numbers.</p>
+            </div>
+            <div class="trust-band">
+              <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg><b>Fine Estates</b><span>Rodeo Realty</span></div>
+              <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><b>Licensed</b><span>CA DRE #01998956</span></div>
+              <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><b>Replies same day</b><span>Free, no obligation</span></div>
+            </div>
+          </div>
+
+          <div class="card" data-reveal>
+            <div class="text-shortcut">
+              <span>Prefer to skip the form?</span>
+              <a data-sms href="#">Text Kareem your search →</a>
+            </div>
+            <form id="leadForm" novalidate>
+              <input type="text" id="lf-hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+              <div class="field">
+                <label for="lf-name">Your name</label>
+                <input type="text" id="lf-name" required autocomplete="name" aria-describedby="err-name" />
+                <span class="err" id="err-name" role="alert">Please add your name.</span>
+              </div>
+              <div class="field-row cols-2">
+                <div class="field">
+                  <label for="lf-phone">Phone</label>
+                  <input type="tel" id="lf-phone" required autocomplete="tel" aria-describedby="err-phone" />
+                  <span class="err" id="err-phone" role="alert">A phone number lets Kareem reach you fastest.</span>
+                </div>
+                <div class="field">
+                  <label for="lf-email">Email <span class="hint">(optional)</span></label>
+                  <input type="email" id="lf-email" autocomplete="email" />
+                </div>
+              </div>
+              <div class="field">
+                <label for="lf-msg">Anything Kareem should know? <span class="hint">(optional)</span></label>
+                <textarea id="lf-msg" rows="3" placeholder="Must-haves, neighborhoods, questions…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%">Build my search snapshot</button>
+              <p class="disclaimer">Kareem personally replies within a few hours — usually faster. No spam, ever.</p>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+              <div class="check"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <h3 class="center" style="font-size:1.7rem;font-weight:600;margin-bottom:0.4rem">Your snapshot is ready.</h3>
+              <p class="muted center" id="successMsg" style="margin-bottom:1.2rem">Choose how to send it to Kareem — pick whichever is easiest for you.</p>
+              <div class="success-actions">
+                <a class="btn btn-dark btn-sm" id="mailtoBtn" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>Email it</a>
+                <a class="btn btn-primary btn-sm" id="smsBtn" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text it</a>
+                <button class="btn btn-ghost btn-sm" id="copyBtn" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button>
+              </div>
+              <p class="copy-toast center" id="copyToast">Copied — paste it into a text or email to (818) 402-7326.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="center muted mt-3" style="font-size:0.86rem">Prefer to just talk? Call or text <a href="tel:+18184027326" style="color:var(--gold-deep);font-weight:700">(818) 402-7326</a> — Kareem answers his own phone.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ───────────────────────── Sticky step nav ───────────────────────── -->
+  <div class="stepnav hidden" id="stepnav">
+    <div class="container stepnav-inner">
+      <button class="btn btn-ghost btn-sm" id="backBtn">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:16px;height:16px"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Back
+      </button>
+      <span class="count">
+        <span class="c-step">Step <b id="navCur">1</b> of 7</span>
+        <span class="c-momentum" id="navMomentum"></span>
+      </span>
+      <button class="btn btn-primary btn-sm wide" id="nextBtn"><span class="nlabel-txt" id="nextLabel">Next</span>
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ───────────────────────── Footer ───────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="fbrand">Kareem Jamal</div>
+          <div class="frole">Rodeo Realty Fine Estates · CA DRE #01998956</div>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="/">Home</a>
+          <a href="/buyers">Buyers</a>
+          <a href="/sellers">Sellers</a>
+          <a href="/seller-presentation">Selling?</a>
+          <a href="/mls-search">Home Search</a>
+          <a href="tel:+18184027326">(818) 402-7326</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Kareem Jamal · Rodeo Realty Fine Estates</span>
+        <span>Equal Housing Opportunity · All estimates are illustrative, not a guarantee of value, terms, or loan approval.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    "use strict";
+    var TOTAL = 7;
+    var PHONE = "+18184027326";
+    var EMAIL = "kjamal@rodeore.com";
+    var REDUCE = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    var state = {
+      area: "", buyerType: "First-time buyer", targetPrice: "",
+      beds: "", baths: "", homeType: "Single-family home",
+      timeline: "In 1–3 months", downAvail: "",
+      aff: { price: 0, downPct: 20, rate: 6.5, term: 30, taxRate: 1.1, insMo: 0, hoa: 0, monthly: 0 }
+    };
+    var current = 0;
+    var STORE = "kj-buyer-presentation-v1";
+
+    function $(s, c) { return (c || document).querySelector(s); }
+    function $all(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+    function fmt(n) { if (!isFinite(n)) n = 0; return "$" + Math.round(n).toLocaleString("en-US"); }
+    function fmtK(n) {
+      n = Math.round(n);
+      if (Math.abs(n) >= 1000000) return "$" + (n / 1000000).toFixed(n % 1000000 === 0 ? 0 : 2).replace(/\.?0+$/, "") + "M";
+      if (Math.abs(n) >= 1000) return "$" + Math.round(n / 1000) + "K";
+      return "$" + n;
+    }
+    function num(v) { var x = parseFloat(String(v).replace(/[^0-9.\-]/g, "")); return isFinite(x) ? x : 0; }
+
+    // ---------- count-up animation ----------
+    function animateNumber(el, to, fmtFn) {
+      var from = el._val || 0;
+      if (el._raf) cancelAnimationFrame(el._raf);
+      if (el._fallback) clearTimeout(el._fallback);
+      if (REDUCE || Math.abs(to - from) < 1) { el._val = to; el.textContent = fmtFn(to); return; }
+      var dur = 550, start = (window.performance && performance.now) ? performance.now() : Date.now();
+      function now() { return (window.performance && performance.now) ? performance.now() : Date.now(); }
+      function tick() {
+        var p = Math.min((now() - start) / dur, 1);
+        var v = from + (to - from) * (1 - Math.pow(1 - p, 3));
+        el.textContent = fmtFn(v);
+        if (p < 1) el._raf = requestAnimationFrame(tick); else { el._val = to; el.textContent = fmtFn(to); }
+      }
+      el._raf = requestAnimationFrame(tick);
+      el._fallback = setTimeout(function () { if (el._raf) cancelAnimationFrame(el._raf); el._val = to; el.textContent = fmtFn(to); }, dur + 140);
+    }
+
+    // ---------- Persistence ----------
+    function save() { try { sessionStorage.setItem(STORE, JSON.stringify({ state: state, current: current })); } catch (e) {} }
+    function load() {
+      try {
+        var raw = sessionStorage.getItem(STORE); if (!raw) return;
+        var d = JSON.parse(raw);
+        if (d && d.state) { Object.assign(state, d.state); if (d.state.aff) Object.assign(state.aff, d.state.aff); }
+      } catch (e) {}
+    }
+
+    function setHeaderH() {
+      var h = $(".site-header"); if (h) document.documentElement.style.setProperty("--header-h", h.offsetHeight + "px");
+    }
+
+    // ---------- Stepper ----------
+    var STEP_TITLES = ["Your Search", "Affordability", "How It Works", "Your Offer", "Timeline", "Why Kareem", "Book a Call"];
+    var CHECK = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>';
+    function buildStepper() {
+      var ul = $("#stepper"); ul.innerHTML = "";
+      STEP_TITLES.forEach(function (t, i) {
+        var li = document.createElement("li");
+        li.setAttribute("data-step", i + 1);
+        var btn = document.createElement("button");
+        btn.type = "button"; btn.className = "step-trigger";
+        btn.innerHTML = '<span class="dot" aria-hidden="true"><span class="num">' + (i + 1) + '</span></span><span class="label">' + t + '</span>';
+        btn.addEventListener("click", function () { goTo(i + 1); });
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+    }
+    function updateStepper() {
+      $all("#stepper li").forEach(function (li, i) {
+        var n = i + 1, done = n < current, active = n === current;
+        li.classList.toggle("active", active);
+        li.classList.toggle("done", done);
+        var btn = $(".step-trigger", li);
+        var dot = $(".dot", li);
+        btn.setAttribute("aria-current", active ? "step" : "false");
+        dot.innerHTML = done ? CHECK : '<span class="num">' + n + '</span>';
+        btn.setAttribute("aria-label", "Step " + n + ": " + STEP_TITLES[i] + (done ? " (completed)" : active ? " (current)" : ""));
+      });
+      var pct = current >= 1 ? Math.round(current / TOTAL * 100) : 0;
+      $("#progressFill").style.width = pct + "%";
+      $("#progressPct").textContent = pct + "%";
+      $("#navCur").textContent = current;
+      var act = $("#stepper li.active"), s = $("#stepper");
+      if (act && s) {
+        var gut = 16, left = act.offsetLeft, right = left + act.offsetWidth, target = null;
+        if (left < s.scrollLeft + gut) target = Math.max(0, left - gut);
+        else if (right > s.scrollLeft + s.clientWidth - gut) target = right - s.clientWidth + gut;
+        if (target !== null) s.scrollLeft = target;
+      }
+    }
+
+    var NEXT_LABELS = { 1: "What can I afford", 2: "How buying works", 3: "Winning the home", 4: "See the timeline", 5: "Why Kareem", 6: "Get my plan" };
+    var MOMENTUM = { 5: "Almost there", 6: "Last step before your plan", 7: "" };
+    function updateNavCopy() {
+      $("#nextLabel").textContent = NEXT_LABELS[current] || "Next";
+      $("#navMomentum").textContent = MOMENTUM[current] || "";
+    }
+
+    function revealStep(el) {
+      $all("[data-reveal]", el).forEach(function (it, i) {
+        it.classList.remove("revealed");
+        it.style.transitionDelay = (REDUCE ? 0 : i * 70) + "ms";
+        void it.offsetWidth;
+        it.classList.add("revealed");
+      });
+    }
+
+    // ---------- Navigation ----------
+    function goTo(n) {
+      n = Math.max(0, Math.min(TOTAL, n));
+      var prev = current; current = n;
+      $all(".step").forEach(function (s) { s.classList.remove("is-active"); });
+      var el = $("#step-" + n); if (el) el.classList.add("is-active");
+
+      var isIntro = n === 0;
+      $("#progressWrap").classList.toggle("hidden", isIntro);
+      $("#stepnav").classList.toggle("hidden", isIntro);
+      $("#backBtn").disabled = n <= 1;
+      $("#nextBtn").style.display = (n === TOTAL) ? "none" : "";
+
+      if (n === 2) { ensureAffordDefaults(); renderAfford(); }
+      if (n === 7) renderRecap();
+
+      updateStepper();
+      updateNavCopy();
+      if (el) revealStep(el);
+
+      setHeaderH();
+      if (!isIntro) {
+        var off = ($(".site-header").offsetHeight || 0) + ($("#progressWrap").offsetHeight || 0) + 10;
+        var top = $("#main").offsetTop - off;
+        window.scrollTo({ top: top < 0 ? 0 : top, behavior: prev === n || REDUCE ? "auto" : "smooth" });
+      } else { window.scrollTo(0, 0); }
+      save();
+    }
+
+    // ---------- Step 1 ----------
+    function bindSearchProfile() {
+      $("#f-area").addEventListener("change", function () { state.area = this.value; save(); });
+      $all("[data-state]").forEach(function (inp) {
+        inp.addEventListener("input", function () {
+          var k = inp.getAttribute("data-state");
+          state[k] = inp.value;
+          save();
+        });
+      });
+      $all("[data-seg]").forEach(function (group) {
+        var key = group.getAttribute("data-seg");
+        group.addEventListener("click", function (e) {
+          var btn = e.target.closest("button"); if (!btn) return;
+          $all("button", group).forEach(function (b) { b.setAttribute("aria-checked", "false"); });
+          btn.setAttribute("aria-checked", "true");
+          state[key] = btn.getAttribute("data-val");
+          save();
+        });
+      });
+    }
+
+    // ---------- Step 2 affordability ----------
+    function ensureAffordDefaults() {
+      var p = $("#aff-price");
+      if (!num(p.value) && num(state.targetPrice)) { p.value = Math.round(num(state.targetPrice)); state.aff.price = num(state.targetPrice); }
+      var ins = $("#aff-ins");
+      if (!num(ins.value)) {
+        var pr = num(state.aff.price) || num(state.targetPrice);
+        if (pr) { var d = Math.round(pr * 0.0035 / 12); ins.value = d; state.aff.insMo = d; }
+      }
+    }
+    function calcAfford() {
+      var a = state.aff, price = num(a.price);
+      var downPct = num(a.downPct), down = price * downPct / 100, loan = Math.max(price - down, 0);
+      var r = num(a.rate) / 100 / 12, n = num(a.term) * 12;
+      var pi = n > 0 ? (r > 0 ? loan * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1) : loan / n) : 0;
+      var tax = price * num(a.taxRate) / 100 / 12;
+      var ins = num(a.insMo), hoa = num(a.hoa);
+      var monthly = pi + tax + ins + hoa;
+      var closing = price * 0.025;
+      return { price: price, down: down, loan: loan, pi: pi, tax: tax, ins: ins, hoa: hoa, monthly: monthly, closing: closing, cashToClose: down + closing };
+    }
+    function drawPaymentBar(r) {
+      var bar = $("#payBar"); bar.innerHTML = "";
+      if (!r.monthly) return;
+      [["#f3e5c8", r.pi], ["#C9A84C", r.tax], ["#c98569", r.ins], ["#86927f", r.hoa]].forEach(function (s) {
+        if (s[1] <= 0) return;
+        var sp = document.createElement("span");
+        sp.style.width = (s[1] / r.monthly * 100) + "%"; sp.style.background = s[0];
+        bar.appendChild(sp);
+      });
+    }
+    function renderAfford() {
+      var r = calcAfford(); state.aff.monthly = r.monthly;
+      var big = $("#payMonthly");
+      $("#perMo").textContent = r.price ? "/mo" : "";
+      if (!r.price) { big._val = 0; big.textContent = "$—"; }
+      else animateNumber(big, r.monthly, fmt);
+
+      var keep = $("#payKeep");
+      if (r.price > 0) {
+        keep.style.display = "inline-flex";
+        keep.innerHTML = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>≈ ' + fmt(r.cashToClose) + ' cash to close';
+      } else keep.style.display = "none";
+
+      $("#paySub").textContent = r.price
+        ? "On a " + fmt(r.price) + " home with " + num(state.aff.downPct) + "% down (" + fmt(r.down) + ")."
+        : "Enter a home price to see your estimate.";
+
+      $("#payPeak").classList.toggle("show", r.price > 0);
+      drawPaymentBar(r);
+
+      var lines = $("#payLines"); lines.innerHTML = "";
+      function row(k, v, c, cls) {
+        var el = document.createElement("div"); el.className = "np-line" + (cls ? " " + cls : "");
+        if (cls === "head") { el.innerHTML = '<span class="lk" style="color:inherit">' + k + '</span><span></span>'; lines.appendChild(el); return; }
+        el.innerHTML = '<span class="lk">' + (c ? '<span class="swatch" style="background:' + c + '"></span>' : "") + k + "</span>" +
+          '<span class="lv">' + fmt(v) + "</span>";
+        lines.appendChild(el);
+      }
+      row("Principal & interest", r.pi, "#f3e5c8");
+      row("Property tax (" + num(state.aff.taxRate) + "%)", r.tax, "#C9A84C");
+      row("Home insurance", r.ins, "#c98569");
+      if (r.hoa) row("HOA", r.hoa, "#86927f");
+      row("Monthly payment", r.monthly, null, "net");
+      row("Cash needed up front", 0, null, "head");
+      row("Down payment (" + num(state.aff.downPct) + "%)", r.down, null, "subtotal");
+      row("Est. closing costs (~2.5%)", r.closing, null, "subtotal");
+      row("Cash to close", r.cashToClose, null, "net");
+
+      clearTimeout(renderAfford._t);
+      renderAfford._t = setTimeout(function () {
+        if (r.price) $("#payLive").textContent = "Estimated monthly payment " + fmt(r.monthly) + " per month, about " + fmt(r.cashToClose) + " cash to close.";
+      }, 450);
+    }
+    function bindAfford() {
+      $all("[data-aff]").forEach(function (inp) {
+        inp.addEventListener("input", function () { state.aff[inp.getAttribute("data-aff")] = inp.value; renderAfford(); save(); });
+      });
+      $("#peakCallBtn").addEventListener("click", function () { goTo(TOTAL); });
+    }
+
+    // ---------- Accordions (steps 3 & 4) ----------
+    function bindPillars() {
+      $all(".pillars").forEach(function (group) {
+        $all(".pillar-head", group).forEach(function (head) {
+          head.addEventListener("click", function () {
+            var p = head.parentElement, wasOpen = p.classList.contains("open");
+            $all(".pillar", group).forEach(function (x) {
+              x.classList.remove("open");
+              var h = $(".pillar-head", x); if (h) h.setAttribute("aria-expanded", "false");
+            });
+            if (!wasOpen) { p.classList.add("open"); head.setAttribute("aria-expanded", "true"); }
+          });
+        });
+      });
+    }
+
+    // ---------- SMS / mailto builders ----------
+    function snapshotLines(name, phone, email, msg) {
+      var r = calcAfford(); var L = [];
+      L.push("Hi Kareem, I went through your buyer walkthrough. Here's what I'm looking for:");
+      L.push("• Buyer type: " + state.buyerType);
+      if (state.area) L.push("• Area: " + state.area);
+      var size = [state.beds ? state.beds + "+ bd" : null, state.baths ? state.baths + "+ ba" : null, state.homeType].filter(Boolean).join(", ");
+      if (size) L.push("• Looking for: " + size);
+      if (num(state.targetPrice)) L.push("• Target price: " + fmt(num(state.targetPrice)));
+      L.push("• Ideal timeline: " + state.timeline);
+      if (num(state.downAvail)) L.push("• Down payment on hand: " + fmt(num(state.downAvail)));
+      if (r.price) {
+        L.push("• Est. monthly payment: " + fmt(r.monthly) + " (" + num(state.aff.downPct) + "% down, " + num(state.aff.rate) + "% rate)");
+        L.push("• Est. cash to close: " + fmt(r.cashToClose));
+      }
+      L.push("");
+      if (msg) { L.push("Notes: " + msg); L.push(""); }
+      L.push("Please send off-market options and a game plan.");
+      if (name || phone || email) { L.push(""); if (name) L.push(name); if (phone) L.push(phone); if (email) L.push(email); }
+      return L.join("\n");
+    }
+    function buildMailto(name, phone, email, msg) {
+      var subject = "Buyer strategy request — " + (state.area || "home search");
+      return "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(snapshotLines(name, phone, email, msg));
+    }
+    function buildSms(contextBody) {
+      return "sms:" + PHONE + "?&body=" + encodeURIComponent(contextBody || snapshotLines("", "", "", ""));
+    }
+    var SMS_CONTEXT = {
+      1: "Hi Kareem — I'm looking to buy a home and went through your buyer walkthrough. Can we talk?",
+      3: "Hi Kareem — I'd like you to represent me as my buyer's agent. What's the first step?",
+      4: "Hi Kareem — I found a home I love. How would we structure a winning offer?",
+      5: "Hi Kareem — can we map out a buying timeline and get me pre-approved?",
+      6: "Hi Kareem — I have a question about buying a home with you."
+    };
+    function bindSmsLinks() {
+      $all(".step-cta [data-sms]").forEach(function (a) {
+        var step = num(a.closest(".step-cta").getAttribute("data-cta-step"));
+        a.setAttribute("href", buildSms(SMS_CONTEXT[step] || ""));
+      });
+      function refreshSnapshotSms() {
+        $all("#peakSmsBtn, .text-shortcut [data-sms]").forEach(function (a) { a.setAttribute("href", buildSms()); });
+      }
+      refreshSnapshotSms();
+      $all("[data-aff], [data-state]").forEach(function (inp) { inp.addEventListener("input", refreshSnapshotSms); });
+      $("#f-area").addEventListener("change", refreshSnapshotSms);
+      $all("[data-seg] button").forEach(function (b) { b.addEventListener("click", refreshSnapshotSms); });
+    }
+
+    // ---------- Step 7 recap + form ----------
+    function renderRecap() {
+      ensureAffordDefaults();
+      var rows = $("#recapRows");
+      var hasData = state.area || state.targetPrice || state.beds;
+      if (!hasData) {
+        rows.innerHTML = '<p class="recap-empty">Tell Kareem what you\'re looking for and he\'ll reach out within the day with off-market options and a game plan. Or start at Step 1 to build your personalized buying snapshot.</p>';
+        return;
+      }
+      var r = calcAfford(); var html = "";
+      function add(k, v, hl) { html += '<div class="recap-row' + (hl ? " highlight" : "") + '"><span class="rk">' + k + '</span><span class="rv">' + v + "</span></div>"; }
+      var size = [state.beds ? state.beds + "+ bd" : null, state.baths ? state.baths + "+ ba" : null, state.homeType].filter(Boolean).join(" · ") || "—";
+      add("Looking in", (state.area || "—") + " · " + state.buyerType);
+      add("Home", size);
+      if (num(state.targetPrice)) add("Target price", fmt(num(state.targetPrice)));
+      add("Ideal timeline", state.timeline || "—");
+      if (r.price) add("Est. monthly payment", fmt(r.monthly) + "/mo");
+      if (r.price) add("Est. cash to close", fmt(r.cashToClose), true);
+      rows.innerHTML = html;
+    }
+
+    var FORMSPREE = "https://formspree.io/f/xnjlgvlk";
+    function sendToFormspree(name, phone, email, msg, first) {
+      var hp = $("#lf-hp");
+      if (hp && hp.value) return;
+      var sub = $("#successMsg");
+      var payload = {
+        name: name, phone: phone, email: email || "(not provided)",
+        _replyto: email || EMAIL,
+        goal: "Buying Strategy",
+        _subject: "New buyer-strategy lead — " + (state.area || "buyer"),
+        message: snapshotLines(name, phone, email, msg)
+      };
+      fetch(FORMSPREE, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        if (!res || !res.ok) throw new Error("formspree " + (res && res.status));
+        sub.textContent = "Thanks, " + first + "! ✓ Kareem has your search and will reach out shortly — usually within a few hours. Want to send it yourself too? Use the options below.";
+      }).catch(function () {
+        sub.textContent = "Thanks, " + first + "! Tap below to send your search straight to Kareem — whichever is easiest.";
+      });
+    }
+
+    function validateForm() {
+      var ok = true;
+      [["lf-name", "err-name"], ["lf-phone", "err-phone"]].forEach(function (pair) {
+        var inp = $("#" + pair[0]), err = $("#" + pair[1]);
+        if (!inp.value.trim()) { inp.setAttribute("aria-invalid", "true"); err.classList.add("show"); if (ok) inp.focus(); ok = false; }
+        else { inp.removeAttribute("aria-invalid"); err.classList.remove("show"); }
+      });
+      return ok;
+    }
+    function bindForm() {
+      ["lf-name", "lf-phone"].forEach(function (id) {
+        $("#" + id).addEventListener("input", function () { this.removeAttribute("aria-invalid"); var e = $("#err-" + id.split("-")[1]); if (e) e.classList.remove("show"); });
+      });
+      $("#leadForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!validateForm()) return;
+        var name = $("#lf-name").value.trim(), phone = $("#lf-phone").value.trim(),
+            email = $("#lf-email").value.trim(), msg = $("#lf-msg").value.trim();
+        var first = name.split(" ")[0];
+        $("#mailtoBtn").setAttribute("href", buildMailto(name, phone, email, msg));
+        $("#smsBtn").setAttribute("href", buildSms(snapshotLines(name, phone, email, msg)));
+        $("#copyBtn")._body = snapshotLines(name, phone, email, msg);
+        $("#leadForm").style.display = "none";
+        $("#formSuccess").classList.add("show");
+        $("#successMsg").textContent = "Thanks, " + first + "! Sending your search to Kareem…";
+        $("#formSuccess").scrollIntoView({ block: "center", behavior: REDUCE ? "auto" : "smooth" });
+        sendToFormspree(name, phone, email, msg, first);
+      });
+      $("#copyBtn").addEventListener("click", function () {
+        var body = this._body || snapshotLines("", "", "", "");
+        var toast = $("#copyToast");
+        function done() { toast.classList.add("show"); setTimeout(function () { toast.classList.remove("show"); }, 4000); }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(body).then(done, done);
+        else { var ta = document.createElement("textarea"); ta.value = body; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} document.body.removeChild(ta); done(); }
+      });
+    }
+
+    // ---------- Restore inputs ----------
+    function restoreInputs() {
+      if (state.area) { $all("#f-area option").forEach(function (o) { if (o.value === state.area) o.selected = true; }); }
+      ["beds", "baths"].forEach(function (k) { if (state[k]) { var el = $("#f-" + k); if (el) el.value = state[k]; } });
+      if (state.targetPrice) $("#f-price").value = state.targetPrice;
+      if (state.downAvail) $("#f-down").value = state.downAvail;
+      [["buyerType", "buyerType"], ["homeType", "homeType"], ["timeline", "timeline"]].forEach(function (pair) {
+        var grp = $('[data-seg="' + pair[0] + '"]'); if (!grp) return;
+        $all("button", grp).forEach(function (b) { b.setAttribute("aria-checked", b.getAttribute("data-val") === state[pair[1]] ? "true" : "false"); });
+      });
+      if (state.aff) {
+        if (state.aff.price) $("#aff-price").value = Math.round(state.aff.price);
+        if (state.aff.downPct) $("#aff-down").value = state.aff.downPct;
+        if (state.aff.rate) $("#aff-rate").value = state.aff.rate;
+        if (state.aff.term) $("#aff-term").value = state.aff.term;
+        if (state.aff.taxRate) $("#aff-tax").value = state.aff.taxRate;
+        if (state.aff.insMo) $("#aff-ins").value = state.aff.insMo;
+        if (state.aff.hoa) $("#aff-hoa").value = state.aff.hoa;
+      }
+    }
+
+    // ---------- Init ----------
+    function init() {
+      if ("scrollRestoration" in history) { try { history.scrollRestoration = "manual"; } catch (e) {} }
+      load();
+      setHeaderH();
+      buildStepper();
+      bindSearchProfile();
+      bindPillars();
+      bindAfford();
+      bindForm();
+      bindSmsLinks();
+      restoreInputs();
+
+      $("#beginBtn").addEventListener("click", function () { goTo(1); });
+      $("#nextBtn").addEventListener("click", function () { goTo(current + 1); });
+      $("#backBtn").addEventListener("click", function () { goTo(current - 1); });
+      $all("[data-goto='last']").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); goTo(TOTAL); }); });
+
+      window.addEventListener("resize", function () { clearTimeout(window._rz); window._rz = setTimeout(setHeaderH, 150); });
+
+      document.addEventListener("keydown", function (e) {
+        var tag = (e.target.tagName || "").toLowerCase();
+        if (tag === "input" || tag === "textarea" || tag === "select") return;
+        if (current === 0) return;
+        if (e.key === "ArrowRight" && current < TOTAL) goTo(current + 1);
+        if (e.key === "ArrowLeft" && current > 1) goTo(current - 1);
+      });
+
+      goTo(current || 0);
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+  })();
+  </script>
+  <script src="/assets/kj-interactive.js" defer></script>
+</body>
+</html>

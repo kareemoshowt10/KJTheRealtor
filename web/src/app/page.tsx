@@ -13,6 +13,7 @@ import { ComparisonHoldSell } from "@/components/comparison-hold-sell";
 import { FaqSection } from "@/components/faq-section";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { FloatingDock } from "@/components/ui/floating-dock";
+import { MethodTimeline } from "@/components/method-timeline";
 
 const areas = [
   "Chatsworth 91311",
@@ -33,6 +34,7 @@ export default function HomePage() {
       <ScrollProgress />
       <SiteHeader
         links={[
+          { href: "#method", label: "Method" },
           { href: "#method-bento", label: "How I work" },
           { href: "#family-table", label: "Families" },
           { href: "#hold-vs-sell", label: "Hold vs sell" },
@@ -46,6 +48,7 @@ export default function HomePage() {
         <Marquee items={areas} speed="slow" />
         <StatsBand />
         <ZipCards />
+        <MethodTimeline />
         <BentoFeatures />
         <Belief />
         <FamilyTable />
@@ -55,7 +58,7 @@ export default function HomePage() {
         <StartCta />
       </main>
       <FloatingDock />
-      <SiteFooter note="Hybrid Next.js · 21st.dev-inspired upgrades" />
+      <SiteFooter note="Hybrid Next.js · scroll-driven Method" />
     </>
   );
 }

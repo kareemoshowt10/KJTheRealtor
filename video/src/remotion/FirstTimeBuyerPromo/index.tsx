@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Img, Sequence, staticFile } from "remotion";
 import { z } from "zod";
-import { SeniorTechPromoProps } from "../../../types/constants";
+import { FirstTimeBuyerPromoProps } from "../../../types/constants";
 import { Backdrop } from "../shared/Backdrop";
 import { FadeIn } from "../shared/FadeIn";
 import { CREAM, GOLD, GOLD_LIGHT } from "../shared/palette";
@@ -16,16 +16,14 @@ import {
   Rule,
 } from "../shared/Typography";
 
-export const SeniorTechPromo: React.FC<z.infer<typeof SeniorTechPromoProps>> = ({
-  name,
-  phone,
-  rate,
-}) => {
+export const FirstTimeBuyerPromo: React.FC<
+  z.infer<typeof FirstTimeBuyerPromoProps>
+> = ({ name, phone, dre }) => {
   return (
     <AbsoluteFill>
       {/* Scene 1 — Hook / brand intro (0-150 | 0-5s) */}
       <Sequence durationInFrames={150}>
-        <Backdrop photo="kareem-with-seniors-kitchen.jpg" dim={0.72} />
+        <Backdrop photo="hero-buyers.jpg" dim={0.72} />
         <AbsoluteFill
           style={{
             justifyContent: "flex-end",
@@ -39,16 +37,16 @@ export const SeniorTechPromo: React.FC<z.infer<typeof SeniorTechPromoProps>> = (
           </FadeIn>
           <FadeIn delay={16}>
             <Headline>
-              Patient Tech Help
+              Your First Home
               <br />
-              for Seniors
+              Starts Here
             </Headline>
           </FadeIn>
           <FadeIn delay={32}>
             <Rule />
           </FadeIn>
           <FadeIn delay={42}>
-            <Body>Real help. Real patience. No judgment.</Body>
+            <Body>Buyer representation for first-time buyers in the Valley.</Body>
           </FadeIn>
         </AbsoluteFill>
       </Sequence>
@@ -61,23 +59,20 @@ export const SeniorTechPromo: React.FC<z.infer<typeof SeniorTechPromoProps>> = (
             justifyContent: "center",
             alignItems: "center",
             padding: "0 90px",
-            gap: 48,
+            gap: 44,
           }}
         >
           <ProblemLine delay={8}>
-            Confused by your phone or computer?
+            Not sure how much home you can actually afford?
           </ProblemLine>
           <ProblemLine delay={38}>
-            Worried about scams and spam calls?
+            Worried about losing out in a multiple-offer situation?
           </ProblemLine>
           <ProblemLine delay={68}>
-            Want easy video calls with the grandkids?
+            Don&rsquo;t know FHA from conventional from VA?
           </ProblemLine>
           <FadeIn delay={110} y={16} style={{ marginTop: 24 }}>
-            <Body>
-              You&rsquo;re not alone &mdash; and it&rsquo;s not too late to
-              feel confident again.
-            </Body>
+            <Body>You don&rsquo;t have to figure this out alone.</Body>
           </FadeIn>
         </AbsoluteFill>
       </Sequence>
@@ -116,24 +111,25 @@ export const SeniorTechPromo: React.FC<z.infer<typeof SeniorTechPromoProps>> = (
             </div>
           </FadeIn>
           <FadeIn delay={22}>
-            <Headline size={64}>
-              One-on-One Help,
+            <Headline size={62}>
+              Step-by-Step Guidance,
               <br />
-              at Your Pace
+              Start to Finish
             </Headline>
           </FadeIn>
           <FadeIn delay={40}>
             <Body>
-              In plain English. At your kitchen table or over the phone.
+              From pre-approval to closing day &mdash; explained in plain
+              English.
             </Body>
           </FadeIn>
           <FadeIn delay={56}>
-            <Eyebrow>No jargon &middot; no rushing &middot; ever</Eyebrow>
+            <Eyebrow>No pressure &middot; no jargon &middot; just a plan</Eyebrow>
           </FadeIn>
         </AbsoluteFill>
       </Sequence>
 
-      {/* Scene 4 — AI introductions (480-630 | 16-21s) */}
+      {/* Scene 4 — What we help with (480-630 | 16-21s) */}
       <Sequence from={480} durationInFrames={150}>
         <Backdrop />
         <AbsoluteFill
@@ -145,16 +141,14 @@ export const SeniorTechPromo: React.FC<z.infer<typeof SeniorTechPromoProps>> = (
           }}
         >
           <FadeIn delay={4}>
-            <Headline size={62}>
-              Now Introducing:
+            <Headline size={60}>
+              Everything Your
               <br />
-              Friendly AI Help
+              First Home Needs
             </Headline>
           </FadeIn>
           <FadeIn delay={24}>
-            <Body>
-              Simple introductions to tools that make everyday life easier.
-            </Body>
+            <Body>One trusted guide through the entire process.</Body>
           </FadeIn>
           <div
             style={{
@@ -166,15 +160,15 @@ export const SeniorTechPromo: React.FC<z.infer<typeof SeniorTechPromoProps>> = (
               marginTop: 12,
             }}
           >
-            <Pill label="Email & Scam Filters" delay={42} />
-            <Pill label="Voice Assistants" delay={56} />
-            <Pill label="Video Calls" delay={70} />
-            <Pill label="Smart Reminders" delay={84} />
+            <Pill label="Pre-Approval Guidance" delay={42} />
+            <Pill label="Offer Strategy" delay={56} />
+            <Pill label="FHA · VA · Conventional" delay={70} />
+            <Pill label="Closing Cost Planning" delay={84} />
           </div>
         </AbsoluteFill>
       </Sequence>
 
-      {/* Scene 5 — Price reveal (630-750 | 21-25s) */}
+      {/* Scene 5 — Free strategy session (630-750 | 21-25s) */}
       <Sequence from={630} durationInFrames={120}>
         <Backdrop />
         <AbsoluteFill
@@ -182,37 +176,32 @@ export const SeniorTechPromo: React.FC<z.infer<typeof SeniorTechPromoProps>> = (
             justifyContent: "center",
             alignItems: "center",
             gap: 26,
+            padding: "0 80px",
           }}
         >
           <FadeIn delay={4}>
-            <Eyebrow>Simple, honest pricing</Eyebrow>
+            <Eyebrow>Free &middot; no obligation</Eyebrow>
           </FadeIn>
           <FadeIn delay={16} y={40}>
             <div
               style={{
-                display: "flex",
-                alignItems: "baseline",
-                gap: 16,
                 fontFamily: displayFont,
                 color: GOLD_LIGHT,
+                fontSize: 88,
+                fontWeight: 700,
+                textAlign: "center",
+                lineHeight: 1.1,
               }}
             >
-              <span style={{ fontSize: 190, fontWeight: 700 }}>{rate}</span>
-              <span
-                style={{
-                  fontFamily: bodyFont,
-                  fontSize: 40,
-                  fontWeight: 600,
-                  color: "white",
-                }}
-              >
-                / hour
-              </span>
+              Buyer Strategy
+              <br />
+              Session
             </div>
           </FadeIn>
-          <FadeIn delay={40}>
+          <FadeIn delay={46}>
             <Body>
-              No contracts. No packages. Just help when you need it.
+              Let&rsquo;s map your path to pre-approval, an offer, and your
+              first set of keys.
             </Body>
           </FadeIn>
         </AbsoluteFill>
@@ -259,7 +248,20 @@ export const SeniorTechPromo: React.FC<z.infer<typeof SeniorTechPromoProps>> = (
                 opacity: 0.9,
               }}
             >
-              The patience of family. The skill of a guide.
+              The patience of family. The skill of a strategist.
+            </div>
+          </FadeIn>
+          <FadeIn delay={64} style={{ marginTop: 10 }}>
+            <div
+              style={{
+                fontFamily: bodyFont,
+                color: CREAM,
+                opacity: 0.6,
+                fontSize: 24,
+                textAlign: "center",
+              }}
+            >
+              {name} &middot; {dre} &middot; Rodeo Realty Fine Estates
             </div>
           </FadeIn>
         </AbsoluteFill>

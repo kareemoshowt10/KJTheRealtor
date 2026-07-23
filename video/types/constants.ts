@@ -34,3 +34,24 @@ export const SENIOR_TECH_DURATION_IN_FRAMES = 900;
 export const SENIOR_TECH_FPS = 30;
 export const SENIOR_TECH_WIDTH = 1080;
 export const SENIOR_TECH_HEIGHT = 1920;
+
+export const FIRST_TIME_BUYER_COMP_NAME = "FirstTimeBuyerPromo";
+
+export const FirstTimeBuyerPromoProps = z.object({
+  name: z.string(),
+  phone: z.string(),
+  dre: z.string(),
+});
+
+export const defaultFirstTimeBuyerPromoProps: z.infer<
+  typeof FirstTimeBuyerPromoProps
+> = {
+  name: "Kareem Jamal",
+  phone: "(818) 402-7326",
+  dre: "CA DRE #01998956",
+};
+
+export const FIRST_TIME_BUYER_DURATION_IN_FRAMES = 900;
+export const FIRST_TIME_BUYER_FPS = 30;
+export const FIRST_TIME_BUYER_WIDTH = 1080;
+export const FIRST_TIME_BUYER_HEIGHT = 1920;

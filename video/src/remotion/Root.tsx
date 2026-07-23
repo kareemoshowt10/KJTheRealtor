@@ -1,9 +1,16 @@
 import { Composition } from "remotion";
 import {
   COMP_NAME,
+  defaultFirstTimeBuyerPromoProps,
   defaultMyCompProps,
   defaultSeniorTechPromoProps,
   DURATION_IN_FRAMES,
+  FIRST_TIME_BUYER_COMP_NAME,
+  FIRST_TIME_BUYER_DURATION_IN_FRAMES,
+  FIRST_TIME_BUYER_FPS,
+  FIRST_TIME_BUYER_HEIGHT,
+  FIRST_TIME_BUYER_WIDTH,
+  FirstTimeBuyerPromoProps,
   SENIOR_TECH_COMP_NAME,
   SENIOR_TECH_DURATION_IN_FRAMES,
   SENIOR_TECH_FPS,
@@ -14,6 +21,7 @@ import {
   VIDEO_HEIGHT,
   VIDEO_WIDTH,
 } from "../../types/constants";
+import { FirstTimeBuyerPromo } from "./FirstTimeBuyerPromo";
 import { Main } from "./MyComp/Main";
 import { NextLogo } from "./MyComp/NextLogo";
 import { SeniorTechPromo } from "./SeniorTechPromo";
@@ -50,6 +58,16 @@ export const RemotionRoot: React.FC = () => {
         height={SENIOR_TECH_HEIGHT}
         schema={SeniorTechPromoProps}
         defaultProps={defaultSeniorTechPromoProps}
+      />
+      <Composition
+        id={FIRST_TIME_BUYER_COMP_NAME}
+        component={FirstTimeBuyerPromo}
+        durationInFrames={FIRST_TIME_BUYER_DURATION_IN_FRAMES}
+        fps={FIRST_TIME_BUYER_FPS}
+        width={FIRST_TIME_BUYER_WIDTH}
+        height={FIRST_TIME_BUYER_HEIGHT}
+        schema={FirstTimeBuyerPromoProps}
+        defaultProps={defaultFirstTimeBuyerPromoProps}
       />
     </>
   );

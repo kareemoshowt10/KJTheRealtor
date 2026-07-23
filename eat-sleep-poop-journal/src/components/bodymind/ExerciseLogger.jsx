@@ -6,30 +6,38 @@ import { toISOString } from '../../utils/dateUtils'
 
 const QUICK_EXERCISES = ['Pushups', 'Pullups', 'Squats', 'Muscle', 'Run', 'Bike', 'Yoga', 'Lift']
 
-export default function ExerciseLogger({ onClose }) {
-  const { state, addEntry } = useStore()
+export default function ExerciseLogger({ onClose, existing }) {
+  const { state, addEntry, updateEntry } = useStore()
   const activeMemberId = state.settings.activeMemberId
   const { showToast } = useToast()
-  const [exercise, setExercise] = useState('')
-  const [count, setCount] = useState('')
-  const [durationLocation, setDurationLocation] = useState('')
-  const [time, setTime] = useState(new Date().toTimeString().slice(0, 5))
-  const [notes, setNotes] = useState('')
+  const [exercise, setExercise] = useState(existing?.exercise || '')
+  const [count, setCount] = useState(existing?.count || '')
+  const [durationLocation, setDurationLocation] = useState(existing?.durationLocation || '')
+  const [time, setTime] = useState(
+    existing ? new Date(existing.timestamp).toTimeString().slice(0, 5) : new Date().toTimeString().slice(0, 5)
+  )
+  const [notes, setNotes] = useState(existing?.notes || '')
 
   function submit(e) {
     e.preventDefault()
     if (!exercise.trim()) return
-    const now = new Date()
+    const base = existing ? new Date(existing.timestamp) : new Date()
     const [h, m] = time.split(':')
-    now.setHours(+h, +m, 0, 0)
-    addEntry({
-      id: makeId(), type: 'exercise', timestamp: toISOString(now), memberId: activeMemberId,
+    base.setHours(+h, +m, 0, 0)
+    const payload = {
+      type: 'exercise', timestamp: toISOString(base), memberId: existing?.memberId || activeMemberId,
       exercise: exercise.trim(),
       count: count.trim(),
       durationLocation: durationLocation.trim(),
       notes: notes.trim(),
-    })
-    showToast('Workout logged 💪')
+    }
+    if (existing) {
+      updateEntry(existing.id, payload)
+      showToast('Workout updated 💪')
+    } else {
+      addEntry({ id: makeId(), ...payload })
+      showToast('Workout logged 💪')
+    }
     onClose()
   }
 
@@ -43,7 +51,7 @@ export default function ExerciseLogger({ onClose }) {
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2">
             <span className="text-2xl">💪</span>
-            <h2 className="text-xl font-bold">Log Exercise</h2>
+            <h2 className="text-xl font-bold">{existing ? 'Edit' : 'Log'} Exercise</h2>
           </div>
           <button onClick={onClose} className="p-1.5 rounded-full hover:bg-gray-100"><X size={20} /></button>
         </div>
@@ -101,7 +109,7 @@ export default function ExerciseLogger({ onClose }) {
 
           <button type="submit"
             className="w-full bg-lime-600 hover:bg-lime-700 text-white rounded-2xl py-4 font-bold text-base transition-colors shadow-sm">
-            Log Exercise 💪
+            {existing ? 'Save Changes' : 'Log Exercise'} 💪
           </button>
         </form>
       </div>

@@ -6,25 +6,22 @@ import { toISOString } from '../../utils/dateUtils'
 import { getMember } from '../../utils/memberUtils'
 import LoggerMemberPicker from '../family/LoggerMemberPicker'
 
-const BRISTOL = [
-  { type: 1, emoji: '🪨', label: 'Type 1', desc: 'Separate hard lumps' },
-  { type: 2, emoji: '🍫', label: 'Type 2', desc: 'Lumpy sausage' },
-  { type: 3, emoji: '🌭', label: 'Type 3', desc: 'Cracked surface' },
-  { type: 4, emoji: '🍌', label: 'Type 4', desc: 'Smooth & soft ✅' },
-  { type: 5, emoji: '🫘', label: 'Type 5', desc: 'Soft blobs' },
-  { type: 6, emoji: '💩', label: 'Type 6', desc: 'Fluffy pieces' },
-  { type: 7, emoji: '🌊', label: 'Type 7', desc: 'Liquid' },
+const AMOUNTS = [
+  { id: 'Light', label: 'Light', drops: '💧' },
+  { id: 'Medium', label: 'Medium', drops: '💧💧' },
+  { id: 'Heavy', label: 'Heavy', drops: '💧💧💧' },
 ]
 
-const COLORS = ['Brown', 'Dark Brown', 'Yellow', 'Green', 'Black', 'Red']
+const COLORS = ['Clear', 'Pale Yellow', 'Yellow', 'Dark Yellow']
 
-export default function PoopLogger({ onClose, existing }) {
+export default function PeeLogger({ onClose, existing }) {
   const { state, addEntry, updateEntry } = useStore()
   const { showToast } = useToast()
   const { members, activeMemberId } = state.settings
   const [memberId, setMemberId] = useState(existing?.memberId || activeMemberId)
-  const [bristolType, setBristolType] = useState(existing?.bristolType || 4)
-  const [color, setColor] = useState(existing?.color || 'Brown')
+  const [amount, setAmount] = useState(existing?.amount || 'Medium')
+  const [color, setColor] = useState(existing?.color || 'Pale Yellow')
+  const [accident, setAccident] = useState(existing?.accident || false)
   const [notes, setNotes] = useState(existing?.notes || '')
   const [time, setTime] = useState(
     existing ? new Date(existing.timestamp).toTimeString().slice(0, 5) : new Date().toTimeString().slice(0, 5)
@@ -35,14 +32,17 @@ export default function PoopLogger({ onClose, existing }) {
     const base = existing ? new Date(existing.timestamp) : new Date()
     const [h, m] = time.split(':')
     base.setHours(+h, +m, 0, 0)
-    const payload = { type: 'poop', timestamp: toISOString(base), memberId, bristolType, color, notes: notes.trim() }
+    const payload = {
+      type: 'pee', timestamp: toISOString(base), memberId,
+      amount, color, accident, notes: notes.trim(),
+    }
     if (existing) {
       updateEntry(existing.id, payload)
-      showToast('Poop updated 💩')
+      showToast('Pee updated 💧')
     } else {
       addEntry({ id: makeId(), ...payload })
       const member = getMember(members, memberId)
-      showToast(members.length > 1 ? `Logged for ${member.name} 💩` : 'Logged 💩')
+      showToast(members.length > 1 ? `Pee logged for ${member.name} 💧` : 'Pee logged 💧')
     }
     onClose()
   }
@@ -56,8 +56,8 @@ export default function PoopLogger({ onClose, existing }) {
       >
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">💩</span>
-            <h2 className="text-xl font-bold">{existing ? 'Edit' : 'Log'} Poop</h2>
+            <span className="text-2xl">💧</span>
+            <h2 className="text-xl font-bold">{existing ? 'Edit' : 'Log'} Pee</h2>
           </div>
           <button onClick={onClose} className="p-1.5 rounded-full hover:bg-gray-100"><X size={20} /></button>
         </div>
@@ -66,27 +66,18 @@ export default function PoopLogger({ onClose, existing }) {
           <LoggerMemberPicker members={members} value={memberId} onChange={setMemberId} />
 
           <div>
-            <label className="text-xs text-gray-500 font-medium block mb-2">BRISTOL SCALE (What type?)</label>
-            <div className="grid grid-cols-7 gap-1.5">
-              {BRISTOL.map(({ type, emoji }) => (
-                <button key={type} type="button"
-                  onClick={() => setBristolType(type)}
-                  className={`flex flex-col items-center py-2 rounded-xl text-xl transition-all ${
-                    bristolType === type
-                      ? 'bg-amber-500 text-white shadow-sm scale-105'
-                      : 'bg-gray-100'
-                  }`}
-                >
-                  {emoji}
-                  <span className="text-xs mt-0.5 font-medium">{type}</span>
+            <label className="text-xs text-gray-500 font-medium block mb-2">AMOUNT</label>
+            <div className="grid grid-cols-3 gap-2">
+              {AMOUNTS.map(a => (
+                <button key={a.id} type="button" onClick={() => setAmount(a.id)}
+                  className={`flex flex-col items-center py-3 rounded-xl transition-all ${
+                    amount === a.id ? 'bg-cyan-500 text-white shadow-sm scale-105' : 'bg-gray-100 text-gray-600'
+                  }`}>
+                  <span className="text-lg">{a.drops}</span>
+                  <span className="text-xs mt-0.5 font-medium">{a.label}</span>
                 </button>
               ))}
             </div>
-            {bristolType && (
-              <p className="text-sm text-amber-700 bg-amber-50 rounded-xl px-3 py-2 mt-2">
-                <strong>{BRISTOL[bristolType-1].label}:</strong> {BRISTOL[bristolType-1].desc}
-              </p>
-            )}
           </div>
 
           <div>
@@ -95,24 +86,33 @@ export default function PoopLogger({ onClose, existing }) {
               {COLORS.map(c => (
                 <button key={c} type="button" onClick={() => setColor(c)}
                   className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
-                    color === c ? 'bg-amber-500 text-white shadow-sm' : 'bg-gray-100 text-gray-600'
-                  }`}
-                >
+                    color === c ? 'bg-cyan-500 text-white shadow-sm' : 'bg-gray-100 text-gray-600'
+                  }`}>
                   {c}
                 </button>
               ))}
             </div>
           </div>
 
+          <button type="button" onClick={() => setAccident(a => !a)}
+            className={`w-full flex items-center justify-between rounded-xl px-4 py-3 transition-all ${
+              accident ? 'bg-amber-50 text-amber-700' : 'bg-gray-50 text-gray-600'
+            }`}>
+            <span className="text-sm font-medium">🚼 Accident / off potty</span>
+            <span className={`w-11 h-6 rounded-full relative transition-colors ${accident ? 'bg-amber-500' : 'bg-gray-300'}`}>
+              <span className={`absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-sm transition-transform ${accident ? 'translate-x-5' : 'translate-x-0.5'}`} />
+            </span>
+          </button>
+
           <input
             type="time"
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100"
+            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100"
             value={time}
             onChange={e => setTime(e.target.value)}
           />
 
           <textarea
-            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 resize-none"
+            className="w-full border border-gray-200 rounded-xl px-4 py-3 text-base focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 resize-none"
             placeholder="Notes (optional)"
             rows={2}
             value={notes}
@@ -120,8 +120,8 @@ export default function PoopLogger({ onClose, existing }) {
           />
 
           <button type="submit"
-            className="w-full bg-amber-500 hover:bg-amber-600 text-white rounded-2xl py-4 font-bold text-base transition-colors shadow-sm">
-            {existing ? 'Save Changes' : 'Log Poop'} 💩
+            className="w-full bg-cyan-500 hover:bg-cyan-600 text-white rounded-2xl py-4 font-bold text-base transition-colors shadow-sm">
+            {existing ? 'Save Changes' : 'Log Pee'} 💧
           </button>
         </form>
       </div>

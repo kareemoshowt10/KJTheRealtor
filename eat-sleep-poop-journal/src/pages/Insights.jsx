@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianGrid } from 'recharts'
-import { format, subDays } from 'date-fns'
+import { format, subDays, parseISO } from 'date-fns'
 import { useStore } from '../store/useStore'
 import { calcReflectionAP, calcHabitScore } from '../utils/scoring'
 import { isSameLocalDay } from '../utils/dateUtils'
@@ -91,6 +91,25 @@ export default function Insights({ onNavigate }) {
       return { day: format(d, 'EEE'), meditate, read }
     })
     return days
+  }, [entries])
+
+  const peeData = useMemo(() => getLast7(entries, 'pee', d => d.length), [entries])
+  const totalPees = useMemo(() => peeData.reduce((a, b) => a + b.value, 0), [peeData])
+  const hasPee = useMemo(() => entries.some(e => e.type === 'pee'), [entries])
+
+  const growth = useMemo(() => {
+    const ms = entries.filter(e => e.type === 'measurement')
+      .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+    const toSeries = kind => ms.filter(m => m.measureType === kind)
+      .map(m => ({ date: format(parseISO(m.timestamp), 'MMM d'), value: m.value, unit: m.unit }))
+    const weight = toSeries('weight')
+    const height = toSeries('height')
+    return {
+      has: ms.length > 0,
+      weight, height,
+      latestWeight: weight[weight.length - 1],
+      latestHeight: height[height.length - 1],
+    }
   }, [entries])
 
   const exerciseData = useMemo(() => getLast7(entries, 'exercise', d => d.length), [entries])
@@ -247,6 +266,83 @@ export default function Insights({ onNavigate }) {
             <StatRow label="Healthy range" value="1–3" sub="per day" />
           </div>
         </div>
+
+        {/* Pee chart — only when tracked */}
+        {hasPee && (
+          <div className="bg-white rounded-2xl p-4 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xl">💧</span>
+              <h2 className="font-bold text-gray-900">Pee / Diapers</h2>
+            </div>
+            <ResponsiveContainer width="100%" height={140}>
+              <BarChart data={peeData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+                <XAxis dataKey="day" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} allowDecimals={false} />
+                <Tooltip contentStyle={{ borderRadius: 12, border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.12)', fontSize: 12 }} />
+                <Bar dataKey="value" fill="#06b6d4" radius={[6,6,0,0]} name="Pees" />
+              </BarChart>
+            </ResponsiveContainer>
+            <div className="mt-3 divide-y divide-gray-100">
+              <StatRow label="7-day total" value={totalPees} sub="times" />
+              <StatRow label="Daily average" value={(totalPees/7).toFixed(1)} sub="per day" />
+            </div>
+          </div>
+        )}
+
+        {/* Growth chart — only when measurements exist */}
+        {growth.has && (
+          <div className="bg-white rounded-2xl p-4 shadow-sm">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xl">📏</span>
+              <h2 className="font-bold text-gray-900">Growth</h2>
+            </div>
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="bg-emerald-50 rounded-xl p-3">
+                <p className="text-xs text-emerald-700 font-medium">Latest weight</p>
+                <p className="text-xl font-bold text-emerald-800 mt-0.5">
+                  {growth.latestWeight ? `${growth.latestWeight.value} ${growth.latestWeight.unit}` : '—'}
+                </p>
+              </div>
+              <div className="bg-emerald-50 rounded-xl p-3">
+                <p className="text-xs text-emerald-700 font-medium">Latest height</p>
+                <p className="text-xl font-bold text-emerald-800 mt-0.5">
+                  {growth.latestHeight ? `${growth.latestHeight.value} ${growth.latestHeight.unit}` : '—'}
+                </p>
+              </div>
+            </div>
+            {growth.weight.length >= 2 && (
+              <>
+                <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Weight trend</p>
+                <ResponsiveContainer width="100%" height={130}>
+                  <LineChart data={growth.weight} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
+                    <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} domain={['dataMin - 1', 'dataMax + 1']} />
+                    <Tooltip contentStyle={{ borderRadius: 12, border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.12)', fontSize: 12 }} />
+                    <Line type="monotone" dataKey="value" stroke="#059669" strokeWidth={2.5} dot={{ fill: '#059669', r: 3 }} name="Weight" />
+                  </LineChart>
+                </ResponsiveContainer>
+              </>
+            )}
+            {growth.height.length >= 2 && (
+              <>
+                <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1 mt-3">Height trend</p>
+                <ResponsiveContainer width="100%" height={130}>
+                  <LineChart data={growth.height} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
+                    <XAxis dataKey="date" tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+                    <YAxis tick={{ fontSize: 10, fill: '#9ca3af' }} axisLine={false} tickLine={false} domain={['dataMin - 1', 'dataMax + 1']} />
+                    <Tooltip contentStyle={{ borderRadius: 12, border: 'none', boxShadow: '0 4px 20px rgba(0,0,0,0.12)', fontSize: 12 }} />
+                    <Line type="monotone" dataKey="value" stroke="#0d9488" strokeWidth={2.5} dot={{ fill: '#0d9488', r: 3 }} name="Height" />
+                  </LineChart>
+                </ResponsiveContainer>
+              </>
+            )}
+            {growth.weight.length < 2 && growth.height.length < 2 && (
+              <p className="text-xs text-gray-400 text-center py-2">Log at least 2 measurements to see a trend line.</p>
+            )}
+          </div>
+        )}
 
         {/* Personal modules — adults only */}
         {!isChildView && (<>

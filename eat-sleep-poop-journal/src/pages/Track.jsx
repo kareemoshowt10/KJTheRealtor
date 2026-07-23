@@ -8,17 +8,21 @@ import MemberSwitcher from '../components/family/MemberSwitcher'
 import EatLogger from '../components/tracking/EatLogger'
 import SleepLogger from '../components/tracking/SleepLogger'
 import PoopLogger from '../components/tracking/PoopLogger'
+import PeeLogger from '../components/tracking/PeeLogger'
 import MindSessionLogger from '../components/bodymind/MindSessionLogger'
 import ExerciseLogger from '../components/bodymind/ExerciseLogger'
+import MeasureLogger from '../components/bodymind/MeasureLogger'
 import ContactLogger from '../components/contacts/ContactLogger'
 
 const TILES = [
   { id: 'eat', emoji: '🍽️', label: 'Eat', color: 'bg-orange-500' },
   { id: 'sleep', emoji: '😴', label: 'Sleep', color: 'bg-violet-600' },
+  { id: 'poop', emoji: '💩', label: 'Poop', color: 'bg-amber-500' },
+  { id: 'pee', emoji: '💧', label: 'Pee', color: 'bg-cyan-500' },
+  { id: 'measurement', emoji: '📏', label: 'Growth', color: 'bg-emerald-600' },
   { id: 'meditation', emoji: '🧘', label: 'Meditate', color: 'bg-teal-500' },
   { id: 'reading', emoji: '📖', label: 'Read', color: 'bg-sky-500' },
   { id: 'exercise', emoji: '💪', label: 'Exercise', color: 'bg-lime-600' },
-  { id: 'poop', emoji: '💩', label: 'Poop', color: 'bg-amber-500' },
   { id: 'contact', emoji: '📇', label: 'Contact', color: 'bg-rose-500' },
 ]
 
@@ -28,6 +32,8 @@ function RecentEntry({ entry }) {
     eat: () => ({ icon: '🍽️', title: entry.food, sub: `${entry.mealType}${entry.calories ? ` · ${entry.calories} cal` : ''}` }),
     sleep: () => ({ icon: '😴', title: `${getDurationLabel(entry.startTime, entry.endTime)} of sleep`, sub: `Quality: ${'⭐'.repeat(entry.quality)}` }),
     poop: () => ({ icon: '💩', title: `Bristol Type ${entry.bristolType}`, sub: entry.color }),
+    pee: () => ({ icon: '💧', title: `${entry.amount} pee`, sub: [entry.color, entry.accident ? 'accident' : null].filter(Boolean).join(' · ') }),
+    measurement: () => ({ icon: '📏', title: `${entry.value} ${entry.unit}`, sub: entry.measureType === 'weight' ? 'Weight' : 'Height' }),
     meditation: () => ({ icon: '🧘', title: `${entry.durationMin} min meditation`, sub: entry.notes || 'No notes' }),
     reading: () => ({ icon: '📖', title: `${entry.durationMin} min reading`, sub: entry.notes || 'No notes' }),
     exercise: () => ({ icon: '💪', title: entry.exercise, sub: [entry.count, entry.durationLocation].filter(Boolean).join(' · ') || 'Logged' }),
@@ -47,7 +53,7 @@ function RecentEntry({ entry }) {
   )
 }
 
-const FAMILY_TILE_IDS = ['eat', 'sleep', 'poop']
+const FAMILY_TILE_IDS = ['eat', 'sleep', 'poop', 'pee', 'measurement']
 
 export default function Track({ onNavigate }) {
   const { state, setActiveMember } = useStore()
@@ -133,6 +139,8 @@ export default function Track({ onNavigate }) {
       {modal === 'eat' && <EatLogger onClose={() => setModal(null)} />}
       {modal === 'sleep' && <SleepLogger onClose={() => setModal(null)} />}
       {modal === 'poop' && <PoopLogger onClose={() => setModal(null)} />}
+      {modal === 'pee' && <PeeLogger onClose={() => setModal(null)} />}
+      {modal === 'measurement' && <MeasureLogger onClose={() => setModal(null)} />}
       {modal === 'meditation' && <MindSessionLogger type="meditation" onClose={() => setModal(null)} />}
       {modal === 'reading' && <MindSessionLogger type="reading" onClose={() => setModal(null)} />}
       {modal === 'exercise' && <ExerciseLogger onClose={() => setModal(null)} />}

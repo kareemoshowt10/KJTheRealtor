@@ -14,22 +14,25 @@ function buildISO(dateStr, timeStr) {
 
 function getYesterday() {
   const d = new Date(); d.setDate(d.getDate() - 1)
-  return d.toISOString().slice(0, 10)
+  return localDate(d)
 }
-function getToday() { return new Date().toISOString().slice(0, 10) }
+function getToday() { return localDate(new Date()) }
 function nowTime() { return new Date().toTimeString().slice(0, 5) }
+function localDate(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
 
-export default function SleepLogger({ onClose }) {
-  const { state, addEntry } = useStore()
+export default function SleepLogger({ onClose, existing }) {
+  const { state, addEntry, updateEntry } = useStore()
   const { showToast } = useToast()
   const { members, activeMemberId } = state.settings
-  const [memberId, setMemberId] = useState(activeMemberId)
-  const [startDate, setStartDate] = useState(getYesterday())
-  const [startTime, setStartTime] = useState('22:00')
-  const [endDate, setEndDate] = useState(getToday())
-  const [endTime, setEndTime] = useState(nowTime())
-  const [quality, setQuality] = useState(4)
-  const [notes, setNotes] = useState('')
+  const [memberId, setMemberId] = useState(existing?.memberId || activeMemberId)
+  const [startDate, setStartDate] = useState(existing ? localDate(new Date(existing.startTime)) : getYesterday())
+  const [startTime, setStartTime] = useState(existing ? new Date(existing.startTime).toTimeString().slice(0, 5) : '22:00')
+  const [endDate, setEndDate] = useState(existing ? localDate(new Date(existing.endTime)) : getToday())
+  const [endTime, setEndTime] = useState(existing ? new Date(existing.endTime).toTimeString().slice(0, 5) : nowTime())
+  const [quality, setQuality] = useState(existing?.quality || 4)
+  const [notes, setNotes] = useState(existing?.notes || '')
 
   function submit(e) {
     e.preventDefault()
@@ -39,14 +42,20 @@ export default function SleepLogger({ onClose }) {
       alert('Wake time must be after sleep time.')
       return
     }
-    addEntry({
-      id: makeId(), type: 'sleep', memberId,
+    const payload = {
+      type: 'sleep', memberId,
       timestamp: endISO,
       startTime: startISO, endTime: endISO,
-      quality, notes: notes.trim()
-    })
-    const member = getMember(members, memberId)
-    showToast(members.length > 1 ? `Sleep logged for ${member.name} 😴` : 'Sleep logged 😴')
+      quality, notes: notes.trim(),
+    }
+    if (existing) {
+      updateEntry(existing.id, payload)
+      showToast('Sleep updated 😴')
+    } else {
+      addEntry({ id: makeId(), ...payload })
+      const member = getMember(members, memberId)
+      showToast(members.length > 1 ? `Sleep logged for ${member.name} 😴` : 'Sleep logged 😴')
+    }
     onClose()
   }
 
@@ -64,7 +73,7 @@ export default function SleepLogger({ onClose }) {
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2">
             <span className="text-2xl">😴</span>
-            <h2 className="text-xl font-bold">Log Sleep</h2>
+            <h2 className="text-xl font-bold">{existing ? 'Edit' : 'Log'} Sleep</h2>
           </div>
           <button onClick={onClose} className="p-1.5 rounded-full hover:bg-gray-100"><X size={20} /></button>
         </div>
@@ -128,7 +137,7 @@ export default function SleepLogger({ onClose }) {
 
           <button type="submit"
             className="w-full bg-violet-600 hover:bg-violet-700 text-white rounded-2xl py-4 font-bold text-base transition-colors shadow-sm">
-            Log Sleep 😴
+            {existing ? 'Save Changes' : 'Log Sleep'} 😴
           </button>
         </form>
       </div>

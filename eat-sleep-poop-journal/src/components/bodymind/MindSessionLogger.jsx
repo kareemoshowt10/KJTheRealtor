@@ -23,16 +23,17 @@ function minusMinutes(mins) {
   return d.toTimeString().slice(0, 5)
 }
 
-export default function MindSessionLogger({ type, onClose }) {
-  const { state, addEntry } = useStore()
+export default function MindSessionLogger({ type, onClose, existing }) {
+  const { state, addEntry, updateEntry } = useStore()
   const activeMemberId = state.settings.activeMemberId
   const { showToast } = useToast()
   const cfg = CONFIG[type]
-  const [startTime, setStartTime] = useState(minusMinutes(20))
-  const [endTime, setEndTime] = useState(nowTime())
-  const [notes, setNotes] = useState('')
+  const [startTime, setStartTime] = useState(existing ? new Date(existing.startTime).toTimeString().slice(0, 5) : minusMinutes(20))
+  const [endTime, setEndTime] = useState(existing ? new Date(existing.endTime).toTimeString().slice(0, 5) : nowTime())
+  const [notes, setNotes] = useState(existing?.notes || '')
 
-  const today = new Date().toISOString().slice(0, 10)
+  const day = existing ? new Date(existing.startTime) : new Date()
+  const today = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`
   const startISO = `${today}T${startTime}:00`
   const endISO = `${today}T${endTime}:00`
   const durationMin = Math.round((new Date(endISO) - new Date(startISO)) / 60000)
@@ -41,14 +42,20 @@ export default function MindSessionLogger({ type, onClose }) {
   function submit(e) {
     e.preventDefault()
     if (!valid) { alert('End time must be after start time.'); return }
-    addEntry({
-      id: makeId(), type, memberId: activeMemberId,
+    const payload = {
+      type, memberId: existing?.memberId || activeMemberId,
       timestamp: toISOString(new Date(endISO)),
       startTime: toISOString(new Date(startISO)),
       endTime: toISOString(new Date(endISO)),
       durationMin, notes: notes.trim(),
-    })
-    showToast(type === 'meditation' ? 'Meditation logged 🧘' : 'Reading logged 📖')
+    }
+    if (existing) {
+      updateEntry(existing.id, payload)
+      showToast(type === 'meditation' ? 'Meditation updated 🧘' : 'Reading updated 📖')
+    } else {
+      addEntry({ id: makeId(), ...payload })
+      showToast(type === 'meditation' ? 'Meditation logged 🧘' : 'Reading logged 📖')
+    }
     onClose()
   }
 
@@ -62,7 +69,7 @@ export default function MindSessionLogger({ type, onClose }) {
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2">
             <span className="text-2xl">{cfg.emoji}</span>
-            <h2 className="text-xl font-bold">{cfg.label}</h2>
+            <h2 className="text-xl font-bold">{existing ? `Edit ${type === 'meditation' ? 'Meditation' : 'Reading'}` : cfg.label}</h2>
           </div>
           <button onClick={onClose} className="p-1.5 rounded-full hover:bg-gray-100"><X size={20} /></button>
         </div>
@@ -98,7 +105,7 @@ export default function MindSessionLogger({ type, onClose }) {
 
           <button type="submit"
             className={`w-full text-white rounded-2xl py-4 font-bold text-base transition-colors shadow-sm ${cfg.bg}`}>
-            Log {type === 'meditation' ? 'Meditation' : 'Reading'} {cfg.emoji}
+            {existing ? 'Save Changes' : `Log ${type === 'meditation' ? 'Meditation' : 'Reading'}`} {cfg.emoji}
           </button>
         </form>
       </div>

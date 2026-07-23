@@ -9,31 +9,39 @@ import LoggerMemberPicker from '../family/LoggerMemberPicker'
 const MEAL_TYPES = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Drink']
 const QUICK_FOODS = ['Coffee ☕', 'Eggs 🍳', 'Salad 🥗', 'Pizza 🍕', 'Sandwich 🥪', 'Fruit 🍎', 'Water 💧', 'Smoothie 🥤']
 
-export default function EatLogger({ onClose }) {
-  const { state, addEntry } = useStore()
+export default function EatLogger({ onClose, existing }) {
+  const { state, addEntry, updateEntry } = useStore()
   const { showToast } = useToast()
   const { members, activeMemberId } = state.settings
-  const [memberId, setMemberId] = useState(activeMemberId)
-  const [mealType, setMealType] = useState('Breakfast')
-  const [food, setFood] = useState('')
-  const [calories, setCalories] = useState('')
-  const [notes, setNotes] = useState('')
-  const [time, setTime] = useState(new Date().toTimeString().slice(0, 5))
+  const [memberId, setMemberId] = useState(existing?.memberId || activeMemberId)
+  const [mealType, setMealType] = useState(existing?.mealType || 'Breakfast')
+  const [food, setFood] = useState(existing?.food || '')
+  const [calories, setCalories] = useState(existing?.calories != null ? String(existing.calories) : '')
+  const [notes, setNotes] = useState(existing?.notes || '')
+  const [time, setTime] = useState(
+    existing ? new Date(existing.timestamp).toTimeString().slice(0, 5) : new Date().toTimeString().slice(0, 5)
+  )
 
   function submit(e) {
     e.preventDefault()
     if (!food.trim()) return
-    const now = new Date()
+    const base = existing ? new Date(existing.timestamp) : new Date()
     const [h, m] = time.split(':')
-    now.setHours(+h, +m, 0, 0)
-    addEntry({
-      id: makeId(), type: 'eat', timestamp: toISOString(now), memberId,
+    base.setHours(+h, +m, 0, 0)
+    const payload = {
+      type: 'eat', timestamp: toISOString(base), memberId,
       mealType, food: food.trim(),
       calories: calories ? +calories : null,
-      notes: notes.trim()
-    })
-    const member = getMember(members, memberId)
-    showToast(members.length > 1 ? `Meal logged for ${member.name} 🍽️` : 'Meal logged 🍽️')
+      notes: notes.trim(),
+    }
+    if (existing) {
+      updateEntry(existing.id, payload)
+      showToast('Meal updated 🍽️')
+    } else {
+      addEntry({ id: makeId(), ...payload })
+      const member = getMember(members, memberId)
+      showToast(members.length > 1 ? `Meal logged for ${member.name} 🍽️` : 'Meal logged 🍽️')
+    }
     onClose()
   }
 
@@ -47,7 +55,7 @@ export default function EatLogger({ onClose }) {
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2">
             <span className="text-2xl">🍽️</span>
-            <h2 className="text-xl font-bold">Log Meal</h2>
+            <h2 className="text-xl font-bold">{existing ? 'Edit' : 'Log'} Meal</h2>
           </div>
           <button onClick={onClose} className="p-1.5 rounded-full hover:bg-gray-100">
             <X size={20} />
@@ -129,7 +137,7 @@ export default function EatLogger({ onClose }) {
             type="submit"
             className="w-full bg-orange-500 hover:bg-orange-600 text-white rounded-2xl py-4 font-bold text-base transition-colors shadow-sm"
           >
-            Log Meal 🍽️
+            {existing ? 'Save Changes' : 'Log Meal'} 🍽️
           </button>
         </form>
       </div>

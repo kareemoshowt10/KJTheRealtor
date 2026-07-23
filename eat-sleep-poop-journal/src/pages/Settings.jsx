@@ -115,6 +115,8 @@ export default function Settings({ onNavigate }) {
     eat: state.entries.filter(e => e.type === 'eat').length,
     sleep: state.entries.filter(e => e.type === 'sleep').length,
     poop: state.entries.filter(e => e.type === 'poop').length,
+    pee: state.entries.filter(e => e.type === 'pee').length,
+    measurement: state.entries.filter(e => e.type === 'measurement').length,
     meditation: state.entries.filter(e => e.type === 'meditation').length,
     reading: state.entries.filter(e => e.type === 'reading').length,
     exercise: state.entries.filter(e => e.type === 'exercise').length,
@@ -211,6 +213,8 @@ export default function Settings({ onNavigate }) {
           <Row icon="🍽️" label="Meals logged"><span className="text-sm text-gray-500">{counts.eat}</span></Row>
           <Row icon="😴" label="Sleep sessions"><span className="text-sm text-gray-500">{counts.sleep}</span></Row>
           <Row icon="💩" label="Bowel movements"><span className="text-sm text-gray-500">{counts.poop}</span></Row>
+          <Row icon="💧" label="Pee / diapers"><span className="text-sm text-gray-500">{counts.pee}</span></Row>
+          <Row icon="📏" label="Measurements"><span className="text-sm text-gray-500">{counts.measurement}</span></Row>
           <Row icon="🧘" label="Meditation sessions"><span className="text-sm text-gray-500">{counts.meditation}</span></Row>
           <Row icon="📖" label="Reading sessions"><span className="text-sm text-gray-500">{counts.reading}</span></Row>
           <Row icon="💪" label="Workouts logged"><span className="text-sm text-gray-500">{counts.exercise}</span></Row>

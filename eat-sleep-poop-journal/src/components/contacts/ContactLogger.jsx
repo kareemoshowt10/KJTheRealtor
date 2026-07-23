@@ -4,26 +4,34 @@ import { useStore, makeId } from '../../store/useStore'
 import { useToast } from '../../store/ToastContext'
 import { toISOString } from '../../utils/dateUtils'
 
-export default function ContactLogger({ onClose }) {
-  const { state, addEntry } = useStore()
+export default function ContactLogger({ onClose, existing }) {
+  const { state, addEntry, updateEntry } = useStore()
   const activeMemberId = state.settings.activeMemberId
   const { showToast } = useToast()
-  const [name, setName] = useState('')
-  const [subject, setSubject] = useState('')
-  const [description, setDescription] = useState('')
-  const [time, setTime] = useState(new Date().toTimeString().slice(0, 5))
+  const [name, setName] = useState(existing?.name || '')
+  const [subject, setSubject] = useState(existing?.subject || '')
+  const [description, setDescription] = useState(existing?.description || '')
+  const [time, setTime] = useState(
+    existing ? new Date(existing.timestamp).toTimeString().slice(0, 5) : new Date().toTimeString().slice(0, 5)
+  )
 
   function submit(e) {
     e.preventDefault()
     if (!name.trim()) return
-    const now = new Date()
+    const base = existing ? new Date(existing.timestamp) : new Date()
     const [h, m] = time.split(':')
-    now.setHours(+h, +m, 0, 0)
-    addEntry({
-      id: makeId(), type: 'contact', timestamp: toISOString(now), memberId: activeMemberId,
+    base.setHours(+h, +m, 0, 0)
+    const payload = {
+      type: 'contact', timestamp: toISOString(base), memberId: existing?.memberId || activeMemberId,
       name: name.trim(), subject: subject.trim(), description: description.trim(),
-    })
-    showToast('Contact logged 📇')
+    }
+    if (existing) {
+      updateEntry(existing.id, payload)
+      showToast('Contact updated 📇')
+    } else {
+      addEntry({ id: makeId(), ...payload })
+      showToast('Contact logged 📇')
+    }
     onClose()
   }
 
@@ -37,7 +45,7 @@ export default function ContactLogger({ onClose }) {
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2">
             <span className="text-2xl">📇</span>
-            <h2 className="text-xl font-bold">Log Contact</h2>
+            <h2 className="text-xl font-bold">{existing ? 'Edit' : 'Log'} Contact</h2>
           </div>
           <button onClick={onClose} className="p-1.5 rounded-full hover:bg-gray-100"><X size={20} /></button>
         </div>
@@ -77,7 +85,7 @@ export default function ContactLogger({ onClose }) {
 
           <button type="submit"
             className="w-full bg-rose-500 hover:bg-rose-600 text-white rounded-2xl py-4 font-bold text-base transition-colors shadow-sm">
-            Log Contact 📇
+            {existing ? 'Save Changes' : 'Log Contact'} 📇
           </button>
         </form>
       </div>

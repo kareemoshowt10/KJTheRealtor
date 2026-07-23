@@ -2,13 +2,21 @@ import { Composition } from "remotion";
 import {
   COMP_NAME,
   defaultMyCompProps,
+  defaultSeniorTechPromoProps,
   DURATION_IN_FRAMES,
+  SENIOR_TECH_COMP_NAME,
+  SENIOR_TECH_DURATION_IN_FRAMES,
+  SENIOR_TECH_FPS,
+  SENIOR_TECH_HEIGHT,
+  SENIOR_TECH_WIDTH,
+  SeniorTechPromoProps,
   VIDEO_FPS,
   VIDEO_HEIGHT,
   VIDEO_WIDTH,
 } from "../../types/constants";
 import { Main } from "./MyComp/Main";
 import { NextLogo } from "./MyComp/NextLogo";
+import { SeniorTechPromo } from "./SeniorTechPromo";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -32,6 +40,16 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           outProgress: 0,
         }}
+      />
+      <Composition
+        id={SENIOR_TECH_COMP_NAME}
+        component={SeniorTechPromo}
+        durationInFrames={SENIOR_TECH_DURATION_IN_FRAMES}
+        fps={SENIOR_TECH_FPS}
+        width={SENIOR_TECH_WIDTH}
+        height={SENIOR_TECH_HEIGHT}
+        schema={SeniorTechPromoProps}
+        defaultProps={defaultSeniorTechPromoProps}
       />
     </>
   );

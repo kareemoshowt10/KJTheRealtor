@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Real Estate &amp; Wealth Calculators | Kareem Jamal | Woodland Hills &amp; Southern California</title>
-  <meta name="description" content="Three free, no-signup real estate calculators: home affordability, equity &amp; wealth projection, and seller net proceeds. The same tools Kareem Jamal uses with clients in Woodland Hills and Southern California." />
+  <title>Free AI Real Estate Tools | Listing &amp; Marketing Generator | Kareem Jamal</title>
+  <meta name="description" content="Four free AI-assisted real estate tools: instant listing description generator, social caption generator, market update writer, and follow-up email drafter. No signup — built by Kareem Jamal for Woodland Hills &amp; Southern California." />
   <meta name="theme-color" content="#40505f" />
-  <meta property="og:title" content="Free Real Estate &amp; Wealth Calculators | Kareem Jamal" />
-  <meta property="og:description" content="Open, free, no signup. Understand what you can afford, how your equity compounds, and what you'll actually net on a sale." />
+  <meta property="og:title" content="Free AI Real Estate Tools | Kareem Jamal" />
+  <meta property="og:description" content="Instant listing descriptions, social captions, market updates, and follow-up emails — generated in seconds, free, no signup." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kareemjamaltherealtor.com/wealth-tools" />
+  <meta property="og:url" content="https://kareemjamaltherealtor.com/ai-tools" />
   <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot-2026-web.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://kareemjamaltherealtor.com/assets/kareem-jamal-headshot-2026-web.jpg" />
-  <link rel="canonical" href="https://kareemjamaltherealtor.com/wealth-tools" />
+  <link rel="canonical" href="https://kareemjamaltherealtor.com/ai-tools" />
+  <link rel="icon" href="/assets/favicon-jamal.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -68,38 +69,6 @@
     /* ── SCROLL PROGRESS ── */
     #scroll-bar { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, var(--gold), rgba(201,133,105,0.8)); z-index: 60; transition: width 80ms linear; }
 
-    /* ── HEADER / NAV ── */
-    .site-header {
-      position: sticky; top: 0; z-index: 40;
-      padding: 1rem 0;
-      background: linear-gradient(180deg, rgba(255,252,247,0.94), rgba(255,252,247,0.68));
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(46,53,60,0.03);
-    }
-    .nav-shell {
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-      padding: 0.8rem 1rem;
-      border-radius: 999px;
-      background: rgba(255,253,250,0.72);
-      border: 1px solid rgba(46,53,60,0.06);
-      box-shadow: 0 2px 16px rgba(46,53,60,0.05);
-    }
-    .brand { display: flex; flex-direction: column; gap: 0.1rem; }
-    .brand-name { font-family: "Fraunces", serif; font-size: 1.15rem; font-weight: 600; color: var(--navy); letter-spacing: 0.01em; }
-    .brand-role { font-size: 0.68rem; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
-    .nav-links { display: flex; align-items: center; flex-wrap: nowrap; gap: 0.15rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-    .nav-links a {
-      padding: 0.65rem 0.85rem; border-radius: 999px;
-      transition: color 200ms ease, background 200ms ease, transform 180ms ease;
-    }
-    .nav-links a:hover, .nav-links a:focus-visible { color: var(--ink); background: rgba(184,139,82,0.1); outline: none; transform: translateY(-1px); }
-    .nav-links a.is-active { background: rgba(184,139,82,0.12); color: var(--gold); }
-    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.4rem; }
-    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: transform 260ms ease, opacity 200ms ease; }
-    body.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    body.nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
     /* ── BUTTONS ── */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
@@ -114,6 +83,10 @@
     .btn-secondary:hover { background: rgba(64,80,95,0.05); }
     .btn-gold { background: var(--gold); color: #fff; }
     .btn-gold:hover { background: #a07844; box-shadow: 0 6px 20px rgba(184,139,82,0.35); }
+    .btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+    .btn-block { width: 100%; }
+    .btn-ghost { background: rgba(64,80,95,0.06); color: var(--navy); font-size: 0.78rem; padding: 0.5rem 0.95rem; }
+    .btn-ghost:hover { background: rgba(184,139,82,0.14); }
 
     /* ── EYEBROW / KICKER ── */
     .eyebrow {
@@ -140,7 +113,7 @@
       color: var(--navy); margin: 0.85rem 0 1rem;
     }
     .hero-title em { font-style: italic; color: var(--gold); }
-    .hero-text { color: var(--muted); line-height: 1.7; font-size: 1rem; max-width: 56ch; }
+    .hero-text { color: var(--muted); line-height: 1.7; font-size: 1rem; max-width: 58ch; }
     .hero-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0; }
     .pill {
       padding: 0.55rem 1rem; border-radius: 999px;
@@ -160,7 +133,7 @@
     }
     .section-head p { color: var(--muted); font-size: 0.95rem; line-height: 1.65; max-width: 60ch; }
 
-    /* ── CALCULATOR LAYOUT ── */
+    /* ── TOOL LAYOUT ── */
     .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
     .calc-inputs {
       background: rgba(255,255,255,0.7); border: 1px solid rgba(46,53,60,0.08);
@@ -172,39 +145,30 @@
     .field:last-child { margin-bottom: 0; }
     .field label { font-size: 0.8rem; font-weight: 700; color: var(--navy); }
     .field .hint { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
-    .input-wrap { position: relative; display: flex; align-items: center; }
-    .input-wrap .affix {
-      position: absolute; font-size: 0.9rem; color: var(--muted); font-weight: 600; pointer-events: none;
-    }
-    .input-wrap .affix.left { left: 0.95rem; }
-    .input-wrap .affix.right { right: 0.95rem; }
-    .field input[type="number"], .field input[type="text"] {
+    .field input[type="text"], .field input[type="number"], .field select, .field textarea {
       width: 100%; min-height: 48px; padding: 0.75rem 0.95rem;
       border-radius: var(--radius-sm); border: 1px solid rgba(46,53,60,0.14);
       background: var(--bg); color: var(--ink); font-size: 16px; font-weight: 600;
       transition: border-color 180ms ease, box-shadow 180ms ease;
     }
-    .input-wrap.has-left input { padding-left: 1.9rem; }
-    .input-wrap.has-right input { padding-right: 2.2rem; }
-    .field input:focus-visible {
+    .field textarea { min-height: 80px; font-weight: 500; resize: vertical; line-height: 1.5; }
+    .field select { cursor: pointer; }
+    .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible {
       outline: none; border-color: var(--gold);
       box-shadow: 0 0 0 4px rgba(184,139,82,0.18);
     }
-    .field input[type="range"] {
-      -webkit-appearance: none; appearance: none; width: 100%;
-      height: 6px; border-radius: 999px; background: rgba(184,139,82,0.25);
-      padding: 0; min-height: 0; box-shadow: none; border: none; margin-top: 0.4rem;
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.5rem 0.9rem; border-radius: 999px;
+      border: 1.5px solid rgba(46,53,60,0.14); background: var(--bg);
+      font-size: 0.78rem; font-weight: 600; color: var(--muted);
+      cursor: pointer; user-select: none; transition: all 160ms ease;
     }
-    .field input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none; appearance: none; width: 22px; height: 22px;
-      border-radius: 50%; background: var(--gold); cursor: pointer; border: 3px solid #fff;
-      box-shadow: 0 2px 8px rgba(184,139,82,0.4);
-    }
-    .field input[type="range"]::-moz-range-thumb {
-      width: 22px; height: 22px; border-radius: 50%; background: var(--gold);
-      cursor: pointer; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(184,139,82,0.4);
-    }
-    .range-val { font-family: "Fraunces", serif; font-size: 1.3rem; color: var(--gold); font-weight: 600; }
+    .chip input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .chip.is-checked { background: rgba(184,139,82,0.16); border-color: var(--gold); color: var(--navy); }
+    .chip:hover { border-color: rgba(184,139,82,0.5); }
 
     /* ── RESULTS CARD ── */
     .results-card {
@@ -215,42 +179,18 @@
       margin-bottom: 2rem;
       position: sticky; top: 88px;
     }
-    .results-card .res-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-    .results-headline {
-      font-family: "Fraunces", serif; font-weight: 700;
-      font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; color: var(--gold);
-      margin: 0.35rem 0 1.25rem; word-break: break-word;
+    .results-card .res-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+    .output-block {
+      margin-top: 1rem; padding: 1.1rem 1.2rem;
+      background: rgba(255,255,255,0.75); border: 1px solid rgba(46,53,60,0.08);
+      border-radius: var(--radius-sm); font-size: 0.92rem; line-height: 1.65; color: var(--ink);
+      white-space: pre-wrap; min-height: 60px;
     }
-    .res-rows { display: grid; gap: 0; border-top: 1px solid rgba(46,53,60,0.1); }
-    .res-row {
-      display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
-      padding: 0.85rem 0; border-bottom: 1px solid rgba(46,53,60,0.08);
-      font-size: 0.9rem;
-    }
-    .res-row .lbl { color: var(--muted); font-weight: 500; }
-    .res-row .val { font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; }
-    .res-row.deduct .val { color: #b3543a; }
-    .res-row.total { border-bottom: none; padding-top: 1.1rem; }
-    .res-row.total .lbl { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
-    .res-row.total .val { font-family: "Fraunces", serif; font-size: 1.6rem; color: var(--gold); }
-
-    /* ── INLINE BAR CHART ── */
-    .chart { margin-top: 1.25rem; display: grid; gap: 0.75rem; }
-    .chart-row { display: grid; grid-template-columns: 56px 1fr; gap: 0.75rem; align-items: center; }
-    .chart-row .yr { font-size: 0.78rem; font-weight: 700; color: var(--navy); }
-    .chart-bar-track { background: rgba(46,53,60,0.06); border-radius: 999px; height: 26px; overflow: hidden; display: flex; }
-    .chart-bar {
-      height: 100%; display: flex; align-items: center; justify-content: flex-end;
-      padding-right: 0.5rem; color: #fff; font-size: 0.7rem; font-weight: 700;
-      white-space: nowrap; transition: width 350ms cubic-bezier(0.22,1,0.36,1); min-width: 0;
-    }
-    .chart-bar.equity { background: var(--gold); border-radius: 999px 0 0 999px; }
-    .chart-bar.debt { background: rgba(64,80,95,0.55); border-radius: 0 999px 999px 0; }
-    .chart-legend { display: flex; gap: 1.25rem; margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); font-weight: 600; }
-    .chart-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
-    .chart-legend i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
-    .chart-legend i.equity { background: var(--gold); }
-    .chart-legend i.debt { background: rgba(64,80,95,0.55); }
+    .output-block.placeholder { color: var(--muted); font-style: italic; }
+    .output-block .variant-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.4rem; }
+    .output-block + .output-block { margin-top: 0.85rem; }
+    .copy-row { display: flex; justify-content: flex-end; margin-top: 0.4rem; }
+    .empty-hint { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
 
     /* ── EDUCATOR NOTE ── */
     .educator-note {
@@ -388,14 +328,12 @@
       .site-header .nav-cta { padding: 0.5rem 0.85rem; font-size: 0.65rem; letter-spacing: 0.08em; }
     }
 
-    /* ── INPUT TRANSITIONS ── */
-    input { transition: border-color 200ms ease, box-shadow 200ms ease; }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 880px) {
       .calc-grid { grid-template-columns: 1fr; }
       .results-card { position: static; }
       .footer-grid { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       .container, main { padding-left: 1.25rem; padding-right: 1.25rem; }
@@ -408,7 +346,7 @@
       .social-link span { display: none; }
       .social-link { min-width: 44px; min-height: 44px; padding: 0.75rem; justify-content: center; }
     }
-  
+
     /* JAMAL primary logo mark */
     .brand { display: flex; align-items: center; gap: 0.75rem; }
     .brand-mark {
@@ -426,16 +364,17 @@
   "@graph": [
     {
       "@type": "WebApplication",
-      "name": "Free Real Estate Wealth Tools by Kareem Jamal",
-      "url": "https://kareemjamaltherealtor.com/wealth-tools",
-      "applicationCategory": "FinanceApplication",
+      "name": "Free AI Real Estate Tools by Kareem Jamal",
+      "url": "https://kareemjamaltherealtor.com/ai-tools",
+      "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web browser",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "description": "Free interactive real estate calculators: a Home Affordability Calculator (28/36 DTI), an Equity & Wealth Projection Calculator, and a Seller Net Proceeds Calculator. Built by Southern California Realtor Kareem Jamal.",
+      "description": "Free AI-assisted real estate content tools: a listing description generator, social media caption generator, market update writer, and follow-up email drafter. Built by Southern California Realtor Kareem Jamal.",
       "featureList": [
-        "Home Affordability Calculator",
-        "Equity & Wealth Projection Calculator",
-        "Seller Net Proceeds Calculator"
+        "Listing Description Generator",
+        "Social Caption Generator",
+        "Market Update Writer",
+        "Follow-Up Email Drafter"
       ],
       "provider": { "@type": "RealEstateAgent", "@id": "https://kareemjamaltherealtor.com/#agent", "name": "Kareem Jamal" }
     },
@@ -443,7 +382,7 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kareemjamaltherealtor.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Wealth Tools", "item": "https://kareemjamaltherealtor.com/wealth-tools" }
+        { "@type": "ListItem", "position": 2, "name": "AI Tools", "item": "https://kareemjamaltherealtor.com/ai-tools" }
       ]
     }
   ]
@@ -465,7 +404,9 @@
         <span class="brand-mark" aria-hidden="true"><img src="/assets/jamal-real-estate-logo.png" alt="" width="40" height="40" decoding="async" /></span>
         <span class="brand-text">
         <span class="brand-name">Kareem Jamal</span>
-        <span class="brand-sub">Rodeo Realty Fine Estates</span>`n        </span>`n      </a>
+        <span class="brand-sub">Rodeo Realty Fine Estates</span>
+        </span>
+      </a>
       <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
         <span></span><span></span><span></span>
       </button>
@@ -478,7 +419,7 @@
         <a href="/house-hacking">House Hacking</a>
         <a href="/mls-search">Search</a>
         <a href="/free-reports">Free Reports</a>
-        <a href="/ai-tools">AI Tools</a>
+        <a href="/ai-tools" aria-current="page">AI Tools</a>
       </nav>
       <a class="nav-cta" href="#contact">Book a Call</a>
     </div>
@@ -490,176 +431,223 @@
     <section class="hero">
       <div class="container">
         <div class="hero-shell">
-          <span class="eyebrow">Free Tools — No Email Required</span>
-          <h1 class="hero-title">Run the numbers <em>like a pro.</em></h1>
-          <p class="hero-text">The same calculators Kareem uses with clients — open, free, no signup. Understand what you can afford, how your equity compounds, and what you'll actually net on a sale.</p>
+          <span class="eyebrow">Free AI Tools — No Email Required</span>
+          <h1 class="hero-title">Write it in seconds, <em>not an hour.</em></h1>
+          <p class="hero-text">Four instant content generators built for real estate — a listing description writer, social caption generator, market update writer, and follow-up email drafter. Type in your details, get polished copy back, copy and use it. Free, open, no signup.</p>
           <div class="hero-pills">
-            <span class="pill">Home Affordability</span>
-            <span class="pill">Equity &amp; Wealth Projection</span>
-            <span class="pill">Seller Net Proceeds</span>
+            <span class="pill">Listing Descriptions</span>
+            <span class="pill">Social Captions</span>
+            <span class="pill">Market Updates</span>
+            <span class="pill">Follow-Up Emails</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── CALCULATOR 1: AFFORDABILITY ── -->
-    <section class="section" id="affordability">
+    <!-- ── TOOL 1: LISTING DESCRIPTION ── -->
+    <section class="section" id="listing-tool">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Calculator 1</span>
-          <h2 class="section-title">Home Affordability</h2>
-          <p>Find a believable price range based on the lender's 28/36 debt-to-income math. Adjust any field and the numbers update instantly.</p>
+          <span class="eyebrow">Tool 1</span>
+          <h2 class="section-title">Listing Description Generator</h2>
+          <p>Enter the property basics and pick a tone. Get an MLS-ready long description plus a short version for Zillow, Instagram, or a flyer.</p>
         </div>
         <div class="calc-grid">
           <div class="calc-inputs">
             <div class="field">
-              <label for="aff-income">Annual household income</label>
-              <div class="input-wrap has-left"><span class="affix left">$</span>
-                <input type="number" id="aff-income" min="0" step="1000" value="200000" inputmode="numeric" /></div>
+              <label for="ld-address">Address or neighborhood</label>
+              <input type="text" id="ld-address" placeholder="e.g. 21031 Ventura Blvd, Woodland Hills" />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="ld-beds">Bedrooms</label>
+                <input type="number" id="ld-beds" min="0" step="1" value="4" inputmode="numeric" />
+              </div>
+              <div class="field">
+                <label for="ld-baths">Bathrooms</label>
+                <input type="number" id="ld-baths" min="0" step="0.5" value="3" inputmode="decimal" />
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="ld-sqft">Square feet</label>
+                <input type="number" id="ld-sqft" min="0" step="50" value="2400" inputmode="numeric" />
+              </div>
+              <div class="field">
+                <label for="ld-lot">Lot size (sq ft, optional)</label>
+                <input type="number" id="ld-lot" min="0" step="100" placeholder="e.g. 7500" inputmode="numeric" />
+              </div>
             </div>
             <div class="field">
-              <label for="aff-debt">Monthly debt payments</label>
-              <span class="hint">Car, student loans, credit cards</span>
-              <div class="input-wrap has-left"><span class="affix left">$</span>
-                <input type="number" id="aff-debt" min="0" step="50" value="500" inputmode="numeric" /></div>
+              <label>Key features</label>
+              <span class="hint">Pick as many as apply</span>
+              <div class="chip-group" id="ld-features">
+                <label class="chip"><input type="checkbox" value="pool"><span>Pool</span></label>
+                <label class="chip"><input type="checkbox" value="remodeled kitchen"><span>Remodeled Kitchen</span></label>
+                <label class="chip"><input type="checkbox" value="mountain views"><span>Mountain Views</span></label>
+                <label class="chip"><input type="checkbox" value="ADU / guest house"><span>ADU / Guest House</span></label>
+                <label class="chip"><input type="checkbox" value="open floor plan"><span>Open Floor Plan</span></label>
+                <label class="chip"><input type="checkbox" value="gated community"><span>Gated Community</span></label>
+                <label class="chip"><input type="checkbox" value="solar panels"><span>Solar</span></label>
+                <label class="chip"><input type="checkbox" value="primary suite"><span>Primary Suite</span></label>
+                <label class="chip"><input type="checkbox" value="hardwood floors"><span>Hardwood Floors</span></label>
+                <label class="chip"><input type="checkbox" value="RV / boat parking"><span>RV / Boat Parking</span></label>
+              </div>
             </div>
             <div class="field">
-              <label for="aff-down">Down payment available</label>
-              <div class="input-wrap has-left"><span class="affix left">$</span>
-                <input type="number" id="aff-down" min="0" step="5000" value="160000" inputmode="numeric" /></div>
+              <label for="ld-tone">Tone</label>
+              <select id="ld-tone">
+                <option value="luxury">Luxury &amp; aspirational</option>
+                <option value="warm" selected>Warm &amp; family-focused</option>
+                <option value="modern">Clean &amp; modern</option>
+                <option value="investor">Investor / numbers-first</option>
+              </select>
             </div>
-            <div class="field">
-              <label for="aff-rate">Interest rate</label>
-              <div class="input-wrap has-right"><span class="affix right">%</span>
-                <input type="number" id="aff-rate" min="0" step="0.125" value="6.5" inputmode="decimal" /></div>
-            </div>
-            <div class="field">
-              <label for="aff-tax">Property tax rate</label>
-              <div class="input-wrap has-right"><span class="affix right">%</span>
-                <input type="number" id="aff-tax" min="0" step="0.05" value="1.25" inputmode="decimal" /></div>
-            </div>
+            <button class="btn btn-gold btn-block" id="ld-generate" type="button">Generate Description</button>
           </div>
           <div class="results-card">
-            <div class="res-label">Estimated max home price</div>
-            <div class="results-headline" id="aff-price">—</div>
-            <div class="res-rows">
-              <div class="res-row"><span class="lbl">Max loan amount</span><span class="val" id="aff-loan">—</span></div>
-              <div class="res-row"><span class="lbl">Principal &amp; interest / mo</span><span class="val" id="aff-pi">—</span></div>
-              <div class="res-row"><span class="lbl">Property taxes / mo</span><span class="val" id="aff-taxmo">—</span></div>
-              <div class="res-row"><span class="lbl">Insurance (est.) / mo</span><span class="val" id="aff-ins">—</span></div>
-              <div class="res-row total"><span class="lbl">Total monthly payment</span><span class="val" id="aff-total">—</span></div>
+            <div class="res-label"><span>Generated Copy</span></div>
+            <div id="ld-output">
+              <p class="empty-hint">Fill in the details on the left and click Generate — your listing description will appear here.</p>
             </div>
           </div>
         </div>
-        <p class="educator-note"><strong>An honest note:</strong> This is the lender's math, simplified. Your real number depends on credit, loan type, and reserves. I'll help you find the comfortable number, not just the maximum.</p>
+        <p class="educator-note"><strong>How I use this:</strong> This gets you a strong first draft in seconds. I still personalize every listing description with the story only the seller can tell — that's what actually moves buyers.</p>
       </div>
     </section>
 
-    <!-- ── CALCULATOR 2: EQUITY & WEALTH ── -->
-    <section class="section alt" id="equity">
+    <!-- ── TOOL 2: SOCIAL CAPTION ── -->
+    <section class="section alt" id="caption-tool">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Calculator 2</span>
-          <h2 class="section-title">Equity &amp; Wealth Projection</h2>
-          <p>See how appreciation and principal paydown compound into real equity over time. Drag the slider to change your horizon.</p>
+          <span class="eyebrow">Tool 2</span>
+          <h2 class="section-title">Social Caption Generator</h2>
+          <p>Three caption variants for Instagram or Facebook — professional, engaging, and urgency-driven — plus ready-to-use hashtags.</p>
         </div>
         <div class="calc-grid">
           <div class="calc-inputs">
             <div class="field">
-              <label for="eq-value">Current home value</label>
-              <div class="input-wrap has-left"><span class="affix left">$</span>
-                <input type="number" id="eq-value" min="0" step="10000" value="1300000" inputmode="numeric" /></div>
+              <label for="sc-status">Post type</label>
+              <select id="sc-status">
+                <option value="Just Listed">Just Listed</option>
+                <option value="Open House">Open House</option>
+                <option value="Just Sold">Just Sold</option>
+                <option value="Price Improvement">Price Improvement</option>
+                <option value="Coming Soon">Coming Soon</option>
+              </select>
             </div>
             <div class="field">
-              <label for="eq-appr">Annual appreciation rate</label>
-              <div class="input-wrap has-right"><span class="affix right">%</span>
-                <input type="number" id="eq-appr" min="0" step="0.25" value="4" inputmode="decimal" /></div>
+              <label for="sc-area">Neighborhood or address</label>
+              <input type="text" id="sc-area" placeholder="e.g. Chatsworth" />
             </div>
-            <div class="field">
-              <label for="eq-years">Years to project: <span class="range-val" id="eq-years-val">10</span></label>
-              <input type="range" id="eq-years" min="1" max="30" step="1" value="10" />
+            <div class="field-row">
+              <div class="field">
+                <label for="sc-price">Price (optional)</label>
+                <input type="text" id="sc-price" placeholder="e.g. $1,395,000" />
+              </div>
+              <div class="field">
+                <label for="sc-when">Open house day/time (if applicable)</label>
+                <input type="text" id="sc-when" placeholder="e.g. Sat 1-4pm" />
+              </div>
             </div>
-            <div class="field">
-              <label for="eq-balance">Current mortgage balance</label>
-              <div class="input-wrap has-left"><span class="affix left">$</span>
-                <input type="number" id="eq-balance" min="0" step="10000" value="800000" inputmode="numeric" /></div>
-            </div>
-            <div class="field">
-              <label for="eq-paydown">Annual principal paydown estimate</label>
-              <div class="input-wrap has-left"><span class="affix left">$</span>
-                <input type="number" id="eq-paydown" min="0" step="1000" value="18000" inputmode="numeric" /></div>
-            </div>
+            <button class="btn btn-gold btn-block" id="sc-generate" type="button">Generate Captions</button>
           </div>
           <div class="results-card">
-            <div class="res-label" id="eq-end-label">Projected equity in year 10</div>
-            <div class="results-headline" id="eq-equity">—</div>
-            <div class="res-rows">
-              <div class="res-row"><span class="lbl">Projected home value</span><span class="val" id="eq-projval">—</span></div>
-              <div class="res-row"><span class="lbl">Remaining mortgage</span><span class="val" id="eq-projbal">—</span></div>
-              <div class="res-row"><span class="lbl">Total appreciation gained</span><span class="val" id="eq-appgain">—</span></div>
-              <div class="res-row total"><span class="lbl">Total equity</span><span class="val" id="eq-totaleq">—</span></div>
-            </div>
-            <div class="chart" id="eq-chart" aria-label="Equity vs debt by milestone year"></div>
-            <div class="chart-legend">
-              <span><i class="equity"></i> Equity</span>
-              <span><i class="debt"></i> Mortgage owed</span>
+            <div class="res-label"><span>Generated Captions</span></div>
+            <div id="sc-output">
+              <p class="empty-hint">Choose a post type and neighborhood, then click Generate.</p>
             </div>
           </div>
         </div>
-        <p class="educator-note"><strong>Why this matters:</strong> Real estate builds wealth two ways at once — appreciation AND principal paydown by your tenant or yourself. This is why it's the most reliable generational wealth vehicle in America.</p>
+        <p class="educator-note"><strong>Why three versions:</strong> Different tones perform differently by platform and audience. Test all three across a few posts and keep what gets replies, not just likes.</p>
       </div>
     </section>
 
-    <!-- ── CALCULATOR 3: SELLER NET PROCEEDS ── -->
-    <section class="section" id="net-proceeds">
+    <!-- ── TOOL 3: MARKET UPDATE ── -->
+    <section class="section" id="market-tool">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Calculator 3</span>
-          <h2 class="section-title">Seller Net Proceeds</h2>
-          <p>Know what you'll actually walk away with — before you price, list, or negotiate.</p>
+          <span class="eyebrow">Tool 3</span>
+          <h2 class="section-title">Market Update Writer</h2>
+          <p>Turn a handful of local stats into a short, shareable market update for social or your newsletter.</p>
         </div>
         <div class="calc-grid">
           <div class="calc-inputs">
             <div class="field">
-              <label for="np-price">Expected sale price</label>
-              <div class="input-wrap has-left"><span class="affix left">$</span>
-                <input type="number" id="np-price" min="0" step="10000" value="1400000" inputmode="numeric" /></div>
+              <label for="mu-area">Neighborhood or zip code</label>
+              <input type="text" id="mu-area" placeholder="e.g. Woodland Hills (91364)" />
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="mu-price">Median sale price</label>
+                <input type="text" id="mu-price" placeholder="e.g. $1,150,000" />
+              </div>
+              <div class="field">
+                <label for="mu-dom">Median days on market</label>
+                <input type="number" id="mu-dom" min="0" step="1" placeholder="e.g. 28" inputmode="numeric" />
+              </div>
             </div>
             <div class="field">
-              <label for="np-balance">Remaining mortgage balance</label>
-              <div class="input-wrap has-left"><span class="affix left">$</span>
-                <input type="number" id="np-balance" min="0" step="10000" value="650000" inputmode="numeric" /></div>
+              <label for="mu-trend">Inventory / price trend vs. last quarter</label>
+              <select id="mu-trend">
+                <option value="up">Prices trending up</option>
+                <option value="down">Prices trending down</option>
+                <option value="flat">Holding steady</option>
+                <option value="tight">Inventory tight, multiple offers common</option>
+              </select>
             </div>
-            <div class="field">
-              <label for="np-comm">Agent commission</label>
-              <div class="input-wrap has-right"><span class="affix right">%</span>
-                <input type="number" id="np-comm" min="0" step="0.25" value="5" inputmode="decimal" /></div>
-            </div>
-            <div class="field">
-              <label for="np-close">Closing costs / title / escrow</label>
-              <div class="input-wrap has-right"><span class="affix right">%</span>
-                <input type="number" id="np-close" min="0" step="0.25" value="1.5" inputmode="decimal" /></div>
-            </div>
-            <div class="field">
-              <label for="np-repairs">Repairs &amp; prep</label>
-              <div class="input-wrap has-left"><span class="affix left">$</span>
-                <input type="number" id="np-repairs" min="0" step="500" value="0" inputmode="numeric" /></div>
-            </div>
+            <button class="btn btn-gold btn-block" id="mu-generate" type="button">Generate Market Update</button>
           </div>
           <div class="results-card">
-            <div class="res-label">Your estimated net proceeds</div>
-            <div class="results-headline" id="np-net">—</div>
-            <div class="res-rows">
-              <div class="res-row"><span class="lbl">Sale price</span><span class="val" id="np-out-price">—</span></div>
-              <div class="res-row deduct"><span class="lbl">Less: mortgage payoff</span><span class="val" id="np-out-balance">—</span></div>
-              <div class="res-row deduct"><span class="lbl">Less: agent commission</span><span class="val" id="np-out-comm">—</span></div>
-              <div class="res-row deduct"><span class="lbl">Less: closing / title / escrow</span><span class="val" id="np-out-close">—</span></div>
-              <div class="res-row deduct"><span class="lbl">Less: repairs &amp; prep</span><span class="val" id="np-out-repairs">—</span></div>
-              <div class="res-row total"><span class="lbl">Net proceeds</span><span class="val" id="np-out-net">—</span></div>
+            <div class="res-label"><span>Generated Update</span></div>
+            <div id="mu-output">
+              <p class="empty-hint">Add a few local stats, then click Generate.</p>
             </div>
           </div>
         </div>
-        <p class="educator-note"><strong>The reality:</strong> Most sellers are surprised by net, not gross. Knowing this number early changes how you price and negotiate.</p>
+        <p class="educator-note"><strong>A caution:</strong> Always swap in your real, current MLS numbers before posting — this tool writes the copy, not the data.</p>
+      </div>
+    </section>
+
+    <!-- ── TOOL 4: FOLLOW-UP EMAIL ── -->
+    <section class="section alt" id="email-tool">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Tool 4</span>
+          <h2 class="section-title">Follow-Up Email Drafter</h2>
+          <p>A first draft for the follow-up you keep meaning to send. Pick who it's for and where they are in the process.</p>
+        </div>
+        <div class="calc-grid">
+          <div class="calc-inputs">
+            <div class="field">
+              <label for="fe-name">Recipient's first name (optional)</label>
+              <input type="text" id="fe-name" placeholder="e.g. Sarah" />
+            </div>
+            <div class="field">
+              <label for="fe-type">Who is this for?</label>
+              <select id="fe-type">
+                <option value="buyer-toured">Buyer — just toured a home</option>
+                <option value="buyer-preapproval">Buyer — needs to get pre-approved</option>
+                <option value="buyer-lost">Buyer — lost out on an offer</option>
+                <option value="seller-thinking">Seller — thinking about listing</option>
+                <option value="seller-postlisting">Seller — after the listing appointment</option>
+                <option value="past-client">Past client — annual check-in</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fe-detail">One detail to personalize it (optional)</label>
+              <input type="text" id="fe-detail" placeholder="e.g. the house on Oakdale with the pool" />
+            </div>
+            <button class="btn btn-gold btn-block" id="fe-generate" type="button">Generate Email</button>
+          </div>
+          <div class="results-card">
+            <div class="res-label"><span>Generated Email</span></div>
+            <div id="fe-output">
+              <p class="empty-hint">Pick a scenario, then click Generate.</p>
+            </div>
+          </div>
+        </div>
+        <p class="educator-note"><strong>The point of follow-up:</strong> Most agents lose deals to silence, not price. A sent "good enough" email beats a perfect one still sitting in drafts.</p>
       </div>
     </section>
 
@@ -667,14 +655,14 @@
     <section class="cta-section" id="contact">
       <div class="container">
         <div class="cta-shell">
-          <h2>Numbers raise questions. That's the point.</h2>
-          <p>When you're ready to turn these projections into a real strategy, that's where I come in.</p>
+          <h2>These tools draft it. I still read every word.</h2>
+          <p>Want these built directly into your own listing marketing, or want help turning a draft into something that actually converts? Let's talk.</p>
           <div class="cta-btns">
             <a class="btn btn-gold" href="tel:+18184027326">Book a Strategy Call</a>
             <a class="btn btn-secondary" href="/free-reports">Get the Free Reports</a>
           </div>
           <p class="cta-divider">— or leave your info —</p>
-          <form class="cta-lead-form" data-source="Wealth Tools CTA" novalidate>
+          <form class="cta-lead-form" data-source="AI Tools CTA" novalidate>
             <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <input type="text" name="name" placeholder="Your name" required autocomplete="name" />
             <input type="email" name="email" placeholder="Your email" required autocomplete="email" />
@@ -797,6 +785,202 @@
       });
     }
 
+    // ── CHIP TOGGLES ──
+    document.querySelectorAll(".chip input").forEach((input) => {
+      input.addEventListener("change", () => {
+        input.closest(".chip").classList.toggle("is-checked", input.checked);
+      });
+    });
+
+    // ── HELPERS ──
+    function esc(s) {
+      return String(s || "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+    function joinFeatures(list) {
+      if (!list.length) return "";
+      if (list.length === 1) return list[0];
+      if (list.length === 2) return list[0] + " and " + list[1];
+      return list.slice(0, -1).join(", ") + ", and " + list[list.length - 1];
+    }
+    function renderOutputs(containerId, blocks) {
+      const el = document.getElementById(containerId);
+      el.innerHTML = "";
+      blocks.forEach((b) => {
+        const div = document.createElement("div");
+        div.className = "output-block";
+        div.innerHTML = (b.label ? '<span class="variant-label">' + esc(b.label) + "</span>" : "") + esc(b.text).replace(/\n/g, "<br>");
+        el.appendChild(div);
+        const row = document.createElement("div");
+        row.className = "copy-row";
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn btn-ghost";
+        btn.textContent = "Copy";
+        btn.addEventListener("click", () => {
+          navigator.clipboard.writeText(b.text).then(() => {
+            btn.textContent = "Copied!";
+            setTimeout(() => { btn.textContent = "Copy"; }, 1500);
+          });
+        });
+        row.appendChild(btn);
+        el.appendChild(row);
+      });
+    }
+
+    // ── TOOL 1: LISTING DESCRIPTION ──
+    const toneOpeners = {
+      luxury: ["Presenting an exceptional residence at {address}.", "An extraordinary offering at {address}.", "A rare opportunity to own at {address}."],
+      warm: ["Welcome home to {address}.", "This is the one you've been waiting for — {address}.", "A place your family can truly grow into, at {address}."],
+      modern: ["Clean lines, thoughtful design, at {address}.", "Effortlessly livable at {address}.", "Designed for how you actually live — {address}."],
+      investor: ["A well-positioned asset at {address}.", "Strong fundamentals here at {address}.", "This one pencils — {address}."]
+    };
+    const toneClosers = {
+      luxury: "Schedule your private showing today — homes like this rarely stay available long.",
+      warm: "Come see it in person — some homes you just have to feel for yourself.",
+      modern: "Book a showing and see how well this floor plan actually lives.",
+      investor: "Ask for the full comp package and rent projections before this one moves."
+    };
+
+    function generateListing() {
+      const address = document.getElementById("ld-address").value.trim() || "this property";
+      const beds = document.getElementById("ld-beds").value || "4";
+      const baths = document.getElementById("ld-baths").value || "3";
+      const sqft = document.getElementById("ld-sqft").value;
+      const lot = document.getElementById("ld-lot").value;
+      const tone = document.getElementById("ld-tone").value;
+      const features = Array.from(document.querySelectorAll("#ld-features input:checked")).map((i) => i.value);
+
+      const opener = pick(toneOpeners[tone]).replace("{address}", address);
+      const sqftPart = sqft ? sqft + " square feet" : "generous living space";
+      const lotPart = lot ? " on a " + lot + " sq. ft. lot" : "";
+      const featurePart = features.length ? " Highlights include " + joinFeatures(features) + "." : "";
+
+      const longDesc =
+        opener + " This " + beds + "-bedroom, " + baths + "-bathroom home offers " +
+        sqftPart + lotPart + "." + featurePart + " Every room is designed to be lived in, not just looked at — " +
+        "a layout that works for everyday life and for entertaining." +
+        (features.length ? " The combination of " + joinFeatures(features.slice(0, 2)) + " sets this home apart in today's market." : "") +
+        "\n\n" + toneClosers[tone];
+
+      const shortDesc =
+        beds + "BR/" + baths + "BA at " + address + (sqft ? " · " + sqft + " sq ft" : "") +
+        (features.length ? " · " + joinFeatures(features) : "") + ". " + toneClosers[tone];
+
+      renderOutputs("ld-output", [
+        { label: "Full Listing Description (MLS / website)", text: longDesc },
+        { label: "Short Version (Zillow / Instagram / flyer)", text: shortDesc }
+      ]);
+    }
+    document.getElementById("ld-generate").addEventListener("click", generateListing);
+
+    // ── TOOL 2: SOCIAL CAPTION ──
+    function generateCaptions() {
+      const status = document.getElementById("sc-status").value;
+      const area = document.getElementById("sc-area").value.trim() || "this neighborhood";
+      const price = document.getElementById("sc-price").value.trim();
+      const when = document.getElementById("sc-when").value.trim();
+
+      const pricePart = price ? " — " + price : "";
+      const whenPart = when ? " " + when + "." : "";
+      const hashtags = "#" + area.replace(/[^a-zA-Z0-9]/g, "") + " #RealEstate #JustListed #SoCalRealEstate #KareemJamalRealtor";
+
+      const professional =
+        status.toUpperCase() + ": " + area + pricePart + ".\n" +
+        (status === "Open House" ? "Open house" + whenPart + " Stop by and see it in person." :
+         status === "Just Sold" ? "Another one closed in " + area + ". Grateful to have represented my client through this one." :
+         status === "Price Improvement" ? "New price on this " + area + " home" + pricePart + ". Motivated and ready to move." :
+         "Now available in " + area + ". DM or call for details and a private showing.") +
+        "\n\n" + hashtags;
+
+      const engaging =
+        (status === "Just Sold" ? "SOLD! 🔑 " : status === "Open House" ? "Come say hi this weekend 👋 " : "New on the market 👀 ") +
+        area + pricePart + "." + whenPart +
+        "\nWhat's your favorite room in a home like this? Tell me below.\n\n" + hashtags;
+
+      const urgency =
+        (status === "Price Improvement" ? "PRICE DROP in " + area + pricePart + " — this won't last at the new number." :
+         status === "Open House" ? area + " — doors open" + whenPart + " Homes in this pocket move fast, so come early." :
+         "Homes like this in " + area + " don't sit long" + pricePart + ". If you're serious, let's talk today.") +
+        "\n\n" + hashtags;
+
+      renderOutputs("sc-output", [
+        { label: "Professional", text: professional },
+        { label: "Engaging / Conversational", text: engaging },
+        { label: "Urgency-Driven", text: urgency }
+      ]);
+    }
+    document.getElementById("sc-generate").addEventListener("click", generateCaptions);
+
+    // ── TOOL 3: MARKET UPDATE ──
+    const trendPhrases = {
+      up: "Prices are trending upward as buyer demand continues to outpace what's coming onto the market.",
+      down: "Prices have softened slightly, giving buyers a bit more room to negotiate than a year ago.",
+      flat: "The market is holding steady — a good sign of stability for both buyers and sellers.",
+      tight: "Inventory remains tight, and well-priced homes are still seeing multiple offers."
+    };
+
+    function generateMarketUpdate() {
+      const area = document.getElementById("mu-area").value.trim() || "our local market";
+      const price = document.getElementById("mu-price").value.trim();
+      const dom = document.getElementById("mu-dom").value.trim();
+      const trend = document.getElementById("mu-trend").value;
+
+      const priceLine = price ? "The median sale price is currently " + price + "." : "";
+      const domLine = dom ? "Homes are averaging " + dom + " days on market before going into contract." : "";
+
+      const post =
+        "MARKET UPDATE — " + area + "\n\n" +
+        priceLine + (priceLine && domLine ? " " : "") + domLine + "\n\n" +
+        trendPhrases[trend] +
+        "\n\nIf you're thinking about buying or selling in " + area + ", now's a good time to talk through your specific numbers — the averages only tell part of the story." +
+        "\n\n#" + area.replace(/[^a-zA-Z0-9]/g, "") + " #MarketUpdate #SoCalRealEstate";
+
+      renderOutputs("mu-output", [{ text: post }]);
+    }
+    document.getElementById("mu-generate").addEventListener("click", generateMarketUpdate);
+
+    // ── TOOL 4: FOLLOW-UP EMAIL ──
+    const emailTemplates = {
+      "buyer-toured": {
+        subject: "Following up on {home}",
+        body: "Hi {name},\n\nThanks for touring {home} with me — I wanted to check in and see what stood out to you, good or bad. No pressure either way, I'd just rather hear your honest first reaction while it's fresh.\n\nIf it's a strong maybe, let's talk about what an offer could look like. If it's a no, that's useful too — it helps me narrow in on the next one.\n\nTalk soon,\nKareem"
+      },
+      "buyer-preapproval": {
+        subject: "Quick next step before we keep looking",
+        body: "Hi {name},\n\nBefore we go further into the search, let's get you connected with a lender for a pre-approval. It takes most people under 20 minutes, and it means when we find the right home, you can move on it immediately instead of losing it to someone who was already ready.\n\nI can send over a couple of lenders I trust — just say the word.\n\nBest,\nKareem"
+      },
+      "buyer-lost": {
+        subject: "About {home} — and what's next",
+        body: "Hi {name},\n\nI know losing out on {home} is frustrating, especially after getting attached to it. That happens more than people admit, and it doesn't mean the next one won't be better.\n\nLet's regroup this week — I want to look at what we can adjust on offer strategy so the next property doesn't slip through the same way.\n\nTalk soon,\nKareem"
+      },
+      "seller-thinking": {
+        subject: "No pressure — just numbers whenever you're ready",
+        body: "Hi {name},\n\nYou mentioned you might list at some point, and I didn't want that to just sit without a follow-up. Whenever you're ready — whether that's next month or next year — I'm happy to put together a real, current valuation so you're working with facts instead of guesses.\n\nNo obligation, just useful information for when the timing is right.\n\nBest,\nKareem"
+      },
+      "seller-postlisting": {
+        subject: "Thanks for having me over — next steps on {home}",
+        body: "Hi {name},\n\nThanks for the time and for walking me through {home}. I wanted to follow up on the strategy we discussed — pricing, timeline, and what preparation (if any) makes sense before we go live.\n\nLet me know if any questions came up after I left, and when you'd like to move forward.\n\nBest,\nKareem"
+      },
+      "past-client": {
+        subject: "Checking in — and a quick equity update",
+        body: "Hi {name},\n\nIt's been a while, and I wanted to check in. If you're curious, I can pull a quick, no-obligation update on what your home is worth today and how your equity has moved since you bought — sometimes it's more than people expect.\n\nEither way, just wanted to say hello and see how things are going.\n\nBest,\nKareem"
+      }
+    };
+
+    function generateEmail() {
+      const name = document.getElementById("fe-name").value.trim() || "there";
+      const type = document.getElementById("fe-type").value;
+      const detail = document.getElementById("fe-detail").value.trim() || "the property";
+
+      const tpl = emailTemplates[type];
+      const subject = tpl.subject.replace("{home}", detail);
+      const body = tpl.body.replace(/{name}/g, name).replace(/{home}/g, detail);
+
+      renderOutputs("fe-output", [{ label: "Subject: " + subject, text: body }]);
+    }
+    document.getElementById("fe-generate").addEventListener("click", generateEmail);
+
     // ── ACTIVE NAV ──
     const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
     document.querySelectorAll(".nav-links a").forEach((link) => {
@@ -806,160 +990,6 @@
         link.setAttribute("aria-current", "page");
       }
     });
-
-    // ── HELPERS ──
-    const fmtUSD = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
-    const money = (n) => (isFinite(n) && !isNaN(n)) ? fmtUSD.format(Math.round(n)) : "—";
-    const num = (id) => {
-      const v = parseFloat(document.getElementById(id).value);
-      return (isNaN(v) || v < 0) ? 0 : v;
-    };
-    const setText = (id, txt) => { document.getElementById(id).textContent = txt; };
-
-    // ── CALCULATOR 1: AFFORDABILITY ──
-    function calcAffordability() {
-      const income = num("aff-income");
-      const debt = num("aff-debt");
-      const down = num("aff-down");
-      const ratePct = num("aff-rate");
-      const taxPct = num("aff-tax");
-
-      const monthlyGross = income / 12;
-      // 36% back-end DTI: max total monthly housing minus existing debts
-      const maxHousing = Math.max(monthlyGross * 0.36 - debt, 0);
-
-      const monthlyRate = (ratePct / 100) / 12;
-      const n = 360;
-      const insRateMonthly = 0.005 / 12;   // 0.5%/yr of home value
-      const taxRateMonthly = (taxPct / 100) / 12;
-
-      // For a given home price P (= loan + down), monthly cost =
-      //   P&I(loan) + taxes(P) + insurance(P)  must equal maxHousing.
-      // Loan = P - down. Solve P by bisection (monotonic increasing in P).
-      function monthlyCost(price) {
-        const loan = Math.max(price - down, 0);
-        let pi;
-        if (monthlyRate === 0) {
-          pi = loan / n;
-        } else {
-          const f = Math.pow(1 + monthlyRate, n);
-          pi = loan * (monthlyRate * f) / (f - 1);
-        }
-        return pi + price * taxRateMonthly + price * insRateMonthly;
-      }
-
-      let result = { price: 0, loan: 0, pi: 0, tax: 0, ins: 0, total: 0 };
-      if (maxHousing > 0) {
-        let lo = down, hi = down + 20000000; // search above down payment
-        for (let i = 0; i < 80; i++) {
-          const mid = (lo + hi) / 2;
-          if (monthlyCost(mid) > maxHousing) hi = mid; else lo = mid;
-        }
-        const price = lo;
-        const loan = Math.max(price - down, 0);
-        const f = Math.pow(1 + monthlyRate, n);
-        const pi = monthlyRate === 0 ? loan / n : loan * (monthlyRate * f) / (f - 1);
-        const tax = price * taxRateMonthly;
-        const ins = price * insRateMonthly;
-        result = { price, loan, pi, tax, ins, total: pi + tax + ins };
-      }
-
-      setText("aff-price", money(result.price));
-      setText("aff-loan", money(result.loan));
-      setText("aff-pi", money(result.pi));
-      setText("aff-taxmo", money(result.tax));
-      setText("aff-ins", money(result.ins));
-      setText("aff-total", money(result.total));
-    }
-
-    // ── CALCULATOR 2: EQUITY & WEALTH ──
-    function calcEquity() {
-      const value = num("eq-value");
-      const apprPct = num("eq-appr");
-      const years = num("eq-years");
-      const balance = num("eq-balance");
-      const paydown = num("eq-paydown");
-      const r = apprPct / 100;
-
-      setText("eq-years-val", years);
-      setText("eq-end-label", "Projected equity in year " + years);
-
-      const projValue = value * Math.pow(1 + r, years);
-      const projBal = Math.max(balance - paydown * years, 0);
-      const equity = Math.max(projValue - projBal, 0);
-      const apprGain = projValue - value;
-
-      setText("eq-projval", money(projValue));
-      setText("eq-projbal", money(projBal));
-      setText("eq-appgain", money(apprGain));
-      setText("eq-equity", money(equity));
-      setText("eq-totaleq", money(equity));
-
-      // Bar chart: milestone years (~5 intervals capped at projection)
-      const chart = document.getElementById("eq-chart");
-      chart.innerHTML = "";
-      const milestones = [];
-      for (let y = 5; y < years; y += 5) milestones.push(y);
-      milestones.push(years);
-
-      // scale by largest projected home value across milestones
-      let maxVal = 1;
-      milestones.forEach((y) => {
-        const v = value * Math.pow(1 + r, y);
-        if (v > maxVal) maxVal = v;
-      });
-
-      milestones.forEach((y) => {
-        const v = value * Math.pow(1 + r, y);
-        const b = Math.max(balance - paydown * y, 0);
-        const eq = Math.max(v - b, 0);
-        const eqPct = (eq / maxVal) * 100;
-        const debtPct = (Math.min(b, v) / maxVal) * 100;
-
-        const row = document.createElement("div");
-        row.className = "chart-row";
-        row.innerHTML =
-          '<span class="yr">Yr ' + y + '</span>' +
-          '<div class="chart-bar-track">' +
-            '<div class="chart-bar equity" style="width:' + eqPct.toFixed(1) + '%">' + (eqPct > 22 ? money(eq) : '') + '</div>' +
-            '<div class="chart-bar debt" style="width:' + debtPct.toFixed(1) + '%"></div>' +
-          '</div>';
-        chart.appendChild(row);
-      });
-    }
-
-    // ── CALCULATOR 3: SELLER NET PROCEEDS ──
-    function calcNetProceeds() {
-      const price = num("np-price");
-      const balance = num("np-balance");
-      const commPct = num("np-comm");
-      const closePct = num("np-close");
-      const repairs = num("np-repairs");
-
-      const commission = price * (commPct / 100);
-      const closing = price * (closePct / 100);
-      const net = price - balance - commission - closing - repairs;
-
-      setText("np-out-price", money(price));
-      setText("np-out-balance", "− " + money(balance));
-      setText("np-out-comm", "− " + money(commission));
-      setText("np-out-close", "− " + money(closing));
-      setText("np-out-repairs", "− " + money(repairs));
-      setText("np-out-net", money(net));
-      setText("np-net", money(net));
-    }
-
-    // ── WIRE UP LIVE INPUTS ──
-    function bind(ids, fn) {
-      ids.forEach((id) => {
-        const el = document.getElementById(id);
-        el.addEventListener("input", fn);
-      });
-      fn();
-    }
-    bind(["aff-income", "aff-debt", "aff-down", "aff-rate", "aff-tax"], calcAffordability);
-    bind(["eq-value", "eq-appr", "eq-years", "eq-balance", "eq-paydown"], calcEquity);
-    bind(["np-price", "np-balance", "np-comm", "np-close", "np-repairs"], calcNetProceeds);
   </script>
 
   <script>

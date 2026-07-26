@@ -18,7 +18,7 @@ export function SiteFooter({
             Rodeo Realty Fine Estates · CA DRE #01998956
           </p>
           <p className="mt-2 text-[0.7rem] text-cream/50">
-            Equal Housing Opportunity
+            Equal Housing Opportunity · The Family You Choose.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
@@ -93,7 +93,7 @@ export function SiteFooter({
       <div className="mx-auto mt-8 max-w-6xl space-y-2 border-t border-cream/10 px-5 pt-5 text-xs leading-relaxed text-cream/45 md:px-8">
         <p>
           © {new Date().getFullYear()} Kareem Jamal · Rodeo Realty Fine Estates ·
-          CA DRE #01998956 · Equal Housing Opportunity
+          CA DRE #01998956 · Equal Housing Opportunity · The Family You Choose.
         </p>
         <p>
           Educational content only — not legal, tax, financial, or lending advice.

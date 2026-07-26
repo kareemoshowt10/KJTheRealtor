@@ -29,12 +29,12 @@
       --sand: #f3e8d7;
       --sand-soft: #FAF5EE;
       --linen: #FDFAF4;
-      --gold: #C9A84C;
+      --gold: #C9A24B;
       --gold-deep: #B8893F;
       --gold-soft: #f3e5c8;
       --terracotta: #c98569;
       --olive: #86927f;
-      --ink: #0B1E3E;
+      --ink: #101F3F;
       --muted: #40505F;
       --line: rgba(46, 53, 60, 0.12);
       --panel: rgba(255, 253, 250, 0.9);
@@ -48,7 +48,7 @@
       --container: 1080px;
       --cream: #FAF5EE;
       --cream-deep: #f0ead9;
-      --warm-dark: #0B1E3E;
+      --warm-dark: #101F3F;
       --ok: #5a8a5e;
       --header-h: 64px;
       --ease-lux: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -217,7 +217,7 @@
       text-decoration: none; line-height: 1; min-height: 48px;
       transition: transform 0.3s var(--ease-lux), box-shadow 0.3s var(--ease-lux), background 0.3s var(--ease-lux);
     }
-    .btn-primary { background: linear-gradient(135deg, #C9A84C, var(--gold-deep)); color: #fff; box-shadow: 0 10px 26px rgba(154,114,64,0.32); }
+    .btn-primary { background: linear-gradient(135deg, #C9A24B, var(--gold-deep)); color: #fff; box-shadow: 0 10px 26px rgba(154,114,64,0.32); }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(154,114,64,0.42); }
     .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
     .btn-ghost:hover { border-color: var(--ink); background: rgba(42,37,32,0.03); }
@@ -314,7 +314,7 @@
     }
     .seg button:hover { color: var(--ink); box-shadow: var(--shadow-sm); }
     .seg button[aria-checked="true"] { background: var(--ink); border-color: var(--ink); color: #fff; box-shadow: var(--shadow-sm); }
-    .seg.gold button[aria-checked="true"] { background: linear-gradient(135deg, #C9A84C, var(--gold-deep)); border-color: var(--gold-deep); }
+    .seg.gold button[aria-checked="true"] { background: linear-gradient(135deg, #C9A24B, var(--gold-deep)); border-color: var(--gold-deep); }
 
     .input-money { position: relative; }
     .input-money::before {
@@ -1122,7 +1122,7 @@
         </nav>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Kareem Jamal · Rodeo Realty Fine Estates</span>
+        <span>&copy; 2026 Kareem Jamal · Rodeo Realty Fine Estates · The Family You Choose.</span>
         <span>Equal Housing Opportunity · All estimates are illustrative, not a guarantee of value, terms, or loan approval.</span>
       </div>
     </div>
@@ -1319,7 +1319,7 @@
     function drawPaymentBar(r) {
       var bar = $("#payBar"); bar.innerHTML = "";
       if (!r.monthly) return;
-      [["#f3e5c8", r.pi], ["#C9A84C", r.tax], ["#c98569", r.ins], ["#86927f", r.hoa]].forEach(function (s) {
+      [["#f3e5c8", r.pi], ["#C9A24B", r.tax], ["#c98569", r.ins], ["#86927f", r.hoa]].forEach(function (s) {
         if (s[1] <= 0) return;
         var sp = document.createElement("span");
         sp.style.width = (s[1] / r.monthly * 100) + "%"; sp.style.background = s[0];
@@ -1355,7 +1355,7 @@
         lines.appendChild(el);
       }
       row("Principal & interest", r.pi, "#f3e5c8");
-      row("Property tax (" + num(state.aff.taxRate) + "%)", r.tax, "#C9A84C");
+      row("Property tax (" + num(state.aff.taxRate) + "%)", r.tax, "#C9A24B");
       row("Home insurance", r.ins, "#c98569");
       if (r.hoa) row("HOA", r.hoa, "#86927f");
       row("Monthly payment", r.monthly, null, "net");

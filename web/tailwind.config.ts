@@ -35,12 +35,12 @@ export default {
         border: "hsl(var(--border))",
         ring: "hsl(var(--ring))",
         navy: {
-          DEFAULT: "#0B1E3E",
+          DEFAULT: "#101F3F",
           soft: "#152640",
           mist: "#1a2740",
         },
         gold: {
-          DEFAULT: "#C9A84C",
+          DEFAULT: "#C9A24B",
           light: "#E8C87A",
           deep: "#B8893F",
         },

@@ -23,9 +23,9 @@
   <style>
     :root {
       --navy: #40505f;
-      --gold: #C9A84C;
+      --gold: #C9A24B;
       --gold-light: rgba(184,139,82,0.12);
-      --ink: #0B1E3E;
+      --ink: #101F3F;
       --muted: #40505F;
       --cream: #FAF5EE;
       --panel: rgba(255,253,250,0.92);
@@ -302,7 +302,7 @@
     body { animation: page-fade-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
     /* ── SOCIAL STRIP ── */
-    .social-strip { background: #0B1E3E; border-top: 1px solid rgba(255,255,255,0.07); padding: 2.5rem 0; }
+    .social-strip { background: #101F3F; border-top: 1px solid rgba(255,255,255,0.07); padding: 2.5rem 0; }
     .social-strip-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem; }
     .social-label { font-family: 'Fraunces', serif; font-size: 1.1rem; color: rgba(255,255,255,0.55); letter-spacing: 0.02em; flex-shrink: 0; }
     .social-links { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
@@ -312,7 +312,7 @@
       font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
       transition: background 200ms ease, color 200ms ease, border-color 200ms ease; text-decoration: none;
     }
-    .social-link:hover { background: rgba(184,139,82,0.15); border-color: rgba(184,139,82,0.4); color: #C9A84C; }
+    .social-link:hover { background: rgba(184,139,82,0.15); border-color: rgba(184,139,82,0.4); color: #C9A24B; }
 
     /* ── UNIFIED NAVIGATION (matches site) ── */
     .site-header { position: sticky; top: 0; z-index: 100; padding: 1rem 0; background: linear-gradient(180deg, rgba(255,252,247,0.95), rgba(255,252,247,0.7)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(46,53,60,0.04); }
@@ -324,7 +324,7 @@
       box-shadow: 0 18px 40px rgba(55, 46, 36, 0.08); max-width: 1200px; margin: 0 auto;
     }
     .site-header .brand { display: grid; gap: 0.15rem; padding-inline: 0.4rem; flex-shrink: 0; text-decoration: none; }
-    .site-header .brand-name { font-family: "Fraunces", serif; font-size: 1.4rem; line-height: 1; color: var(--ink, #0B1E3E); font-weight: 600; letter-spacing: -0.01em; }
+    .site-header .brand-name { font-family: "Fraunces", serif; font-size: 1.4rem; line-height: 1; color: var(--ink, #101F3F); font-weight: 600; letter-spacing: -0.01em; }
     .site-header .brand-role { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted, #40505F); font-weight: 600; }
     .site-header .nav-links {
       display: flex; flex-wrap: nowrap; align-items: center; gap: 0.1rem;
@@ -338,19 +338,19 @@
       white-space: nowrap; text-decoration: none; color: inherit;
     }
     .site-header .nav-links a:hover, .site-header .nav-links a:focus-visible {
-      background: rgba(184, 139, 82, 0.12); color: var(--ink, #0B1E3E); outline: none; transform: translateY(-1px);
+      background: rgba(184, 139, 82, 0.12); color: var(--ink, #101F3F); outline: none; transform: translateY(-1px);
     }
-    .site-header .nav-links a.is-active { background: rgba(184, 139, 82, 0.16); color: var(--gold, #C9A84C); }
+    .site-header .nav-links a.is-active { background: rgba(184, 139, 82, 0.16); color: var(--gold, #C9A24B); }
     .site-header .nav-cta {
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.7rem 1.3rem; border-radius: 999px;
-      background: var(--ink, #0B1E3E); color: #fff;
+      background: var(--ink, #101F3F); color: #fff;
       font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
       white-space: nowrap; flex-shrink: 0; text-decoration: none;
       transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
     }
     .site-header .nav-cta:hover, .site-header .nav-cta:focus-visible {
-      background: var(--gold, #C9A84C); color: #fff; transform: translateY(-1px);
+      background: var(--gold, #C9A24B); color: #fff; transform: translateY(-1px);
       box-shadow: 0 10px 28px rgba(184, 139, 82, 0.4); outline: none;
     }
     .site-header .nav-toggle {
@@ -362,7 +362,7 @@
     .site-header .nav-toggle:hover { background: rgba(184, 139, 82, 0.1); }
     .site-header .nav-toggle:focus-visible { outline: none; box-shadow: 0 0 0 4px rgba(184, 139, 82, 0.18); }
     .site-header .nav-toggle span {
-      display: block; height: 1.5px; background: var(--ink, #0B1E3E); border-radius: 2px;
+      display: block; height: 1.5px; background: var(--ink, #101F3F); border-radius: 2px;
       transform-origin: center; transition: transform 220ms ease, opacity 220ms ease;
     }
     body.nav-open .site-header .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -733,7 +733,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Kareem Jamal | CA DRE #01998956</span>
+        <span>© 2026 Kareem Jamal | CA DRE #01998956 · The Family You Choose.</span>
         <span>Rodeo Realty Fine Estates | Equal Housing Opportunity</span>
       </div>
     </div>
@@ -997,7 +997,7 @@
 
   <!-- Scroll progress indicator (kj) -->
   <div id="kjScrollBar" aria-hidden="true"></div>
-  <style>#kjScrollBar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#C9A84C,#E8C87A);z-index:9990;pointer-events:none;will-change:transform}
+  <style>#kjScrollBar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#C9A24B,#E8C87A);z-index:9990;pointer-events:none;will-change:transform}
     /* JAMAL primary logo mark */
     .brand { display: flex; align-items: center; gap: 0.75rem; }
     .brand-mark {

@@ -270,7 +270,7 @@ export function LeadForm({
                 cy="18"
                 r="15.5"
                 fill="none"
-                stroke="#C9A84C"
+                stroke="#C9A24B"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeDasharray={97.4}

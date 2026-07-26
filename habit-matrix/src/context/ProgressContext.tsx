@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { allLessons } from "../data/books";
 
-const STORAGE_KEY = "distill:progress:v1";
+const STORAGE_KEY = "habitmatrix:progress:v1";
 
 type StoredState = {
   completed: Record<string, string>; // lessonId -> ISO date completed

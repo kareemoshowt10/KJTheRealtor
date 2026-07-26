@@ -15,8 +15,8 @@ export default function Layout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-20 border-b border-cream-line bg-cream/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-2xl items-center justify-between px-5 py-4">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-lg">💡</span>
-            <span className="font-display text-lg tracking-tight text-ink">Distill</span>
+            <span className="text-lg">🧩</span>
+            <span className="font-display text-lg tracking-tight text-ink">Habit Matrix</span>
           </Link>
           <nav className="flex items-center gap-1 rounded-full bg-cream-deep p-1 text-sm">
             <NavPill to="/" active={isHome} label="Today" />

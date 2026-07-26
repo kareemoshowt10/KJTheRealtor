@@ -1,4 +1,4 @@
-# Distill
+# Habit Matrix
 
 A microlearning app for consuming personal-development books one small, animated idea at a time — an alternative to video-based content consumption.
 
@@ -14,12 +14,18 @@ Standalone React app, independent from the rest of this repository (own `package
 
 ## Content
 
-Four books, each broken into ~7 short lessons (core idea, why it matters, a "try today" action step). All lesson text is original, paraphrased in our own words — not reproduced from the source books.
+Ten books, each broken into ~7 short lessons (core idea, why it matters, a "try today" action step). All lesson text is original, paraphrased in our own words — not reproduced from the source books.
 
 - Atomic Habits — James Clear
 - The One Thing — Gary Keller
 - Limitless — Jim Kwik
 - Deep Work — Cal Newport
+- The 7 Habits of Highly Effective People — Stephen Covey
+- Think and Grow Rich — Napoleon Hill
+- Mindset — Carol S. Dweck
+- Grit — Angela Duckworth
+- Can't Hurt Me — David Goggins
+- The Power of Habit — Charles Duhigg
 
 Content lives in `src/data/books.ts`. Add a book by appending an entry to the `books` array — the Library, book detail, lesson viewer, and daily-idea rotation all pick it up automatically.
 
@@ -40,7 +46,7 @@ npm run preview # serve the production build locally
 ## App structure
 
 - `src/pages/Home.tsx` — "Today's idea": one flip-card lesson per day, deterministic by date so it doesn't change if you mark it done partway through
-- `src/pages/Library.tsx` — the 4 books with per-book progress rings
+- `src/pages/Library.tsx` — the 10 books with per-book progress rings
 - `src/pages/BookDetail.tsx` — lesson list for a book
 - `src/pages/LessonView.tsx` — full lesson reader with prev/next navigation
 - `src/context/ProgressContext.tsx` — completion + streak tracking (localStorage)

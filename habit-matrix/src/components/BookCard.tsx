@@ -9,6 +9,16 @@ const cardVariants = {
   show: { opacity: 1, y: 0 },
 };
 
+const TITLE_STOPWORDS = new Set(["the", "of", "and", "a", "an", "to"]);
+
+function initialsFor(title: string) {
+  const words = title.split(" ").filter((w) => !TITLE_STOPWORDS.has(w.toLowerCase()));
+  return words
+    .slice(0, 2)
+    .map((w) => w[0].toUpperCase())
+    .join("");
+}
+
 export default function BookCard({ book, index }: { book: Book; index: number }) {
   const { completed } = useProgress();
   const done = book.lessons.filter((l) => completed[l.id]).length;
@@ -30,11 +40,7 @@ export default function BookCard({ book, index }: { book: Book; index: number })
           className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-display text-lg font-semibold"
           style={{ backgroundColor: `${book.accent}1f`, color: book.accent }}
         >
-          {book.title
-            .split(" ")
-            .map((w) => w[0])
-            .slice(0, 2)
-            .join("")}
+          {initialsFor(book.title)}
         </div>
         <div className="min-w-0 flex-1">
           <p className="font-display text-base font-medium text-ink">{book.title}</p>

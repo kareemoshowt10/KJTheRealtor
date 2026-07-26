@@ -8,7 +8,7 @@ export default function Library() {
       <div className="mb-6">
         <h1 className="font-display text-3xl font-medium tracking-tight text-ink">Library</h1>
         <p className="mt-1 text-sm text-ink-soft">
-          Four books, distilled into small daily lessons.
+          The top 10 personal-development books, distilled into small daily lessons.
         </p>
       </div>
       <div className="flex flex-col gap-3">

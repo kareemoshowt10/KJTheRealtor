@@ -40,13 +40,41 @@ export function ContactWidget() {
       /* private mode */
     }
 
-    if (!seen) {
-      setFirstVisit(true);
-      const t = window.setTimeout(() => {
-        setOpen(true);
-      }, OPEN_DELAY_MS);
-      return () => window.clearTimeout(t);
+    if (seen) return;
+
+    setFirstVisit(true);
+
+    // Previously this opened on a bare 1.1s timer, so a first-time visitor —
+    // exactly the organic visitor we want to convert — got the panel dropped
+    // over the hero headline and the Equity Snapshot address field before
+    // they had read either. Now it waits until they've scrolled past the
+    // hero, so it never covers the primary CTA. If they never scroll, it
+    // never auto-opens; the launcher button is always available.
+    let timer = 0;
+
+    const pastHero = () => window.scrollY > window.innerHeight * 0.9;
+
+    const openLater = () => {
+      timer = window.setTimeout(() => setOpen(true), OPEN_DELAY_MS);
+    };
+
+    const onScroll = () => {
+      if (!pastHero()) return;
+      window.removeEventListener("scroll", onScroll);
+      openLater();
+    };
+
+    // Deep link / restored scroll position can start us below the hero.
+    if (pastHero()) {
+      openLater();
+    } else {
+      window.addEventListener("scroll", onScroll, { passive: true });
     }
+
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   const markSeen = useCallback(() => {

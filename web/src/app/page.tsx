@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { HomeSchema } from "@/components/home-schema";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Hero } from "@/components/hero";
@@ -15,12 +17,17 @@ import { PathSelector } from "@/components/path-selector";
 import { TrustProof } from "@/components/trust-proof";
 
 /**
- * Sprint 2 homepage: path selector + real trust (no stock faces) +
- * mobile hold-vs-sell. Keeps Sprint 1 speed/clarity.
+ * Homepage: path selector + real trust (no stock faces) + mobile hold-vs-sell.
  */
+export const metadata: Metadata = {
+  // /91311 declared a canonical but the homepage did not.
+  alternates: { canonical: "/" },
+};
+
 export default function HomePage() {
   return (
     <>
+      <HomeSchema />
       <ScrollProgress />
       <SiteHeader
         links={[
@@ -50,7 +57,7 @@ export default function HomePage() {
         ctaLabel="Tell me what's going on"
         hint="One personal reply · no drip · usually same day"
       />
-      <SiteFooter note="Sprint 2 · human & trustworthy" />
+      <SiteFooter />
     </>
   );
 }

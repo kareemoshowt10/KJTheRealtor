@@ -15,6 +15,8 @@ import { MethodTimeline } from "@/components/method-timeline";
 import { ConversionSticky } from "@/components/conversion-sticky";
 import { PathSelector } from "@/components/path-selector";
 import { TrustProof } from "@/components/trust-proof";
+import { ProblemNarrative } from "@/components/problem-narrative";
+import { AskKareem } from "@/components/ask-kareem";
 
 /**
  * Homepage: path selector + real trust (no stock faces) + mobile hold-vs-sell.
@@ -41,7 +43,11 @@ export default function HomePage() {
       />
       <main className="pb-28">
         <Hero />
+        {/* Story arc: the villain (transaction-first system) → who it lands
+            on → what Kareem does instead — then the visitor picks a path. */}
+        <ProblemNarrative />
         <PathSelector />
+        <AskKareem />
         <ZipCards />
         <MethodTimeline />
         <FamilyTable />

@@ -113,8 +113,10 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease, delay: 0.28 }}
           >
-            Kitchen-table patience for parents, adult children, and long-held
-            homes — with the numbers to match. One personal reply. No drip.
+            I&apos;m a Realtor for families deciding what to do with a home —
+            sell it, hold it, rent it, or pass it down. Most of this industry
+            gets paid to close you fast. I lay out the real numbers first,
+            free, and the transaction stays optional.
           </motion.p>
 
           <motion.div

@@ -54,7 +54,7 @@ export default function ChatsworthPage() {
         ctaLabel="Talk 91311 with me"
         hint="Local read · one personal reply · no drip"
       />
-      <SiteFooter note="91311 Chatsworth · Sprint 1" />
+      <SiteFooter note="Chatsworth · 91311" />
     </>
   );
 }

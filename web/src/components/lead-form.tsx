@@ -147,41 +147,104 @@ export function LeadForm({
     setStatus("sending");
     setErrorMsg("");
 
+    // Two sinks, tried in order. /api/lead is the real one — it persists the
+    // lead, dedupes it, and queues the alert. Formspree stays as the fallback
+    // for the window before the funnel DB is provisioned, and for the case
+    // where it's down. A lead that reaches neither is the only outcome we
+    // genuinely cannot accept, so we try both before showing an error.
+    const succeed = () => {
+      setStatus("success");
+      try {
+        const w = window as Window & {
+          dataLayer?: Record<string, unknown>[];
+          kjFunnel?: { track: (e: string, p?: Record<string, unknown>) => void };
+        };
+        const props = {
+          form_source: source,
+          topic_chip: active || undefined,
+          lead_path: leadPath || undefined,
+        };
+        w.dataLayer = w.dataLayer || [];
+        w.dataLayer.push({ event: "generate_lead", ...props });
+        w.kjFunnel?.track("generate_lead", props);
+      } catch {
+        /* analytics must never break the submit */
+      }
+    };
+
     try {
-      const res = await fetch(FORMSPREE, {
+      const w = window as Window & {
+        kjAttribution?: {
+          last?: Record<string, string>;
+          first?: Record<string, string>;
+        };
+        kjFunnel?: { visitorId?: string; sessionId?: string };
+      };
+
+      const payload: Record<string, string> = {
+        ...Object.fromEntries(
+          Array.from(fd.entries()).map(([k, v]) => [k, String(v)])
+        ),
+        intent: active || "",
+        page_path: typeof location !== "undefined" ? location.pathname : "",
+        visitor_id: w.kjFunnel?.visitorId || "",
+        session_id: w.kjFunnel?.sessionId || "",
+        lead_source: w.kjAttribution?.last?.lead_source || "",
+        first_touch_source: w.kjAttribution?.first?.lead_source || "",
+        utm_source: w.kjAttribution?.last?.utm_source || "",
+        utm_medium: w.kjAttribution?.last?.utm_medium || "",
+        utm_campaign: w.kjAttribution?.last?.utm_campaign || "",
+        gclid: w.kjAttribution?.last?.gclid || "",
+        referrer: w.kjAttribution?.last?.referrer || "",
+        landing_page: w.kjAttribution?.first?.landing_page || "",
+      };
+
+      const res = await fetch("/api/lead", {
         method: "POST",
-        body: fd,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
-        setStatus("success");
-        // Optional analytics hook for GTM later
-        try {
-          const w = window as Window & {
-            dataLayer?: Record<string, unknown>[];
-          };
-          w.dataLayer = w.dataLayer || [];
-          w.dataLayer.push({
-            event: "generate_lead",
-            form_source: source,
-            topic_chip: active || undefined,
-            lead_path: leadPath || undefined,
-          });
-        } catch {
-          /* ignore */
-        }
-      } else {
+        succeed();
+        return;
+      }
+
+      if (res.status === 429) {
+        setStatus("error");
+        setErrorMsg(
+          "That's a few sends in a row — give it a moment, or just call (818) 402-7326."
+        );
+        return;
+      }
+
+      // 400s are the visitor's problem to fix; anything else is ours, so fall
+      // through to Formspree rather than losing the lead.
+      if (res.status >= 400 && res.status < 500) {
         const data = (await res.json().catch(() => null)) as {
           error?: string;
         } | null;
         throw new Error(data?.error || `Request failed (${res.status})`);
       }
-    } catch {
-      setStatus("error");
-      setErrorMsg(
-        "Something went wrong sending that. Please call or text (818) 402-7326, or email kjamal@rodeore.com."
-      );
+      throw new Error("fallback");
+    } catch (primaryError) {
+      try {
+        const res = await fetch(FORMSPREE, {
+          method: "POST",
+          body: fd,
+          headers: { Accept: "application/json" },
+        });
+        if (res.ok) {
+          succeed();
+          return;
+        }
+        throw primaryError;
+      } catch {
+        setStatus("error");
+        setErrorMsg(
+          "Something went wrong sending that. Please call or text (818) 402-7326, or email kjamal@rodeore.com."
+        );
+      }
     }
   }
 

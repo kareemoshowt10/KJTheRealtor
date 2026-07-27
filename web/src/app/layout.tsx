@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Fraunces, Inter } from "next/font/google";
 import { ContactWidget } from "@/components/contact-widget";
 import "./globals.css";
@@ -73,6 +74,14 @@ export default function RootLayout({
         {children}
         {/* First-visit chat opens front-and-center; then floating avatar site-wide */}
         <ContactWidget />
+        {/*
+          Order matters: track.js establishes window.kjAttribution and
+          window.kjTrack; funnel.js wraps kjTrack and adds the batched event
+          pipeline. Loading funnel.js first would leave attribution off every
+          event in the first batch.
+        */}
+        <Script src="/track.js" strategy="afterInteractive" />
+        <Script src="/funnel.js" strategy="afterInteractive" />
       </body>
     </html>
   );

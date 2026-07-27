@@ -33,6 +33,12 @@
   ::selection {
     @apply bg-gold-light text-navy;
   }
+  /* Native <button> defaults to cursor:default (unlike <a>), which reads as
+     inconsistent/broken feedback next to every link on the site. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

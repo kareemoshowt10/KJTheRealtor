@@ -142,19 +142,16 @@ function PinMap({
   onSelect: (i: number) => void;
   progress: MotionValue<number>;
 }) {
-  const [fill, setFill] = useState(0);
-  useMotionValueEvent(progress, "change", (v) => {
-    setFill(Math.max(0, Math.min(1, v)));
-  });
+  // Clamped, compositor-only transform — driven directly by the motion value
+  // (no React state/re-render per scroll frame, no `width` layout thrash).
+  const fill = useTransform(progress, (v) => Math.max(0, Math.min(1, v)));
 
   return (
     <div className="relative">
       <div className="absolute left-[1.125rem] right-[1.125rem] top-[1.15rem] h-px bg-cream/15 md:left-5 md:right-5" />
-      <div
-        className="pointer-events-none absolute left-[1.125rem] top-[1.15rem] h-px bg-gold transition-[width] duration-150 ease-out md:left-5"
-        style={{
-          width: `calc((100% - 2.25rem) * ${fill})`,
-        }}
+      <motion.div
+        className="pointer-events-none absolute left-[1.125rem] right-[1.125rem] top-[1.15rem] h-px origin-left bg-gold md:left-5 md:right-5"
+        style={{ scaleX: fill }}
         aria-hidden
       />
 

@@ -12,7 +12,9 @@ replace_checkout.py
 upgrade.js
 ui-ux-pro-max-skill/
 
-.claude/
+.claude/*
+!.claude/agents/
+!.claude/skills/
 KJTheRealtor-Build/
 KJTheRealtor-Export-2026-04-30/
 KJ-The-Realtor-93063-Lead-Gen/

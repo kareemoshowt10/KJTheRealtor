@@ -48,6 +48,7 @@ const GUIDES = [
   "/landlord-leasing",
   "/real-estate-partnerships",
   "/living-trust-guide",
+  "/inherited-home-guide",
   "/rate-buydown-guide",
   "/assumable-loan-guide",
   "/repair-credit-guide",

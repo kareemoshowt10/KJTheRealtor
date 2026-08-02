@@ -25,6 +25,7 @@ const LOCAL = [
   "/calabasas",
   "/hidden-hills",
   "/encino",
+  "/northridge",
 ];
 
 /** Interactive tools and strategy sessions — the lead-generating library. */

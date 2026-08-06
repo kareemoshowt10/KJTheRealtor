@@ -356,13 +356,48 @@
     .process-step h3 { font-family: var(--font-cond); text-transform: none; font-size: 1.15rem; font-weight: 700; letter-spacing: 0; line-height: 1.3; }
     .process-step p { margin-top: 0.5rem; font-size: 0.88rem; color: var(--muted); }
 
-    /* QUOTE */
-    .pull-quote { text-align: center; padding: clamp(3.5rem, 9vw, 6rem) 0; }
-    .pull-quote blockquote { font-family: var(--font-display); font-size: clamp(1.9rem, 6.5vw, 3.4rem); line-height: 1.15; text-transform: uppercase; max-width: 46rem; margin: 0 auto; }
-    .pull-quote blockquote span { color: var(--ember); }
-    .pull-quote cite { display: block; margin-top: 1.4rem; font-style: normal; font-family: var(--font-cond); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted-2); }
-    .stars { margin-top: 1rem; display: flex; justify-content: center; gap: 0.25rem; color: var(--ember); }
-    .stars svg { width: 20px; height: 20px; }
+    .stars { display: flex; justify-content: center; gap: 0.2rem; color: var(--ember); }
+    .stars svg { width: 16px; height: 16px; }
+
+    /* REVIEWS WALL (primary section) */
+    .reviews { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+    .reviews-head { max-width: 44rem; }
+    .reviews-head h2 { font-size: clamp(2.4rem, 8vw, 4.2rem); margin-top: 0.75rem; }
+    .reviews-head p { margin-top: 1rem; color: var(--muted); font-size: 1.05rem; max-width: 38rem; }
+
+    .rating-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1.1rem 2rem; margin-top: 1.85rem; }
+    .rating-badge { display: flex; align-items: center; gap: 0.7rem; }
+    .rating-badge strong { font-family: var(--font-display); font-size: 2.4rem; line-height: 1; color: var(--ember); }
+    .rating-badge .stars { justify-content: flex-start; margin-bottom: 0.3rem; }
+    .rating-badge span { display: block; font-family: var(--font-cond); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-2); }
+    .rating-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .rating-links a { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid var(--line-strong); border-radius: 999px; padding: 0.55rem 1.1rem; font-family: var(--font-cond); font-weight: 600; font-size: 0.82rem; transition: border-color 200ms ease, color 200ms ease, transform 200ms ease; }
+    .rating-links a:hover { border-color: var(--ember); color: var(--ember); transform: translateY(-2px); }
+
+    .reviews-wall { margin-top: clamp(2.5rem, 6vw, 3.5rem); column-gap: 1.1rem; columns: 1; }
+    @media (min-width: 700px) { .reviews-wall { columns: 2; } }
+    @media (min-width: 1080px) { .reviews-wall { columns: 3; } }
+
+    .review-card { break-inside: avoid; margin-bottom: 1.1rem; background: var(--surface-2); border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: 1.7rem; }
+    .review-card .stars { justify-content: flex-start; margin-bottom: 0.95rem; }
+    .review-card blockquote { font-size: 1rem; color: var(--text); line-height: 1.55; }
+    .review-meta { margin-top: 1.2rem; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 0.75rem; }
+    .review-avatar { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-cond); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.02em; background: var(--surface-3); border: 1px solid var(--line-strong); color: var(--ember); overflow: hidden; flex-shrink: 0; }
+    .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .review-name { display: block; font-family: var(--font-cond); font-weight: 700; font-size: 0.95rem; font-style: normal; }
+    .review-role { display: block; font-size: 0.78rem; color: var(--muted-2); }
+
+    .review-card--featured { background: linear-gradient(155deg, rgba(255, 90, 31, 0.16), var(--surface-2) 60%); border-color: rgba(255, 90, 31, 0.4); }
+    .review-card--featured blockquote { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 1.85rem); line-height: 1.18; text-transform: uppercase; }
+
+    .review-card--cta { border-style: dashed; background: transparent; }
+    .review-card--cta h3 { font-size: 1.6rem; margin-bottom: 0.75rem; }
+    .review-card--cta p { color: var(--muted); font-size: 0.9rem; }
+    .review-card--cta .rating-links { margin-top: 1.1rem; }
+
+    .reviews-note { margin-top: 1.85rem; font-size: 0.78rem; line-height: 1.7; color: var(--muted-2); max-width: 42rem; }
+    .reviews-note a { color: var(--chrome); border-bottom: 1px solid var(--line-strong); }
+    .reviews-note a:hover { color: var(--ember); border-color: var(--ember); }
 
     /* AREA */
     .area { border-top: 1px solid var(--line); background: var(--surface); }
@@ -473,12 +508,12 @@
         <div class="hero-cta">
           <a class="btn btn-primary" href="tel:+17472260457">Call (747) 226-0457</a>
           <a class="btn btn-ghost" href="https://maps.app.goo.gl/yNJQBL3Je7kSA8HNA" target="_blank" rel="noopener noreferrer">Get Directions</a>
-          <a class="btn btn-ghost" href="#bio">Meet Joaquin</a>
+          <a class="btn btn-ghost" href="#reviews">See The Reviews</a>
         </div>
         <div class="hero-facts">
           <div class="hero-fact"><strong>7 Days</strong><span>A Week, Call Ahead</span></div>
           <div class="hero-fact"><strong>New + Used</strong><span>Tires In Stock</span></div>
-          <div class="hero-fact"><strong>5.0&#9733;</strong><span>Neighborhood Rated</span></div>
+          <div class="hero-fact"><strong>5.0&#9733;</strong><span>Google Rating</span></div>
           <div class="hero-fact"><strong>2</strong><span>Bays On Sherman Way</span></div>
         </div>
       </div>
@@ -491,6 +526,149 @@
         <span>Canoga Park</span><span>Winnetka</span><span>Reseda</span><span>West Hills</span><span>Woodland Hills</span><span>Van Nuys</span>
       </div>
     </div>
+
+    <!-- REVIEWS (primary section) -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="reviews-head reveal">
+          <p class="eyebrow">Real feedback, not our copy</p>
+          <h2>What the neighborhood says.</h2>
+          <p>
+            This page started as one thank-you note. It turns out I'm not the only one &mdash;
+            here's my visit alongside what keeps showing up in the shop's public reviews.
+          </p>
+          <div class="rating-row">
+            <div class="rating-badge">
+              <strong>5.0</strong>
+              <div>
+                <div class="stars" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+                </div>
+                <span>Google Rating</span>
+              </div>
+            </div>
+            <div class="rating-links">
+              <a href="https://maps.app.goo.gl/yNJQBL3Je7kSA8HNA" target="_blank" rel="noopener noreferrer">Read on Google &rarr;</a>
+              <a href="https://www.yelp.com/biz/accelerated-tire-and-service-canoga-park" target="_blank" rel="noopener noreferrer">Read on Yelp &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews-wall">
+          <article class="review-card review-card--featured reveal">
+            <div class="stars" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+            </div>
+            <blockquote>&ldquo;In and out, done right, and treated like a neighbor.&rdquo;</blockquote>
+            <div class="review-meta">
+              <div class="review-avatar">
+                <img src="assets/kareem-jamal-headshot-2026-thumb.jpg" alt="Kareem Jamal" loading="lazy" />
+              </div>
+              <div>
+                <cite class="review-name">Kareem Jamal</cite>
+                <span class="review-role">Why this page exists</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card reveal reveal-d1">
+            <div class="stars" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+            </div>
+            <blockquote>&ldquo;Extremely knowledgeable &mdash; they'll help you dial in a perfect alignment.&rdquo;</blockquote>
+            <div class="review-meta">
+              <div class="review-avatar" aria-hidden="true">YLP</div>
+              <div>
+                <cite class="review-name">Yelp Review</cite>
+                <span class="review-role">Verified customer</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card reveal reveal-d2">
+            <div class="stars" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+            </div>
+            <blockquote>&ldquo;Service was very good, very fast &mdash; and the prices were very, very good.&rdquo;</blockquote>
+            <div class="review-meta">
+              <div class="review-avatar" aria-hidden="true">YLP</div>
+              <div>
+                <cite class="review-name">Yelp Review</cite>
+                <span class="review-role">Verified customer</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="stars" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+            </div>
+            <blockquote>&ldquo;Quick, easy, and extremely helpful from start to finish.&rdquo;</blockquote>
+            <div class="review-meta">
+              <div class="review-avatar" aria-hidden="true">YLP</div>
+              <div>
+                <cite class="review-name">Yelp Review</cite>
+                <span class="review-role">Verified customer</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card reveal reveal-d1">
+            <div class="stars" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
+            </div>
+            <blockquote>&ldquo;Extremely honest &mdash; they told me exactly what I needed and nothing more.&rdquo;</blockquote>
+            <div class="review-meta">
+              <div class="review-avatar" aria-hidden="true">YLP</div>
+              <div>
+                <cite class="review-name">Yelp Review</cite>
+                <span class="review-role">Verified customer</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="review-card review-card--cta reveal reveal-d2">
+            <h3>Read the rest.</h3>
+            <p>These are short, honest excerpts pulled from the shop's public review pages. See the full write-ups &mdash; and leave your own after your next visit.</p>
+            <div class="rating-links">
+              <a href="https://maps.app.goo.gl/yNJQBL3Je7kSA8HNA" target="_blank" rel="noopener noreferrer">Google Reviews &rarr;</a>
+              <a href="https://www.yelp.com/biz/accelerated-tire-and-service-canoga-park" target="_blank" rel="noopener noreferrer">Yelp Reviews &rarr;</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="reviews-note">
+          Quotes above are short excerpts condensed from the shop's public Yelp listing, credited to
+          &ldquo;Yelp Review&rdquo; rather than a name or photo we can't verify &mdash; click through to read
+          them in full. The 5.0 rating reflects the shop's public Google listing at the time this page was
+          written; ratings change, so the live number on Google is always the accurate one.
+        </p>
+      </div>
+    </section>
 
     <!-- SERVICES -->
     <section>
@@ -608,23 +786,6 @@
             <p>Balanced, torqued, and TPMS reset so the dash light actually stays off.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- QUOTE -->
-    <section class="pull-quote">
-      <div class="container">
-        <div class="stars reveal" aria-hidden="true">
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
-          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.8 6.4.6-4.8 4.3 1.4 6.3L10 14.9l-5.6 3.1 1.4-6.3L1 7.4l6.4-.6z"/></svg>
-        </div>
-        <blockquote class="reveal reveal-d1">
-          &ldquo;In and out, done right,<br /><span>and treated like a neighbor.&rdquo;</span>
-        </blockquote>
-        <cite class="reveal reveal-d2">&mdash; Kareem, on why this page exists</cite>
       </div>
     </section>
 

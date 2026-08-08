@@ -36,6 +36,7 @@ const TOOLS = [
   "/mls-search",
   "/free-reports",
   "/91311/home-value",
+  "/9621jumilla",
 ];
 
 /** Evergreen guides and reference content. */

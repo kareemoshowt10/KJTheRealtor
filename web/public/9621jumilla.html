@@ -300,6 +300,14 @@
       <div id="room-grid"></div>
     </section>
 
+    <section class="wrap" id="more-photos">
+      <div class="label">More From The House</div>
+      <h2 style="margin-top:16px; font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--navy);">Every angle, unedited.</h2>
+      <p style="margin-top:14px; max-width:640px; color:var(--muted);">Additional walkthrough photos from the property, straight from the camera roll.</p>
+
+      <div id="more-photos-grid" class="room-photos" style="margin-top:18px;"></div>
+    </section>
+
     <section class="facts-section" id="details">
       <div class="wrap facts-grid">
         <div>
@@ -489,6 +497,35 @@
 
       grid.appendChild(section);
     });
+
+    var MORE_PHOTOS = [
+      "jumilla-mls-001.jpg","jumilla-mls-002.jpg","jumilla-mls-003.jpg","jumilla-mls-004.jpg",
+      "jumilla-mls-005.jpg","jumilla-mls-006.jpg","jumilla-mls-007.jpg","jumilla-mls-008.jpg",
+      "jumilla-mls-009.jpg","jumilla-mls-010.jpg","jumilla-mls-011.jpg","jumilla-mls-012.jpg",
+      "jumilla-mls-013.jpg","jumilla-mls-014.jpg","jumilla-mls-015.jpg","jumilla-mls-016.jpg",
+      "jumilla-mls-017.jpg","jumilla-mls-018.jpg","jumilla-mls-019.jpg","jumilla-mls-020.jpg"
+    ];
+    var MORE_PHOTOS_DIR = "/images/9621-jumilla/";
+
+    var morePhotosGrid = document.getElementById('more-photos-grid');
+    if (morePhotosGrid) {
+      MORE_PHOTOS.forEach(function (file, i) {
+        var src = MORE_PHOTOS_DIR + file;
+        var alt = "9621 Jumilla Ave — interior photo " + (i + 1);
+        var a = document.createElement('a');
+        a.href = '#';
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = alt;
+        img.loading = 'lazy';
+        a.appendChild(img);
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          openLightbox(src, alt);
+        });
+        morePhotosGrid.appendChild(a);
+      });
+    }
 
     var lightbox = document.getElementById('lightbox');
     var lightboxImg = document.getElementById('lightboxImg');

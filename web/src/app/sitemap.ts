@@ -36,6 +36,7 @@ const TOOLS = [
   "/mls-search",
   "/free-reports",
   "/91311/home-value",
+  "/listings",
   "/9621jumilla",
 ];
 

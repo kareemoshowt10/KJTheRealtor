@@ -25,6 +25,7 @@ const LOCAL = [
   "/calabasas",
   "/hidden-hills",
   "/encino",
+  "/northridge",
 ];
 
 /** Interactive tools and strategy sessions — the lead-generating library. */
@@ -35,6 +36,8 @@ const TOOLS = [
   "/mls-search",
   "/free-reports",
   "/91311/home-value",
+  "/listings",
+  "/9621jumilla",
 ];
 
 /** Evergreen guides and reference content. */
@@ -47,6 +50,7 @@ const GUIDES = [
   "/landlord-leasing",
   "/real-estate-partnerships",
   "/living-trust-guide",
+  "/inherited-home-guide",
   "/rate-buydown-guide",
   "/assumable-loan-guide",
   "/repair-credit-guide",

@@ -21,7 +21,18 @@ export function SiteFooter({
             Equal Housing Opportunity
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-8 text-sm sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <p className="mb-3 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold">
+              Listings
+            </p>
+            <Link href="/listings" className="block py-1 hover:text-gold-light">
+              Current listings
+            </Link>
+            <Link href="/9621jumilla" className="block py-1 hover:text-gold-light">
+              9621 Jumilla Ave
+            </Link>
+          </div>
           <div>
             <p className="mb-3 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-gold">
               Zip codes
@@ -82,10 +93,10 @@ export function SiteFooter({
               Privacy
             </Link>
             <a
-              href="https://kareemjamaltherealtor.com/"
+              href="https://kareemjamaltherealtor.com/homeowners#library"
               className="block py-1 text-gold-light hover:underline"
             >
-              Full site library →
+              Free library →
             </a>
           </div>
         </div>

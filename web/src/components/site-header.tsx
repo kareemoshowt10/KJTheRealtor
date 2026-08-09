@@ -17,6 +17,7 @@ const defaultLinks: NavLink[] = [
   { href: "/#method", label: "Method" },
   { href: "/#family-table", label: "Families" },
   { href: "/91311", label: "91311" },
+  { href: "/listings", label: "Listings" },
 ];
 
 export function SiteHeader({

@@ -37,6 +37,7 @@ export default function HomePage() {
           { href: "#start-here", label: "Start here" },
           { href: "#method", label: "Method" },
           { href: "/91311", label: "91311" },
+          { href: "/listings", label: "Listings" },
         ]}
         ctaHref="#start"
         ctaLabel="Talk"

@@ -26,6 +26,7 @@ const navLinks = [
   { href: "#pockets", label: "Pockets" },
   { href: "#family-table", label: "Families" },
   { href: "#owners", label: "Owners" },
+  { href: "/listings", label: "Listings" },
   { href: "/", label: "Home" },
 ];
 

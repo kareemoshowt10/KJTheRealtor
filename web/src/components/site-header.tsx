@@ -18,6 +18,7 @@ const defaultLinks: NavLink[] = [
   { href: "/#family-table", label: "Families" },
   { href: "/91311", label: "91311" },
   { href: "/listings", label: "Listings" },
+  { href: "/why-kareem", label: "Why Kareem" },
 ];
 
 export function SiteHeader({

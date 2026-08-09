@@ -61,7 +61,7 @@ const GUIDES = [
 ];
 
 /** Brand / about pages. */
-const ABOUT = ["/about", "/mission", "/buyers", "/sellers"];
+const ABOUT = ["/about", "/why-kareem", "/mission", "/buyers", "/sellers"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const site = (

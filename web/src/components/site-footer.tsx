@@ -89,6 +89,9 @@ export function SiteFooter({
             >
               kjamal@rodeore.com
             </a>
+            <Link href="/why-kareem" className="block py-1 hover:text-gold-light">
+              Why Kareem
+            </Link>
             <Link href="/privacy" className="block py-1 hover:text-gold-light">
               Privacy
             </Link>

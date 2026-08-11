@@ -28,6 +28,7 @@ export const AREAS = [
   { slug: "encino", place: "Encino", terms: ["encino", "91316", "91436"] },
   { slug: "northridge", place: "Northridge", terms: ["northridge", "91324", "91325", "csun", "cal state northridge"] },
   { slug: "west-hills", place: "West Hills", terms: ["west hills", "91307", "91304"] },
+  { slug: "porter-ranch", place: "Porter Ranch", terms: ["porter ranch", "91326", "aliso canyon", "northwest valley"] },
 ];
 
 /**

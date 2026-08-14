@@ -58,6 +58,7 @@ const GUIDES = [
   "/contractor-handyman-guide",
   "/yard-sale-guide",
   "/internet-bill-guide",
+  "/isp",
 ];
 
 /** Brand / about pages. */

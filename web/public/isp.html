@@ -667,6 +667,29 @@
     var order = ["prep", "competitor", "retention", "pushback", "equipment", "close"];
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+    /* ---------- funnel events ----------
+       track.js is deferred, so window.kjTrack may not exist yet when the first
+       events fire. Writing straight to dataLayer means nothing is lost either
+       way: track.js only ever appends to it, and GA4/GTM read it on arrival.
+       The point of these events is one question - which step people quit at. */
+    function track(event, data) {
+      var payload = Object.assign({ event: event, page_path: "/isp" }, data || {});
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(payload);
+        if (typeof window.gtag === "function") window.gtag("event", event, payload);
+        if (/[?&]kjdebug/.test(location.search)) console.log("[isp]", event, payload);
+      } catch (e) {}
+    }
+    var seenSteps = {}, seenStepCount = 0, filledOnce = false;
+    function trackStepView(name) {
+      if (!name || seenSteps[name]) return;
+      seenSteps[name] = true;
+      seenStepCount += 1;
+      track("isp_step_view", { step: name, step_index: order.indexOf(name) + 1 });
+      if (seenStepCount === order.length) track("isp_script_complete", {});
+    }
+
     /* ---------- storage ---------- */
     function load() {
       try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { return {}; }
@@ -781,6 +804,11 @@
         snapshot.href = "sms:+18184027326?body=" + encodeURIComponent(lines.join("\n"));
       }
 
+      if (!filledOnce && Object.keys(fields).some(function (key) { return !!raw(key); })) {
+        filledOnce = true;
+        track("isp_autopsy_started", {});
+      }
+
       var stored = load();
       stored.fields = {};
       Object.keys(fields).forEach(function (key) { stored.fields[key] = raw(key); });
@@ -831,7 +859,14 @@
       var lineBtn = event.target.closest("[data-copy-line]");
       if (lineBtn) {
         var line = lineBtn.closest("[data-line]");
-        if (line) copy(textOf(line), lineBtn);
+        if (line) {
+          copy(textOf(line), lineBtn);
+          var label = line.querySelector(".line-label");
+          track("isp_line_copy", {
+            step: (line.closest("[data-panel]") || {}).id || "",
+            line: label ? label.textContent.trim().slice(0, 60) : ""
+          });
+        }
         return;
       }
       var groupBtn = event.target.closest("[data-copy-group]");
@@ -842,6 +877,7 @@
           .filter(function (line) { return !line.classList.contains("muted"); })
           .map(textOf).filter(Boolean).join("\n\n");
         copy(all, groupBtn, "Copied every line in this step.");
+        track("isp_step_copy_all", { step: panel.id || "" });
       }
     });
 
@@ -858,6 +894,7 @@
         stored.checks = stored.checks || {};
         stored.checks[key] = box.checked;
         save(stored);
+        if (box.checked) track("isp_checklist_item", { item: key });
       });
     });
 
@@ -896,11 +933,12 @@
         link.remove();
         setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
         say("Reminder downloaded — open it to add it to your calendar.");
+        track("isp_reminder_download", {});
       });
     }
 
     var printBtn = document.getElementById("print-btn");
-    if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+    if (printBtn) printBtn.addEventListener("click", function () { track("isp_print"); window.print(); });
 
     /* ---------- stepper ---------- */
     var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-step]"));
@@ -936,6 +974,7 @@
         else button.removeAttribute("aria-current");
       });
       if (progressText) progressText.textContent = "Step " + (index + 1) + " of " + order.length;
+      trackStepView(name);
     }
     function scrollToPanel(name) {
       var panel = document.getElementById(name);
@@ -947,7 +986,11 @@
       activate(name, true);
     }
     buttons.forEach(function (button) {
-      button.addEventListener("click", function () { scrollToPanel(button.getAttribute("data-step")); });
+      button.addEventListener("click", function () {
+        var name = button.getAttribute("data-step");
+        track("isp_step_jump", { step: name });
+        scrollToPanel(name);
+      });
     });
 
     function updateScrollState() {
@@ -976,6 +1019,7 @@
     window.addEventListener("scroll", requestScrollUpdate, { passive: true });
     window.addEventListener("resize", requestScrollUpdate);
     updateScrollState();
+    track("isp_view", { returning: !!(state.fields && Object.keys(state.fields).some(function (k) { return state.fields[k]; })) });
 
     panels.forEach(function (panel) { panel.classList.add("guide-reveal"); });
     if ("IntersectionObserver" in window && !reduceMotion.matches) {

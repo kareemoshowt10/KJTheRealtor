@@ -153,6 +153,42 @@ than a typical Postgres app:
   Backed by a new `plannedWatches/{uid}_{titleId}` collection
   (`src/lib/planner.ts`, `src/app/api/planner/`).
 
+## What's implemented (Phase 7) — the watch log
+
+The core of the app: not just *what* you've seen, but *how you watch*.
+
+- **Per-watch logging.** Every movie and every TV episode is its own
+  append-only `watchEvents` record — date, season/episode, runtime,
+  rewatch flag. `UserTitle.last_watched_at` / `current_episode` are
+  current-state pointers that overwrite themselves; they can say what
+  you're up to but not how often you watch. The event log keeps the
+  history that answers that, and the pointers are kept in sync from it.
+- **Binge logging.** "Through" field logs a whole run (S2E4 → E9) as
+  separate episode events in one submit, so episode counts and hours
+  stay accurate.
+- **Behavior dashboard (`/stats`).** Weekly watch time (26-week stacked
+  cadence chart), which nights you actually watch, current/longest weekly
+  streak, weekly average, total hours, episodes vs movies, where your
+  time goes per title, and a recent log you can correct.
+- **Runtime capture.** `Title.runtime_minutes` is pulled from TMDB on add
+  (feature length for movies, typical episode length for TV) and resolved
+  *at log time* onto each event, so later TMDB edits can't rewrite past
+  hours. Falls back to genre medians when TMDB has none.
+
+Chart colour is a fixed two-slot categorical palette — orange `#d95926`
+for TV, blue `#3987e5` for movies — used identically across every chart so
+colour always means the same thing. It was validated against the dark card
+surface rather than eyeballed:
+
+```
+node scripts/validate_palette.js "#d95926,#3987e5" --mode dark --surface "#161922"
+# lightness band, chroma floor, CVD separation (worst adjacent ΔE 26.8
+# protan / 32.4 tritan), normal-vision floor (31.8) and 3:1 contrast: all PASS
+```
+
+The brand accent `#ff8c42` is deliberately *not* a series colour — at
+L 0.754 it sits outside the dark lightness band, so it stays on chrome.
+
 ## Known follow-ups
 
 - Next.js is pinned to the latest `14.2.x` patch; a handful of `npm
@@ -168,3 +204,15 @@ than a typical Postgres app:
 - Community rankings (`/discover`) aggregate in application code over a
   capped ratings window rather than a true database-side rollup — see
   "Data model notes" above.
+- `/stats` measures "this week" against the **server's** UTC date, while
+  each event stores the viewer's own local date. Only the current-week
+  boundary can drift, and only for a few hours around midnight in
+  non-UTC timezones. Passing the client's local date into the page would
+  close it.
+- `getWatchStats` reads a user's whole watch log and aggregates in
+  application code. Fine for personal-scale history (thousands of
+  events); past that it wants a rollup collection written on log.
+- Runtime falls back to genre medians (110m film / 42m episode) when TMDB
+  has no runtime, so hours-watched is an estimate, not a stopwatch.
+- Existing titles added before Phase 7 have no `runtime_minutes` and will
+  use those fallbacks until re-added or backfilled.

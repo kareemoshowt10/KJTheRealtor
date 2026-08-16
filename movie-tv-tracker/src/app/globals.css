@@ -47,4 +47,14 @@ body {
   .score-badge {
     @apply inline-flex min-w-[2.75rem] items-center justify-center rounded-lg bg-accent/15 px-2 py-1 text-base font-bold text-accent;
   }
+
+  /* Scrollable strips (the nav link row) shouldn't show a scrollbar gutter. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }

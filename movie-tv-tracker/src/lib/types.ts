@@ -25,6 +25,8 @@ export interface Title {
   poster_path: string | null;
   release_date: string | null;
   overview: string | null;
+  /** Feature length for movies, typical episode length for TV. Null when TMDB has none. */
+  runtime_minutes: number | null;
 }
 
 export interface UserTitle {
@@ -58,6 +60,8 @@ export interface TmdbSearchResult {
   poster_path: string | null;
   release_date: string | null;
   overview: string | null;
+  /** Only populated by the detail endpoints — /search/multi does not return runtime. */
+  runtime_minutes: number | null;
 }
 
 export interface RankedEntry {
@@ -175,4 +179,80 @@ export interface PlannerEntry {
   title: Title;
   /** null when not yet scheduled onto the calendar. */
   scheduledDate: string | null;
+}
+
+// ── Phase 7: watch behavior tracking ────────────────────────────────
+
+/**
+ * One viewing session: a single movie, or a single TV episode.
+ *
+ * This is the append-only record the whole behavior layer is built on.
+ * `UserTitle.last_watched_at` / `current_episode` are current-state pointers
+ * that overwrite themselves — they can say what you're up to, but not how
+ * often you watch. These events keep the history that answers that.
+ */
+export interface WatchEvent {
+  id: string;
+  user_id: string;
+  title_id: string;
+  media_type: MediaType;
+  /** ISO timestamp. May be backdated — you often log a watch the next morning. */
+  watched_at: string;
+  /** Local YYYY-MM-DD, denormalized so day/week bucketing needs no timezone math on read. */
+  watched_date: string;
+  /** null for movies. */
+  season_number: number | null;
+  episode_number: number | null;
+  /** Minutes credited to this event, resolved at log time so later TMDB edits can't rewrite history. */
+  runtime_minutes: number;
+  is_rewatch: boolean;
+}
+
+/** A watch event joined with its title, for rendering a readable log. */
+export interface WatchEventWithTitle {
+  event: WatchEvent;
+  title: Title;
+}
+
+/** One ISO-week bucket of watch activity. */
+export interface WeekBucket {
+  /** YYYY-MM-DD of that week's Monday. */
+  weekStart: string;
+  tvMinutes: number;
+  movieMinutes: number;
+  episodes: number;
+  movies: number;
+}
+
+export interface DayBucket {
+  /** 0 = Sunday … 6 = Saturday. */
+  weekday: number;
+  tvMinutes: number;
+  movieMinutes: number;
+}
+
+export interface TopTitle {
+  title: Title;
+  minutes: number;
+  plays: number;
+}
+
+/** Everything the behavior dashboard renders. */
+export interface WatchStats {
+  totalMinutes: number;
+  episodeCount: number;
+  movieCount: number;
+  /** Distinct local dates with at least one logged watch. */
+  activeDays: number;
+  /** Consecutive weeks with activity, counting back from the current week. */
+  currentStreakWeeks: number;
+  longestStreakWeeks: number;
+  /** Mean minutes per week across weeks since the first logged watch. */
+  avgMinutesPerWeek: number;
+  thisWeekMinutes: number;
+  lastWeekMinutes: number;
+  weeks: WeekBucket[];
+  days: DayBucket[];
+  topTitles: TopTitle[];
+  recent: WatchEventWithTitle[];
 }

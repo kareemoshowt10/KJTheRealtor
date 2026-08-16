@@ -68,7 +68,18 @@ discussionThreads/{titleId}_{tab}       — title_id, tab, created_at
 discussionPosts/{autoId}                — thread_id, user_id, body, has_spoilers, created_at
 reviewVotes/{voterId}_{postId}          — voter_id, post_id, vote, created_at
 plannedWatches/{uid}_{titleId}          — user_id, title_id, scheduled_date, created_at
+watchEvents/{auto}                      — user_id, title_id, media_type, watched_at,
+                                          watched_date, season_number, episode_number,
+                                          runtime_minutes, is_rewatch
 ```
+
+`watchEvents` is append-only and is the source of truth for watching
+behavior. One doc per movie watched or per episode watched — a binge of six
+episodes is six docs, so episode counts and hours stay honest. The
+current-state fields on `userTitles` (`last_watched_at`, `current_season`,
+`current_episode`, `rewatch_count`) are derived pointers kept in sync when
+an event is logged; they answer "where am I" while the event log answers
+"how do I watch".
 
 No SQL views exist in Firestore, so the aggregations they used to provide
 (reputation, activity feed, community consensus) are computed in
@@ -138,3 +149,12 @@ climb after a rewatch, a show can rise or fall as new episodes land.
    scheduling watchlist/watching titles onto specific dates, native
    HTML5 drag-and-drop (no external DnD library), backed by a new
    `plannedWatches/{uid}_{titleId}` collection
+
+**Phase 7 (built) — watching behavior is the product**
+1. Per-watch event log (`watchEvents`): every movie and episode logged
+   individually with date, season/episode, runtime and rewatch flag
+2. Binge logging — one submit records a whole episode run as separate events
+3. Behavior dashboard (`/stats`): weekly cadence, day-of-week pattern,
+   weekly streaks, weekly average, totals, time-per-title, recent log
+4. Runtime capture from TMDB, resolved onto each event at log time so
+   hours-watched can't be rewritten by later metadata edits

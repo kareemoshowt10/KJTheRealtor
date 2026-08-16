@@ -7,6 +7,7 @@ import { tmdbPosterUrl } from '@/lib/tmdb';
 import type { Rating, Title, TmdbSearchResult, UserTitle, WatchStatus } from '@/lib/types';
 import { computeDynamicScore } from '@/lib/scoring';
 import ScoreSparkline from './ScoreSparkline';
+import WatchLogger from './WatchLogger';
 
 interface Props {
   isAuthenticated: boolean;
@@ -23,12 +24,6 @@ export default function TitleDetail({ isAuthenticated, source, userTitle, rating
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [scoreInput, setScoreInput] = useState('');
-  const [seasonInput, setSeasonInput] = useState(
-    userTitle?.current_season != null ? String(userTitle.current_season) : ''
-  );
-  const [episodeInput, setEpisodeInput] = useState(
-    userTitle?.current_episode != null ? String(userTitle.current_episode) : ''
-  );
 
   const name = source.kind === 'cached' ? source.title.name : source.result.name;
   const overview = source.kind === 'cached' ? source.title.overview : source.result.overview;
@@ -77,6 +72,10 @@ export default function TitleDetail({ isAuthenticated, source, userTitle, rating
           poster_path: posterPath,
           release_date: releaseDate,
           overview,
+          runtime_minutes:
+            source.kind === 'cached'
+              ? source.title.runtime_minutes
+              : source.result.runtime_minutes,
         }),
       });
       const data = await res.json();
@@ -100,38 +99,6 @@ export default function TitleDetail({ isAuthenticated, source, userTitle, rating
       patch.started_at = new Date().toISOString();
     }
     await patchLibrary(patch, 'Failed to update status');
-  }
-
-  async function handleLogRewatch() {
-    if (!userTitle) return;
-    await patchLibrary(
-      {
-        rewatch_count: userTitle.rewatch_count + 1,
-        last_watched_at: new Date().toISOString(),
-      },
-      'Failed to log rewatch'
-    );
-  }
-
-  async function handleSaveProgress(e: React.FormEvent) {
-    e.preventDefault();
-    const season = seasonInput === '' ? null : Number(seasonInput);
-    const episode = episodeInput === '' ? null : Number(episodeInput);
-    if (
-      (season !== null && (!Number.isInteger(season) || season < 0)) ||
-      (episode !== null && (!Number.isInteger(episode) || episode < 0))
-    ) {
-      setError('Season and episode must be whole numbers');
-      return;
-    }
-    await patchLibrary(
-      {
-        current_season: season,
-        current_episode: episode,
-        last_watched_at: new Date().toISOString(),
-      },
-      'Failed to save progress'
-    );
   }
 
   async function handleRate(e: React.FormEvent) {
@@ -244,9 +211,11 @@ export default function TitleDetail({ isAuthenticated, source, userTitle, rating
                 </select>
               </div>
 
-              <button onClick={handleLogRewatch} disabled={busy} className="btn-ghost">
-                Log a rewatch ({userTitle.rewatch_count})
-              </button>
+              {userTitle.rewatch_count > 0 && (
+                <span className="rounded-full bg-accent/15 px-2.5 py-1 text-xs font-semibold text-accent">
+                  {userTitle.rewatch_count}× rewatched
+                </span>
+              )}
 
               {userTitle.last_watched_at && (
                 <p className="text-sm text-zinc-500">
@@ -255,43 +224,12 @@ export default function TitleDetail({ isAuthenticated, source, userTitle, rating
               )}
             </div>
 
-            {mediaType === 'tv' && (
-              <form onSubmit={handleSaveProgress} className="card flex flex-wrap items-end gap-3 p-4">
-                <div>
-                  <label className="mb-1 block text-xs uppercase tracking-wide text-zinc-500">
-                    Season
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    value={seasonInput}
-                    onChange={(e) => setSeasonInput(e.target.value)}
-                    placeholder="S"
-                    className="input w-20"
-                  />
-                </div>
-                <div>
-                  <label className="mb-1 block text-xs uppercase tracking-wide text-zinc-500">
-                    Episode
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    value={episodeInput}
-                    onChange={(e) => setEpisodeInput(e.target.value)}
-                    placeholder="E"
-                    className="input w-20"
-                  />
-                </div>
-                <button type="submit" disabled={busy} className="btn-ghost">
-                  Save progress
-                </button>
-                {userTitle.current_season != null && userTitle.current_episode != null && (
-                  <span className="rounded-full bg-accent/15 px-2.5 py-1 text-xs font-semibold text-accent">
-                    S{userTitle.current_season} · E{userTitle.current_episode}
-                  </span>
-                )}
-              </form>
+            {source.kind === 'cached' && (
+              <WatchLogger
+                titleId={source.title.id}
+                mediaType={mediaType}
+                userTitle={userTitle}
+              />
             )}
 
             <form onSubmit={handleRate} className="card flex items-end gap-3 p-4">

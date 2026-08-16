@@ -1,12 +1,23 @@
 import Link from 'next/link';
 import { getCurrentUser } from '@/lib/firebase/session';
 import { getRankedLibrary } from '@/lib/library';
+import { getThisWeekMinutes } from '@/lib/stats';
+import { formatMinutes, toDateKey } from '@/lib/dates';
 import RankedList from '@/components/RankedList';
 
 const FEATURES = [
-  { title: 'Dynamic rankings', body: 'Scores shift with recency, rewatches, and progress — not frozen at first impression.' },
-  { title: 'Score history', body: 'Every re-rating is kept, so you can see how a title aged for you.' },
-  { title: 'Taste you trust', body: 'Follow people, debate rankings per title, and earn a trusted-reviewer badge.' },
+  {
+    title: 'Every episode, logged',
+    body: 'Log each movie and episode as you watch it — season, episode, date, rewatch or not.',
+  },
+  {
+    title: 'Your weekly rhythm',
+    body: 'See hours per week, which nights you actually watch, streaks, and where the time goes.',
+  },
+  {
+    title: 'Rankings that move',
+    body: 'Scores shift with recency, rewatches, and progress — not frozen at first impression.',
+  },
 ];
 
 export default async function HomePage() {
@@ -25,8 +36,8 @@ export default async function HomePage() {
           </span>
         </h1>
         <p className="mx-auto mb-8 max-w-md text-zinc-400">
-          Track what you watch, rank what actually lasts, and discuss it with people whose
-          taste you trust.
+          Log every movie and episode you watch, then see the pattern — how much, how often,
+          and what's really holding your attention.
         </p>
         <div className="mb-14 flex justify-center gap-3">
           <Link href="/login" className="btn-primary">
@@ -48,20 +59,19 @@ export default async function HomePage() {
     );
   }
 
-  const entries = await getRankedLibrary(user.uid);
+  const [entries, thisWeekMinutes] = await Promise.all([
+    getRankedLibrary(user.uid),
+    getThisWeekMinutes(user.uid, toDateKey(new Date())),
+  ]);
+
   const watching = entries.filter((e) => e.userTitle.status === 'watching');
   const completed = entries.filter((e) => e.userTitle.status === 'completed');
-  const scored = entries.filter((e) => e.dynamicScore !== null);
-  const avgScore =
-    scored.length > 0
-      ? scored.reduce((sum, e) => sum + (e.dynamicScore ?? 0), 0) / scored.length
-      : null;
 
   const stats = [
+    { label: 'This week', value: formatMinutes(thisWeekMinutes) },
     { label: 'Watching', value: String(watching.length) },
     { label: 'Completed', value: String(completed.length) },
     { label: 'In library', value: String(entries.length) },
-    { label: 'Avg score', value: avgScore !== null ? avgScore.toFixed(1) : '—' },
   ];
 
   return (
@@ -78,9 +88,12 @@ export default async function HomePage() {
       <h1 className="mb-4 text-xl font-semibold">Currently watching</h1>
       <RankedList entries={watching} />
 
-      <div className="mt-8 flex gap-3">
+      <div className="mt-8 flex flex-wrap gap-3">
         <Link href="/search" className="btn-primary">
           Find something to watch
+        </Link>
+        <Link href="/stats" className="btn-ghost">
+          See your watching stats
         </Link>
         <Link href="/rankings" className="btn-ghost">
           View full rankings

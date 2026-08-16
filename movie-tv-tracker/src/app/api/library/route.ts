@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { getCurrentUser } from '@/lib/firebase/session';
 import { getAdminDb } from '@/lib/firebase/admin';
 import { titleDocId, userTitleDocId } from '@/lib/firestore-ids';
+import { getTmdbDetails } from '@/lib/tmdb';
 import type { MediaType, WatchStatus } from '@/lib/types';
 
 interface AddTitleBody {
@@ -11,6 +12,7 @@ interface AddTitleBody {
   poster_path: string | null;
   release_date: string | null;
   overview: string | null;
+  runtime_minutes?: number | null;
   status?: WatchStatus;
 }
 
@@ -26,6 +28,18 @@ export async function POST(request: Request) {
 
   const titleId = titleDocId(body.media_type, body.tmdb_id);
   const titleRef = db.collection('titles').doc(titleId);
+
+  // Runtime drives every hours-watched figure, so backfill it from TMDB when the
+  // client didn't have it (search results don't carry runtime, only detail lookups do).
+  let runtimeMinutes = body.runtime_minutes ?? null;
+  if (runtimeMinutes == null) {
+    try {
+      runtimeMinutes = (await getTmdbDetails(body.tmdb_id, body.media_type)).runtime_minutes;
+    } catch {
+      runtimeMinutes = null;
+    }
+  }
+
   await titleRef.set(
     {
       tmdb_id: body.tmdb_id,
@@ -34,6 +48,7 @@ export async function POST(request: Request) {
       poster_path: body.poster_path,
       release_date: body.release_date,
       overview: body.overview,
+      runtime_minutes: runtimeMinutes,
       created_at: now,
     },
     { merge: true }

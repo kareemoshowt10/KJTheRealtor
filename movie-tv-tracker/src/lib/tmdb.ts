@@ -11,6 +11,24 @@ interface TmdbRawResult {
   release_date?: string;
   first_air_date?: string;
   overview: string;
+  /** Movie detail endpoint only. */
+  runtime?: number | null;
+  /** TV detail endpoint only — one entry per typical episode length. */
+  episode_run_time?: number[];
+}
+
+/**
+ * Fallbacks for the (common) case where TMDB has no runtime on record.
+ * Rough genre-wide medians — good enough that hours-watched stays in the right
+ * ballpark, and always beats silently crediting zero minutes.
+ */
+export const FALLBACK_MOVIE_RUNTIME = 110;
+export const FALLBACK_EPISODE_RUNTIME = 42;
+
+function extractRuntime(raw: TmdbRawResult): number | null {
+  if (typeof raw.runtime === 'number' && raw.runtime > 0) return raw.runtime;
+  const episodeRuntime = raw.episode_run_time?.find((m) => m > 0);
+  return episodeRuntime ?? null;
 }
 
 function mapResult(raw: TmdbRawResult): TmdbSearchResult {
@@ -21,7 +39,17 @@ function mapResult(raw: TmdbRawResult): TmdbSearchResult {
     poster_path: raw.poster_path,
     release_date: raw.release_date ?? raw.first_air_date ?? null,
     overview: raw.overview,
+    runtime_minutes: extractRuntime(raw),
   };
+}
+
+/** Runtime to credit one logged watch, with the fallback applied. */
+export function resolveRuntime(
+  mediaType: MediaType,
+  runtimeMinutes: number | null | undefined
+): number {
+  if (typeof runtimeMinutes === 'number' && runtimeMinutes > 0) return runtimeMinutes;
+  return mediaType === 'movie' ? FALLBACK_MOVIE_RUNTIME : FALLBACK_EPISODE_RUNTIME;
 }
 
 export async function searchTitles(query: string): Promise<TmdbSearchResult[]> {

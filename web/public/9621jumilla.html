@@ -139,6 +139,14 @@
     .stat:first-child { border-left: none; }
     .stat-value { font-family: "Fraunces", serif; font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--navy); }
     .stat-label { margin-top: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); }
+    /* Four columns force horizontal scroll on phones — the 5-character values
+       ("2,144", "7,499") cannot shrink below their min-content width. Drop to
+       two columns on small screens and reset the border that starts each row. */
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(3) { border-left: none; }
+      .stat:nth-child(3), .stat:nth-child(4) { border-top: 1px solid var(--border); }
+    }
 
     section { padding: 72px 0; }
     .label { display: flex; align-items: center; gap: 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.25em; color: var(--gold); }
@@ -391,7 +399,7 @@
   <div class="sticky-cta" id="stickyCta">
     <div>
       <div class="price">$999,999</div>
-      <div class="meta">5 bd · 2.5 ba · 2,144 sf</div>
+      <div class="meta">5 bed &middot; 2.5 bath &middot; 2,144 sq ft</div>
     </div>
     <a href="tel:+18184027326">Call Kareem</a>
   </div>

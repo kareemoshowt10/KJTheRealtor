@@ -31,6 +31,7 @@ export const AREAS = [
   { slug: "porter-ranch", place: "Porter Ranch", terms: ["porter ranch", "91326", "aliso canyon", "northwest valley"] },
   { slug: "granada-hills", place: "Granada Hills", terms: ["granada hills", "91344", "91394", "knollwood"] },
   { slug: "tarzana", place: "Tarzana", terms: ["tarzana", "91356", "ventura boulevard"] },
+  { slug: "reseda", place: "Reseda", terms: ["reseda", "91335", "west van nuys"] },
 ];
 
 /**

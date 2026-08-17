@@ -29,6 +29,7 @@ const LOCAL = [
   "/porter-ranch",
   "/granada-hills",
   "/tarzana",
+  "/reseda",
 ];
 
 /** Interactive tools and strategy sessions — the lead-generating library. */

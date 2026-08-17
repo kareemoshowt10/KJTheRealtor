@@ -66,7 +66,7 @@ const deduped = dedupe([
 check("collapses the same story from two outlets", deduped.length, 2);
 
 // ── Config sanity ──
-check("covers every community page", AREAS.length, 10);
+check("covers every community page", AREAS.length, 12);
 check("every area has locality terms", AREAS.every((a) => a.terms.length > 0), true);
 check("every area has a unique slug", new Set(AREAS.map((a) => a.slug)).size, AREAS.length);
 

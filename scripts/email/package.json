@@ -1,0 +1,12 @@
+{
+  "name": "email",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Send mail as kareem@kareemjamaltherealtor.com through Resend, and check the domain's DNS verification.",
+  "scripts": {
+    "send": "node send.mjs",
+    "status": "node status.mjs",
+    "verify": "node verify.mjs"
+  }
+}

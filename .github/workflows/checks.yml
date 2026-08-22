@@ -1,0 +1,36 @@
+name: checks
+
+# Catches the two failure modes that have actually shipped on this project:
+# a page referencing a path nothing serves, and a regression in the
+# market-pulse filtering that would publish off-target items.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # No API key needed — this only exercises the pure filtering helpers.
+      - name: Verify market-pulse filtering logic
+        run: node scripts/market-pulse/verify.mjs
+
+      # Vercel's build root is web/. Anything outside it is never served, which
+      # has silently broken three shipped features. This fails the build instead.
+      - name: Check internal links resolve
+        run: node scripts/check-links.mjs
+
+      - name: Install web dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Build
+        working-directory: web
+        run: npm run build

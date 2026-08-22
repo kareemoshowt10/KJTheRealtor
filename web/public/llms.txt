@@ -91,7 +91,8 @@ The purpose behind the combination: use real estate and technology as a vehicle 
 - Current Listings (homes Kareem is representing right now): https://kareemjamaltherealtor.com/listings
   - Active listing index for Chatsworth 91311 and the West San Fernando Valley — full photo tour and public-record facts on the page, no email gate
   - 9621 Jumilla Ave, Chatsworth, CA 91311: https://kareemjamaltherealtor.com/9621jumilla
-    - 5 bed, 3 full bath, 2,144 sq ft single-story California ranch on a 7,499 sq ft lot, built 1964, central heat, LAUSD, APN 2761-030-050, zoning LARS
+    - 5 bed, 2.5 bath (2 full + 1 half), 2,144 sq ft single-story California ranch on a 7,499 sq ft lot, built 1964, LAUSD, APN 2761-030-050, MLS# SR26164041
+    - Features: central air conditioning and heat (ENERGY STAR qualified), 2-car attached garage, individual laundry room inside with washer and dryer included, gas fireplace in the living room, sprinklers front and rear, public sewer and water, no pool or spa, no HOA ($0 dues)
     - Offered at $999,999 ($466/sq ft); room-by-room photo tour of the living room, dining and great room, kitchen, five bedrooms, bath, bonus room and halls
     - Answers the queries buyers search: "9621 Jumilla Ave", "Chatsworth homes for sale", "91311 homes for sale", "5 bedroom Chatsworth CA"
 
@@ -119,6 +120,11 @@ The purpose behind the combination: use real estate and technology as a vehicle 
 - Hidden Hills community: https://kareemjamaltherealtor.com/hidden-hills
 - Encino community: https://kareemjamaltherealtor.com/encino
 - West Hills community: https://kareemjamaltherealtor.com/west-hills
+- Northridge community (CSUN, Devonshire Downs, the 1994 quake): https://kareemjamaltherealtor.com/northridge
+- Porter Ranch community (the 1990 Specific Plan, Aliso Canyon disclosure context, parcel-level fire-zone guidance): https://kareemjamaltherealtor.com/porter-ranch
+- Granada Hills community (the Equinekeeping "K" zoning overlay, the 2015 Granada Hills-Knollwood Community Plan, O'Melveny Park): https://kareemjamaltherealtor.com/granada-hills
+- Tarzana community (north vs. south of Ventura Blvd, the Baseline Hillside Ordinance, the Ventura-Cahuenga corridor plan): https://kareemjamaltherealtor.com/tarzana
+- Reseda community (ADUs permitted in all residential zones, the 1994 earthquake epicenter, the 2024 Reseda Blvd rebuild): https://kareemjamaltherealtor.com/reseda
 - My Zip Codes — 91311 Chatsworth (where Kareem is from; local history, market analytics, events, his family story): https://kareemjamaltherealtor.com/91311
 - My Zip Codes — 93063 East Simi Valley (where Kareem lives; history, analytics, straight answers incl. the Santa Susana Field Lab, the 93063 Equity Audit): https://kareemjamaltherealtor.com/93063
 - My Zip Codes — 91304 West Hills & Canoga Park (where he learned to build; Rocketdyne/Apollo history, the 1987 West Hills rename, school-zone analytics): https://kareemjamaltherealtor.com/91304

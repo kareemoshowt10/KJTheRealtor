@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useId, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Phone, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -10,6 +11,15 @@ const FORMSPREE = "https://formspree.io/f/xnjlgvlk";
 const TEL = "+18184027326";
 const STORAGE_KEY = "kj_chat_widget_seen_v1";
 const OPEN_DELAY_MS = 1100;
+
+/**
+ * Routes where the panel must never auto-open. On a listing page the photos
+ * are the product, and dropping a modal over the gallery interrupts the exact
+ * action we want. These pages carry their own contact section, sticky call bar
+ * and header CTA, so nothing is lost. The launcher button still appears here —
+ * only the automatic open is suppressed.
+ */
+const NO_AUTO_OPEN = ["/9621jumilla"];
 
 type Status = "idle" | "sending" | "ok" | "err";
 
@@ -20,6 +30,7 @@ type Status = "idle" | "sending" | "ok" | "err";
  */
 export function ContactWidget() {
   const reduced = useReducedMotion();
+  const pathname = usePathname();
   const titleId = useId();
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
@@ -43,6 +54,8 @@ export function ContactWidget() {
     if (seen) return;
 
     setFirstVisit(true);
+
+    if (NO_AUTO_OPEN.includes(pathname)) return;
 
     // Previously this opened on a bare 1.1s timer, so a first-time visitor —
     // exactly the organic visitor we want to convert — got the panel dropped

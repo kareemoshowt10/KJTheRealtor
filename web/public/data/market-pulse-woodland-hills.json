@@ -1,6 +1,17 @@
 {
   "slug": "woodland-hills",
   "place": "Woodland Hills",
-  "generatedAt": "2026-08-17T13:41:40.029Z",
-  "items": []
+  "generatedAt": "2026-08-24T14:00:01.656Z",
+  "items": [
+    {
+      "title": "Woodland Hills Country Club faces LA Council roadblock to build 400 homes",
+      "url": "https://www.dailynews.com/2026/08/21/woodland-hills-country-club-faces-la-council-roadblock-to-build-400-homes/",
+      "date": "2 days ago"
+    },
+    {
+      "title": "Mountain lions stall plan to build 400 residences on Woodland Hills golf course",
+      "url": "https://www.latimes.com/california/story/2026-08-22/mountain-lions-stall-stall-woodland-hills-golf-course-housing-project",
+      "date": "1 day ago"
+    }
+  ]
 }

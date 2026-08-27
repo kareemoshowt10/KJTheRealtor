@@ -166,6 +166,21 @@ Use: `marketing/91311-social-content-library.md`
 
 ---
 
+## 91311 Listing Intake System
+
+**Goal:** you're never more than two weeks behind 91311's actual inventory — every stale listing is a seller conversation, every fresh listing is buyer-conversation fuel, and you can speak to it before anyone else does.
+
+**The loop:**
+
+1. **Export** — pull a fresh MLS CSV of active + coming-soon 91311 SFR every other Monday.
+2. **Drop it** — hand the file to Claude (in this repo, `data/91311-listings/`, or straight in chat).
+3. **Read it** — Claude turns the raw export into a snapshot: price-segment split, the stale shelf (90+ days, no cut = repositioning needed), what's freshly on/coming soon, and anything that dropped price since the last pull.
+4. **Use it** — the stale shelf feeds outreach (a pocket-comp note to the owner, not a cold pitch); the fresh list feeds this week's "This week in 91311" post; a segment shift feeds the Week 3 "market read" story in the monthly farming calendar above.
+
+See `data/91311-listings/README.md` for file-naming and cadence details. First snapshot built 08/27/2026 from a 76-listing export — 27 with a price cut, 18 sitting 90+ days, and the zip splitting cleanly at the $2M line between the flatland/tract belt and the foothill/equestrian estate belt (La Quilla, Seaqua, Summit Ridge, Browns Canyon, Baden, Farralone).
+
+---
+
 ## Weekly operating checklist (print this)
 
 - [ ] 3 Chatsworth posts scheduled/published  

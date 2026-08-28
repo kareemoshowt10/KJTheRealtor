@@ -1,0 +1,14 @@
+{
+  "name": "content-engine",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Daily morning pipeline that turns fresh real estate data into a Hook-Lesson-CTA micro-lesson script and a ready-to-shoot visual brief for TikTok/Reels/Shorts.",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "verify": "node verify.mjs"
+  },
+  "dependencies": {
+    "firecrawl": "^4.30.0"
+  }
+}

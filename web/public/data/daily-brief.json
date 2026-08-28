@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-28",
+  "category": "Rate Watch",
+  "audience": "All",
+  "platforms": [
+    "TikTok",
+    "Instagram Reels",
+    "YouTube Shorts"
+  ],
+  "script": {
+    "hook": "Everyone's watching mortgage rates. Here's what actually matters.",
+    "lesson": "A 1-point rate move can swing a monthly payment by hundreds of dollars. Always run YOUR numbers — don't shop off the headline rate.",
+    "cta": "Follow for daily real estate intel."
+  },
+  "visualStyle": "Bold stat callouts, ticking-number animation",
+  "colorPalette": "#0B1E33 + white for authority",
+  "onScreenText": "Rate Watch",
+  "voiceoverTone": "Urgent, precise",
+  "backgroundVisual": "Mortgage rate chart or a Fed/rate headline close-up",
+  "toolRecommendation": "CapCut for editing; HeyGen for an avatar voiceover; Midjourney for static B-roll stills",
+  "source": null,
+  "rate": null
+}

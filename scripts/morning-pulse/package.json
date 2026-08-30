@@ -1,0 +1,11 @@
+{
+  "name": "morning-pulse",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Daily pull of free, no-key public real-estate data sources, ranked into one top insight for the social micro-lesson pipeline. Zero npm dependencies — uses native fetch.",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "verify": "node verify.mjs"
+  }
+}

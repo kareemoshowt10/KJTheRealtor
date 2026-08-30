@@ -1,0 +1,37 @@
+{
+  "date": "2026-08-30",
+  "category": "Mindset/Motivation",
+  "audience": "All",
+  "angle": "An inspirational real estate wealth or success principle.",
+  "topInsight": {
+    "kind": "stat",
+    "source": "National Association of Realtors — Existing-Home Sales, July 2026",
+    "title": "Median existing-home price hit $434,100 in July — a 2.0% year-over-year increase, marking the 37th consecutive month of year-over-year price gains.",
+    "publishedAt": "2026-08-21",
+    "raw": {
+      "medianPrice": 434100,
+      "yoyChangePct": 2.0,
+      "consecutiveMonthsOfGains": 37,
+      "totalInventoryUnits": 1540000,
+      "monthsSupply": 4.6
+    }
+  },
+  "runnerUps": [
+    {
+      "kind": "stat",
+      "source": "FRED/Freddie Mac PMMS",
+      "title": "30-year fixed mortgage rate: ~6.55% as of 2026-08-30, up from 6.66% a few days earlier",
+      "publishedAt": "2026-08-30"
+    },
+    {
+      "kind": "stat",
+      "source": "NAR, Existing-Home Sales, July 2026",
+      "title": "Total housing inventory of 1.54 million units, down 1.9% from June — a 4.6-month supply",
+      "publishedAt": "2026-08-21"
+    }
+  ],
+  "sourceErrors": [],
+  "generatedAt": "2026-08-30T13:00:00.000Z",
+  "note": "This is the launch-day demo brief, assembled by hand from WebSearch results (this authoring session's sandbox has no outbound network access to hit FRED/Reddit/RSS directly — see scripts/morning-pulse/sources.mjs, which will run for real once .github/workflows/morning-pulse.yml executes on a GitHub Actions runner). Format matches exactly what generate.mjs emits.",
+  "nextStep": "Hand topInsight + category + audience to Claude to write the Hook/Lesson/CTA script and visual brief — done below in 2026-08-30.md."
+}

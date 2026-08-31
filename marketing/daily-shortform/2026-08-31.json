@@ -1,0 +1,13 @@
+{
+  "date": "2026-08-31",
+  "categoryKey": "market-pulse",
+  "sourceLabel": "Hand-seeded sample (live search) — see 2026-08-31.md for citations. Live RSS fetch is blocked only inside this design session's sandboxed egress allowlist; unmodified in daily-shortform.yml on the GitHub Actions runner.",
+  "script": {
+    "hook": "Porter Ranch just hit 4.5 months of housing supply.",
+    "lesson": "That's a genuinely balanced market — not 2022's seller free-for-all, not a crash. Buyers finally have room to negotiate.",
+    "cta": "Follow for daily real estate intel.",
+    "wordCount": 33,
+    "overCeiling": false
+  },
+  "brief": "CONTENT DATE: 2026-08-31\nCATEGORY: Market Pulse\nTARGET AUDIENCE: All\nPLATFORM: TikTok | Instagram Reels | YouTube Shorts\n\nSCRIPT (5–10 sec):\nPorter Ranch just hit 4.5 months of housing supply. → That's a genuinely balanced market — not 2022's seller free-for-all, not a crash. Buyers finally have room to negotiate. → Follow for daily real estate intel.\n\nVISUAL STYLE: clean data infographic, bold animated number counting up\nCOLOR PALETTE: navy blue + gold (Rodeo Realty brand)\nON-SCREEN TEXT: 4.5 months of supply = balanced market\nVOICEOVER TONE: confident, authoritative\nBACKGROUND VISUAL: West San Fernando Valley skyline or aerial neighborhood shot\nTOOL RECOMMENDATION: CapCut (infographic template) or Midjourney (background plate)\n\nPLATFORM NOTES:\n  Aspect ratio: 9:16\n  Text placement: keep inside the center-safe zone — top ~14% and bottom ~20% are covered by platform UI\n  Audio: burned-in captions required; voiceover or trending-sound bed, no silent posts"
+}

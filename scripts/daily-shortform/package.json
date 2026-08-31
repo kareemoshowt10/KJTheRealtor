@@ -1,0 +1,11 @@
+{
+  "name": "daily-shortform",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Daily pipeline that turns fresh real-estate news into a TikTok/Reels/Shorts micro-lesson brief.",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "verify": "node verify.mjs"
+  }
+}

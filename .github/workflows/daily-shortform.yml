@@ -1,0 +1,40 @@
+name: Daily Short-Form Brief
+
+on:
+  schedule:
+    - cron: "0 13 * * *" # ~6:00 AM Pacific (13:00 UTC during PDT; 1hr later during PST)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify pipeline logic
+        run: node scripts/daily-shortform/verify.mjs
+
+      - name: Generate today's brief
+        working-directory: scripts/daily-shortform
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: npm run generate
+
+      - name: Commit and push if brief changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add marketing/daily-shortform/
+          git diff --staged --quiet || git commit -m "chore: daily short-form brief"
+          git push

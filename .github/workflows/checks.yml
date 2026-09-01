@@ -1,8 +1,8 @@
 name: checks
 
-# Catches the two failure modes that have actually shipped on this project:
-# a page referencing a path nothing serves, and a regression in the
-# market-pulse filtering that would publish off-target items.
+# Catches failure modes that have actually shipped on this project: a page
+# referencing a path nothing serves, and a regression in the market-pulse or
+# daily-microlesson filtering/ranking that would publish off-target items.
 on:
   push:
     branches: [main]
@@ -21,6 +21,10 @@ jobs:
       # No API key needed — this only exercises the pure filtering helpers.
       - name: Verify market-pulse filtering logic
         run: node scripts/market-pulse/verify.mjs
+
+      # No API key needed — this only exercises the pure ranking/scripting helpers.
+      - name: Verify daily-microlesson ranking + script-assembly logic
+        run: node scripts/daily-microlesson/verify.mjs
 
       # Vercel's build root is web/. Anything outside it is never served, which
       # has silently broken three shipped features. This fails the build instead.

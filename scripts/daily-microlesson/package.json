@@ -1,0 +1,14 @@
+{
+  "name": "daily-microlesson",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Daily 6am pipeline: scrape real-estate data + news, rank it, and draft one 5-10s short-form script + visual brief in Kareem's brand voice.",
+  "scripts": {
+    "generate": "node generate.mjs"
+  },
+  "dependencies": {
+    "firecrawl": "^4.30.0",
+    "rss-parser": "^3.13.0"
+  }
+}

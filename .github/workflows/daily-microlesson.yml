@@ -1,0 +1,45 @@
+name: Daily Micro-Lesson
+
+on:
+  schedule:
+    - cron: "0 13 * * *" # 6:00 AM Pacific Daylight Time (shifts to 5am during PST — see marketing/daily-microlesson-system.md)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install script dependencies
+        working-directory: scripts/daily-microlesson
+        run: npm install
+
+      - name: Verify ranking + script-assembly logic
+        run: node scripts/daily-microlesson/verify.mjs
+
+      - name: Generate today's micro-lesson
+        working-directory: scripts/daily-microlesson
+        env:
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: npm run generate
+
+      - name: Commit and push if content changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/daily-microlessons/
+          git diff --staged --quiet || git commit -m "chore: today's micro-lesson"
+          git push

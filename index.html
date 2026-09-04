@@ -2445,6 +2445,13 @@
           </article>
         </div>
       </div>
+      <script>
+        // A frame that cannot load its photo still reads as a designed tile:
+        // drop the broken image and leave the gradient and caption in place.
+        document.querySelectorAll('.field-item > img').forEach(function (img) {
+          img.addEventListener('error', function () { img.remove(); });
+        });
+      </script>
     </section>
 
     <!-- FOR PARENTS & THE KIDS HELPING THEM -->

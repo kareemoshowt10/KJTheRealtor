@@ -1,0 +1,14 @@
+{
+  "name": "morning-pulse",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Daily short-form content engine: pulls real-estate headlines, ranks them, and outputs a Hook->Lesson->CTA script plus a video/image generation brief.",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "verify": "node verify.mjs"
+  },
+  "dependencies": {
+    "firecrawl": "^4.30.0"
+  }
+}

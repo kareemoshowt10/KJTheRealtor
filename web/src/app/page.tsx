@@ -16,6 +16,7 @@ import { ConversionSticky } from "@/components/conversion-sticky";
 import { PathSelector } from "@/components/path-selector";
 import { TrustProof } from "@/components/trust-proof";
 import { ProblemNarrative } from "@/components/problem-narrative";
+import { FieldGallery } from "@/components/field-gallery";
 import { AskKareem } from "@/components/ask-kareem";
 
 /**
@@ -53,6 +54,7 @@ export default function HomePage() {
         <MethodTimeline />
         <FamilyTable />
         <Belief />
+        <FieldGallery />
         <ComparisonHoldSell />
         <TrustProof />
         <FaqSection />

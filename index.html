@@ -826,12 +826,66 @@
       font-family: var(--font-display); font-size: clamp(1.4rem, 2.4vw, 2.15rem);
       font-weight: 500; line-height: 1.12;
     }
+    /* ─── Field gallery — the work, on location ─────────────────────────── */
+    .fieldwork { background: var(--navy); color: var(--cream); }
+    .fieldwork-intro { max-width: 720px; margin-bottom: clamp(2rem, 4vw, 3.2rem); }
+    .fieldwork-intro h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); margin: 1rem 0 1.2rem; color: var(--cream); }
+    .fieldwork-intro h2 em { font-style: italic; font-weight: 400; color: var(--gold-light); }
+    .fieldwork-intro .lead { color: rgba(250, 245, 238, 0.78); }
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: clamp(220px, 24vw, 340px);
+      gap: 1rem;
+    }
+    .field-item {
+      position: relative; overflow: hidden; z-index: 0;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, #152640, #0a1628);
+    }
+    .field-item > img {
+      position: absolute; inset: 0;
+      display: block; width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      transition: transform 0.9s var(--ease);
+      z-index: 0;
+    }
+    .field-item:hover > img { transform: scale(1.035); }
+    .field-item::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(0deg, rgba(5, 15, 32, 0.88) 0%, rgba(5, 15, 32, 0.04) 58%);
+    }
+    .field-cap { position: absolute; left: 1.35rem; right: 1.35rem; bottom: 1.2rem; z-index: 2; }
+    .field-cap small {
+      display: block; margin-bottom: 0.3rem;
+      color: var(--gold-light); font-size: 0.64rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .field-cap h3 {
+      font-family: var(--font-display); font-weight: 500; line-height: 1.14;
+      font-size: clamp(1.15rem, 1.9vw, 1.7rem); color: var(--cream);
+    }
+    .field-item--7 { grid-column: span 7; }
+    .field-item--5 { grid-column: span 5; grid-row: span 2; }
+    .field-item--4 { grid-column: span 4; }
+    .field-item--3 { grid-column: span 3; }
+    .field-item--wide { grid-column: span 12; }
+    @media (max-width: 900px) {
+      .field-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: clamp(190px, 34vw, 260px); }
+      .field-item--7, .field-item--4, .field-item--3, .field-item--wide { grid-column: span 2; }
+      .field-item--5 { grid-column: span 2; grid-row: span 1; }
+    }
+    @media (max-width: 560px) {
+      .field-grid { grid-template-columns: 1fr; }
+      .field-item--7, .field-item--5, .field-item--4, .field-item--3, .field-item--wide { grid-column: span 1; }
+      .field-cap { left: 1.05rem; right: 1.05rem; bottom: 1rem; }
+    }
+
     .home-belief {
       display: grid;
       grid-template-columns: minmax(230px, 0.7fr) minmax(0, 1.3fr);
       gap: clamp(2.2rem, 7vw, 6rem);
-      align-items: center;
-      margin-top: clamp(4rem, 9vw, 7rem);
+      align-items: center;      margin-top: clamp(4rem, 9vw, 7rem);
       padding: clamp(1.2rem, 3vw, 2.4rem);
       background: var(--navy);
       color: var(--cream);
@@ -2342,6 +2396,63 @@
         <div class="discipline"><strong>Technology</strong><span>Data · automation · early signal</span></div>
       </div>
     </div>
+
+    <!-- ── THE WORK, ON LOCATION ────────────────────────────────────────── -->
+    <section class="fieldwork section" id="in-the-field" aria-labelledby="fieldwork-heading">
+      <div class="container">
+        <div class="fieldwork-intro">
+          <span class="eyebrow eyebrow--gold" data-reveal>Across the West Valley</span>
+          <h2 class="display" id="fieldwork-heading" data-reveal>Where the work <em>actually happens.</em></h2>
+          <p class="lead" data-reveal>
+            Not behind a desk. In the great rooms and the driveways, on the terraces at dusk and
+            in the half-finished rooms where a builder's eye earns its keep — from Woodland Hills
+            and Calabasas to Hidden Hills, Encino, West Hills, Chatsworth, and Simi Valley.
+          </p>
+        </div>
+
+        <div class="field-grid" aria-label="Kareem Jamal at work across the West Valley">
+          <article class="field-item field-item--7" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EneKRD1u0CoNc1EfRiQbcJPhFX/hf_20260831_035321_fbd5b07b-6802-442e-a274-e2412c832e7e.png" alt="Kareem Jamal in a navy suit looking out floor-to-ceiling windows of a modern great room at golden hour" width="2752" height="1536" loading="lazy" decoding="async" />
+            <div class="field-cap"><small>The walkthrough</small><h3>Reading a house the way a builder reads it.</h3></div>
+          </article>
+          <article class="field-item field-item--5" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EneKRD1u0CoNc1EfRiQbcJPhFX/hf_20260831_034933_032552cb-5e0e-43e2-b97c-289ed167934a.png" alt="Low-key editorial portrait of Kareem Jamal seated in a wood-panelled study" width="1536" height="1920" loading="lazy" decoding="async" />
+            <div class="field-cap"><small>The long game</small><h3>Thirty years, not thirty days.</h3></div>
+          </article>
+          <article class="field-item field-item--4" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EneKRD1u0CoNc1EfRiQbcJPhFX/hf_20260831_034933_9bc5045b-e5e8-410a-9a99-e319b68afd6f.png" alt="Kareem Jamal walking up the stone driveway of a Mediterranean estate at blue hour" width="2752" height="1536" loading="lazy" decoding="async" />
+            <div class="field-cap"><small>Arrival</small><h3>Every showing starts before the door.</h3></div>
+          </article>
+          <article class="field-item field-item--3" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EneKRD1u0CoNc1EfRiQbcJPhFX/hf_20260831_034933_8f2ba1ba-d6a3-4ebc-9cac-40e532647591.png" alt="Kareem Jamal at a hillside terrace railing overlooking San Fernando Valley lights at twilight" width="2752" height="1536" loading="lazy" decoding="async" />
+            <div class="field-cap"><small>The valley</small><h3>Home ground.</h3></div>
+          </article>
+          <article class="field-item field-item--4" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EneKRD1u0CoNc1EfRiQbcJPhFX/hf_20260831_034933_46e7ca17-b132-472b-8a7a-f265cbe46e42.png" alt="Kareem Jamal reviewing architectural plans at a marble kitchen island" width="2304" height="1536" loading="lazy" decoding="async" />
+            <div class="field-cap"><small>The math</small><h3>Plans, permits, and honest numbers.</h3></div>
+          </article>
+          <article class="field-item field-item--4" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EneKRD1u0CoNc1EfRiQbcJPhFX/hf_20260831_034933_dd92b7be-9606-4907-aa80-f325cbf9363c.png" alt="Kareem Jamal beside an infinity pool at night with a warmly lit estate behind him" width="2752" height="1536" loading="lazy" decoding="async" />
+            <div class="field-cap"><small>Fine estates</small><h3>The top of the market, handled quietly.</h3></div>
+          </article>
+          <article class="field-item field-item--4" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EneKRD1u0CoNc1EfRiQbcJPhFX/hf_20260831_034933_c00a1c61-512a-4c8f-bc38-ab040b65962b.png" alt="Kareem Jamal in shirtsleeves inspecting a partially renovated home interior" width="2752" height="1536" loading="lazy" decoding="async" />
+            <div class="field-cap"><small>Value-add</small><h3>What a room could become.</h3></div>
+          </article>
+          <article class="field-item field-item--wide" data-reveal>
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EneKRD1u0CoNc1EfRiQbcJPhFX/hf_20260831_034933_43c9e6da-948d-4724-8305-f47d3618c8ce.png" alt="Kareem Jamal handing house keys to a family at the front door of a craftsman home in golden light" width="2304" height="1536" loading="lazy" decoding="async" />
+            <div class="field-cap"><small>The part that matters</small><h3>Keys in a family's hand &mdash; and equity that stays there.</h3></div>
+          </article>
+        </div>
+      </div>
+      <script>
+        // A frame that cannot load its photo still reads as a designed tile:
+        // drop the broken image and leave the gradient and caption in place.
+        document.querySelectorAll('.field-item > img').forEach(function (img) {
+          img.addEventListener('error', function () { img.remove(); });
+        });
+      </script>
+    </section>
 
     <!-- FOR PARENTS & THE KIDS HELPING THEM -->
     <section class="family-table section" id="family-table" aria-labelledby="family-table-heading">

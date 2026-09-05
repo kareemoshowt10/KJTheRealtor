@@ -1,0 +1,14 @@
+{
+  "name": "daily-micro-lesson",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Daily short-form (TikTok/Reels/Shorts) micro-lesson pipeline: pulls a fresh, sourced real estate data point and packages it into a Hook/Lesson/CTA script plus visual brief.",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "verify": "node verify.mjs"
+  },
+  "dependencies": {
+    "firecrawl": "^4.30.0"
+  }
+}

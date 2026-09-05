@@ -22,6 +22,10 @@ jobs:
       - name: Verify market-pulse filtering logic
         run: node scripts/market-pulse/verify.mjs
 
+      # No API key needed — this only exercises the pure calendar/filtering helpers.
+      - name: Verify daily micro-lesson calendar + filtering logic
+        run: node scripts/daily-micro-lesson/verify.mjs
+
       # Vercel's build root is web/. Anything outside it is never served, which
       # has silently broken three shipped features. This fails the build instead.
       - name: Check internal links resolve

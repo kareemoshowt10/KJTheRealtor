@@ -13,6 +13,10 @@ upgrade.js
 ui-ux-pro-max-skill/
 
 .claude/
+!.claude/skills/
+!.claude/skills/daily-91311-lesson/
+!.claude/skills/daily-91311-lesson/**
+marketing/daily-91311-ritual/output/
 KJTheRealtor-Build/
 KJTheRealtor-Export-2026-04-30/
 KJ-The-Realtor-93063-Lead-Gen/

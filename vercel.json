@@ -22,13 +22,13 @@
       "permanent": true
     },
     {
-      "source": "/chatsworth-realtor",
-      "destination": "/91311",
+      "source": "/chatsworth",
+      "destination": "/chatsworth-realtor",
       "permanent": true
     },
     {
-      "source": "/chatsworth-realtor.html",
-      "destination": "/91311",
+      "source": "/chatsworth-home-value",
+      "destination": "/91311/home-value",
       "permanent": true
     },
     {

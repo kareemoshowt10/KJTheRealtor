@@ -1,0 +1,175 @@
+/* Chatsworth lead pages — matches the 2026 navy / gold / cream system. */
+:root {
+  --navy: #0b1e3e;
+  --gold: #c9a84c;
+  --gold-deep: #b8893f;
+  --cream: #faf5ee;
+  --paper: #fdfaf4;
+  --slate: #40505f;
+  --line: #ede8df;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--navy);
+  background: var(--cream);
+  line-height: 1.65;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  z-index: 20;
+}
+.skip:focus { left: 0.75rem; top: 0.75rem; }
+.wrap { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; }
+.top {
+  background: var(--navy);
+  color: var(--cream);
+}
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+.brand small {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.phone {
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid rgba(250, 245, 238, 0.35);
+  border-radius: 6px;
+  padding: 0.7rem 0.9rem;
+  min-height: 44px;
+}
+.hero {
+  display: grid;
+  gap: 2rem;
+  padding: 3.5rem 0 3rem;
+}
+.kicker {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; line-height: 1.08; }
+h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); margin: 0.6rem 0 1rem; }
+h1 em { font-style: italic; color: var(--gold); }
+.lede { font-size: 1.12rem; max-width: 42rem; color: rgba(250, 245, 238, 0.86); }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+}
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-line { border: 1px solid rgba(250, 245, 238, 0.4); color: var(--cream); }
+.paths { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.paths a {
+  text-decoration: none;
+  border: 1px solid rgba(250, 245, 238, 0.25);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.82rem;
+}
+.paths a[aria-current="page"] { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.panel {
+  background: #fffaf1;
+  color: var(--navy);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 24px 50px -32px rgba(0, 0, 0, 0.55);
+}
+label { display: block; font-size: 0.82rem; font-weight: 700; margin-bottom: 0.35rem; }
+input, textarea, select {
+  width: 100%;
+  font: inherit;
+  color: var(--navy);
+  background: #fff;
+  border: 1px solid #d7c9b6;
+  border-radius: 8px;
+  padding: 0.75rem 0.8rem;
+  margin-bottom: 0.8rem;
+}
+textarea { min-height: 6.5rem; resize: vertical; }
+.consent { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.86rem; margin: 0.4rem 0 1rem; }
+.consent input { width: auto; margin-top: 0.25rem; }
+button[type="submit"] {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--navy);
+  color: var(--cream);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.hp { position: absolute; left: -9999px; }
+section { padding: 4rem 0; }
+.grid { display: grid; gap: 1rem; }
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.25rem 1.3rem;
+}
+.card h3 { margin: 0 0 0.4rem; font-size: 1.45rem; }
+.card p, .prose p { color: var(--slate); }
+.prose { max-width: 46rem; }
+.prose h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 0.8rem; }
+.split { display: grid; gap: 2rem; }
+details {
+  border-top: 1px solid var(--line);
+  padding: 0.9rem 0;
+}
+summary { cursor: pointer; font-weight: 700; }
+details p { margin: 0.55rem 0 0; color: var(--slate); }
+.foot {
+  background: var(--navy);
+  color: rgba(250, 245, 238, 0.78);
+  padding: 2rem 0;
+  font-size: 0.88rem;
+}
+.foot a { color: var(--gold); }
+.foot-row { display: flex; flex-wrap: wrap; gap: 0.8rem 1.4rem; justify-content: space-between; }
+@media (min-width: 860px) {
+  .hero { grid-template-columns: 1.15fr 0.85fr; align-items: start; }
+  .grid.three { grid-template-columns: repeat(3, 1fr); }
+  .grid.two { grid-template-columns: 1fr 1fr; }
+  .split { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
+}

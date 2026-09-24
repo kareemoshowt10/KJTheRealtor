@@ -653,8 +653,19 @@
       text-transform: uppercase; color: rgba(250, 245, 238, 0.64);
     }
     .hero-meta span + span::before { content: '·'; margin-right: 1rem; color: var(--gold); }
-    .hero-local { margin-top: 1rem; }
-    .hero-local a { color: var(--gold-light); font-weight: 700; text-underline-offset: 3px; }
+    .hero-local { margin-top: 1.15rem; }
+    .hero-local a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.55);
+    }
     .hero-controls {
       position: absolute; right: var(--gutter); bottom: 2rem;
       display: flex; align-items: center; gap: 0.7rem;
@@ -1545,6 +1556,34 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
     }
+    .zip-intent {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+    .zip-intent a {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      min-height: 5.5rem;
+      padding: 1rem 1rem 0.9rem;
+      text-decoration: none;
+      color: var(--navy);
+      background: rgba(255, 250, 241, 0.72);
+      border-top: 2px solid var(--gold);
+      border-radius: 0 0 10px 10px;
+      transition: transform 0.22s var(--ease), background 0.22s var(--ease);
+    }
+    .zip-intent a span {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--gold-deep);
+    }
+    .zip-intent a:hover { transform: translateY(-3px); background: #fff; }
+    @media (max-width: 800px) {
+      .zip-intent { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 960px) {
       .zip-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
     }
@@ -2327,13 +2366,12 @@
             </div>
           </a>
         </div>
-        <p class="lead" style="margin-top:1.75rem;text-align:center">
-          Searching for a <a href="/chatsworth-realtor">Chatsworth realtor</a>,
-          <a href="/chatsworth-homes">homes for sale in Chatsworth</a>,
-          <a href="/sell-house-chatsworth">whether to sell a Chatsworth house</a>,
-          or <a href="/chatsworth-horse-property">horse property</a>?
-          Those pages answer the search. This guide answers the place.
-        </p>
+        <nav class="zip-intent" aria-label="Chatsworth searches">
+          <a href="/chatsworth-realtor"><span>01</span>Chatsworth realtor</a>
+          <a href="/chatsworth-homes"><span>02</span>Homes for sale</a>
+          <a href="/sell-house-chatsworth"><span>03</span>Sell or keep</a>
+          <a href="/chatsworth-horse-property"><span>04</span>Horse property</a>
+        </nav>
       </div>
     </section>
 

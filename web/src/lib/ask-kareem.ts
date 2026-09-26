@@ -20,7 +20,7 @@ export type AskKareemEntry = {
 };
 
 export const askKareemIntro =
-  "Tap a question. These are my real answers — the same ones I give at the kitchen table — written down so you don't have to get on a call to hear them.";
+  "Explore the questions that often come up at the kitchen table. Read my perspective here, then reach out if you want to talk through your own situation.";
 
 export const askKareemDisclosure =
   "Pre-written answers Kareem reviewed and approved — not live chat, and not advice for your specific situation. Tax and legal questions deserve a licensed CPA or attorney; I'll say so when that's the case.";

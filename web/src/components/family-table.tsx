@@ -4,7 +4,7 @@ const paths = [
   {
     kicker: "Prop 19 · inheritance",
     title: "Will the low tax bill survive the handoff?",
-    body: "Long-held homes can face a brutal reassessment if the next generation doesn’t structure Prop 19 correctly. Plain English on what keeps the base — and what loses it.",
+    body: "A transfer may change the property-tax bill. Explore the key Prop 19 questions, then confirm your family's specifics with a qualified tax or legal advisor.",
     href: "https://kareemjamaltherealtor.com/family-wealth-preservation",
     cta: "Family wealth guide →",
   },
@@ -18,7 +18,7 @@ const paths = [
   {
     kicker: "Equity Snapshot",
     title: "What is this home actually worth — carefully?",
-    body: "Not a portal guess. A pocket-level read for Chatsworth and nearby long-held homes — value range, owner flags, and a clear next step.",
+    body: "A pocket-level read for Chatsworth and nearby long-held homes — value range, owner flags, and a clear next step.",
     href: "https://kareemjamaltherealtor.com/91311/home-value",
     cta: "Request a free snapshot →",
   },
@@ -37,12 +37,12 @@ export function FamilyTable() {
           </p>
           <h2 className="mt-3 font-display text-[clamp(1.9rem,4vw,3rem)] font-medium tracking-tight text-navy">
             Three kitchen-table decisions.{" "}
-            <em className="font-normal italic text-gold-deep">No pressure.</em>
+            <em className="font-normal italic text-gold-deep">More clarity.</em>
           </h2>
           <p className="mt-4 text-slateink">
-            Most families don&apos;t need another listing pitch. They need someone
-            patient enough to sit with sell, keep, and transfer — and honest
-            enough to say when waiting is smarter.
+            A home can hold memories, options, and meaningful equity. Let&apos;s
+            look at selling, keeping, and transferring it with the people who
+            matter to you.
           </p>
         </div>
 

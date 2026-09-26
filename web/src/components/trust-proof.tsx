@@ -78,14 +78,14 @@ export function TrustProof() {
             Why families trust this table
           </p>
           <h2 className="mt-3 font-display text-[clamp(1.75rem,3.8vw,2.65rem)] font-medium leading-tight">
-            Proof without{" "}
+            Meet the person{" "}
             <em className="font-normal italic text-gold-light">
-              the fake polish.
+              behind the plan.
             </em>
           </h2>
           <p className="mt-4 max-w-lg text-sm leading-relaxed text-cream/75 md:text-base">
-            I don&apos;t put stock photos next to invented five-star quotes. Here
-            is what is true — and how you can verify the rest when we talk.
+            My local roots, brokerage, and approach are here to explore. You can
+            ask for references when we talk, with past clients&apos; permission.
           </p>
 
           <ul className="mt-8 space-y-5">

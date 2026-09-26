@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { HvsWidget } from "@/components/hvs-widget";
 
@@ -46,11 +45,11 @@ export function Hero() {
           className="object-cover object-center"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[rgba(5,12,28,0.94)] via-[rgba(5,15,32,0.72)] to-[rgba(5,15,32,0.4)]"
+          className="absolute inset-0 bg-gradient-to-r from-[rgba(5,18,38,0.86)] via-[rgba(5,18,38,0.56)] to-[rgba(5,18,38,0.2)]"
           aria-hidden
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-navy/30"
+          className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-navy/15"
           aria-hidden
         />
       </motion.div>
@@ -97,14 +96,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease, delay: 0.12 }}
           >
-            Homeownership,{" "}
-            <span className="block text-gold-light">
-              <AnimatedTextCycle
-                words={["explained.", "protected.", "planned.", "handed down."]}
-                interval={3200}
-                className="text-gold-light"
-              />
-            </span>
+            A clearer path to{" "}
+            <em className="block font-normal text-gold-light">what comes next.</em>
           </motion.h1>
 
           <motion.p
@@ -113,10 +106,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease, delay: 0.28 }}
           >
-            I&apos;m a Realtor for families deciding what to do with a home —
-            sell it, hold it, rent it, or pass it down. Most of this industry
-            gets paid to close you fast. I lay out the real numbers first,
-            free, and the transaction stays optional.
+            Buying your first home, selling a longtime one, or exploring what
+            to do next? I&apos;ll help you see the numbers, understand your
+            options, and move forward on your own timeline.
           </motion.p>
 
           <motion.div
@@ -126,7 +118,7 @@ export function Hero() {
             transition={{ duration: 0.5, ease, delay: 0.4 }}
           >
             <ShimmerButton href="#start" className="w-full sm:w-auto sm:min-w-[14rem]">
-              Tell me what&apos;s going on
+              Plan my next move
             </ShimmerButton>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
               <a
@@ -142,7 +134,7 @@ export function Hero() {
                 href="#start-here"
                 className="font-semibold text-gold-light underline-offset-4 hover:underline"
               >
-                Not sure? Pick your path
+                Explore your path
               </a>
             </div>
           </motion.div>
@@ -153,7 +145,7 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.55, duration: 0.4 }}
           >
-            Not sold · Not gatekept · Not rushed
+            Clear numbers · Thoughtful guidance · Your timing
           </motion.p>
         </div>
 

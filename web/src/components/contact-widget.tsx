@@ -13,13 +13,10 @@ const STORAGE_KEY = "kj_chat_widget_seen_v1";
 const OPEN_DELAY_MS = 1100;
 
 /**
- * Routes where the panel must never auto-open. On a listing page the photos
- * are the product, and dropping a modal over the gallery interrupts the exact
- * action we want. These pages carry their own contact section, sticky call bar
- * and header CTA, so nothing is lost. The launcher button still appears here —
- * only the automatic open is suppressed.
+ * These pages already put a clear contact action in the visitor's path.
+ * Keep the floating panel from interrupting their first look.
  */
-const NO_AUTO_OPEN = ["/9621jumilla"];
+const NO_AUTO_OPEN = ["/", "/9621jumilla"];
 
 type Status = "idle" | "sending" | "ok" | "err";
 
@@ -378,6 +375,7 @@ export function ContactWidget() {
           transition={{ delay: firstVisit ? 0 : 0.4, duration: 0.4 }}
           className={cn(
             "fixed z-[95] h-[62px] w-[62px] overflow-visible rounded-full border-0 bg-navy p-0 shadow-[0_10px_30px_rgba(5,12,28,0.35),0_0_0_3px_rgba(201,168,76,0.55)] transition hover:scale-105 active:scale-95",
+            pathname === "/" && "max-md:hidden",
             "right-4 bottom-[5.25rem] md:right-6 md:bottom-24",
             open && !firstVisit && "ring-2 ring-gold ring-offset-2 ring-offset-paper"
           )}

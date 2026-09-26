@@ -68,9 +68,9 @@ export function AskKareem() {
             Ask Kareem
           </p>
           <h2 className="mt-3 font-display text-[clamp(1.9rem,4vw,3rem)] font-medium leading-tight text-navy">
-            The questions people are{" "}
+            Good questions deserve{" "}
             <em className="font-normal italic text-gold-deep">
-              afraid to waste a call on.
+              thoughtful answers.
             </em>
           </h2>
           <p className="mt-4 leading-relaxed text-slateink">{askKareemIntro}</p>
@@ -126,7 +126,7 @@ export function AskKareem() {
             >
               {!active && (
                 <p className="m-auto max-w-[26ch] text-center text-sm text-slateink/60">
-                  Pick a question on the left and I&apos;ll give it to you straight.
+                  Choose a question to hear Kareem&apos;s perspective.
                 </p>
               )}
 

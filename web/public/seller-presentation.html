@@ -3,60 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Listing Strategy — A Guided Walkthrough | Kareem Jamal</title>
+  <title>A Thoughtful Way to Sell — Seller Walkthrough | Kareem Jamal</title>
   <meta name="description" content="A guided seller walkthrough covering home preparation, pricing factors, estimated costs, and the sale timeline. Explore the steps at your own pace." />
   <link rel="canonical" href="https://kareemjamaltherealtor.com/seller-presentation" />
   <link rel="icon" href="/assets/favicon-jamal.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Your Listing Strategy — A Guided Walkthrough | Kareem Jamal" />
+  <meta property="og:title" content="A Thoughtful Way to Sell — Seller Walkthrough | Kareem Jamal" />
   <meta property="og:description" content="Explore home preparation, pricing factors, estimated costs, and the sale timeline in a guided seller walkthrough." />
   <meta property="og:url" content="https://kareemjamaltherealtor.com/seller-presentation" />
-  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/hero-estate-night.jpg" />
+  <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/cliffside-sunset.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap"
     rel="stylesheet"
   />
 
   <style>
     :root {
-      /* ── Modernist brand tokens (Kareem Jamal brand kit) ──
-         Flat, architectural, near-mono red on white. Every color below
-         maps the page's existing variable names onto the Modernist ramp
-         so the rest of the stylesheet inherits the new brand automatically. */
-      --navy: #201e1d;
-      --navy-deep: #201e1d;
-      --sand: #ffe0d9;
-      --sand-soft: #f8f4f4;
-      --linen: #f3f2f2;
-      --gold: #ec3013;
-      --gold-deep: #ae1800;
-      --gold-soft: #ffc4b8;
-      --terracotta: #ae1800;
-      --olive: #605d5d;
-      --ink: #201e1d;
-      --muted: #605d5d;
-      --line: color-mix(in srgb, #201e1d 40%, transparent);
-      --panel: #f3f2f2;
-      --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
-      --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
-      --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
-      --radius-xl: 0px;
-      --radius-lg: 0px;
-      --radius-md: 0px;
-      --radius-sm: 0px;
+      /* Match the Realtor site's navy, gold, and warm-white editorial system. */
+      --navy: #0b1e3e;
+      --navy-deep: #08152b;
+      --sand: #f1e6d4;
+      --sand-soft: #f8f2e8;
+      --linen: #ffffff;
+      --gold: #c9a84c;
+      --gold-deep: #8b6423;
+      --gold-soft: #e8c87a;
+      --terracotta: #9e3c2e;
+      --olive: #53636e;
+      --ink: #0b1e3e;
+      --muted: #40505f;
+      --line: #d8d1c5;
+      --panel: #ffffff;
+      --shadow-lg: 0 20px 52px rgba(11,30,62,0.12);
+      --shadow-md: 0 8px 24px rgba(11,30,62,0.1);
+      --shadow-sm: 0 2px 10px rgba(11,30,62,0.06);
+      --radius-xl: 18px;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 6px;
       --container: 1080px;
-      --cream: #f3f2f2;
-      --cream-deep: #eae7e7;
-      --warm-dark: #201e1d;
-      --ok: #201e1d;
+      --cream: #fdfaf4;
+      --cream-deep: #f4eee4;
+      --warm-dark: #0b1e3e;
+      --ok: #315e50;
       --header-h: 64px;
       --ease-lux: cubic-bezier(0.2, 0.7, 0.2, 1);
-      --focus: 0 0 0 2px #ec3013;
+      --focus: 0 0 0 3px #c9a84c;
       /* z-index scale: header 100, progress 95, stepnav 90 */
     }
 
@@ -72,9 +69,9 @@
       overflow-x: hidden;
     }
 
-    ::selection { background: var(--gold); color: #fff; }
+    ::selection { background: var(--gold-soft); color: var(--ink); }
 
-    h1, h2, h3, h4, .serif { font-family: "Archivo", sans-serif; }
+    h1, h2, h3, h4, .serif { font-family: "Fraunces", Georgia, serif; }
     a { color: inherit; }
 
     /* Universal focus-visible ring (a11y) */
@@ -83,8 +80,8 @@
     .pillar-head:focus-visible, .chip-cta:focus-visible {
       outline: none; box-shadow: var(--focus); border-radius: 0;
     }
-    input[type=range]:focus-visible { box-shadow: 0 0 0 4px rgba(236, 48, 19,0.3); }
-    input[type=range]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 5px rgba(236, 48, 19,0.35); }
+    input[type=range]:focus-visible { box-shadow: 0 0 0 4px rgba(201, 168, 76,0.3); }
+    input[type=range]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 5px rgba(201, 168, 76,0.35); }
 
     .sr-only {
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -107,7 +104,7 @@
     }
     .nav-shell { display: flex; align-items: center; gap: 1rem; padding-block: 0.7rem; }
     .brand { display: grid; gap: 0.12rem; text-decoration: none; margin-right: auto; }
-    .brand-name { font-family: "Archivo", sans-serif; font-size: 1.4rem; line-height: 1; color: var(--ink); font-weight: 800; }
+    .brand-name { font-family: "Fraunces", Georgia, serif; font-size: 1.4rem; line-height: 1; color: var(--ink); font-weight: 600; }
     .brand-role { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
     .header-actions { display: flex; align-items: center; gap: 0.5rem; }
     .header-phone {
@@ -116,7 +113,7 @@
       font-size: 0.92rem; padding: 0.55rem 0.7rem; border-radius: 0;
       min-height: 44px; transition: background 0.25s var(--ease-lux);
     }
-    .header-phone:hover { background: rgba(236, 48, 19, 0.1); }
+    .header-phone:hover { background: rgba(201, 168, 76, 0.12); }
     .header-phone .ic { width: 17px; height: 17px; color: var(--gold-deep); }
     .header-cta {
       display: inline-flex; align-items: center; white-space: nowrap; min-height: 44px;
@@ -167,7 +164,7 @@
     .step-trigger .dot .ic { width: 15px; height: 15px; }
     .step-trigger .label { display: none; white-space: nowrap; }
     .stepper li.active .step-trigger { color: var(--ink); }
-    .stepper li.active .dot { background: var(--gold); border-color: var(--gold); color: #fff; box-shadow: 0 0 0 4px rgba(236, 48, 19,0.16); transform: scale(1.04); }
+    .stepper li.active .dot { background: var(--gold); border-color: var(--gold); color: var(--ink); box-shadow: 0 0 0 4px rgba(201, 168, 76,0.16); transform: scale(1.04); }
     .stepper li.active .label { display: inline; }
     .stepper li.done .dot { background: var(--ink); border-color: var(--ink); color: #fff; }
     .progress-pct { font-size: 0.78rem; font-weight: 700; color: var(--gold-deep); flex-shrink: 0; font-variant-numeric: tabular-nums; }
@@ -197,28 +194,28 @@
       font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
       font-weight: 700; color: var(--gold-deep);
       border: 1px solid var(--gold-soft); border-radius: 0; padding: 0.25rem 0.7rem;
-      background: rgba(236, 48, 19,0.06);
+      background: rgba(201, 168, 76,0.08);
     }
     .step-head h2 {
-      font-family: "Archivo", sans-serif; font-weight: 800;
+      font-family: "Fraunces", Georgia, serif; font-weight: 500;
       font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.05;
       letter-spacing: -0.01em; color: var(--ink); margin-bottom: 0.8rem;
     }
-    .step-head h2 em { font-style: normal; color: var(--gold-deep); }
+    .step-head h2 em { font-style: italic; color: var(--gold-deep); }
     .step-head .lede { font-size: clamp(1.02rem, 2.2vw, 1.18rem); color: var(--muted); max-width: 620px; }
 
     /* ───────────────────────── Buttons ───────────────────────── */
     .btn {
       display: inline-flex; align-items: center; justify-content: flex-start; gap: 0.55rem;
-      font-family: "Archivo", sans-serif; font-weight: 800; font-size: 0.94rem;
+      font-family: "Archivo", sans-serif; font-weight: 700; font-size: 0.94rem;
       padding: 0.95rem 1.7rem; border-radius: 0; border: none; cursor: pointer;
       text-decoration: none; line-height: 1; min-height: 48px;
       transition: box-shadow 0.25s var(--ease-lux), background 0.25s var(--ease-lux);
     }
-    .btn-primary { background: var(--gold); color: #fff; }
-    .btn-primary:hover { background: var(--gold-deep); }
+    .btn-primary { background: var(--gold-soft); color: var(--ink); }
+    .btn-primary:hover { background: var(--gold); }
     .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
-    .btn-ghost:hover { border-color: var(--ink); background: rgba(32,30,29,0.05); }
+    .btn-ghost:hover { border-color: var(--ink); background: rgba(11,30,62,0.05); }
     .btn-dark { background: var(--ink); color: var(--linen); }
     .btn-dark:hover { background: var(--gold-deep); }
     .btn[disabled] { opacity: 0.45; cursor: not-allowed; }
@@ -239,7 +236,7 @@
       color: var(--gold-deep); background: #fff;
       transition: background 0.25s var(--ease-lux), color 0.25s var(--ease-lux);
     }
-    .chip-cta:hover { background: var(--gold); color: #fff; }
+    .chip-cta:hover { background: var(--gold-soft); color: var(--ink); }
     .chip-cta .ic { width: 16px; height: 16px; }
     .chip-cta.solid { background: var(--gold-deep); color: #fff; border-color: var(--gold-deep); }
     .chip-cta.solid:hover { background: var(--ink); border-color: var(--ink); }
@@ -249,26 +246,25 @@
     .intro {
       position: relative; min-height: calc(100svh - var(--header-h));
       display: flex; align-items: center; overflow: hidden;
-      background: #000;
+      background: var(--navy-deep);
     }
     .intro::before {
       content: ""; position: absolute; inset: 0;
-      background: url('/assets/hero-estate-night.jpg') center/cover no-repeat;
-      filter: grayscale(1) contrast(1.08);
+      background: url('/assets/cliffside-sunset.jpg') center/cover no-repeat;
     }
     .intro::after {
       content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(32,30,29,0.58), rgba(32,30,29,0.82));
+      background: linear-gradient(90deg, rgba(6,22,45,0.84) 0%, rgba(6,22,45,0.58) 48%, rgba(6,22,45,0.12) 100%), linear-gradient(0deg, rgba(6,22,45,0.45), transparent 55%);
       pointer-events: none;
     }
     .intro .container { position: relative; z-index: 2; color: #fff; padding-block: clamp(3rem, 9vw, 6rem); }
     .intro .eyebrow { color: var(--gold-soft); }
     .intro h1 {
-      font-family: "Archivo", sans-serif; font-weight: 800;
-      font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.02;
-      letter-spacing: -0.015em; margin: 1rem 0 1.2rem; max-width: 16ch; color: #fff;
+      font-family: "Fraunces", Georgia, serif; font-weight: 500;
+      font-size: clamp(2.7rem, 7vw, 5.3rem); line-height: 1.04;
+      letter-spacing: -0.03em; margin: 1rem 0 1.2rem; max-width: 17ch; color: #fff;
     }
-    .intro h1 em { font-style: normal; color: var(--gold-soft); }
+    .intro h1 em { font-style: italic; font-weight: 400; color: var(--gold-soft); }
     .intro p.sub { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: rgba(255,255,255,0.86); max-width: 56ch; margin-bottom: 2rem; }
     .intro-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
     .intro-meta {
@@ -276,7 +272,7 @@
       padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,0.18);
     }
     .intro-meta .m { display: grid; gap: 0.15rem; }
-    .intro-meta .m b { font-family: "Archivo", sans-serif; font-size: 1.9rem; font-weight: 800; color: #fff; line-height: 1; }
+    .intro-meta .m b { font-family: "Fraunces", Georgia, serif; font-size: 1.9rem; font-weight: 500; color: #fff; line-height: 1; }
     .intro-meta .m span { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
     .intro-foot { margin-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
 
@@ -300,10 +296,10 @@
     }
     .field textarea { min-height: auto; }
     .field input:focus, .field select:focus, .field textarea:focus {
-      outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(236, 48, 19,0.12);
+      outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201, 168, 76,0.16);
     }
-    .field input[aria-invalid="true"] { border-color: var(--terracotta); box-shadow: 0 0 0 4px rgba(174, 24, 0,0.15); }
-    .field .err { font-size: 0.76rem; color: #ae1800; font-weight: 600; display: none; }
+    .field input[aria-invalid="true"] { border-color: var(--terracotta); box-shadow: 0 0 0 4px rgba(158, 60, 46,0.15); }
+    .field .err { font-size: 0.76rem; color: var(--terracotta); font-weight: 600; display: none; }
     .field .err.show { display: block; }
     .field-row { display: grid; gap: 1.1rem; }
     @media (min-width: 560px) { .field-row.cols-2 { grid-template-columns: 1fr 1fr; } .field-row.cols-3 { grid-template-columns: repeat(3,1fr); } }
@@ -334,7 +330,7 @@
       border: 1px solid var(--gold-soft); border-radius: var(--radius-lg);
     }
     .value-readout .vlabel { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
-    .value-readout .vrange { font-family: "Archivo", sans-serif; font-size: clamp(2.1rem, 6vw, 3.4rem); font-weight: 800; color: var(--ink); line-height: 1.05; margin: 0.5rem 0; font-variant-numeric: tabular-nums; }
+    .value-readout .vrange { font-family: "Fraunces", Georgia, serif; font-size: clamp(2.1rem, 6vw, 3.4rem); font-weight: 500; color: var(--ink); line-height: 1.05; margin: 0.5rem 0; font-variant-numeric: tabular-nums; }
     .value-readout .vrange .mid { color: var(--gold-deep); }
     .value-readout.is-empty .vrange { font-size: 1.3rem; color: var(--muted); }
     .value-readout .v-empty-ic { color: var(--gold-soft); display: none; }
@@ -346,7 +342,7 @@
       margin-top: 1.6rem; background: var(--linen); border: 1px solid var(--line);
       border-radius: var(--radius-lg); padding: clamp(1.3rem,3vw,1.8rem);
     }
-    .leverage h3 { font-family: "Archivo", sans-serif; font-size: 1.45rem; font-weight: 800; margin-bottom: 0.3rem; }
+    .leverage h3 { font-family: "Fraunces", Georgia, serif; font-size: 1.45rem; font-weight: 500; margin-bottom: 0.3rem; }
     .leverage .curve-wrap { margin: 1rem 0 0.4rem; }
     .leverage svg.curve { width: 100%; height: auto; display: block; overflow: visible; }
     .leverage .slider-row { margin: 0.8rem 0 0.4rem; }
@@ -367,7 +363,7 @@
     .pillar-head { display: flex; align-items: center; gap: 1rem; padding: 1.15rem 1.3rem; cursor: pointer; width: 100%; background: none; border: none; text-align: left; font-family: inherit; }
     .pillar-ico { width: 46px; height: 46px; flex-shrink: 0; border-radius: 0; display: grid; place-items: center; color: var(--gold-deep); background: var(--sand); }
     .pillar-ico .ic { width: 23px; height: 23px; }
-    .pillar-head h3 { font-family: "Archivo", sans-serif; font-size: 1.4rem; font-weight: 800; line-height: 1.1; }
+    .pillar-head h3 { font-family: "Fraunces", Georgia, serif; font-size: 1.4rem; font-weight: 500; line-height: 1.1; }
     .pillar-head p { font-size: 0.86rem; color: var(--muted); margin-top: 0.15rem; }
     .pillar-head .chev { margin-left: auto; flex-shrink: 0; transition: transform 0.4s var(--ease-lux); color: var(--gold-deep); }
     .pillar.open .chev { transform: rotate(180deg); }
@@ -397,7 +393,7 @@
     .np-net::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--gold); pointer-events: none; }
     .np-net > * { position: relative; }
     .np-net .nlabel { font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; }
-    .np-net .nbig { font-family: "Archivo", sans-serif; font-size: clamp(2.6rem, 8vw, 4rem); font-weight: 800; line-height: 1; margin: 0.4rem 0 0.2rem; font-variant-numeric: tabular-nums; }
+    .np-net .nbig { font-family: "Fraunces", Georgia, serif; font-size: clamp(2.6rem, 8vw, 4rem); font-weight: 500; line-height: 1; margin: 0.4rem 0 0.2rem; font-variant-numeric: tabular-nums; }
     .np-net .nbig.neg { color: var(--terracotta); }
     .np-net .nsub { font-size: 0.86rem; color: rgba(255,255,255,0.72); }
     .np-keep { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; font-size: 0.82rem; font-weight: 700; color: var(--ink); background: var(--gold-soft); padding: 0.35rem 0.8rem; border-radius: 0; }
@@ -436,7 +432,7 @@
     .phase { display: grid; grid-template-columns: auto 1fr; gap: 1.3rem; padding-bottom: 1.6rem; position: relative; }
     .phase:not(:last-child)::before { content: ""; position: absolute; left: 21px; top: 44px; bottom: -4px; width: 2px; background: var(--line); }
     .phase-num { width: 44px; height: 44px; border-radius: 0; flex-shrink: 0; display: grid; place-items: center; background: var(--linen); border: 2px solid var(--gold); color: var(--gold-deep); font-family: "Archivo", sans-serif; font-size: 1.3rem; font-weight: 700; z-index: 1; }
-    .phase-body h3 { font-family: "Archivo", sans-serif; font-size: 1.45rem; font-weight: 800; line-height: 1.1; }
+    .phase-body h3 { font-family: "Fraunces", Georgia, serif; font-size: 1.45rem; font-weight: 500; line-height: 1.1; }
     .phase-body .dur { font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); font-weight: 700; margin: 0.2rem 0 0.4rem; }
     .phase-body p { font-size: 0.95rem; color: var(--muted); }
 
@@ -444,19 +440,19 @@
     .why-grid { display: grid; gap: 1.6rem; }
     @media (min-width: 820px) { .why-grid { grid-template-columns: 0.85fr 1.15fr; align-items: center; } }
     .why-photo { border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--line); aspect-ratio: 4/5; background: var(--sand); }
-    .why-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.08); }
+    .why-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .why-points { display: grid; gap: 1rem; }
     .why-point { display: grid; grid-template-columns: auto 1fr; gap: 0.9rem; }
-    .why-point .wp-ico { width: 40px; height: 40px; border-radius: 0; background: rgba(236, 48, 19,0.1); display: grid; place-items: center; color: var(--gold-deep); flex-shrink: 0; }
+    .why-point .wp-ico { width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(201, 168, 76,0.12); display: grid; place-items: center; color: var(--gold-deep); flex-shrink: 0; }
     .why-point .wp-ico .ic { width: 20px; height: 20px; }
-    .why-point h3 { font-family: "Archivo", sans-serif; font-size: 1.25rem; font-weight: 800; line-height: 1.15; }
+    .why-point h3 { font-family: "Fraunces", Georgia, serif; font-size: 1.25rem; font-weight: 500; line-height: 1.15; }
     .why-point p { font-size: 0.92rem; color: var(--muted); }
     .creds { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
-    .creds span { font-size: 0.76rem; font-weight: 600; color: var(--gold-deep); background: rgba(236, 48, 19,0.08); border: 1px solid var(--gold-soft); border-radius: 0; padding: 0.35rem 0.8rem; }
+    .creds span { font-size: 0.76rem; font-weight: 600; color: var(--gold-deep); background: rgba(201, 168, 76,0.08); border: 1px solid var(--gold-soft); border-radius: var(--radius-sm); padding: 0.35rem 0.8rem; }
 
     /* ───────────────────────── Final / contact ───────────────────────── */
     .recap { background: var(--sand-soft); border: 1px solid var(--gold-soft); border-radius: var(--radius-lg); padding: clamp(1.3rem,3vw,1.8rem); }
-    .recap h3 { font-family: "Archivo", sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; }
+    .recap h3 { font-family: "Fraunces", Georgia, serif; font-size: 1.4rem; font-weight: 500; margin-bottom: 1rem; }
     .recap-rows { display: grid; gap: 0.55rem; }
     .recap-row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.94rem; padding: 0.4rem 0; border-bottom: 1px dashed var(--line); }
     .recap-row:last-child { border-bottom: none; }
@@ -470,7 +466,7 @@
 
     /* trust band */
     .trust-band { margin-top: 1.2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
-    .trust-band .tb { text-align: center; padding: 0.8rem 0.4rem; background: rgba(236, 48, 19,0.06); border: 1px solid var(--gold-soft); border-radius: var(--radius-sm); }
+    .trust-band .tb { text-align: center; padding: 0.8rem 0.4rem; background: rgba(201, 168, 76,0.08); border: 1px solid var(--gold-soft); border-radius: var(--radius-sm); }
     .trust-band .tb .ic { width: 20px; height: 20px; color: var(--gold-deep); margin: 0 auto 0.35rem; }
     .trust-band .tb b { display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
     .trust-band .tb span { font-size: 0.7rem; color: var(--muted); }
@@ -480,7 +476,7 @@
 
     .form-success { display: none; }
     .form-success.show { display: block; }
-    .form-success .check { width: 64px; height: 64px; margin: 0 auto 1rem; border-radius: 0; background: var(--ok); color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(32, 30, 29,0.3), 0 0 0 6px rgba(32, 30, 29,0.12); }
+    .form-success .check { width: 64px; height: 64px; margin: 0 auto 1rem; border-radius: 50%; background: var(--ok); color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(11, 30, 62,0.2), 0 0 0 6px rgba(49, 94, 80,0.12); }
     .form-success .check .ic { width: 30px; height: 30px; stroke-width: 2.6; }
     .success-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
     .copy-toast { display: none; margin-top: 0.8rem; font-size: 0.84rem; font-weight: 700; color: var(--ok); }
@@ -523,6 +519,8 @@
     @media (max-width: 760px) {
       .intro { align-items: flex-start; min-height: auto; }
       .intro .container { padding-block: 2rem 2.6rem; }
+      .intro::before { background-position: 60% center; }
+      .intro::after { background: linear-gradient(180deg, rgba(6,22,45,0.78), rgba(6,22,45,0.68) 68%, rgba(6,22,45,0.85)); }
     }
     @media (max-width: 600px) {
       .header-phone span.num { display: none; }
@@ -547,18 +545,17 @@
       width: 44px; height: 44px; flex: none;
       display: grid; place-items: center;
       border: 1px solid var(--line); border-radius: 0;
-      background: #000; overflow: hidden; padding: 0;
+      background: var(--navy-deep); overflow: hidden; padding: 0;
     }
     .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
   </style>
   <link rel="stylesheet" href="/polish.css">
   <style>
-    /* Re-assert Modernist brand over the site-wide polish.css layer (loads after ours). */
-    ::selection, ::-moz-selection { background: #ec3013; color: #fff; }
-    html { scrollbar-color: #ec3013 rgba(32,30,29,0.10); }
-    ::-webkit-scrollbar-thumb { background: #ec3013; border-radius: 0; border: 3px solid transparent; background-clip: padding-box; }
-    ::-webkit-scrollbar-thumb:hover { background: #ae1800; background-clip: padding-box; }
+    ::selection, ::-moz-selection { background: var(--gold-soft); color: var(--ink); }
+    html { scrollbar-color: var(--gold) rgba(11,30,62,0.10); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 8px; border: 3px solid transparent; background-clip: padding-box; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold-deep); background-clip: padding-box; }
   </style>
   <script src="/track.js" defer></script>
   <script src="/contact-widget.js" defer></script>
@@ -603,19 +600,19 @@
     <section class="step is-active" id="step-0" data-title="Welcome">
       <div class="intro">
         <div class="container">
-          <span class="eyebrow">The Listing Strategy · For Sellers</span>
-          <h1>Your home deserves a <em>strategy</em>, not a sign in the yard.</h1>
-          <p class="sub">A guided walkthrough of the decisions behind preparing, pricing, and selling a home, with editable cost estimates to help you plan. About three minutes. No email required.</p>
+          <span class="eyebrow">A Seller's Field Guide · Kareem Jamal</span>
+          <h1>A thoughtful sale starts with a <em>clearer picture.</em></h1>
+          <p class="sub">Explore the choices behind preparing, pricing, and selling your home. Adjust the cost estimates as you go, then decide what feels right for your next chapter. About three minutes. No email required.</p>
           <div class="intro-actions">
             <button class="btn btn-primary" id="beginBtn">Begin the walkthrough
               <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
-            <a class="btn btn-ghost" href="tel:+18184027326" style="color:#fff;border-color:rgba(255,255,255,0.45)">Or just call Kareem</a>
+            <a class="btn btn-ghost" href="tel:+18184027326" style="color:#fff;border-color:rgba(255,255,255,0.55)">Talk it through with Kareem</a>
           </div>
           <div class="intro-meta">
             <div class="m"><b>7 steps</b><span>Guided, self-paced</span></div>
             <div class="m"><b>~3 min</b><span>Start to finish</span></div>
-            <div class="m"><b>Live</b><span>Net-proceeds estimate</span></div>
+            <div class="m"><b>Live</b><span>Editable proceeds estimate</span></div>
           </div>
           <p class="intro-foot">Kareem Jamal · Rodeo Realty Fine Estates · CA DRE #01998956 · Woodland Hills &amp; the San Fernando Valley</p>
         </div>
@@ -745,7 +742,7 @@
               <div class="lo"><b id="loPrice">—</b><span>Hypothetical list price</span></div>
               <div class="lo"><b id="loPosition">—</b><span>Relative to orientation</span></div>
             </div>
-            <div class="verdict" id="leverageVerdict" aria-live="polite" style="background:#201e1d;color:#fff;">Add area and square footage to explore an illustrative price.</div>
+            <div class="verdict" id="leverageVerdict" aria-live="polite" style="background:#0b1e3e;color:#fff;">Add area and square footage to explore an illustrative price.</div>
           </div>
         </div>
 
@@ -1411,7 +1408,7 @@
       var v = $("#leverageVerdict"), verdictText = hasEstimate
         ? "Illustration only. A real pricing strategy needs recent comparable sales and current competition."
         : "Add area and square footage on Step 1 to explore an illustrative price.";
-      v.style.background = hasEstimate ? "#201e1d" : "#f0ece5";
+      v.style.background = hasEstimate ? "#0b1e3e" : "#f0ece5";
       v.style.color = hasEstimate ? "#fff" : "#605d5d";
       v.textContent = verdictText;
       slider.setAttribute("aria-valuetext", hasEstimate
@@ -1457,7 +1454,7 @@
       [["Comm", r.comm, "#7d7979"], ["Close", r.closing, "#9b9797"], ["Prep", r.prep, "#bab6b6"], ["Payoff", r.payoff, "#d7d3d3"]]
         .forEach(function (d) { if (d[1] > 0) { cols.push({ k: d[0], top: running, bot: running - d[1], c: d[2] }); running -= d[1]; } });
       var netTop = Math.max(r.net, 0);
-      cols.push({ k: "Net", top: netTop, bot: 0, c: "#ec3013" });
+      cols.push({ k: "Net", top: netTop, bot: 0, c: "#c9a84c" });
 
       var W = 320, H = 150, padB = 18, padT = 8, n = cols.length;
       var gap = 8, cw = (W - gap * (n - 1)) / n;
@@ -1517,7 +1514,7 @@
       row("Prep & repairs", -r.prep, "#bab6b6");
       row("Total cost of sale", -r.totalCost, null, "subtotal");
       if (r.payoff) row("Mortgage payoff", -r.payoff, "#d7d3d3");
-      row("Estimated net proceeds", r.net, "#ec3013", "net");
+      row("Estimated net proceeds", r.net, "#c9a84c", "net");
 
       // aria-live (debounced)
       clearTimeout(renderNet._t);

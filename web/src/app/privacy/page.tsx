@@ -55,6 +55,22 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="font-display text-xl text-navy">
+                Buyer Fieldbook privacy
+              </h2>
+              <p className="mt-2">
+                Buyer Fieldbook calculations, ratings, checklist progress, and
+                notes stay in your open browser page. They are not automatically
+                saved to an account or transmitted. Use “Save a copy” to download
+                your work. Anyone who can access that file may be able to read
+                it. “Prepare my question” copies a short progress summary into
+                the contact form. Dollar amounts, home nicknames, and private
+                notes are not included. Review any message before choosing to
+                submit it.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-display text-xl text-navy">
                 What we collect
               </h2>
               <p className="mt-2">

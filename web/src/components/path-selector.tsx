@@ -1,10 +1,10 @@
 "use client";
 
 import { useReducedMotion, motion } from "framer-motion";
-import { ArrowRight, Home, KeyRound, Users } from "lucide-react";
+import { ArrowRight, Home, KeyRound, Users, Tags } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export type LeadPath = "owner" | "family" | "buyer";
+export type LeadPath = "owner" | "family" | "buyer" | "seller";
 
 export const PATH_STORAGE_KEY = "kj_lead_path";
 
@@ -26,6 +26,11 @@ export const pathPrefills: Record<
     label: "Buying (esp. 91311)",
     chip: "Buy & sell timing",
     fill: "I'm looking to buy in Chatsworth / the northwest Valley. Want a local, numbers-first start — not a listing blast.",
+  },
+  seller: {
+    label: "Preparing to sell",
+    chip: "Selling a home",
+    fill: "I'm considering selling a home in the West Valley. I want to understand the pricing, preparation, costs, and timing before deciding what to do.",
   },
 };
 
@@ -56,6 +61,13 @@ const paths: {
     title: "I'm buying (or exploring)",
     body: "Chatsworth, West Hills, East Simi — local map first, strategy second. Especially 91311.",
     proof: "Raised here · zoning honesty",
+  },
+  {
+    id: "seller",
+    icon: Tags,
+    title: "I'm thinking of selling",
+    body: "Get oriented on pricing, preparation, costs, and timing before choosing your next step.",
+    proof: "A clear plan · no rushed decision",
   },
 ];
 
@@ -98,7 +110,7 @@ export function PathSelector() {
           </p>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {paths.map((p, i) => {
             const Icon = p.icon;
             return (

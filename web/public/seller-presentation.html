@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Listing Strategy — A Guided Walkthrough | Kareem Jamal</title>
-  <meta name="description" content="A guided, interactive listing presentation: see exactly how Kareem Jamal positions, markets, and sells your home for maximum value — with a live net-proceeds estimate built around your home." />
+  <meta name="description" content="A guided seller walkthrough covering home preparation, pricing factors, estimated costs, and the sale timeline. Explore the steps at your own pace." />
   <link rel="canonical" href="https://kareemjamaltherealtor.com/seller-presentation" />
   <link rel="icon" href="/assets/favicon-jamal.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Your Listing Strategy — A Guided Walkthrough | Kareem Jamal" />
-  <meta property="og:description" content="See exactly how Kareem positions, markets, and sells your home for maximum value — with a live net-proceeds estimate built around your home." />
+  <meta property="og:description" content="Explore home preparation, pricing factors, estimated costs, and the sale timeline in a guided seller walkthrough." />
   <meta property="og:url" content="https://kareemjamaltherealtor.com/seller-presentation" />
   <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/hero-estate-night.jpg" />
 
@@ -605,7 +605,7 @@
         <div class="container">
           <span class="eyebrow">The Listing Strategy · For Sellers</span>
           <h1>Your home deserves a <em>strategy</em>, not a sign in the yard.</h1>
-          <p class="sub">A guided walkthrough of exactly how Kareem positions, markets, and negotiates your home for maximum value — built around <em>your</em> property, with a live net-proceeds estimate. About three minutes, no email required.</p>
+          <p class="sub">A guided walkthrough of the decisions behind preparing, pricing, and selling a home, with editable cost estimates to help you plan. About three minutes. No email required.</p>
           <div class="intro-actions">
             <button class="btn btn-primary" id="beginBtn">Begin the walkthrough
               <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -628,7 +628,7 @@
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 1 of 7</span></span>
           <h2>Tell us about <em>your home.</em></h2>
-          <p class="lede">A few quick details let us tailor the pricing, marketing plan, and net-proceeds estimate to your specific property. Nothing here is shared until you choose to reach out.</p>
+          <p class="lede">A few quick details shape the examples in this guide. They are not a property valuation or a market analysis. Nothing here is shared until you choose to reach out.</p>
         </div>
 
         <div class="grid grid-2">
@@ -698,7 +698,7 @@
             </div>
           </div>
         </div>
-        <p class="disclaimer" data-reveal>Estimates on the next screens are illustrative orientation only — not an appraisal, CMA, or guarantee of value or proceeds. Kareem provides a precise, free comparative market analysis (CMA) for your specific home.</p>
+        <p class="disclaimer" data-reveal>Estimates on the next screens are illustrative orientation only — not an appraisal, CMA, or guarantee of value or proceeds. Kareem can prepare an address-specific comparative market analysis (CMA) to ground a conversation about your home.</p>
 
         <div class="step-cta" data-reveal data-cta-step="1">
           <span class="step-cta-label">Rather just talk it through?</span>
@@ -716,40 +716,36 @@
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 2 of 7</span></span>
           <h2>Pricing is a <em>strategy</em>, not a guess.</h2>
-          <p class="lede">The right list price doesn't leave money on the table — and it doesn't scare buyers off. We price to create competition and capture the highest-intent buyers in the first two weeks, when attention peaks.</p>
+          <p class="lede">A useful pricing conversation starts with recent comparable sales, current competition, and your home's condition. This simple tool is only an orientation exercise; it cannot predict offers or time on market.</p>
         </div>
 
         <div class="grid grid-2">
           <div class="value-readout is-empty" id="valueReadout" data-reveal>
-            <div class="vlabel">Illustrative value orientation</div>
+            <div class="vlabel">Rough value orientation · not a valuation</div>
             <span class="v-empty-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 13l9-9 9 9"/><path d="M5 11v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8"/><path d="M9 21v-6h6v6"/></svg></span>
             <div class="vrange" id="vRange">Add sq ft to estimate</div>
-            <div class="vsub" id="vSub">Enter your home's area and size on Step 1 for a ballpark range.</div>
+            <div class="vsub" id="vSub">Enter your home's area and size on Step 1 for a rough, formula-based orientation. It is not based on comparable sales.</div>
           </div>
 
           <div class="leverage" data-reveal>
-            <h3>The pricing-leverage curve</h3>
-            <p class="muted" style="font-size:0.9rem">Drag to see how list price affects buyer demand and time on market.</p>
-            <div class="curve-wrap">
-              <svg class="curve" viewBox="0 0 320 150" preserveAspectRatio="none" role="img" aria-label="Curve showing days on market rising as list price moves away from the strategic range">
-                <rect id="curveBand" x="0" y="0" width="0" height="150" fill="rgba(32, 30, 29,0.12)"></rect>
-                <path id="curveArea" d="" fill="rgba(236, 48, 19,0.12)" stroke="none"></path>
-                <path id="curvePath" d="" fill="none" stroke="var(--gold-deep)" stroke-width="2.5" vector-effect="non-scaling-stroke"></path>
-                <line id="curveMarkerLine" x1="0" y1="0" x2="0" y2="150" stroke="rgba(42,37,32,0.25)" stroke-width="1" vector-effect="non-scaling-stroke"></line>
-                <circle id="curveMarker" cx="0" cy="0" r="6" fill="#fff" stroke="var(--gold-deep)" stroke-width="3"></circle>
-              </svg>
+            <h3>Price-position sandbox</h3>
+            <p class="muted" style="font-size:0.9rem">Adjust an assumed list price against the rough orientation. This does not model demand, offers, or market time.</p>
+            <div class="curve-wrap" aria-hidden="true" style="height:3rem;display:flex;align-items:center;padding:0 0.75rem">
+              <div style="height:0.35rem;width:100%;border-radius:99px;background:linear-gradient(90deg,#ded6ca 0%,#b9a77f 50%,#ded6ca 100%);position:relative">
+                <span id="pricePositionMark" style="position:absolute;left:50%;top:50%;width:1rem;height:1rem;transform:translate(-50%,-50%);border:3px solid var(--gold-deep);border-radius:50%;background:#fff"></span>
+              </div>
             </div>
             <div class="slider-row">
-              <input type="range" id="priceSlider" min="-12" max="12" value="0" step="1" aria-label="List price strategy relative to estimated value" />
+              <input type="range" id="priceSlider" min="-12" max="12" value="0" step="1" aria-label="Hypothetical list price adjustment from the rough orientation" />
             </div>
             <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--muted);font-weight:600;">
-              <span>Underpriced</span><span>Strategic</span><span>Overpriced</span>
+              <span>12% below</span><span>Reference</span><span>12% above</span>
             </div>
             <div class="leverage-out">
-              <div class="lo"><b id="loPrice">—</b><span>List price</span></div>
-              <div class="lo"><b id="loDom">—</b><span>Est. days on market</span></div>
+              <div class="lo"><b id="loPrice">—</b><span>Hypothetical list price</span></div>
+              <div class="lo"><b id="loPosition">—</b><span>Relative to orientation</span></div>
             </div>
-            <div class="verdict" id="leverageVerdict" aria-live="polite" style="background:#201e1d;color:#fff;">Right on target — priced to spark competition.</div>
+            <div class="verdict" id="leverageVerdict" aria-live="polite" style="background:#201e1d;color:#fff;">Add area and square footage to explore an illustrative price.</div>
           </div>
         </div>
 
@@ -760,12 +756,12 @@
               <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">Recent comparable sales, neighborhood durability, current demand, and your home's specific condition and upgrades.</p>
             </div>
             <div>
-              <div class="eyebrow">Why the first 2 weeks matter</div>
-              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">A new listing gets its peak audience in the opening window. Strategic pricing turns that attention into multiple offers.</p>
+              <div class="eyebrow">What shapes buyer response</div>
+              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">Launch timing and buyer response vary with the home, competition, and market conditions. No pricing tool can promise a particular number of offers or days on market.</p>
             </div>
             <div>
               <div class="eyebrow">Your next step</div>
-              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">Kareem delivers a precise, address-specific CMA — free, no obligation — so your real price is data, not a slider.</p>
+              <p class="muted" style="font-size:0.92rem;margin-top:0.4rem">An address-specific CMA can ground the conversation in recent comparable sales and current competition. It is an analysis, not a guaranteed sale price.</p>
             </div>
           </div>
         </div>
@@ -850,13 +846,14 @@
         </div>
 
         <div class="timeline-14" data-reveal>
-          <h3 style="font-family:'Archivo',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:0.9rem">The first 14 days</h3>
+          <h3 style="font-family:'Archivo',sans-serif;font-size:1.6rem;font-weight:800;margin-bottom:0.5rem">Example launch plan · first 14 days</h3>
+          <p class="muted" style="font-size:0.9rem;margin-bottom:0.9rem">A sample sequence only. Timing, marketing, and showing plans are tailored to the property and current market.</p>
           <div class="tl-track">
             <div class="tl-item"><span class="tl-day">Days 1–3</span><div class="tl-card"><b>Prep &amp; produce.</b><p>Staging walkthrough, improvement audit, and the full photo/video shoot.</p></div></div>
             <div class="tl-item"><span class="tl-day">Days 4–6</span><div class="tl-card"><b>Whisper launch.</b><p>"Coming Soon" to top agents and the referral network — building demand before public launch.</p></div></div>
             <div class="tl-item"><span class="tl-day">Day 7</span><div class="tl-card"><b>Go live.</b><p>Listing hits every portal with full media and the branded property page.</p></div></div>
             <div class="tl-item"><span class="tl-day">Days 8–10</span><div class="tl-card"><b>Showing surge.</b><p>Open-house event plus private showings while attention is at its peak.</p></div></div>
-            <div class="tl-item"><span class="tl-day">Days 11–14</span><div class="tl-card"><b>Review &amp; negotiate.</b><p>Vet offers for terms and certainty; drive toward the strongest deal.</p></div></div>
+            <div class="tl-item"><span class="tl-day">Days 11–14</span><div class="tl-card"><b>Review &amp; negotiate.</b><p>Compare any offers by price, terms, and closing considerations; discuss options against your priorities.</p></div></div>
           </div>
         </div>
 
@@ -1079,7 +1076,7 @@
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 7 of 7</span></span>
           <h2>Let's turn this into <em>your</em> strategy.</h2>
-          <p class="lede">Here's a snapshot of what you built. Send it to Kareem and he'll follow up with a precise, free CMA and a personalized listing plan — no obligation.</p>
+          <p class="lede">Here's a snapshot of the assumptions you entered. If you choose to reach out, Kareem can prepare an address-specific CMA and discuss a listing plan — no obligation.</p>
         </div>
 
         <div class="final-cta">
@@ -1382,83 +1379,44 @@
     }
 
     // ---------- Step 2 ----------
-    // smooth convex days-on-market model (monotonic away from the sweet spot)
-    function domFor(delta) {
-      var d0 = 8, sweet = -1;
-      var dom = d0 + (delta > sweet ? Math.pow(delta - sweet, 1.5) * 1.1 : Math.pow(sweet - delta, 1.35) * 0.9);
-      return Math.max(6, Math.round(dom));
-    }
     function renderPricing() {
       computeEstimate();
       var ro = $("#valueReadout"), vr = $("#vRange"), vs = $("#vSub");
       if (!state.estMid) {
         ro.classList.add("is-empty");
-        vr.textContent = "Add sq ft to estimate";
-        vs.textContent = "Enter your home's area and size on Step 1 for a ballpark range.";
+        vr.textContent = "Add area + square footage";
+        vs.textContent = "This rough orientation uses a fixed area rate and condition factor. It is not based on comparable sales.";
       } else {
         ro.classList.remove("is-empty");
         vr.innerHTML = fmtK(state.estLow) + ' &ndash; <span class="mid">' + fmtK(state.estHigh) + "</span>";
-        vs.textContent = "Illustrative range for a " + (state.sqft ? Number(state.sqft).toLocaleString() + " sq ft " : "") +
-          (state.condition ? state.condition.toLowerCase() + " " : "") + "home" + (state.area ? " in " + state.area : "") + ". Not an appraisal.";
+        vs.textContent = "Formula-based orientation for a " + Number(state.sqft).toLocaleString() + " sq ft " +
+          (state.condition ? state.condition.toLowerCase() + " " : "") + "home in " + state.area + ". Not a CMA or appraisal.";
       }
-      drawCurve();
       renderLeverage(num($("#priceSlider").value));
     }
-    function drawCurve() {
-      // plot dom vs delta over [-12,12] into 320x150 viewBox
-      var W = 320, H = 150, pad = 6;
-      var minD = -12, maxD = 12;
-      var doms = []; for (var d = minD; d <= maxD; d++) doms.push(domFor(d));
-      var maxDom = Math.max.apply(null, doms);
-      function xOf(delta) { return pad + (delta - minD) / (maxD - minD) * (W - 2 * pad); }
-      function yOf(dom) { return pad + (1 - (dom - 6) / (maxDom - 6)) * (H - 2 * pad); }
-      var path = "", area = "";
-      for (var i = 0; i < doms.length; i++) {
-        var x = xOf(minD + i), y = yOf(doms[i]);
-        path += (i === 0 ? "M" : "L") + x.toFixed(1) + " " + y.toFixed(1) + " ";
-      }
-      area = path + "L" + xOf(maxD).toFixed(1) + " " + (H - pad) + " L" + xOf(minD).toFixed(1) + " " + (H - pad) + " Z";
-      $("#curvePath").setAttribute("d", path.trim());
-      $("#curveArea").setAttribute("d", area.trim());
-      // strategic band (delta -3..+1)
-      var bx = xOf(-3), bw = xOf(1) - xOf(-3);
-      var band = $("#curveBand"); band.setAttribute("x", bx); band.setAttribute("width", bw);
-      band.setAttribute("height", H); band.setAttribute("y", 0);
-      $("#valueReadout"); // noop keep
-      drawCurve._xOf = xOf; drawCurve._yOf = yOf;
-    }
     function renderLeverage(delta) {
-      var base = state.estMid || 1000000;
-      var price = base * (1 + delta / 100);
+      var hasEstimate = Boolean(state.estMid);
+      var price = hasEstimate ? state.estMid * (1 + delta / 100) : 0;
       var priceEl = $("#loPrice");
-      animateNumber(priceEl, price, fmtK);
-      var dom = domFor(delta);
-      $("#loDom").textContent = dom + " days";
+      if (hasEstimate) animateNumber(priceEl, price, fmtK);
+      else { priceEl._val = 0; priceEl.textContent = "—"; }
+      var position = hasEstimate ? $("#loPosition") : null;
+      if (position) position.textContent = delta === 0 ? "At orientation" : Math.abs(delta) + "% " + (delta < 0 ? "below" : "above");
 
       var slider = $("#priceSlider");
       var pctPos = ((num(slider.value) - slider.min) / (slider.max - slider.min)) * 100;
       slider.style.setProperty("--p", pctPos + "%");
+      $("#pricePositionMark").style.left = pctPos + "%";
 
-      // marker on curve
-      if (drawCurve._xOf) {
-        var mx = drawCurve._xOf(delta), my = drawCurve._yOf(dom);
-        var mk = $("#curveMarker"); mk.setAttribute("cx", mx); mk.setAttribute("cy", my);
-        var ml = $("#curveMarkerLine"); ml.setAttribute("x1", mx); ml.setAttribute("x2", mx); ml.setAttribute("y1", my); ml.setAttribute("y2", 150);
-      }
-
-      var v = $("#leverageVerdict"), verdictText;
-      if (delta > 4) {
-        v.style.background = "#ffe0d9"; v.style.color = "#ae1800";
-        verdictText = "Overpriced — buyers wait it out, and price cuts signal weakness.";
-      } else if (delta < -6) {
-        v.style.background = "#eae7e7"; v.style.color = "#605d5d";
-        verdictText = "Underpriced — likely fast, but you may leave equity on the table.";
-      } else {
-        v.style.background = "#201e1d"; v.style.color = "#fff";
-        verdictText = "Right on target — priced to spark competition in the first two weeks.";
-      }
+      var v = $("#leverageVerdict"), verdictText = hasEstimate
+        ? "Illustration only. A real pricing strategy needs recent comparable sales and current competition."
+        : "Add area and square footage on Step 1 to explore an illustrative price.";
+      v.style.background = hasEstimate ? "#201e1d" : "#f0ece5";
+      v.style.color = hasEstimate ? "#fff" : "#605d5d";
       v.textContent = verdictText;
-      slider.setAttribute("aria-valuetext", fmtK(price) + " list price, about " + dom + " days on market. " + verdictText);
+      slider.setAttribute("aria-valuetext", hasEstimate
+        ? fmtK(price) + " hypothetical list price, " + (delta === 0 ? "at" : Math.abs(delta) + "% " + (delta < 0 ? "below" : "above")) + " the rough orientation. " + verdictText
+        : "No estimate yet. Add area and square footage on Step 1.");
     }
 
     // ---------- Step 3 pillars ----------
@@ -1603,7 +1561,7 @@
     // contextual SMS bodies per step
     var SMS_CONTEXT = {
       1: "Hi Kareem — I'm thinking about selling my home and went through your listing walkthrough. Can we talk?",
-      2: "Hi Kareem — I'd like a precise, free CMA for my home (I saw your pricing-leverage step).",
+      2: "Hi Kareem — I'd like an address-specific pricing conversation for my home (I used the price-position sandbox).",
       3: "Hi Kareem — I like your marketing plan. What would it look like for my home?",
       5: "Hi Kareem — can we map out a timeline to sell my home?",
       6: "Hi Kareem — I have a question about listing my home with you."

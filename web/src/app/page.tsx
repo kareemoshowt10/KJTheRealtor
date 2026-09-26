@@ -52,14 +52,26 @@ export default function HomePage() {
         <ProblemNarrative />
         <PathSelector />
         <section className="relative overflow-hidden bg-[#f2ecdf] px-5 py-14 md:py-20">
-          <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-deep">The free Buyer Fieldbook</p>
-              <h2 className="mt-3 max-w-3xl font-display text-4xl font-medium leading-tight md:text-5xl">Buying a home has a lot of moving parts.<br className="hidden md:block" /> Put your next step in focus.</h2>
-              <p className="mt-4 max-w-2xl leading-relaxed text-slateink">Plan cash, compare homes against your priorities, track the process, and make sense of the language. Start anywhere. No sign-up.</p>
-              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-navy/75"><span>01 · Plan</span><span>02 · Compare</span><span>03 · Track</span><span>04 · Understand</span></div>
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-deep">Free planning tools</p>
+              <h2 className="mt-3 font-display text-4xl font-medium leading-tight md:text-5xl">Make your next move clearer.</h2>
+              <p className="mt-4 max-w-2xl leading-relaxed text-slateink">Useful starting points for buying or selling. Explore privately, at your own pace. No sign-up required.</p>
             </div>
-            <a href="/buyer-fieldbook" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-navy px-6 py-3 font-semibold text-cream transition hover:bg-[#162d51]">Open the Buyer Fieldbook <ArrowRight size={17} aria-hidden="true" /></a>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <a href="/buyer-fieldbook" className="group flex min-h-56 flex-col rounded-xl border border-[#e1d4c0] bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-lg">
+                <span className="text-xs font-bold uppercase tracking-[0.16em] text-gold-deep">For buyers</span>
+                <h3 className="mt-3 font-display text-2xl font-medium text-navy">The Buyer Fieldbook</h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-slateink">Plan cash, compare homes against your priorities, track the process, and make sense of the language.</p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-navy group-hover:text-gold-deep">Open the free guide <ArrowRight size={16} aria-hidden="true" /></span>
+              </a>
+              <a href="/seller-presentation" className="group flex min-h-56 flex-col rounded-xl border border-[#e1d4c0] bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-lg">
+                <span className="text-xs font-bold uppercase tracking-[0.16em] text-gold-deep">For homeowners</span>
+                <h3 className="mt-3 font-display text-2xl font-medium text-navy">The Seller Walkthrough</h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-slateink">Explore preparation, pricing, estimated costs, and the sale timeline before deciding whether to sell.</p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-navy group-hover:text-gold-deep">See the seven-step guide <ArrowRight size={16} aria-hidden="true" /></span>
+              </a>
+            </div>
           </div>
         </section>
         <AskKareem />

@@ -18,6 +18,10 @@ const chips = [
     fill: "I want an honest read on what my home is really worth right now — not a high-ball listing pitch.",
   },
   {
+    label: "Selling a home",
+    fill: "I'm considering selling a home in the West Valley. I want to understand the pricing, preparation, costs, and timing before deciding what to do.",
+  },
+  {
     label: "Buy & sell timing",
     fill: "We're weighing buy/sell timing in the Valley. Need a kitchen-table strategy, not pressure.",
   },

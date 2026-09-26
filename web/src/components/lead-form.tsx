@@ -97,6 +97,21 @@ export function LeadForm({
   };
 
   useEffect(() => {
+    const onPreparedMessage = (event: Event) => {
+      const prepared = (event as CustomEvent<{ message?: unknown }>).detail?.message;
+      if (typeof prepared !== "string" || !prepared.trim()) return;
+
+      setMessage(prepared.slice(0, 2_000));
+      setActive(null);
+      setStatus("idle");
+      setErrorMsg("");
+    };
+
+    window.addEventListener("kj:lead-message", onPreparedMessage);
+    return () => window.removeEventListener("kj:lead-message", onPreparedMessage);
+  }, []);
+
+  useEffect(() => {
     if (!enablePathPrefill) return;
 
     const read = () => {

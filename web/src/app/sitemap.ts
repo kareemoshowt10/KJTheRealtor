@@ -34,6 +34,7 @@ const LOCAL = [
 
 /** Interactive tools and strategy sessions — the lead-generating library. */
 const TOOLS = [
+  "/commute-check",
   "/buyer-fieldbook",
   "/buyer-presentation",
   "/seller-presentation",

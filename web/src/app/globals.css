@@ -48,3 +48,5 @@
     animation: none !important;
   }
 }
+
+@media print { body:has(#commute-check) > header { display: none !important; } }

@@ -38,6 +38,7 @@ export default function HomePage() {
           { href: "#equity-snapshot", label: "Home value" },
           { href: "#start-here", label: "Start here" },
           { href: "/buyer-fieldbook", label: "Buyer Fieldbook" },
+          { href: "/commute-check", label: "Commute Check" },
           { href: "#method", label: "Method" },
           { href: "/91311", label: "91311" },
           { href: "/listings", label: "Listings" },
@@ -58,7 +59,13 @@ export default function HomePage() {
               <h2 className="mt-3 font-display text-4xl font-medium leading-tight md:text-5xl">Make your next move clearer.</h2>
               <p className="mt-4 max-w-2xl leading-relaxed text-slateink">Useful starting points for buying or selling. Explore privately, at your own pace. No sign-up required.</p>
             </div>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              <a href="/commute-check" className="group flex min-h-56 flex-col rounded-xl border border-[#c4ac7a] bg-navy p-6 text-cream transition hover:-translate-y-0.5 hover:shadow-lg">
+                <span className="text-xs font-bold uppercase tracking-[0.16em] text-gold-light">For your next move</span>
+                <h3 className="mt-3 font-display text-2xl font-medium">Is the farther home worth the drive?</h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-cream/80">Compare fuel, driving time, family support, and everyday access. A lower payment is only part of the story.</p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-gold-light">Run your free comparison <ArrowRight size={16} aria-hidden="true" /></span>
+              </a>
               <a href="/buyer-fieldbook" className="group flex min-h-56 flex-col rounded-xl border border-[#e1d4c0] bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-lg">
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-gold-deep">For buyers</span>
                 <h3 className="mt-3 font-display text-2xl font-medium text-navy">The Buyer Fieldbook</h3>

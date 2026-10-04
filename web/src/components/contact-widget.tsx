@@ -42,7 +42,7 @@ export function ContactWidget() {
   useEffect(() => {
     // The buyer tools page has its own consent-based form. Keep this floating
     // prompt off that workspace so it cannot cover a comparison or worksheet.
-    if (pathname === "/buyer-fieldbook") return;
+    if (pathname === "/buyer-fieldbook" || pathname === "/commute-check") return;
     setMounted(true);
     let seen = false;
     try {
@@ -177,7 +177,7 @@ export function ContactWidget() {
     }
   }
 
-  if (!mounted || pathname === "/buyer-fieldbook") return null;
+  if (!mounted || pathname === "/buyer-fieldbook" || pathname === "/commute-check") return null;
 
   const panel = (
     <div

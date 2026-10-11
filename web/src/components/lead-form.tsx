@@ -43,6 +43,12 @@ type Props = {
   headerExtra?: ReactNode;
   /** Apply path-selector prefill when user arrives from Start here */
   enablePathPrefill?: boolean;
+  /** Override the consent checkbox copy (e.g. call/text consent on /buy). */
+  consentText?: ReactNode;
+  /** Value submitted with the consent checkbox when consentText is overridden. */
+  consentValue?: string;
+  /** Override the submit button label. */
+  submitLabel?: string;
 };
 
 const FORMSPREE = "https://formspree.io/f/xnjlgvlk";
@@ -70,6 +76,9 @@ export function LeadForm({
   className,
   headerExtra,
   enablePathPrefill = false,
+  consentText,
+  consentValue = "Yes — explicit permission granted for one personal reply",
+  submitLabel = "Send it to Kareem",
 }: Props) {
   const reduced = useReducedMotion();
   const formRef = useRef<HTMLFormElement>(null);
@@ -451,20 +460,24 @@ export function LeadForm({
             required
             type="checkbox"
             name="consent"
-            value="Yes — explicit permission granted for one personal reply"
+            value={consentValue}
             checked={consent}
             onChange={(e) => setConsent(e.target.checked)}
             className="mt-0.5 h-5 w-5 accent-gold-deep"
           />
-          <span>
-            You have my explicit permission to{" "}
-            <strong>reply once</strong> to this inquiry (email
-            {showPhone ? " or phone if provided" : ""}). No drip campaign, no
-            shared list, ever.{" "}
-            <a href="/privacy" className="underline underline-offset-2">
-              Privacy
-            </a>
-          </span>
+          {consentText ? (
+            <span>{consentText}</span>
+          ) : (
+            <span>
+              You have my explicit permission to{" "}
+              <strong>reply once</strong> to this inquiry (email
+              {showPhone ? " or phone if provided" : ""}). No drip campaign, no
+              shared list, ever.{" "}
+              <a href="/privacy" className="underline underline-offset-2">
+                Privacy
+              </a>
+            </span>
+          )}
         </motion.label>
 
         {status === "error" && errorMsg && (
@@ -511,7 +524,7 @@ export function LeadForm({
                   Sending…
                 </>
               ) : (
-                "Send it to Kareem"
+                submitLabel
               )}
             </span>
           </button>

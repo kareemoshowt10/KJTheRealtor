@@ -213,7 +213,7 @@ export default function BuyPage() {
         <Journey />
 
         {/* Areas */}
-        <section id="areas" className="scroll-mt-20 bg-paper px-5 py-16 md:py-24">
+        <section id="areas" className="scroll-mt-20 bg-paper px-5 py-16 md:py-20 lg:py-14">
           <div className="mx-auto max-w-6xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-deep">Where I work</p>
             <h2 className="mt-3 max-w-3xl font-display text-4xl font-medium leading-tight md:text-5xl">
@@ -223,14 +223,14 @@ export default function BuyPage() {
               Prices change street by street here. Ask me for current numbers on the exact area
               you&apos;re considering — I&apos;ll pull recent sales, not citywide averages.
             </p>
-            <Carousel label="Areas I work in" className="mt-10" slideLabels={areas.map((a) => a.name)}>
+            <Carousel label="Areas I work in" className="mt-10" slideClassName="basis-[86%] sm:basis-[calc(50%-0.5rem)] lg:basis-[calc(20%-0.8rem)]" slideLabels={areas.map((a) => a.name)}>
               {areas.map((a) => (
                 <a
                   key={a.name}
                   href={a.href ?? "#consult"}
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-navy/15 bg-white transition hover:border-gold/70 hover:shadow-lg"
                 >
-                  <div className="relative aspect-[16/7] overflow-hidden bg-navy">
+                  <div className="relative aspect-[16/7] overflow-hidden bg-navy lg:hidden">
                     {a.img ? (
                       <Image
                         src={a.img}
@@ -261,7 +261,7 @@ export default function BuyPage() {
         </section>
 
         {/* Free roadmap */}
-        <section className="bg-[#f2ecdf] px-5 py-16 md:py-20">
+        <section className="bg-[#f2ecdf] px-5 py-16 md:py-20 lg:py-14">
           <div className="mx-auto max-w-6xl">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-deep">Free roadmap · no sign-up</p>
             <h2 className="mt-3 max-w-3xl font-display text-4xl font-medium leading-tight">
@@ -277,7 +277,7 @@ export default function BuyPage() {
                 href="/buyer-fieldbook"
                 className="group flex h-full min-h-48 flex-col overflow-hidden rounded-xl border border-[#c4ac7a] bg-navy text-cream transition hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <div className="relative aspect-[16/5] overflow-hidden">
+                <div className="relative aspect-[16/5] overflow-hidden lg:hidden">
                   <Image
                     src="/assets/hero-buyers.jpg"
                     alt="A sunlit living room with a view of the hills"

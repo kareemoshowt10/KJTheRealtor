@@ -544,6 +544,7 @@
     }
   </style>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -716,7 +717,7 @@
           <span class="eyebrow">Field Notes</span>
           <h2 class="display" id="notes-heading">What locals know that <em>listings don&rsquo;t say.</em></h2>
         </div>
-        <div class="notes-grid">
+        <div class="notes-grid" data-kj-carousel data-kjc-per="3">
           <article class="note-card" data-reveal>
             <span class="note-tag">For investors</span>
             <h3>A 38,000-student demand engine</h3>
@@ -763,7 +764,7 @@
             the honest map.
           </p>
         </div>
-        <div class="pocket-grid">
+        <div class="pocket-grid" data-kj-carousel data-kjc-per="3">
           <article class="pocket" data-reveal>
             <span class="pocket-read">The demand engine</span>
             <h3>The CSUN corridor</h3>
@@ -1231,5 +1232,6 @@
   </script>
   <script src="/track.js" defer></script>
   <script src="/assets/kj-interactive.js" defer></script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

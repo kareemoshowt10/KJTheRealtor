@@ -575,6 +575,7 @@
 
   </style>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -733,7 +734,7 @@
           <span class="eyebrow">Ground Truth</span>
           <h2 class="display" id="notes-heading">What locals know that <em>listings don&rsquo;t say.</em></h2>
         </div>
-        <div class="notes-grid">
+        <div class="notes-grid" data-kj-carousel data-kjc-per="3">
           <div class="note-card" data-reveal>
             <strong>The second unit is the whole strategy</strong>
             <p>ADUs are permitted in every residential zone in Los Angeles, R1 included, under LAMC 12.22 A.33, plus junior ADUs up to 500 square feet inside the existing house. In a market where a lot of the Valley has priced out the add-a-unit play, Reseda is where it still tends to pencil &mdash; whether that means housing a parent, generating rent, or both.</p>
@@ -865,7 +866,7 @@
         <div class="kj-eyebrow">The homeowner brief</div>
         <h2>What I actually know about Reseda.</h2>
         <p class="kj-lede">The ordinances, the fault, and the details that decide whether a plan for a Reseda lot is realistic.</p>
-        <div class="kj-facts">
+        <div class="kj-facts" data-kj-carousel data-kjc-per="3">
           <div class="kj-fact">
             <h3>Second units are permitted everywhere residential</h3>
             <p>Los Angeles adopted Ordinance No. 186,481 on December 11, 2019, codified at LAMC section 12.22 A.33, permitting accessory dwelling units across all residential zones including R1 &mdash; plus junior ADUs of up to 500 square feet created within an existing home. On a neighborhood of single-family lots, that changes what a purchase here can become.</p>
@@ -1297,5 +1298,6 @@
         .catch(function () {});
     })();
   </script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

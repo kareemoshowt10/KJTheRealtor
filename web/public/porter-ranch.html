@@ -575,6 +575,7 @@
 
   </style>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -747,7 +748,7 @@
           <span class="eyebrow">Ground Truth</span>
           <h2 class="display" id="notes-heading">What locals know that <em>listings don&rsquo;t say.</em></h2>
         </div>
-        <div class="notes-grid">
+        <div class="notes-grid" data-kj-carousel data-kjc-per="3">
           <div class="note-card" data-reveal>
             <strong>The ZIP and the neighborhood are different shapes</strong>
             <p>91326 carries the USPS place name &ldquo;Porter Ranch,&rdquo; but the ZIP boundary and the neighborhood boundary do not match. Some homes marketed as Porter Ranch carry Northridge or Granada Hills ZIPs. That means ZIP-level market statistics quietly blend more than one market &mdash; treat any &ldquo;91326 median&rdquo; with suspicion and ask what set of homes it actually covers.</p>
@@ -885,7 +886,7 @@
         <div class="kj-eyebrow">The homeowner brief</div>
         <h2>What I actually know about Porter Ranch.</h2>
         <p class="kj-lede">The ordinance numbers, the dates, and the two documents that matter more here than anywhere else in the Valley.</p>
-        <div class="kj-facts">
+        <div class="kj-facts" data-kj-carousel data-kjc-per="3">
           <div class="kj-fact">
             <h3>A plan written before the houses</h3>
             <p>The City of Los Angeles adopted the Porter Ranch Land Use / Transportation Specific Plan by Ordinance No. 166,068 in 1990, amended in 2001 by Ordinances 173,871 through 173,873. A Specific Plan is a rulebook written for one area, layered on top of ordinary zoning. When a question here turns on what can be built, that document answers it &mdash; a general zoning lookup may not.</p>
@@ -1321,5 +1322,6 @@
         .catch(function () {});
     })();
   </script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

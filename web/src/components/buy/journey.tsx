@@ -19,7 +19,7 @@ export function Journey() {
   const total = buyerJourney.length;
 
   return (
-    <section id="journey" className="scroll-mt-20 bg-[#f2ecdf] px-5 py-16 md:py-24">
+    <section id="journey" className="scroll-mt-20 bg-[#f2ecdf] px-5 py-16 md:py-20 lg:py-12">
       <div className="mx-auto max-w-6xl">
         <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-deep">The whole process, both sides</p>
         <h2 className="mt-3 max-w-3xl font-display text-4xl font-medium leading-tight md:text-5xl">
@@ -30,7 +30,7 @@ export function Journey() {
           where you are.
         </p>
 
-        <nav aria-label="Jump to a buying step" className="-mx-5 mt-8 overflow-x-auto px-5 md:mx-0 md:px-0">
+        <nav aria-label="Jump to a buying step" className="-mx-5 mt-8 overflow-x-auto px-5 md:mx-0 md:px-0 lg:mt-6">
           <ol className="flex min-w-max gap-2 md:grid md:min-w-0 md:grid-cols-5 lg:grid-cols-10">
             {buyerJourney.map((s, idx) => (
               <li key={s.title}>
@@ -65,30 +65,30 @@ export function Journey() {
           goTo={goTo}
         >
           {buyerJourney.map((step, i) => (
-            <article key={step.title} className="h-full rounded-2xl border border-navy/10 bg-paper p-5 md:p-7">
+            <article key={step.title} className="h-full rounded-2xl border border-navy/10 bg-paper p-5 md:p-6">
               <header className="flex items-baseline gap-4">
-                <span className="font-display text-4xl text-gold-deep md:text-5xl">{num(i)}</span>
-                <h3 className="font-display text-2xl font-medium text-navy md:text-4xl">{step.title}</h3>
+                <span className="font-display text-4xl text-gold-deep md:text-4xl">{num(i)}</span>
+                <h3 className="font-display text-2xl font-medium text-navy md:text-3xl">{step.title}</h3>
                 <span className="ml-auto text-sm text-slateink">
                   {i + 1} / {total}
                 </span>
               </header>
 
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
-                <div className="rounded-xl border border-navy/15 bg-white p-5 md:p-6">
+              <div className="mt-4 grid gap-3 md:grid-cols-2">
+                <div className="rounded-xl border border-navy/15 bg-white p-5">
                   <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-slateink">You — the buyer</p>
-                  <h4 className="mt-2 font-display text-xl text-navy md:text-2xl">{step.you.headline}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-slateink md:text-base">{step.you.body}</p>
+                  <h4 className="mt-2 font-display text-xl text-navy">{step.you.headline}</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-slateink lg:text-[0.95rem]">{step.you.body}</p>
                   <ul className="mt-3 space-y-1 text-sm text-navy">
                     {step.you.points.map((p) => (
                       <li key={p} className="flex gap-2"><span aria-hidden className="text-gold-deep">—</span>{p}</li>
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-xl bg-navy p-5 text-cream md:p-6">
+                <div className="rounded-xl bg-navy p-5 text-cream">
                   <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-gold-light">Behind the scenes — me</p>
-                  <h4 className="mt-2 font-display text-xl md:text-2xl">{step.me.headline}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-cream/80 md:text-base">{step.me.body}</p>
+                  <h4 className="mt-2 font-display text-xl">{step.me.headline}</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-cream/80 lg:text-[0.95rem]">{step.me.body}</p>
                   <ul className="mt-3 space-y-1 text-sm text-cream/90">
                     {step.me.points.map((p) => (
                       <li key={p} className="flex gap-2"><span aria-hidden className="text-gold-light">—</span>{p}</li>
@@ -97,7 +97,7 @@ export function Journey() {
                 </div>
               </div>
 
-              <div className="mt-4 grid gap-4 md:grid-cols-3">
+              <div className="mt-3 grid gap-3 md:grid-cols-3">
                 <div className="rounded-xl border border-navy/15 bg-white p-4">
                   <p className="flex items-center gap-2 text-sm font-semibold text-navy">
                     <AlertTriangle size={16} className="text-gold-deep" aria-hidden /> Red flags
@@ -135,7 +135,7 @@ export function Journey() {
                   const message = `I'm at step ${num(i)} — ${step.title}. Here's where I am:`;
                   window.dispatchEvent(new CustomEvent("kj:lead-message", { detail: { message } }));
                 }}
-                className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-navy underline decoration-gold underline-offset-4"
+                className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-navy underline decoration-gold underline-offset-4"
               >
                 This is where I am <ArrowRight size={16} aria-hidden />
               </a>

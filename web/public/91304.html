@@ -574,6 +574,7 @@
     }
   </style>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -742,7 +743,7 @@
           <span class="eyebrow">Field Notes</span>
           <h2 class="display" id="notes-heading">What locals know that <em>listings don&rsquo;t say.</em></h2>
         </div>
-        <div class="notes-grid">
+        <div class="notes-grid" data-kj-carousel data-kjc-per="3">
           <article class="note-card" data-reveal>
             <span class="note-tag">For the space nerds</span>
             <h3>A moon engine on a pedestal</h3>
@@ -789,7 +790,7 @@
             instead of on you.
           </p>
         </div>
-        <div class="pocket-grid">
+        <div class="pocket-grid" data-kj-carousel data-kjc-per="3">
           <article class="pocket" data-reveal>
             <span class="pocket-read">The signature play</span>
             <h3>The name-line spread</h3>
@@ -1007,7 +1008,7 @@
           <h2 class="display" id="owners-heading">The 91304 owner&rsquo;s <em>playbook.</em></h2>
           <p class="lead">This zip rewards owners who understand what they&rsquo;re sitting on — and punishes the ones who price it off an algorithm. Four moves before any listing conversation.</p>
         </div>
-        <div class="notes-grid">
+        <div class="notes-grid" data-kj-carousel data-kjc-per="3">
           <article class="note-card" data-reveal>
             <span class="note-tag">The boundary premium</span>
             <h3>Never trust an online estimate in this zip</h3>
@@ -1346,5 +1347,6 @@
   </script>
   <script src="/track.js" defer></script>
   <script src="/assets/kj-interactive.js" defer></script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

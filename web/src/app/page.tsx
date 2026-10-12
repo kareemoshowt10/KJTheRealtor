@@ -35,6 +35,7 @@ export default function HomePage() {
       <ScrollProgress />
       <SiteHeader
         links={[
+          { href: "/buy", label: "Buy a Home" },
           { href: "#equity-snapshot", label: "Home value" },
           { href: "#start-here", label: "Start here" },
           { href: "/buyer-fieldbook", label: "Buyer Fieldbook" },

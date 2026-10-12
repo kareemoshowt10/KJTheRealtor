@@ -15,6 +15,7 @@ export default function PrivacyPage() {
     <>
       <SiteHeader
         links={[
+          { href: "/buy", label: "Buy a Home" },
           { href: "/", label: "Home" },
           { href: "/91311", label: "91311" },
           { href: "/#start", label: "Contact" },

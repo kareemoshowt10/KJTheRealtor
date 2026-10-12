@@ -13,6 +13,7 @@ type NavLink = {
 };
 
 const defaultLinks: NavLink[] = [
+  { href: "/buy", label: "Buy a Home" },
   { href: "/#start-here", label: "Start here" },
   { href: "/#method", label: "Method" },
   { href: "/#family-table", label: "Families" },
@@ -55,12 +56,12 @@ export function SiteHeader({
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-6">
           {links.map((l) => (
             <a
               key={l.href + l.label}
               href={l.href}
-              className="text-sm font-medium text-cream/85 transition hover:text-gold-light"
+              className="whitespace-nowrap text-sm font-medium text-cream/85 transition hover:text-gold-light"
             >
               {l.label}
             </a>
@@ -75,7 +76,7 @@ export function SiteHeader({
 
         <button
           type="button"
-          className="grid h-10 w-10 place-items-center rounded-md border border-cream/20 text-cream md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-md border border-cream/20 text-cream lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -86,7 +87,7 @@ export function SiteHeader({
 
       <div
         className={cn(
-          "border-t border-gold/20 bg-navy md:hidden",
+          "border-t border-gold/20 bg-navy lg:hidden",
           open ? "block" : "hidden"
         )}
       >

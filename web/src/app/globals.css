@@ -50,3 +50,13 @@
 }
 
 @media print { body:has(#commute-check) > header { display: none !important; } }
+
+/* Carousel track: native horizontal scroll with snap, scrollbar hidden. */
+.carousel-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Carousel } from "@/components/ui/carousel";
 
 const paths = [
   {
@@ -46,12 +47,12 @@ export function FamilyTable() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <Carousel label="Three kitchen-table decisions" slideLabels={paths.map((p) => p.kicker)}>
           {paths.map((p) => (
             <a
               key={p.href}
               href={p.href}
-              className="group flex min-h-full flex-col gap-3 rounded-2xl border border-[#e3d8c7] bg-white p-6 shadow-gold transition hover:-translate-y-0.5 hover:border-gold/70"
+              className="group flex h-full flex-col gap-3 rounded-2xl border border-[#e3d8c7] bg-white p-6 shadow-gold transition hover:-translate-y-0.5 hover:border-gold/70"
             >
               <span className="text-[0.64rem] font-bold uppercase tracking-[0.12em] text-gold-deep">
                 {p.kicker}
@@ -67,7 +68,7 @@ export function FamilyTable() {
               </span>
             </a>
           ))}
-        </div>
+        </Carousel>
 
         <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-slateink">
           Adult children: start here or{" "}

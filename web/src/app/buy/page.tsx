@@ -7,6 +7,7 @@ import { LeadForm } from "@/components/lead-form";
 import { ConversionSticky } from "@/components/conversion-sticky";
 import { RealNumber } from "@/components/buy/real-number";
 import { Journey } from "@/components/buy/journey";
+import { Carousel } from "@/components/ui/carousel";
 
 const title = "Buy a Home in the West Valley & Simi Valley | Get Your Real Number";
 const description =
@@ -39,12 +40,21 @@ export const metadata: Metadata = {
   },
 };
 
-const areas = [
+const areas: {
+  name: string;
+  zip: string;
+  note: string;
+  href: string | null;
+  img?: string;
+  imgAlt?: string;
+}[] = [
   {
     name: "Chatsworth",
     zip: "91311",
     note: "Northwest corner of the Valley, up against the Santa Susana foothills. Includes horse-zoned pockets.",
     href: "/91311",
+    img: "/assets/cliffside-sunset.jpg",
+    imgAlt: "Sandstone boulders and a trail in the Chatsworth foothills at sunset",
   },
   {
     name: "Canoga Park",
@@ -213,29 +223,40 @@ export default function BuyPage() {
               Prices change street by street here. Ask me for current numbers on the exact area
               you&apos;re considering — I&apos;ll pull recent sales, not citywide averages.
             </p>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-              {areas.map((a) => {
-                const body = (
-                  <>
+            <Carousel label="Areas I work in" className="mt-10" slideLabels={areas.map((a) => a.name)}>
+              {areas.map((a) => (
+                <a
+                  key={a.name}
+                  href={a.href ?? "#consult"}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-navy/15 bg-white transition hover:border-gold/70 hover:shadow-lg"
+                >
+                  <div className="relative aspect-[16/7] overflow-hidden bg-navy">
+                    {a.img ? (
+                      <Image
+                        src={a.img}
+                        alt={a.imgAlt ?? ""}
+                        fill
+                        sizes="(max-width: 640px) 86vw, (max-width: 1024px) 50vw, 360px"
+                        className="object-cover transition duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 grid place-items-center" aria-hidden>
+                        <div className="absolute -right-10 -top-14 h-48 w-48 rounded-full border border-gold/25" />
+                        <span className="font-display text-3xl text-cream/90">{a.name}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-1 flex-col p-5">
                     <p className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-gold-deep">{a.zip}</p>
                     <h3 className="mt-2 font-display text-2xl text-navy">{a.name}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-slateink">{a.note}</p>
                     <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-navy">
                       {a.href ? "Area guide" : "Ask about this area"} <ArrowRight size={14} aria-hidden />
                     </span>
-                  </>
-                );
-                return (
-                  <a
-                    key={a.name}
-                    href={a.href ?? "#consult"}
-                    className="flex min-h-52 flex-col rounded-xl border border-navy/15 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-lg"
-                  >
-                    {body}
-                  </a>
-                );
-              })}
-            </div>
+                  </div>
+                </a>
+              ))}
+            </Carousel>
           </div>
         </section>
 
@@ -246,11 +267,26 @@ export default function BuyPage() {
             <h2 className="mt-3 max-w-3xl font-display text-4xl font-medium leading-tight">
               Not ready to talk? Take the tools.
             </h2>
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <Carousel
+              label="Free buyer tools"
+              className="mt-8"
+              slideClassName="basis-[86%] md:basis-[calc(50%-0.5rem)]"
+              slideLabels={["The Buyer Fieldbook", "Commute Check"]}
+            >
               <a
                 href="/buyer-fieldbook"
-                className="group flex min-h-48 flex-col rounded-xl border border-[#c4ac7a] bg-navy p-6 text-cream transition hover:-translate-y-0.5 hover:shadow-lg"
+                className="group flex h-full min-h-48 flex-col overflow-hidden rounded-xl border border-[#c4ac7a] bg-navy text-cream transition hover:-translate-y-0.5 hover:shadow-lg"
               >
+                <div className="relative aspect-[16/5] overflow-hidden">
+                  <Image
+                    src="/assets/hero-buyers.jpg"
+                    alt="A sunlit living room with a view of the hills"
+                    fill
+                    sizes="(max-width: 768px) 86vw, 540px"
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-gold-light">Your buying roadmap</span>
                 <h3 className="mt-3 font-display text-2xl font-medium">The Buyer Fieldbook</h3>
                 <p className="mt-2 text-sm leading-relaxed text-cream/80">
@@ -260,10 +296,11 @@ export default function BuyPage() {
                 <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-gold-light">
                   Open the Fieldbook <ArrowRight size={16} aria-hidden />
                 </span>
+                </div>
               </a>
               <a
                 href="/commute-check"
-                className="group flex min-h-48 flex-col rounded-xl border border-[#e1d4c0] bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-lg"
+                className="group flex h-full min-h-48 flex-col rounded-xl border border-[#e1d4c0] bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold/70 hover:shadow-lg"
               >
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-gold-deep">Before you stretch for distance</span>
                 <h3 className="mt-3 font-display text-2xl font-medium text-navy">Commute Check</h3>
@@ -275,7 +312,7 @@ export default function BuyPage() {
                   Run the comparison <ArrowRight size={16} aria-hidden />
                 </span>
               </a>
-            </div>
+            </Carousel>
           </div>
         </section>
 

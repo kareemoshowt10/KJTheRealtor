@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { Carousel } from "@/components/ui/carousel";
 
 /**
  * Brand photography of Kareem. These are real photographs of him, served from
@@ -15,17 +16,12 @@ import { Reveal } from "@/components/ui/reveal";
 const frames = [
   {
     src: "/assets/kareem-doorway-portrait.jpg",
-    width: 960,
-    height: 1200,
     alt: "Kareem Jamal in a navy suit, stepping through an arched doorway into a sunlit room",
     eyebrow: "The walkthrough",
     line: "Reading a house the way a builder reads it.",
-    priority: true,
   },
   {
     src: "/assets/kareem-table-portrait.jpg",
-    width: 751,
-    height: 1200,
     alt: "Kareem Jamal seated at a wooden table with document folders, facing the camera",
     eyebrow: "The conversation",
     line: "Everything on the table, before you decide.",
@@ -60,18 +56,24 @@ export function FieldGallery() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-14">
+        <Carousel
+          label="How the work goes"
+          tone="dark"
+          className="mt-10 md:mt-14"
+          slideClassName="basis-[80%] sm:basis-[calc(50%-0.5rem)]"
+          slideLabels={frames.map((f) => f.eyebrow)}
+        >
           {frames.map((frame) => (
-            <Reveal key={frame.src}>
-              <figure className="group relative m-0 overflow-hidden rounded-2xl bg-gradient-to-br from-navy-soft to-navy">
+              <figure
+                key={frame.src}
+                className="group relative m-0 aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br from-navy-soft to-navy md:aspect-[5/6]"
+              >
                 <Image
                   src={frame.src}
                   alt={frame.alt}
-                  width={frame.width}
-                  height={frame.height}
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  priority={frame.priority}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]"
+                  fill
+                  sizes="(max-width: 640px) 80vw, 540px"
+                  className="object-cover object-top transition duration-700 group-hover:scale-[1.035]"
                 />
                 <div
                   aria-hidden="true"
@@ -86,9 +88,8 @@ export function FieldGallery() {
                   </h3>
                 </figcaption>
               </figure>
-            </Reveal>
           ))}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

@@ -16,7 +16,7 @@ const OPEN_DELAY_MS = 1100;
  * These pages already put a clear contact action in the visitor's path.
  * Keep the floating panel from interrupting their first look.
  */
-const NO_AUTO_OPEN = ["/", "/9621jumilla"];
+const NO_AUTO_OPEN = ["/", "/9621jumilla", "/buy"];
 
 type Status = "idle" | "sending" | "ok" | "err";
 

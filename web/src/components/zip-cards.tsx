@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "@/components/ui/reveal";
+import { Carousel } from "@/components/ui/carousel";
 
 const zips = [
   {
@@ -52,7 +53,7 @@ export function ZipCards() {
           </h2>
         </Reveal>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <Carousel label="Three zip codes" slideLabels={zips.map((z) => z.code)}>
           {zips.map((z, i) => (
             <motion.a
               key={z.href}
@@ -63,7 +64,7 @@ export function ZipCards() {
               transition={{ duration: 0.55, delay: i * 0.1, ease }}
               whileHover={reduced ? undefined : { y: -6 }}
               whileTap={{ scale: 0.985 }}
-              className="group overflow-hidden rounded-2xl bg-navy text-cream shadow-lg"
+              className="group block h-full overflow-hidden rounded-2xl bg-navy text-cream shadow-lg"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
@@ -94,7 +95,7 @@ export function ZipCards() {
               </div>
             </motion.a>
           ))}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

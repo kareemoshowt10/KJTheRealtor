@@ -29,6 +29,7 @@
   
   <!-- Unified Navigation CSS -->
   <link rel="stylesheet" href="assets/nav-unified.css" />
+  <script src="/assets/kj-nav-fix.js"></script>
   <script src="assets/nav-unified.js" defer></script>
   
   <!-- Schema.org JSON-LD -->
@@ -378,6 +379,7 @@
   <script src="/contact-widget.js" defer></script>
   <script src="/progressive-form.js" defer></script>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body class="has-motion">
 
@@ -399,7 +401,7 @@
       </button>
       <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
         <a href="/">Home</a>
-        <a href="/buyers">Buy</a>
+        <a href="/buy">Buy</a>
         <a href="/sellers">Sell</a>
         <a href="/landlord-leasing">Landlords</a>
         <a href="/real-estate-partnerships">Invest</a>
@@ -485,7 +487,7 @@
             <span class="eyebrow">Hidden Hills Micro-markets</span>
             <h2 class="display-md">Exclusive Enclaves &amp; Sub-areas</h2>
           </div>
-          <div class="breakdown-grid">
+          <div class="breakdown-grid" data-kj-carousel data-kjc-per="4">
             <div class="breakdown-card" data-reveal style="--d:1">
               <h3>Round Meadow</h3>
               <p>Highly coveted historic section of Hidden Hills. Characterized by deep heritage oak trees, rolling grass meadows, large corrals, and timeless country architectural estates.</p>
@@ -701,7 +703,7 @@
         <div class="kj-eyebrow">The homeowner brief</div>
         <h2>What I actually know about Hidden Hills.</h2>
         <p class="kj-lede">A gated, equestrian, 1.7-square-mile city of roughly 648 home sites. Almost everything that governs your property here is unusual, so it pays to know the specifics.</p>
-        <div class="kj-facts">
+        <div class="kj-facts" data-kj-carousel data-kjc-per="3">
           <div class="kj-fact">
             <h3>Designed, not just developed</h3>
             <p>Hidden Hills was founded in 1950 by developer and landscape architect A.E. Hanson as a rural equestrian community, laid out with minimum one-acre lots and a bridle-trail network. Hanson's other work includes Palos Verdes Estates, Rolling Hills, and Harold Lloyd's Greenacres estate.</p>
@@ -1209,5 +1211,6 @@
         .catch(function () {});
     })();
   </script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

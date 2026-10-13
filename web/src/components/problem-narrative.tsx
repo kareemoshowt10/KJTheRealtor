@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/reveal";
+import { Carousel } from "@/components/ui/carousel";
 
 const DECISION_PILLARS = [
   {
@@ -52,11 +53,16 @@ export function ProblemNarrative() {
           </h2>
         </Reveal>
 
-        <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
+        <Carousel
+          label="Three ways to begin"
+          tone="dark"
+          className="mt-10"
+          slideLabels={DECISION_PILLARS.map((m) => m.title)}
+        >
           {DECISION_PILLARS.map((mark) => (
-            <StaggerItem
+            <div
               key={mark.title}
-              className="rounded-xl border border-cream/10 bg-navy-mist/60 p-6"
+              className="h-full rounded-xl border border-cream/10 bg-navy-mist/60 p-6"
             >
               <h3 className="font-display text-lg font-medium text-cream">
                 {mark.title}
@@ -64,9 +70,9 @@ export function ProblemNarrative() {
               <p className="mt-2.5 text-sm leading-relaxed text-cream/70">
                 {mark.body}
               </p>
-            </StaggerItem>
+            </div>
           ))}
-        </Stagger>
+        </Carousel>
 
         <div className="mt-16 grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-start">
           <Reveal>

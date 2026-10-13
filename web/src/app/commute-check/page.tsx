@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CommuteCheckPage() {
   return <>
-    <SiteHeader links={[{ href: "/", label: "Home" }, { href: "/buyer-fieldbook", label: "Buyer Fieldbook" }, { href: "#comparison", label: "Your comparison" }]} ctaHref="#review" ctaLabel="Ask Kareem" />
+    <SiteHeader links={[{ href: "/buy", label: "Buy a Home" }, { href: "/", label: "Home" }, { href: "/buyer-fieldbook", label: "Buyer Fieldbook" }, { href: "#comparison", label: "Your comparison" }]} ctaHref="#review" ctaLabel="Ask Kareem" />
     <CommuteCheck />
     <SiteFooter note="A home should fit your life, as well as your payment." />
   </>;

@@ -29,6 +29,7 @@
   
   <!-- Unified Navigation CSS -->
   <link rel="stylesheet" href="assets/nav-unified.css" />
+  <script src="/assets/kj-nav-fix.js"></script>
   <script src="assets/nav-unified.js" defer></script>
   
   <!-- Schema.org JSON-LD -->
@@ -378,6 +379,7 @@
   <script src="/contact-widget.js" defer></script>
   <script src="/progressive-form.js" defer></script>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body class="has-motion">
 
@@ -399,7 +401,7 @@
       </button>
       <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
         <a href="/">Home</a>
-        <a href="/buyers">Buy</a>
+        <a href="/buy">Buy</a>
         <a href="/sellers">Sell</a>
         <a href="/landlord-leasing">Landlords</a>
         <a href="/real-estate-partnerships">Invest</a>
@@ -485,7 +487,7 @@
             <span class="eyebrow">Encino Enclaves</span>
             <h2 class="display-md">Unique Enclaves &amp; Micro-markets</h2>
           </div>
-          <div class="breakdown-grid">
+          <div class="breakdown-grid" data-kj-carousel data-kjc-per="4">
             <div class="breakdown-card" data-reveal style="--d:1">
               <h3>Royal Oaks</h3>
               <p>One of the Valley's ultimate luxury estate enclaves, located South of the Boulevard. Known for oversized flat parcels, towering privacy hedges, and celebrity-level custom architectural estates.</p>
@@ -701,7 +703,7 @@
         <div class="kj-eyebrow">The homeowner brief</div>
         <h2>What I actually know about Encino.</h2>
         <p class="kj-lede">One of the oldest continuously documented places in the San Fernando Valley, and a neighborhood where the fire-zone answer genuinely depends on which street you are on.</p>
-        <div class="kj-facts">
+        <div class="kj-facts" data-kj-carousel data-kjc-per="3">
           <div class="kj-fact">
             <h3>The Valley's first recorded night</h3>
             <p>On August 5, 1769 the Portolá expedition crossed into the San Fernando Valley and camped two nights at a Tongva village on the site of today's Los Encinos State Historic Park. Fray Juan Crespí named the valley El Valle de Santa Catalina de Bolonia de Los Encinos.</p>
@@ -1213,5 +1215,6 @@
         .catch(function () {});
     })();
   </script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

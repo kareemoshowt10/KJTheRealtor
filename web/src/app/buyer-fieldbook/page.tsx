@@ -15,6 +15,7 @@ export default function BuyerFieldbookPage() {
     <>
       <SiteHeader
         links={[
+          { href: "/buy", label: "Buy a Home" },
           { href: "#fieldbook", label: "Buyer tools" },
           { href: "#buyer-contact", label: "Ask Kareem" },
           { href: "/", label: "Home" },

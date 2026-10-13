@@ -160,6 +160,7 @@
     .brand-name { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; color: var(--cream); }
     .brand-role { font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
+    @media (max-width: 1200px) { .nav-links { gap: 1.1rem; } }
     .nav-links > a {
       font-size: 0.88rem; font-weight: 500; color: rgba(250, 245, 238, 0.85);
       text-decoration: none; transition: color 0.2s var(--ease);
@@ -168,7 +169,7 @@
     .nav-cta {
       font-size: 0.85rem; font-weight: 600; color: var(--navy); background: var(--gold);
       text-decoration: none; padding: 0.65rem 1.2rem; border-radius: var(--radius-sm);
-      transition: background 0.2s var(--ease); white-space: nowrap;
+      transition: background 0.2s var(--ease); white-space: nowrap; flex-shrink: 0;
     }
     .nav-cta:hover { background: var(--gold-light); }
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; width: 42px; height: 42px; border-radius: var(--radius-sm); flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
@@ -574,6 +575,7 @@
 
   </style>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -592,6 +594,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="nav-links" id="site-nav" aria-label="Primary">
+        <a href="/buy">Buy a Home</a>
         <a href="/homeowners#library">The Library</a>
         <a href="/#method">The Method</a>
         <a href="/listings">Listings</a>
@@ -741,7 +744,7 @@
           <span class="eyebrow">Ground Truth</span>
           <h2 class="display" id="notes-heading">What locals know that <em>listings don&rsquo;t say.</em></h2>
         </div>
-        <div class="notes-grid">
+        <div class="notes-grid" data-kj-carousel data-kjc-per="3">
           <div class="note-card" data-reveal>
             <strong>South of the boulevard is a different rulebook, not just a different price</strong>
             <p>South of Ventura the land rises into the Santa Monica Mountains, and parcels there commonly sit inside the City&rsquo;s designated Hillside Area. That triggers the Baseline Hillside Ordinance, which governs grading, height and slope-density &mdash; in plain terms, how much house the land will let you build. Homes south of Ventura Boulevard are among the most expensive in Los Angeles County, and the ordinance is part of why.</p>
@@ -876,7 +879,7 @@
         <div class="kj-eyebrow">The homeowner brief</div>
         <h2>What I actually know about Tarzana.</h2>
         <p class="kj-lede">The boulevard, the ordinances on either side of it, and the details that decide what a parcel here can actually become.</p>
-        <div class="kj-facts">
+        <div class="kj-facts" data-kj-carousel data-kjc-per="3">
           <div class="kj-fact">
             <h3>The name came out of a novel</h3>
             <p>Edgar Rice Burroughs bought a west San Fernando Valley ranch in 1919 from the estate of General Harrison Gray Otis and named it Tarzana Ranch, after the character who made him famous. He subdivided part of it in 1923, and when a post office was established in 1930 the residents voted on the community&rsquo;s name. Tarzana won.</p>
@@ -1312,5 +1315,6 @@
         .catch(function () {});
     })();
   </script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

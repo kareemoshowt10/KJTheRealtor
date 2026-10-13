@@ -1,3 +1,5 @@
+import { Carousel } from "@/components/ui/carousel";
+
 const cards = [
   {
     tag: "The land is the asset",
@@ -46,11 +48,15 @@ export function ChatsworthOwners() {
             in. These moves are for families who already hold the land.
           </p>
         </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        <Carousel
+          label="The 91311 owner's playbook"
+          className="mt-10"
+          slideLabels={cards.map((c) => c.tag)}
+        >
           {cards.map((c) => (
             <article
               key={c.title}
-              className="rounded-2xl border border-[#e3d8c7] bg-white p-6 shadow-sm transition hover:border-gold/60"
+              className="flex h-full flex-col rounded-2xl border border-[#e3d8c7] bg-white p-6 shadow-sm transition hover:border-gold/60"
             >
               <p className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-gold-deep">
                 {c.tag}
@@ -59,13 +65,13 @@ export function ChatsworthOwners() {
               <p className="mt-2 text-sm leading-relaxed text-slateink">{c.body}</p>
               <a
                 href={c.href}
-                className="mt-4 inline-block text-sm font-semibold text-gold-deep hover:underline"
+                className="mt-auto inline-block pt-4 text-sm font-semibold text-gold-deep hover:underline"
               >
                 {c.link}
               </a>
             </article>
           ))}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

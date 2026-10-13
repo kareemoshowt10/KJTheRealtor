@@ -34,6 +34,7 @@
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
+  <script src="/assets/kj-nav-fix.js"></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -2065,6 +2066,7 @@ body {
   <script src="/contact-widget.js" defer></script>
   <script src="/progressive-form.js" defer></script>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body>
   <a class="skip-link" href="#top">Skip to main content</a>
@@ -2091,7 +2093,7 @@ body {
       </button>
       <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
         <a href="/">Home</a>
-        <a href="/buyers">Buy</a>
+        <a href="/buy">Buy</a>
         <a href="/sellers">Sell</a>
         <a href="/landlord-leasing">Landlords</a>
         <a href="/real-estate-partnerships">Invest</a>
@@ -2205,7 +2207,7 @@ body {
           </article>
         </div>
 
-        <div class="strategy-timeline">
+        <div class="strategy-timeline" data-kj-carousel data-kjc-per="3">
           <div class="timeline-step" data-step="01" data-reveal>
             <h4>Strategic Preparation</h4>
             <p>We audit every corner of the property to ensure it is ready for the market. Minor tweaks often lead to major equity gains.</p>
@@ -2234,7 +2236,7 @@ body {
           </p>
         </div>
 
-        <div class="playbook-timeline">
+        <div class="playbook-timeline" data-kj-carousel data-kjc-per="3">
           <div class="playbook-step" data-week="1" data-reveal>
             <span class="week-tag">Week One</span>
             <h3>Price from a real CMA</h3>
@@ -2315,7 +2317,7 @@ body {
           <p class="section-copy">No fluff, no email required. Click any guide to read it right here. More guides will be added regularly as the most useful topics come up in real client conversations.</p>
         </div>
 
-        <div class="guides-grid" data-reveal>
+        <div class="guides-grid" data-kj-carousel data-kjc-per="3" data-reveal>
 
           <!-- ── GUIDE 1: BUYING ─────────────────── -->
           <article class="guide-card" data-guide>
@@ -3095,5 +3097,6 @@ body {
   </style>
   <script>(function(){var b=document.getElementById('kjScrollBar');if(!b)return;var t=false;function u(){t=false;var h=document.documentElement,m=(h.scrollHeight-h.clientHeight),y=window.pageYOffset||h.scrollTop||document.body.scrollTop||0;b.style.transform='scaleX('+(m>0?Math.min(y/m,1):0)+')';}function q(){if(!t){t=true;requestAnimationFrame(u);}}addEventListener('scroll',q,{passive:true});addEventListener('resize',q,{passive:true});u();})();</script>
   <script src="/assets/kj-interactive.js" defer></script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

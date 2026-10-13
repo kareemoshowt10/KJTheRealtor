@@ -16,7 +16,7 @@ import type { MetadataRoute } from "next";
  */
 
 /** Highest intent: the routes that should rank and convert. */
-const PRIMARY = ["/", "/91311", "/93063", "/91304"];
+const PRIMARY = ["/", "/buy", "/91311", "/93063", "/91304"];
 
 /** Neighborhood / local-intent pages. */
 const LOCAL = [

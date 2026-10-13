@@ -425,6 +425,7 @@
       [data-reveal] { opacity: 1; transform: none; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -443,6 +444,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="nav-links" id="site-nav" aria-label="Primary">
+        <a href="/buy">Buy a Home</a>
         <a href="/homeowners#library">The Library</a>
         <a href="/answers">Answers</a>
         <div class="nav-zip" id="nav-zip">
@@ -617,7 +619,7 @@
           <h2 class="display" id="seasons-heading">An hour a season saves <em>a fortune a decade.</em></h2>
           <p class="lead">Southern California is easy on homes compared to most places &mdash; but easy isn&rsquo;t nothing. Here&rsquo;s the short, honest list, by season.</p>
         </div>
-        <div class="season-grid">
+        <div class="season-grid" data-kj-carousel data-kjc-per="4">
           <article class="season-card" data-reveal>
             <span class="season-tag">Spring</span>
             <h3>Reset &amp; inspect</h3>
@@ -670,7 +672,7 @@
           <h2 class="display" id="lib-heading">The free resources <em>owners actually use.</em></h2>
           <p class="lead">Every one is free, no gate. Built for the years you&rsquo;re living in the home, not just the day you list it.</p>
         </div>
-        <div class="invlib-grid">
+        <div class="invlib-grid" data-kj-carousel data-kjc-per="3">
           <a class="invlib-card" href="/contractor-handyman-guide" data-reveal>
             <span class="lib-tag">Hiring</span>
             <h3>Handyman or Contractor?</h3>
@@ -1051,5 +1053,6 @@
     })();
   </script>
   <script src="/track.js" defer></script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

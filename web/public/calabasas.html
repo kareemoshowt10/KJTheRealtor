@@ -29,6 +29,7 @@
   
   <!-- Unified Navigation CSS -->
   <link rel="stylesheet" href="assets/nav-unified.css" />
+  <script src="/assets/kj-nav-fix.js"></script>
   <script src="assets/nav-unified.js" defer></script>
   
   <!-- Schema.org JSON-LD -->
@@ -374,6 +375,7 @@
   <script src="/contact-widget.js" defer></script>
   <script src="/progressive-form.js" defer></script>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
+  <link rel="stylesheet" href="/assets/kj-carousel.css">
 </head>
 <body class="has-motion">
 
@@ -395,7 +397,7 @@
       </button>
       <nav class="nav-links" id="site-nav" aria-label="Primary navigation">
         <a href="/">Home</a>
-        <a href="/buyers">Buy</a>
+        <a href="/buy">Buy</a>
         <a href="/sellers">Sell</a>
         <a href="/landlord-leasing">Landlords</a>
         <a href="/real-estate-partnerships">Invest</a>
@@ -481,7 +483,7 @@
             <span class="eyebrow">Calabasas Sub-areas</span>
             <h2 class="display-md">Unique Enclaves &amp; Micro-markets</h2>
           </div>
-          <div class="breakdown-grid">
+          <div class="breakdown-grid" data-kj-carousel data-kjc-per="4">
             <div class="breakdown-card" data-reveal style="--d:1">
               <h3>The Oaks</h3>
               <p>The premier guard-gated luxury development in Calabasas. Offering custom estates, premium amenities, private parks, and absolute celebrity-level security.</p>
@@ -697,7 +699,7 @@
         <div class="kj-eyebrow">The homeowner brief</div>
         <h2>What I actually know about Calabasas.</h2>
         <p class="kj-lede">Not the brochure version. The dates, the districts, and the details that change how you buy, sell, or hold a home here.</p>
-        <div class="kj-facts">
+        <div class="kj-facts" data-kj-carousel data-kjc-per="3">
           <div class="kj-fact">
             <h3>A young city on old land</h3>
             <p>Calabasas incorporated on April 5, 1991, making it the newest city in Los Angeles County at the time. The land is far older: the Leonis Adobe, built in 1844, is among the oldest surviving buildings in the San Fernando Valley and was named Los Angeles Historic-Cultural Monument No. 1 in 1962.</p>
@@ -1205,5 +1207,6 @@
         .catch(function () {});
     })();
   </script>
+  <script src="/assets/kj-carousel.js" defer></script>
 </body>
 </html>

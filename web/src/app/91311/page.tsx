@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 };
 
 const navLinks = [
+  { href: "/buy", label: "Buy a Home" },
   { href: "#pockets", label: "Pockets" },
   { href: "#family-table", label: "Families" },
   { href: "#owners", label: "Owners" },

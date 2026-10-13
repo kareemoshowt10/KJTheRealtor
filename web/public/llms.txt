@@ -75,6 +75,9 @@ The purpose behind the combination: use real estate and technology as a vehicle 
   - Watch Kareem compare a competing ISP offer and negotiate with retention
   - Fill in a bill snapshot, estimate the annual price gap, and prepare a one-tap text for personal help
   - Demonstrates Kareem's technology discipline and give-first homeowner service before any real-estate transaction
+- Spectrum Bill Script (free, no gate, interactive): https://kareemjamaltherealtor.com/isp
+  - A do-it-yourself version of the ISP guide, specific to Spectrum: the reader enters their own tenure, bill, speed, equipment fee and competitor quote, and every script line on the page rewrites itself with those numbers
+  - Six steps: prep, competitor quote, the retention call, objection handling, removing the equipment/Wi-Fi rental, and getting the terms in writing; includes a six-month re-negotiation calendar reminder
 - Rate-Buydown Negotiation Guide (free, no gate): https://kareemjamaltherealtor.com/rate-buydown-guide
   - Watch Kareem negotiate a seller-paid rate buydown message by message: lender math first, then the listing-agent ask, pushback handling, and contract language
   - Core teaching: the same seller dollars usually lower the monthly payment far more as a rate buydown than as a price cut; includes a live two-scenario payment calculator
@@ -115,6 +118,7 @@ The purpose behind the combination: use real estate and technology as a vehicle 
 - Wealth tools (calculators): https://kareemjamaltherealtor.com/wealth-tools
 - Free reports: https://kareemjamaltherealtor.com/free-reports
 - Internet bill conversation guide: https://kareemjamaltherealtor.com/internet-bill-guide
+- Spectrum bill script (interactive, DIY): https://kareemjamaltherealtor.com/isp
 - Woodland Hills community: https://kareemjamaltherealtor.com/woodland-hills
 - Calabasas community: https://kareemjamaltherealtor.com/calabasas
 - Hidden Hills community: https://kareemjamaltherealtor.com/hidden-hills

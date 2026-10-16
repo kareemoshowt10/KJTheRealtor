@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Thoughtful Way to Sell — Seller Walkthrough | Kareem Jamal</title>
-  <meta name="description" content="A guided seller walkthrough covering home preparation, pricing factors, estimated costs, and the sale timeline. Explore the steps at your own pace." />
+  <title>Home Selling Costs &amp; Net Proceeds in the San Fernando Valley | Kareem Jamal</title>
+  <meta name="description" content="Explore the home-selling process in the San Fernando Valley. Adjust sale price, payoff, and costs in a free net-proceeds estimate. No sign-up required." />
   <link rel="canonical" href="https://kareemjamaltherealtor.com/seller-presentation" />
   <link rel="icon" href="/assets/favicon-jamal.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="A Thoughtful Way to Sell — Seller Walkthrough | Kareem Jamal" />
-  <meta property="og:description" content="Explore home preparation, pricing factors, estimated costs, and the sale timeline in a guided seller walkthrough." />
+  <meta property="og:title" content="A Clearer Picture of Your Home Sale | Kareem Jamal" />
+  <meta property="og:description" content="Explore the choices behind a home sale and adjust a free net-proceeds estimate. No sign-up required." />
   <meta property="og:url" content="https://kareemjamaltherealtor.com/seller-presentation" />
   <meta property="og:image" content="https://kareemjamaltherealtor.com/assets/cliffside-sunset.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A Clearer Picture of Your Home Sale | Kareem Jamal" />
+  <meta name="twitter:description" content="A free seller walkthrough and editable net-proceeds estimate. No sign-up required." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -426,6 +429,10 @@
     details.assump summary .ic { width: 18px; height: 18px; }
 
     .disclaimer { font-size: 0.76rem; color: var(--muted); line-height: 1.55; margin-top: 1rem; }
+    .consent-line { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: 1rem; font-size: 0.82rem; line-height: 1.5; color: var(--muted); cursor: pointer; }
+    .consent-line input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 0.15rem; accent-color: var(--navy); }
+    .form-error { display: none; margin-top: 0.35rem; font-size: 0.76rem; font-weight: 600; color: var(--terracotta); }
+    .form-error.show { display: block; }
 
     /* ───────────────────────── Timeline (full) ───────────────────────── */
     .phases { display: grid; gap: 0; position: relative; }
@@ -558,7 +565,6 @@
     ::-webkit-scrollbar-thumb:hover { background: var(--gold-deep); background-clip: padding-box; }
   </style>
   <script src="/track.js" defer></script>
-  <script src="/contact-widget.js" defer></script>
   <script src="/progressive-form.js" defer></script>
   <link rel="stylesheet" href="/assets/kj-interactive.css" />
 </head>
@@ -580,7 +586,7 @@
           <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span class="num">(818) 402-7326</span>
         </a>
-        <a class="header-cta" href="#book" data-goto="last">Book a Call</a>
+        <a class="header-cta" href="#book" data-goto="last">Ask Kareem</a>
       </div>
     </div>
   </header>
@@ -609,6 +615,7 @@
             </button>
             <a class="btn btn-ghost" href="tel:+18184027326" style="color:#fff;border-color:rgba(255,255,255,0.55)">Talk it through with Kareem</a>
           </div>
+          <p style="margin-top:1rem;font-size:0.9rem;color:rgba(255,255,255,0.82)">Just need the numbers? <a href="/seller-presentation?start=net" style="color:#fff;text-decoration:underline;text-underline-offset:4px">Go straight to the net-proceeds estimate →</a></p>
           <div class="intro-meta">
             <div class="m"><b>7 steps</b><span>Guided, self-paced</span></div>
             <div class="m"><b>~3 min</b><span>Start to finish</span></div>
@@ -870,7 +877,7 @@
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 4 of 7</span></span>
           <h2>What you'd <em>actually walk away with.</em></h2>
-          <p class="lede">Adjust any number to see your estimated net proceeds update live. Defaults are typical California figures — your real costs depend on your specific transaction.</p>
+          <p class="lede">Enter a possible sale price and payoff. Adjust every cost to see how the estimate changes. The starting numbers are examples, not market averages, a quote, or a recommendation.</p>
         </div>
 
         <div class="np-grid">
@@ -895,7 +902,7 @@
                 <div class="field">
                   <label for="np-comm">Total commission %</label>
                   <input type="number" id="np-comm" min="0" max="10" step="0.1" value="5" data-np="comm" inputmode="decimal" />
-                  <p class="hint">Negotiable; split between agents.</p>
+                  <p class="hint">Fully negotiable. The 5% starting value is only a modeling placeholder, not a standard rate or quote.</p>
                 </div>
                 <div class="field">
                   <label for="np-closing">Closing costs %</label>
@@ -919,9 +926,9 @@
               <div class="np-waterfall" id="npWaterfall" aria-hidden="true"></div>
               <div class="np-lines" id="npLines"></div>
               <div class="np-peak" id="npPeak">
-                <p class="pk-line">This is an estimate. Kareem confirms your real net — free, usually within a day.</p>
+                <p class="pk-line">This is an illustration. Kareem can help build an address-specific net sheet with actual quotes and payoff details.</p>
                 <div class="pk-actions">
-                  <button class="chip-cta solid" id="peakCmaBtn" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Get the real number</button>
+                  <button class="chip-cta solid" id="peakCmaBtn" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Ask for a net sheet</button>
                   <a class="chip-cta" id="peakSmsBtn" data-sms href="#" style="border-color:rgba(255,255,255,0.5);color:#fff;background:transparent"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text me this</a>
                 </div>
               </div>
@@ -1068,7 +1075,7 @@
     </section>
 
     <!-- ===== STEP 7 — Book ===== -->
-    <section class="step" id="step-7" data-title="Book a Call">
+    <section class="step" id="step-7" data-title="Ask Kareem">
       <div class="container" id="book">
         <div class="step-head" data-reveal>
           <span class="kicker"><span class="step-no">Step 7 of 7</span></span>
@@ -1086,7 +1093,7 @@
             <div class="trust-band">
               <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg><b>Fine Estates</b><span>Rodeo Realty</span></div>
               <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><b>Licensed</b><span>CA DRE #01998956</span></div>
-              <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><b>Replies same day</b><span>Free, no obligation</span></div>
+              <div class="tb"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><b>Personal reply</b><span>Free, no obligation</span></div>
             </div>
           </div>
 
@@ -1104,27 +1111,30 @@
               </div>
               <div class="field-row cols-2">
                 <div class="field">
-                  <label for="lf-phone">Phone</label>
-                  <input type="tel" id="lf-phone" required autocomplete="tel" aria-describedby="err-phone" />
-                  <span class="err" id="err-phone" role="alert">A phone number lets Kareem reach you fastest.</span>
+                  <label for="lf-phone">Phone <span class="hint">(or use email)</span></label>
+                  <input type="tel" id="lf-phone" autocomplete="tel" aria-describedby="err-phone" />
+                  <span class="err" id="err-phone" role="alert">Add a phone number or email address.</span>
                 </div>
                 <div class="field">
-                  <label for="lf-email">Email <span class="hint">(optional)</span></label>
-                  <input type="email" id="lf-email" autocomplete="email" />
+                  <label for="lf-email">Email <span class="hint">(or use phone)</span></label>
+                  <input type="email" id="lf-email" autocomplete="email" aria-describedby="err-email" />
+                  <span class="err" id="err-email" role="alert">Enter a valid email address.</span>
                 </div>
               </div>
               <div class="field">
                 <label for="lf-msg">Anything Kareem should know? <span class="hint">(optional)</span></label>
                 <textarea id="lf-msg" rows="3" placeholder="Timing, goals, questions…"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary" style="width:100%">Build my snapshot</button>
-              <p class="disclaimer">Kareem personally replies within a few hours — usually faster. No spam, ever.</p>
+              <label class="consent-line" for="lf-consent"><input type="checkbox" id="lf-consent" aria-describedby="err-consent" /><span>Yes, Kareem may use the contact method I provided to reply to this request. No mailing list.</span></label>
+              <p class="form-error" id="err-consent" role="alert">Please confirm Kareem may reply to your request.</p>
+              <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1rem">Send my snapshot to Kareem</button>
+              <p class="disclaimer">Your estimate stays on this device unless you choose to send it. See the <a href="/privacy">privacy notice</a>.</p>
             </form>
 
             <div class="form-success" id="formSuccess">
               <div class="check"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg></div>
-              <h3 class="center" style="font-family:'Archivo',sans-serif;font-size:1.7rem;font-weight:800;margin-bottom:0.4rem">Your snapshot is ready.</h3>
-              <p class="muted center" id="successMsg" style="margin-bottom:1.2rem">Choose how to send it to Kareem — pick whichever is easiest for you.</p>
+              <h3 class="center" id="formStatusTitle" style="font-family:'Archivo',sans-serif;font-size:1.7rem;font-weight:800;margin-bottom:0.4rem">Sending your request…</h3>
+              <p class="muted center" id="successMsg" role="status" aria-live="polite" style="margin-bottom:1.2rem">Please wait while your request is sent.</p>
               <div class="success-actions">
                 <a class="btn btn-dark btn-sm" id="mailtoBtn" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>Email it</a>
                 <a class="btn btn-primary btn-sm" id="smsBtn" href="#"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text it</a>
@@ -1247,7 +1257,7 @@
     }
 
     // ---------- Stepper ----------
-    var STEP_TITLES = ["Your Home", "Pricing", "Marketing", "Proceeds", "Timeline", "Why Kareem", "Book"];
+    var STEP_TITLES = ["Your Home", "Pricing", "Marketing", "Proceeds", "Timeline", "Why Kareem", "Ask Kareem"];
     var CHECK = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>';
     function buildStepper() {
       var ul = $("#stepper"); ul.innerHTML = "";
@@ -1485,7 +1495,7 @@
       else animateNumber(bigEl, r.net, fmt);
 
       var keep = $("#npKeep");
-      if (r.price > 0) {
+      if (r.price > 0 && r.net > 0) {
         var pct = Math.round(r.net / r.price * 100);
         keep.style.display = "inline-flex";
         keep.innerHTML = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>You keep ~' + pct + '% of the sale price';
@@ -1502,6 +1512,11 @@
 
       // line items (waterfall in tabular form)
       var lines = $("#npLines"); lines.innerHTML = "";
+      if (!r.price) {
+        clearTimeout(renderNet._t);
+        $("#npLive").textContent = "";
+        return;
+      }
       function row(k, v, c, cls) {
         var el = document.createElement("div"); el.className = "np-line" + (cls ? " " + cls : "");
         el.innerHTML = '<span class="lk">' + (c ? '<span class="swatch" style="background:' + c + '"></span>' : "") + k + "</span>" +
@@ -1585,9 +1600,9 @@
       computeEstimate();
       ensureNpDefaults();
       var rows = $("#recapRows");
-      var hasData = state.area || state.sqft || state.beds;
+      var hasData = state.area || state.sqft || state.beds || state.np.price || state.np.payoff;
       if (!hasData) {
-        rows.innerHTML = '<p class="recap-empty">Tell Kareem how to reach you and he\'ll call within the day with a free, no-obligation strategy for your home. Or start at Step 1 to build your personalized snapshot.</p>';
+        rows.innerHTML = '<p class="recap-empty">Start at Step 1 to build a more useful snapshot, or send Kareem your question below for a personal reply.</p>';
         return;
       }
       var r = calcNet(); var html = "";
@@ -1603,49 +1618,71 @@
       rows.innerHTML = html;
     }
 
-    // Guaranteed lead delivery via Formspree (AJAX). Falls back silently to the
-    // Email/Text/Copy buttons if the request fails.
+    // Only confirm delivery after Formspree accepts the request.
+    // If delivery fails, show the manual Email/Text options clearly.
     var FORMSPREE = "https://formspree.io/f/xnjlgvlk";
     function sendToFormspree(name, phone, email, msg, first) {
-      var hp = $("#lf-hp");
-      if (hp && hp.value) return; // honeypot tripped — likely a bot
       var sub = $("#successMsg");
+      var title = $("#formStatusTitle");
       var payload = {
         name: name,
-        phone: phone,
+        phone: phone || "(not provided)",
         email: email || "(not provided)",
-        _replyto: email || EMAIL,
         goal: "Selling / Listing",
         _subject: "New listing-strategy lead — " + (state.area || "seller"),
         message: snapshotLines(name, phone, email, msg)
       };
+      if (email) payload._replyto = email;
+      var attribution = window.kjAttribution;
+      if (attribution && attribution.first && attribution.last) {
+        var firstTouch = attribution.first, lastTouch = attribution.last;
+        payload.lead_source = lastTouch.lead_source || "direct";
+        payload.first_touch_source = firstTouch.lead_source || "direct";
+        payload.landing_page = firstTouch.landing_page || "";
+        payload.submitted_from = location.pathname;
+        ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid", "referrer"].forEach(function (key) {
+          if (lastTouch[key]) payload[key] = lastTouch[key];
+        });
+      }
       fetch(FORMSPREE, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(payload)
       }).then(function (res) {
         if (!res || !res.ok) throw new Error("formspree " + (res && res.status));
-        sub.textContent = "Thanks, " + first + "! ✓ Kareem has your details and will reach out shortly — usually within a few hours. Want to send it yourself too? Use the options below.";
+        title.textContent = "Your request was sent.";
+        sub.textContent = "Thanks, " + first + ". Kareem has your snapshot and can reply using the contact method you provided. You can also keep a copy below.";
+        if (typeof window.kjTrack === "function") window.kjTrack("generate_lead", { form_id: "leadForm", form_source: "seller-presentation", lead_source: payload.lead_source || "unreported" });
       }).catch(function () {
-        sub.textContent = "Thanks, " + first + "! Tap below to send your snapshot straight to Kareem — whichever is easiest.";
+        title.textContent = "Your request was not sent yet.";
+        sub.textContent = "The form could not deliver your snapshot. Please use Email or Text below to send it yourself.";
       });
     }
 
     function validateForm() {
       var ok = true;
-      [["lf-name", "err-name"], ["lf-phone", "err-phone"]].forEach(function (pair) {
-        var inp = $("#" + pair[0]), err = $("#" + pair[1]);
-        if (!inp.value.trim()) { inp.setAttribute("aria-invalid", "true"); err.classList.add("show"); if (ok) inp.focus(); ok = false; }
-        else { inp.removeAttribute("aria-invalid"); err.classList.remove("show"); }
-      });
+      var name = $("#lf-name"), phone = $("#lf-phone"), email = $("#lf-email"), consent = $("#lf-consent");
+      function mark(input, error, bad) {
+        input.setAttribute("aria-invalid", bad ? "true" : "false");
+        error.classList.toggle("show", bad);
+        if (bad && ok) { input.focus(); ok = false; }
+      }
+      mark(name, $("#err-name"), !name.value.trim());
+      var noContact = !phone.value.trim() && !email.value.trim();
+      var badPhone = !!phone.value.trim() && phone.value.replace(/\D/g, "").length < 7;
+      $("#err-phone").textContent = badPhone ? "Enter a phone number with at least 7 digits." : "Add a phone number or email address.";
+      mark(phone, $("#err-phone"), noContact || badPhone);
+      mark(email, $("#err-email"), !!email.value.trim() && !email.checkValidity());
+      mark(consent, $("#err-consent"), !consent.checked);
       return ok;
     }
     function bindForm() {
-      ["lf-name", "lf-phone"].forEach(function (id) {
+      ["lf-name", "lf-phone", "lf-email", "lf-consent"].forEach(function (id) {
         $("#" + id).addEventListener("input", function () { this.removeAttribute("aria-invalid"); var e = $("#err-" + id.split("-")[1]); if (e) e.classList.remove("show"); });
       });
       $("#leadForm").addEventListener("submit", function (e) {
         e.preventDefault();
+        if ($("#lf-hp").value) return;
         if (!validateForm()) return;
         var name = $("#lf-name").value.trim(), phone = $("#lf-phone").value.trim(),
             email = $("#lf-email").value.trim(), msg = $("#lf-msg").value.trim();
@@ -1655,7 +1692,8 @@
         $("#copyBtn")._body = snapshotLines(name, phone, email, msg);
         $("#leadForm").style.display = "none";
         $("#formSuccess").classList.add("show");
-        $("#successMsg").textContent = "Thanks, " + first + "! Sending your details to Kareem…";
+        $("#formStatusTitle").textContent = "Sending your request…";
+        $("#successMsg").textContent = "Please wait while your snapshot is sent to Kareem.";
         $("#formSuccess").scrollIntoView({ block: "center", behavior: REDUCE ? "auto" : "smooth" });
         sendToFormspree(name, phone, email, msg, first);
       });
@@ -1719,7 +1757,8 @@
         if (e.key === "ArrowLeft" && current > 1) goTo(current - 1);
       });
 
-      goTo(current || 0);
+      var start = new URLSearchParams(window.location.search).get("start");
+      goTo(start === "net" ? 4 : (current || 0));
     }
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
     else init();

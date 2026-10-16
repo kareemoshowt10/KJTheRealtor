@@ -47,6 +47,36 @@ type Props = {
 
 const FORMSPREE = "https://formspree.io/f/xnjlgvlk";
 
+type AttributionFields = Record<string, unknown>;
+
+function addLeadAttribution(formData: FormData) {
+  const attribution = (window as Window & {
+    kjAttribution?: { first?: AttributionFields; last?: AttributionFields };
+  }).kjAttribution;
+  const first = attribution?.first;
+  const last = attribution?.last;
+  const fields: AttributionFields = {
+    lead_source: last?.lead_source,
+    first_touch_source: first?.lead_source,
+    utm_source: last?.utm_source,
+    utm_medium: last?.utm_medium,
+    utm_campaign: last?.utm_campaign,
+    utm_term: last?.utm_term,
+    utm_content: last?.utm_content,
+    gclid: last?.gclid,
+    fbclid: last?.fbclid,
+    referrer: last?.referrer,
+    landing_page: first?.landing_page,
+    submitted_from: window.location.pathname,
+  };
+
+  for (const [name, value] of Object.entries(fields)) {
+    if (typeof value === "string" && value.trim()) {
+      formData.set(name, value.slice(0, 200));
+    }
+  }
+}
+
 const fieldClass =
   "mt-1.5 w-full rounded-md border border-[#e3d8c7] bg-white px-3 py-2.5 text-base text-navy outline-none transition-shadow duration-200 focus:border-gold-deep focus:ring-2 focus:ring-gold/35 focus:shadow-[0_0_0_4px_rgba(201,168,76,0.12)]";
 
@@ -58,7 +88,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
  */
 export function LeadForm({
   title,
-  subtitle = "Takes 30 seconds. Replied to personally, usually same day.",
+  subtitle = "A short note. Kareem replies personally.",
   subject,
   source,
   hiddenFields,
@@ -159,6 +189,8 @@ export function LeadForm({
       return;
     }
 
+    addLeadAttribution(fd);
+
     setStatus("sending");
     setErrorMsg("");
 
@@ -217,8 +249,8 @@ export function LeadForm({
         </div>
         <h3 className="mt-5 font-display text-2xl font-medium">Got it.</h3>
         <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-slateink">
-          Your note is in my inbox. I reply personally — usually the same day on
-          weekdays. No drip sequence, no shared list.
+          Your note is in my inbox. I reply personally. No drip sequence or
+          shared list.
         </p>
         <p className="mt-6 text-sm text-slateink">
           Urgent?{" "}

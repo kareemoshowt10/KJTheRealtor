@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, BookOpen, Check, Download, Printer, Upload } from "lucide-react";
+import { ArrowDown, ArrowRight, BookOpen, Check, Download, Printer, Share2, Upload } from "lucide-react";
 import { LeadForm } from "@/components/lead-form";
 import styles from "@/components/buyer-fieldbook.module.css";
 import {
@@ -19,6 +19,7 @@ import {
 } from "@/lib/buyer-fieldbook";
 
 const tools = ["Plan your cash", "Compare homes", "Track your steps", "Know the language"];
+const guideUrl = "https://kareemjamaltherealtor.com/buyer-fieldbook";
 const currency = (amount: number) =>
   new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(amount);
 
@@ -27,6 +28,7 @@ export function BuyerFieldbook() {
   const [selected, setSelected] = useState(0);
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("");
+  const [shareStatus, setShareStatus] = useState("");
   const [changed, setChanged] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const cash = calculateBuyerCash(data.cash);
@@ -48,6 +50,27 @@ export function BuyerFieldbook() {
     window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
     setChanged(false);
     setStatus("A saved copy was requested. Keep that file private. You can reopen it here later.");
+  };
+
+  const shareGuide = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "Free Homebuyer Fieldbook | Kareem Jamal",
+          text: "A free guide for planning cash, comparing homes, and keeping track of the buying process.",
+          url: guideUrl,
+        });
+        setShareStatus("Guide link shared. Your private Fieldbook entries were not included.");
+      } else if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(guideUrl);
+        setShareStatus("Guide link copied. Your private Fieldbook entries were not included.");
+      } else {
+        setShareStatus(`Copy this guide link: ${guideUrl}. Your private entries are not included.`);
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      setShareStatus(`Copy this guide link: ${guideUrl}. Your private entries are not included.`);
+    }
   };
 
   const openCopy = async (file?: File) => {
@@ -83,7 +106,11 @@ export function BuyerFieldbook() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-light">First home · Next home · Your home</p>
             <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium leading-[1.04] tracking-tight md:text-7xl">Make the move.<br /><em className="font-normal text-gold-light">Keep your bearings.</em></h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/75">A free working notebook for the decisions between “maybe” and moving day. Use as much or as little as you need. No sign-up.</p>
-            <a href="#fieldbook" className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-md bg-gold px-5 py-3 font-semibold text-navy hover:bg-gold-light">Open my Buyer Fieldbook <ArrowDown size={17} /></a>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#fieldbook" className="inline-flex min-h-12 items-center gap-2 rounded-md bg-gold px-5 py-3 font-semibold text-navy hover:bg-gold-light">Open my Buyer Fieldbook <ArrowDown size={17} /></a>
+              <button type="button" onClick={() => void shareGuide()} className="inline-flex min-h-12 items-center gap-2 rounded-md border border-cream/45 px-5 py-3 font-semibold text-cream hover:border-gold-light hover:text-gold-light"><Share2 size={17} /> Share this free guide</button>
+            </div>
+            {shareStatus && <p role="status" className="mt-3 max-w-xl text-sm text-gold-light">{shareStatus}</p>}
             <p className="mt-4 text-sm text-cream/55">For first-time buyers, growing households, relocations, and the next chapter.</p>
           </div>
           <div className="border-l border-gold/35 pl-6 md:pl-8">

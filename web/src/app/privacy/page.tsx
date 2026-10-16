@@ -31,7 +31,7 @@ export default function PrivacyPage() {
             How your information is used
           </h1>
           <p className="mt-3 text-sm text-slateink">
-            Last updated: July 22, 2026
+            Last updated: October 16, 2026
           </p>
 
           <div className="mt-10 space-y-8 text-[0.95rem] leading-relaxed text-slateink">
@@ -74,11 +74,12 @@ export default function PrivacyPage() {
                 What we collect
               </h2>
               <p className="mt-2">
-                When you use a contact form, you may provide: name, email, phone
-                (optional), message content, topic chips you select, and technical
-                metadata (page URL, source label, approximate time of submission).
-                Forms are processed by our form provider (Formspree) and delivered
-                to Kareem&apos;s business inbox.
+                When you use a contact form, you may provide: name, email or
+                phone, message content, and topic chips you select. A submitted
+                inquiry may also include its landing page, submission page,
+                referral source, and campaign tags. Forms are processed by our
+                form provider (Formspree) and delivered to Kareem&apos;s business
+                inbox.
               </p>
             </section>
 
@@ -88,9 +89,8 @@ export default function PrivacyPage() {
               </h2>
               <p className="mt-2">
                 We use your information only to respond to the inquiry you
-                submitted — typically <strong>one personal reply</strong> on the
-                channel you chose (email, and phone/text only if you provided a
-                number and asked for a call/text). We do{" "}
+                submitted — typically <strong>one personal reply</strong> using
+                the contact method you provided and authorized. We do{" "}
                 <strong>not</strong> sell your data, add you to a marketing drip,
                 or share lists with third-party lead buyers.
               </p>
@@ -118,11 +118,14 @@ export default function PrivacyPage() {
                 Cookies &amp; analytics
               </h2>
               <p className="mt-2">
-                This hybrid site may use essential hosting cookies (e.g. Vercel)
-                and, if configured, privacy-conscious analytics or tag managers to
-                understand page performance. We do not use advertising retargeting
-                pixels by default on these pages. If third-party tools are added
-                later, this notice will be updated.
+                This site uses first-party browser storage to remember the source
+                of a visit: local storage for the first touch and session storage
+                for the most recent touch. The source can include a referring site,
+                campaign tags, and the landing page. These details are included
+                with a contact form only when you choose to submit it. Hosting
+                services may use essential cookies. We do not use advertising
+                retargeting pixels by default on these pages. If third-party
+                analytics tools are added later, this notice will be updated.
               </p>
             </section>
 

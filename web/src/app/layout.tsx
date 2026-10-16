@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import Script from "next/script";
 import { ContactWidget } from "@/components/contact-widget";
 import "./globals.css";
 
@@ -73,6 +74,7 @@ export default function RootLayout({
         {children}
         {/* First-visit chat opens front-and-center; then floating avatar site-wide */}
         <ContactWidget />
+        <Script src="/track.js" strategy="afterInteractive" />
       </body>
     </html>
   );

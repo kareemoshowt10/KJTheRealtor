@@ -43,6 +43,9 @@ export function SiteFooter({
             <Link href="/buyer-fieldbook" className="block py-1 hover:text-gold-light">
               Homebuyer Fieldbook
             </Link>
+            <Link href="/first-home-plan" className="block py-1 hover:text-gold-light">
+              Your First Home Plan
+            </Link>
             <a
               href="https://kareemjamaltherealtor.com/93063"
               className="block py-1 hover:text-gold-light"

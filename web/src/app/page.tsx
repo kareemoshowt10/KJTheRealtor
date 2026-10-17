@@ -63,8 +63,8 @@ export default function HomePage() {
               <a href="/first-home-plan" className="group flex min-h-56 flex-col rounded-xl border border-[#c4ac7a] bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-gold-deep">Renting and thinking ahead?</span>
                 <h3 className="mt-3 font-display text-2xl font-medium text-navy">Your First Home Plan</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slateink">Free English/Spanish worksheets to organize your numbers and choose one useful next step. Start before you feel ready.</p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-navy">Get the free guide <ArrowRight size={16} aria-hidden="true" /></span>
+                <p className="mt-2 text-sm leading-relaxed text-slateink">Pick what is keeping you renting. Get a practical next step, free bilingual guides, and optional help from Kareem.</p>
+                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-navy">Find my next step <ArrowRight size={16} aria-hidden="true" /></span>
               </a>
               <a href="/commute-check" className="group flex min-h-56 flex-col rounded-xl border border-[#c4ac7a] bg-navy p-6 text-cream transition hover:-translate-y-0.5 hover:shadow-lg">
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-gold-light">For your next move</span>

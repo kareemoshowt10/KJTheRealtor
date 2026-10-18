@@ -18,6 +18,10 @@ function track(event: string, extra: Record<string, string> = {}) {
 }
 
 export function FirstHomePlan() {
+  const [intent, setIntent] = useState("planning-ahead");
+  const [checkIn, setCheckIn] = useState(false);
+  const [reviewDate, setReviewDate] = useState("");
+  const [today, setToday] = useState("");
   const [selected, setSelected] = useState("");
   const [language, setLanguage] = useState("English");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -26,6 +30,7 @@ export function FirstHomePlan() {
   const es = language === "Español";
 
   useEffect(() => {
+    setToday(new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date()));
     const q = new URLSearchParams(window.location.search);
     const entry: Record<string, string> = {};
     for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
@@ -92,23 +97,24 @@ export function FirstHomePlan() {
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold-deep">When a conversation would help</p>
-          <h2 className="mt-4 font-display text-4xl md:text-5xl">Your First Home Clarity Session.</h2>
-          <p className="mt-5 leading-relaxed text-slateink">A free 15-minute conversation for renters thinking about buying in Chatsworth, Simi Valley, West Hills, and nearby communities. Bring one question. We’ll work toward one action you can actually take.</p>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl">Start before you are ready.</h2>
+          <p className="mt-5 leading-relaxed text-slateink">Thinking about a first home in Chatsworth, Simi Valley, West Hills, or nearby? You can ask one question by email while you keep renting. If a conversation would help, request a free 15-minute First Home Clarity Session.</p>
           <ul className="mt-6 space-y-3 rounded-xl border border-[#d8cbb7] bg-white p-5 text-sm leading-relaxed">
             <li><strong>Your question:</strong> clarify what is keeping you stuck.</li>
             <li><strong>Your next step:</strong> choose an action and who will do it.</li>
             <li><strong>Your review date:</strong> agree when to check progress, if you want follow-up.</li>
           </ul>
           <p className="mt-5 leading-relaxed text-slateink">My construction experience helps you ask better questions about a home’s condition and potential. Your lender handles income, credit, loan terms, and approval.</p>
-          <p className="mt-5 text-sm leading-relaxed text-slateink">We can start with an email reply. No need to pick a home or make a buying decision. Requesting a session does not book a time or add you to a marketing sequence.</p>
+          <p className="mt-5 text-sm leading-relaxed text-slateink">You set the pace. Choose an email reply, a conversation, or help figuring out where to start. You can also request one email check-in around a date you choose. No appointment or recurring newsletter is created by this form.</p>
           <a className="mt-6 inline-block font-semibold text-navy underline underline-offset-4" href="tel:+18184027326">Call Kareem: (818) 402-7326</a>
         </div>
         <div className="rounded-2xl border border-[#d8cbb7] bg-white p-6 shadow-sm md:p-8">
           <label className="block text-sm font-semibold">Form language / Idioma del formulario<select value={language} onChange={e => setLanguage(e.target.value)} className={field}><option>English</option><option>Español</option></select></label>
-          {status === "success" ? <div role="status" aria-live="polite" className="mt-6 rounded-xl bg-cream p-6" lang={es ? "es" : "en"}><h3 className="font-display text-3xl">{es ? "Tu solicitud fue recibida." : "Your request was received."}</h3><p className="mt-4 leading-relaxed">{es ? "Kareem responderá personalmente para hablar del siguiente paso. La cita aún no está confirmada. Para prepararte, anota tu mayor duda. Kareem puede ayudarte a elegir una acción, quién la hará y una fecha de revisión. Las guías siguen disponibles arriba." : "Kareem will reply personally about your next step. An appointment is not confirmed yet. To prepare, write down your biggest question. Kareem can help you choose one action, an owner, and a review date. The free guides remain available above."}</p></div> :
+          {status === "success" ? <div role="status" aria-live="polite" className="mt-6 rounded-xl bg-cream p-6" lang={es ? "es" : "en"}><h3 className="font-display text-3xl">{es ? "Tu solicitud fue recibida." : "Your request was received."}</h3><p className="mt-4 leading-relaxed">{es ? "Kareem responderá personalmente sobre tu siguiente paso. Si pediste una llamada o un correo posterior, confirmará los detalles contigo. No se ha programado nada automáticamente. Las guías siguen disponibles arriba." : "Kareem will reply personally about your next step. If you requested a call or a later email check-in, Kareem will confirm the details with you. Nothing has been automatically booked. The free guides remain available above."}</p></div> :
           <form onSubmit={submit} className="mt-6 space-y-5" lang={es ? "es" : "en"}>
             <input type="hidden" name="_subject" value="Your First Home Plan - planning request" />
-            <input type="hidden" name="offer" value="First Home Clarity Session" />
+            <input type="hidden" name="offer" value={intent === "talk-soon" ? "First Home Clarity Session" : "First Home planning-ahead reply"} />
+            <input type="hidden" name="followup_permission" value={checkIn ? "One personal email check-in around the client-selected date; not recurring marketing." : "No further check-in requested."} />
             <input type="hidden" name="planning_topic" value={selected || "Not selected"} />
             <input type="hidden" name="suggested_next_step" value={nextSteps.find(p => p.id === selected)?.title[0] || "Clarify one question"} />
             <input type="hidden" name="source" value="first-home-plan" />
@@ -117,6 +123,7 @@ export function FirstHomePlan() {
             <input type="hidden" name="form_language" value={language} />
             {Object.entries(attribution).filter(([key]) => key !== "entry_keyword").map(([key, value]) => <input key={key} type="hidden" name={key} value={value} />)}
             <div className="absolute -left-[9999px]" aria-hidden="true"><label>Leave empty<input name="_gotcha" tabIndex={-1} autoComplete="off" /></label></div>
+            <label className="block text-sm font-semibold">{es ? "¿Qué ayuda quieres ahora?" : "What would help right now?"}<select name="help_requested" value={intent} onChange={e => setIntent(e.target.value)} className={field}><option value="planning-ahead">{es ? "Me estoy preparando. Prefiero una respuesta por correo." : "I’m planning ahead. Start with an email reply."}</option><option value="talk-soon">{es ? "Quiero pedir una conversación gratuita de 15 minutos." : "I’d like a free 15-minute planning conversation."}</option><option value="not-sure">{es ? "No sé por dónde empezar." : "I’m not sure where to start."}</option></select></label>
             <label className="block text-sm font-semibold">{es ? "Tu nombre" : "Your name"}<input name="name" autoComplete="name" required maxLength={100} className={field} /></label>
             <label className="block text-sm font-semibold">{es ? "Correo electrónico" : "Email"}<input name="email" type="email" autoComplete="email" required maxLength={254} className={field} /></label>
             {selected ? <p className="rounded-lg bg-cream p-4 text-sm">{es ? "Tu tema: " : "Your topic: "}{nextSteps.find(p => p.id === selected)?.label[es ? 1 : 0]}</p> : null}
@@ -129,8 +136,12 @@ export function FirstHomePlan() {
             <label className="block text-sm font-semibold">{es ? "¿Ya trabajas con un agente?" : "Already working with an agent?"}<select name="existing_agent" className={field} defaultValue=""><option value="">{es ? "Elige una opción" : "Choose one"}</option><option value="No">{es ? "No" : "No"}</option><option value="Yes">{es ? "Sí" : "Yes"}</option><option value="Not sure">{es ? "No estoy seguro/a" : "Not sure"}</option></select></label>
             </div></details>
             <label className="flex gap-3 rounded-lg border border-[#d8cbb7] bg-cream p-4 text-sm leading-relaxed"><input name="consent" value="One personal reply requested. No automated marketing." type="checkbox" required className="mt-1 h-5 w-5 shrink-0 accent-[#a88632]" /><span>{es ? "Autorizo a Kareem a responder una vez por correo o por el teléfono indicado. No me inscribo en campañas de marketing." : "Kareem may reply once by email or the phone provided. I am not signing up for marketing messages."} <a href="/privacy" className="underline">{es ? "Privacidad" : "Privacy"}</a></span></label>
+            <div className="rounded-lg border border-[#d8cbb7] p-4">
+              <label className="flex gap-3 text-sm leading-relaxed"><input type="checkbox" checked={checkIn} onChange={e => { setCheckIn(e.target.checked); if (!e.target.checked) setReviewDate(""); }} className="mt-1 h-5 w-5 shrink-0 accent-[#a88632]" /><span>{es ? "También quiero un solo correo personal cerca de la fecha que elija. Es opcional y puedo cancelarlo al responder a Kareem." : "I’d also like one personal email check-in around a date I choose. This is optional, and I can cancel by replying to Kareem."}</span></label>
+              {checkIn ? <label className="mt-4 block text-sm font-semibold">{es ? "Fecha de revisión" : "My check-in date"}<input name="review_date" type="date" required min={today || undefined} value={reviewDate} onChange={e => setReviewDate(e.target.value)} className={field} /><span className="mt-2 block text-xs font-normal leading-relaxed text-slateink">{es ? "Kareem revisará tu solicitud personalmente. No se programa un recordatorio automático ni una cita." : "Kareem reviews your request personally. This does not schedule an automatic reminder or appointment."}</span></label> : null}
+            </div>
             {status === "error" ? <p role="alert" className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-900">{es ? "No pudimos confirmar el envío. Intenta de nuevo o llama al (818) 402-7326." : "We couldn’t confirm your request was sent. Please retry or call (818) 402-7326."}</p> : null}
-            <button disabled={status === "sending"} type="submit" className="w-full rounded-lg bg-gold px-5 py-4 font-semibold text-navy hover:bg-gold-light disabled:cursor-wait disabled:opacity-60">{status === "sending" ? (es ? "Enviando…" : "Sending…") : (es ? "Pedir mi sesión gratuita" : "Request my free Clarity Session")}</button>
+            <button disabled={status === "sending"} type="submit" className="w-full rounded-lg bg-gold px-5 py-4 font-semibold text-navy hover:bg-gold-light disabled:cursor-wait disabled:opacity-60">{status === "sending" ? (es ? "Enviando…" : "Sending…") : (intent === "talk-soon" ? (es ? "Pedir mi sesión gratuita" : "Request my free Clarity Session") : (es ? "Pedir ayuda con mi plan" : "Get help with my first home plan"))}</button>
             <p className="text-center text-xs leading-relaxed text-slateink">{es ? "Sin obligación de comprar ni contratar. No envíes estados bancarios, números de cuenta ni documentos fiscales." : "No obligation to buy or hire. Don’t send bank statements, account numbers, or tax documents."}</p>
           </form>}
         </div>
@@ -139,7 +150,7 @@ export function FirstHomePlan() {
     <section className="bg-white px-5 py-14 md:px-8">
       <div className="mx-auto max-w-3xl"><h2 className="font-display text-3xl">Before you take the next step.</h2>
         {[
-          ["What if I am a year away from buying?", "You can still start. Choose one useful action now and a review date that fits your timeline."],
+          ["What if I am a year away from buying?", "You can still start. Choose an email reply instead of a call. If useful, ask for one personal check-in around a date you choose. Continuing to rent can be part of your plan."],
           ["Do I have to share my finances?", "No. Downloads and the next-step tool are open. The request form only requires your name, email, and permission for a reply. Keep financial documents private."],
           ["Will this tell me if I qualify for a loan?", "No. A lender must review your specific income, credit, cash, and loan options. Kareem helps you organize questions and plan a next step."],
           ["Why work with Kareem?", "Local real estate guidance plus construction experience: ask clearer questions about location, condition, and possible repairs before you choose a property. Inspections and specialist advice remain part of your due diligence."],

@@ -45,3 +45,13 @@ Consumer references used to check the educational prompts:
 - https://www.consumerfinance.gov/owning-a-home/loan-estimate/
 - https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-an-error-on-my-credit-report-en-314/
 - https://www.consumerfinance.gov/archive/blog/common-errors-credit-report-and-how-get-them-fixed/
+
+## Planning-ahead intake — October 18, 2026
+
+The form now defaults to a personal email reply for people planning ahead; a visitor can instead request a 15-minute conversation or help finding a starting point. This is client intent, not a lending-readiness rating.
+
+Initial-reply permission is separate from the optional request for one later personal email check-in. A date is required only when the visitor chooses the later check-in. No recurring education, SMS, appointment, reminder, or drip campaign is authorized or installed by either choice. Kareem confirms details personally. If the visitor cancels, record the pause and do not follow up again.
+
+Minimum handling after a real inquiry: deduplicate; preserve source/campaign/topic/intent; record actual initial reply; agree one task, owner, completion evidence, and review date/channel or pause. Keep any private financial worksheet with the client. Preserve READY/HOME/PLAN routing. A far-off buying window should receive the same respectful help; do not use language preference to infer eligibility.
+
+Verified October 18: Metricool brand 7492410 reports Instagram kareemjamaltherealtor connected, timezone America/Los_Angeles. This does not establish that a post is scheduled, published, or measured. Existing cash-versus-income hook comparison remains unlaunched unless Metricool records prove otherwise. Website attribution hooks alone are not a reporting backend.

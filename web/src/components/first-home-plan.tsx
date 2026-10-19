@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 
 import { FirstHomeNextStep, nextSteps } from "@/components/first-home-next-step";
+import { addLeadAttribution } from "@/lib/lead-attribution";
 
 const ENDPOINT = "https://formspree.io/f/xnjlgvlk";
 const resources = [
@@ -49,13 +50,14 @@ export function FirstHomePlan() {
     if (!form.reportValidity()) return;
     const data = new FormData(form);
     if (String(data.get("_gotcha") || "").trim()) return;
+    addLeadAttribution(data);
     submitting.current = true;
     setStatus("sending");
     try {
       const result = await fetch(ENDPOINT, { method: "POST", body: data, headers: { Accept: "application/json" } });
       if (!result.ok) throw new Error("Submission was not accepted");
       setStatus("success");
-      track("generate_lead", { campaign: "your-first-home-plan", entry_keyword: attribution.entry_keyword || "READY" });
+      track("generate_lead", { campaign: "your-first-home-plan", ...(attribution.entry_keyword ? { entry_keyword: attribution.entry_keyword } : {}) });
     } catch {
       setStatus("error");
     } finally {
@@ -90,6 +92,7 @@ export function FirstHomePlan() {
           {resources.map(r => <article key={r.id} className="flex flex-col rounded-xl border border-[#d8cbb7] bg-white p-7 md:p-9"><p className="text-xs font-bold uppercase tracking-[0.14em] text-gold-deep">Free bilingual PDF</p><h3 className="mt-4 font-display text-3xl">{r.title}</h3><p className="my-5 leading-relaxed text-slateink">{r.description}</p><a download href={r.href} onClick={() => track("resource_download", { resource: r.id })} className="mt-auto rounded-lg bg-navy px-5 py-3 text-center font-semibold text-cream hover:bg-[#17345b]">{r.link}</a></article>)}
         </div>
         <p className="mt-5 max-w-3xl text-sm leading-relaxed text-slateink">Educational draft editions for review. Spanish materials are available; please confirm conversation-language or interpretation support with Kareem. Keep completed financial worksheets private. A lender uses its own secure process for loan documents.</p>
+        <p className="mt-5 max-w-3xl text-sm leading-relaxed text-slateink">Already looking at homes? <a href="/buyer-fieldbook" className="font-semibold text-navy underline underline-offset-4">Open the Buyer Fieldbook</a> to compare places, costs, and questions at your own pace.</p>
       </div>
     </section>
 
@@ -119,11 +122,11 @@ export function FirstHomePlan() {
             <input type="hidden" name="suggested_next_step" value={nextSteps.find(p => p.id === selected)?.title[0] || "Clarify one question"} />
             <input type="hidden" name="source" value="first-home-plan" />
             <input type="hidden" name="campaign" value="your-first-home-plan" />
-            <input type="hidden" name="entry_keyword" value={attribution.entry_keyword || "READY"} />
+            {attribution.entry_keyword ? <input type="hidden" name="entry_keyword" value={attribution.entry_keyword} /> : null}
             <input type="hidden" name="form_language" value={language} />
             {Object.entries(attribution).filter(([key]) => key !== "entry_keyword").map(([key, value]) => <input key={key} type="hidden" name={key} value={value} />)}
             <div className="absolute -left-[9999px]" aria-hidden="true"><label>Leave empty<input name="_gotcha" tabIndex={-1} autoComplete="off" /></label></div>
-            <label className="block text-sm font-semibold">{es ? "¿Qué ayuda quieres ahora?" : "What would help right now?"}<select name="help_requested" value={intent} onChange={e => setIntent(e.target.value)} className={field}><option value="planning-ahead">{es ? "Me estoy preparando. Prefiero una respuesta por correo." : "I’m planning ahead. Start with an email reply."}</option><option value="talk-soon">{es ? "Quiero pedir una conversación gratuita de 15 minutos." : "I’d like a free 15-minute planning conversation."}</option><option value="not-sure">{es ? "No sé por dónde empezar." : "I’m not sure where to start."}</option></select></label>
+            <label className="block text-sm font-semibold">{es ? "¿Qué ayuda quieres ahora?" : "What would help right now?"}<select name="help_requested" value={intent} onChange={e => setIntent(e.target.value)} className={field}><option value="planning-ahead">{es ? "Plan a futuro · correo" : "Planning ahead · email reply"}</option><option value="talk-soon">{es ? "Charla gratis · 15 min" : "Free planning call · 15 min"}</option><option value="not-sure">{es ? "No sé por dónde empezar" : "Not sure where to start"}</option></select></label>
             <label className="block text-sm font-semibold">{es ? "Tu nombre" : "Your name"}<input name="name" autoComplete="name" required maxLength={100} className={field} /></label>
             <label className="block text-sm font-semibold">{es ? "Correo electrónico" : "Email"}<input name="email" type="email" autoComplete="email" required maxLength={254} className={field} /></label>
             {selected ? <p className="rounded-lg bg-cream p-4 text-sm">{es ? "Tu tema: " : "Your topic: "}{nextSteps.find(p => p.id === selected)?.label[es ? 1 : 0]}</p> : null}

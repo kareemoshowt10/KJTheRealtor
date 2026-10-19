@@ -15,7 +15,8 @@ This is our real-estate application inspired by Acquisition.com's Lead Magnet Ma
 - Open access to the existing bilingual journal and fillable action guide.
 - Short inquiry: name, email, explicit permission for one reply. Other context is optional.
 - Selected topic and suggested first step included in the existing Formspree request.
-- Campaign and UTM fields included. Browser dataLayer event hooks are present; a reporting backend is not verified.
+- Campaign, explicit keyword, UTM, and first/last-touch source fields are included with a submitted request when available. A direct visitor is not silently labeled READY. Browser dataLayer event hooks are present; a reporting backend is not verified.
+- Visitors already comparing homes can move from this plan to the free Buyer Fieldbook without submitting the form.
 - Response states distinguish an accepted request from a confirmed appointment.
 
 ## What remains manual or unverified

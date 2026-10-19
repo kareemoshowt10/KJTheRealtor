@@ -15,6 +15,7 @@ import {
 } from "framer-motion";
 import { Check, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { addLeadAttribution } from "@/lib/lead-attribution";
 import {
   PATH_STORAGE_KEY,
   pathPrefills,
@@ -46,36 +47,6 @@ type Props = {
 };
 
 const FORMSPREE = "https://formspree.io/f/xnjlgvlk";
-
-type AttributionFields = Record<string, unknown>;
-
-function addLeadAttribution(formData: FormData) {
-  const attribution = (window as Window & {
-    kjAttribution?: { first?: AttributionFields; last?: AttributionFields };
-  }).kjAttribution;
-  const first = attribution?.first;
-  const last = attribution?.last;
-  const fields: AttributionFields = {
-    lead_source: last?.lead_source,
-    first_touch_source: first?.lead_source,
-    utm_source: last?.utm_source,
-    utm_medium: last?.utm_medium,
-    utm_campaign: last?.utm_campaign,
-    utm_term: last?.utm_term,
-    utm_content: last?.utm_content,
-    gclid: last?.gclid,
-    fbclid: last?.fbclid,
-    referrer: last?.referrer,
-    landing_page: first?.landing_page,
-    submitted_from: window.location.pathname,
-  };
-
-  for (const [name, value] of Object.entries(fields)) {
-    if (typeof value === "string" && value.trim()) {
-      formData.set(name, value.slice(0, 200));
-    }
-  }
-}
 
 const fieldClass =
   "mt-1.5 w-full rounded-md border border-[#e3d8c7] bg-white px-3 py-2.5 text-base text-navy outline-none transition-shadow duration-200 focus:border-gold-deep focus:ring-2 focus:ring-gold/35 focus:shadow-[0_0_0_4px_rgba(201,168,76,0.12)]";

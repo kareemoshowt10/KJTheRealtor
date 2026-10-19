@@ -5,6 +5,7 @@ import { useCallback, useEffect, useId, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Phone, X } from "lucide-react";
+import { addLeadAttribution } from "@/lib/lead-attribution";
 import { cn } from "@/lib/utils";
 
 const FORMSPREE = "https://formspree.io/f/xnjlgvlk";
@@ -35,6 +36,7 @@ export function ContactWidget() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [sentName, setSentName] = useState("");
@@ -134,6 +136,11 @@ export function ContactWidget() {
       setErrorMsg("Please add a valid phone number.");
       return;
     }
+    if (!consent) {
+      setStatus("err");
+      setErrorMsg("Please confirm Kareem may reply once by text.");
+      return;
+    }
 
     setStatus("sending");
     setErrorMsg("");
@@ -146,7 +153,9 @@ export function ContactWidget() {
     fd.append("source", "web hybrid chat widget");
     fd.append("goal", "Floating Chat Widget");
     fd.append("page", typeof window !== "undefined" ? window.location.pathname : "/");
+    fd.append("consent", "Yes — one personal reply by text to this request");
     fd.append("_gotcha", "");
+    addLeadAttribution(fd);
 
     try {
       const res = await fetch(FORMSPREE, {
@@ -172,7 +181,7 @@ export function ContactWidget() {
     } catch {
       setStatus("err");
       setErrorMsg(
-        "Couldn’t send — please call or text (818) 402-7326."
+        "We couldn’t confirm delivery. Your message is still here. Please try again, or call or text (818) 402-7326."
       );
     }
   }
@@ -206,14 +215,14 @@ export function ContactWidget() {
             Kareem Jamal
           </p>
           <p className="text-[0.72rem] text-cream/75">
-            Replies personally · usually same day
+            Replies personally
           </p>
         </div>
         <button
           type="button"
           onClick={close}
           className="grid h-9 w-9 place-items-center rounded-lg text-cream/80 transition hover:bg-white/10 hover:text-cream"
-          aria-label="Close chat"
+          aria-label="Close text reply form"
         >
           <X size={18} />
         </button>
@@ -226,8 +235,8 @@ export function ContactWidget() {
               Got it{sentName ? `, ${sentName}` : ""}!
             </p>
             <p className="mt-2 text-sm leading-relaxed text-slateink">
-              I&apos;ll reach out personally — usually the same day. No drip
-              list.
+              Your request was sent. Kareem can reply by text to the number
+              you provided. No mailing list.
             </p>
             <a
               href={`tel:${TEL}`}
@@ -247,12 +256,13 @@ export function ContactWidget() {
         ) : (
           <>
             <p className="text-sm leading-relaxed text-slateink">
-              Hi 👋 Tell me what you&apos;re after and the best number to reach
-              you — I&apos;ll text you back personally.
+              Hi 👋 Tell Kareem what you&apos;re after and the best number to
+              reach you. He can reply personally by text.
             </p>
             <form className="mt-4 space-y-2.5" onSubmit={onSubmit} noValidate>
               <input
                 name="name"
+                aria-label="Your name"
                 type="text"
                 autoComplete="name"
                 placeholder="Your name*"
@@ -263,6 +273,7 @@ export function ContactWidget() {
               />
               <input
                 name="phone"
+                aria-label="Phone number for one text reply"
                 type="tel"
                 autoComplete="tel"
                 placeholder="Phone number*"
@@ -273,12 +284,24 @@ export function ContactWidget() {
               />
               <textarea
                 name="message"
+                aria-label="Your question or situation (optional)"
                 rows={2}
                 placeholder="Buying, selling, or just exploring? (optional)"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className="w-full resize-y rounded-xl border border-[#e3d8c7] bg-white px-3.5 py-2.5 text-base outline-none transition focus:border-gold-deep focus:ring-2 focus:ring-gold/30"
               />
+              <label className="flex items-start gap-2.5 rounded-xl border border-gold/40 bg-cream p-2.5 text-xs leading-relaxed text-slateink">
+                <input
+                  name="consent"
+                  type="checkbox"
+                  required
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-gold-deep"
+                />
+                <span>Yes, Kareem may text me once about this request. No mailing list.</span>
+              </label>
               <button
                 type="submit"
                 disabled={status === "sending"}
@@ -304,7 +327,7 @@ export function ContactWidget() {
               (818) 402-7326
             </p>
             <p className="mt-2 text-center text-[0.65rem] text-slateink/50">
-              Explicit reply only · CA DRE #01998956 ·{" "}
+              CA DRE #01998956 ·{" "}
               <a href="/privacy" className="underline">
                 Privacy
               </a>
@@ -330,7 +353,7 @@ export function ContactWidget() {
             <button
               type="button"
               className="absolute inset-0 bg-navy/55 backdrop-blur-[2px]"
-              aria-label="Dismiss chat"
+              aria-label="Dismiss text reply form"
               onClick={close}
             />
             <motion.div
@@ -368,13 +391,13 @@ export function ContactWidget() {
         <motion.button
           type="button"
           onClick={() => (open ? close() : openPanel())}
-          aria-label={open ? "Close chat with Kareem" : "Chat with Kareem"}
+          aria-label={open ? "Close text reply form" : "Ask Kareem for a text reply"}
           aria-expanded={open}
           initial={reduced ? false : { opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: firstVisit ? 0 : 0.4, duration: 0.4 }}
           className={cn(
-            "fixed z-[95] h-[62px] w-[62px] overflow-visible rounded-full border-0 bg-navy p-0 shadow-[0_10px_30px_rgba(5,12,28,0.35),0_0_0_3px_rgba(201,168,76,0.55)] transition hover:scale-105 active:scale-95",
+            "group fixed z-[95] h-[62px] w-[62px] overflow-visible rounded-full border-0 bg-navy p-0 shadow-[0_10px_30px_rgba(5,12,28,0.35),0_0_0_3px_rgba(201,168,76,0.55)] transition hover:scale-105 active:scale-95",
             pathname === "/" && "max-md:hidden",
             "right-4 bottom-[5.25rem] md:right-6 md:bottom-24",
             open && !firstVisit && "ring-2 ring-gold ring-offset-2 ring-offset-paper"
@@ -389,12 +412,8 @@ export function ContactWidget() {
               sizes="62px"
             />
           </span>
-          <span
-            className="absolute -right-0.5 -top-0.5 h-4 w-4 rounded-full border-[2.5px] border-white bg-emerald-500"
-            aria-hidden
-          />
           <span className="pointer-events-none absolute right-[70px] top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-lg bg-navy px-3 py-2 text-xs font-semibold text-cream opacity-0 shadow-lg transition group-hover:opacity-100 md:block">
-            Chat with Kareem
+            Ask Kareem for a text reply
           </span>
         </motion.button>
       )}

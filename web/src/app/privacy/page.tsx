@@ -31,7 +31,7 @@ export default function PrivacyPage() {
             How your information is used
           </h1>
           <p className="mt-3 text-sm text-slateink">
-            Last updated: October 16, 2026
+            Last updated: October 19, 2026
           </p>
 
           <div className="mt-10 space-y-8 text-[0.95rem] leading-relaxed text-slateink">
@@ -74,12 +74,14 @@ export default function PrivacyPage() {
                 What we collect
               </h2>
               <p className="mt-2">
-                When you use a contact form, you may provide: name, email or
-                phone, message content, and topic chips you select. A submitted
-                inquiry may also include its landing page, submission page,
-                referral source, and campaign tags. Forms are processed by our
-                form provider (Formspree) and delivered to Kareem&apos;s business
-                inbox.
+                When you use a contact form, you may provide a name, email or
+                phone, message, and the topics or help you select. The First Home
+                Plan form may also include your optional area, move window,
+                conversation language, planning topic, and check-in date if you
+                request one. A submitted inquiry may include its landing page,
+                submission page, referral source, and campaign tags. Forms are
+                processed by our form provider (Formspree) and delivered to
+                Kareem&apos;s business inbox.
               </p>
             </section>
 
@@ -88,9 +90,11 @@ export default function PrivacyPage() {
                 How we use it
               </h2>
               <p className="mt-2">
-                We use your information only to respond to the inquiry you
-                submitted — typically <strong>one personal reply</strong> using
-                the contact method you provided and authorized. We do{" "}
+                We use your information to respond to the inquiry you submitted
+                — typically <strong>one personal reply</strong> using the contact
+                method you provided and authorized. If you separately request a
+                later check-in through the First Home Plan, Kareem may send one
+                additional personal email around the date you choose. We do{" "}
                 <strong>not</strong> sell your data, add you to a marketing drip,
                 or share lists with third-party lead buyers.
               </p>
@@ -102,7 +106,8 @@ export default function PrivacyPage() {
               </h2>
               <p className="mt-2">
                 Contact forms require an explicit permission checkbox before
-                submit. That permission is limited to replying to your request.
+                submit. A later First Home Plan email check-in requires a separate,
+                optional choice. Neither choice enrolls you in recurring marketing.
                 California residents may have additional rights under the CCPA/CPRA
                 regarding access or deletion of personal information we hold from
                 web inquiries — email{" "}

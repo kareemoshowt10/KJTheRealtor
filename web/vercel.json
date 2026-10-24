@@ -16,6 +16,12 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.kareemjamaltherealtor.com" }],
+      "destination": "https://kareemjamaltherealtor.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.kareemjamaltherealtor.com" }],
       "destination": "https://kareemjamaltherealtor.com/:path*",

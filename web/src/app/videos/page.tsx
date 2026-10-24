@@ -48,7 +48,7 @@ const videos: Video[] = [
   },
 ];
 
-const title = "Homebuying Video Library | Kareem Jamal, Realtor";
+const title = "Homebuying Video Library | Realtor Explainers";
 const description =
   "Short explainer videos from Kareem Jamal (Rodeo Realty, CA DRE #01998956): buying your first home, escrow money mistakes, the real cost of owning, and inherited-home tax basis.";
 

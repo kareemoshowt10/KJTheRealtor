@@ -98,6 +98,9 @@ export function SiteFooter({
             <Link href="/why-kareem" className="block py-1 hover:text-gold-light">
               Why Kareem
             </Link>
+            <Link href="/videos" className="block py-1 hover:text-gold-light">
+              Video library
+            </Link>
             <Link href="/privacy" className="block py-1 hover:text-gold-light">
               Privacy
             </Link>

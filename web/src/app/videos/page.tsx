@@ -10,6 +10,7 @@ type Video = {
   duration: string; // display
   iso: string; // ISO 8601 duration for schema
   note?: string;
+  cta?: { href: string; label: string };
 };
 
 const videos: Video[] = [
@@ -45,6 +46,7 @@ const videos: Video[] = [
     duration: "1:17",
     iso: "PT1M17S",
     note: "Not tax or legal advice. Talk with a CPA or tax attorney about your situation.",
+    cta: { href: "/inherited-home-worksheet", label: "Get the free worksheet" },
   },
 ];
 
@@ -150,6 +152,11 @@ export default function VideosPage() {
                     <p className="mt-3 rounded-md border border-gold/40 bg-cream px-3 py-2 text-xs font-semibold text-gold-deep">
                       {v.note}
                     </p>
+                  )}
+                  {v.cta && (
+                    <Link href={v.cta.href} className="mt-3 inline-block text-sm font-semibold text-navy underline underline-offset-4">
+                      {v.cta.label} →
+                    </Link>
                   )}
                   <p className="mt-auto pt-4 text-xs font-semibold uppercase tracking-[0.14em] text-gold-deep">
                     {v.duration} · Vertical video

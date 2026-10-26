@@ -76,6 +76,31 @@
       "source": "/west-hills-realtor.html",
       "destination": "/west-hills",
       "permanent": true
+    },
+    {
+      "source": "/buy",
+      "destination": "/buyer-fieldbook",
+      "permanent": false
+    },
+    {
+      "source": "/buy/",
+      "destination": "/buyer-fieldbook",
+      "permanent": false
+    },
+    {
+      "source": "/adu-playbook",
+      "destination": "/house-hacking",
+      "permanent": false
+    },
+    {
+      "source": "/adu-playbook/",
+      "destination": "/house-hacking",
+      "permanent": false
+    },
+    {
+      "source": "/chatsworth",
+      "destination": "/91311",
+      "permanent": true
     }
   ],
   "headers": [

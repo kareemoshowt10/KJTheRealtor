@@ -16,7 +16,7 @@ const steps = [
     num: "01",
     title: "Position",
     decision: "Does this home improve your life without weakening your next move?",
-    body: "We define what this move must improve: monthly comfort, commute, schools, space, care needs, or long-term equity — before emotion takes the wheel.",
+    body: "We define what this move must improve: monthly comfort, commute, space, care needs, or long-term equity — before emotion takes the wheel.",
     output: "You receive: a one-page Move Map",
     kicker: "Life + money",
   },

@@ -46,6 +46,15 @@ const videos: Video[] = [
     iso: "PT1M17S",
     note: "Not tax or legal advice. Talk with a CPA or tax attorney about your situation.",
   },
+  {
+    slug: "91311-market-update-oct-2026",
+    title: "91311 Chatsworth: October 2026 market update",
+    description:
+      "Chatsworth's median hit $1,467,500, but that reflects the mix, not rising prices. Dated: CRMLS data pulled 11/3/26.",
+    duration: "1:04",
+    iso: "PT1M4S",
+    note: "General information only. Not legal, tax, or lending advice. Market stats reflect past sales and don't predict future prices.",
+  },
 ];
 
 const title = "Homebuying Video Library | Realtor Explainers";

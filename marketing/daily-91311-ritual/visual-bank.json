@@ -1,0 +1,102 @@
+{
+  "purpose": "Reuse these stills across daily 10–30s lessons. Do not generate new images unless the bank cannot cover the metaphor.",
+  "disclosure": "AI conceptual visuals, if used, are not actual listings or property representations. Do not AI-alter photos of real properties.",
+  "assets": [
+    {
+      "id": "stoney-golden",
+      "src": "visuals/91311-bank/stoney-golden.jpg",
+      "metaphor": "Golden-hour sandstone; why foothill light is felt, not a slogan",
+      "type": "original-or-licensed-stock",
+      "rightsNote": "Replace with Kareem-owned photo or licensed stock before first publish. No client faces.",
+      "alt": "Santa Susana sandstone at golden hour, conceptual landscape"
+    },
+    {
+      "id": "garden-gods",
+      "src": "visuals/91311-bank/garden-of-the-gods.jpg",
+      "metaphor": "Public rock formations as place, not a listing backdrop",
+      "type": "original-or-licensed-stock",
+      "rightsNote": "Public-land landscape only. No implied listing.",
+      "alt": "Sandstone formations in Chatsworth, conceptual"
+    },
+    {
+      "id": "homestead-acre",
+      "src": "visuals/91311-bank/homestead-acre.jpg",
+      "metaphor": "History as the investment thesis — scarcity of what LA zoned away",
+      "type": "original-or-licensed-stock",
+      "rightsNote": "Exterior/public view or licensed archive. Credit Chatsworth Historical Society if required.",
+      "alt": "Historic homestead cottage, conceptual"
+    },
+    {
+      "id": "trail-hitch",
+      "src": "visuals/91311-bank/trail-hitch.jpg",
+      "metaphor": "Horse culture is zoning, not decor",
+      "type": "original-or-licensed-stock",
+      "rightsNote": "No private ranch without permission. No identifiable horses/owners unless licensed.",
+      "alt": "Trail and hitching post, conceptual"
+    },
+    {
+      "id": "metrolink-exterior",
+      "src": "visuals/91311-bank/metrolink-exterior.jpg",
+      "metaphor": "Name the train; decide with your ears",
+      "type": "original-or-licensed-stock",
+      "rightsNote": "Public station exterior. No transit logos used as endorsement.",
+      "alt": "Rail corridor exterior, conceptual"
+    },
+    {
+      "id": "south-street",
+      "src": "visuals/91311-bank/south-chatsworth-street.jpg",
+      "metaphor": "South Chatsworth backbone — ordinary streets, real volume",
+      "type": "original-or-licensed-stock",
+      "rightsNote": "No readable addresses, cars plates, or residents.",
+      "alt": "Tree-lined residential street, conceptual"
+    },
+    {
+      "id": "lot-open",
+      "src": "visuals/91311-bank/open-lot-light.jpg",
+      "metaphor": "Land optionality — ask what the back half can do",
+      "type": "ai-conceptual",
+      "rightsNote": "Conceptual only. Not an actual parcel or listing.",
+      "alt": "Open lot light, conceptual illustration"
+    },
+    {
+      "id": "notebook",
+      "src": "visuals/91311-bank/practice-notebook.jpg",
+      "metaphor": "Learn → test → apply → reflect",
+      "type": "ai-conceptual",
+      "rightsNote": "Conceptual still-life. No client documents.",
+      "alt": "Open notebook and gold pencil on navy paper"
+    },
+    {
+      "id": "six-pockets",
+      "src": "visuals/91311-bank/six-pockets-map.jpg",
+      "metaphor": "Six markets, one zip — never quote a single median",
+      "type": "original-graphic",
+      "rightsNote": "Brand map graphic, not a survey. No school/crime overlays.",
+      "alt": "Abstract six-pocket map of 91311"
+    },
+    {
+      "id": "pass-ridge",
+      "src": "visuals/91311-bank/santa-susana-pass.jpg",
+      "metaphor": "Trilogy continuity: 91311 → 91304 → 93063",
+      "type": "original-or-licensed-stock",
+      "rightsNote": "Landscape only.",
+      "alt": "Santa Susana Pass ridgeline, conceptual"
+    },
+    {
+      "id": "paper-rule",
+      "src": "visuals/91311-bank/gold-rule-paper.jpg",
+      "metaphor": "One rule, one habit, one day",
+      "type": "ai-conceptual",
+      "rightsNote": "No embedded text in the image. Remotion owns type.",
+      "alt": "Cream paper and a gold rule, conceptual"
+    },
+    {
+      "id": "hands-off",
+      "src": "visuals/91311-bank/hands-boundary.jpg",
+      "metaphor": "Honest boundary — you can do this without me",
+      "type": "ai-conceptual",
+      "rightsNote": "No client likeness.",
+      "alt": "Open hands over a table, conceptual"
+    }
+  ]
+}

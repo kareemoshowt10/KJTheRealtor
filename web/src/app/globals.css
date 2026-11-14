@@ -49,4 +49,25 @@
   }
 }
 
-@media print { body:has(#commute-check) > header { display: none !important; } }
+@media print {
+  body:has(#commute-check) > header { display: none !important; }
+  body:has(#ownership-math-kit) header,
+  body:has(#ownership-math-kit) footer,
+  body:has(#ownership-math-kit) main > section:not(#ownership-math-kit),
+  body:has(#ownership-math-kit) button,
+  body:has(#ownership-math-kit) [role="dialog"] {
+    display: none !important;
+  }
+  body:has(#ownership-math-kit) #ownership-math-kit {
+    padding: 0 !important;
+    background: white !important;
+  }
+  body:has(#ownership-math-kit) #ownership-math-kit .bg-navy {
+    background: white !important;
+    color: #081630 !important;
+    border: 1px solid #b4b4b4 !important;
+  }
+  body:has(#ownership-math-kit) #ownership-math-kit .bg-navy * {
+    color: #081630 !important;
+  }
+}

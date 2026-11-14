@@ -42,6 +42,16 @@ export default function ChatsworthPage() {
       <main className="pb-28">
         <ChatsworthHero />
         <ChatsworthLedger />
+        <section className="bg-[#f2ecdf] px-5 py-10">
+          <a href="/ownership-lab" className="group mx-auto flex max-w-6xl flex-col justify-between gap-5 rounded-xl border border-[#c5ac7a] bg-white p-6 transition hover:shadow-lg md:flex-row md:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-deep">91311 · Free ownership tools</p>
+              <h2 className="mt-2 font-display text-3xl text-navy">Wondering what buying or keeping a home really costs?</h2>
+              <p className="mt-2 text-sm leading-relaxed text-slateink">Use the Ownership Lab's illustrative calculator and decision guides before you commit.</p>
+            </div>
+            <span className="shrink-0 rounded-lg bg-navy px-5 py-3 text-sm font-semibold text-cream">Open the Ownership Lab →</span>
+          </a>
+        </section>
         <ChatsworthPockets />
         <ChatsworthStory />
         <ChatsworthFamilyTable />

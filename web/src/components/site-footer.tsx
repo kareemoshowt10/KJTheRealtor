@@ -40,6 +40,9 @@ export function SiteFooter({
             <Link href="/91311" className="block py-1 hover:text-gold-light">
               91311 · Chatsworth
             </Link>
+            <Link href="/ownership-lab" className="block py-1 text-gold-light hover:underline">
+              Ownership Lab · free tools
+            </Link>
             <Link href="/buyer-fieldbook" className="block py-1 hover:text-gold-light">
               Homebuyer Fieldbook
             </Link>

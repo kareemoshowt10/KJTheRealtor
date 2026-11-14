@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { OwnershipMathKit } from "@/components/ownership-math-kit";
 import { LeadForm } from "@/components/lead-form";
+import { marketLedger91311 as market } from "@/lib/market-ledger-91311";
 
 export const metadata: Metadata = {
   title: "91311 Ownership Lab | Free Real Estate Math & Guides",
@@ -129,6 +130,48 @@ export default function OwnershipLabPage() {
               </a>
             </div>
             <p className="mt-5 text-sm text-cream/70">No account · No email gate · No obligation to buy or sell</p>
+          </div>
+        </section>
+
+        <section id="market-ledger" className="border-b border-[#ded2bf] bg-white px-5 py-12 md:py-16">
+          <div className="mx-auto max-w-6xl">
+            <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+              <div className="max-w-3xl">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-deep">91311 Market Ledger · Verified historical data</p>
+                <h2 className="mt-3 font-display text-3xl text-navy md:text-4xl">What actually happened in {market.reportingPeriod}?</h2>
+                <p className="mt-3 leading-relaxed text-slateink">A ZIP-specific snapshot, presented with the reporting month so an old figure is never mistaken for a live quote.</p>
+              </div>
+              <a href={market.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
+                View original Redfin report ↗
+              </a>
+            </div>
+            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+              <div className="rounded-xl border border-[#e3d9c9] bg-paper p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slateink">Median sale price</p>
+                <p className="mt-2 font-display text-3xl text-navy">{"$" + market.medianSoldPrice.toLocaleString("en-US")}</p>
+                <p className="mt-2 text-sm text-slateink">+{market.medianSoldPriceYoYPercent}% year over year</p>
+              </div>
+              <div className="rounded-xl border border-[#e3d9c9] bg-paper p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slateink">Homes sold</p>
+                <p className="mt-2 font-display text-3xl text-navy">{market.closedSales}</p>
+                <p className="mt-2 text-sm text-slateink">vs. {market.closedSalesPriorYear} in the prior-year month</p>
+              </div>
+              <div className="rounded-xl border border-[#e3d9c9] bg-paper p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slateink">Median days on market</p>
+                <p className="mt-2 font-display text-3xl text-navy">{market.medianDaysOnMarket}</p>
+                <p className="mt-2 text-sm text-slateink">vs. {market.medianDaysOnMarketPriorYear} a year earlier</p>
+              </div>
+            </div>
+            <div className="mt-5 grid gap-4 rounded-xl border border-gold/30 bg-[#f5f0e6] p-5 md:grid-cols-[1fr_0.65fr]">
+              <div>
+                <h3 className="font-display text-xl text-navy">The lesson behind the numbers</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slateink">{market.lesson}</p>
+              </div>
+              <div className="text-xs leading-relaxed text-slateink md:border-l md:border-[#d0b989] md:pl-5">
+                <p><strong>Coverage:</strong> {market.definition}</p>
+                <p className="mt-2"><strong>Reviewed:</strong> {market.reviewedOn}. This is not a live-market feed or a property appraisal.</p>
+              </div>
+            </div>
           </div>
         </section>
 

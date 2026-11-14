@@ -38,7 +38,7 @@ export default function HomePage() {
           { href: "#equity-snapshot", label: "Home value" },
           { href: "#start-here", label: "Start here" },
           { href: "/first-home-plan", label: "First Home Plan" },
-          { href: "/commute-check", label: "Commute Check" },
+          { href: "/ownership-lab", label: "Ownership Lab" },
           { href: "#method", label: "Method" },
           { href: "/91311", label: "91311" },
           { href: "/listings", label: "Listings" },
@@ -59,6 +59,14 @@ export default function HomePage() {
               <h2 className="mt-3 font-display text-4xl font-medium leading-tight md:text-5xl">Make your next move clearer.</h2>
               <p className="mt-4 max-w-2xl leading-relaxed text-slateink">Useful starting points for buying or selling. Explore privately, at your own pace. No sign-up required.</p>
             </div>
+            <a href="/ownership-lab" className="group mt-8 flex flex-col justify-between gap-5 rounded-2xl border border-[#c4ac7a] bg-navy p-7 text-cream shadow-lg transition hover:border-gold-light hover:shadow-xl md:flex-row md:items-center">
+              <div className="max-w-2xl">
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-gold-light">New · The Ownership Lab · 91311</p>
+                <h3 className="mt-3 font-display text-3xl font-medium md:text-4xl">Own the decision before you own the home.</h3>
+                <p className="mt-3 text-sm leading-relaxed text-cream/80">Calculate possible ownership costs and explore six free buying, selling, and family-home resources. No email required.</p>
+              </div>
+              <span className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-gold px-5 py-3 text-sm font-semibold text-navy">Explore free tools <ArrowRight size={17} aria-hidden="true" /></span>
+            </a>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               <a href="/first-home-plan" className="group flex min-h-56 flex-col rounded-xl border border-[#c4ac7a] bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
                 <span className="text-xs font-bold uppercase tracking-[0.16em] text-gold-deep">Renting and thinking ahead?</span>

@@ -67,9 +67,7 @@
     color: #081630 !important;
     border: 1px solid #b4b4b4 !important;
   }
-  body:has(#ownership-math-kit) #ownership-math-kit .text-cream,
-  body:has(#ownership-math-kit) #ownership-math-kit .text-cream\\/75,
-  body:has(#ownership-math-kit) #ownership-math-kit .text-cream\\/70 {
+  body:has(#ownership-math-kit) #ownership-math-kit .bg-navy * {
     color: #081630 !important;
   }
 }
